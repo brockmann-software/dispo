@@ -1,0 +1,95 @@
+
+<?php // Zend_Debug::dump($this->params) ?>
+<?php $data = $this->params['t_packaging']; ?>
+<?php $tp_types = $this->params['tp_types']; ?>
+<?php $errors = $this->params['errors']; ?>
+<?php // echo $this->form; ?>
+
+<form action="/tpackaging/edit/" method="post">
+<legend><?php echo $this->params['title']; ?></legend>
+<?php if (isset($this->errors['all'])) : ?><div class="error">
+<?php echo $this->errors['all']; ?>
+</div><?php  endif ?>
+<fieldset>
+<table>
+	<tr>
+		<td></td><td><input type="hidden" name="old_No" value="<?php echo $data['no']; ?>" /></td>
+	</tr>
+	<tr>
+		<td>Verpackungsnummer</td><td>
+		<?php if (isset($errors['no'])) : ?><div class="error"><?php endif ?>
+		<input type="text" name="no" size="10" value="<?php echo $data['no']; ?>" />
+		<?php if (isset($errors['no'])) : ?><br /><?php echo $errors['no']; ?></div><?php endif ?>
+		</td>
+	</tr>
+	<tr>
+		<td>Bezeichnung</td><td>
+		<?php if (isset($errors['transport_packaging'])) : ?><div class="error"><?php endif ?>
+		<input type="text" name="transport_packaging" size="40" maxlength="255" value="<?php echo $data['transport_packaging']; ?>" /></td>
+		<?php if (isset($errors['transport_packaging'])) : ?><br /><?php echo $errors['transport_packaging']; ?></div><?php endif ?>
+	</tr>
+	<tr>
+		<td>Typ</td>
+		<td>
+			<?php if (isset($errors['tp_type'])) : ?><div class="error"><?php endif ?>
+			<select name="tp_type" id="tp_type">
+			<?php foreach($tp_types as $tp_type) : ?>
+			<option value="<?php echo $tp_type['no']; ?>"<?php if ($tp_type['no']==$data['tp_type']) echo " selected"; ?>><?php echo $tp_type['tp_type']; ?></option>
+			<?php endforeach ?>
+			<?php if (isset($errors['tp_type'])) : ?><br /><?php echo $errors['tp_type']; ?></div><?php endif ?>
+		</td>
+	</tr>
+	<tr>
+		<td>Länge (mm)</td>
+		<td>
+			<?php if (isset($errors['length'])) : ?><div class="error"><?php endif ?>
+			<input type="number" name="length" value="<?php echo $data['length']; ?>" min="1" />
+			<?php if (isset($errors['length'])) : ?><br /><?php echo $errors['length']; ?></div><?php endif ?>
+		</td>
+	</tr>
+	<tr>
+		<td>Breite (mm)</td>
+		<td>
+			<?php if (isset($errors['width'])) : ?><div class="error"><?php endif ?>
+			<input type="number" name="width" value="<?php echo $data['width']; ?>" min="1" />
+			<?php if (isset($errors['width'])) : ?><br /><?php echo $errors['width']; ?></div><?php endif ?>
+		</td>
+	</tr>
+	<tr>
+		<td>Höhe (mm)</td>
+		<td>
+			<?php if (isset($errors['height'])) : ?><div class="error"><?php endif ?>
+			<input type="number" name="height" value="<?php echo $data['height']; ?>" min="1" />
+			<?php if (isset($errors['height'])) : ?><br /><?php echo $errors['height']; ?></div><?php endif ?>
+		</td>
+	</tr>
+	<tr>
+		<td>Gewicht (g)</td>
+		<td>
+			<?php if (isset($errors['weight'])) : ?><div class="error"><?php endif ?>
+			<input type="number" name="weight" value="<?php echo $data['weight']; ?>" min="1" />
+			<?php if (isset($errors['weight'])) : ?><br /><?php echo $errors['weight']; ?></div><?php endif ?>
+		</td>
+	</tr>
+	<tr>
+		<td>Kolli / Palette</td>
+		<td>
+			<?php if (isset($errors['items_pallet'])) : ?><div class="error"><?php endif ?>
+			<input type="number" name="items_pallet" value="<?php echo $data['items_pallet']; ?>" min="1" />
+			<?php if (isset($errors['items_pallet'])) : ?><br /><?php echo $errors['items_pallet']; ?></div><?php endif ?>
+		</td>
+	</tr>
+	<tr>
+		<td>Kolli / Lage</td>
+		<td>
+			<?php if (isset($errors['items_level'])) : ?><div class="error"><?php endif ?>
+			<input type="number" name="items_level" value="<?php echo $data['items_level']; ?>" min="1" />
+			<?php if (isset($errors['items_level'])) : ?><br /><?php echo $errors['items_level']; ?></div><?php endif ?>
+		</td>
+	</tr>
+	<tr>
+		<td></td><td><input type="submit" value="Speichern" /></td>
+	</tr>
+</table>
+</fieldset>	
+</form>

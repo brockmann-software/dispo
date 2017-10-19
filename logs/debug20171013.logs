@@ -1,0 +1,4230 @@
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 070151
+    [certificate] => 7
+    [scope] => 1
+    [cert_id] => 
+    [due_date] => 2017-10-13
+    [remark] => 
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 070122
+    [certificate] => 2
+    [scope] => 1
+    [cert_id] => 4050373384470
+    [cert_option] => 1
+    [due_date] => 2018-01-31 22:22:26
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 073634
+    [certificate] => 2
+    [scope] => 1
+    [cert_id] => 4050373702656
+    [cert_option] => 1
+    [due_date] => 2018-01-19 22:22:26
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 070134
+    [certificate] => 2
+    [scope] => 1
+    [cert_id] => 4049928838957
+    [cert_option] => 1
+    [due_date] => 2018-09-10 22:22:26
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 070126
+    [certificate] => 7
+    [scope] => 1
+    [cert_id] => 4052852603621
+4056186302854
+4049929047334 (Erdbeeren)
+    [due_date] => 2018-07-19 22:22:26
+    [remark] => 
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 070088
+    [certificate] => 2
+    [scope] => 1
+    [cert_id] => 4050373855963
+    [cert_option] => 1
+    [due_date] => 2018-07-24 22:22:26
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 070144
+    [certificate] => 2
+    [scope] => 1
+    [cert_id] => 4056186679437
+    [cert_option] => 1
+    [due_date] => 2018-06-29 22:22:26
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 070140
+    [certificate] => 2
+    [scope] => 1
+    [cert_id] => 4049928385208
+    [cert_option] => 1
+    [due_date] => 2018-06-01 22:22:26
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 070142
+    [certificate] => 2
+    [scope] => 1
+    [cert_id] => 4052852025218
+    [cert_option] => 1
+    [due_date] => 2018-05-19 22:22:26
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 070053
+    [certificate] => 2
+    [scope] => 1
+    [cert_id] => 4049929291898
+    [cert_option] => 2
+    [due_date] => 2018-03-10 22:22:26
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 070053
+    [certificate] => 7
+    [scope] => 1
+    [cert_id] => 4049929291898
+    [due_date] => 2018-03-10 22:22:26
+    [remark] => 
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 088914
+    [certificate] => 2
+    [scope] => 1
+    [cert_id] => 4056186722249
+    [cert_option] => 1
+    [due_date] => 2018-07-06 22:22:26
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [scope] => 2
+    [vendor] => 070038
+    [certificate] => 6
+    [cert_id] => 53550
+    [due_date] => 2017-10-13 22:22:26
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 070038
+    [certificate] => 3
+    [scope] => 4
+    [due_date] => 2017-08-18 22:22:26
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 070038
+    [certificate] => 2
+    [scope] => 1
+    [cert_id] => 4056186786807
+    [cert_option] => 2
+    [due_date] => 2017-10-29 22:22:26
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 070038
+    [certificate] => 7
+    [scope] => 1
+    [cert_id] => 4056186786807
+    [due_date] => 2017-10-29 22:22:26
+    [remark] => 
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 070109
+    [certificate] => 4
+    [scope] => 2
+    [cert_id] => 
+    [due_date] => 2017-03-31 22:22:26
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 073537
+    [certificate] => 2
+    [scope] => 1
+    [cert_id] => 4052852381864
+    [cert_option] => 1
+    [due_date] => 2017-12-17 22:22:26
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 073537
+    [certificate] => 7
+    [scope] => 1
+    [cert_id] => 4052852381864
+    [due_date] => 2017-12-17 22:22:26
+    [remark] => 
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 086330
+    [certificate] => 2
+    [scope] => 1
+    [cert_id] => 4050373913786
+    [cert_option] => 1
+    [due_date] => 2018-01-25 22:22:26
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [scope] => 5
+    [vendor] => 070031
+    [certificate] => 6
+    [cert_id] => 1016
+    [due_date] => 2018-06-01 22:22:26
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 070031
+    [certificate] => 3
+    [scope] => 4
+    [due_date] => 2019-04-06 22:22:26
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 070031
+    [certificate] => 2
+    [scope] => 1
+    [cert_id] => 4052852371391
+    [cert_option] => 1
+    [due_date] => 2017-11-28 22:22:26
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 070031
+    [certificate] => 4
+    [scope] => 5
+    [cert_id] => 
+    [due_date] => 2017-01-31 22:22:26
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 070031
+    [certificate] => 7
+    [scope] => 1
+    [cert_id] => 4052852371391
+    [due_date] => 2017-11-28 22:22:26
+    [remark] => 
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [scope] => 2
+    [vendor] => 070129
+    [certificate] => 6
+    [cert_id] => 52545
+    [due_date] => 2018-07-18 22:22:26
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 070129
+    [certificate] => 2
+    [scope] => 1
+    [cert_id] => 4056186738332
+    [cert_option] => 1
+    [due_date] => 2018-07-10 22:22:26
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 070129
+    [certificate] => 7
+    [scope] => 1
+    [cert_id] => 4056186738332
+    [due_date] => 2018-07-10 22:22:26
+    [remark] => 
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [scope] => 5
+    [vendor] => 086841
+    [certificate] => 6
+    [cert_id] => 2687
+    [due_date] => 2018-08-03 22:22:26
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 086841
+    [certificate] => 3
+    [scope] => 4
+    [due_date] => 2018-06-19 22:22:26
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 086841
+    [certificate] => 4
+    [scope] => 5
+    [cert_id] => 
+    [due_date] => 2017-12-31 22:22:26
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 070110
+    [certificate] => 2
+    [scope] => 1
+    [cert_id] => 4050373022709
+    [cert_option] => 1
+    [due_date] => 2018-07-30 22:22:26
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 070110
+    [certificate] => 7
+    [scope] => 1
+    [cert_id] => 4050373022709
+    [due_date] => 2018-07-30 22:22:26
+    [remark] => 
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 070149
+    [certificate] => 2
+    [scope] => 1
+    [cert_id] => 4052852223676
+    [cert_option] => 1
+    [due_date] => 2018-09-18 22:22:26
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 070149
+    [certificate] => 7
+    [scope] => 1
+    [cert_id] => 4052852223676
+    [due_date] => 2018-09-18 22:22:26
+    [remark] => 
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 070820
+    [certificate] => 2
+    [scope] => 1
+    [cert_id] => 4056186679420
+    [cert_option] => 1
+    [due_date] => 2018-06-16 22:22:26
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [scope] => 2
+    [vendor] => 070824
+    [certificate] => 6
+    [cert_id] => 10201
+    [due_date] => 2018-08-27 22:22:26
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 070824
+    [certificate] => 4
+    [scope] => 2
+    [cert_id] => 
+    [due_date] => 2017-12-31 22:22:26
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 026507
+    [certificate] => 3
+    [scope] => 4
+    [due_date] => 2018-07-25 22:22:26
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 026507
+    [certificate] => 3
+    [scope] => 1
+    [cert_id] => 4049929257245
+    [due_date] => 2018-07-25 22:22:26
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 026507
+    [certificate] => 2
+    [scope] => 1
+    [cert_id] => 4049929257245
+    [cert_option] => 3
+    [due_date] => 2018-07-25 22:22:26
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 026507
+    [certificate] => 4
+    [scope] => 2
+    [cert_id] => 
+    [due_date] => 2016-12-31 22:22:26
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 026507
+    [certificate] => 8
+    [scope] => 1
+    [cert_id] => 4049929257245
+    [due_date] => 2017-10-13
+    [remark] => 
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [scope] => 2
+    [vendor] => 073503
+    [certificate] => 6
+    [cert_id] => 11272
+    [due_date] => 2018-09-19 22:22:26
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 070818
+    [certificate] => 3
+    [scope] => 4
+    [due_date] => 2018-05-23 22:22:26
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 070818
+    [certificate] => 2
+    [scope] => 1
+    [cert_id] => 4049929742161
+    [cert_option] => 1
+    [due_date] => 2018-05-23 22:22:26
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 070818
+    [certificate] => 7
+    [scope] => 1
+    [cert_id] => 4049929742161
+    [due_date] => 2018-05-23 22:22:26
+    [remark] => 
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 077743
+    [certificate] => 3
+    [scope] => 4
+    [due_date] => 2018-04-15 22:22:26
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 077743
+    [certificate] => 3
+    [scope] => 1
+    [cert_id] => 4049929257474
+    [due_date] => 2018-04-15 22:22:26
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 077743
+    [certificate] => 2
+    [scope] => 1
+    [cert_id] => 4049929257474
+    [cert_option] => 3
+    [due_date] => 2018-04-15 22:22:26
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 079856
+    [certificate] => 2
+    [scope] => 1
+    [cert_id] => 4049929731677
+    [cert_option] => 1
+    [due_date] => 2017-12-04 22:22:26
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 079856
+    [certificate] => 7
+    [scope] => 1
+    [cert_id] => 4049929731677
+    [due_date] => 2017-12-04 22:22:26
+    [remark] => 
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 072156
+    [certificate] => 2
+    [scope] => 1
+    [cert_id] => 4056186909527
+    [cert_option] => 1
+    [due_date] => 2017-12-20 22:22:26
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 072156
+    [certificate] => 7
+    [scope] => 1
+    [cert_id] => 4056186909527
+    [due_date] => 2017-12-20 22:22:26
+    [remark] => 
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 070806
+    [certificate] => 2
+    [scope] => 1
+    [cert_id] => 4049928831521
+    [cert_option] => 1
+    [due_date] => 2018-10-02 22:22:26
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 070732
+    [certificate] => 2
+    [scope] => 1
+    [cert_id] => 4049928410900
+    [cert_option] => 1
+    [due_date] => 2018-03-05 22:22:26
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [scope] => 2
+    [vendor] => 070767
+    [certificate] => 6
+    [cert_id] => 35172
+    [due_date] => 2018-02-04 22:22:26
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 070767
+    [certificate] => 7
+    [scope] => 1
+    [cert_id] => 4049929001633
+4049929915787
+    [due_date] => 2018-05-04 22:22:26
+    [remark] => 
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 095319
+    [certificate] => 2
+    [scope] => 1
+    [cert_id] => 4049929232679
+    [cert_option] => 1
+    [due_date] => 2018-07-10 22:22:26
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 095319
+    [certificate] => 7
+    [scope] => 1
+    [cert_id] => 4049929232679
+    [due_date] => 2018-07-10 22:22:26
+    [remark] => 
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [scope] => 6
+    [vendor] => 070814
+    [certificate] => 6
+    [cert_id] => 37873
+    [due_date] => 2017-12-21 22:22:26
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 070814
+    [certificate] => 2
+    [scope] => 1
+    [cert_id] => 4052852403115
+    [cert_option] => 1
+    [due_date] => 2017-11-22 22:22:26
+)
+
+2017-10-13T22:22:26+02:00 ERR (3): Kein Datum No date part in '??' found.
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 070814
+    [certificate] => 4
+    [scope] => 6
+    [cert_id] => 
+    [due_date] => 2017-10-13
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [scope] => 5
+    [vendor] => 096127
+    [certificate] => 6
+    [cert_id] => 43326
+    [due_date] => 2018-01-02 22:22:26
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [scope] => 6
+    [vendor] => 090396
+    [certificate] => 6
+    [cert_id] => 31557
+    [due_date] => 2018-07-20 22:22:26
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 090396
+    [certificate] => 3
+    [scope] => 4
+    [due_date] => 2018-06-29 22:22:26
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 090396
+    [certificate] => 7
+    [scope] => 1
+    [cert_id] => 
+    [due_date] => 2017-10-13
+    [remark] => 
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 070783
+    [certificate] => 2
+    [scope] => 1
+    [cert_id] => 8717344160001
+    [cert_option] => 1
+    [due_date] => 2018-02-19 22:22:26
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 070783
+    [certificate] => 7
+    [scope] => 1
+    [cert_id] => 8717344160001
+    [due_date] => 2018-02-19 22:22:26
+    [remark] => (ab
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [scope] => 2
+    [vendor] => 070809
+    [certificate] => 6
+    [cert_id] => 15823
+    [due_date] => 2018-06-26 22:22:26
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 070809
+    [certificate] => 3
+    [scope] => 4
+    [due_date] => 2017-08-01 22:22:26
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 070809
+    [certificate] => 4
+    [scope] => 2
+    [cert_id] => 
+    [due_date] => 2016-12-31 22:22:26
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [scope] => 2
+    [vendor] => 070823
+    [certificate] => 6
+    [cert_id] => 5443
+    [due_date] => 2018-01-03 22:22:26
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 070828
+    [certificate] => 2
+    [scope] => 1
+    [cert_id] => 4049929273276
+    [cert_option] => 1
+    [due_date] => 2017-12-04 22:22:26
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 070828
+    [certificate] => 4
+    [scope] => 2
+    [cert_id] => 
+    [due_date] => 2018-01-31 22:22:26
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 070821
+    [certificate] => 3
+    [scope] => 4
+    [due_date] => 2017-10-18 22:22:26
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 070821
+    [certificate] => 3
+    [scope] => 1
+    [cert_id] => 4049928855640
+    [due_date] => 2017-10-18 22:22:26
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 070821
+    [certificate] => 2
+    [scope] => 1
+    [cert_id] => 4049928855640
+    [cert_option] => 3
+    [due_date] => 2017-10-18 22:22:26
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 070821
+    [certificate] => 8
+    [scope] => 1
+    [cert_id] => 4049928855640
+    [due_date] => 2017-10-13
+    [remark] => 
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [scope] => 6
+    [vendor] => 074223
+    [certificate] => 6
+    [cert_id] => 35222
+    [due_date] => 2018-02-02 22:22:26
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [scope] => 6
+    [vendor] => 071808
+    [certificate] => 6
+    [cert_id] => 46385
+    [due_date] => 2017-12-18 22:22:26
+)
+
+2017-10-13T22:22:26+02:00 ERR (3): Kein Datum No date part in '??' found.
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 071808
+    [certificate] => 4
+    [scope] => 6
+    [cert_id] => 
+    [due_date] => 2017-10-13
+)
+
+2017-10-13T22:22:26+02:00 ERR (3): Kein Datum No date part in 'aktuell keine sichtbare Zertifizierung in Datenbank' found.
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 078892
+    [certificate] => 2
+    [scope] => 1
+    [cert_id] => 4056186512055
+    [cert_option] => 
+    [due_date] => 2017-10-13
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 070722
+    [certificate] => 3
+    [scope] => 4
+    [due_date] => 2018-06-26 22:22:26
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 070722
+    [certificate] => 3
+    [scope] => 1
+    [cert_id] => 4049928657244
+    [due_date] => 2018-06-26 22:22:26
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 070722
+    [certificate] => 2
+    [scope] => 1
+    [cert_id] => 4049928657244
+    [cert_option] => 3
+    [due_date] => 2018-06-26 22:22:26
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 070722
+    [certificate] => 8
+    [scope] => 1
+    [cert_id] => 4049928657244
+    [due_date] => 2017-10-13
+    [remark] => 
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 071813
+    [certificate] => 2
+    [scope] => 1
+    [cert_id] => 4049929972995
+    [cert_option] => 1
+    [due_date] => 2017-12-23 22:22:26
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 071813
+    [certificate] => 7
+    [scope] => 1
+    [cert_id] => 4049929972995
+    [due_date] => 2017-12-23 22:22:26
+    [remark] => 
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [scope] => 6
+    [vendor] => 071430
+    [certificate] => 6
+    [cert_id] => 43082
+    [due_date] => 2018-01-19 22:22:26
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 071430
+    [certificate] => 3
+    [scope] => 4
+    [due_date] => 2018-04-26 22:22:26
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 071430
+    [certificate] => 4
+    [scope] => 6
+    [cert_id] => 
+    [due_date] => 2018-12-31 22:22:26
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [scope] => 2
+    [vendor] => 071811
+    [certificate] => 6
+    [cert_id] => 6994
+    [due_date] => 2017-12-30 22:22:26
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 071811
+    [certificate] => 2
+    [scope] => 1
+    [cert_id] => 4049929046146
+    [cert_option] => 2
+    [due_date] => 2017-11-17 22:22:26
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 071811
+    [certificate] => 4
+    [scope] => 2
+    [cert_id] => 
+    [due_date] => 2017-04-30 22:22:26
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [scope] => 2
+    [vendor] => 071566
+    [certificate] => 6
+    [cert_id] => 36219
+    [due_date] => 2018-07-07 22:22:26
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 071566
+    [certificate] => 2
+    [scope] => 1
+    [cert_id] => 4049929503571
+    [cert_option] => 2
+    [due_date] => 2018-05-28 22:22:26
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 071566
+    [certificate] => 7
+    [scope] => 1
+    [cert_id] => 4049929503571
+    [due_date] => 2018-05-28 22:22:26
+    [remark] => 
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [scope] => 6
+    [vendor] => 072152
+    [certificate] => 6
+    [cert_id] => 28224
+    [due_date] => 2018-09-18 22:22:26
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 072152
+    [certificate] => 2
+    [scope] => 1
+    [cert_id] => 4049928599858
+    [cert_option] => 2
+    [due_date] => 2018-08-15 22:22:26
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [scope] => 2
+    [vendor] => 074227
+    [certificate] => 6
+    [cert_id] => 31966
+    [due_date] => 2018-04-18 22:22:26
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 074227
+    [certificate] => 4
+    [scope] => 2
+    [cert_id] => 
+    [due_date] => 2017-12-31 22:22:26
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [scope] => 6
+    [vendor] => 072136
+    [certificate] => 6
+    [cert_id] => 30129
+    [due_date] => 2017-12-22 22:22:26
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [scope] => 3
+    [vendor] => 072817
+    [certificate] => 6
+    [cert_id] => 3699
+    [due_date] => 2018-07-01 22:22:26
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 072817
+    [certificate] => 3
+    [scope] => 4
+    [due_date] => 2017-11-30 22:22:26
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 072817
+    [certificate] => 4
+    [scope] => 3
+    [cert_id] => 
+    [due_date] => 2017-02-28 22:22:26
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [scope] => 2
+    [vendor] => 080554
+    [certificate] => 6
+    [cert_id] => 39877
+    [due_date] => 2018-05-05 22:22:26
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 080554
+    [certificate] => 2
+    [scope] => 1
+    [cert_id] => 4049929498891
+    [cert_option] => 2
+    [due_date] => 2018-03-10 22:22:26
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 080554
+    [certificate] => 7
+    [scope] => 1
+    [cert_id] => 4049929498891
+    [due_date] => 2018-03-10 22:22:26
+    [remark] => 
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [scope] => 5
+    [vendor] => 080550
+    [certificate] => 6
+    [cert_id] => 2579
+    [due_date] => 2018-10-26 22:22:26
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 080550
+    [certificate] => 3
+    [scope] => 4
+    [due_date] => 2017-06-27 22:22:26
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 080550
+    [certificate] => 4
+    [scope] => 5
+    [cert_id] => 
+    [due_date] => 2018-02-28 22:22:26
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [scope] => 5
+    [vendor] => 072823
+    [certificate] => 6
+    [cert_id] => 2111
+    [due_date] => 2018-07-27 22:22:26
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 072823
+    [certificate] => 3
+    [scope] => 4
+    [due_date] => 2018-03-25 22:22:26
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 072823
+    [certificate] => 8
+    [scope] => 1
+    [cert_id] => 
+    [due_date] => 2017-10-13
+    [remark] => 
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 072835
+    [certificate] => 2
+    [scope] => 1
+    [cert_id] => 4049928431387
+    [cert_option] => 2
+    [due_date] => 2018-03-13 22:22:26
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 072835
+    [certificate] => 7
+    [scope] => 1
+    [cert_id] => 4049928431387
+    [due_date] => 2018-03-13 22:22:26
+    [remark] => 
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [scope] => 6
+    [vendor] => 072855
+    [certificate] => 6
+    [cert_id] => 34760
+    [due_date] => 2017-12-23 22:22:26
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 072855
+    [certificate] => 3
+    [scope] => 4
+    [due_date] => 2018-07-20 22:22:26
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 072855
+    [certificate] => 4
+    [scope] => 6
+    [cert_id] => 
+    [due_date] => 2017-04-30 22:22:26
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 072806
+    [certificate] => 2
+    [scope] => 1
+    [cert_id] => 4049929011625
+    [cert_option] => 2
+    [due_date] => 2018-06-07 22:22:26
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 080556
+    [certificate] => 2
+    [scope] => 1
+    [cert_id] => 4049928911353
+    [cert_option] => 2
+    [due_date] => 2017-12-15 22:22:26
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 072847
+    [certificate] => 4
+    [scope] => 6
+    [cert_id] => 
+    [due_date] => 2016-05-29 22:22:26
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 070816
+    [certificate] => 2
+    [scope] => 1
+    [cert_id] => 4050373880484
+    [cert_option] => 1
+    [due_date] => 2018-10-02 22:22:26
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 070816
+    [certificate] => 7
+    [scope] => 1
+    [cert_id] => 4050373880484
+    [due_date] => 2018-10-02 22:22:26
+    [remark] => ?
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 072862
+    [certificate] => 2
+    [scope] => 1
+    [cert_id] => 4049928826459
+    [cert_option] => 1
+    [due_date] => 2017-10-31 22:22:26
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 072862
+    [certificate] => 7
+    [scope] => 1
+    [cert_id] => 4049928826459
+    [due_date] => 2017-10-31 22:22:26
+    [remark] => 
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 082610
+    [certificate] => 2
+    [scope] => 1
+    [cert_id] => 4049928826459
+    [cert_option] => 1
+    [due_date] => 2017-10-31 22:22:26
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 072864
+    [certificate] => 2
+    [scope] => 1
+    [cert_id] => 4056186712264
+    [cert_option] => 1
+    [due_date] => 2018-07-07 22:22:26
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [scope] => 3
+    [vendor] => 017527
+    [certificate] => 6
+    [cert_id] => 1865
+    [due_date] => 2018-08-09 22:22:26
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 017527
+    [certificate] => 3
+    [scope] => 4
+    [due_date] => 2018-01-22 22:22:26
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 017527
+    [certificate] => 4
+    [scope] => 3
+    [cert_id] => 
+    [due_date] => 2017-12-31 22:22:26
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 074461
+    [certificate] => 3
+    [scope] => 4
+    [due_date] => 2018-06-13 22:22:26
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 074461
+    [certificate] => 3
+    [scope] => 1
+    [cert_id] => 4049929938854
+    [due_date] => 2018-06-13 22:22:26
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 074461
+    [certificate] => 2
+    [scope] => 1
+    [cert_id] => 4049929938854
+    [cert_option] => 3
+    [due_date] => 2018-06-13 22:22:26
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 074461
+    [certificate] => 8
+    [scope] => 1
+    [cert_id] => 4049929938854
+    [due_date] => 2017-10-13
+    [remark] => 
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [scope] => 6
+    [vendor] => 073637
+    [certificate] => 6
+    [cert_id] => 30396
+    [due_date] => 2018-02-08 22:22:26
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 073637
+    [certificate] => 4
+    [scope] => 6
+    [cert_id] => 
+    [due_date] => 2017-12-31 22:22:26
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 073590
+    [certificate] => 2
+    [scope] => 1
+    [cert_id] => 4049928430564
+    [cert_option] => 2
+    [due_date] => 2018-01-18 22:22:26
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 073604
+    [certificate] => 2
+    [scope] => 1
+    [cert_id] => 4050373066208
+    [cert_option] => 1
+    [due_date] => 2018-01-31 22:22:26
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 073604
+    [certificate] => 7
+    [scope] => 1
+    [cert_id] => 4050373066208
+    [due_date] => 2018-01-31 22:22:26
+    [remark] => 
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 073534
+    [certificate] => 2
+    [scope] => 1
+    [cert_id] => 4050373022976
+    [cert_option] => 1
+    [due_date] => 2018-06-08 22:22:26
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 073534
+    [certificate] => 7
+    [scope] => 1
+    [cert_id] => 4050373022976
+    [due_date] => 2018-06-08 22:22:26
+    [remark] => 
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 073618
+    [certificate] => 2
+    [scope] => 1
+    [cert_id] => 4050373032692
+    [cert_option] => 1
+    [due_date] => 2018-04-27 22:22:26
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 073618
+    [certificate] => 7
+    [scope] => 1
+    [cert_id] => 4050373032692
+    [due_date] => 2018-04-27 22:22:26
+    [remark] => 
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [scope] => 2
+    [vendor] => 073607
+    [certificate] => 6
+    [cert_id] => 14600
+    [due_date] => 2018-03-14 22:22:26
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 073607
+    [certificate] => 2
+    [scope] => 1
+    [cert_id] => 4049929028654
+    [cert_option] => 1
+    [due_date] => 2018-03-25 22:22:26
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 073607
+    [certificate] => 7
+    [scope] => 1
+    [cert_id] => 4049929028654
+    [due_date] => 2018-03-25 22:22:26
+    [remark] => 
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 073540
+    [certificate] => 2
+    [scope] => 1
+    [cert_id] => 4056186250261
+    [cert_option] => 2
+    [due_date] => 2018-05-14 22:22:26
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 073540
+    [certificate] => 7
+    [scope] => 1
+    [cert_id] => 4056186250261
+    [due_date] => 2018-05-14 22:22:26
+    [remark] => 
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [scope] => 2
+    [vendor] => 071580
+    [certificate] => 6
+    [cert_id] => 39832
+    [due_date] => 2018-06-05 22:22:26
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 071580
+    [certificate] => 2
+    [scope] => 1
+    [cert_id] => 4049929046122
+    [cert_option] => 2
+    [due_date] => 2018-03-29 22:22:26
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 071580
+    [certificate] => 7
+    [scope] => 1
+    [cert_id] => 4049929046122
+    [due_date] => 2018-03-29 22:22:26
+    [remark] => 
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 073558
+    [certificate] => 4
+    [scope] => 2
+    [cert_id] => 
+    [due_date] => 2018-06-28 22:22:26
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [scope] => 2
+    [vendor] => 073509
+    [certificate] => 6
+    [cert_id] => 31881
+    [due_date] => 2018-08-19 22:22:26
+)
+
+2017-10-13T22:22:26+02:00 ERR (3): Kein Datum No date part in 'aktuell nicht zertifiziert' found.
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [scope] => 5
+    [vendor] => 078438
+    [certificate] => 6
+    [cert_id] => 645
+    [due_date] => 2017-10-13
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 078438
+    [certificate] => 4
+    [scope] => 5
+    [cert_id] => 
+    [due_date] => 2017-11-30 22:22:26
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [scope] => 6
+    [vendor] => 073536
+    [certificate] => 6
+    [cert_id] => 42632
+    [due_date] => 2018-05-04 22:22:26
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 073536
+    [certificate] => 2
+    [scope] => 1
+    [cert_id] => 4050373171254
+    [cert_option] => 1
+    [due_date] => 2018-09-30 22:22:26
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 073622
+    [certificate] => 2
+    [scope] => 1
+    [cert_id] => 4052852632409
+    [cert_option] => 2
+    [due_date] => 2017-11-28 22:22:26
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [scope] => 6
+    [vendor] => 073600
+    [certificate] => 6
+    [cert_id] => 27961
+    [due_date] => 2018-09-24 22:22:26
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 073600
+    [certificate] => 3
+    [scope] => 4
+    [due_date] => 2018-07-22 22:22:26
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [scope] => 6
+    [vendor] => 073614
+    [certificate] => 6
+    [cert_id] => 39192
+    [due_date] => 2018-08-31 22:22:26
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 073614
+    [certificate] => 2
+    [scope] => 1
+    [cert_id] => 4050373724542
+    [cert_option] => 1
+    [due_date] => 2017-12-12 22:22:26
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [scope] => 6
+    [vendor] => 073502
+    [certificate] => 6
+    [cert_id] => 36466
+    [due_date] => 2018-04-08 22:22:26
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 073502
+    [certificate] => 4
+    [scope] => 6
+    [cert_id] => 
+    [due_date] => 2016-12-31 22:22:26
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 077728
+    [certificate] => 7
+    [scope] => 1
+    [cert_id] => verschiedene Erzeuger (siehe V:\4_Qualit嵳management\010 Zertifikate\Zertifikate - Erzeuger)
+    [due_date] => 2017-10-13
+    [remark] => ab
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 070754
+    [certificate] => 2
+    [scope] => 1
+    [cert_id] => 4052852173292
+    [cert_option] => 1
+    [due_date] => 2018-06-28 22:22:26
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 071812
+    [certificate] => 2
+    [scope] => 1
+    [cert_id] => 4052852473514
+    [cert_option] => 1
+    [due_date] => 2018-04-24 22:22:26
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [scope] => 5
+    [vendor] => 037560
+    [certificate] => 6
+    [cert_id] => 16613
+    [due_date] => 2018-03-20 22:22:26
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 037560
+    [certificate] => 3
+    [scope] => 4
+    [due_date] => 2019-02-12 22:22:26
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 070149
+    [certificate] => 2
+    [scope] => 1
+    [cert_id] => 4052852223676
+    [cert_option] => 1
+    [due_date] => 2018-09-18 22:22:26
+)
+
+2017-10-13T22:22:26+02:00 ERR (3): 0
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 070149
+    [certificate] => 7
+    [scope] => 1
+    [cert_id] => 4052852223676
+    [due_date] => 2018-09-18 22:22:26
+    [remark] => 
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [scope] => 6
+    [vendor] => 073626
+    [certificate] => 6
+    [cert_id] => 28279
+    [due_date] => 2018-06-21 22:22:26
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 073626
+    [certificate] => 3
+    [scope] => 4
+    [due_date] => 2019-05-29 22:22:26
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 073626
+    [certificate] => 4
+    [scope] => 6
+    [cert_id] => 
+    [due_date] => 2017-02-18 22:22:26
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 074225
+    [certificate] => 2
+    [scope] => 1
+    [cert_id] => 4049929275119
+    [cert_option] => 1
+    [due_date] => 2017-11-15 22:22:26
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 074225
+    [certificate] => 7
+    [scope] => 1
+    [cert_id] => 4049929275119
+    [due_date] => 2017-11-15 22:22:26
+    [remark] => 
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 074470
+    [certificate] => 2
+    [scope] => 1
+    [cert_id] => 4050373066208
+    [cert_option] => 1
+    [due_date] => 2018-01-31 22:22:26
+)
+
+2017-10-13T22:22:26+02:00 ERR (3): Kein Datum No date part in 'folgt' found.
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 074229
+    [certificate] => 3
+    [scope] => 4
+    [due_date] => 2017-10-13
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 074471
+    [certificate] => 2
+    [scope] => 1
+    [cert_id] => 4050373262075
+    [cert_option] => 1
+    [due_date] => 2017-11-11 22:22:26
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 074471
+    [certificate] => 7
+    [scope] => 1
+    [cert_id] => 4050373262075
+    [due_date] => 2017-11-11 22:22:26
+    [remark] => 
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 074780
+    [certificate] => 2
+    [scope] => 1
+    [cert_id] => 4050373954611
+    [cert_option] => 1
+    [due_date] => 2017-11-28 22:22:26
+)
+
+2017-10-13T22:22:26+02:00 ERR (3): Kein Datum No date part in '??' found.
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 074780
+    [certificate] => 4
+    [scope] => 6
+    [cert_id] => 
+    [due_date] => 2017-10-13
+)
+
+2017-10-13T22:22:26+02:00 ERR (3): Kein Datum No date part in '??' found.
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 074226
+    [certificate] => 4
+    [scope] => 6
+    [cert_id] => 
+    [due_date] => 2017-10-13
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 074795
+    [certificate] => 2
+    [scope] => 1
+    [cert_id] => 4056186679444
+    [cert_option] => 1
+    [due_date] => 2018-07-06 22:22:26
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [scope] => 6
+    [vendor] => 074477
+    [certificate] => 6
+    [cert_id] => 54493
+    [due_date] => 2017-12-15 22:22:26
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [scope] => 2
+    [vendor] => 074219
+    [certificate] => 6
+    [cert_id] => 13223
+    [due_date] => 2018-04-18 22:22:26
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 074219
+    [certificate] => 2
+    [scope] => 1
+    [cert_id] => 4050373066123
+    [cert_option] => 2
+    [due_date] => 2018-03-01 22:22:26
+)
+
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 074219
+    [certificate] => 7
+    [scope] => 1
+    [cert_id] => 4050373066123
+    [due_date] => 2018-03-01 22:22:26
+    [remark] => 
+)
+
+2017-10-13T22:22:26+02:00 ERR (3): Kein Datum No date part in '??' found.
+2017-10-13T22:22:26+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 074958
+    [certificate] => 4
+    [scope] => 2
+    [cert_id] => 
+    [due_date] => 2017-10-13
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 070787
+    [certificate] => 3
+    [scope] => 4
+    [due_date] => 2018-03-23 22:22:26
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 070787
+    [certificate] => 3
+    [scope] => 1
+    [cert_id] => 4049929717480
+    [due_date] => 2018-03-23 22:22:26
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 070787
+    [certificate] => 2
+    [scope] => 1
+    [cert_id] => 4049929717480
+    [cert_option] => 3
+    [due_date] => 2018-03-23 22:22:26
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 070787
+    [certificate] => 8
+    [scope] => 1
+    [cert_id] => 4049929717480
+    [due_date] => 2017-10-13
+    [remark] => 
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 077046
+    [certificate] => 3
+    [scope] => 4
+    [due_date] => 2017-10-21 22:22:26
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 077046
+    [certificate] => 3
+    [scope] => 1
+    [cert_id] => 4049928838445
+    [due_date] => 2017-10-21 22:22:26
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 077046
+    [certificate] => 2
+    [scope] => 1
+    [cert_id] => 4049928838445
+    [cert_option] => 3
+    [due_date] => 2017-10-21 22:22:26
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 077046
+    [certificate] => 8
+    [scope] => 1
+    [cert_id] => 4049928838445
+    [due_date] => 2017-10-13
+    [remark] => 
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 074953
+    [certificate] => 3
+    [scope] => 4
+    [due_date] => 2018-06-11 22:22:26
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 074953
+    [certificate] => 3
+    [scope] => 1
+    [cert_id] => 4049929484894
+    [due_date] => 2018-06-11 22:22:26
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 074953
+    [certificate] => 2
+    [scope] => 1
+    [cert_id] => 4049929484894
+    [cert_option] => 3
+    [due_date] => 2018-06-11 22:22:26
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 074953
+    [certificate] => 8
+    [scope] => 1
+    [cert_id] => 4049929484894
+    [due_date] => 2017-10-13
+    [remark] => 
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [scope] => 2
+    [vendor] => 070124
+    [certificate] => 6
+    [cert_id] => 2093
+    [due_date] => 2018-01-29 22:22:26
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 070124
+    [certificate] => 3
+    [scope] => 4
+    [due_date] => 2018-06-15 22:22:26
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 070124
+    [certificate] => 2
+    [scope] => 1
+    [cert_id] => 4049929141841
+    [cert_option] => 1
+    [due_date] => 2018-06-11 22:22:26
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 070124
+    [certificate] => 8
+    [scope] => 1
+    [cert_id] => 4049929141841
+    [due_date] => 2017-10-13
+    [remark] => 
+)
+
+2017-10-13T22:22:27+02:00 ERR (3): Kein Datum No date part in 'aktuell keine sichtbare Zertifizierung in Datenbank' found.
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 074977
+    [certificate] => 3
+    [scope] => 4
+    [due_date] => 2017-10-13
+)
+
+2017-10-13T22:22:27+02:00 ERR (3): Kein Datum No date part in 'aktuell keine sichtbare Zertifizierung in Datenbank' found.
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 074977
+    [certificate] => 3
+    [scope] => 1
+    [cert_id] => 4056186677853
+    [due_date] => 2017-10-13
+)
+
+2017-10-13T22:22:27+02:00 ERR (3): Kein Datum No date part in 'aktuell keine sichtbare Zertifizierung in Datenbank' found.
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 074977
+    [certificate] => 2
+    [scope] => 1
+    [cert_id] => 4056186677853
+    [cert_option] => 3
+    [due_date] => 2017-10-13
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 074972
+    [certificate] => 2
+    [scope] => 1
+    [cert_id] => 4049928998774
+    [cert_option] => 1
+    [due_date] => 2018-05-09 22:22:26
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 074972
+    [certificate] => 7
+    [scope] => 1
+    [cert_id] => 4049928998774
+    [due_date] => 2018-05-09 22:22:26
+    [remark] => 
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [scope] => 2
+    [vendor] => 074939
+    [certificate] => 6
+    [cert_id] => 4242
+    [due_date] => 2018-06-07 22:22:26
+)
+
+2017-10-13T22:22:27+02:00 ERR (3): Kein Datum No date part in 'aktuell keine sichtbare Zertifizierung in Datenbank' found.
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 074939
+    [certificate] => 2
+    [scope] => 1
+    [cert_id] => 4050373038632
+    [cert_option] => 1
+    [due_date] => 2017-10-13
+)
+
+2017-10-13T22:22:27+02:00 ERR (3): Kein Datum No date part in 'aktuell keine sichtbare Zertifizierung in Datenbank' found.
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 074939
+    [certificate] => 7
+    [scope] => 1
+    [cert_id] => 4050373038632
+    [due_date] => 2017-10-13
+    [remark] => 
+)
+
+2017-10-13T22:22:27+02:00 ERR (3): Kein Datum No date part in 'in Bearbeitung' found.
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [scope] => 6
+    [vendor] => 075624
+    [certificate] => 6
+    [cert_id] => ??
+    [due_date] => 2017-10-13
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 075624
+    [certificate] => 2
+    [scope] => 1
+    [cert_id] => 4050373842444
+    [cert_option] => 2
+    [due_date] => 2018-07-05 22:22:26
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 075624
+    [certificate] => 4
+    [scope] => 6
+    [cert_id] => 
+    [due_date] => 2017-12-31 22:22:26
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [scope] => 6
+    [vendor] => 076312
+    [certificate] => 6
+    [cert_id] => 3863
+    [due_date] => 2018-05-14 22:22:26
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 088913
+    [certificate] => 2
+    [scope] => 1
+    [cert_id] => 4056186675750
+    [cert_option] => 1
+    [due_date] => 2018-06-20 22:22:26
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 088913
+    [certificate] => 7
+    [scope] => 1
+    [cert_id] => 4056186675750
+    [due_date] => 2018-06-20 22:22:26
+    [remark] => 
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 088915
+    [certificate] => 2
+    [scope] => 1
+    [cert_id] => 4056186268389
+    [cert_option] => 1
+    [due_date] => 2018-06-05 22:22:26
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 088915
+    [certificate] => 7
+    [scope] => 1
+    [cert_id] => 4056186268389
+    [due_date] => 2018-06-05 22:22:26
+    [remark] => 
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 077049
+    [certificate] => 3
+    [scope] => 4
+    [due_date] => 2018-04-06 22:22:26
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 077049
+    [certificate] => 3
+    [scope] => 1
+    [cert_id] => 4049929028838
+    [due_date] => 2018-04-06 22:22:26
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 077049
+    [certificate] => 2
+    [scope] => 1
+    [cert_id] => 4049929028838
+    [cert_option] => 3
+    [due_date] => 2018-04-06 22:22:26
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 077049
+    [certificate] => 8
+    [scope] => 1
+    [cert_id] => 4049929028838
+    [due_date] => 2017-10-13
+    [remark] => 
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 077013
+    [certificate] => 3
+    [scope] => 4
+    [due_date] => 2017-10-21 22:22:26
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 077013
+    [certificate] => 3
+    [scope] => 1
+    [cert_id] => 4049929515536
+    [due_date] => 2017-10-21 22:22:26
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 077013
+    [certificate] => 2
+    [scope] => 1
+    [cert_id] => 4049929515536
+    [cert_option] => 3
+    [due_date] => 2017-10-21 22:22:26
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 077013
+    [certificate] => 8
+    [scope] => 1
+    [cert_id] => 4049929515536
+    [due_date] => 2017-10-13
+    [remark] => angemeldet
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [scope] => 5
+    [vendor] => 077032
+    [certificate] => 6
+    [cert_id] => 15341
+    [due_date] => 2017-11-08 22:22:26
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 077032
+    [certificate] => 3
+    [scope] => 4
+    [due_date] => 2017-10-24 22:22:26
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 077032
+    [certificate] => 4
+    [scope] => 5
+    [cert_id] => 
+    [due_date] => 2017-07-31 22:22:26
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 077033
+    [certificate] => 4
+    [scope] => 5
+    [cert_id] => 
+    [due_date] => 2016-12-31 22:22:26
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 077055
+    [certificate] => 2
+    [scope] => 1
+    [cert_id] => 4052852955485
+    [cert_option] => 1
+    [due_date] => 2018-09-08 22:22:26
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [scope] => 2
+    [vendor] => 077035
+    [certificate] => 6
+    [cert_id] => 32536
+    [due_date] => 2018-09-02 22:22:26
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 077035
+    [certificate] => 4
+    [scope] => 2
+    [cert_id] => 
+    [due_date] => 2017-12-31 22:22:26
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [scope] => 5
+    [vendor] => 077024
+    [certificate] => 6
+    [cert_id] => 51443
+    [due_date] => 2018-06-14 22:22:26
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 077024
+    [certificate] => 3
+    [scope] => 4
+    [due_date] => 2018-04-24 22:22:26
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [scope] => 6
+    [vendor] => 026531
+    [certificate] => 6
+    [cert_id] => 28285
+    [due_date] => 2018-05-27 22:22:26
+)
+
+2017-10-13T22:22:27+02:00 ERR (3): Kein Datum No date part in '??' found.
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 026531
+    [certificate] => 3
+    [scope] => 4
+    [due_date] => 2017-10-13
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [scope] => 5
+    [vendor] => 073597
+    [certificate] => 6
+    [cert_id] => 3256
+    [due_date] => 2017-11-27 22:22:26
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 073597
+    [certificate] => 3
+    [scope] => 4
+    [due_date] => 2018-10-29 22:22:26
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 073597
+    [certificate] => 4
+    [scope] => 5
+    [cert_id] => 
+    [due_date] => 2016-09-30 22:22:26
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 077777
+    [certificate] => 2
+    [scope] => 1
+    [cert_id] => 4059883057621
+    [cert_option] => COC
+    [due_date] => 2018-04-12 22:22:26
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 077777
+    [certificate] => 4
+    [scope] => 5
+    [cert_id] => 
+    [due_date] => 2020-04-13 22:22:26
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [scope] => 6
+    [vendor] => 077776
+    [certificate] => 6
+    [cert_id] => 28276
+    [due_date] => 2018-05-14 22:22:26
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 077776
+    [certificate] => 3
+    [scope] => 4
+    [due_date] => 2018-07-14 22:22:26
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 077776
+    [certificate] => 4
+    [scope] => 6
+    [cert_id] => 
+    [due_date] => 2018-01-31 22:22:26
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 078890
+    [certificate] => 3
+    [scope] => 4
+    [due_date] => 2018-03-14 22:22:26
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 078890
+    [certificate] => 2
+    [scope] => 1
+    [cert_id] => 4049929028746
+    [cert_option] => 3
+    [due_date] => 2018-04-14 22:22:26
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 078890
+    [certificate] => 8
+    [scope] => 1
+    [cert_id] => 4049929028746
+    [due_date] => 2017-10-13
+    [remark] => 
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [scope] => 6
+    [vendor] => 078891
+    [certificate] => 6
+    [cert_id] => 
+    [due_date] => 2018-10-09 22:22:26
+)
+
+2017-10-13T22:22:27+02:00 ERR (3): 0
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 079853
+    [certificate] => 2
+    [scope] => 1
+    [cert_id] => 4052852265096
+    [cert_option] => 1
+    [due_date] => 2018-03-24 22:22:26
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 079853
+    [certificate] => 7
+    [scope] => 1
+    [cert_id] => 4052852265096
+    [due_date] => 2018-03-24 22:22:26
+    [remark] => 
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 074796
+    [certificate] => 2
+    [scope] => 1
+    [cert_id] => 4056186679451
+    [cert_option] => 1
+    [due_date] => 2018-07-06 22:22:26
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 074796
+    [certificate] => 7
+    [scope] => 1
+    [cert_id] => 4056186679451
+    [due_date] => 2018-07-06 22:22:26
+    [remark] => 
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 078460
+    [certificate] => 2
+    [scope] => 1
+    [cert_id] => 4050373099862
+    [cert_option] => 1
+    [due_date] => 2018-03-23 22:22:26
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 078460
+    [certificate] => 7
+    [scope] => 1
+    [cert_id] => 4050373099862
+    [due_date] => 2018-03-23 22:22:26
+    [remark] => 
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 078442
+    [certificate] => 2
+    [scope] => 1
+    [cert_id] => 4049928164223
+    [cert_option] => 1
+    [due_date] => 2017-12-07 22:22:26
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 078442
+    [certificate] => 8
+    [scope] => 1
+    [cert_id] => 4049928164223
+    [due_date] => 2017-10-13
+    [remark] => 
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 078893
+    [certificate] => 3
+    [scope] => 4
+    [due_date] => 2018-03-18 22:22:26
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 078893
+    [certificate] => 3
+    [scope] => 1
+    [cert_id] => 4056186679468
+    [due_date] => 2018-03-18 22:22:26
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 078893
+    [certificate] => 2
+    [scope] => 1
+    [cert_id] => 4056186679468
+    [cert_option] => 3
+    [due_date] => 2018-03-18 22:22:26
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 078893
+    [certificate] => 8
+    [scope] => 1
+    [cert_id] => 4056186679468
+    [due_date] => 2017-10-13
+    [remark] => 
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 078482
+    [certificate] => 3
+    [scope] => 4
+    [due_date] => 2017-11-08 22:22:26
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 078482
+    [certificate] => 3
+    [scope] => 1
+    [cert_id] => 4049929484931
+    [due_date] => 2017-11-08 22:22:26
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 078482
+    [certificate] => 2
+    [scope] => 1
+    [cert_id] => 4049929484931
+    [cert_option] => 3
+    [due_date] => 2017-11-08 22:22:26
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 078482
+    [certificate] => 8
+    [scope] => 1
+    [cert_id] => 4049929484931
+    [due_date] => 2017-10-13
+    [remark] => 
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [scope] => 6
+    [vendor] => 079121
+    [certificate] => 6
+    [cert_id] => 44570
+    [due_date] => 2018-09-06 22:22:26
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 079121
+    [certificate] => 4
+    [scope] => 6
+    [cert_id] => 
+    [due_date] => 2018-12-31 22:22:26
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 079131
+    [certificate] => 2
+    [scope] => 1
+    [cert_id] => 4052852911412
+    [cert_option] => 1
+    [due_date] => 2017-11-18 22:22:26
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 079131
+    [certificate] => 7
+    [scope] => 1
+    [cert_id] => 4052852911412
+    [due_date] => 2017-11-18 22:22:26
+    [remark] => 
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 079845
+    [certificate] => 3
+    [scope] => 4
+    [due_date] => 2018-04-21 22:22:26
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 079845
+    [certificate] => 3
+    [scope] => 1
+    [cert_id] => 4049928626554
+    [due_date] => 2018-04-21 22:22:26
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 079845
+    [certificate] => 2
+    [scope] => 1
+    [cert_id] => 4049928626554
+    [cert_option] => 3
+    [due_date] => 2018-04-21 22:22:26
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 079845
+    [certificate] => 8
+    [scope] => 1
+    [cert_id] => 4049928626554
+    [due_date] => 2017-10-13
+    [remark] => 
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [scope] => 5
+    [vendor] => 079825
+    [certificate] => 6
+    [cert_id] => 1858
+    [due_date] => 2018-05-22 22:22:26
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 079825
+    [certificate] => 3
+    [scope] => 4
+    [due_date] => 2018-05-18 22:22:26
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 079825
+    [certificate] => 8
+    [scope] => 1
+    [cert_id] => GGN auf Etikett oder auf Anfrage
+    [due_date] => 2017-10-13
+    [remark] => 
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 073616
+    [certificate] => 3
+    [scope] => 4
+    [due_date] => 2018-05-26 22:22:26
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 073616
+    [certificate] => 3
+    [scope] => 1
+    [cert_id] => 4050373119027
+    [due_date] => 2018-05-26 22:22:26
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 073616
+    [certificate] => 2
+    [scope] => 1
+    [cert_id] => 4050373119027
+    [cert_option] => 3
+    [due_date] => 2018-05-26 22:22:26
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 073616
+    [certificate] => 8
+    [scope] => 1
+    [cert_id] => 4050373119027
+    [due_date] => 2017-10-13
+    [remark] => 
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 079841
+    [certificate] => 2
+    [scope] => 1
+    [cert_id] => 4049928627001
+    [cert_option] => 1
+    [due_date] => 2018-07-20 22:22:26
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 079841
+    [certificate] => 7
+    [scope] => 1
+    [cert_id] => 4049928627001
+    [due_date] => 2018-07-20 22:22:26
+    [remark] => 
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [scope] => 2
+    [vendor] => 081905
+    [certificate] => 6
+    [cert_id] => 3457
+    [due_date] => 2018-01-08 22:22:26
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 081905
+    [certificate] => 3
+    [scope] => 4
+    [due_date] => 2017-10-29 22:22:26
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 081905
+    [certificate] => 8
+    [scope] => 1
+    [cert_id] => verschiedene Erzeuger (siehe V:\4_Qualit嵳management\010 Zertifikate\Zertifikate - Erzeuger)
+    [due_date] => 2017-10-13
+    [remark] => 
+)
+
+2017-10-13T22:22:27+02:00 ERR (3): Kein Datum No date part in '??' found.
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [scope] => 6
+    [vendor] => 079847
+    [certificate] => 6
+    [cert_id] => 
+    [due_date] => 2017-10-13
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 079847
+    [certificate] => 3
+    [scope] => 4
+    [due_date] => 2017-06-18 22:22:26
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 079847
+    [certificate] => 2
+    [scope] => 1
+    [cert_id] => 4049929285163
+    [cert_option] => 1
+    [due_date] => 2018-07-11 22:22:26
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 079847
+    [certificate] => 7
+    [scope] => 1
+    [cert_id] => 4049929285163
+    [due_date] => 2018-07-11 22:22:26
+    [remark] => 
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [scope] => 4
+    [vendor] => 079834
+    [certificate] => 6
+    [cert_id] => 48432
+    [due_date] => 2018-06-04 22:22:26
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 079834
+    [certificate] => 3
+    [scope] => 4
+    [due_date] => 2018-04-29 22:22:26
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 079834
+    [certificate] => 4
+    [scope] => 4
+    [cert_id] => 
+    [due_date] => 2017-12-31 22:22:26
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [scope] => 0
+    [vendor] => 092117
+    [certificate] => 6
+    [cert_id] => 40190
+    [due_date] => 2018-01-14 22:22:26
+)
+
+2017-10-13T22:22:27+02:00 ERR (3): 0
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 092117
+    [certificate] => 7
+    [scope] => 1
+    [cert_id] => COBELLA 4049929976795
+    [due_date] => 2018-06-23 22:22:26
+    [remark] => 
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 079842
+    [certificate] => 2
+    [scope] => 1
+    [cert_id] => 4050373901783
+    [cert_option] => 1
+    [due_date] => 2017-11-07 22:22:26
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 080538
+    [certificate] => 2
+    [scope] => 1
+    [cert_id] => 4056186263872
+    [cert_option] => 1
+    [due_date] => 2018-09-27 22:22:26
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 080538
+    [certificate] => 7
+    [scope] => 1
+    [cert_id] => 4056186263872
+    [due_date] => 2018-09-27 22:22:26
+    [remark] => 
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [scope] => 6
+    [vendor] => 074797
+    [certificate] => 6
+    [cert_id] => 2079
+    [due_date] => 2018-04-16 22:22:26
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 074797
+    [certificate] => 3
+    [scope] => 4
+    [due_date] => 2019-06-03 22:22:26
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 074797
+    [certificate] => 2
+    [scope] => 1
+    [cert_id] => 4049928435187
+    [cert_option] => 2
+    [due_date] => 2017-11-12 22:22:26
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 074797
+    [certificate] => 4
+    [scope] => 6
+    [cert_id] => 
+    [due_date] => 2018-02-28 22:22:26
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 080557
+    [certificate] => 2
+    [scope] => 1
+    [cert_id] => 4059883068375
+    [cert_option] => 1
+    [due_date] => 2018-09-18 22:22:26
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 079855
+    [certificate] => 2
+    [scope] => 1
+    [cert_id] => 4049928428493
+    [cert_option] => 1
+    [due_date] => 2017-11-22 22:22:26
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 082676
+    [certificate] => 3
+    [scope] => 4
+    [due_date] => 2017-12-20 22:22:26
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 082676
+    [certificate] => 3
+    [scope] => 1
+    [cert_id] => 4049929709409
+    [due_date] => 2017-12-20 22:22:26
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 082676
+    [certificate] => 2
+    [scope] => 1
+    [cert_id] => 4049929709409
+    [cert_option] => 3
+    [due_date] => 2017-12-20 22:22:26
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 082676
+    [certificate] => 7
+    [scope] => 1
+    [cert_id] => 4049929709409
+    [due_date] => 2017-12-20 22:22:26
+    [remark] => 
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 077742
+    [certificate] => 2
+    [scope] => 1
+    [cert_id] => 4049929029422
+    [cert_option] => 2
+    [due_date] => 2018-02-18 22:22:26
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 077742
+    [certificate] => 7
+    [scope] => 1
+    [cert_id] => 4049929029422
+    [due_date] => 2018-02-18 22:22:26
+    [remark] => 
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [scope] => 6
+    [vendor] => 080586
+    [certificate] => 6
+    [cert_id] => 35157
+    [due_date] => 2018-05-08 22:22:26
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 080586
+    [certificate] => 3
+    [scope] => 4
+    [due_date] => 2018-03-30 22:22:26
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [scope] => 5
+    [vendor] => 081956
+    [certificate] => 6
+    [cert_id] => 3238
+    [due_date] => 2017-12-06 22:22:26
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 081916
+    [certificate] => 2
+    [scope] => 1
+    [cert_id] => 4052852904834
+    [cert_option] => 1
+    [due_date] => 2018-06-29 22:22:26
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 077753
+    [certificate] => 2
+    [scope] => 1
+    [cert_id] => 4049928202109
+    [cert_option] => 1
+    [due_date] => 2018-08-02 22:22:26
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [scope] => 6
+    [vendor] => 081960
+    [certificate] => 6
+    [cert_id] => 30115
+    [due_date] => 2017-12-08 22:22:26
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 081960
+    [certificate] => 4
+    [scope] => 6
+    [cert_id] => 
+    [due_date] => 2017-01-31 22:22:26
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 081960
+    [certificate] => 7
+    [scope] => 1
+    [cert_id] => 
+    [due_date] => 2017-10-13
+    [remark] => ab
+)
+
+2017-10-13T22:22:27+02:00 ERR (3): Kein Datum Unable to parse date 'QS-ID 
+4953113160015' using 'dd.MM.y' (d <> y)
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 070725
+    [certificate] => 3
+    [scope] => 4
+    [due_date] => 2017-10-13
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 070725
+    [certificate] => 2
+    [scope] => 1
+    [cert_id] => 4049928400833
+    [cert_option] => 1
+    [due_date] => 2018-06-25 22:22:26
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 070725
+    [certificate] => 7
+    [scope] => 1
+    [cert_id] => 4049928400833
+    [due_date] => 2018-06-25 22:22:26
+    [remark] => ab
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [scope] => 2
+    [vendor] => 081961
+    [certificate] => 6
+    [cert_id] => 26354
+    [due_date] => 2018-03-21 22:22:26
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 081961
+    [certificate] => 4
+    [scope] => 2
+    [cert_id] => 
+    [due_date] => 2016-12-31 22:22:26
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 081971
+    [certificate] => 2
+    [scope] => 1
+    [cert_id] => 4056186633194
+    [cert_option] => 1
+    [due_date] => 2018-07-10 22:22:26
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 081190
+    [certificate] => 3
+    [scope] => 4
+    [due_date] => 2018-06-19 22:22:26
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 081190
+    [certificate] => 3
+    [scope] => 1
+    [cert_id] => 4049929024694
+    [due_date] => 2018-06-19 22:22:26
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 081190
+    [certificate] => 2
+    [scope] => 1
+    [cert_id] => 4049929024694
+    [cert_option] => 3
+    [due_date] => 2018-06-19 22:22:26
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 081190
+    [certificate] => 8
+    [scope] => 1
+    [cert_id] => 4049929024694
+    [due_date] => 2017-10-13
+    [remark] => 
+)
+
+2017-10-13T22:22:27+02:00 ERR (3): Kein Datum No date part in 'aktuell nicht zertifiziert' found.
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [scope] => 2
+    [vendor] => 079849
+    [certificate] => 6
+    [cert_id] => 52872
+    [due_date] => 2017-10-13
+)
+
+2017-10-13T22:22:27+02:00 ERR (3): Kein Datum No date part in 'aktuell keine sichtbare Zertifizierung in Datenbank' found.
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 079849
+    [certificate] => 2
+    [scope] => 1
+    [cert_id] => 4052852968423
+    [cert_option] => 1
+    [due_date] => 2017-10-13
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 082664
+    [certificate] => 2
+    [scope] => 1
+    [cert_id] => 4050373567859
+    [cert_option] => 1
+    [due_date] => 2017-12-05 22:22:26
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 070058
+    [certificate] => 2
+    [scope] => 1
+    [cert_id] => 4049929270916
+    [cert_option] => 1
+    [due_date] => 2017-12-08 22:22:26
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [scope] => 6
+    [vendor] => 084664
+    [certificate] => 6
+    [cert_id] => 40316
+    [due_date] => 2018-07-21 22:22:26
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 072863
+    [certificate] => 2
+    [scope] => 1
+    [cert_id] => 4049929244283
+    [cert_option] => 1
+    [due_date] => 2018-04-19 22:22:26
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 072863
+    [certificate] => 7
+    [scope] => 1
+    [cert_id] => 4049929244283
+    [due_date] => 2018-04-19 22:22:26
+    [remark] => 
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 079840
+    [certificate] => 2
+    [scope] => 1
+    [cert_id] => 8016364000039
+    [cert_option] => 2
+    [due_date] => 2018-09-06 22:22:26
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 079840
+    [certificate] => 4
+    [scope] => 6
+    [cert_id] => 
+    [due_date] => 2017-01-17 22:22:26
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [scope] => 2
+    [vendor] => 071580
+    [certificate] => 6
+    [cert_id] => 39832
+    [due_date] => 2018-04-25 22:22:26
+)
+
+2017-10-13T22:22:27+02:00 ERR (3): 0
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 071580
+    [certificate] => 2
+    [scope] => 1
+    [cert_id] => 4049929046122
+    [cert_option] => 2
+    [due_date] => 2018-03-29 22:22:26
+)
+
+2017-10-13T22:22:27+02:00 ERR (3): 0
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 071580
+    [certificate] => 7
+    [scope] => 1
+    [cert_id] => 4049929046122
+    [due_date] => 2018-03-29 22:22:26
+    [remark] => 
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 082671
+    [certificate] => 3
+    [scope] => 4
+    [due_date] => 2018-07-23 22:22:26
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 082671
+    [certificate] => 3
+    [scope] => 1
+    [cert_id] => 4049929486317
+    [due_date] => 2018-07-23 22:22:26
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 082671
+    [certificate] => 2
+    [scope] => 1
+    [cert_id] => 4049929486317
+    [cert_option] => 3
+    [due_date] => 2018-07-23 22:22:26
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 082671
+    [certificate] => 8
+    [scope] => 1
+    [cert_id] => 4049929486317
+    [due_date] => 2017-10-13
+    [remark] => 
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 082692
+    [certificate] => 3
+    [scope] => 4
+    [due_date] => 2018-06-09 22:22:26
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 082692
+    [certificate] => 3
+    [scope] => 1
+    [cert_id] => 4049929715615
+    [due_date] => 2018-06-09 22:22:26
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 082692
+    [certificate] => 2
+    [scope] => 1
+    [cert_id] => 4049929715615
+    [cert_option] => 3
+    [due_date] => 2018-06-09 22:22:26
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 082692
+    [certificate] => 8
+    [scope] => 1
+    [cert_id] => 4049929715615
+    [due_date] => 2017-10-13
+    [remark] => 
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 082623
+    [certificate] => 3
+    [scope] => 4
+    [due_date] => 2018-04-14 22:22:26
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 082623
+    [certificate] => 3
+    [scope] => 1
+    [cert_id] => 4049929028746
+    [due_date] => 2018-04-14 22:22:26
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 082623
+    [certificate] => 2
+    [scope] => 1
+    [cert_id] => 4049929028746
+    [cert_option] => 3
+    [due_date] => 2018-04-14 22:22:26
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 082626
+    [certificate] => 2
+    [scope] => 1
+    [cert_id] => 4050373987237
+    [cert_option] => 1
+    [due_date] => 2017-11-02 22:22:26
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 082688
+    [certificate] => 2
+    [scope] => 1
+    [cert_id] => 4056186726292
+    [cert_option] => 1
+    [due_date] => 2018-07-10 22:22:26
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 082643
+    [certificate] => 3
+    [scope] => 4
+    [due_date] => 2018-02-16 22:22:26
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 082643
+    [certificate] => 3
+    [scope] => 1
+    [cert_id] => 4049929252448
+    [due_date] => 2018-02-16 22:22:26
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 082643
+    [certificate] => 2
+    [scope] => 1
+    [cert_id] => 4049929252448
+    [cert_option] => 3
+    [due_date] => 2018-02-16 22:22:26
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 082643
+    [certificate] => 8
+    [scope] => 1
+    [cert_id] => 4049929252448
+    [due_date] => 2017-10-13
+    [remark] => 
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [scope] => 6
+    [vendor] => 082619
+    [certificate] => 6
+    [cert_id] => 28248
+    [due_date] => 2018-03-01 22:22:26
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [scope] => 2
+    [vendor] => 092692
+    [certificate] => 6
+    [cert_id] => 10304
+    [due_date] => 2018-03-28 22:22:26
+)
+
+2017-10-13T22:22:27+02:00 ERR (3): Kein Datum No date part in 'GRASP' found.
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 084017
+    [certificate] => 2
+    [scope] => 1
+    [cert_id] => 4052852208314
+    [cert_option] => 2
+    [due_date] => 2017-10-13
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 083835
+    [certificate] => 2
+    [scope] => 1
+    [cert_id] => 4056186713513
+    [cert_option] => 1
+    [due_date] => 2018-07-11 22:22:26
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 083835
+    [certificate] => 7
+    [scope] => 1
+    [cert_id] => 4056186713513
+    [due_date] => 2018-07-11 22:22:26
+    [remark] => 
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [scope] => 6
+    [vendor] => 072146
+    [certificate] => 6
+    [cert_id] => 35806
+    [due_date] => 2018-05-04 22:22:26
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 077755
+    [certificate] => 3
+    [scope] => 4
+    [due_date] => 2018-04-10 22:22:26
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 077755
+    [certificate] => 3
+    [scope] => 1
+    [cert_id] => 4049928168153
+    [due_date] => 2018-04-10 22:22:26
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 077755
+    [certificate] => 2
+    [scope] => 1
+    [cert_id] => 4049928168153
+    [cert_option] => 3
+    [due_date] => 2018-04-10 22:22:26
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 077755
+    [certificate] => 8
+    [scope] => 1
+    [cert_id] => 4049928168153
+    [due_date] => 2017-10-13
+    [remark] => 
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 074213
+    [certificate] => 3
+    [scope] => 4
+    [due_date] => 2018-03-24 22:22:26
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 074213
+    [certificate] => 3
+    [scope] => 1
+    [cert_id] => 4049929475458
+    [due_date] => 2018-03-24 22:22:26
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 074213
+    [certificate] => 2
+    [scope] => 1
+    [cert_id] => 4049929475458
+    [cert_option] => 3
+    [due_date] => 2018-03-24 22:22:26
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 074213
+    [certificate] => 8
+    [scope] => 1
+    [cert_id] => 4049929475458
+    [due_date] => 2017-10-13
+    [remark] => 
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [scope] => 2
+    [vendor] => 082608
+    [certificate] => 6
+    [cert_id] => 15180
+    [due_date] => 2018-08-17 22:22:26
+)
+
+2017-10-13T22:22:27+02:00 ERR (3): Kein Datum No date part in '' found.
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 082608
+    [certificate] => 3
+    [scope] => 4
+    [due_date] => 2017-10-13
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 082608
+    [certificate] => 4
+    [scope] => 2
+    [cert_id] => 
+    [due_date] => 2017-12-31 22:22:26
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 078445
+    [certificate] => 3
+    [scope] => 4
+    [due_date] => 2018-02-18 22:22:26
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 078445
+    [certificate] => 3
+    [scope] => 1
+    [cert_id] => 4049929488519
+    [due_date] => 2018-02-18 22:22:26
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 078445
+    [certificate] => 2
+    [scope] => 1
+    [cert_id] => 4049929488519
+    [cert_option] => 3
+    [due_date] => 2018-02-18 22:22:26
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 078445
+    [certificate] => 8
+    [scope] => 1
+    [cert_id] => 4049929488519
+    [due_date] => 2017-10-13
+    [remark] => 
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 084025
+    [certificate] => 3
+    [scope] => 4
+    [due_date] => 2018-04-02 22:22:26
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 084025
+    [certificate] => 3
+    [scope] => 1
+    [cert_id] => 4049928173249
+    [due_date] => 2018-04-02 22:22:26
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 084025
+    [certificate] => 2
+    [scope] => 1
+    [cert_id] => 4049928173249
+    [cert_option] => 1
+    [due_date] => 2018-04-02 22:22:26
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 084025
+    [certificate] => 8
+    [scope] => 1
+    [cert_id] => 4049928173249
+    [due_date] => 2017-10-13
+    [remark] => 
+)
+
+2017-10-13T22:22:27+02:00 ERR (3): Kein Datum No date part in 'aktuell keine sichtbare Zertifizierung in Datenbank' found.
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 082686
+    [certificate] => 2
+    [scope] => 1
+    [cert_id] => 4052852207423
+    [cert_option] => 1
+    [due_date] => 2017-10-13
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [scope] => 2
+    [vendor] => 070741
+    [certificate] => 6
+    [cert_id] => 42230
+    [due_date] => 2018-07-02 22:22:26
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 070741
+    [certificate] => 3
+    [scope] => 4
+    [due_date] => 2017-08-01 22:22:26
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 070741
+    [certificate] => 4
+    [scope] => 2
+    [cert_id] => 
+    [due_date] => 2016-12-31 22:22:26
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 095940
+    [certificate] => 2
+    [scope] => 1
+    [cert_id] => 4049929029422
+    [cert_option] => 2
+    [due_date] => 2018-02-18 22:22:26
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 095940
+    [certificate] => 7
+    [scope] => 1
+    [cert_id] => 4049929029422
+    [due_date] => 2018-02-18 22:22:26
+    [remark] => 
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [scope] => 2
+    [vendor] => 081970
+    [certificate] => 6
+    [cert_id] => 47057
+    [due_date] => 2018-03-29 22:22:26
+)
+
+2017-10-13T22:22:27+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 081970
+    [certificate] => 2
+    [scope] => 1
+    [cert_id] => 4049929959774
+    [cert_option] => 2
+    [due_date] => 2018-03-31 22:22:26
+)
+
+2017-10-13T22:22:28+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 081970
+    [certificate] => 7
+    [scope] => 1
+    [cert_id] => 4049929959774
+    [due_date] => 2018-03-31 22:22:26
+    [remark] => 
+)
+
+2017-10-13T22:22:28+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 080599
+    [certificate] => 2
+    [scope] => 1
+    [cert_id] => 4049929926288
+    [cert_option] => 1
+    [due_date] => 2018-08-24 22:22:26
+)
+
+2017-10-13T22:22:28+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 080599
+    [certificate] => 7
+    [scope] => 1
+    [cert_id] => 4049929926288
+    [due_date] => 2018-08-24 22:22:26
+    [remark] => 
+)
+
+2017-10-13T22:22:28+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 084711
+    [certificate] => 2
+    [scope] => 1
+    [cert_id] => 4050373923426
+    [cert_option] => 1
+    [due_date] => 2018-05-24 22:22:26
+)
+
+2017-10-13T22:22:28+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 085015
+    [certificate] => 3
+    [scope] => 4
+    [due_date] => 2018-05-09 22:22:26
+)
+
+2017-10-13T22:22:28+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 085015
+    [certificate] => 3
+    [scope] => 1
+    [cert_id] => 4049928398222
+    [due_date] => 2018-05-09 22:22:26
+)
+
+2017-10-13T22:22:28+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 085015
+    [certificate] => 2
+    [scope] => 1
+    [cert_id] => 4049928398222
+    [cert_option] => 3
+    [due_date] => 2018-05-19 22:22:26
+)
+
+2017-10-13T22:22:28+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 085015
+    [certificate] => 7
+    [scope] => 1
+    [cert_id] => 4049928398222
+    [due_date] => 2018-05-19 22:22:26
+    [remark] => 
+)
+
+2017-10-13T22:22:28+02:00 INFO (6): Cert_Vendor: Array
+(
+    [scope] => 3
+    [vendor] => 077756
+    [certificate] => 6
+    [cert_id] => 37891
+    [due_date] => 2017-11-14 22:22:26
+)
+
+2017-10-13T22:22:28+02:00 INFO (6): Cert_Vendor: Array
+(
+    [scope] => 2
+    [vendor] => 085418
+    [certificate] => 6
+    [cert_id] => 35599
+    [due_date] => 2018-05-08 22:22:26
+)
+
+2017-10-13T22:22:28+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 085418
+    [certificate] => 3
+    [scope] => 4
+    [due_date] => 2018-03-21 22:22:26
+)
+
+2017-10-13T22:22:28+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 085418
+    [certificate] => 4
+    [scope] => 2
+    [cert_id] => 
+    [due_date] => 2017-03-31 22:22:26
+)
+
+2017-10-13T22:22:28+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 085418
+    [certificate] => 8
+    [scope] => 1
+    [cert_id] => 
+    [due_date] => 2017-10-13
+    [remark] => 
+)
+
+2017-10-13T22:22:28+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 086324
+    [certificate] => 2
+    [scope] => 1
+    [cert_id] => 4050373022976
+    [cert_option] => 1
+    [due_date] => 2018-06-08 22:22:26
+)
+
+2017-10-13T22:22:28+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 086324
+    [certificate] => 7
+    [scope] => 1
+    [cert_id] => 4050373022976
+    [due_date] => 2018-06-08 22:22:26
+    [remark] => 
+)
+
+2017-10-13T22:22:28+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 070127
+    [certificate] => 2
+    [scope] => 1
+    [cert_id] => 4049928988515
+    [cert_option] => 1
+    [due_date] => 2018-03-07 22:22:26
+)
+
+2017-10-13T22:22:28+02:00 INFO (6): Cert_Vendor: Array
+(
+    [scope] => 6
+    [vendor] => 086106
+    [certificate] => 6
+    [cert_id] => 3825
+    [due_date] => 2018-05-09 22:22:26
+)
+
+2017-10-13T22:22:28+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 086106
+    [certificate] => 3
+    [scope] => 4
+    [due_date] => 2017-01-18 22:22:26
+)
+
+2017-10-13T22:22:28+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 086106
+    [certificate] => 4
+    [scope] => 6
+    [cert_id] => 
+    [due_date] => 2016-12-31 22:22:26
+)
+
+2017-10-13T22:22:28+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 086151
+    [certificate] => 2
+    [scope] => 1
+    [cert_id] => 4056186830395
+    [cert_option] => 1
+    [due_date] => 2017-10-25 22:22:26
+)
+
+2017-10-13T22:22:28+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 079852
+    [certificate] => 2
+    [scope] => 1
+    [cert_id] => 4052852266260
+    [cert_option] => 1
+    [due_date] => 2018-03-28 22:22:26
+)
+
+2017-10-13T22:22:28+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 079852
+    [certificate] => 7
+    [scope] => 1
+    [cert_id] => 4052852266260
+    [due_date] => 2018-03-28 22:22:26
+    [remark] => 
+)
+
+2017-10-13T22:22:28+02:00 INFO (6): Cert_Vendor: Array
+(
+    [scope] => 5
+    [vendor] => 079809
+    [certificate] => 6
+    [cert_id] => 1619
+    [due_date] => 2018-04-24 22:22:26
+)
+
+2017-10-13T22:22:28+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 079809
+    [certificate] => 3
+    [scope] => 4
+    [due_date] => 2018-04-28 22:22:26
+)
+
+2017-10-13T22:22:28+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 079809
+    [certificate] => 4
+    [scope] => 5
+    [cert_id] => 
+    [due_date] => 2017-02-28 22:22:26
+)
+
+2017-10-13T22:22:28+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 079809
+    [certificate] => 8
+    [scope] => 1
+    [cert_id] => 
+    [due_date] => 2017-10-13
+    [remark] => 
+)
+
+2017-10-13T22:22:28+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 086329
+    [certificate] => 2
+    [scope] => 1
+    [cert_id] => 4050373465704
+    [cert_option] => 1
+    [due_date] => 2017-12-22 22:22:26
+)
+
+2017-10-13T22:22:28+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 086835
+    [certificate] => 2
+    [scope] => 1
+    [cert_id] => 4052852983075
+    [cert_option] => 2
+    [due_date] => 2017-11-24 22:22:26
+)
+
+2017-10-13T22:22:28+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 086835
+    [certificate] => 7
+    [scope] => 1
+    [cert_id] => 4052852983075
+    [due_date] => 2017-11-24 22:22:26
+    [remark] => 
+)
+
+2017-10-13T22:22:28+02:00 INFO (6): Cert_Vendor: Array
+(
+    [scope] => 5
+    [vendor] => 080525
+    [certificate] => 6
+    [cert_id] => 834
+    [due_date] => 2018-06-28 22:22:26
+)
+
+2017-10-13T22:22:28+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 080525
+    [certificate] => 3
+    [scope] => 4
+    [due_date] => 2019-03-20 22:22:26
+)
+
+2017-10-13T22:22:28+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 080525
+    [certificate] => 4
+    [scope] => 5
+    [cert_id] => 
+    [due_date] => 0217-08-31 22:22:26
+)
+
+2017-10-13T22:22:28+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 086819
+    [certificate] => 3
+    [scope] => 4
+    [due_date] => 2018-05-03 22:22:26
+)
+
+2017-10-13T22:22:28+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 086819
+    [certificate] => 3
+    [scope] => 1
+    [cert_id] => 4049929288089
+    [due_date] => 2018-05-03 22:22:26
+)
+
+2017-10-13T22:22:28+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 086819
+    [certificate] => 2
+    [scope] => 1
+    [cert_id] => 4049929288089
+    [cert_option] => 3
+    [due_date] => 2018-05-03 22:22:26
+)
+
+2017-10-13T22:22:28+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 086819
+    [certificate] => 8
+    [scope] => 1
+    [cert_id] => 4049929288089
+    [due_date] => 2017-10-13
+    [remark] => 
+)
+
+2017-10-13T22:22:28+02:00 INFO (6): Cert_Vendor: Array
+(
+    [scope] => 4
+    [vendor] => 086822
+    [certificate] => 6
+    [cert_id] => 1434
+    [due_date] => 2018-06-01 22:22:26
+)
+
+2017-10-13T22:22:28+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 086822
+    [certificate] => 3
+    [scope] => 4
+    [due_date] => 2018-06-08 22:22:26
+)
+
+2017-10-13T22:22:28+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 086822
+    [certificate] => 4
+    [scope] => 4
+    [cert_id] => 
+    [due_date] => 2019-01-31 22:22:26
+)
+
+2017-10-13T22:22:28+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 086822
+    [certificate] => 8
+    [scope] => 1
+    [cert_id] => verschiedene Erzeuger (siehe V:\4_Qualit嵳management\010 Zertifikate\Zertifikate - Erzeuger)
+    [due_date] => 2017-10-13
+    [remark] => 
+)
+
+2017-10-13T22:22:28+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 079850
+    [certificate] => 2
+    [scope] => 1
+    [cert_id] => 4056186232526
+    [cert_option] => 1
+    [due_date] => 2018-05-05 22:22:26
+)
+
+2017-10-13T22:22:28+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 079850
+    [certificate] => 7
+    [scope] => 1
+    [cert_id] => 4056186232526
+    [due_date] => 2018-05-05 22:22:26
+    [remark] => ?
+)
+
+2017-10-13T22:22:28+02:00 ERR (3): Kein Datum Unable to parse date 'in QS Datenbank registiert
+OGK132000005171' using 'dd.MM.y' (M <> d)
+2017-10-13T22:22:28+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 086812
+    [certificate] => 3
+    [scope] => 4
+    [due_date] => 2017-10-13
+)
+
+2017-10-13T22:22:28+02:00 ERR (3): Kein Datum No date part in 'aktuell keine sichtbare Zertifizierung in Datenbank' found.
+2017-10-13T22:22:28+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 086812
+    [certificate] => 2
+    [scope] => 1
+    [cert_id] => 4049929480254
+    [cert_option] => 1
+    [due_date] => 2017-10-13
+)
+
+2017-10-13T22:22:28+02:00 INFO (6): Cert_Vendor: Array
+(
+    [scope] => 6
+    [vendor] => 086838
+    [certificate] => 6
+    [cert_id] => 3121
+    [due_date] => 2018-05-06 22:22:26
+)
+
+2017-10-13T22:22:28+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 086838
+    [certificate] => 4
+    [scope] => 6
+    [cert_id] => 
+    [due_date] => 2017-12-31 22:22:26
+)
+
+2017-10-13T22:22:28+02:00 INFO (6): Cert_Vendor: Array
+(
+    [scope] => 2
+    [vendor] => 086842
+    [certificate] => 6
+    [cert_id] => 28783
+    [due_date] => 2017-12-05 22:22:26
+)
+
+2017-10-13T22:22:28+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 086842
+    [certificate] => 2
+    [scope] => 1
+    [cert_id] => 8713783956663
+    [cert_option] => 1
+    [due_date] => 2018-03-17 22:22:26
+)
+
+2017-10-13T22:22:28+02:00 INFO (6): Cert_Vendor: Array
+(
+    [scope] => 6
+    [vendor] => 086826
+    [certificate] => 6
+    [cert_id] => 26370
+    [due_date] => 2018-04-20 22:22:26
+)
+
+2017-10-13T22:22:28+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 086821
+    [certificate] => 3
+    [scope] => 4
+    [due_date] => 2017-11-21 22:22:26
+)
+
+2017-10-13T22:22:28+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 086821
+    [certificate] => 3
+    [scope] => 1
+    [cert_id] => 4049929288140
+    [due_date] => 2018-05-04 22:22:26
+)
+
+2017-10-13T22:22:28+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 086821
+    [certificate] => 2
+    [scope] => 1
+    [cert_id] => 4049929288140
+    [cert_option] => 3
+    [due_date] => 2018-05-04 22:22:26
+)
+
+2017-10-13T22:22:28+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 086821
+    [certificate] => 8
+    [scope] => 1
+    [cert_id] => 4049929288140
+    [due_date] => 2017-10-13
+    [remark] => 
+)
+
+2017-10-13T22:22:28+02:00 INFO (6): Cert_Vendor: Array
+(
+    [vendor] => 088912
+    [certificate] => 7
+    [scope] => 1
+    [cert_id] => 8718711004706
+8719338009709
+    [due_date] => 2017-08-18 22:22:26
+    [remark] => 
+)
+

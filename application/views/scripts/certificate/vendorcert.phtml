@@ -1,0 +1,127 @@
+<script>
+function toggleElement(id) { 
+    if(document.getElementById) { 
+        var myelement = document.getElementById(id); 
+        myelement.style.display = (myelement.style.display=='block' ? 'none' : 'block'); 
+    } 
+}
+
+function buildUrl()
+	var uri = 
+	var no = document.getElementById('no');
+	var vendor = document.getElementById('vendor');
+	var street = document.getElementById('street');
+	var city = document.getElementById('city');
+	var end_date = document.getElementById('end');
+	uri = '/certificate/vendorcert';
+	if (no.value!='') uri+='/No/'+no.value;
+	if (vendor.value !='') uri+='/name/'+vendor.value;
+	if (street.value !='') uri+='/street/'+street.value;
+	if (city.value !='') uri+='/city/'+city.value;
+	if (end_date.value!='') uri+='/end/'+end_date.value;
+	return uri;
+}
+
+function sendSearchpattern()
+{
+	window.location = uri;
+}
+</script>
+<?php $vc_count = $this->vc_count; ?>
+<?php $pages = floor($vc_count/25) + 1; ?>
+<?php $cur_page = $this->cur_page; ?>
+<?php $searching = $this->searching; ?>
+<?php
+function getDateStyle($date)
+{
+	if ($date=='') return 'data';
+	$today = new Zend_Date();
+	$certDate = new Zend_Date($date);
+	$certDate->set($date);
+	if ($certDate->isEarlier($today)) $style = 'cert_unvalid';
+	elseif ($certDate->isEarlier($today->add('1', Zend_Date::MONTH))) $style = 'cert_allmmost_unvalid';
+	else $style = 'data';
+	return $style;
+}
+?>
+<hr />
+<div id="search_inb" class="search_dialog">
+<button type="button" onclick="toggleElement('search_fields')">Suchen</button>
+<table id="search_fields" style="display:<?php echo $searching ? 'block' : 'none'; ?>">
+	<tr>
+		<th>Nummer</th>
+		<th>Lieferant</th>
+		<th>Straße</th>
+		<th>Ort</th>
+		<th>Gültig</th>
+	</tr>
+	<tr>
+		<td><input type="text" name="no" id="no" value="<?php echo isset($this->searchparams['No']) ? $this->searchparams['No']['value'] : ''; ?>"/></td>
+		<td><input type="text" name="vendor" id="vendor"  value="<?php echo isset($this->searchparams['name']) ? $this->searchparams['name']['value'] : ''; ?>"/></td>
+		<td><input type="text" name="street" id="street"  value="<?php echo isset($this->searchparams['street']) ? $this->searchparams['street']['value'] : ''; ?>"/></td>
+		<td><input type="text" name="city" id="city"  value="<?php echo isset($this->searchparams['city']) ? $this->searchparams['city']['value'] : ''; ?>"/></td>
+		<td><select name="end" id="end">
+			<option value=""></option>
+			<option value="NOW()"<?php if($this->date_filter[1]=='NOW()') echo ' selected'; ?>>Heute</option>
+			<option value="NOW()%2bINTERVAL 1 DAY"<?php if($this->date_filter[1]=='NOW()+INTERVAL 1 DAY') echo ' selected'; ?>>+ 1 Woche</option>
+			<option value="NOW()%2bINTERVAL 1 MONTH"<?php if($this->date_filter[1]=='NOW()+INTERVAL 1 MONTH') echo ' selected'; ?>>+ 1 Monat</option>
+			<option value="NOW()%2bINTERVAL 1 YEAR"<?php if($this->date_filter[1]=='NOW()+INTERVAL 1 YEAR') echo ' selected'; ?>>+ 1 Jahr</option>
+			</select>
+			<input type="hidden" name="order" id="order" value="<?php echo isset($this->searchparams['order']) ? $this->searchparams['order'] : ''; ?>" /></td>
+		<td><button type="button" onclick="sendSearchpattern()">Suchen</button></td>
+	</tr>
+</table>
+</div>
+<a href="/vendor/edit/">Neuer Lieferant</a><br />
+<?php if ($pages > 1) : ?>
+<div id="page">
+<?php if ($cur_page>2) : ?><a href="<?php echo $this->uri.'/page/1' ?>"><<</a>&#160;<?php endif ?>
+<?php if ($cur_page>1) : ?><a href="<?php echo $this->uri.'/page/'.($cur_page-1); ?>"><</a>&#160;<?php endif ?>
+<?php echo "Seite $cur_page" ?>&#160;
+<?php if ($cur_page<$pages) : ?><a href="<?php echo $this->uri.'/page/'.($cur_page+1); ?>">></a>&#160;<?php endif ?>
+<?php if (($cur_page+1)<$pages) : ?><a href="<?php echo $this->uri.'/page/'.$pages; ?>">>></a><?php endif ?>
+</div>
+<?php endif ?>
+<table class="data">
+<thead>
+	<tr class="data">
+		<th id="No" class="data" width="3cm" onclick="order(this)">Nummer</th>
+		<th id="name" class="data" onclick="order(this)">Name</th>
+		<th id="street" class="data" onclick="order(this)">Straße</th>
+		<th id="city" class="data" onclick="order(this)">Ort</th>	
+		<th class="data" width="4cm">Land</th>
+		<th class="data" width="4cm">IFS</th>
+		<th class="data" width""4cm">GG</th>
+		<th class="data" width="4cm">QS</th>
+		<th class="data" width="4cm">BIO</th>
+		<th class="data" width="4cm">GRASP</th>
+	</tr>
+</thead>
+<tbody>
+<?php foreach($this->vendor_certs as $entry) :  ?>
+	<tr>
+		<td class="data"><a href="/vendor/edit/id/<?php echo $entry['No']; ?>"><?php echo $entry['No']; ?></td>
+		<td class="data"><?php echo $entry['name']; ?></td>
+		<td class="data"><?php echo $entry['street']; ?></td>
+		<td class="data"><?php echo $entry['city']; ?></td>
+		<td class="data"><?php echo $entry['country_code']; ?></td>
+		<td class="<?php echo getDateStyle($entry['IFS']); ?>"><?php echo ($entry['IFS']<>'') ? date('d.m.Y', strtotime($entry['IFS'])) : ''; ?></td>
+		<td class="<?php echo getDateStyle($entry['GG']); ?>"><?php echo ($entry['GG']<>'') ? date('d.m.Y', strtotime($entry['GG'])) : ''; ?></td>
+		<td class="<?php echo getDateStyle($entry['QS']); ?>"><?php echo ($entry['QS']<>'') ? date('d.m.Y', strtotime($entry['QS'])) : ''; ?></td>
+		<td class="<?php echo getDateStyle($entry['BIO']); ?>"><?php echo ($entry['BIO']<>'') ? date('d.m.Y', strtotime($entry['BIO'])) : ''; ?></td>
+		<td class="<?php echo getDateStyle($entry['GRASP']); ?>"><?php echo ($entry['GRASP']<>'') ? date('d.m.Y', strtotime($entry['GRASP'])) : ''; ?></td>
+	</tr>
+<?php endforeach; ?>
+</tbody>
+</table>
+<?php if ($pages > 1) : ?>
+<div id="page">
+<?php if ($cur_page>2) : ?><a href="<?php echo $this->uri.'/page/1' ?>"><<</a>&#160;<?php endif ?>
+<?php if ($cur_page>1) : ?><a href="<?php echo $this->uri.'/page/'.($cur_page-1); ?>"><</a>&#160;<?php endif ?>
+<?php echo "Seite $cur_page" ?>&#160;
+<?php if ($cur_page<$pages) : ?><a href="<?php echo $this->uri.'/page/'.($cur_page+1); ?>">></a>&#160;<?php endif ?>
+<?php if (($cur_page+1)<$pages) : ?><a href="<?php echo $this->uri.'/page/'.$pages; ?>">>></a><?php endif ?>
+</div>
+<?php endif ?>
+<a href="/vendor/edit/">Neuer Lieferant</a>
+<hr />

@@ -1,0 +1,21 @@
+<hr />
+<table class="data">
+	<tr class="data">
+		<th class="data" width="3cm">Nummer</th>
+		<th class="data" width="20cm">Name</th>
+		<th class="data" width="20cm"">Straße</th>
+		<th class="data" width="20cm">Ort</th>
+		<th class="data" width="2cm">Land</th>
+	</tr>
+<?php foreach($this->customers as $entry) :  ?>
+	<tr>
+		<td class="data"><a href="/customer/edit/id/<?php echo $entry['No']; ?>"><?php echo $entry['No']; ?></td>
+		<td class="data"><?php echo $entry['name']; ?></td>
+		<td class="data"><?php echo $entry['street']; ?></td>
+		<td class="data"><?php echo $entry['city']; ?></td>
+		<td class="data"><?php echo $entry['country_code']; ?></td>
+	</tr>
+<?php endforeach; ?>
+</table>
+<a href="/customer/edit/">Neuer Kunde</a>
+<hr />

@@ -1,0 +1,49 @@
+﻿<?php
+echo $this->doctype();
+$this->headTitle()->setSeparator(' - ');
+$this->headTitle('MVS Dispo', 'PREPEND');
+$this->headLink()->appendStylesheet('/css/styles.css', 'all');
+$this->headScript()->appendFile('/js/bs_scripts.js');
+$this->headMeta()->appendName('description', 'A brief description of the site.');
+$this->headMeta()->appendHttpEquiv('Content-Type', 'text/html;charset=utf-8');
+$this->headMeta()->appendHttpEquiv('Content-Language', 'de-DE');
+?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<?php
+echo $this->headTitle();
+echo $this->headMeta();
+echo $this->headLink();
+echo $this->headScript();
+?>
+</head>
+<body>
+<!-- start header -->
+<div id="header">
+	<div id="logo">
+		<h1><a href="<?php echo $this->url(array('controller' => 'index')); ?>"><img src="/images/logo_mvs_dispo.jpg" alt="MVS Dispo" /></a></h1>
+	</div>
+</div>
+<div id="navi">
+	<?php echo $this->menuHelper(); ?>
+</div>
+<!-- end header -->
+<!-- start page -->
+<div id="page">
+	<!-- start content -->
+	<div id="content">
+		<?php echo $this->layout()->content; ?>
+	</div>
+	<!-- end content -->
+	<br style="clear: both;" />
+</div>
+<!-- end page -->
+<!-- start footer -->
+<div id="footer">
+	<p class="legal">
+		Powered by <a href="http://www.framework.zend.com/">Zend Framework</a>
+	</p>
+</div>
+<!-- end footer -->
+</body>
+</html>

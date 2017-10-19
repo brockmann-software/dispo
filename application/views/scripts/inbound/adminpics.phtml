@@ -1,0 +1,65 @@
+<script>
+function showPic(pic)
+{
+	var centerPic = document.getElementById('picView');
+	centerPic.src=pic.src;
+}
+
+function addPicture()
+{
+	var divPictures = document.getElementById('new_pictures');
+	var divPicture = document.createElement('div');
+	divPicture.innerHTML = '<input type="file" name="picture[]" multiple accept="image/*" capture="camera"/><a onclick="addPicture()"><img src="/images/60.ico" alt="hinzufügen" title="Bild hinzufügen" /></a>';
+	divPictures.appendChild(divPicture);
+}
+
+function addAtt()
+{
+	var divAttachments = document.getElementById('new_attachments');
+	var divAtt = document.createElement('div');
+	divAtt.innerHTML = '<input type="file" name="attachment[]" /><a onclick="addAtt()"><img src="/images/60.ico" alt="hinzufügen" title="Dok. hinzufügen" /></a>';
+	divAttachments.appendChild(divAtt);
+}
+</script>
+<form name="adminPics" action="/inbound/editpictures/" method="post"   enctype="multipart/form-data">
+<input type="hidden" name="inbound_line" value="<?php echo $this->inbound_line; ?>" />
+<?php // Zend_Registry::get('logger')->info('Pictures: '.print_r($this->pictures, true)); ?>
+<?php $picCount = count($this->pictures); ?>
+<fieldset id="pictures">
+<?php foreach ($this->pictures as $image) : ?>
+<div class="picture_container">
+<?php	$image_attr = getimagesize($this->picture_path.'/'.$image['path']);
+	$img_relation = $image_attr[0]/$image_attr[1];
+//	Zend_Registry::get('logger')->info('Image Path: '.print_r($this->picture_path.'/'.$image['path'], true));
+//	Zend_Registry::get('logger')->info('Image Attr.:'.print_r($image_attr, true));
+	if ($img_relation<1) {
+		$height = 240;
+		$width = $height * $img_relation;
+	} else {
+		$width = 180;
+		$height = $width * $img_relation;
+	} ?>
+<img src="<?php echo '/quality/pictures/'.$image['path']; ?>" alt="<?php echo $image['path']; ?>" width="<?php echo $height; ?>" height="<?php echo $width; ?>" onclick="showPic(this)" /><br />
+<input type="checkbox" name="<?php echo $image['No'] ?>" id="<?php echo $image['No'] ?>" onclick="deletePic(this)" /><label for="<?php echo $image['No'] ?>">Löschen</label>
+</div>
+<?php endforeach ?>
+</fieldset>
+<fieldset>
+<div width="100%" height="600" align="center">
+<?php if ($picCount>0) : ?>
+<img id="picView" src="<?php echo '/quality/pictures/'.$this->pictures[0]['path']; ?>" alt="<?php echo $this->pictures[0]['path']; ?>" width="800" height="600" align="middle" />
+<?php endif ?>
+</div>
+</fieldset>
+<fieldset id="new_pictures">
+<legend>Bilder</legend>
+<div><input type="file" name="picture[]" multiple accept="image/*" capture="camera"/><a onclick="addPicture()"><img src="/images/60.ico" alt="hinzufügen" title="Bild hinzufügen" /></a></div>
+</fieldset>
+<div>
+<fieldset id="new_attachments">
+<legend>Dokumente</legend>
+<div><input type="file" name="attachment[]" multiple /><a onclick="addAtt()"><img src="/images/60.ico" alt="hinzufügen" title="Dok. hinzufügen" /></a></div>
+</fieldset>
+</div>
+<div><input type="submit" name="submit" value="Speichern" /> <input type="submit" name="submit" value="Abbrechen" /></div>
+</form>

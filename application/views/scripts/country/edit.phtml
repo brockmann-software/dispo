@@ -1,0 +1,78 @@
+
+<?php // Zend_Debug::dump($this->params) ?>
+<?php $data = $this->params['data']; ?>
+<?php $errors = $this->params['errors']; ?>
+<?php // echo $this->form; ?>
+
+<form action="/country/edit/" method="post">
+<legend><?php echo $this->params['title']; ?></legend>
+<?php if (isset($this->errors['all'])) : ?><div class="error">
+<?php echo $this->errors['all']; ?>
+</div><?php  endif ?>
+<fieldset>
+<table>
+	<tr>
+		<td></td><td><input type="hidden" name="old_Id" value="<?php echo $data['Id']; ?>" /></td>
+	</tr>
+	<tr>
+		<td>ISO_2</td>
+		<td>
+		<?php if (isset($errors['Id'])) : ?><div class="error"><?php endif ?>
+		<input type="text" name="Id" size="5" maxlength="10" value="<?php echo $data['Id']; ?>" />
+		<?php if (isset($errors['Id'])) : ?><br /><?php echo $errors['Id']; ?></div><?php endif ?>
+		</td>
+	</tr>
+	<tr>
+		<td>Bezeichnung</td>
+		<td>
+		<?php if (isset($errors['country'])) : ?><div class="error"><?php endif ?>
+		<input type="text" name="country" size="50" maxlength="50" value="<?php echo $data['country']; ?>" />
+		<?php if (isset($errors['country'])) : ?><br /><?php echo $errors['country']; ?></div><?php endif ?>
+		</td>
+	</tr>
+	<tr>
+		<td>ISO_3</td>
+		<td>
+		<?php if (isset($errors['ISO_3'])) : ?><div class="error"><?php endif ?>
+		<input type="text" name="ISO_3" size="5" maxlength="10" value="<?php echo $data['ISO_3']; ?>" />
+		<?php if (isset($errors['ISO_3'])) : ?><br /><?php echo $errors['ISO_3']; ?></div><?php endif ?>
+		</td>
+	</tr>
+	<tr>
+		<td>Währung</td>
+		<td>
+		<?php if (isset($errors['currency'])) : ?><div class="error"><?php endif ?>
+		<input type="text" name="currency" size="30" maxlength="30" value="<?php echo $data['currency']; ?>" />
+		<?php if (isset($errors['currency'])) : ?><br /><?php echo $errors['currency']; ?></div><?php endif ?>
+		</td>
+	</tr>
+	<tr>
+		<td>Währungscode</td>
+		<td>
+		<?php if (isset($errors['currency_code'])) : ?><div class="error"><?php endif ?>
+		<input type="text" name="currency_code" size="10" maxlength="10" value="<?php echo $data['currency_code']; ?>" />
+		<?php if (isset($errors['currency_code'])) : ?><br /><?php echo $errors['currency_code']; ?></div><?php endif ?>
+		</td>
+	</tr>
+	<tr>
+		<td>Country Code<br />(Zahl)</td>
+		<td>
+		<?php if (isset($errors['CC'])) : ?><div class="error"><?php endif ?>
+		<input type="number" name="CC" size="5" min="0" max="9999" value="<?php echo $data['CC']; ?>" />
+		<?php if (isset($errors['CC'])) : ?><br /><?php echo $errors['CC']; ?></div><?php endif ?>
+		</td>
+	</tr>
+	<tr>
+		<td>BTM Code<br />(3 Stellig mit führenden 0)</td>
+		<td>
+		<?php if (isset($errors['BTM_code'])) : ?><div class="error"><?php endif ?>
+		<input type="text" name="BTM_code" size="10" value="<?php echo $data['BTM_code']; ?>" />
+		<?php if (isset($errors['BTM_code'])) : ?><br /><?php echo $errors['BTM_code']; ?></div><?php endif ?>
+		</td>
+	</tr>
+	<tr>
+		<td></td><td><input type="submit" value="Speichern" /></td>
+	</tr>
+</table>
+</fieldset>	
+</form>

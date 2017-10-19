@@ -1,0 +1,24 @@
+<a href="/country/edit">Neues Land</a>
+<hr />
+<table>
+	</tr class="data">
+		<th class="data">Id</th>
+		<th class="data">Land</th>
+		<th class="data">ISO 3</th>
+		<th class="data">Währung</th>
+		<th class="data">Währungscode</th>
+		<th class="data">BTM Code</th>
+	</tr>
+<?php foreach($this->countries as $entry) : ?>
+	<tr class="data">
+		<td class="data"><a href="/country/edit/id/<?php echo $entry['Id']; ?>"><?php echo $entry['Id']; ?></a></td>
+		<td class="data"><?php echo $entry['country']; ?></td>
+		<td class="data"><?php echo $entry['ISO_3']; ?></td>
+		<td class="data"><?php echo $entry['currency']; ?></td>
+		<td class="data"><?php echo $entry['currency_code']; ?></td>
+		<td class="data"><?php echo $entry['BTM_code']; ?></td>
+	</tr>
+<?php endforeach ?>
+</table>
+<hr />
+<a href="/country/edit">Neues Land</a>

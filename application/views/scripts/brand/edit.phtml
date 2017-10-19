@@ -1,0 +1,28 @@
+
+<?php // Zend_Debug::dump($this->params) ?>
+<?php $data = $this->params['data']; ?>
+<?php $errors = $this->params['errors']; ?>
+<?php // echo $this->form; ?>
+
+<form action="/brand/edit/" method="post">
+<legend><?php echo $this->params['title']; ?></legend>
+<?php if (isset($this->errors['all'])) : ?><div class="error">
+<?php echo $this->errors['all']; ?>
+</div><?php  endif ?>
+<fieldset>
+<table>
+	<tr>
+		<td></td><td><input type="hidden" name="No" value="<?php echo $data['No']; ?>" /></td>
+	</tr>
+	<tr>
+		<td>Marke</td><td>
+		<?php if (isset($errors['brand'])) : ?><div class="error"><?php endif ?>
+		<input type="text" name="brand" size="40" maxlength="255" value="<?php echo $data['brand']; ?>" /></td>
+		<?php if (isset($errors['brand'])) : ?><br /><?php echo $errors['brand']; ?></div><?php endif ?>
+	</tr>
+	<tr>
+		<td></td><td><input type="submit" value="Speichern" /></td>
+	</tr>
+</table>
+</fieldset>	
+</form>

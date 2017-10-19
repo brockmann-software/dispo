@@ -1,0 +1,127 @@
+<script>
+function changeProduct(select)
+{
+	productSet = document.getElementById('products');
+	actOpt = select.options[select.selectedIndex];
+	(actOpt.dataset.production) ? productSet.style.display = 'block' : productSet.style.display ='none';
+}
+
+function selectAll(selection)
+{
+	select = document.getElementById(selection);
+	for (i=0; i<select.length; i++) select[i].selected = true;
+}
+
+function loadArgs()
+{
+	changeProduct(document.getElementById('certificate'));
+}
+</script>
+<?php
+function productInList($cert_products, $no)
+{
+	$found = false;
+	foreach ($cert_products as $cert_product) {
+		if ($cert_product['product']==$no) {
+			$found=true;
+			break;
+		}
+	}
+	return $found;
+}
+?>
+<?php $products = $this->params['products']; ?>
+<?php $cert_vendor = $this->params['cert_vendor']; ?>
+<?php $errors = $this->params['errors']; ?>
+<form action="/vendor/editcert" method="post">
+<fieldset>
+<legend>Allgemeine Daten</legend>
+<input type="hidden" name="No" value="<?php echo $cert_vendor['No']; ?>" />
+<input type="hidden" name="vendor" value="<?php echo $cert_vendor['vendor']; ?>" />
+<table>
+<tr>
+	<td>Zertifikat</td><td>
+	<?php if (isset($errors['certificate'])) : ?><div class="error"><?php endif ?>
+	<select name="certificate" id="certificate" onchange="changeProduct(this)">
+							<?php foreach ($this->params['certificates'] as $certificate) : ?>
+							<option value="<?php echo $certificate['No']; ?>"<?php if ($certificate['No']==$cert_vendor['certificate']) echo " selected"?><?php if ($certificate['product']==1) echo ' data-production="1"'; ?>><?php echo $certificate['certificate']; ?></option>
+							<?php endforeach ?>
+							</select>
+	<?php if (isset($errors['certificate'])) : ?><br /><?php echo $errors['certificate']; ?></div><?php endif ?>
+	</td>
+</tr>
+<tr>
+	<td>Registrier Nr.</td><td><input type="text" name="reg_id" value="<?php echo $cert_vendor['reg_id']; ?>" size="20" /></td>
+</tr>
+<tr>
+	<td>Zertifikat Nr.</td>
+	<td><?php if (isset($errors['cert_id'])) : ?><div class="error"><?php endif ?>
+	<input type="text" name="cert_id" value="<?php echo $cert_vendor['cert_id']; ?>" size="20" />
+	<?php if (isset($errors['cert_id'])) : ?><br /><?php echo $errors['cert_id']; ?></div><?php endif ?>
+	</td>
+</tr>
+<tr>
+	<td>Bereich</td><td>
+	<?php if (isset($errors['certificate'])) : ?><div class="error"><?php endif ?>
+	<select name="scope" id="scope">
+						<?php foreach ($this->params['scopes'] as $scope) : ?>
+						<option value="<?php echo $scope['No']; ?>"<?php if ($scope['No']==$cert_vendor['scope']) echo " selected"; ?>><?php echo $scope['scope']; ?></option>
+						<?php endforeach ?>
+						</select>
+	<?php if (isset($errors['certificate'])) : ?><br /><?php echo $errors['certificate']; ?></div><?php endif ?>
+	</td>
+</tr>
+<tr>
+	<td>Gültig bis</td><td>
+	<?php if (isset($errors['due_date'])) : ?><div class="error"><?php endif ?>
+	<input type="text" name="due_date" id="due_date" value="<?php echo date('d.m.Y', strtotime($cert_vendor['due_date'])); ?>" size="20" onchange="checkDate(this.id)" />
+	<?php if (isset($errors['due_date'])) : ?><br /><?php echo $errors['due_date']; ?></div><?php endif ?>
+	</td>
+</tr>
+<tr>
+	<td>Option</td><td><select name="cert_option" id="cert_option">
+						<option value="0"<?php if ($cert_vendor['cert_option']==0) echo " selected"; ?>>-</option>
+						<option value="1"<?php if ($cert_vendor['cert_option']==1) echo " selected"; ?>>1</option>
+						<option value="2"<?php if ($cert_vendor['cert_option']==2) echo " selected"; ?>>2</option>
+						<option value="3"<?php if ($cert_vendor['cert_option']==3) echo " selected"; ?>>3</option>
+						<option value="4"<?php if ($cert_vendor['cert_option']==4) echo " selected"; ?>>4</option>
+<tr>
+	<td>Bemerkungen</td><td><input type="text" name="remark" size="50" value="<?php echo $cert_vendor['remark']; ?>" /></td>
+</tr>
+</table>
+</fieldset>
+<fieldset id="products">
+<legend>Produkte</legend>
+<table>
+<tr>
+<td>Produkte</td><td>
+		  <table style="dislplay:block;"><tr>
+			<td>
+			  <select name="cert_products[]" id="cert_products" size="5" multiple="multiple">
+			  <?php foreach ($this->params['cert_products'] as $cert_product) : ?>
+			  <option value="<?php echo $cert_product['product']; ?>" label="<?php echo $this->cert_product['product_desc']; ?>"><?php echo $cert_product['product_desc']; ?></option>
+			  <?php endforeach ?>
+			  </select>
+			</td>
+			<td valign="middle">
+			  <button type="button" name='btnAddProduct' onclick="addProduct('cert_products', 'all_products')"><<</button><br />
+			  <button type="button" name='btnDelProduct' onclick="deleteProduct('cert_products', 'all_products')">>></button><br />
+			  <?php // echo $this->formButton('btnNewProduct', 'new', array('onClick'=>'javascript:newProduct("dataProducts")')) ?>
+			</td>
+			<td>
+			  <select name="all_products" id="all_products" size="5" multiple="multiple">
+			  <?php foreach($this->params['products'] as $product) : ?>
+			  <?php if (!productInList($this->params['cert_products'], $product['No'])) : ?>
+			  <option value="<?php echo $product['No']; ?>" label="<?php echo $product['product']; ?>"><?php echo $product['product']; ?></option>
+			  <?php endif ?>
+			  <?php endforeach ?>
+			  </select>
+			</td>
+			</tr></table>
+			</td>
+</tr>
+</table>
+</fieldset>
+<div><button type="submit" onclick="selectAll('cert_products')">Speichern</button>
+</form>
+<?php if (isset($errors['no_error'])) : ?><script>window.close();</script><?php endif ?>

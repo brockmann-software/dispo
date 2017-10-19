@@ -1,0 +1,54 @@
+<script>
+function loadArgs()
+{
+}
+</script>
+<?php
+?>
+<?php $vendor_agreement = $this->params['vendor_agreement']; ?>
+<?php $errors = $this->params['errors']; ?>
+<form action="/vendor/editagreemnt" method="post" enctype="multipart/form-data">
+<fieldset>
+<legend>Lieferantenerklärung</legend>
+<input type="hidden" name="No" value="<?php echo $vendor_agreement['No']; ?>" />
+<input type="hidden" name="vendor" value="<?php echo $vendor_agreement['vendor']; ?>" />
+<table>
+<tr>
+	<td>Version</td><td><?php if (isset($errors['version_year'])) : ?><div class="error"><?php endif ?>
+	<input type="text" name="version_year" maxlength="4" required value="<?php echo $vendor_agreement['version_year']; ?>" />
+	<?php if (isset($errors['version_year'])) : ?><br /><?php echo $errors['version_year']; ?></div><?php endif ?></td>
+</tr>
+<tr>
+	<td>Versendet</td><td><?php if (isset($errors['date_sent'])) : ?><div class="error"><?php endif ?>
+	<input type="type="text" size="20" name="date_sent" id="date_sent" value="<?php echo date('d.m.Y', strtotime($vendor_agreement['date_sent'])); ?>" onchange="checkDate(this.id)" />
+	<?php if (isset($errors['date_sent'])) : ?><br /><?php echo $errors['date_sent']; ?></div><?php endif ?></td>
+<tr>
+	<td>Empfangen</td><td><input type="checkbox" name="received" <?php if ($vendor_agreement['received']==true) echo " checked"; ?> /></td>
+</tr>
+<tr>
+	<td>Empfangsdatum</td><td><?php if (isset($errors['date_received'])) : ?><div class="error"><?php endif ?>
+	<input type="text" size="20" name="date_received" id="date_received" value="<?php echo ($vendor_agreement['date_received']<>'') ? date('d.m.Y', strtotime($vendor_agreement['date_received'])) : ''; ?>" onchange="checkDate(this.id)" />
+	<?php if (isset($errors['date_received'])) : ?><br /><?php echo $errors['date_received']; ?></div><?php endif ?></td>
+</tr>
+<tr>
+	<td>Verantwortlicher Einkäufer</td><td><input type="text" name="responsible" size="5" value="<?php echo $vendor_agreement['responsible']; ?>" /></td>
+</tr>
+<tr>
+	<td>Einschränkungen</td><td><textarea name="constraint_1" cols="100" rows="3"><?php echo $vendor_agreement['constraint_1']; ?></textarea></td>
+</tr>
+<tr>
+	<td>Bemerkungen</td><td><textarea name="remark" cols="100" rows="3"><?php echo $vendor_agreement['remark']; ?></textarea></td>
+</tr>
+<tr>
+	<td>Sonstiges</td><td><textarea name="constraint_2" cols="100" rows="3"><?php echo $vendor_agreement['constraint_2']; ?></textarea></td>
+</tr>
+<tr>
+	<td>Lieferantenerklärung als PDF</td><td><?php if ($vendor_agreement['path']<>'') : ?> <a href="<?php echo $this->params['path'].'/'.$vendor_agreement['path']; ?>"><?php echo $vendor_agreement['path']; ?></a><br /><?php endif ?>
+	<?php if (isset($errors['path'])) : ?><div class="error"><?php endif ?>
+	<input type="file" name="path" />
+	<?php if (isset($errors['path'])) : ?><br /><?php echo $errors['path']; ?></div><?php endif ?></td>
+</table>
+</fieldset>
+<div><button type="submit">Speichern</button>
+</form>
+<?php if (isset($errors['no_error'])) : ?><script>open(location, '_self').close();</script><?php endif ?>

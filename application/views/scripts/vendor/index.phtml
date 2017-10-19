@@ -1,0 +1,90 @@
+<script>
+function toggleElement(id) { 
+    if(document.getElementById) { 
+        var myelement = document.getElementById(id); 
+        myelement.style.display = (myelement.style.display=='block' ? 'none' : 'block'); 
+    } 
+}
+
+function sendSearchpattern()
+{
+	var no = document.getElementById('no');
+	var vendor = document.getElementById('vendor');
+	var street = document.getElementById('street');
+	var city = document.getElementById('city');
+	uri = '/vendor/index';
+	if (no.value!='') uri+='/no/'+no.value;
+	if (vendor.value !='') uri+='/name/'+vendor.value;
+	if (street.value !='') uri+='/street/'+street.value;
+	if (city.value !='') uri+='/city/'+city.value;
+	window.location = uri;
+}
+</script>
+<?php $vendor_count = $this->vendor_count; ?>
+<?php $pages = floor($vendor_count/25) + 1; ?>
+<?php $cur_page = $this->cur_page; ?>
+<?php $searching = $this->searching; ?>
+<hr />
+<div id="search_inb" class="search_dialog" >
+<button type="button" onclick="toggleElement('search_fields')">Suchen</button>
+<table id="search_fields" style="display:<?php echo $searching ? 'block' : 'none'; ?>">
+	<tr>
+		<th>Nummer</th>
+		<th>Lieferant</th>
+		<th>Straße</th>
+		<th>Ort</th>
+	</tr>
+	<tr>
+		<td><input type="text" name="no" id="no" value="<?php echo isset($this->searchparams['No']) ? $this->searchparams['No']['value'] : ''; ?>"/></td>
+		<td><input type="text" name="vendor" id="vendor"  value="<?php echo isset($this->searchparams['name']) ? $this->searchparams['name']['value'] : ''; ?>"/></td>
+		<td><input type="text" name="street" id="street"  value="<?php echo isset($this->searchparams['street']) ? $this->searchparams['street']['value'] : ''; ?>"/></td>
+		<td><input type="text" name="city" id="city"  value="<?php echo isset($this->searchparams['city']) ? $this->searchparams['city']['value'] : ''; ?>"/></td>
+		<td><button type="button" onclick="sendSearchpattern()">Suchen</button></td>
+	</tr>
+</table>
+</div>
+<a href="/vendor/edit/">Neuer Lieferant</a><br />
+<?php if ($pages > 1) : ?>
+<div id="page">
+<?php if ($cur_page>2) : ?><a href="/vendor/index/page/1"><<</a>&#160;<?php endif ?>
+<?php if ($cur_page>1) : ?><a href="/vendor/index/page/<?php echo $cur_page-1; ?>"><</a>&#160;<?php endif ?>
+<?php echo "Seite $cur_page" ?>&#160;
+<?php if ($cur_page<$pages) : ?><a href="/vendor/index/page/<?php echo $cur_page+1; ?>">></a>&#160;<?php endif ?>
+<?php if (($cur_page+1)<$pages) : ?><a href="/vendor/index/page/<?php echo $pages; ?>">>></a><?php endif ?>
+</div>
+<?php endif ?>
+<table class="data">
+<thead>
+	<tr class="data">
+		<th class="data" width="3cm">Nummer</th>
+		<th class="data" width="20cm">Name</th>
+		<th class="data" width="20cm">Straße</th>
+		<th class="data" width="20cm">Ort</th>	
+		<th class="data" width="2cm">Land</th>
+		<th class="data" width="2cm">Zert.</th>
+	</tr>
+</thead>
+<tbody>
+<?php foreach($this->vendors as $entry) :  ?>
+	<tr>
+		<td class="data"><a href="/vendor/edit/id/<?php echo $entry['No']; ?>"><?php echo $entry['No']; ?></td>
+		<td class="data"><?php echo $entry['name']; ?></td>
+		<td class="data"><?php echo $entry['street']; ?></td>
+		<td class="data"><?php echo $entry['city']; ?></td>
+		<td class="data"><?php echo $entry['country_code']; ?></td>
+		<td class="data" align="center"><?php echo $entry['cnt_cert']; ?></td>
+	</tr>
+<?php endforeach; ?>
+</tbody>
+</table>
+<?php if ($pages > 1) : ?>
+<div id="page">
+<?php if ($cur_page>2) : ?><a href="/vendor/index/page/1"><<</a>&#160;<?php endif ?>
+<?php if ($cur_page>1) : ?><a href="/vendor/index/page/<?php echo $cur_page-1; ?>"><</a>&#160;<?php endif ?>
+<?php echo "Seite $cur_page" ?>&#160;
+<?php if ($cur_page<$pages) : ?><a href="/vendor/index/page/<?php echo $cur_page+1; ?>">></a>&#160;<?php endif ?>
+<?php if (($cur_page+1)<$pages) : ?><a href="/vendor/index/page/<?php echo $pages; ?>">>></a><?php endif ?>
+</div>
+<?php endif ?>
+<a href="/vendor/edit/">Neuer Lieferant</a>
+<hr />

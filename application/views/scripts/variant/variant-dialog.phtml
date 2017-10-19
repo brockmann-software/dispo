@@ -1,0 +1,184 @@
+<script type="text/javascript">
+function markRow(row) {
+	var variantTable = document.getElementById('variant_table').getElementsByTagName('tbody')[0];
+	var rowCnt = variantTable.rows.length;
+	var rowNr = 0;
+	for (rowNr = 0; rowNr<rowCnt; rowNr++) {
+		var tbRow = variantTable.rows(rowNr);
+		var cellNr;
+		if (rowNr==row) {
+			for (cellNr = 0; cellNr<tbRow.cells.length; cellNr++) {
+				tbRow.cells(cellNr).className = 'selected';
+			}
+		} else {
+			for (cellNr = 0; cellNr<tbRow.cells.length; cellNr++) {
+				tbRow.cells(cellNr).className = 'unselected';
+			}
+		}
+	}
+}
+
+function getVariants() {
+
+	function getVariantsXML() {
+		var row;
+		var variantTable = document.getElementById('variant_table').getElementsByTagName('tbody')[0];
+		var rowCnt = variantTable.rows.length;
+		var rowNr = 0;
+		var vc = 0;
+		if (http.readyState==4) {
+			xmlResult = http.responseXML;
+			if (xmlResult.getElementsByTagName('errorCount')[0].firstChild==null) errorCount = 0;
+			else errorCount = xmlResult.getElementsByTagName('errorCount')[0].firstChild.nodeValue;
+			if (errorCount==0) {
+				variants = xmlResult.getElementsByTagName('result');
+				for (vc = 0; vc<variants.length; vc++) {
+					if ((vc) >= rowCnt) {
+						row=variantTable.insertRow(vc);
+						var tdID=row.insertCell(0);
+						var tdProduct=row.insertCell(1);
+						var tdVariant=row.insertCell(2);
+						var tdOrigin=row.insertCell(3);
+						var tdPU=row.insertCell(4);
+						var tdPUW=row.insertCell(5);
+						var tdTP=row.insertCell(6);
+					} else {
+						row=variantTable.rows[vc];
+						var tdID = row.cells[0];
+						var tdProduct = row.cells[1];
+						var tdVariant = row.cells[2];
+						var tdOrigin = row.cells[3];
+						var tdPU = row.cells[4];
+						var tdPUW =row.cells[5];
+						var tdTP=row.cells[6];
+					}
+					
+					tdID.innerHTML='<input type="radio" name="variant_No" id="'+ variants[vc].getElementsByTagName('No')[0].firstChild.nodeValue + '" value="'+vc+'" onchange="markRow('+vc+')"/>';
+					tdID.className="data";
+					tdProduct.innerHTML=variants[vc].getElementsByTagName('product')[0].firstChild.nodeValue;
+					tdProduct.className="data";
+					tdVariant.innerHTML=variants[vc].getElementsByTagName('variant')[0].firstChild.nodeValue;
+					tdVariant.className="data";
+					tdOrigin.innerHTML=variants[vc].getElementsByTagName('origin')[0].firstChild.nodeValue;
+					tdOrigin.className="data";
+					tdPU.innerHTML=variants[vc].getElementsByTagName('items')[0].firstChild.nodeValue;
+					tdPU.className="data_num";
+					tdPUW.innerHTML=variants[vc].getElementsByTagName('weight_item')[0].firstChild.nodeValue;
+					tdPUW.className="data_num";
+					tdTP.innerHTML=variants[vc].getElementsByTagName('t_packaging')[0].firstChild.nodeValue;
+					tdTP.className="data";
+				}
+			} else {
+				var errorText = 'Es ist ein Fehler aufgetreten\n';
+				errors = xmlResult.getElementsByTagName('error');
+				for (e = 0; e < errors.length; e++) {
+					field = errors[e].childNodes[1].nodeName;
+					value = errors[e].childNodes[1].firstChild.nodeValue;
+					errorText = errorText+"["+field+"] "+value+"\n";
+				}
+				alert(errorText);
+			}
+			if (rowCnt>vc) {
+				var lastRow=vc;
+				do {
+					variantTable.deleteRow(lastRow);
+					vc++;
+				} while (vc<rowCnt)
+			}
+		}
+	}
+	
+	createRequest();
+	var URI = '/variant/get';
+	id_search = document.getElementById('search_id').value;
+	if (id_search !='') {
+		if (isNaN(id_search)) {
+			id_search = '/variant/'+id_search;
+		}else {
+			id_search = '/No/'+id_search;
+		}
+		URI = URI+id_search;
+	}
+	filter_product = document.getElementById('product').value;
+	if (filter_product != '') URI = URI+'/product_no/'+filter_product;
+	filter_country = document.getElementById('origin').value;
+	if (filter_country != '') URI = URI+'/origin/'+filter_country;
+	filter_TP = document.getElementById('t_packaging').value;
+	if (filter_TP != '') URI=URI+'/t_packaging/'+filter_TP;
+	sendRequest('GET', URI, '', getVariantsXML, true);
+}
+
+function closeDialog()
+{
+	var variant = [];
+	variant['no']='';
+	variant['variant']='';
+	variants = document.variant_form.variant_No;
+	for (var i=0; i<variants.length; i++) {
+		if (variants[i].checked) {
+			variant['No'] = variants[i].value;
+			var row = document.getElementById('variant_table').getElementsByTagName('tbody')[0].rows[i];
+			variant['variant'] = row.cells(2).innerHTML
+			variant['product'] = row.cells(1).innerHTML;
+			variant['origin'] = row.cells(3).innerHTML;
+			variant['items'] = row.cells(4).innerHTML;
+			variant['weight_item'] = row.cells(5).innerHTML;
+			variant['t_packaging'] = row.cells(6).innerHTML;
+			break;
+		}
+	}
+	window.returnValue = variant;
+//	alert('ich bin hier und schließe gleich das Fenster');
+	window.close();
+}
+</script>
+<?php // Zend_Debug::dump($this->dependencies['t_packagings']); ?>
+<?php $products = $this->information['products']; ?>
+<?php $countries = $this->information['countries']; ?>
+<?php $t_packagings = $this->information['t_packagings']; ?>
+<table id="filter">
+<tr>
+<td>Variante</td>
+<td>Produkt</td>
+<td>Herkunft</td>
+<td>Transport Verp.</td>
+</tr>
+<tr>
+<td>
+<input type="text" id="search_id" size="30" maxlength="30" oninput="getVariants()"/>&#160
+</td>
+<td>
+<select name="product" id="product" onchange="getVariants()">
+<?php foreach($products as $product) : ?>
+<option value="<?php echo $product['No']; ?>" <?php if ($product['No']=='') echo 'selected'; ?>><?php echo $product['product']; ?></option>
+<?php endforeach ?>
+</select>
+</td>
+<td>
+<select name="origin" id="origin" value="-1" onchange="getVariants()">
+<?php foreach($countries as $country) : ?>
+<option value="<?php echo $country['Id']; ?>" <?php if ($country['Id']=='') echo 'selected'; ?>><?php echo $country['country']; ?></option>
+<?php endforeach ?>
+</select>
+</td>
+<td>
+<select name="t_packaging" id="t_packaging" value="" onchange="getVariants()">
+<?php foreach($t_packagings as $t_packaging) : ?>
+<option value="<?php echo $t_packaging['no']; ?>" <?php if ($t_packaging['no']=='') echo 'selected'; ?>><?php echo $t_packaging['transport_packaging']; ?></option>
+<?php endforeach ?>
+</select>
+</td>
+</tr>
+</table>
+<form name="variant_form">
+<table id="variant_table">
+<thead>
+<tr>
+<th>No</th><th>Produkt</th><th>Variante</th><th>Herkunft</th><th>Einheiten</th><th>Gew./Einh.</th><th>transp. Verp.</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<input type="button" value="Auswählen" onclick="closeDialog()" />
+</form>

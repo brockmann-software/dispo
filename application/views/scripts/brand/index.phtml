@@ -1,0 +1,16 @@
+<a href="/brand/edit">Neue Marke</a>
+<hr />
+<table>
+	</tr class="data">
+		<th class="data">Nummer</th>
+		<th class="data">Marke</th>
+	</tr>
+<?php foreach($this->result as $entry) : ?>
+	<tr class="data">
+		<td class="data"><a href="/brand/edit/id/<?php echo $entry['No']; ?>"><?php echo $entry['No']; ?></a></td>
+		<td class="data"><?php echo $entry['brand']; ?></td>
+	</tr>
+<?php endforeach ?>
+</table>
+<hr />
+<a href="/brand/edit">Neue Marke</a>

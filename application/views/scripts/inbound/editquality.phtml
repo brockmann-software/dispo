@@ -1,0 +1,1130 @@
+<script>
+var notIE_popup = null;
+var lastInbLine;
+
+function popupFinishedVendor(result)
+{
+	document.getElementById('vendor_no').value = result['no'];
+	document.getElementById('vendor_address').innerHTML = result['name']+"<br />"+result['street']+"<br />"+result['city']+"<br />"+result['country_code'];
+	if (notIE_popup != null)  {
+		notIE_popup.close();
+		notIE_popup = null;
+	}
+}
+
+function popupFinishedPOBTM(result)
+{
+	getPOBTM(result, 2);
+	if (notIE_popup != null)  {
+		notIE_popup.close();
+		notIE_popup = null;
+	}
+}
+
+function getPOBTM(result, orderCnt)
+{
+	results = http.responseXML.getElementsByTagName('result');
+	if (orderCnt>1) {
+		for (rc = 0; rc<results.length; rc++) {
+			if (result == results[rc].getElementsByTagName('HANPOSNR')[0].firstChild.nodeValue) {
+				orderNo = rc;
+				break;
+			}
+		}
+	} else if (orderCnt==1) { orderNo = 0; }
+	vendor_name = results[orderNo].getElementsByTagName('LIENAME')[0].firstChild.nodeValue+'<br />';
+	vendor_name+= (results[orderNo].getElementsByTagName('LIESTRAS')[0].firstChild) ? results[0].getElementsByTagName('LIESTRAS')[0].firstChild.nodeValue+'<br />' : '<br />';
+	vendor_name+= (results[orderNo].getElementsByTagName('LIEPLZOR')[0].firstChild) ? results[0].getElementsByTagName('LIEPLZOR')[0].firstChild.nodeValue : '';
+	document.getElementById('vendor_address').innerHTML = vendor_name;
+	po_arrival = results[orderNo].getElementsByTagName('HANLISDT')[0].firstChild.nodeValue;
+	arrival_array = po_arrival.split("T");
+	arrival_date = arrival_array[0];
+	arrival_time = arrival_array[1];
+	arrival_date_array=arrival_date.split("-");
+	arrival_date = arrival_date_array[2]+'.'+arrival_date_array[1]+'.'+arrival_date_array[0];
+	document.getElementById('vendor_no').value = results[orderNo].getElementsByTagName('HANADRNR')[0].firstChild.nodeValue;
+	document.getElementById('po_arrival_date').value = arrival_date;
+	document.getElementById('po_arrival_time').value = arrival_time;
+	document.getElementById('product').value = results[orderNo].getElementsByTagName('HANWARGR')[0].firstChild.nodeValue;
+	document.getElementById('items').value = results[orderNo].getElementsByTagName('ARTGEBIN')[0].firstChild.nodeValue;
+	document.getElementById('weight_item').value = results[orderNo].getElementsByTagName('ARTDURGW')[0].firstChild.nodeValue;
+	document.getElementById('po_trading_units').value = results[orderNo].getElementsByTagName('HANPMENG')[0].firstChild.nodeValue;
+	loadProduct()
+	checkOnTime('po_arrival_date');
+	checkTemperature();
+	calcPU()		
+}
+
+function fillVendortable(vendor)
+{
+	var vendorTable = document.getElementById('vendor_table').getElementsByTagName('tbody')[0];
+	var rowCnt = vendorTable.rows.length;
+	var rowNr = 0;
+	for (vc=0; vc<vendor.length; vc++) {
+		if ((vc) >= rowCnt) {
+			row=vendorTable.insertRow(vc);
+			var tdNo=row.insertCell(0);
+			var tdName=row.insertCell(1);
+			var tdStreet=row.insertCell(2);
+			var tdCity=row.insertCell(3);
+		} else {
+			row=vendorTable.rows[vc];
+			var tdNo=row.cells[0];
+			var tdName=row.cells[1];
+			var tdStreet=row.cells[2];
+			var tdCity=row.cells[3];
+		}
+		tdNo.innerHTML='<input type="radio" name="v_no" value="'+vendor[vc].getElementsByTagName('No')[0].firstChild.nodeValue+'">'+vendor[vc].getElementsByTagName('No')[0].firstChild.nodeValue;
+		tdNo.className="data";
+		tdName.innerHTML=vendor[vc].getElementsByTagName('name')[0].firstChild.nodeValue;
+		tdName.className="data";
+		tdStreet.innerHTML=vendor[vc].getElementsByTagName('street')[0].firstChild.nodeValue;
+		tdStreet.className="data";
+		tdCity.innerHTML=vendor[vc].getElementsByTagName('city')[0].firstChild.nodeValue;
+		tdCity.className="data";
+		if (rowCnt>vc) {
+			var lastRow=vc;
+			do {
+				vendorTable.deleteRow(lastRow);
+				vc++;
+			} while (vc<rowCnt)
+		}
+	}
+}
+
+function fillPO_LineTable(PO_Line)
+{
+	var POLineTable = document.getElementById('PO_Lines').getElementsByTagName('tbody')[0];
+	var rowCnt = PO_LineTable.rows.length;
+	var rowNr = 0;
+	for (vc=0; vc<PO_Line.length; vc++) {
+		if ((vc) >= rowCnt) {
+			newVariantRow(po_lineTable.insertRow(vc));
+		}
+		row=po_lineTable.rows[vc];
+		var inpVariants = row.cells[0].getElementsByTagName('v_no')[0];
+		var inpArticle=row.cells[1].getElementsByTagName('variant')[0];
+		var inpTU=row.cells[2].getElementsByTagName('Trading_Units')[0];
+		var inpPU_TU=row.cells[3].getElementsByTagName('PU_TU')[0];
+		var tdPU=row.cells[4].getElementsByTagName('Packing_Units')[0];
+		var tdPallets=row.cells[5].getElementsByTagName('Pallets')[0];
+		var tdTU_Pal=row.cells[6].getElementsByTagName('TU_Pallet')[0];
+		tdVariant.innerHTML=po_lines[vc].getElementsByTagName('v_no')[0].firstChild.nodeValue;
+		tdVariant.className="data";
+		tdarticle.innerHTML=po_lines[vc].getElementsByTagName('variant')[0].firstChild.nodeValue;
+		tdarticle.className="data";
+		tdTU.innerHTML=po_lines[vc].getElementsByTagName('Trading_Units')[0].firstChild.nodeValue;
+		tdTU.className="data_num";
+		tdPU_TU.innerHTML=po_lines[vc].getElementsByTagName('PU_TU')[0].firstChild.nodeValue;
+		tdPU_TU.className="data_num";
+		tdPU.innerHTML=po_lines[vc].getElementsByTagName('Packing_Units')[0].firstChild.nodeValue;
+		tdPU.className="data_num";
+		tdPallets.innerHTML=po_lines[vc].getElementsByTagName('Pallets')[0].firstChild.nodeValue;
+		tdPallets.className="data_num";
+		tdTU_Pal.innerHTML=po_lines[vc].getElementsByTagName('TU_Pallet')[0].firstChild.nodeValue;
+		tdTU_Pal.className="data_num";
+	}
+	if (rowCnt>vc) {
+		var lastRow=vc;
+		do {
+			vendorTable.deleteRow(lastRow);
+			vc++;
+		} while (vc<rowCnt)
+	}
+	lastPO_Line = po_lines[vc].getElementsByTagName('line')[0].firstChild.nodeValue;
+}
+
+
+function loadVendor()
+{
+	function loadVendorXML()
+	{
+		if (http.readyState==4) {
+			xmlResult = http.responseXML;
+			if (xmlResult.getElementsByTagName('errorCount')[0].firstChild==null) errorCount = 0;
+			else errorCount = xmlResult.getElementsByTagName('errorCount')[0].firstChild.nodeValue;
+			if (errorCount==0) {
+				var vendor = xmlResult.getElementsByTagName('result');
+				if (vendor.length==1) {
+					document.getElementById('vendor_no').value = vendor[0].getElementsByTagName('No')[0].firstChild.nodeValue;
+					var vendor_name = vendor[0].getElementsByTagName('name')[0].firstChild.nodeValue;
+					vendor_name = vendor_name+'<br />'+vendor[0].getElementsByTagName('street')[0].firstChild.nodeValue;
+					vendor_name = vendor_name+'<br />'+vendor[0].getElementsByTagName('city')[0].firstChild.nodeValue;
+					vendor_name = vendor_name+'<br />'+vendor[0].getElementsByTagName('country_code')[0].firstChild.nodeValue;
+					document.getElementById('vendor_address').innerHTML=vendor_name;
+				} else {
+//					var dialog = document.getElementById('vendor_dialog');
+//					filltable(vendor);
+//					dialog.showModal();
+					URI = '/vendor/vendordialog/No/'+document.getElementById('vendor_no').value+'/name/'+document.getElementById('vendor_no').value+'/connector/OR';
+					if (!window.showModalDialog) {
+						notIE_popup = window.open(URI, 'Lieferanten', 'dialogWidth=600px;dialogHeight=400px;diologLeft=0;dialogTop=100;resizable=yes;scroll=yes');
+			
+					} else {
+						result=window.showModalDialog(URI,document.getElementById('vendor_no').value,
+		                       'dialogWidth=600px;dialogHeight=400px;diologLeft=0;dialogTop=100;resizable=yes;scroll=yes');
+						document.getElementById('vendor_no').value = result['no'];
+						document.getElementById('vendor_address').innerHTML = result['name']+"<br />"+result['street']+"<br />"+result['city']+"<br />"+result['country_code'];
+					}
+				}
+			} else {
+				var errors = xmlResult.getElementsByTagName('error');
+				for (e = 0; e < errorCount; e++) {
+					field = errors[e].childNodes[1].nodeName;
+					value = errors[e].childNodes[1].firstChild.nodeValue;
+					var errorText = errorText+"["+field+"] "+value+"\n";
+				}
+				alert(errorText);
+			}
+		}
+	}
+	
+	createRequest();
+	var URI = '/vendor/get/No/'+document.getElementById('vendor_no').value;
+	sendRequest("GET", URI, '', loadVendorXML, true);
+}
+
+function newInboundLine()
+{
+	InbLine_Table = document,getElementById('inbound_lines').getElementsByTagName('tbody')[0];
+	var rc = InbLine_Table.rows.length;
+	var inbLine = inbLine_Table.addRow(rc);
+	var tdVariant = inbLine.addCell(0);
+	var inpVariant = document.createElement('input');
+	inpVariant.type='text';
+	inpVariant.name='variant';
+	inpVariant.value='';
+	inpVariant.size=30;
+	inpVariant.maxlength=30;
+	inpVariant.onchange="loadVariant()";
+	tdVariant.appendChild(inpVariant);
+	
+	var tdArticle = inbLine.addCell(1);
+	tdArticle.id = "article_"+rc;
+	
+	var tdTU = inbLine.addCell(2);
+	var inpTU = new document.createElement('input');
+	inpTU.name = 'Trading_Units';
+	inpTU.type = 'number';
+	inpTU.size = 8;
+	impTU.min = 0;
+	impTU.value = "0";
+	tdTU.appendChild(inpTU);
+	
+	var tdPU_TU = inbLine.insertCell(3);
+	var inpPU_TU = new document.createElement('input');
+	inpPU_TU.type = 'number';
+	inpPU_TU.name = 'PU_TU';
+	inpPU_TU.size = 8;
+	impPU_TU.min = 0;
+	impPU_TU.value = "0";
+	tdPU_TU.appendChild(inpPU_TU);
+
+	var tdPU = inbLine.insertCell(4);
+	var inpPU = new document.createElement('input');
+	inpPU.type = 'number';
+	inpPU.name = 'Packing_Units';
+	inpPU.size = 8;
+	impPU.min = 0;
+	impPU.value = "0";
+	tdPU.appendChild(inpPU);
+	
+	var tdinbTU = inbLine.insertCell(5);
+	var inpInbTU = document.createElement('input');
+	inpInbTU.type = 'number';
+	inpInbTU.name = 'inbound_TUs';
+	inpinbTU.size = 8;
+	inpInbTU.min = 0;
+	inpInbTU.value = "0";
+	tdinbTU.appendChild(inpInbTU);
+
+	var tdinbPal = inbLine.insertCell(6);
+	var inpInbPal = document.createElement('input');
+	inpInbPal.type = 'number';
+	inpInbPal.name = 'inbound_Pallets';
+	inpinbPal.size = 8;
+	inpInbPal.min = 0;
+	inpInbPal.value = "0";
+	tdinbPal.appendChild(inpInbPal);
+	
+	var tdinbTU_Pal = inbLine.insertCell(6);
+	var inpInbTU_Pal = document.createElement('input');
+	inpInbTU_Pal.type = 'number';
+	inpInbTU_Pal.name = 'inbound_Pallets';
+	inpinbTU_Pal.size = 8;
+	inpInbTU_Pal.min = 0;
+	inpInbTU_Pal.value = "0";
+	tdinbTU_Pal.appendChild(inpInbTU_Pal);
+	inpVariant.setFocus;
+}
+
+function addQCheckpoint(result)
+{
+}
+	
+function loadQCheckpoints()
+{
+	var qchk_class_filter;
+	var quality_checkpoints = [];
+	
+	function qfilter(qchkp) {
+		return qchkp.qchk_class_no == qchk_class_filter;
+	}
+	
+	function reloadQchkTable(qchk_class)
+	{		
+		qchk_class_filter = qchk_class;
+		quality_chkp = quality_checkpoints.filter(function(qchkp){
+			return qchkp.qchk_class_no == qchk_class_filter;
+		});
+		qcheckpoints = document.getElementById("qcheckpoint_"+qchk_class).getElementsByTagName("tbody")[0];
+		rowNr = 0;
+		rowCnt = qcheckpoints.rows.length;
+		for (qck = 0; qck<quality_chkp.length; qck++) {
+			if (qck > rowCnt) {
+				row = qcheckpoints.insertRow(qck);
+			} else {
+				row = qcheckpoints.rows[qck];
+				row.deleteCell(2);
+				row.deleteCell(1);
+				row.deleteCell(0);
+			}
+			row.id = quality_chkp[qck]["qck_no"];
+			var cell0 = row.insertCell(0);
+			cell0.className = 'data';
+			cell0.innerHTML = quality_chkp[qck]["quality_checkpoint"];
+			var cell1 = row.insertCell(1);
+			cell1.className = 'data';
+			var inpMG = document.createElement('input');
+			inpMG.type = "hidden";
+			inpMG.name = "max_good_"+row.id;
+			inpMG.id = "max_good_"+row.id;
+			inpMG.value = quality_chkp[qck]["max_good"];
+			cell1.appendChild(inpMG);
+			inpMR = document.createElement('input');
+			inpMR.type = 'hidden';
+			inpMR.name = 'max_regular_'+row.id;
+			inpMR.id = 'max_regular_'+row.id;
+			inpMR.value = quality_chkp[qck]["max_regular"];
+			cell1.appendChild(inpMR);
+			inpOp = document.createElement('input');
+			inpOp.type = "hidden";
+			inpOp.name = "operator_"+row.id;
+			inpOp.id = "operator_"+row.id;
+			inpOp.value = quality_chkp[qck]["operator"];
+			cell1.appendChild(inpOp);
+			inpBase = document.createElement('input');
+			inpBase.type = 'hidden';
+			inpBase.name = 'base_'+row.id;
+			inpBase.id = 'base_'+row.id;
+			inpBase.value = 0;
+			cell1.appendChild(inpBase);
+			var inpQCResult = document.createElement("input");
+			inpQCResult.name = "res_"+row.id;
+			inpQCResult.id = "res_"+row.id;
+			inpQCResult.onchange = function(){ changeDev(this.name) };
+			if (quality_chkp[qck]["operator"] < 2) {
+				inpQCResult.type = "number";
+				inpQCResult.min = 0;
+				inpQCResult.value = 0;
+			} else {
+				inpQCResult.type = "checkbox";
+				checked = true;
+			}
+			cell1.appendChild(inpQCResult);
+			var cell2 = row.insertCell(2);
+			cell2.id = "dev_percent_"+row.id;
+			cell2.className = "check_green";
+			if (quality_chkp[qck]["operator"] = 0)
+				cell2.innerHTML = "0,0 %"
+			else if (quality_chkp[qck]["operator"] = 1)
+				cell2.innerHTML = "0,0"
+			else if (quality_chkp[qck]["operator"] = 2)
+				cell2.innerHTML = "OK";
+		}
+		if (rowCnt>qc) {
+			var lastRow=vc;
+			do {
+				po_lineTable.deleteRow(lastRow);
+				vc++;
+			} while (vc<rowCnt)
+		}
+	}
+		
+	
+	function loadQCPXML()
+	{
+		var qck_class = 0;
+		if (http.readyState == 4) {
+			xmlResult = http.responseXML;
+			if (xmlResult.getElementsByTagName('errorCount')[0].firstChild==null) errorCount = 0;
+			else errorCount = xmlResult.getElementsByTagName('errorCount')[0].firstChild.nodeValue;
+			if (errorCount==0) {
+				result = xmlResult.getElementsByTagName("result");
+				for (qc = 0; qc < result.length; qc++) {
+					quality_checkpoint = {};
+					quality_checkpoint['qchk_class_no'] = result[qc].getElementsByTagName('qchk_class_no')[0].firstChild.nodeValue;
+					quality_checkpoint['qck_no'] = result[qc].getElementsByTagName('qck_no')[0].firstChild.nodeValue;
+					quality_checkpoint['quality_checkpoint'] = result[qc].getElementsByTagName('quality_checkpoint')[0].firstChild.nodeValue;
+					quality_checkpoint['max_good'] = result[qc].getElementsByTagName('max_good')[0].firstChild.nodeValue;
+					quality_checkpoint['max_regular'] = result[qc].getElementsByTagName('max_regular')[0].firstChild.nodeValue;
+					quality_checkpoint['operator'] = result[qc].getElementsByTagName('operator')[0].firstChild.nodeValue;
+					quality_checkpoints.push(quality_checkpoint);
+				}
+			}
+			if (errorCount>0) {
+				errors = xml.getElementsByTagName('error');
+				for (e = 0; e < error_count; e++) {
+					field = errors[e].childNodes[1].nodeName;
+					value = errors[e].childNodes[1].firstChild.nodeValue;
+					errorText = errorText+"["+field+"] "+value+"\n";
+				}
+			}
+			if (quality_checkpoints.length>0) {
+				reloadQchkTable(1);
+				reloadQchkTable(2);
+				reloadQchkTable(3);
+			}
+		}
+	}
+
+	createRequest();
+	var URI = '/qcheckpoint/get/product/'+document.getElementById('product').value+'/type/0';
+	sendRequest("GET", URI, '', loadQCPXML, true);
+}
+
+function loadAllQCheckpoints()
+{
+	loadQCheckpoints(1);
+	window.setTimeout(loadQCheckpoints(2), 3000);
+	window.setTimeout(loadQCheckpoints(3), 3000);
+}
+
+function loadProduct()
+{
+	function loadProductXML()
+	{
+		if (http.readyState == 4) {
+			xmlResult = http.responseXML;
+			if (xmlResult.getElementsByTagName('errorCount')[0].firstChild==null) errorCount = 0;
+			else errorCount = xmlResult.getElementsByTagName('errorCount')[0].firstChild.nodeValue;
+			if (errorCount==0) {
+				result = xmlResult.getElementsByTagName("result");
+				if (result.length>0) {
+					document.getElementById('po_transport_temp_min').value = result[0].getElementsByTagName('transport_temp_min')[0].firstChild.nodeValue;
+					document.getElementById('po_transport_temp_max').value = result[0].getElementsByTagName('transport_temp_max')[0].firstChild.nodeValue;
+					document.getElementById('po_brix_min').value = result[0].getElementsByTagName('brix_min')[0].firstChild.nodeValue;
+					document.getElementById('po_brix_max').value = result[0].getElementsByTagName('brix_max')[0].firstChild.nodeValue;
+					checkTemperature();
+					checkBrix();
+				}
+			}
+			if (errorCount>0) {
+				errors = xml.getElementsByTagName('error');
+				for (e = 0; e < error_count; e++) {
+					field = errors[e].childNodes[1].nodeName;
+					value = errors[e].childNodes[1].firstChild.nodeValue;
+					errorText = errorText+"["+field+"] "+value+"\n";
+				}
+			}
+		}
+	}
+	
+	prod_no = document.getElementById('product').value;
+	createRequest();
+	var URI = '/product/get/No/'+prod_no;
+	sendRequest("GET", URI, '', loadProductXML, true);
+}
+
+function loadPO()
+{
+	function loadPOXML()
+	{
+		if (http.readyState == 4) {
+			xmlResult = http.responseXML;
+			if (xmlResult.getElementsByTagName('errorCount')[0].firstChild==null) errorCount = 0;
+			else errorCount = xmlResult.getElementsByTagName('errorCount')[0].firstChild.nodeValue;
+			if (errorCount==0) {
+				result = xmlResult.getElementsByTagName("result");
+				if (result.length>0) {
+					po_arrival = result[0].getElementsByTagName('arrival')[0].firstChild.nodeValue;
+					arrival_array = po_arrival.split(" ");
+					arrival_date = arrival_array[0];
+					arrival_time = arrival_array[1];
+					arrival_date_array=arrival_date.split("-");
+					arrival_date = arrival_date_array[2]+'.'+arrival_date_array[1]+'.'+arrival_date_array[0];
+					document.getElementById('vendor_no').value = result[0].getElementsByTagName('vendor_no')[0].firstChild.nodeValue;
+					vendor_address = result[0].getElementsByTagName('vendor_name')[0].firstChild.nodeValue+'<br />';
+					vendor_address = vendor_address+result[0].getElementsByTagName('vendor_street')[0].firstChild.nodeValue+'<br />';
+					vendor_address = vendor_address+result[0].getElementsByTagName('vendor_city')[0].firstChild.nodeValue+'<br />';
+					vendor_address = vendor_address+result[0].getElementsByTagName('vendor_country')[0].firstChild.nodeValue;
+					document.getElementById('vendor_address').innerHTML = vendor_address;
+					document.getElementById('po_arrival_date').value = arrival_date;
+					document.getElementById('po_arrival_time').value = arrival_time;
+					document.getElementById('po_transport_temp_min').value = result[0].getElementsByTagName('transport_temp_min')[0].firstChild.nodeValue;
+					document.getElementById('po_transport_temp_max').value = result[0].getElementsByTagName('transport_temp_max')[0].firstChild.nodeValue;
+					if (result[0].getElementsByTagName('forwarder')[0].firstChild)
+						document.getElementById('forwarder').value = result[0].getElementsByTagName('forwarder')[0].firstChild.nodeValue;
+					if (result[0].getElementsByTagName('container')[0].firstChild)
+						document.getElementById('container').value = result[0].getElementsByTagName('container')[0].firstChild.nodeValue;
+					if (result[0].getElementsByTagName('trailor')[0].firstChild)
+						document.getElementById('trailor').value = result[0].getElementsByTagName('trailor')[0].firstChild.nodeValue;
+					checkOnTime('po_arrival_date');
+					checkTemperature();
+				}
+			}
+			if (errorCount>0) {
+				errors = xml.getElementsByTagName('error');
+				for (e = 0; e < error_count; e++) {
+					field = errors[e].childNodes[1].nodeName;
+					value = errors[e].childNodes[1].firstChild.nodeValue;
+					errorText = errorText+"["+field+"] "+value+"\n";
+				}
+			}
+		}
+	}
+	
+	po_no = document.getElementById('purchase_order').value;
+	createRequest();
+	var URI = '/purchaseorder/get/No/'+po_no;
+	sendRequest("GET", URI, '', loadPOXML, true);
+}
+
+function loadPoBTM()
+{
+	function loadPoBTMXML()
+	{
+		if (http.readyState==4) {
+			if (http.responseXML) {
+				xmlResult = http.responseXML;
+				errorCount = ((!xmlResult.getElementsByTagName('errorCount')[0].firstChild) ? 0 : xmlResult.getElementsByTagName('errorCount')[0].firstChild.nodeValue);
+				if (errorCount==0) {
+					result = xmlResult.getElementsByTagName('result');
+					if (result.length>1) {
+						
+						URI = '/purchaseorder/purchaseorderbtmdialog/purchase_order/'+document.getElementById('purchase_order').value;
+						if (!window.showModalDialog) {
+							notIE_popup = window.open(URI, 'Bestellung', 'dialogWidth=800px;dialogHeight=600px;diologLeft=0;dialogTop=100;resizable=yes;scroll=yes');
+				
+						} else {
+							pos=window.showModalDialog(URI,'',
+								   'dialogWidth=800px;dialogHeight=600px;diologLeft=0;dialogTop=100;resizable=yes;scroll=yes');
+							getPOBTM(pos, result.length);
+						}
+					} else if (result.length==1) {
+						getPOBTM('', 1);
+					// Felder füllen
+/*						vendor_name = result[0].getElementsByTagName('LIENAME')[0].firstChild.nodeValue+'<br />';
+						vendor_name+= (result[0].getElementsByTagName('LIESTRAS')[0].firstChild) ? result[0].getElementsByTagName('LIESTRAS')[0].firstChild.nodeValue+'<br />' : '<br />';
+						vendor_name+= (result[0].getElementsByTagName('LIEPLZOR')[0].firstChild) ? result[0].getElementsByTagName('LIEPLZOR')[0].firstChild.nodeValue : '';
+						document.getElementById('vendor_address').innerHTML = vendor_name;
+						po_arrival = result[0].getElementsByTagName('HANLISDT')[0].firstChild.nodeValue;
+						arrival_array = po_arrival.split("T");
+						arrival_date = arrival_array[0];
+						arrival_time = arrival_array[1];
+						arrival_date_array=arrival_date.split("-");
+						arrival_date = arrival_date_array[2]+'.'+arrival_date_array[1]+'.'+arrival_date_array[0];
+						document.getElementById('vendor_no').value = result[0].getElementsByTagName('HANADRNR')[0].firstChild.nodeValue;
+						document.getElementById('po_arrival_date').value = arrival_date;
+						document.getElementById('po_arrival_time').value = arrival_time;
+						document.getElementById('product').value = result[0].getElementsByTagName('HANWARGR')[0].firstChild.nodeValue;
+						document.getElementById('items').value = result[0].getElementsByTagName('ARTGEBIN')[0].firstChild.nodeValue;
+						document.getElementById('weight_item').value = result[0].getElementsByTagName('ARTDURGW')[0].firstChild.nodeValue;
+						document.getElementById('po_trading_units').value = result[0].getElementsByTagName('HANPMENG')[0].firstChild.nodeValue;
+						loadVendor();
+						loadProduct()
+						checkOnTime('po_arrival_date');
+						checkTemperature();
+						calcPU()
+*/					
+					} else {
+						alert('Keine Bestellung gefunden');
+					}
+				} else {
+					error = xmlResult.getElementsByTagName('error');
+					var errText;
+					for (ec = 0; ec < error.length; ec++) {
+						errText += ((error[ec].getElementsByTagName('type')[0].firstChild) ? error[ec].getElementsByTagName('type')[0].firstChild.nodeValue+': ' : 'No type: ');
+						errText += ((error[ec].getElementsByTagName('text')[0].firstChild) ? error[ec].getElementsByTagName('type')[0].firstChild.nodeValue+'\n' : 'No message\n');
+					}
+					alert(errText);
+				}
+			} else {
+				alert(http.responseText);
+			}
+		}
+	}
+	
+	po_no = document.getElementById('purchase_order').value;
+	createRequest();
+	var uri = '/purchaseorder/getpolinesbtm/purchase_order/'+po_no;
+	sendRequest("GET", uri, '', loadPoBTMXML, true);
+}
+
+function loadPosition()
+{
+	function loadPositionXML()
+	{
+		if (http.readyState == 4) {
+			xmlResult = http.responseXML;
+			if (xmlResult.getElementsByTagName('errorCount')[0].firstChild==null) errorCount = 0;
+			else errorCount = xmlResult.getElementsByTagName('errorCount')[0].firstChild.nodeValue;
+			if (errorCount==0) {
+				result = xmlResult.getElementsByTagName("result");
+				if (result.length>0) {
+					document.getElementById('position').value = result[0].getElementsByTagName('position')[0].firstChild.nodeValue;
+					document.getElementById('purchase_order').value = result[0].getElementsByTagName('purchase_order')[0].firstChild.nodeValue;
+					po_arrival = result[0].getElementsByTagName('po_arrival')[0].firstChild.nodeValue;
+					po_arrival_array = po_arrival.split(" ");
+					po_arrival_date = po_arrival_array[0];
+					po_arrival_time = po_arrival_array[1];
+					po_arrival_date_array=po_arrival_date.split("-");
+					po_arrival_date = po_arrival_date_array[2]+'.'+po_arrival_date_array[1]+'.'+po_arrival_date_array[0];
+					inb_arrival = result[0].getElementsByTagName('inb_arrival')[0].firstChild.nodeValue;
+					inb_arrival_array = po_arrival.split(" ");
+					inb_arrival_date = inb_arrival_array[0];
+					inb_arrival_time = inb_arrival_array[1];
+					inb_arrival_date_array=inb_arrival_date.split("-");
+					inb_arrival_date = inb_arrival_date_array[2]+'.'+inb_arrival_date_array[1]+'.'+inb_arrival_date_array[0];
+					document.getElementById('vendor_no').value = result[0].getElementsByTagName('vendor_no')[0].firstChild.nodeValue;
+					vendor_address = result[0].getElementsByTagName('vendor_name')[0].firstChild.nodeValue+'<br />';
+					vendor_address = vendor_address+result[0].getElementsByTagName('vendor_street')[0].firstChild.nodeValue+'<br />';
+					vendor_address = vendor_address+result[0].getElementsByTagName('vendor_city')[0].firstChild.nodeValue+'<br />';
+					vendor_address = vendor_address+result[0].getElementsByTagName('vendor_country')[0].firstChild.nodeValue;
+					document.getElementById('vendor_address').innerHTML = vendor_address;
+					document.getElementById('po_arrival_date').value = po_arrival_date;
+					document.getElementById('po_arrival_time').value = po_arrival_time;
+					document.getElementById('inb_arrival_date').value = inb_arrival_date;
+					document.getElementById('inb_arrival_time').value = inb_arrival_time;
+					document.getElementById('po_transport_temp_min').value = result[0].getElementsByTagName('po_transport_temp_min')[0].firstChild.nodeValue;
+					document.getElementById('po_transport_temp_max').value = result[0].getElementsByTagName('po_transport_temp_max')[0].firstChild.nodeValue;
+					if (result[0].getElementsByTagName('inb_transport_temp')[0].firstChild)
+						document.getElementById('inb_transport_temp').value = result[0].getElementsByTagName('inb_transport_temp')[0].firstChild.nodeValue;
+					if (result[0].getElementsByTagName('inb_forwarder')[0].firstChild)
+						document.getElementById('forwarder').value = result[0].getElementsByTagName('inb_forwarder')[0].firstChild.nodeValue;
+					if (result[0].getElementsByTagName('inb_container')[0].firstChild)
+						document.getElementById('container').value = result[0].getElementsByTagName('inb_container')[0].firstChild.nodeValue;
+					if (result[0].getElementsByTagName('inb_trailor')[0].firstChild)
+						document.getElementById('trailor').value = result[0].getElementsByTagName('inb_trailor')[0].firstChild.nodeValue;
+					checkOnTime('inb_arrival_date');
+					checkTemperature();
+					document.getElementById('product').focus();
+				} else {
+					today = new Date();
+					day = fillZero(today.getDate(),2)+'.'+fillZero(today.getMonth()+1,2)+'.'+today.getFullYear();
+					time = fillZero(today.getHours(),2)+':'+fillZero(today.getMinutes(),2);
+					document.getElementById('purchase_order').value = '';
+					document.getElementById('vendor_no').value = '';
+					document.getElementById('vendor_address').value = '';
+					document.getElementById('inb_transport_temp').value = '0';
+					document.getElementById('forwarder').value = '';
+					document.getElementById('container').value = '';
+					document.getElementById('trailor').value = '';
+					document.getElementById('po_arrival_date').value = day;
+					document.getElementById('po_arrival_time').value = time;
+					document.getElementById('inb_arrival_date').value = day;
+					document.getElementById('inb_arrival_time').value = time;
+				}
+			}
+			if (errorCount>0) {
+				errors = xml.getElementsByTagName('error');
+				for (e = 0; e < error_count; e++) {
+					field = errors[e].childNodes[1].nodeName;
+					value = errors[e].childNodes[1].firstChild.nodeValue;
+					errorText = errorText+"["+field+"] "+value+"\n";
+				}
+			}
+		}
+	}
+	
+	pos_no = document.getElementById('position').value;
+	createRequest();
+	var URI = '/inbound/getinbounds/position/'+pos_no;
+	sendRequest("GET", URI, '', loadPositionXML, true);
+}
+
+function changeProduct()
+{
+	loadProduct();
+	window.setTimeout(loadQCheckpoints, 1000);
+}
+
+function changeDev(no, base)
+{
+	base = base || document.getElementById("items_checked").value;
+	no = no.substring(4,7);
+	var qline = document.getElementById(no);
+	var id_result = "res_"+no;
+	var id_dev = "dev_percent_"+no;
+	var id_good = "max_good_"+no;
+	var id_regular = "max_regular_"+no
+	var id_operator = "operator_"+no;
+	var qitems = document.getElementById("items_checked").value;
+	var max_good = document.getElementById(id_good).value;
+	var max_regular = document.getElementById(id_regular).value;
+	var operator = document.getElementById(id_operator).value;
+	document.getElementById('base_'+no).value = base;
+	var qdeviation;
+	if (operator==2) {
+		if (document.getElementById(id_result).checked) qdev_percent = 0; else qdev_percent = 1;
+	} else {
+		qdev_percent = document.getElementById(id_result).value.replace(",",".");
+	}
+	var tdqdev_percent = document.getElementById(id_dev);
+	//Operator 1 = Prozent, 0 = Differenz, 2 = logisch
+	if (operator==1) try {
+		var qdev_percent = Math.abs(qdev_percent)/base*100;
+		tdqdev_percent.innerHTML = qdev_percent.toFixed(1).replace(".",",")+" %";
+	} catch (e) {
+		alert("Die Operation ist ungültig!");
+	}
+	else if (operator==0) {
+		tdqdev_percent.innerHTML = Number(qdev_percent).toFixed(1).replace(".",",");
+	} else {
+		if (qdev_percent==0) tdqdev_percent.innerHTML = "OK"; else tdqdev_percent.innerHTML = "nicht OK";
+	}
+	if (qdev_percent>max_regular) tdqdev_percent.className = "check_red"
+	else if (qdev_percent>max_good) tdqdev_percent.className = "check_yellow"
+	else tdqdev_percent.className = "check_green";
+}
+
+function calcPU()
+{
+	var inb_pu = document.getElementById("inb_packing_units");
+	var inb_tu = document.getElementById("inb_trading_units");
+	var items = document.getElementById("items");
+	var po_pu = document.getElementById("po_packing_units"); 
+	var po_tu = document.getElementById("po_trading_units");
+	po_pu.value = po_tu.value * items.value;
+	inb_pu.value = inb_tu.value * items.value;
+}
+
+function checkOnTime(date_id)
+{
+//	var po_arrival = new Date();
+//	var inb_arrival = new Date();
+	if ((date_id == 'po_arrival_date') || (date_id == 'inb_arrival_date')) checkDate(date_id)
+	else if ((date_id == 'po_arrival_time') || (date_id == 'inb_arrival_time')) checkTime(date_id);
+
+	po_arrival_date = document.getElementById('po_arrival_date').value;
+	po_arrival_time = document.getElementById('po_arrival_time').value;
+	po_arr_date_array = po_arrival_date.split('.');
+	po_arr_time_array = po_arrival_time.split(':');
+	if (po_arr_time_array[2]==null) po_arr_time_array[2] ='00';
+	inb_arrival_date = document.getElementById('inb_arrival_date').value;
+	inb_arrival_time = document.getElementById('inb_arrival_time').value;
+	inb_arr_time_array = inb_arrival_time.split(':');
+	inb_arr_date_array = inb_arrival_date.split('.');
+	if (inb_arr_time_array[2]==null) inb_arr_time_array[2] ='00';
+	var po_arrival = new Date(Number(po_arr_date_array[2]), Number(po_arr_date_array[1])-1, Number(po_arr_date_array[0]), Number(po_arr_time_array[0]), Number(po_arr_time_array[1]), Number(po_arr_time_array[2]));
+	var inb_arrival = new Date(Number(inb_arr_date_array[2]), Number(inb_arr_date_array[1])-1, Number(inb_arr_date_array[0]), Number(inb_arr_time_array[0]), Number(inb_arr_time_array[1]), Number(inb_arr_time_array[2]));
+	var diff = (inb_arrival - po_arrival)/3600000;
+	var days = diff.toFixed(1);
+	document.getElementById('res_18').value = days;
+	changeDev('res_18');
+//	alert('Verspätung: '+days+' Stunden, ');
+}
+
+function checkTemperature()
+{
+	po_temp_min = document.getElementById('po_transport_temp_min').value;
+	po_temp_max = document.getElementById('po_transport_temp_max').value;
+	inb_temperature = document.getElementById('inb_transport_temp').value;
+	inb_temperature = inb_temperature.replace(',','.');
+	if (inb_temperature<po_temp_min) {
+		difference = po_temp_min - inb_temperature;
+	} else if (inb_temperature>po_temp_max) {
+		difference = inb_temperature - po_temp_max;
+	} else {
+		difference = 0;
+	}
+	document.getElementById('res_14').value = difference.toFixed(1);
+	changeDev('res_14');
+}
+
+function checkBrix()
+{
+	po_brix_min = document.getElementById('po_brix_min').value;
+	po_brix_max = document.getElementById('po_brix_max').value;
+	inb_brix = document.getElementById('inb_brix').value;
+	if (inb_brix<po_brix_min) {
+		difference = po_brix_min - inb_brix;
+	} else if (inb_brix>po_brix_max) {
+		difference = inb_brix - po_brix_max;
+	} else {
+		difference = 0;
+	}
+	document.getElementById('res_15').value = difference.toFixed(1);
+	changeDev('res_15');
+}
+
+function checkQuantity()
+{
+	calcPU();
+	po_trading_units = document.getElementById('po_trading_units').value;
+	inb_trading_units = document.getElementById('inb_trading_units').value;
+	difference = inb_trading_units - po_trading_units;
+	document.getElementById('res_19').value = difference;
+	changeDev('res_19', po_trading_units);
+}
+
+function calcTU_Pal(element)
+{
+	var prefix = element.name.split("_")[0];
+	var trading_units = document.getElementById(prefix+'_trading_units').value;
+	var pallets = element.value;
+	try {
+		var tu_pal = trading_units / pallets;
+	} catch(e) {
+		var tu_pal = 0;
+	}
+	document.getElementById(prefix+'_tu_pal').value = tu_pal.toFixed(0);
+}
+
+function addPicture()
+{
+	var divPictures = document.getElementById('pictures');
+	var divPicture = document.createElement('div');
+	divPicture.innerHTML = '<input type="file" name="picture[]" multiple accept="image/*" capture="camera"/><a onclick="addPicture()"><img src="/images/60.ico" alt="hinzufügen" title="Bild hinzufügen" /></a>';
+	divPictures.appendChild(divPicture);
+}
+
+function addAtt()
+{
+	var divAttachments = document.getElementById('attachments');
+	var divAtt = document.createElement('div');
+	divAtt.innerHTML = '<input type="file" name="attachment[]" /><a onclick="addAtt()"><img src="/images/60.ico" alt="hinzufügen" title="Dok. hinzufügen" /></a>';
+	divAttachments.appendChild(divAtt);
+}
+</script>
+<?php //Zend_Debug::dump($this->params['errors']); ?>
+<?php $products = $this->params['products'] ?>
+<?php $origins = $this->params['countries']; ?>
+<?php $packagings = $this->params['packagings'] ?>
+<?php $t_packagings = $this->params['t_packagings']; ?>
+<?php $quality_classes = $this->params['quality_classes']; ?>
+<?php $qualities = $this->params['qualities']; ?>
+<?php $brands = $this->params['brands']; ?>
+<?php $labels = $this->params['labels']; ?>
+<?php $pallets = $this->params['pallets'] ?>
+<?php $certificates = $this->params['certificates']; ?>
+<?php $qchk_class = $this->params['qchk_class']; ?>
+<?php $data = $this->params['data']; ?>
+<?php $qcheckpoints = $this->params['qcheckpoints']; ?>
+<?php $qcheck_logs = $this->params['qcheck_logs']; ?>
+<?php $errors = $this->params['errors']; ?>
+<form action="/inbound/editquality/" method="post"  enctype="multipart/form-data">
+<?php if (isset($errors['all'])) : ?>
+<div class="error">
+<?php echo $errors['all']; ?>
+</div>
+<?php  elseif (isset($errors['stored'])) : ?>
+<div class="no_error">Der Wareneingang wurde gespeichert!</div>
+<?php endif ?>
+<fieldset>
+<legend>Bestellkopf</legend>
+<table>
+	<tr>
+		<td colspan="2"><div class="extrabox" id="vendor_address">&#160;<br />&#160;<br />&#160;<br />&#160;</div></td>
+		<td></td>
+	</tr>
+	<tr>
+		<td></td><td><input type="hidden" name="old_No" value="<?php echo $data['No']; ?>" />
+					 <input type="hidden" name="inbound" value="<?php echo $data['inbound']; ?>" /></td>
+					 <input type="hidden" name="inb_line" value="<?php echo $data['inb_line']; ?>" /></td>
+	</tr>
+	<tr>
+		<td>Position</td>
+		<td>
+			<?php if (isset($errors['position'])) :?><div class="error"><?php endif ?>
+			<input type="text" name="position" id="position" value="<?php echo $data['position']; ?>" onchange="loadPosition()" />
+			<?php if (isset($errors['position'])) :?><br /><?php echo $errors['position']; ?></div><?php endif ?>
+		</td>
+		<td>Lieferant</td>
+		<td>
+			<?php if (isset($errors['vendor'])) :?><div class="error"><?php endif ?>
+			<input type="text"  id="vendor_no" name="vendor_no" value="<?php echo $data['vendor']; ?>" onchange="loadVendor()"/>
+			<?php if (isset($errors['vendor'])) :?><br /><?php echo $errors['vendor']; ?></div><?php endif ?>
+		</td>
+	</tr>
+	<tr>
+		<td>Bestellung</td>		
+		<td><input type="text" id="purchase_order" name="purchase_order" size="20" maxlength="20" value="<?php echo $data['purchase_order']; ?>" onchange="loadPoBTM()" />
+			<input type="hidden" name="po_line" value="<?php echo $data['po_line']; ?>" />
+			<input type="hidden" name="po_line_line" value="<?php $data['po_line_line']; ?>" /></td>
+		<td>Lieferschein</td>
+		<td><input type="text" id="v_delivery_note" name="v_delivery_note" size="20" maxlength="50" value="<?php echo $data['v_delivery_note']; ?>" /> 
+	</tr>
+	<tr>
+		<td>Spedition</td>
+		<td><input type="text" name="forwarder" id="forwarder" size="30" maxlength="100" value="<?php echo $data['forwarder']; ?>" /></td>
+	</tr>
+	<tr>
+		<td>Container / AWB</td>
+		<td><input type="text" name="container" id="container" maxlength="40" size="40" value="<?php echo $data['container']; ?>" /></td>
+		<td>Fahrzeug</td>
+		<td><input type="text" name="trailor" id="trailor" maxlength="40" size="40" value="<?php echo $data['trailor']; ?>" /></td>
+	</tr>
+	<tr>
+		<td>Ankunft geplant</td>
+		<td>
+			<input type="text" name="po_arrival_date" id="po_arrival_date" maxlength="10" size="10" value="<?php echo $data['po_arrival_date']; ?>" onChange="checkOnTime(this.id)" />&#160;
+			<input type="text" name="po_arrival_time" id="po_arrival_time" size="8" maxlength="8" value="<?php echo $data['po_arrival_time']; ?>" onChange="checkOnTime(this.id)" />
+		</td>
+		<td></td>
+		<td rowspan"2">
+			<table>
+			<tr><td>Temp. Soll</td><td>Temp. Ist</td></tr>
+			<tr>
+				<td><input type="number" name="po_transport_temp_min" id="po_transport_temp_min" value="<?php echo $data['po_transport_temp_min']; ?>" min="-10" max="50" step="0.1" onchange="checkTemperature()" /> - 
+					<input type="number" name="po_transport_temp_max" id="po_transport_temp_max" value="<?php echo $data['po_transport_temp_max']; ?>" min="-10" max="50" step="0.1" onchange="checkTemperature()" /></td>
+			    <td><input type="number" name="inb_transport_temp" id="inb_transport_temp" value="<?php echo $data['inb_transport_temp']; ?>" min="-10" max="50" step="0.1" onchange="checkTemperature()" /></td>
+			</tr>
+			</table>
+		</td>
+	</tr>
+	<tr>
+		<td>Ankunftszeit</td>
+		<td>
+			<input type="text" name="inb_arrival_date" id="inb_arrival_date" maxlength="10" size="10" value="<?php echo $data['inb_arrival_date']; ?>" onChange="checkOnTime(this.id)" />&#160;
+			<input type="text" name="inb_arrival_time" id="inb_arrival_time" size="8" maxlength="8" value="<?php echo $data['inb_arrival_time']; ?>" onChange="checkOnTime(this.id)" />
+		</td>
+	</tr>
+</table>
+</fieldset>
+<fieldset>
+<legend>Artikel</legend>
+<table>
+	<tr>
+		<td>Product <input type="hidden" name="variant" id="variant" value="variant" /></td>
+		<td><select name="product"  id="product" onchange="changeProduct()">
+		<?php foreach ($products as $product) : ?>
+		<option value="<?php echo $product['No'];?>" <?php if ($product['No']==$data['product']) echo 'selected'; ?>><?php echo $product['product']; ?></option>
+		<?php endforeach ?>
+		</select></td>
+	</tr>
+	<tr>
+		<td>Einheiten</td>
+		<td><input type="number" name="items" id="items" value="<?php echo $data['items'];?>" size="8" min="1" onchange="calcPU()" />&#160;x&#160;
+			<input type="number" name="weight_item" id="weight_item" value="<?php echo $data['weight_item']; ?>" size="8" min="1" />g
+		</td>
+	</tr>
+	<tr>
+		<td>Verpackung</td>
+		<td><select name="packaging">
+		<?php foreach ($packagings as $packaging) : ?>
+		<option value="<?php echo $packaging['No'];?>"<?php if ($packaging['No']==$data['packaging']) echo ' selected';?>><?php echo $packaging['packaging']; ?></option>
+		<?php endforeach ?>
+		</select></td>
+	</tr>
+	<tr>
+		<td>Transportverp.</td>
+		<td><select name="t_packaging">
+		<?php foreach ($t_packagings as $t_packaging) : ?>
+		<option value="<?php echo $t_packaging['no'];?>"<?php if ($t_packaging['no']==$data['t_packaging']) echo ' selected';?>><?php echo $t_packaging['transport_packaging']; ?></option>
+		<?php endforeach ?>
+		</select></td>
+	</tr>
+	<tr>
+		<td>Herkunft</td>
+		<td><select name="origin">
+		<?php foreach ($origins as $origin) : ?>
+		<option value="<?php echo $origin['Id'];?>"<?php if ($origin['Id']==$data['origin']) echo ' selected';?>><?php echo $origin['country']; ?></option>
+		<?php endforeach ?>
+		</select></td>
+	</tr>
+	<tr>
+		<td>Klasse</td>
+		<td><select name="quality_class">
+		<?php foreach ($quality_classes as $quality_class) : ?>
+		<option value="<?php echo $quality_class['No'];?>"<?php if ($quality_class['No']==$data['quality_class']) echo ' selected';?>><?php echo $quality_class['quality_class']; ?></option>
+		<?php endforeach ?>
+		</select></td>
+	</tr>
+	<tr>
+		<td>Qualität</td>
+		<td><select name="quality">
+		<?php foreach ($qualities as $quality) : ?>
+		<option value="<?php echo $quality['No'];?>"<?php if ($quality['No']==$data['quality']) echo ' selected';?>><?php echo $quality['quality']; ?></option>
+		<?php endforeach ?>
+		</select></td>
+	</tr>
+	<tr>
+		<td>Etikett</td>
+		<td><select name="label">
+		<?php foreach ($labels as $label) : ?>
+		<option value="<?php echo $label['No'];?>"<?php if ($label['No']==$data['label']) echo ' selected';?>><?php echo $label['label']; ?></option>
+		<?php endforeach ?>
+		</select></td>
+	</tr>
+	<tr>
+		<td>Marke</td>
+		<td><select name="brand">
+		<?php foreach ($brands as $brand) : ?>
+		<option value="<?php echo $brand['No'];?>"<?php if ($brand['No']==$data['brand']) echo ' selected';?>><?php echo $brand['brand']; ?></option>
+		<?php endforeach ?>
+		</select></td>
+	</tr>
+	<tr>
+		<td>Losnummer</td>
+		<td><input type="text" name="lot" value="<?php echo $data['po_lot']; ?>" size="10" /></td>
+		<td>Barcode</td>
+		<td><input type="text" name="barcode" value="<?php echo $data['po_barcode']; ?>" size="15" /></td>
+	</tr>
+	<tr>
+		<td>Zertifikat</td>
+		<td><select name="certificate">
+		<?php foreach ($certificates as $certificate) : ?>
+		<option value="<?php echo $certificate['No'] ?>"<?php if ($certificate['No']==$data['inb_certificate']) echo " selected" ?>><?php echo $certificate['certificate']; ?></option>
+		<?php endforeach ?>
+		</select></td>
+	</tr>
+</table>
+</fieldset>
+<fieldset>
+<legend>Mengen</legend>
+<table>
+	<tr>
+		<td></td><td>Menge Bestellt</td><td></td><td>Menge Geliefert</td>
+	</tr>
+	<tr>
+		<td>Kolli</td>
+		<td><input type="number" name="po_trading_units" id="po_trading_units" value="<?php echo $data['po_trading_units']; ?>" min="1" onchange="checkQuantity()" /></td>
+		<td></td>
+		<td><input type="number" name="inb_trading_units" id="inb_trading_units" value="<?php echo $data['inb_trading_units']; ?>" min="0" onchange="checkQuantity()" /></td>
+	</tr>
+	<tr>
+		<td>Packstücke</td>
+		<td><input type="number" name="po_packing_units" id="po_packing_units" value="<?php echo $data['po_packing_units']; ?>" min="1" disabled="disabled" /></td>
+		<td></td>
+		<td><input type="number" name="inb_packing_units" id="inb_packing_units" value="<?php echo $data['inb_packing_units']; ?>" min="0" disabled="disabled" /></td>
+	</tr>
+	<tr>
+		<td><select name="po_pallet">
+		<?php foreach ($pallets as $pallet) : ?>
+		<option value="<?php echo $pallet['No']; ?>"<?php if ($pallet['No']==$data['po_pallet']) echo " selected" ?>><?php echo $pallet['pallet']; ?></option>
+		<?php endforeach ?>
+		</select></td>
+		<td><input type="number" name="po_pallets" value="<?php echo $data['po_pallets']; ?>" min="0"  onchange="calcTU_Pal(this)" />&#160;<input type="number" name="po_tu_pal" id="po_tu_pal" value="<?php echo $data['po_tu_pal']; ?>" /></td>
+		<td><select name="inb_pallet">
+		<?php foreach ($pallets as $pallet) : ?>
+		<option value="<?php echo $pallet['No']; ?>"<?php if ($pallet['No']==$data['inb_pallet']) echo " selected" ?>><?php echo $pallet['pallet']; ?></option>
+		<?php endforeach ?>
+		</select></td>
+		<td><input type="number" name="inb_pallets" value="<?php echo $data['inb_pallets']; ?>" min="0" onchange="calcTU_Pal(this)" />&#160;<input type="number" name="inb_tu_pal" id="inb_tu_pal" value="<?php echo $data['inb_tu_pal']; ?>" /></td>
+	</tr>
+	<tr>
+		<td>Brix</td>
+		<td><input type="text" name="po_brix_min" id="po_brix_min" size="4" value="<?php echo $data['po_brix_min']; ?>" onChange="checkBrix()" /> - <input type="text" name="po_brix_max" id="po_brix_max" size="4" value="<?php echo $data['po_brix_max']; ?>" onChange="checkBrix()" /></td>
+		<td></td><td><input type="text" name="inb_brix" id="inb_brix" value="<?php echo $data['inb_brix']; ?>" onChange="checkBrix()" />
+	</tr>	
+	<tr>
+		<td>Packstücke geprüft</td>
+		<td><input type="number" name="items_checked" id="items_checked" size="10" min="0" value="<?php echo $data['items_checked']; ?>" /></td>
+	</tr>
+</table>
+</fieldset>
+<fieldset>
+<legend>Logistische Prüfung</legend>
+<table id="logigistic">
+<thead>
+	<th class="data" width="120px">Prüfpunkt</th>
+	<th class="data" width="15px">Abweichung</th>
+	<th class="data" width="20px">Abw.</>
+</thead>
+<tbody>
+<?php foreach ($qcheck_logs as $qcheck_log) : ?>
+<tr id="<?php echo $qcheck_log['qck_no']; ?>">
+	<td class="data" name="quality_checkpoint"><?php echo $qcheck_log['quality_checkpoint']; ?></td>
+	<td class="data_num">
+		<input type="hidden" name="max_good_<?php echo $qcheck_log['qck_no']; ?>" id="max_good_<?php echo $qcheck_log['No'];?>" value="<?php echo $qcheck_log['max_good']; ?>" />
+		<input type="hidden" name="max_regular_<?php echo $qcheck_log['qck_no']; ?>" id="max_regular_<?php echo $qcheck_log['No'];?>" value="<?php echo $qcheck_log['max_regular']; ?>" />
+		<input type="hidden" name="operator_<?php echo $qcheck_log['qck_no']; ?>" id="operator_<?php echo $qcheck_log['No'];?>" value="<?php echo $qcheck_log['operator']; ?>" />
+		<input type="hidden" name="base_<?php echo $qcheck_log['qck_no']; ?>" id="base_<?php echo $qcheck_log['qck_no']; ?>" value="<?php echo $data['base_'.$qcheck_log['qck_no']]; ?>" />
+		<?php if ($qcheck_log['operator']<2) : ?>
+		<input type="number" name="res_<?php echo $qcheck_log['qck_no']; ?>" id="res_<?php echo $qcheck_log['qck_no']; ?>" size="5" step="0.1" value="<?php echo $data['res_'.$qcheck_log['qck_no']]; ?>" onchange="changeDev(this.name)"/>
+		<?php elseif ($qcheck_log['operator']==2) : ?>
+		<input type="checkbox" name="res_<?php echo $qcheck_log['qck_no']; ?>" id="res_<?php echo $qcheck_log['qck_no']; ?>"<?php if ($data['res_'.$qcheck_log['qck_no']]==true) echo 'checked="checked" '; ?>onchange="changeDev(this.name)" />
+		<?php endif ?>
+	</td>
+	<td class="<?php echo $data['rl_'.$qcheck_log['qck_no']]; ?>" id="dev_percent_<?php echo $qcheck_log['qck_no']; ?>"><?php echo $data['rp_'.$qcheck_log['qck_no']]; ?></td>
+</tr>
+<?php endforeach ?>
+</tbody>
+</table>
+</fieldset>
+<hr />
+<div class="quality_sheet">
+<fieldset>
+<legend>Qualitätsprüfung</legend>
+<?php foreach ($qchk_class as $q_class) : ?>
+<div class="quality_class">
+<table id="qcheckpoint_<?php echo $q_class['No']; ?>">
+<thead>
+	<th class="data" width="120px">Prüfung</th>
+	<th class="data" width="15px">Abweichunungen</th>
+	<th class="data" width="20px">Abw.</>
+</thead>
+<tbody>
+<?php foreach ($qcheckpoints as $qcheckpoint) : ?>
+<?php if ($qcheckpoint['qchk_class_no']==$q_class['No']) : ?>
+<tr id="<?php echo $qcheckpoint['qck_no']; ?>">
+	<td class="data" name="quality_checkpoint"><?php echo $qcheckpoint['quality_checkpoint']; ?></td>
+	<td class="data_num"><input type="hidden" name="max_good_<?php echo $qcheckpoint['qck_no']; ?>" id="max_good_<?php echo $qcheckpoint['qck_no'];?>" value="<?php echo $qcheckpoint['max_good']; ?>" />
+						 <input type="hidden" name="max_regular_<?php echo $qcheckpoint['qck_no']; ?>" id="max_regular_<?php echo $qcheckpoint['qck_no'];?>" value="<?php echo $qcheckpoint['max_regular']; ?>" />
+						 <input type="hidden" name="operator_<?php echo $qcheckpoint['qck_no']; ?>" id="operator_<?php echo $qcheckpoint['qck_no']; ?>" value="<?php echo $qcheckpoint['operator']; ?>" />
+						 <input type="hidden" name="base_<?php echo $qcheckpoint['qck_no']; ?>" id="base_<?php echo $qcheckpoint['qck_no']; ?>" value="<?php echo $data['base_'.$qcheckpoint['qck_no']]; ?>" />
+						 <?php if ($qcheck_log['operator']<2) : ?>
+						 <input type="number" name="res_<?php echo $qcheckpoint['qck_no']; ?>" id="res_<?php echo $qcheckpoint['qck_no']; ?>" size="5" min="0" step="1" value="<?php echo $data['res_'.$qcheckpoint['qck_no']]; ?>" onChange="changeDev(this.name)"/>
+						 <?php elseif ($qcheck_log['operator']==2) : ?>
+						 <input type="checkbox" name="res_<?php echo $qcheckpoint['qck_no']; ?>" id="res_<?php echo $qcheckpoint['qck_no']; ?>"<?php if ($data['res_'.$qcheckpoint['No']]==true) echo 'checked="checked" '; ?>onChange="changeDev(this.name)"/>
+						 <?php endif ?>
+	</td>
+	<td class="<?php echo $data['rl_'.$qcheckpoint['qck_no']]; ?>" name="deviation" id="dev_percent_<?php echo $qcheckpoint['No']; ?>"><?php echo $data['rp_'.$qcheckpoint['qck_no']]; ?></td>
+</tr>
+<?php endif ?>
+<?php endforeach ?>
+</tbody>
+</table>
+</div>
+<?php endforeach ?>
+</fieldset>
+</div>
+<div id="remarks_div">
+<fieldset>
+<legend>Bemerkungen</legend>
+<textarea name="remarks" id="remarks" style="width: 95%; hight: 3em; resize: horizontal;"><?php echo $data['remarks']; ?></textarea><br />
+</fieldset>
+</div>
+<div>
+<fieldset id="pictures">
+<legend>Bilder</legend>
+<div><input type="file" name="picture[]" multiple accept="image/*" capture="camera"/><a onclick="addPicture()"><img src="/images/60.ico" alt="hinzufügen" title="Bild hinzufügen" /></a></div>
+</fieldset>
+</div>
+<div>
+<fieldset id="attachments">
+<legend>Dokumente</legend>
+<div><input type="file" name="attachment[]" multiple /><a onclick="addAtt()"><img src="/images/60.ico" alt="hinzufügen" title="Dok. hinzufügen" /></a></div>
+</fieldset>
+</div>
+<div><input type="submit" name="submit" value="Speichern" /> <input type="submit" name="submit" value="Abbrechen" /></div>
+</form>
+<dialog id="vendor_dialog">
+<h2>Lieferant auswählen"</h2>
+<form method="get">
+<table id="vendor_table">
+<thead>
+<tr>
+	<th class="data">Kred-Nr.</th>
+	<th class="data">Kreditor</th>
+	<th class="data">Straße</th>
+	<th class="data">Ort</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<button type="submit" value="Ausw�hlen">
+</form>
+</dialog>

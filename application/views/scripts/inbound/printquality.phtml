@@ -1,0 +1,213 @@
+<?php $data = $this->inbound_line; ?>
+<?php $qc_inb_lines_log = $this->qc_inb_lines_log; ?>
+<?php $qc_inb_lines_quality = $this->qc_inb_lines_quality; ?>
+<?php $qc_classes = $this->qc_classes; ?>
+<?php $pictures = $this->pictures; ?>
+<?php $picture_path = $this->picture_path; ?>
+<?php // Zend_Debug::dump($qc_inb_lines_log); ?>
+<fieldset>
+<legend>Bestellkopf</legend>
+<table>
+	<tr>
+		<td>Position</td>
+		<td>
+			<?php echo $data['position']; ?>
+		</td>
+		<td>Lieferant</td>
+		<td>
+			<?php echo $data['vendor_no']; ?>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2"><div class="extrabox" id="vendor_address">
+		<?php echo $data['vendor_name']; ?><br />
+		<?php echo $data['vendor_street']; ?><br />
+		<?php echo $data['vendor_PO_code'].' '.$data['vendor_city']; ?><br />
+		<?php echo $data['vendor_country']; ?></div></td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>Bestellung</td>		
+		<td><?php echo $data['purchase_order']; ?></td>
+		<td>Lieferschein</td>
+		<td><?php echo $data['v_delivery_note']; ?></td>
+	</tr>
+	<tr>
+		<td>Spedition</td>
+		<td><?php echo $data['inb_forwarder']; ?></td>
+	</tr>
+	<tr>
+		<td>Container / AWB</td>
+		<td><?php echo $data['inb_container']; ?></td>
+		<td>Fahrzeug</td>
+		<td><?php echo $data['inb_trailor']; ?></td>
+	</tr>
+	<tr>
+		<td>Ankunft geplant</td>
+		<td>
+			<?php echo $data['po_arrival_date']; ?>&#160;<?php echo $data['po_arrival_time']; ?>
+		</td>
+		<td></td>
+		<td rowspan"2">
+			<table>
+			<tr><td>Temp. Soll</td><td>Temp. Ist</td></tr>
+			<tr>
+				<td><?php echo $data['po_transport_temp_min']; ?> - <?php echo $data['po_transport_temp_max']; ?></td>
+			    <td><?php echo $data['inb_transport_temp']; ?></td>
+			</tr>
+			</table>
+		</td>
+	</tr>
+	<tr>
+		<td>Ankunftszeit</td>
+		<td>
+			<?php echo $data['inb_arrival_date']; ?>&#160;<?php echo $data['inb_arrival_time']; ?>
+		</td>
+	</tr>
+</table>
+</fieldset>
+<fieldset>
+<legend>Artikel</legend>
+<table>
+	<tr>
+		<td>Product</td>
+		<td><?php echo $data['product_desc']; ?></td>
+	</tr>
+	<tr>
+		<td>Einheiten</td>
+		<td><?php echo $data['items'];?>&#160;x&#160;<?php echo $data['weight_item']; ?>g
+		</td>
+	</tr>
+	<tr>
+		<td>Verpackung</td>
+		<td><?php echo $data['packaging']; ?></td>
+	</tr>
+	<tr>
+		<td>Transportverp.</td>
+		<td><?php echo $data['t_packaging']; ?></td>
+	</tr>
+	<tr>
+		<td>Herkunft</td>
+		<td><?php echo $data['origin']; ?></td>
+	</tr>
+	<tr>
+		<td>Klasse</td>
+		<td><?php echo $data['quality_class']; ?></td>
+	</tr>
+	<tr>
+		<td>Etikett</td>
+		<td><?php echo $data['label']; ?></td>
+	</tr>
+	<tr>
+		<td>Marke</td>
+		<td><?php echo $data['brand']; ?></td>
+	</tr>
+	<tr>
+		<td>Losnummer</td>
+		<td><?php echo $data['inb_lot']; ?></td>
+		<td>Barcode</td>
+		<td><?php echo $data['po_barcode']; ?></td>
+	</tr>
+	<tr>
+		<td>Zertifikat</td>
+		<td><?php echo $data['inb_certificate_desc']; ?></td>
+	</tr>
+</table>
+</fieldset>
+<fieldset>
+<legend>Mengen</legend>
+<table>
+	<tr>
+		<td></td><td>Menge Bestellt</td><td></td><td>Menge Geliefert</td>
+	</tr>
+	<tr>
+		<td>Kolli</td>
+		<td><?php echo $data['po_trading_units']; ?></td>
+		<td></td>
+		<td><?php echo $data['inb_trading_units']; ?></td>
+	</tr>
+	<tr>
+		<td>Packstücke</td>
+		<td><?php echo $data['po_packing_units']; ?></td>
+		<td></td>
+		<td><?php echo $data['inb_packing_units']; ?></td>
+	</tr>
+	<tr>
+		<td><?php echo $data['po_pallet_desc']; ?></td>
+		<td><?php echo $data['po_pallets']; ?>&#160;<?php echo $data['po_tu_pal']; ?></td>
+		<td><?php echo $data['inb_pallet_desc']; ?></td>
+		<td><?php echo $data['inb_pallets']; ?>&#160;<?php echo $data['inb_tu_pal']; ?></td>
+	</tr>
+	<tr>
+		<td>Brix</td>
+		<td><?php echo $data['po_brix_min']; ?> - <?php echo $data['po_brix_max']; ?></td>
+		<td></td><td><?php echo $data['inb_brix']; ?></td>
+	</tr>	
+	<tr>
+		<td>Packstücke geprüft</td>
+		<td><?php echo $data['items_checked']; ?></td>
+	</tr>
+</table>
+</fieldset>
+<fieldset>
+<legend>Logistische Prüfung</legend>
+<table id="logigistic">
+<thead>
+	<th class="data" width="120px">Prüfpunkt</th>
+	<th class="data" width="15px">Abweichung</th>
+	<th class="data" width="20px">Abw.</>
+</thead>
+<tbody>
+<?php foreach ($qc_inb_lines_log as $qcheck_log) : ?>
+<tr>
+	<td class="data"><?php echo $qcheck_log['quality_checkpoint']; ?></td>
+	<td class="data_num">
+		<?php if ($qcheck_log['operator']<2) : ?>
+		<?php echo round($qcheck_log['value'],1); ?>
+		<?php elseif ($qcheck_log['operator']==2) : ?>
+		<input type="checkbox" name="res_<?php echo $qcheck_log['qc_no']; ?>" <?php if ($qcheck_log['value']==1) echo 'checked="checked" '; ?>" />
+		<?php endif ?>
+	</td>
+	<td class="<?php echo $qcheck_log['res_level']; ?>"><?php echo $qcheck_log['res_percent']; ?></td>
+</tr>
+<?php endforeach ?>
+</tbody>
+</table>
+</fieldset>
+<hr />
+<div class="quality_sheet">
+<fieldset>
+<legend>Qualitätsprüfung</legend>
+<?php foreach($qc_classes as $qc_class) : ?>
+<?php if ($qc_class['No'] < 4) : ?>
+<div class="quality_class">
+<table id="qcheckpoint_<?php echo $qc_class['No']; ?>">
+<thead>
+	<th class="data" width="120px">Prüfung</th>
+	<th class="data" width="15px">Abweichunungen</th>
+	<th class="data" width="20px">Abw.</th>
+</thead>
+<tbody>
+<?php foreach ($qc_inb_lines_quality as $qcheckpoint) : ?>
+<?php if ($qc_class['No'] == $qcheckpoint['qc_class_no']) : ?>
+<tr id="<?php echo $qcheckpoint['qc_class_no']; ?>">
+	<td class="data"><?php echo $qcheckpoint['quality_checkpoint']; ?></td>
+	<td class="data_num"><?php echo round($qcheckpoint['value'],1); ?></td>
+	<td class="<?php echo $qcheckpoint['res_level']; ?>"><?php echo $qcheckpoint['res_percent']; ?></td>
+</tr>
+<?php endif ?>
+<?php endforeach ?>
+</tbody>
+</table>
+</div>
+<?php endif ?>
+<?php endforeach ?>
+</fieldset>
+<div>
+<fieldset>
+<legend>Bilder</legend>
+<?php foreach ($pictures as $picture) : ?>
+<img src="<?php echo '/quality/pictures/'.$picture['path']; ?>" alt="<?php echo $picture['path']; ?>" />
+<?php endforeach ?>
+</fieldset>
+</div>

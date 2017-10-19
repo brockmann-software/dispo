@@ -1,0 +1,35 @@
+<?php $data = $this->params['data']; ?>
+<form action="/customer/edit/" method="post">
+<table>
+	<tr>
+		<td></td><td><input type="hidden" name="old_No" value="<?php echo $data['No']; ?>" /></td>
+	</tr>
+	<tr>
+		<td>Nummer</td><td><input type="text" name="No" value="<?php echo $data['No']; ?>" /></td>
+	</tr>
+	<tr>
+		<td>Name Zeile 1</td><td><input type="text" name="name" maxlength="255" size="40" value="<?php echo $data['name']; ?>" /></td>
+	</tr>
+	<tr>
+		<td>Name Zeile 2</td><td><input type="text" name="name_2" maxlength="255" size="40" value="<?php echo $data['name_2']; ?>" /></td>
+	</tr>
+	<tr>
+		<td>Straße Zeile 1</td><td><input type="text" name="street" maxlength="255" size="40" value="<?php echo $data['street']; ?>" /></td>
+	</tr>
+	<tr>
+		<td>Straße Zeile 2</td><td><input type="text" name="street_2" maxlength="255" size="40" value="<?php echo $data['street_2']; ?>" /></td>
+	</tr>
+	<tr>
+		<td>PLZ</td><td><input type="text" name="PO_code" maxlength="2" size="5" value="<?php echo $data['PO_code']; ?>" /></td>
+	</tr>
+	<tr>
+		<td>Ort</td><td><input type="text" name="city" maxlength="255" size="40" value="<?php echo $data['city']; ?>" /></td>
+	</tr>
+	<tr>
+		<td>Land</td><td><input type="text" name="country_code" maxlength="2" size="5" value="<?php echo $data['country_code']; ?>" /></td>
+	</tr>
+	<tr>
+		<td></td><td><input type="submit" value="Speichern" /></td>
+	</tr>
+</table>		
+</form>

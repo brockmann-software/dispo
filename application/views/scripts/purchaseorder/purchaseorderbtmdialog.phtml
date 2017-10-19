@@ -1,0 +1,80 @@
+<script>
+function markRow(row) {
+	var vendorTable = document.getElementById('po_table').getElementsByTagName('tbody')[0];
+	var rowCnt = vendorTable.rows.length;
+	var rowNr = 0;
+	for (rowNr = 0; rowNr<rowCnt; rowNr++) {
+		var tbRow = vendorTable.rows[rowNr];
+		var cellNr;
+		if (rowNr==row) {
+			for (cellNr = 0; cellNr<tbRow.cells.length; cellNr++) {
+				tbRow.cells[cellNr].className = 'selected';
+			}
+		} else {
+			for (cellNr = 0; cellNr<tbRow.cells.length; cellNr++) {
+				tbRow.cells[cellNr].className = 'unselected';
+			}
+		}
+	}
+}
+
+function checkRow(row)
+{
+	row.cells[0].firstChild.checked = true;
+	row.cells[0].firstChild.focus();
+	markRow(row.sectionRowIndex)
+}
+
+function closeDialog()
+{
+	polines_found = document.getElementById('po_table').getElementsByTagName('tbody')[0].rows.length;
+	var po_line;
+	po_lines = document.po_form.po_line.po_line;
+	if (polines_found>1) { 
+		for (var i=0; i<po_lines.length; i++) {
+			if (po_lines[i].checked) {
+				po_line = po_lines[i].value;
+				break;
+			}
+		}
+	} else if (vendors_found==1) {
+		if (po_lines.checked) {
+			po_line = po_lines.value;
+		}
+	}
+	if (!window.showModalDialog) {
+		window.opener.popupFinished(po_line);
+	} else {
+		window.returnValue = po_line;
+		window.close();
+	}
+}
+
+function loadArgs() {}
+</script>
+<div>Bestellung: <?php echo $this->results[0]['HANVORNR']; ?> Lieferant: <?php echo "{$this->results[0]['HANADRNR']} {$this->results[0]['LIENAME']}" ?></div>
+<form name="po_form">
+<table id="po_table">
+<thead>
+<tr>
+	<th class="data">Art.-Nr.</th>
+	<th class="data">Artikel</th>
+	<th class="data">Einheit</th>
+	<th class="data">Gewg/Einh.</th>
+	<th class="data">Kolli Best.</th>
+</tr>
+</thead>
+<tbody>
+<?php foreach ($this->results as $po_lineBTM) : ?>
+<tr onclick="checkRow(this)">
+	<td class="data"><input type="radio" name="po_line" value="<?php echo $po_lineBTM['HANPOSNR']; ?>" onchange="markRow(this.parentNode.parentNode.sectionRowIndex)"><?php echo $po_lineBTM['HANWARGR']; ?></td>
+	<td class="data"><?php echo $po_lineBTM['HANARTTX']; ?></td>
+	<td class="data_num"><?php echo $po_lineBTM['ARTGEBIN']; ?></td>
+	<td class="data_num"><?php echo $po_lineBTM['ARTDURGW']; ?>g</td>
+	<td class="data_num"><?php echo $po_lineBTM['HANPMENG']; ?></td>
+</tr>
+<?php endforeach ?>
+</tbody>
+</table>
+<input type="button" value="Auswählen" onclick="closeDialog()" />
+</form>

@@ -1,0 +1,23 @@
+<a href="/whmanagement/doinventory/">Neue Zählung beginnen</a>
+<hr />
+<?php $inventory_heads = $this->data; ?>
+<table id="inventory_heads">
+<thead>
+<th class="data">Zählung</th>
+<th class="data">Status</th>
+<th class="data">Begonnen</th>
+<th class="data">Beendet</th>
+</thead>
+<tbody>
+<?php foreach ($inventory_heads as $data) : ?>
+<tr>
+	<td class="data"><a href="/whmanagement/doinventory/No/<?php echo $data['No'] ?>"><img title="count" alt="Zählen" src="/images/b_dbstatistics.png" /></a><?php echo $data['date']; ?></td>
+	<td class="data"><?php echo $data['state']; ?></td>
+	<td class="data"><?php echo $data['started']; ?></td>
+	<td class="data"><?php echo $data['ended']; ?></td>
+</tr>
+<?php endforeach ?>
+</tbody>
+</table>
+<hr />
+<a href="/whmanagement/doinventory/">Neue Zählung beginnen</a>

@@ -1,0 +1,469 @@
+﻿<script>
+function buildRow(curRow, inventory, add)
+{
+	add = add || false;
+	
+	curRow.id = inventory.No;
+	var sufix = inventory.No+'_'+inventory.inventory_head+'_'+inventory.inbound_line;
+	var cell0 = curRow.insertCell(0);
+	cell0.className = 'data';
+	cell0.innerHTML = inventory.position;
+	var cell1 = curRow.insertCell(1);
+	cell1.className = 'data';
+	cell1.innerHTML = inventory.variant_desc;
+	cell1.dataset.variant = inventory.variant;
+	var cell2 = curRow.insertCell(2);
+	cell2.className = 'data';
+	cell2.innerHTML = inventory.product_desc;
+	cell2.dataset.product = inventory.product;
+	var cell3 = curRow.insertCell(3);
+	cell3.className = 'data';
+	cell3.innerHTML = inventory.origin;
+	var cell4 = curRow.insertCell(4);
+	cell4.className = 'data';
+	if (add) {
+		var t_pack_select = document.getElementById('int_t_packaging').cloneNode(true);
+		t_pack_select.name = 't_packaging_'+sufix;
+		t_pack_select.id = 't_packaging_'+sufix;
+		t_pack_select.value = inventory.t_packaging;
+		cell4.appendChild(t_pack_select);
+	} else {
+		cell4.innerHTML = inventory.t_packaging;
+	}
+	var cell5 = curRow.insertCell(5);
+	cell5.className = 'data';
+	if (add) {
+		var packaging_select = document.getElementById('int_packaging').cloneNode(true);
+		packaging_select.name = 'packaging_'+sufix;
+		packaging_select.id = 'packaging_'+sufix;
+		packaging_select.value = inventory.packaging;
+		cell5.appendChild(packaging_select);
+	} else {
+		cell5.innerHTML = inventory.packaging_desc;
+		cell5.dataset.packaging_no = inventory.packaging;
+	}
+	var cell6 = curRow.insertCell(6);
+	cell6.className = 'data';
+	if (add) {
+		var label_select = document.getElementById('int_label').cloneNode(true);
+		label_select.name = 'label_'+sufix;
+		label_select.id = 'label_'+sufix;
+		label_select.value = inventory.label;
+		cell6.appendChild(label_select);
+	} else {
+		cell6.innerHTML = inventory.label_desc;
+		cell6.dataset.label_no = inventory.label;
+	}
+	var cell7 = curRow.insertCell(7);
+	cell7.className = 'data';
+	if (add) {
+		var lot_input = document.createElement('input');
+		lot_input.type = 'text';
+		lot_input.name = 'inb_lot_'+sufix;
+		lot_input.id = 'inb_lot_'+sufix;
+		lot_input.size = 10;
+		lot_input.value = inventory.inb_lot;
+		cell7.appendChild(lot_input);
+	} else {
+		cell7.innerHTML = inventory.inb_lot;
+	}
+	var cell8 = curRow.insertCell(8);
+	cell8.className = 'data';
+	cell8.innerHTML = inventory.arrival;
+	var cell9 = curRow.insertCell(9);
+	cell9.className = 'data';
+	cell9.innerHTML = inventory.stock;
+	var cell10 = curRow.insertCell(10);
+	cell10.className = 'data';
+	var roomSelect = document.getElementById('filter_room').cloneNode(true);
+	roomSelect.name = 'room_'+sufix;
+	roomSelect.id = 'room_'+sufix;
+	roomSelect.value = inventory.room;
+	roomSelect.onchange = '';
+	cell10.appendChild(roomSelect); 
+	var cell11 = curRow.insertCell(11);
+	cell11.className = 'data';
+	var input_rack = document.createElement('input');
+	input_rack.name = 'rack_'+sufix;
+	input_rack.id = 'rack_'+sufix;
+	input_rack.type = 'text';
+	input_rack.size = 4;
+	input_rack.value = inventory.rack;
+	cell11.appendChild(input_rack);
+	var cell12 = curRow.insertCell(12);
+	cell12.className = 'data';
+	input_TU_pallet = document.createElement('input');
+	input_TU_pallet.name = 'tu_pallet_'+sufix;
+	input_TU_pallet.id = 'tu_pallet_'+sufix;
+	input_TU_pallet.type = 'number';
+	input_TU_pallet.size = 4;
+	input_TU_pallet.value = inventory.tu_pallet;
+	input_TU_pallet.onchange = function() { calcTU(this); };
+	cell12.appendChild(input_TU_pallet);
+	var cell13 = curRow.insertCell(13);
+	cell13.className = 'data';
+	var input_pallets = document.createElement('input');
+	input_pallets.name = 'pallets_' + sufix;
+	input_pallets.id = 'pallets_' + sufix;
+	input_pallets.type = 'number';
+	input_pallets.size = 4;
+	input_pallets.value = inventory.pallets;
+	input_pallets.onchange = function() { calcTU(this); };
+	cell13.appendChild(input_pallets);
+	var cell14 = curRow.insertCell(14);
+	cell14.className = 'data';
+	var input_tradingUnits = document.createElement('input');
+	input_tradingUnits.name = 'trading_units_' + sufix;
+	input_tradingUnits.id = 'trading_units_' + sufix;
+	input_tradingUnits.type = 'number';
+	input_tradingUnits.size = 6;
+	input_tradingUnits.value = inventory.trading_units;
+	input_tradingUnits.defaultValue = inventory.trading_units;
+	input_tradingUnits.onchange = function() { sendInventory(this); };
+	cell14.appendChild(input_tradingUnits);
+	var cell15 = curRow.insertCell(15);
+	var link = document.createElement('a');
+	link.onclick = function() { addLine(sufix) };
+	link.innerHTML = '<img src="/images/60.ico" alt="hinzufügen" title="hinzufügen" />';
+	cell15.appendChild(link);
+}
+
+function filterInventoryLines()
+{
+	function loadInventorylinesXML()
+	{
+		var row = 0;
+		if (http.readyState == 4) {
+			xmlResult = http.responseXML;
+			var inventoryTable = document.getElementById('inventory_lines').getElementsByTagName('tbody')[0];
+			invRows = inventoryTable.rows.length;
+			if (xmlResult.getElementsByTagName('errorCount')[0].firstChild==null) errorCount = 0;
+			else errorCount = xmlResult.getElementsByTagName('errorCount')[0].firstChild.nodeValue;
+			if (errorCount==0) {
+				inventories = xmlResult.getElementsByTagName('result');
+				for (var inv = 0; inv < inventories.length; inv++) {
+					var inventory = [];
+					if (row >= invRows) {
+						var currentRow = inventoryTable.insertRow(row);
+					} else {
+						var currentRow = inventoryTable.rows[row];
+						while (currentRow.cells.length>0) 
+							currentRow.deleteCell(0);
+					}
+					if (!inventories[inv].getElementsByTagName('No')[0].firstChild) 
+						inventory['No']  = 0;
+					else
+						inventory['No'] = inventories[inv].getElementsByTagName('No')[0].firstChild.nodeValue;
+					if (!inventories[inv].getElementsByTagName('inventory_head')[0].firstChild)
+						inventory['inventory_head'] = 0;
+					else 
+						inventory['inventory_head'] = inventories[inv].getElementsByTagName('inventory_head')[0].firstChild.nodeValue;
+					if (!inventories[inv].getElementsByTagName('inbound_line')[0].firstChild)
+						inventory['inbound_line'] = 0;
+					else
+						inventory['inbound_line'] = inventories[inv].getElementsByTagName('inbound_line')[0].firstChild.nodeValue;
+					inventory['position'] = inventories[inv].getElementsByTagName('position')[0].firstChild.nodeValue;
+					inventory['variant'] = inventories[inv].getElementsByTagName('variant')[0].firstChild.nodeValue;
+					inventory['variant_desc'] = inventories[inv].getElementsByTagName('variant_desc')[0].firstChild.nodeValue;
+					inventory['product'] = inventories[inv].getElementsByTagName('product')[0].firstChild.nodeValue;
+					inventory['product_desc'] = inventories[inv].getElementsByTagName('product_desc')[0].firstChild.nodeValue;
+					inventory['origin'] = inventories[inv].getElementsByTagName('origin')[0].firstChild.nodeValue;
+					inventory['t_packaging'] = inventories[inv].getElementsByTagName('t_packaging')[0].firstChild.nodeValue;
+					inventory['packaging_desc'] = inventories[inv].getElementsByTagName('packaging')[0].firstChild.nodeValue;
+					inventory['packaging'] = inventories[inv].getElementsByTagName('packaging_no')[0].firstChild.nodeValue;
+					inventory['label_desc'] = inventories[inv].getElementsByTagName('label')[0].firstChild.nodeValue;
+					inventory['label'] = inventories[inv].getElementsByTagName('label_no')[0].firstChild.nodeValue;
+					if (!inventories[inv].getElementsByTagName('inb_lot')[0].firstChild)
+						inventory['inb_lot'] = '';
+					else inventory['inb_lot'] = inventories[inv].getElementsByTagName('inb_lot')[0].firstChild.nodeValue;
+					inventory['arrival'] = inventories[inv].getElementsByTagName('inb_arrival')[0].firstChild.nodeValue.split(" ")[0];
+					inventory['stock'] = inventories[inv].getElementsByTagName('stock')[0].firstChild.nodeValue;
+					inventory['room'] = inventories[inv].getElementsByTagName('room')[0].firstChild.nodeValue;
+					inventory['rack'] = inventories[inv].getElementsByTagName('rack')[0].firstChild.nodeValue;
+					inventory['tu_pallet'] = inventories[inv].getElementsByTagName('tu_pallet')[0].firstChild.nodeValue;
+					inventory['pallets'] = inventories[inv].getElementsByTagName('pallets')[0].firstChild.nodeValue;
+					inventory['trading_units'] = inventories[inv].getElementsByTagName('trading_units')[0].firstChild.nodeValue;
+					buildRow(currentRow, inventory);
+					row++;
+				}
+			} if (invRows>row) {
+				var lastRow=row;
+				do {
+					inventoryTable.deleteRow(lastRow);
+					row++;
+				} while (row<invRows)
+			}
+		}	
+	}
+	
+	var filter_position = document.getElementById('filter_position').value;
+	var filter_product = document.getElementById('filter_product').value;
+	var filter_room = document.getElementById('filter_room').value;
+	params = '/inventory_head/'+document.getElementById('head_no').innerHTML;
+	if (filter_position!='') params += '/position/'+filter_position;
+	if (filter_product!='') params += '/product/'+filter_product;
+	uri = '/whmanagement/getlines'+params;
+	sendRequest('GET', uri, '', loadInventorylinesXML, false);
+}
+
+function calcTU(element)
+{
+	var name = element.name;
+	var items = name.split('_');
+	var sufix = items[1]+'_'+items[2]+'_'+items[3];
+	var TU_pallet = document.getElementById('tu_pallet_'+sufix).value;
+	var pallets = document.getElementById('pallets_'+sufix).value;
+	document.getElementById('trading_units_'+sufix).value = TU_pallet*pallets;
+	sendInventory(element);
+}
+
+function sendInventory(element, overwrite)
+{
+	var room;
+	var rack;
+	var TU_pallet;
+	var pallets;
+	var trading_units;
+	var newItem = false;
+	
+	function getInventoryReturn()
+	{
+		if (http.readyState == 4) {
+			if (http.status != 200) {
+				alert('Serverfehler '+http.status+'!');
+			}
+			if (http.responseXML) {
+				xmlResult = http.responseXML;
+				if (xmlResult.getElementsByTagName('errorCount')[0].firstChild == null) var errorCount = 0;
+				else var errorCount = xmlResult.getElementsByTagName('errorCount')[0].firstChild.nodeValue;
+				if (errorCount == 0) {
+					trading_units.defaultValue = xmlResult.getElementsByTagName('trading_units')[0].firstChild.nodeValue;
+					trading_units.value = xmlResult.getElementsByTagName('trading_units')[0].firstChild.nodeValue;
+					room.value = xmlResult.getElementsByTagName('room')[0].firstChild.nodeValue;
+					rack.value = xmlResult.getElementsByTagName('rack')[0].firstChild.nodeValue;
+					pallets.value = xmlResult.getElementsByTagName('pallets')[0].firstChild.nodeValue;
+					TU_pallet.value = xmlResult.getElementsByTagName('tu_pallet')[0].firstChild.nodeValue;
+					if (newItem) {
+						No = xmlResult.getElementsByTagName('No')[0].firstChild.nodeValue;
+						inventory_head = xmlResult.getElementsByTagName('inventory_head')[0].firstChild.nodeValue;
+						inbound_line = xmlResult.getElementsByTagName('inbound_line')[0].firstChild.nodeValue;
+						newSufix = No+'_'+inventory_head+'_'+inbound_line;
+						room.name = 'room_'+newSufix;
+						room.id = 'room_'+newSufix;
+						rack.name = 'rack_'+newSufix;
+						rack.id = 'rack_'+newSufix;
+						pallets.name = 'pallets_'+newSufix;
+						pallets.id = 'pallets_'+newSufix;
+						TU_pallet.name = 'tu_pallet_'+newSufix;
+						TU_pallet.id = 'tu_pallet_'+newSufix;
+						trading_units.name = 'trading_units_'+newSufix;
+						trading_units.id = 'trading_units_'+newSufix;
+						filterInventoryLines();
+						trading_units.focus();
+					}
+				} else {
+					errorText = '';
+					if (xmlResult.getElementsByTagName('race_condition').length>0) {
+						race_condition = xmlResult.getElementsByTagName('race_condition')[0].firstChild.nodeValue;
+						if (confirm('Der Wert wurde bereits von einem anderen benutzer auf '+race_condition+' geändert. Möchten Sie den Wert übernehmen?\nOK=anderen Wert übernehmen  Abbrechen=Eigenen Wert nehmen.')==false) {
+							sendInventory(element, true);
+						} else {
+							trading_units.defaultValue = race_condition;
+							trading_units.value = race_condition;
+							room.value = xmlResult.getElementsByTagName('room')[0].firstChild.nodeValue;
+							rack.value = xmlResult.getElementsByTagName('rack')[0].firstChild.nodeValue;
+							pallets.value = xmlResult.getElementsByTagName('pallets')[0].firstChild.nodeValue;
+							TU_pallet.value = xmlResult.getElementsByTagName('tu_pallet')[0].firstChild.nodeValue;
+						}	
+					} else {
+						var errorText = '';
+						var errors = xmlResult.getElementsByTagName('error');
+						for (e=0; e<errors.length; e++) {
+							errorText += errors[e].getElementsByTagName('error_field')[0].firstChild.nodeValue + ': ';
+							errorText += errors[e].getElementsByTagName('error_text')[0].firstChild.nodeValue + '\n';
+						}
+						alert(errorText);
+					}
+				}
+			} else {
+				alert(http.responseText);
+			}
+		}
+	}
+	
+	overwrite = overwrite || false; 
+	var name = element.name;
+	var items = name.split('_');
+	newItem = (items[items.length-3]=='0');
+	var sufix = items[items.length-3]+'_'+items[items.length-2]+'_'+items[items.length-1];
+	TU_pallet = document.getElementById('tu_pallet_'+sufix);
+	pallets = document.getElementById('pallets_'+sufix);
+	trading_units = document.getElementById('trading_units_'+sufix);
+	room = document.getElementById('room_'+sufix);
+	rack = document.getElementById('rack_'+sufix);
+	var no = items[items.length-3];
+	var inventory_head = items[items.length-2];
+	var inbound_line = items[items.length-1];
+	var postData = 'No='+no;
+	postData += '&inventory_head='+inventory_head;
+	postData += '&inbound_line='+inbound_line;
+	postData += '&room='+room.value;
+	postData += '&rack='+rack.value;
+	postData += '&tu_pallet='+TU_pallet.value;
+	postData += '&pallets='+pallets.value;
+	postData += '&trading_units='+trading_units.value;
+	postData += '&default_TU='+trading_units.defaultValue;
+	if (document.getElementById('t_packaging_'+sufix)) postData += '&t_packaging='+document.getElementById('t_packaging_'+sufix).value;
+	if (document.getElementById('packaging_'+sufix)) postData += '&packaging='+document.getElementById('packaging_'+sufix).value;
+	if (document.getElementById('label_'+sufix)) postData += '&label='+document.getElementById('label_'+sufix).value;
+	if (document.getElementById('inb_lot_'+sufix)) postData += '&inb_lot='+document.getElementById('inb_lot_'+sufix).value;
+	postData += '&overwrite='+overwrite;
+	sendRequest('POST', '/whmanagement/storeinventory/', postData, getInventoryReturn, false);
+}
+
+function addLine(sufix)
+{
+	
+	var items = sufix.split('_');
+	var inventoryTable = document.getElementById('inventory_lines').getElementsByTagName('tbody')[0];
+	invRows = inventoryTable.rows.length;
+	curRow = inventoryTable.rows.namedItem(items[0]);
+	var inventory = [];
+	inventory['No'] = '0';
+	inventory['inventory_head'] = items[1];
+	inventory['inbound_line'] = items[2];
+	inventory['position'] = curRow.cells[0].innerHTML;
+	inventory['variant_desc'] = curRow.cells[1].innerHTML;
+	inventory['variant'] = curRow.cells[1].dataset.variant;
+	inventory['product_desc'] = curRow.cells[2].innerHTML;
+	inventory['product'] = curRow.cells[2].dataset.product;
+	inventory['origin'] = curRow.cells[3].innerHTML;
+	inventory['t_packaging'] = curRow.cells[4].innerHTML;
+	inventory['packaging_desc'] = curRow.cells[5].innerHTML;
+	inventory['packaging'] = curRow.cells[5].dataset.packaging;
+	inventory['label_desc'] = curRow.cells[6].innerHTML;
+	inventory['label'] = curRow.cells[6].dataset.label;
+	inventory['inb_lot'] = curRow.cells[7].innerHTML;
+	inventory['arrival'] = curRow.cells[8].innerHTML;
+	inventory['stock'] = curRow.cells[9].innerHTML;
+	inventory['room'] = document.getElementById('room_'+sufix).value;
+	inventory['rack'] = document.getElementById('rack_'+sufix).value;
+	inventory['tu_pallet'] = document.getElementById('tu_pallet_'+sufix).value;
+	inventory['pallets'] = 0;
+	inventory['trading_units'] = 0;
+	newSufix = inventory['No']+'_'+inventory['inventory_head']+'_'+inventory['inbound_line'];
+	newRow = inventoryTable.insertRow(curRow.sectionRowIndex+1);
+	buildRow(newRow, inventory, true);
+	document.getElementById('pallets_'+newSufix).focus();
+	document.getElementById('pallets_'+newSufix).select();
+}
+	
+</script>
+<?php $rooms = $this->params['rooms']; ?>
+<?php $products = $this->params['products']; ?>
+<?php $t_packagings = $this->params['t_packagings']; ?>
+<?php $packagings = $this->params['packagings']; ?>
+<?php $labels = $this->params['labels']; ?>
+<?php $qualities = $this->params['qualities']; ?>
+<?php $inventory_head = $this->params['inventory_head']; ?>
+<?php $inventory_lines = $this->params['inventory_lines']; ?>
+<?php $errors = $this->params['errors']; ?>
+<?php $filter = array('product'=>'', 'room'=>''); ?>
+<?php if (isset($errors['all'])) : ?>
+<div class="error"><?php echo $errors['all']; ?></div>
+<?php endif ?>
+<?php if (isset($inventory_head['No'])) : ?>
+<h3>Zählung <span id="head_no"><?php echo $inventory_head['No']; ?></span> vom <span id="head_date"><?php echo $inventory_head['date']; ?></span></h3>
+<button id="inventory_close" onclick="location.href='/whmanagement/closeinventory/No/<?php echo $inventory_head['No']; ?>'">Zählung beenden</button>
+<?php endif ?>
+<div class="data_container">
+<select name="int_t_packaging" id="int_t_packaging">
+<?php foreach ($t_packagings as $t_packaging) : ?>
+<option value="<?php echo $t_packaging['no']; ?>"><?php echo $t_packaging['transport_packaging']; ?></option>
+<?php endforeach ?>
+</select>
+<select name="int_packaging" id="int_packaging">
+<?php foreach ($packagings as $packaging) : ?>
+<option value="<?php echo $packaging['No']; ?>"><?php echo $packaging['packaging']; ?></option>
+<?php endforeach ?>
+</select>
+<select name="int_label" id="int_label">
+<?php foreach ($labels as $label) : ?>
+<option value="<?php echo $label['No']; ?>"><?php echo $label['label']; ?></option>
+<?php endforeach ?>
+</select>
+</div>
+
+<div class="filter">
+<table id="filter">
+<tr>
+	<td>Position</td>
+	<td>Produkt</td>
+	<td>Raum</td>
+</tr>
+<tr>
+	<td><input type="text" id="filter_position" name="filter_position" value="" size="10" oninput="filterInventoryLines()" /></td>
+	<td><select id="filter_product" name="filter_product" onchange="filterInventoryLines()">
+	<?php foreach ($products as $product) : ?>
+	<option value="<?php echo $product['No']; ?>"<?php if ($product['No']==$filter['product']) echo " selected"; ?>><?php echo $product['product']; ?></option>
+	<?php endforeach ?>
+	</select></td>
+	<td><select id="filter_room" name="filter_room" onchange="filterInventoryLines()">
+	<?php foreach ($rooms as $room) : ?>
+	<option value="<?php echo $room['No']; ?>"<?php if ($room['No']==$filter['room']) echo " selected"; ?>><?php echo $room['room']; ?></option>
+	<?php endforeach ?>
+	</select></td>
+</tr>
+</table>
+</div>
+<table id="inventory_lines">
+<thead>
+<tr>
+	<th class="data">Position</th>
+	<th class="data">Variante</th>
+	<th class="data">Artikel</th>
+	<th class="data">Herkunft</th>
+	<th class="data">Transp. V</th>
+	<th class="data">Verpackung</th>
+	<th class="data">Etikett</th>
+	<th class="data">Los</th>
+	<th class="data">WE</th>
+	<th class="data">Sollbestand</th>
+	<th class="data">Raum</th>
+	<th class="data">Regal</th>
+	<th class="data">Kol/Pal</th>
+	<th class="data">Pal.</th>
+	<th class="data">Kolli</th>
+	<th></th>
+</tr>
+</thead>
+<tbody>
+<?php foreach ($inventory_lines as $inventory_line) : ?>
+<?php if ($inventory_line['No'] == '') $inventory_line['No'] = 0; ?>
+<?php $sufix = $inventory_line['No'].'_'.$inventory_head['No'].'_'.$inventory_line['inbound_line']; ?>
+<tr id="<?php echo $inventory_line['No']; ?>">
+	<td class="data"><?php echo $inventory_line['position']; ?></td>
+	<td class="data" data-variant="<?php echo $inventory_line['variant']; ?>"><?php echo $inventory_line['variant_desc']; ?></td>
+	<td class="data" data-product="<?php echo $inventory_line['product']; ?>"><?php echo $inventory_line['product_desc']; ?></td>
+	<td class="data"><?php echo $inventory_line['origin']; ?></td>
+	<td class="data"><?php echo $inventory_line['t_packaging']; ?></td>
+	<td class="data" data-packaging="<?php echo $inventory_line['packaging_no']; ?>"><?php echo $inventory_line['packaging']; ?></td>
+	<td class="data" data-label="<?php echo $inventory_line['label_no']; ?>"><?php echo $inventory_line['label']; ?></td>
+	<td class="data"><?php echo $inventory_line['inb_lot']; ?></td>
+	<td class="data"><?php echo split(' ',$inventory_line['inb_arrival'])[0]; ?></td>
+	<td class="data"><?php echo $inventory_line['stock']; ?></td>
+	<td class="data"><select id="room_<?php echo $sufix; ?>" name="room_<?php echo $sufix; ?>">
+					<?php foreach ($rooms as $room) : ?>
+					<option value="<?php echo $room['No']; ?>"<?php if ($room['No']==$inventory_line['room']) echo " selected";?>><?php echo $room['room']; ?></option>
+					<?php endforeach ?>
+					</select>
+	</td>
+	<td class="data"><input type="text" id="rack_<?php echo $sufix; ?>" name="rack_<?php echo $sufix; ?>" value="<?php echo $inventory_line['rack']; ?>" size="4" />
+	<td class="data"><input type="number" id="tu_pallet_<?php echo $sufix; ?>" name="tu_pallet_<?php echo $sufix; ?>" value="<?php echo $inventory_line['tu_pallet']; ?>" size="4" onchange="calcTU(this)" />
+	<td class="data"><input type="number" id="pallets_<?php echo $sufix; ?>" name="pallets_<?php echo $sufix; ?>" value="<?php echo $inventory_line['pallets']; ?>" size="4" onchange="calcTU(this)" />
+	<td class="data"><input type="number" id="trading_units_<?php echo $sufix; ?>" name="trading_units_<?php echo $sufix; ?>" value="<?php echo $inventory_line['trading_units']; ?>" defaultValue="<?php echo $inventory_line['trading_units']; ?>" size="6" onchange="sendInventory(this)" />
+	<td><a onclick="addLine('<?php echo $sufix; ?>')"><img src="/images/60.ico" alt="hinzufügen" title="hinzufügen" /></a></td>
+</tr>
+<?php endforeach ?>
+</tbody>
+</table>

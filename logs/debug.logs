@@ -1,0 +1,30 @@
+2017-10-10T12:38:52+02:00 INFO (6): Log File: C:\www-dev\dispo\application/../logs/debug.logs
+2017-10-10T12:38:52+02:00 INFO (6): Log Array: Array
+(
+    [0] => C:\www-dev\dispo\application/
+    [1] => 
+    [2] => /logs/debug
+    [3] => logs
+)
+
+2017-10-10T12:38:52+02:00 INFO (6): Test File: C:\www-dev\dispo\application/20171010.
+2017-10-10T12:41:22+02:00 INFO (6): Log File: C:\www-dev\dispo\application/../logs/debug.logs
+2017-10-10T12:41:22+02:00 INFO (6): realPath: C:\www-dev\dispo\logs\debug.logs
+2017-10-10T12:41:22+02:00 INFO (6): Log Array: Array
+(
+    [0] => C:\www-dev\dispo\application/
+    [1] => 
+    [2] => /logs/debug
+    [3] => logs
+)
+
+2017-10-10T12:41:22+02:00 INFO (6): Test File: C:\www-dev\dispo\application/20171010.
+2017-10-10T12:42:15+02:00 INFO (6): Log File: C:\www-dev\dispo\application/../logs/debug.logs
+2017-10-10T12:42:15+02:00 INFO (6): realPath: C:\www-dev\dispo\logs\debug.logs
+2017-10-10T12:42:15+02:00 INFO (6): Log Array: Array
+(
+    [0] => C:\www-dev\dispo\logs\debug
+    [1] => logs
+)
+
+2017-10-10T12:42:15+02:00 INFO (6): Test File: C:\www-dev\dispo\logs\debug20171010.logs

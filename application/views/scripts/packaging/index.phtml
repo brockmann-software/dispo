@@ -1,0 +1,23 @@
+<hr />
+<table class="data">
+	<tr class="data">
+		<th class="data">Nummer</th>
+		<th class="data">Verpackung</th>
+		<th class="data">Länge (mm)</th>
+		<th class="data">Breite (mm)</th>
+		<th class="data">Höhe (mm)</th>
+		<th class="data">Gewicht (g)</th>
+	</tr>
+<?php foreach($this->packagings as $entry) :  ?>
+	<tr>
+		<td class="data"><a href="/packaging/edit/No/<?php echo $entry['No']; ?>"><?php echo $entry['No']; ?></td>
+		<td class="data"><?php echo $entry['packaging']; ?></td>
+		<td class="data_num"><?php echo $entry['length']; ?></td>
+		<td class="data_num"><?php echo $entry['width']; ?></td>
+		<td class="data_num"><?php echo $entry['height']; ?></td>
+		<td class="data_num"><?php echo $entry['weight']; ?></td>
+	</tr>
+<?php endforeach; ?>
+</table>
+<a href="/packaging/edit/">Neue Verpackung</a>
+<hr />

@@ -1,0 +1,179 @@
+2017-10-18T06:15:44+02:00 INFO (6): QSL: 
+2017-10-18T06:16:54+02:00 INFO (6): QSL: 
+2017-10-18T06:18:10+02:00 INFO (6): QSL: 
+2017-10-18T06:18:52+02:00 INFO (6): QSL: 
+2017-10-18T06:18:57+02:00 INFO (6): QSL: 
+2017-10-18T06:19:58+02:00 INFO (6): IndexController->IndexAction called
+2017-10-18T06:20:19+02:00 INFO (6): QSL: 
+2017-10-18T06:23:22+02:00 INFO (6): QSL: 
+2017-10-18T06:23:26+02:00 INFO (6): QSL: 
+2017-10-18T06:23:38+02:00 INFO (6): QSL: 
+2017-10-18T06:24:40+02:00 INFO (6): QSL: 
+2017-10-18T06:25:01+02:00 INFO (6): QSL: 
+2017-10-18T06:54:48+02:00 INFO (6): QSL: 
+2017-10-18T06:54:53+02:00 INFO (6): QSL: 
+2017-10-18T06:54:57+02:00 INFO (6): QSL: 
+2017-10-18T06:55:00+02:00 INFO (6): QSL: 
+2017-10-18T06:55:01+02:00 INFO (6): QSL: 
+2017-10-18T06:55:03+02:00 INFO (6): QSL: 
+2017-10-18T06:55:05+02:00 INFO (6): QSL: 
+2017-10-18T07:47:21+02:00 INFO (6): QSL: 
+2017-10-18T09:08:17+02:00 INFO (6): QSL: 
+2017-10-18T09:08:28+02:00 INFO (6): QSL:  WHERE UPPER(name) LIKE UPPER("%staay%")
+2017-10-18T09:10:05+02:00 INFO (6): QSL:  WHERE UPPER(name) LIKE UPPER("%staay%")
+2017-10-18T09:10:15+02:00 INFO (6): QSL: 
+2017-10-18T09:10:19+02:00 INFO (6): QSL: 
+2017-10-18T09:10:26+02:00 INFO (6): QSL:  AND UPPER(name) LIKE UPPER("%staay%")
+2017-10-18T09:23:27+02:00 INFO (6): QSL:  AND UPPER(name) LIKE UPPER("%staay%")
+2017-10-18T09:23:44+02:00 INFO (6): QSL: 
+2017-10-18T09:24:21+02:00 INFO (6): QSL: 
+2017-10-18T09:24:39+02:00 INFO (6): QSL:  AND UPPER(name) LIKE UPPER("%arofa%")
+2017-10-18T09:24:53+02:00 INFO (6): QSL: 
+2017-10-18T09:25:11+02:00 INFO (6): QSL: 
+2017-10-18T09:26:54+02:00 INFO (6): QSL: 
+2017-10-18T09:27:03+02:00 INFO (6): QSL:  AND UPPER(name) LIKE UPPER("%arofa%")
+2017-10-18T09:27:44+02:00 INFO (6): QSL:  AND UPPER(name) LIKE UPPER("%arofa%")
+2017-10-18T09:27:53+02:00 INFO (6): QSL: 
+2017-10-18T09:28:44+02:00 INFO (6): IndexController->IndexAction called
+2017-10-18T11:23:44+02:00 INFO (6): QSL: 
+2017-10-18T11:28:15+02:00 INFO (6): due_qry:  (
+2017-10-18T11:28:15+02:00 INFO (6): QSL: 
+2017-10-18T11:30:02+02:00 INFO (6): due_qry:  (
+2017-10-18T11:30:02+02:00 INFO (6): QSL: 
+2017-10-18T11:30:08+02:00 INFO (6): due_qry:  ( OR (IFS <> '' AND IFS <  OR (GG <> '' AND GG <  OR (QS <> '' AND QS <  OR (BIO <> '' AND BIO < 
+2017-10-18T11:30:08+02:00 INFO (6): QSL: 
+2017-10-18T11:34:03+02:00 INFO (6): due_qry:  ( OR (IFS <> '' AND IFS < NOW()   INTERVAL 1 DAY OR (GG <> '' AND GG < NOW()   INTERVAL 1 DAY OR (QS <> '' AND QS < NOW()   INTERVAL 1 DAY OR (BIO <> '' AND BIO < NOW()   INTERVAL 1 DAY
+2017-10-18T11:34:03+02:00 INFO (6): QSL: 
+2017-10-18T11:34:57+02:00 INFO (6): due_qry:  ( OR (IFS <> '' AND IFS < NOW()   INTERVAL 1 DAY OR (GG <> '' AND GG < NOW()   INTERVAL 1 DAY OR (QS <> '' AND QS < NOW()   INTERVAL 1 DAY OR (BIO <> '' AND BIO < NOW()   INTERVAL 1 DAY
+2017-10-18T11:34:57+02:00 INFO (6): QSL: 
+2017-10-18T11:35:22+02:00 INFO (6): due_qry:  (
+2017-10-18T11:35:22+02:00 INFO (6): QSL: 
+2017-10-18T11:35:30+02:00 INFO (6): due_qry:  ( OR (IFS <> '' AND IFS < NOW() INTERVAL 1 DAY OR (GG <> '' AND GG < NOW() INTERVAL 1 DAY OR (QS <> '' AND QS < NOW() INTERVAL 1 DAY OR (BIO <> '' AND BIO < NOW() INTERVAL 1 DAY
+2017-10-18T11:35:30+02:00 INFO (6): QSL: 
+2017-10-18T11:40:06+02:00 INFO (6): due_qry:  ( OR (IFS <> '' AND IFS < NOW()+INTERVAL 1 DAY OR (GG <> '' AND GG < NOW()+INTERVAL 1 DAY OR (QS <> '' AND QS < NOW()+INTERVAL 1 DAY OR (BIO <> '' AND BIO < NOW()+INTERVAL 1 DAY
+2017-10-18T11:40:06+02:00 INFO (6): QSL: 
+2017-10-18T11:41:23+02:00 INFO (6): due_qry:  (
+2017-10-18T11:41:23+02:00 INFO (6): QSL: 
+2017-10-18T11:41:38+02:00 INFO (6): due_qry:  ( OR (IFS <> '' AND IFS < NOW()+INTERVAL 1 MONTH OR (GG <> '' AND GG < NOW()+INTERVAL 1 MONTH OR (QS <> '' AND QS < NOW()+INTERVAL 1 MONTH OR (BIO <> '' AND BIO < NOW()+INTERVAL 1 MONTH
+2017-10-18T11:41:38+02:00 INFO (6): QSL: 
+2017-10-18T11:43:10+02:00 INFO (6): due_qry:  ( OR (IFS <> '' AND IFS < NOW()+INTERVAL 1 MONTH) OR (GG <> '' AND GG < NOW()+INTERVAL 1 MONTH) OR (QS <> '' AND QS < NOW()+INTERVAL 1 MONTH) OR (BIO <> '' AND BIO < NOW()+INTERVAL 1 MONTH)
+2017-10-18T11:43:10+02:00 INFO (6): QSL: 
+2017-10-18T12:58:14+02:00 INFO (6): due_qry: (IFS <> '' AND IFS < NOW()+INTERVAL 1 MONTH) OR (GG <> '' AND GG < NOW()+INTERVAL 1 MONTH) OR (QS <> '' AND QS < NOW()+INTERVAL 1 MONTH) OR (BIO <> '' AND BIO < NOW()+INTERVAL 1 MONTH)
+2017-10-18T12:58:14+02:00 INFO (6): QSL: 
+2017-10-18T12:59:32+02:00 INFO (6): due_qry: (IFS <> '' AND IFS < NOW()+INTERVAL 1 MONTH) OR (GG <> '' AND GG < NOW()+INTERVAL 1 MONTH) OR (QS <> '' AND QS < NOW()+INTERVAL 1 MONTH) OR (BIO <> '' AND BIO < NOW()+INTERVAL 1 MONTH)
+2017-10-18T12:59:32+02:00 INFO (6): QSL: 
+2017-10-18T13:01:19+02:00 INFO (6): due_qry: (IFS <> '' AND IFS < NOW()+INTERVAL 1 MONTH) OR (GG <> '' AND GG < NOW()+INTERVAL 1 MONTH) OR (QS <> '' AND QS < NOW()+INTERVAL 1 MONTH) OR (BIO <> '' AND BIO < NOW()+INTERVAL 1 MONTH)
+2017-10-18T13:01:19+02:00 INFO (6): QSL: 
+2017-10-18T13:01:39+02:00 INFO (6): due_qry: (IFS <> '' AND IFS < NOW()+INTERVAL 1 MONTH) OR (GG <> '' AND GG < NOW()+INTERVAL 1 MONTH) OR (QS <> '' AND QS < NOW()+INTERVAL 1 MONTH) OR (BIO <> '' AND BIO < NOW()+INTERVAL 1 MONTH)
+2017-10-18T13:01:39+02:00 INFO (6): QSL: 
+2017-10-18T13:01:39+02:00 INFO (6): SELECT COUNT(No) AS `VCCNT` FROM `v_vendor_cert_matrix` WHERE ((IFS <> '' AND IFS < NOW()+INTERVAL 1 MONTH) OR (GG <> '' AND GG < NOW()+INTERVAL 1 MONTH) OR (QS <> '' AND QS < NOW()+INTERVAL 1 MONTH) OR (BIO <> '' AND BIO < NOW()+INTERVAL 1 MONTH))
+2017-10-18T13:06:18+02:00 INFO (6): due_qry: (IFS <> '' AND IFS < NOW()+INTERVAL 1 MONTH) OR (GG <> '' AND GG < NOW()+INTERVAL 1 MONTH) OR (QS <> '' AND QS < NOW()+INTERVAL 1 MONTH) OR (BIO <> '' AND BIO < NOW()+INTERVAL 1 MONTH)
+2017-10-18T13:06:18+02:00 INFO (6): QSL: 
+2017-10-18T13:06:18+02:00 INFO (6): SELECT COUNT(No) AS `VCCNT` FROM `v_vendor_cert_matrix` WHERE ((IFS <> '' AND IFS < NOW()+INTERVAL 1 MONTH) OR (GG <> '' AND GG < NOW()+INTERVAL 1 MONTH) OR (QS <> '' AND QS < NOW()+INTERVAL 1 MONTH) OR (BIO <> '' AND BIO < NOW()+INTERVAL 1 MONTH))
+2017-10-18T13:06:18+02:00 INFO (6): SELECT `v_vendor_cert_matrix`.* FROM `v_vendor_cert_matrix` WHERE ((IFS <> '' AND IFS < NOW()+INTERVAL 1 MONTH) OR (GG <> '' AND GG < NOW()+INTERVAL 1 MONTH) OR (QS <> '' AND QS < NOW()+INTERVAL 1 MONTH) OR (BIO <> '' AND BIO < NOW()+INTERVAL 1 MONTH)) LIMIT 2147483647 OFFSET 25
+2017-10-18T13:07:17+02:00 INFO (6): due_qry: (IFS <> '' AND IFS < NOW()+INTERVAL 1 MONTH) OR (GG <> '' AND GG < NOW()+INTERVAL 1 MONTH) OR (QS <> '' AND QS < NOW()+INTERVAL 1 MONTH) OR (BIO <> '' AND BIO < NOW()+INTERVAL 1 MONTH)
+2017-10-18T13:07:17+02:00 INFO (6): QSL: 
+2017-10-18T13:07:17+02:00 INFO (6): SELECT COUNT(No) AS `VCCNT` FROM `v_vendor_cert_matrix` WHERE ((IFS <> '' AND IFS < NOW()+INTERVAL 1 MONTH) OR (GG <> '' AND GG < NOW()+INTERVAL 1 MONTH) OR (QS <> '' AND QS < NOW()+INTERVAL 1 MONTH) OR (BIO <> '' AND BIO < NOW()+INTERVAL 1 MONTH))
+2017-10-18T13:07:17+02:00 INFO (6): SELECT `v_vendor_cert_matrix`.* FROM `v_vendor_cert_matrix` WHERE ((IFS <> '' AND IFS < NOW()+INTERVAL 1 MONTH) OR (GG <> '' AND GG < NOW()+INTERVAL 1 MONTH) OR (QS <> '' AND QS < NOW()+INTERVAL 1 MONTH) OR (BIO <> '' AND BIO < NOW()+INTERVAL 1 MONTH)) LIMIT 25
+2017-10-18T13:11:22+02:00 INFO (6): SELECT COUNT(No) AS `VCCNT` FROM `v_vendor_cert_matrix` WHERE ((IFS <> '' AND IFS < NOW()+INTERVAL 1 MONTH) OR (GG <> '' AND GG < NOW()+INTERVAL 1 MONTH) OR (QS <> '' AND QS < NOW()+INTERVAL 1 MONTH) OR (BIO <> '' AND BIO < NOW()+INTERVAL 1 MONTH))
+2017-10-18T13:11:22+02:00 INFO (6): SELECT `v_vendor_cert_matrix`.* FROM `v_vendor_cert_matrix` WHERE ((IFS <> '' AND IFS < NOW()+INTERVAL 1 MONTH) OR (GG <> '' AND GG < NOW()+INTERVAL 1 MONTH) OR (QS <> '' AND QS < NOW()+INTERVAL 1 MONTH) OR (BIO <> '' AND BIO < NOW()+INTERVAL 1 MONTH)) LIMIT 25
+2017-10-18T13:11:36+02:00 INFO (6): SELECT COUNT(No) AS `VCCNT` FROM `v_vendor_cert_matrix` WHERE ((IFS <> '') OR (GG <> '') OR (QS <> '') OR (BIO <> ''))
+2017-10-18T13:11:36+02:00 INFO (6): SELECT `v_vendor_cert_matrix`.* FROM `v_vendor_cert_matrix` WHERE ((IFS <> '') OR (GG <> '') OR (QS <> '') OR (BIO <> '')) LIMIT 25 OFFSET 25
+2017-10-18T13:11:39+02:00 INFO (6): SELECT COUNT(No) AS `VCCNT` FROM `v_vendor_cert_matrix` WHERE ((IFS <> '') OR (GG <> '') OR (QS <> '') OR (BIO <> ''))
+2017-10-18T13:11:39+02:00 INFO (6): SELECT `v_vendor_cert_matrix`.* FROM `v_vendor_cert_matrix` WHERE ((IFS <> '') OR (GG <> '') OR (QS <> '') OR (BIO <> '')) LIMIT 25 OFFSET 50
+2017-10-18T13:11:44+02:00 INFO (6): SELECT COUNT(No) AS `VCCNT` FROM `v_vendor_cert_matrix` WHERE ((IFS <> '') OR (GG <> '') OR (QS <> '') OR (BIO <> ''))
+2017-10-18T13:11:44+02:00 INFO (6): SELECT `v_vendor_cert_matrix`.* FROM `v_vendor_cert_matrix` WHERE ((IFS <> '') OR (GG <> '') OR (QS <> '') OR (BIO <> '')) LIMIT 25 OFFSET 75
+2017-10-18T13:11:46+02:00 INFO (6): SELECT COUNT(No) AS `VCCNT` FROM `v_vendor_cert_matrix` WHERE ((IFS <> '') OR (GG <> '') OR (QS <> '') OR (BIO <> ''))
+2017-10-18T13:11:46+02:00 INFO (6): SELECT `v_vendor_cert_matrix`.* FROM `v_vendor_cert_matrix` WHERE ((IFS <> '') OR (GG <> '') OR (QS <> '') OR (BIO <> '')) LIMIT 25
+2017-10-18T13:11:57+02:00 INFO (6): SELECT COUNT(No) AS `VCCNT` FROM `v_vendor_cert_matrix` WHERE ((IFS <> '' AND IFS < NOW()+INTERVAL 1 MONTH) OR (GG <> '' AND GG < NOW()+INTERVAL 1 MONTH) OR (QS <> '' AND QS < NOW()+INTERVAL 1 MONTH) OR (BIO <> '' AND BIO < NOW()+INTERVAL 1 MONTH))
+2017-10-18T13:11:57+02:00 INFO (6): SELECT `v_vendor_cert_matrix`.* FROM `v_vendor_cert_matrix` WHERE ((IFS <> '' AND IFS < NOW()+INTERVAL 1 MONTH) OR (GG <> '' AND GG < NOW()+INTERVAL 1 MONTH) OR (QS <> '' AND QS < NOW()+INTERVAL 1 MONTH) OR (BIO <> '' AND BIO < NOW()+INTERVAL 1 MONTH)) LIMIT 25
+2017-10-18T13:13:18+02:00 INFO (6): SELECT COUNT(No) AS `VCCNT` FROM `v_vendor_cert_matrix` WHERE ((IFS <> '' AND IFS < NOW()) OR (GG <> '' AND GG < NOW()) OR (QS <> '' AND QS < NOW()) OR (BIO <> '' AND BIO < NOW()))
+2017-10-18T13:13:18+02:00 INFO (6): SELECT `v_vendor_cert_matrix`.* FROM `v_vendor_cert_matrix` WHERE ((IFS <> '' AND IFS < NOW()) OR (GG <> '' AND GG < NOW()) OR (QS <> '' AND QS < NOW()) OR (BIO <> '' AND BIO < NOW())) LIMIT 25
+2017-10-18T16:11:05+02:00 INFO (6): IndexController->IndexAction called
+2017-10-18T16:16:13+02:00 INFO (6): SELECT COUNT(No) AS `VCCNT` FROM `v_vendor_cert_matrix` WHERE ((IFS <> '') OR (GG <> '') OR (QS <> '') OR (BIO <> '')) AND ( AND UPPER(name) LIKE UPPER("%test%"))
+2017-10-18T16:16:13+02:00 INFO (6): SELECT `v_vendor_cert_matrix`.* FROM `v_vendor_cert_matrix` WHERE ((IFS <> '') OR (GG <> '') OR (QS <> '') OR (BIO <> '')) AND ( AND UPPER(name) LIKE UPPER("%test%")) LIMIT 25
+2017-10-18T16:18:12+02:00 INFO (6): SELECT COUNT(No) AS `VCCNT` FROM `v_vendor_cert_matrix` WHERE ((IFS <> '') OR (GG <> '') OR (QS <> '') OR (BIO <> '')) AND (UPPER(name) LIKE UPPER("%test%"))
+2017-10-18T16:18:12+02:00 INFO (6): SELECT `v_vendor_cert_matrix`.* FROM `v_vendor_cert_matrix` WHERE ((IFS <> '') OR (GG <> '') OR (QS <> '') OR (BIO <> '')) AND (UPPER(name) LIKE UPPER("%test%")) LIMIT 25
+2017-10-18T16:18:31+02:00 INFO (6): SELECT COUNT(No) AS `VCCNT` FROM `v_vendor_cert_matrix` WHERE ((IFS <> '' AND IFS < NOW()+INTERVAL 1 DAY) OR (GG <> '' AND GG < NOW()+INTERVAL 1 DAY) OR (QS <> '' AND QS < NOW()+INTERVAL 1 DAY) OR (BIO <> '' AND BIO < NOW()+INTERVAL 1 DAY)) AND (UPPER(name) LIKE UPPER("%test%"))
+2017-10-18T16:18:31+02:00 INFO (6): SELECT `v_vendor_cert_matrix`.* FROM `v_vendor_cert_matrix` WHERE ((IFS <> '' AND IFS < NOW()+INTERVAL 1 DAY) OR (GG <> '' AND GG < NOW()+INTERVAL 1 DAY) OR (QS <> '' AND QS < NOW()+INTERVAL 1 DAY) OR (BIO <> '' AND BIO < NOW()+INTERVAL 1 DAY)) AND (UPPER(name) LIKE UPPER("%test%")) LIMIT 25
+2017-10-18T16:18:38+02:00 INFO (6): SELECT COUNT(No) AS `VCCNT` FROM `v_vendor_cert_matrix` WHERE ((IFS <> '' AND IFS < NOW()) OR (GG <> '' AND GG < NOW()) OR (QS <> '' AND QS < NOW()) OR (BIO <> '' AND BIO < NOW())) AND (UPPER(name) LIKE UPPER("%test%"))
+2017-10-18T16:18:38+02:00 INFO (6): SELECT `v_vendor_cert_matrix`.* FROM `v_vendor_cert_matrix` WHERE ((IFS <> '' AND IFS < NOW()) OR (GG <> '' AND GG < NOW()) OR (QS <> '' AND QS < NOW()) OR (BIO <> '' AND BIO < NOW())) AND (UPPER(name) LIKE UPPER("%test%")) LIMIT 25
+2017-10-18T16:18:55+02:00 INFO (6): SELECT COUNT(No) AS `VCCNT` FROM `v_vendor_cert_matrix` WHERE ((IFS <> '') OR (GG <> '') OR (QS <> '') OR (BIO <> '')) AND (UPPER(name) LIKE UPPER("%test%"))
+2017-10-18T16:18:55+02:00 INFO (6): SELECT `v_vendor_cert_matrix`.* FROM `v_vendor_cert_matrix` WHERE ((IFS <> '') OR (GG <> '') OR (QS <> '') OR (BIO <> '')) AND (UPPER(name) LIKE UPPER("%test%")) LIMIT 25
+2017-10-18T16:20:05+02:00 INFO (6): SELECT COUNT(No) AS `VCCNT` FROM `v_vendor_cert_matrix` WHERE ((IFS <> '') OR (GG <> '') OR (QS <> '') OR (BIO <> ''))
+2017-10-18T16:20:05+02:00 INFO (6): SELECT `v_vendor_cert_matrix`.* FROM `v_vendor_cert_matrix` WHERE ((IFS <> '') OR (GG <> '') OR (QS <> '') OR (BIO <> '')) LIMIT 25
+2017-10-18T16:20:55+02:00 INFO (6): SELECT COUNT(No) AS `VCCNT` FROM `v_vendor_cert_matrix` WHERE ((IFS <> '') OR (GG <> '') OR (QS <> '') OR (BIO <> ''))
+2017-10-18T16:20:55+02:00 INFO (6): SELECT `v_vendor_cert_matrix`.* FROM `v_vendor_cert_matrix` WHERE ((IFS <> '') OR (GG <> '') OR (QS <> '') OR (BIO <> '')) LIMIT 25
+2017-10-18T16:21:17+02:00 INFO (6): SELECT COUNT(No) AS `VCCNT` FROM `v_vendor_cert_matrix` WHERE ((IFS <> '') OR (GG <> '') OR (QS <> '') OR (BIO <> ''))
+2017-10-18T16:21:17+02:00 INFO (6): SELECT `v_vendor_cert_matrix`.* FROM `v_vendor_cert_matrix` WHERE ((IFS <> '') OR (GG <> '') OR (QS <> '') OR (BIO <> '')) LIMIT 25
+2017-10-18T16:57:10+02:00 INFO (6): SELECT COUNT(No) AS `VCCNT` FROM `v_vendor_cert_matrix` WHERE ((IFS <> '') OR (GG <> '') OR (QS <> '') OR (BIO <> ''))
+2017-10-18T16:57:10+02:00 INFO (6): SELECT `v_vendor_cert_matrix`.* FROM `v_vendor_cert_matrix` WHERE ((IFS <> '') OR (GG <> '') OR (QS <> '') OR (BIO <> '')) LIMIT 25
+2017-10-18T16:57:54+02:00 INFO (6): SELECT COUNT(No) AS `VCCNT` FROM `v_vendor_cert_matrix` WHERE ((IFS <> '') OR (GG <> '') OR (QS <> '') OR (BIO <> ''))
+2017-10-18T16:57:54+02:00 INFO (6): SELECT `v_vendor_cert_matrix`.* FROM `v_vendor_cert_matrix` WHERE ((IFS <> '') OR (GG <> '') OR (QS <> '') OR (BIO <> '')) LIMIT 25
+2017-10-18T16:59:48+02:00 INFO (6): SELECT COUNT(No) AS `VCCNT` FROM `v_vendor_cert_matrix` WHERE ((IFS <> '') OR (GG <> '') OR (QS <> '') OR (BIO <> ''))
+2017-10-18T16:59:48+02:00 INFO (6): SELECT `v_vendor_cert_matrix`.* FROM `v_vendor_cert_matrix` WHERE ((IFS <> '') OR (GG <> '') OR (QS <> '') OR (BIO <> '')) LIMIT 25
+2017-10-18T17:00:38+02:00 INFO (6): SELECT COUNT(No) AS `VCCNT` FROM `v_vendor_cert_matrix` WHERE ((IFS <> '') OR (GG <> '') OR (QS <> '') OR (BIO <> ''))
+2017-10-18T17:00:38+02:00 INFO (6): SELECT `v_vendor_cert_matrix`.* FROM `v_vendor_cert_matrix` WHERE ((IFS <> '') OR (GG <> '') OR (QS <> '') OR (BIO <> '')) LIMIT 25
+2017-10-18T17:01:19+02:00 INFO (6): SELECT COUNT(No) AS `VCCNT` FROM `v_vendor_cert_matrix` WHERE ((IFS <> '') OR (GG <> '') OR (QS <> '') OR (BIO <> ''))
+2017-10-18T17:01:19+02:00 INFO (6): SELECT `v_vendor_cert_matrix`.* FROM `v_vendor_cert_matrix` WHERE ((IFS <> '') OR (GG <> '') OR (QS <> '') OR (BIO <> '')) LIMIT 25
+2017-10-18T17:01:35+02:00 INFO (6): SELECT COUNT(No) AS `VCCNT` FROM `v_vendor_cert_matrix` WHERE ((IFS <> '') OR (GG <> '') OR (QS <> '') OR (BIO <> ''))
+2017-10-18T17:01:35+02:00 INFO (6): SELECT `v_vendor_cert_matrix`.* FROM `v_vendor_cert_matrix` WHERE ((IFS <> '') OR (GG <> '') OR (QS <> '') OR (BIO <> '')) LIMIT 25
+2017-10-18T17:01:59+02:00 INFO (6): SELECT COUNT(No) AS `VCCNT` FROM `v_vendor_cert_matrix` WHERE ((IFS <> '') OR (GG <> '') OR (QS <> '') OR (BIO <> ''))
+2017-10-18T17:01:59+02:00 INFO (6): SELECT `v_vendor_cert_matrix`.* FROM `v_vendor_cert_matrix` WHERE ((IFS <> '') OR (GG <> '') OR (QS <> '') OR (BIO <> '')) LIMIT 25
+2017-10-18T17:02:22+02:00 INFO (6): SELECT COUNT(No) AS `VCCNT` FROM `v_vendor_cert_matrix` WHERE ((IFS <> '') OR (GG <> '') OR (QS <> '') OR (BIO <> ''))
+2017-10-18T17:02:22+02:00 INFO (6): SELECT `v_vendor_cert_matrix`.* FROM `v_vendor_cert_matrix` WHERE ((IFS <> '') OR (GG <> '') OR (QS <> '') OR (BIO <> '')) LIMIT 25
+2017-10-18T17:02:33+02:00 INFO (6): SELECT COUNT(No) AS `VCCNT` FROM `v_vendor_cert_matrix` WHERE ((IFS <> '') OR (GG <> '') OR (QS <> '') OR (BIO <> ''))
+2017-10-18T17:02:33+02:00 INFO (6): SELECT `v_vendor_cert_matrix`.* FROM `v_vendor_cert_matrix` WHERE ((IFS <> '') OR (GG <> '') OR (QS <> '') OR (BIO <> '')) LIMIT 25
+2017-10-18T17:03:11+02:00 INFO (6): SELECT COUNT(No) AS `VCCNT` FROM `v_vendor_cert_matrix` WHERE ((IFS <> '') OR (GG <> '') OR (QS <> '') OR (BIO <> ''))
+2017-10-18T17:03:11+02:00 INFO (6): SELECT `v_vendor_cert_matrix`.* FROM `v_vendor_cert_matrix` WHERE ((IFS <> '') OR (GG <> '') OR (QS <> '') OR (BIO <> '')) LIMIT 25
+2017-10-18T17:04:10+02:00 INFO (6): SELECT COUNT(No) AS `VCCNT` FROM `v_vendor_cert_matrix` WHERE ((IFS <> '') OR (GG <> '') OR (QS <> '') OR (BIO <> ''))
+2017-10-18T17:04:10+02:00 INFO (6): SELECT `v_vendor_cert_matrix`.* FROM `v_vendor_cert_matrix` WHERE ((IFS <> '') OR (GG <> '') OR (QS <> '') OR (BIO <> '')) LIMIT 25
+2017-10-18T17:04:19+02:00 INFO (6): SELECT COUNT(No) AS `VCCNT` FROM `v_vendor_cert_matrix` WHERE ((IFS <> '') OR (GG <> '') OR (QS <> '') OR (BIO <> ''))
+2017-10-18T17:04:19+02:00 INFO (6): SELECT `v_vendor_cert_matrix`.* FROM `v_vendor_cert_matrix` WHERE ((IFS <> '') OR (GG <> '') OR (QS <> '') OR (BIO <> '')) LIMIT 25 OFFSET 25
+2017-10-18T17:04:25+02:00 INFO (6): SELECT COUNT(No) AS `VCCNT` FROM `v_vendor_cert_matrix` WHERE ((IFS <> '') OR (GG <> '') OR (QS <> '') OR (BIO <> ''))
+2017-10-18T17:04:25+02:00 INFO (6): SELECT `v_vendor_cert_matrix`.* FROM `v_vendor_cert_matrix` WHERE ((IFS <> '') OR (GG <> '') OR (QS <> '') OR (BIO <> '')) LIMIT 25 OFFSET 50
+2017-10-18T17:06:07+02:00 INFO (6): SELECT COUNT(No) AS `VCCNT` FROM `v_vendor_cert_matrix` WHERE ((IFS <> '') OR (GG <> '') OR (QS <> '') OR (BIO <> ''))
+2017-10-18T17:06:07+02:00 INFO (6): SELECT `v_vendor_cert_matrix`.* FROM `v_vendor_cert_matrix` WHERE ((IFS <> '') OR (GG <> '') OR (QS <> '') OR (BIO <> '')) LIMIT 25 OFFSET 50
+2017-10-18T17:06:13+02:00 INFO (6): SELECT COUNT(No) AS `VCCNT` FROM `v_vendor_cert_matrix` WHERE ((IFS <> '') OR (GG <> '') OR (QS <> '') OR (BIO <> '')) AND (UPPER(name) LIKE UPPER("%test%"))
+2017-10-18T17:06:13+02:00 INFO (6): SELECT `v_vendor_cert_matrix`.* FROM `v_vendor_cert_matrix` WHERE ((IFS <> '') OR (GG <> '') OR (QS <> '') OR (BIO <> '')) AND (UPPER(name) LIKE UPPER("%test%")) LIMIT 25
+2017-10-18T17:06:26+02:00 INFO (6): SELECT COUNT(No) AS `VCCNT` FROM `v_vendor_cert_matrix` WHERE ((IFS <> '') OR (GG <> '') OR (QS <> '') OR (BIO <> ''))
+2017-10-18T17:06:26+02:00 INFO (6): SELECT `v_vendor_cert_matrix`.* FROM `v_vendor_cert_matrix` WHERE ((IFS <> '') OR (GG <> '') OR (QS <> '') OR (BIO <> '')) LIMIT 25
+2017-10-18T17:13:28+02:00 INFO (6): SELECT COUNT(No) AS `VCCNT` FROM `v_vendor_cert_matrix` WHERE ((IFS <> '') OR (GG <> '') OR (QS <> '') OR (BIO <> ''))
+2017-10-18T17:13:28+02:00 INFO (6): SELECT `v_vendor_cert_matrix`.* FROM `v_vendor_cert_matrix` WHERE ((IFS <> '') OR (GG <> '') OR (QS <> '') OR (BIO <> '')) LIMIT 25
+2017-10-18T17:13:44+02:00 INFO (6): SELECT COUNT(No) AS `VCCNT` FROM `v_vendor_cert_matrix` WHERE ((IFS <> '') OR (GG <> '') OR (QS <> '') OR (BIO <> ''))
+2017-10-18T17:13:44+02:00 INFO (6): SELECT `v_vendor_cert_matrix`.* FROM `v_vendor_cert_matrix` WHERE ((IFS <> '') OR (GG <> '') OR (QS <> '') OR (BIO <> '')) LIMIT 25
+2017-10-18T17:14:51+02:00 INFO (6): SELECT COUNT(No) AS `VCCNT` FROM `v_vendor_cert_matrix` WHERE ((IFS <> '') OR (GG <> '') OR (QS <> '') OR (BIO <> ''))
+2017-10-18T17:14:51+02:00 INFO (6): SELECT `v_vendor_cert_matrix`.* FROM `v_vendor_cert_matrix` WHERE ((IFS <> '') OR (GG <> '') OR (QS <> '') OR (BIO <> '')) LIMIT 25
+2017-10-18T17:15:08+02:00 INFO (6): SELECT COUNT(No) AS `VCCNT` FROM `v_vendor_cert_matrix` WHERE ((IFS <> '') OR (GG <> '') OR (QS <> '') OR (BIO <> ''))
+2017-10-18T17:15:08+02:00 INFO (6): SELECT `v_vendor_cert_matrix`.* FROM `v_vendor_cert_matrix` WHERE ((IFS <> '') OR (GG <> '') OR (QS <> '') OR (BIO <> '')) LIMIT 25
+2017-10-18T17:18:47+02:00 INFO (6): SELECT COUNT(No) AS `VCCNT` FROM `v_vendor_cert_matrix` WHERE ((IFS <> '') OR (GG <> '') OR (QS <> '') OR (BIO <> ''))
+2017-10-18T17:18:47+02:00 INFO (6): SELECT `v_vendor_cert_matrix`.* FROM `v_vendor_cert_matrix` WHERE ((IFS <> '') OR (GG <> '') OR (QS <> '') OR (BIO <> '')) LIMIT 25
+2017-10-18T17:19:31+02:00 INFO (6): SELECT COUNT(No) AS `VCCNT` FROM `v_vendor_cert_matrix` WHERE ((IFS <> '') OR (GG <> '') OR (QS <> '') OR (BIO <> ''))
+2017-10-18T17:19:31+02:00 INFO (6): SELECT `v_vendor_cert_matrix`.* FROM `v_vendor_cert_matrix` WHERE ((IFS <> '') OR (GG <> '') OR (QS <> '') OR (BIO <> '')) LIMIT 25
+2017-10-18T17:25:37+02:00 INFO (6): SELECT COUNT(No) AS `VCCNT` FROM `v_vendor_cert_matrix` WHERE ((IFS <> '') OR (GG <> '') OR (QS <> '') OR (BIO <> ''))
+2017-10-18T17:25:37+02:00 INFO (6): SELECT `v_vendor_cert_matrix`.* FROM `v_vendor_cert_matrix` WHERE ((IFS <> '') OR (GG <> '') OR (QS <> '') OR (BIO <> '')) LIMIT 25
+2017-10-18T17:26:08+02:00 INFO (6): SELECT COUNT(No) AS `VCCNT` FROM `v_vendor_cert_matrix` WHERE ((IFS <> '') OR (GG <> '') OR (QS <> '') OR (BIO <> ''))
+2017-10-18T17:26:08+02:00 INFO (6): SELECT `v_vendor_cert_matrix`.* FROM `v_vendor_cert_matrix` WHERE ((IFS <> '') OR (GG <> '') OR (QS <> '') OR (BIO <> '')) LIMIT 25
+2017-10-18T17:26:30+02:00 INFO (6): URI: /name/test
+2017-10-18T17:26:30+02:00 INFO (6): SELECT COUNT(No) AS `VCCNT` FROM `v_vendor_cert_matrix` WHERE ((IFS <> '') OR (GG <> '') OR (QS <> '') OR (BIO <> '')) AND (UPPER(name) LIKE UPPER("%test%"))
+2017-10-18T17:26:30+02:00 INFO (6): SELECT `v_vendor_cert_matrix`.* FROM `v_vendor_cert_matrix` WHERE ((IFS <> '') OR (GG <> '') OR (QS <> '') OR (BIO <> '')) AND (UPPER(name) LIKE UPPER("%test%")) LIMIT 25
+2017-10-18T17:27:42+02:00 INFO (6): SELECT COUNT(No) AS `VCCNT` FROM `v_vendor_cert_matrix` WHERE ((IFS <> '') OR (GG <> '') OR (QS <> '') OR (BIO <> '')) AND (UPPER(name) LIKE UPPER("%test%"))
+2017-10-18T17:27:42+02:00 INFO (6): SELECT `v_vendor_cert_matrix`.* FROM `v_vendor_cert_matrix` WHERE ((IFS <> '') OR (GG <> '') OR (QS <> '') OR (BIO <> '')) AND (UPPER(name) LIKE UPPER("%test%")) LIMIT 25
+2017-10-18T17:31:08+02:00 INFO (6): SELECT COUNT(No) AS `VCCNT` FROM `v_vendor_cert_matrix` WHERE ((IFS <> '') OR (GG <> '') OR (QS <> '') OR (BIO <> '')) AND (UPPER(name) LIKE UPPER("%test%"))
+2017-10-18T17:31:08+02:00 INFO (6): SELECT `v_vendor_cert_matrix`.* FROM `v_vendor_cert_matrix` WHERE ((IFS <> '') OR (GG <> '') OR (QS <> '') OR (BIO <> '')) AND (UPPER(name) LIKE UPPER("%test%")) LIMIT 25
+2017-10-18T17:31:43+02:00 INFO (6): SELECT COUNT(No) AS `VCCNT` FROM `v_vendor_cert_matrix` WHERE ((IFS <> '') OR (GG <> '') OR (QS <> '') OR (BIO <> '')) AND (UPPER(name) LIKE UPPER("%test%"))
+2017-10-18T17:31:43+02:00 INFO (6): SELECT `v_vendor_cert_matrix`.* FROM `v_vendor_cert_matrix` WHERE ((IFS <> '') OR (GG <> '') OR (QS <> '') OR (BIO <> '')) AND (UPPER(name) LIKE UPPER("%test%")) LIMIT 25
+2017-10-18T17:31:50+02:00 INFO (6): SELECT COUNT(No) AS `VCCNT` FROM `v_vendor_cert_matrix` WHERE ((IFS <> '') OR (GG <> '') OR (QS <> '') OR (BIO <> '')) AND (UPPER(No) LIKE UPPER("%070%") AND UPPER(name) LIKE UPPER("%test%"))
+2017-10-18T17:31:50+02:00 INFO (6): SELECT `v_vendor_cert_matrix`.* FROM `v_vendor_cert_matrix` WHERE ((IFS <> '') OR (GG <> '') OR (QS <> '') OR (BIO <> '')) AND (UPPER(No) LIKE UPPER("%070%") AND UPPER(name) LIKE UPPER("%test%")) LIMIT 25
+2017-10-18T17:31:55+02:00 INFO (6): SELECT COUNT(No) AS `VCCNT` FROM `v_vendor_cert_matrix` WHERE ((IFS <> '') OR (GG <> '') OR (QS <> '') OR (BIO <> '')) AND (UPPER(No) LIKE UPPER("%070%"))
+2017-10-18T17:31:55+02:00 INFO (6): SELECT `v_vendor_cert_matrix`.* FROM `v_vendor_cert_matrix` WHERE ((IFS <> '') OR (GG <> '') OR (QS <> '') OR (BIO <> '')) AND (UPPER(No) LIKE UPPER("%070%")) LIMIT 25
+2017-10-18T17:32:00+02:00 INFO (6): SELECT COUNT(No) AS `VCCNT` FROM `v_vendor_cert_matrix` WHERE ((IFS <> '') OR (GG <> '') OR (QS <> '') OR (BIO <> '')) AND (UPPER(No) LIKE UPPER("%070%"))
+2017-10-18T17:32:00+02:00 INFO (6): SELECT `v_vendor_cert_matrix`.* FROM `v_vendor_cert_matrix` WHERE ((IFS <> '') OR (GG <> '') OR (QS <> '') OR (BIO <> '')) AND (UPPER(No) LIKE UPPER("%070%")) LIMIT 25 OFFSET 25
+2017-10-18T17:32:06+02:00 INFO (6): SELECT COUNT(No) AS `VCCNT` FROM `v_vendor_cert_matrix` WHERE ((IFS <> '') OR (GG <> '') OR (QS <> '') OR (BIO <> '')) AND (UPPER(No) LIKE UPPER("%070%"))
+2017-10-18T17:32:06+02:00 INFO (6): SELECT `v_vendor_cert_matrix`.* FROM `v_vendor_cert_matrix` WHERE ((IFS <> '') OR (GG <> '') OR (QS <> '') OR (BIO <> '')) AND (UPPER(No) LIKE UPPER("%070%")) LIMIT 25
+2017-10-18T18:23:38+02:00 INFO (6): IndexController->IndexAction called
+2017-10-18T18:24:59+02:00 INFO (6): IndexController->IndexAction called
+2017-10-18T18:25:35+02:00 INFO (6): IndexController->IndexAction called
+2017-10-18T18:25:53+02:00 INFO (6): IndexController->IndexAction called
+2017-10-18T18:26:55+02:00 INFO (6): IndexController->IndexAction called
+2017-10-18T18:31:57+02:00 INFO (6): IndexController->IndexAction called

@@ -1,0 +1,17 @@
+<hr />
+<table class="data">
+	<tr class="data">
+		<th class="data">Nummer</th>
+		<th class="data">Produkt</th>
+		<th class="data">Gruppe</th>
+	</tr>
+<?php foreach($this->products as $entry) :  ?>
+	<tr>
+		<td class="data"><a href="/product/edit/id/<?php echo $entry['No']; ?>"><?php echo $entry['No']; ?></td>
+		<td class="data"><?php echo $entry['product']; ?></td>
+		<td class="data"><?php echo $entry['product_group']; ?></td>
+	</tr>
+<?php endforeach; ?>
+</table>
+<a href="/product/edit/">Neues Produkt</a>
+<hr />

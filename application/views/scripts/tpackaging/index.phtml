@@ -1,0 +1,29 @@
+<hr />
+<table class="data">
+	<tr class="data">
+		<th class="data">Kennung</th>
+		<th class="data">Transportverpackung</th>
+		<th class="data">Typ</th>
+		<th class="data">Länge (mm)</th>
+		<th class="data">Breite (mm)</th>
+		<th class="data">Höhe (mm)</th>
+		<th class="data">Gewicht (g)</th>
+		<th class="data">KOlli / Pal.</th>
+		<th class="data">Kolli / Lage</th>
+	</tr>
+<?php foreach($this->t_packagings as $entry) :  ?>
+	<tr>
+		<td class="data"><a href="/tpackaging/edit/No/<?php echo $entry['no']; ?>"><?php echo $entry['no']; ?></td>
+		<td class="data"><?php echo $entry['transport_packaging']; ?></td>
+		<td class="data"><?php echo $entry['type']; ?></td>
+		<td class="data_num"><?php echo $entry['length']; ?></td>
+		<td class="data_num"><?php echo $entry['width']; ?></td>
+		<td class="data_num"><?php echo $entry['height']; ?></td>
+		<td class="data_num"><?php echo $entry['weight']; ?></td>
+		<td class="data_num"><?php echo $entry['items_pallet']; ?></td>
+		<td class="data_num"><?php echo $entry['items_level']; ?></td>
+	</tr>
+<?php endforeach; ?>
+</table>
+<a href="/tpackaging/edit/">Neue Transportverpackung</a>
+<hr />

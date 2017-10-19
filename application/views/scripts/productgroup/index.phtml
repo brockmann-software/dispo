@@ -1,0 +1,26 @@
+<?php //Zend_Debug::dump($this) ?>
+<hr />
+<table class="data">
+	<tr class="data">
+		<th class="data">Nummer</th>
+		<th class="data">Produktgruppe</th>
+		<th class="data">Transp.-Temp.</th>
+		<th class="data">Lager-Temp.</th>
+		<th class="data">Äthylen abgebend</th>
+		<th class="data">Äthylenenmpfindl.</th>
+		<th class="data">Spezifikation</th>
+	</tr>
+<?php foreach($this->productgroups as $entry) :  ?>
+	<tr>
+		<td class="data"><a href="/productgroup/edit/id/<?php echo $entry['no']; ?>"><?php echo $entry['no']; ?></td>
+		<td class="data"><?php echo $entry['product_group']; ?></td>
+		<td class="data"><?php echo $entry['transport_temp_min'].' - '.$entry['transport_temp_max'].'°C'; ?></td>
+		<td class="data"><?php echo $entry['storage_temp_min'].' - '.$entry['storage_temp_max'].'°C'; ?></td>
+		<td class="data"><?php echo $entry['ethylene_emitent']; ?></td>
+		<td class="data"><?php echo $entry['ethylene_sensitive']; ?></td>
+		<td class="data"><a href="<?php echo $entry['unece_link']; ?>"><?php echo $entry['unece_link']; ?></a></td>
+	</tr>
+<?php endforeach; ?>
+</table>
+<a href="/productgroup/edit/">Neue Produktgruppe</a>
+<hr />

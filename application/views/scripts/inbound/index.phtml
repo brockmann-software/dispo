@@ -1,0 +1,291 @@
+<script>
+<!--
+function getInbounds()
+{
+	function getInboundsXML() {
+		var row;
+		if (http.responseXML) {
+			if (http.readyState==4) {
+				var inboundsTable = document.getElementById('inbounds').getElementsByTagName('tbody')[0];
+				var rowCnt = inboundsTable.rows.length;
+				var rowNr = 0;
+				xmlResult = http.responseXML;
+				if (xmlResult.getElementsByTagName('errorCount')[0].firstChild==null) errorCount = 0;
+				else errorCount = xmlResult.getElementsByTagName('errorCount')[0].firstChild.nodeValue;
+				if (errorCount==0) {
+					$count = xmlResult.getElementsByTagName('count')[0].firstChild.nodeValue;
+					$page = xmlResult.getElementsByTagName('page')[0].firstChild.nodeValue;
+					inbounds = xmlResult.getElementsByTagName('result');
+					for (vc = 0; vc<inbounds.length; vc++) {
+						if ((vc) >= rowCnt) {
+							row=inboundsTable.insertRow(vc);
+							var tdPosition=row.insertCell(0);
+							tdPosition.className = 'data';
+							var tdVendor=row.insertCell(1);
+							tdVendor.className = 'data';
+							var tdVendorName = row.insertCell(2);
+							tdVendorName.className = 'data';
+							var tdArrival=row.insertCell(3);
+							tdArrival.className = 'data';
+							var tdLS=row.insertCell(4);
+							tdLS.className = 'data';
+							var tdTruck=row.insertCell(5);
+							tdTruck.className = 'data';
+							var tdTrailor=row.insertCell(6);
+							tdTrailor.className = 'data';
+							var tdContainer = row.insertCell(7);
+							tdContainer.className = 'data';
+							var tdTemp = row.insertCell(8);
+							tdTemp.className = 'data';
+						} else {
+							row=inboundsTable.rows[vc];
+							var tdPosition=row.cells[0];
+							var tdVendor=row.cells[1];
+							var tdVendorName=row.cells[2];
+							var tdArrival=row.cells[3];
+							var tdLS=row.cells[4];
+							var tdTruck=row.cells[5];
+							var tdTrailor=row.cells[6];
+							var tdContainer=row.cells[7];
+							var tdTemp=row.cells[8];
+						}
+						row.id = inbounds[vc].getElementsByTagName('inbound')[0].firstChild.nodeValue;
+						tdPosition.innerHTML = '';
+						var radio = document.createElement('radio');
+						radio.name = 'po_no';
+						radio.value = row.id;
+						radio.onfocus = function(){ getInbLines(this.parentNode.parentNode.id) };
+						tdPosition.appendChild(radio);
+						position = document.createTextNode(xmlResult.getElementsByTagName('position')[0].firstChild.nodeValue);
+						tdPosition.appendChild(position);
+						tdLS = ((!xmlResult.getElementsByTagName('v_delivery_note')[0].firstChild) ? xmlResult.getElementsByTagName('v_delivery_note').firstChild.nodeValue : '');
+						tdVendor = xmlResult.getElementsByTagName('vendor_no')[0].firstChild.nodeValue;
+						tdVendorName.innerHTML = (!xmlResult.getElementsByTagName('vendor_name')[0].firstChild) ? xmlResult.getElementsByTagName('vendor_name')[0].firstChild.nodeValue : '';
+						tdVendorName.innerHTML+= ((!xmlResult.getElementsByTagName('vendor_city')[0].firstChild) ? ', '+xmlResult.getElementsByTagName('vendor_city')[0].firstChild.nodeValue : '');
+						tdVendorName.innerHTML+= ((!xmlResult.getElementsByTagName('vendor_CC')[0].firstChild) ? ' '+xmlResult.getElementsByTagName('vendor_CC')[0].firstChild.nodeValue : '');
+						tdArrival.innerHTML = ((!xmlResult.getElementsByTagName('inb_arrival')[0].firstChild) ? xmlResult.getElementsByTagName('inb_arrival')[0].firstChild.nodeValue : '');
+						tdLS.innerHTML = ((!xmlResult.getElementsByTagName('v_delivery_note')[0].firstChild) ? xmlResult.getElementsByTagName('v_delivery_note')[0].firstChild.nodeValue : '');
+						tdTruck.innerHTML = ((!xmlResult.getElementsByTagName('inb_truck')[0].firstChild) ? xmlResult.getElementsByTagName('inb_truck')[0].firstChild.nodeValue : '');
+						tdTrailor.innerHTML = ((!xmlResult.getElementsByTagName('inb_trailor')[0].firstChild) ? xmlResult.getElementsByTagName('inb_trailor')[0].firstChild.nodeValue : '');
+						tdContainer.innerHTML = ((!xmlResult.getElementsByTagName('inb_container')[0].firstChild) ? xmlResult.getElementsByTagName('inb_container')[0].firstChild.nodeValue : '');
+						tdTemp.innerHTML = ((!xmlResult.getElementsByTagName('inb_transport_temp')[0].firstChild) ? xmlResult.getElementsByTagName('inb_transport_temp')[0].firstChild.nodeValue : '');
+					}
+					if (rowCnt>vc) {
+						var lastRow=vc;
+						do {
+							inboundsTable.deleteRow(lastRow);
+							vc++;
+						} while (vc<rowCnt)
+					}
+				} else {
+					errors = getElementsByTagName('error');	
+				}
+			} else {
+				alert(http.response);
+			}
+		}
+	}
+	
+	createRequest();
+	var uri = '/inbound/getinbounds/page/2';
+	sendRequest('GET', uri, '', getInboundsXML, true);
+}
+
+function getInbLines(inbound) {
+
+	function getinbLinesXML() {
+		var row;
+		if (http.readyState==4) {
+			var inb_lineTable = document.getElementById('inbound_lines').getElementsByTagName('tbody')[0];
+			var rowCnt = inb_lineTable.rows.length;
+			var rowNr = 0;
+			xmlResult = http.responseXML;
+			if (xmlResult.getElementsByTagName('errorCount')[0].firstChild==null) errorCount = 0;
+			else errorCount = xmlResult.getElementsByTagName('errorCount')[0].firstChild.nodeValue;
+			if (errorCount==0) {
+				inb_lines = xmlResult.getElementsByTagName('result');
+				for (vc = 0; vc<inb_lines.length; vc++) {
+					if ((vc) >= rowCnt) {
+						row=inb_lineTable.insertRow(vc);
+						var tdActions=row.insertCell(0)
+						var tdVariant=row.insertCell(1);
+						var tdarticle=row.insertCell(2);
+						var tdTU=row.insertCell(3);
+						var tdPU_TU=row.insertCell(4);
+						var tdPU=row.insertCell(5);
+						var tdPallets=row.insertCell(6);
+						var tdTU_Pal=row.insertCell(7);
+						var tdStock = row.insertCell(8);
+						var tdGrade = row.insertCell(9);
+					} else {
+						row=inb_lineTable.rows[vc];
+						var tdActions=row.cells[0];
+						var tdVariant=row.cells[1];
+						var tdarticle=row.cells[2];
+						var tdTU=row.cells[3];
+						var tdPU_TU=row.cells[4];
+						var tdPU=row.cells[5];
+						var tdPallets=row.cells[6];
+						var tdTU_Pal=row.cells[7];
+						var tdStock=row.cells[8];
+						var tdGrade=row.cells[9];
+					}
+					row.id = 'inb_line_'+inb_lines[vc].getElementsByTagName('No')[0].firstChild.nodeValue;
+					tdActions.innerHTML = '';
+					var link1 = document.createElement('a');
+					link1.href = '/inbound/adminpics/No/'+inb_lines[vc].getElementsByTagName('No')[0].firstChild.nodeValue;;
+					link1.innerHTML = '<img src="/images/photo gallery16x16.png" alt="Bilder" title="Bilder verwalten" />';
+					tdActions.appendChild(link1);
+					tdVariant.innerHTML=inb_lines[vc].getElementsByTagName('variant')[0].firstChild.nodeValue;
+					tdVariant.className="data";
+					tdarticle.innerHTML=inb_lines[vc].getElementsByTagName('variant_desc')[0].firstChild.nodeValue;
+					tdarticle.className="data";
+					tdTU.innerHTML=inb_lines[vc].getElementsByTagName('inb_trading_units')[0].firstChild.nodeValue;
+					tdTU.className="data_num";
+					tdPU_TU.innerHTML=inb_lines[vc].getElementsByTagName('items')[0].firstChild.nodeValue;
+					tdPU_TU.className="data_num";
+					tdPU.innerHTML=inb_lines[vc].getElementsByTagName('inb_packing_units')[0].firstChild.nodeValue;
+					tdPU.className="data_num";
+					tdPallets.innerHTML=inb_lines[vc].getElementsByTagName('inb_pallets')[0].firstChild.nodeValue;
+					tdPallets.className="data_num";
+					tdTU_Pal.innerHTML=inb_lines[vc].getElementsByTagName('inb_tu_pal')[0].firstChild.nodeValue;
+					tdTU_Pal.className="data_num";
+					tdStock.innerHTML=inb_lines[vc].getElementsByTagName('stock')[0].firstChild.nodeValue;
+					tdStock.className='data_num';
+					tdGrade.innerHTML = '';
+					if (!inb_lines[vc].getElementsByTagName('grade_weighted')[0].firstChild)
+						var linkText = document.createTextNode('Kein WEP');
+					else var linkText = document.createTextNode(inb_lines[vc].getElementsByTagName('grade_weighted')[0].firstChild.nodeValue);
+					tdGrade.className='data_num';
+					var aGrade = document.createElement('a');
+					aGrade.href = "/inbound/printquality/No/"+inb_lines[vc].getElementsByTagName('No')[0].firstChild.nodeValue;
+					aGrade.appendChild(linkText);
+					tdGrade.appendChild(aGrade);
+				}
+				if (rowCnt>vc) {
+					var lastRow=vc;
+					do {
+						inb_lineTable.deleteRow(lastRow);
+						vc++;
+					} while (vc<rowCnt)
+				}
+			} else {
+				errors = xml.getElementsByTagName('error');
+				for (e = 0; e < error_count; e++) {
+					field = errors[e].childNodes[1].nodeName;
+					value = errors[e].childNodes[1].firstChild.nodeValue;
+					errorText = errorText+"["+field+"] "+value+"\n";
+				}
+				if (xml.getElementsByTagName('defaultValue')[0].firstChild!=null)
+					act_input.value = xml.getElementsByTagName('defaultValue')[0].firstChild.nodeValue;
+				else act_input.value = '';	
+				alert(errorText);
+			}
+		}
+	}
+	createRequest();
+	var URI = '/inbound/getinboundlines/inbound/'+inbound;
+	sendRequest('GET', URI, '', getinbLinesXML, true);
+}
+
+function toggleElement(id) { 
+    if(document.getElementById) { 
+        var myelement = document.getElementById(id); 
+        myelement.style.display = (myelement.style.display=='block' ? 'none' : 'block'); 
+    } 
+}
+-->
+</script>
+<?php $inbounds = $this->inbounds; ?>
+<?php $inbound_lines = $this->inbound_lines; ?>
+<?php $count_inb = $this->count_inb; ?>
+<a href="/inbound/editquality/">Neuer Wareneingang</a>
+<hr />
+<div>Wareneingänge: <?php echo $count_inb; ?></div>
+<div id="search_inb" class="search_dialog" >
+<button onclick="toggleElement('search_fields')">Suchen</button>
+<table id="search_fields" style="display:none">
+	<tr>
+		<th>Position</th>
+		<th>Lieferant</th>
+		<th>Bestellung</th>
+		<th>Lieferschein</th>
+		<th>LKW</th>
+		<th>Container</th>
+	</tr>
+	<tr>
+		<td><input type="text" name="position" id="position" /></td>
+		<td><input type="text" name="vendor" id="vendor" /></td>
+		<td><input type="text" name="purchase_order" id="purchase_order" /></td>
+		<td><input type="text" name="delivery_note" id="delivery_note" /></td>
+		<td><input type="text" name="truck" id="truck" /></td>
+		<td><input type="text" name="container" id="container" /></td>
+	</tr>
+</table>
+</div>
+<table id="inbounds">
+<thead>
+	<tr class="data">
+		<th class="data" width="20">Position</th>
+		<th class="data" width="50">Lie.-Nr.</th>
+		<th class="data" width="50">Lieferant</th>
+		<th class="data" width="15">Eingang</th>
+		<th class="data" width="15">Lieferschein</th>
+		<th class="data" width="20">LKW</th>
+		<th class="data" width="20">Auflieger</th>
+		<th class="data" width="20">Container</th>
+		<th class="data" width="20">Temperatur</th>
+	</tr>
+</thead>
+<tbody>
+<?php foreach($inbounds as $inbound) : ?>
+	<tr class="data">
+		<td class="data"><input type="radio" name="po_no" value="<?php echo $inbound['inbound']; ?>" onfocus="getInbLines(<?php echo $inbound['inbound']; ?>)">
+		<a href="/inbound/edit/No/<?php echo $inbound['No']; ?>"><?php echo $inbound['position']; ?></a></td>
+		<td class="data"><?php echo $inbound['vendor_no']; ?></td>
+		<td class="data"><?php echo $inbound['vendor_name'].', '.$inbound['vendor_city'].' '.$inbound['vendor_CC']; ?></td>
+		<td class="data"><?php echo $inbound['inb_arrival']; ?></td>
+		<td class="data"><?php echo $inbound['v_delivery_note']; ?></td>
+		<td class="data"><?php echo $inbound['inb_truck']; ?></td>
+		<td class="data"><?php echo $inbound['inb_trailor']; ?></td>
+		<td class="data"><?php echo $inbound['inb_container']; ?></td>
+		<td class="data"><?php echo $inbound['inb_transport_temp']; ?></td>
+	</tr>
+<?php endforeach ?>
+</tbody>
+</table>
+<hr />
+<a href="/inbound/editquality/">Neuer Wareneingang</a>
+<table id="inbound_lines" style="table-layout:auto;">
+<thead>
+<tr>
+	<th style="width:10px;"></th>
+	<th class="data" width="30">Variante</th>
+	<th class="data">Beschreibung</th>
+	<th class="data" width="20">Kolli</th>
+	<th class="data" width="20">Menge/Kolli</th>
+	<th class="data" width="24">Menge ges.</th>
+	<th class="data" width="12">Paletten</th>
+	<th class="data" width="10">Kolli / Pal.</th>
+	<th class="data" width="10">Bestand</th>
+	<th class="data" width="10">Qualität</th>
+</tr>
+</thead>
+<tbody>
+<?php foreach ($inbound_lines as $inbound_line) : ?>
+	<tr id="inb_line_<?php echo $inbound_line['No']; ?>">
+		<td><a href="/inbound/adminpics/No/<?php echo $inbound_line['No']; ?>"><img src="/images/photo gallery16x16.png" alt="Bilder" title="Bilder verwalten" /></a></td>
+		<td class="data"><?php echo $inbound_line['variant']; ?></td>
+		<td class="data"><?php echo $inbound_line['variant_desc']; ?></td>
+		<td class="data_num"><?php echo $inbound_line['inb_trading_units']; ?></td>
+		<td class="data_num"><?php echo $inbound_line['items']; ?></td>
+		<td class="data_num"><?php echo $inbound_line['inb_packing_units']; ?></td>
+		<td class="data_num"><?php echo $inbound_line['inb_pallets']; ?></td>
+		<td class="data_num"><?php echo $inbound_line['inb_tu_pal']; ?></td>
+		<td class="data_num"><?php echo $inbound_line['stock']; ?></td>
+		<td class="data_num"><a href="/inbound/printquality/No/<?php echo $inbound_line['No']; ?>"><?php echo $inbound_line['grade_weighted']; ?></a></td>
+	</tr>
+<?php endforeach ?>
+</tbody>
+</table>
+<hr />

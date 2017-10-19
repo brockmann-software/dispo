@@ -1,0 +1,18 @@
+﻿<a href="/room/edit">Neuer Raum</a>
+<hr />
+<table>
+	</tr class="data">
+		<th class="data">Nummer</th>
+		<th class="data">Raum</th>
+		<th class="data">Lagerort</th>
+	</tr>
+<?php foreach($this->result as $entry) : ?>
+	<tr class="data">
+		<td class="data"><a href="/room/edit/No/<?php echo $entry['No']; ?>"><?php echo $entry['No']; ?></a></td>
+		<td class="data"><?php echo $entry['room']; ?></td>
+		<td class="data"><?php echo $entry['stock_location_name']; ?></td>
+	</tr>
+<?php endforeach ?>
+</table>
+<hr />
+<a href="/room/edit">Neuer Raum</a>

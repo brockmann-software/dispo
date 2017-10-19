@@ -1,0 +1,21 @@
+<results>
+<errorCount><?php echo count($this->errors); ?></errorCount>
+	<errors>
+<?php if (count($this->errors)>0): ?>
+<?php foreach ($this->errors as $key => $value):?>
+		<error>
+			<<?php echo $key; ?>><?php echo $value; ?></<?php echo $key; ?>>
+		</error>
+<?php ENDFOREACH ?>
+<?php ENDIF ?>
+	</errors>
+<resultCount><?php echo $this->escape($this->count); ?></resultCount>
+<page><?php echo $this->escape($this->page); ?></page>
+<?php foreach ($this->results as $result):?>
+	<result>
+	<?php foreach ($result as $key => $value): ?>
+		<<?php echo $this->escape($key); ?>><?php echo $this->escape($value); ?></<?php echo $this->escape($key); ?>>
+	<?php ENDFOREACH ?>
+	</result>
+<?php ENDFOREACH ?>
+</results>

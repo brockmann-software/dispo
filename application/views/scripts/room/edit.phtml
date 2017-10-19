@@ -1,0 +1,39 @@
+
+<?php // Zend_Debug::dump($this->params) ?>
+<?php $data = $this->params['data']; ?>
+<?php $stock_locations = $this->params['stock_locations']; ?>
+<?php $errors = $this->params['errors']; ?>
+<?php // echo $this->form; ?>
+
+<form action="/room/edit/" method="post">
+<legend><?php echo $this->params['title']; ?></legend>
+<?php if (isset($this->errors['all'])) : ?><div class="error">
+<?php echo $this->errors['all']; ?>
+</div><?php  endif ?>
+<fieldset>
+<table>
+	<tr>
+		<td></td><td><input type="hidden" name="No" value="<?php echo $data['No']; ?>" /></td>
+	</tr>
+	<tr>
+		<td>Raum</td><td>
+		<?php if (isset($errors['room'])) : ?><div class="error"><?php endif ?>
+		<input type="text" name="room" size="40" maxlength="255" value="<?php echo $data['room']; ?>" /></td>
+		<?php if (isset($errors['room'])) : ?><br /><?php echo $errors['room']; ?></div><?php endif ?>
+	</tr>
+	<tr>
+		<td>Lagerort</td>
+		<td><select name="stock_location">
+		<?php if (isset($errors['stock_location'])) : ?><div class="error"><?php endif ?>
+		<?php foreach ($stock_locations as $stock_location) : ?>
+		<option value="<?php echo $stock_location['no']; ?>"<?php if ($stock_location['no']==$data['stock_location']) echo " selected"; ?>><?php echo $stock_location['name']; ?></option>
+		<?php endforeach ?>
+		</select></td>
+		<?php if (isset($errors['stock_location'])) : ?><br /><?php echo $errors['stock_location']; ?></div><?php endif ?>
+	</tr>	
+	<tr>
+		<td></td><td><input type="submit" value="Speichern" /></td>
+	</tr>
+</table>
+</fieldset>	
+</form>

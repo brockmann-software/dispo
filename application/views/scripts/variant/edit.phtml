@@ -1,0 +1,154 @@
+
+<script>
+function buildNo()
+{
+	var variant_no;
+	variant_no = document.getElementById("product").value;
+	variant_no = variant_no + document.getElementById("origin").value;
+	variant_no = variant_no + document.getElementById("items").value;
+	variant_no = variant_no + document.getElementById("weight_item").value;
+	variant_no = variant_no + document.getElementById("t_packaging").value;
+	variant_no = variant_no + document.getElementById("packaging").value;
+	variant_no = variant_no + document.getElementById("label").value;
+	variant_no = variant_no + document.getElementById("quality").value;
+	variant_no = variant_no + document.getElementById("quality_class").value;
+	variant_no = variant_no + document.getElementById("brand").value;
+	document.getElementById("No").value = variant_no;
+}	
+</script>
+
+<?php //Zend_Debug::dump($this->params['quality_class']) ?>
+<?php $variant = $this->params['variant']; ?>
+<?php $products = $this->params['products']; ?>
+<?php $countries = $this->params['countries']; ?>
+<?php $packagings = $this->params['packagings']; ?>
+<?php $t_packagings = $this->params['t_packagings']; ?>
+<?php $labels = $this->params['labels']; ?>
+<?php $brands = $this->params['brands']; ?>
+<?php $qualities = $this->params['qualities']; ?>
+<?php $quality_classes = $this->params['quality_classes']; ?>
+<?php $errors = $this->params['errors']; ?>
+<?php // echo $this->form; ?>
+
+<form action="/variant/edit/" method="post">
+<legend><?php echo $this->params['title']; ?></legend>
+<?php if (isset($this->errors['all'])) : ?><div class="error">
+<?php echo $this->errors['all']; ?>
+</div><?php  endif ?>
+<fieldset>
+<table>
+	<tr>
+		<td width="60px"></td><td><input type="hidden" name="old_No" id="old_No" value="<?php echo $variant['No']; ?>" /></td>
+	</tr>
+	<tr>
+		<td>Variante</td><td>
+		<?php if (isset($errors['No'])) : ?><div class="error"><?php endif ?>
+		<input type="text" name="No" id="No" size="30" maxlength="30" readonly="readonly" value="<?php echo $variant['No']; ?>" /></td>
+		<?php if (isset($errors['No'])) : ?><br /><?php echo $errors['No']; ?></div><?php endif ?>
+	</tr>
+	<tr>
+		<td>Produkt</td>
+		<td>
+			<?php if (isset($errors['product'])) : ?><div class="error"><?php endif ?>
+			<select name="product" id="product" onchange="buildNo()">
+			<?php foreach($products as $product) : ?>
+			<option value="<?php echo $product['No']; ?>"<?php if ($product['No']==$variant['product']) echo "selected"; ?>><?php echo $product['product']; ?></option>
+			<?php endforeach ?>
+			<?php if (isset($errors['product'])) : ?><br /><?php echo $errors['product']; ?></div><?php endif ?>
+		</td>
+	</tr>
+	<tr>
+		<td>Herkunft</td>
+		<td>
+			<?php if (isset($errors['origin'])) : ?><div class="error"><?php endif ?>
+			<select name="origin" id="origin" onchange="buildNo()">
+			<?php foreach($countries as $country) : ?>
+			<option value="<?php echo $country['Id']; ?>"<?php if ($country['Id']==$variant['origin']) echo "selected"; ?>><?php echo $country['country']; ?></option>
+			<?php endforeach ?>
+			<?php if (isset($errors['origin'])) : ?><br /><?php echo $errors['origin']; ?></div><?php endif ?>
+		</td>
+	</tr>
+	<tr>
+		<td>Verpackung</td>
+		<td>
+			<?php if (isset($errors['packaging'])) : ?><div class="error"><?php endif ?>
+			<select name="packaging" id="packaging" onchange="buildNo()">
+			<?php foreach($packagings as $packaging) : ?>
+			<option value="<?php echo $packaging['No']; ?>"<?php if ($packaging['No']==$variant['packaging']) echo "selected"; ?>><?php echo $packaging['packaging']; ?></option>
+			<?php endforeach ?>
+			<?php if (isset($errors['packaging'])) : ?><br /><?php echo $errors['packaging']; ?></div><?php endif ?>
+		</td>
+	</tr>
+	<tr>
+		<td>Transportverpackung</td>
+		<td>
+			<?php if (isset($errors['t_packaging'])) : ?><div class="error"><?php endif ?>
+			<select name="t_packaging" id="t_packaging" onchange="buildNo()">
+			<?php foreach($t_packagings as $t_packaging) : ?>
+			<option value="<?php echo $t_packaging['no']; ?>"<?php if ($t_packaging['no']==$variant['t_packaging']) echo "selected"; ?>><?php echo $t_packaging['transport_packaging']; ?></option>
+			<?php endforeach ?>
+			<?php if (isset($errors['t_packaging'])) : ?><br /><?php echo $errors['t_packaging']; ?></div><?php endif ?>
+		</td>
+	</tr>
+	<tr>
+		<td>Etikett</td>
+		<td>
+			<?php if (isset($errors['label'])) : ?><div class="error"><?php endif ?>
+			<select name="label" id="label" onchange="buildNo()">
+			<?php foreach($labels as $label) : ?>
+			<option value="<?php echo $label['No']; ?>"<?php if ($label['No']==$variant['label']) echo "selected"; ?>><?php echo $label['label']; ?></option>
+			<?php endforeach ?>
+			<?php if (isset($errors['label'])) : ?><br /><?php echo $errors['label']; ?></div><?php endif ?>
+		</td>
+	</tr>
+	<tr>
+		<td>Marke</td>
+		<td>
+			<?php if (isset($errors['brand'])) : ?><div class="error"><?php endif ?>
+			<select name="brand" id="brand" onchange="buildNo()">
+			<?php foreach($brands as $brand) : ?>
+			<option value="<?php echo $brand['No']; ?>"<?php if ($brand['No']==$variant['brand']) echo "selected"; ?>><?php echo $brand['brand']; ?></option>
+			<?php endforeach ?>
+			<?php if (isset($errors['brand'])) : ?><br /><?php echo $errors['brand']; ?></div><?php endif ?>
+		</td>
+	</tr>
+	<tr>
+		<td>Qualität</td>
+		<td>
+			<?php if (isset($errors['quality'])) : ?><div class="error"><?php endif ?>
+			<select name="quality" id="quality" onchange="buildNo()">
+			<?php foreach($qualities as $quality) : ?>
+			<option value="<?php echo $quality['No']; ?>"<?php if ($quality['No']==$variant['quality']) echo "selected"; ?>><?php echo $quality['quality']; ?></option>
+			<?php endforeach ?>
+			<?php if (isset($errors['quality'])) : ?><br /><?php echo $errors['quality']; ?></div><?php endif ?>
+		</td>
+	</tr>
+	<tr>
+		<td>Klasse</td>
+		<td>
+			<?php if (isset($errors['quality_class'])) : ?><div class="error"><?php endif ?>
+			<select name="quality_class" id="quality_class" onchange="buildNo()">
+			<?php foreach($quality_classes as $quality_class) : ?>
+			<option value="<?php echo $quality_class['No']; ?>"<?php if ($quality_class['No']==$variant['quality_class']) echo "selected"; ?>><?php echo $quality_class['quality_class']; ?></option>
+			<?php endforeach ?>
+			<?php if (isset($errors['quality_class'])) : ?><br /><?php echo $errors['quality_class']; ?></div><?php endif ?>
+		</td>
+	</tr>
+	<tr>
+		<td>Anzahl Packstücke</td><td>
+		<?php if (isset($errors['items'])) : ?><div class="error"><?php endif ?>
+		<input type="text" name="items" id="items" size="10" maxlength="10" value="<?php echo $variant['items']; ?>"  onchange="buildNo()"/></td>
+		<?php if (isset($errors['items'])) : ?><br /><?php echo $errors['items']; ?></div><?php endif ?>
+	</tr>
+	<tr>
+		<td>Gewicht Packstück (g)</td><td>
+		<?php if (isset($errors['weight_item'])) : ?><div class="error"><?php endif ?>
+		<input type="text" name="weight_item" id="weight_item" size="10" maxlength="10" value="<?php echo $variant['weight_item']; ?>" onchange="buildNo()"/></td>
+		<?php if (isset($errors['weight_item'])) : ?><br /><?php echo $errors['weight_item']; ?></div><?php endif ?>
+	</tr>
+	<tr>
+		<td></td><td><input type="submit" value="Speichern" /></td>
+	</tr>
+</table>
+</fieldset>	
+</form>

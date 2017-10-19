@@ -1,0 +1,14 @@
+<hr />
+<table>
+	</tr class="data">
+		<th class="data">Nummer</th>
+		<th class="data">Etikett</th>
+	</tr>
+<?php foreach($this->result as $entry) : ?>
+	<tr class="data">
+		<td class="data"><?php echo $entry['No']; ?></td>
+		<td class="data"><?php echo $entry['label']; ?></td>
+	</tr>
+<?php endforeach ?>
+</table>
+<hr />

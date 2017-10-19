@@ -1,0 +1,67 @@
+
+<?php // Zend_Debug::dump($this->params) ?>
+<?php $data = $this->params['packaging']; ?>
+<?php $errors = $this->params['errors']; ?>
+<?php // echo $this->form; ?>
+
+<form action="/packaging/edit/" method="post">
+<legend><?php echo $this->params['title']; ?></legend>
+<?php if (isset($this->errors['all'])) : ?><div class="error">
+<?php echo $this->errors['all']; ?>
+</div><?php  endif ?>
+<fieldset>
+<table>
+	<tr>
+		<td></td><td><input type="hidden" name="old_No" value="<?php echo $data['No']; ?>" /></td>
+	</tr>
+	<tr>
+		<td>Verpackungsnummer</td><td>
+		<?php if (isset($errors['No'])) : ?><div class="error"><?php endif ?>
+		<input type="text" name="No" size="10" value="<?php echo $data['No']; ?>" />
+		<?php if (isset($errors['No'])) : ?><br /><?php echo $errors['No']; ?></div><?php endif ?>
+		</td>
+	</tr>
+	<tr>
+		<td>Bezeichnung</td><td>
+		<?php if (isset($errors['packaging'])) : ?><div class="error"><?php endif ?>
+		<input type="text" name="packaging" size="40" maxlength="255" value="<?php echo $data['packaging']; ?>" /></td>
+		<?php if (isset($errors['packaging'])) : ?><br /><?php echo $errors['packaging']; ?></div><?php endif ?>
+	</tr>
+	<tr>
+		<td>Länge (mm)</td>
+		<td>
+			<?php if (isset($errors['length'])) : ?><div class="error"><?php endif ?>
+			<input type="number" name="length" value="<?php echo $data['length']; ?>" min="1" />
+			<?php if (isset($errors['length'])) : ?><br /><?php echo $errors['length']; ?></div><?php endif ?>
+		</td>
+	</tr>
+	<tr>
+		<td>Breite (mm)</td>
+		<td>
+			<?php if (isset($errors['width'])) : ?><div class="error"><?php endif ?>
+			<input type="number" name="width" value="<?php echo $data['width']; ?>" min="1" />
+			<?php if (isset($errors['width'])) : ?><br /><?php echo $errors['width']; ?></div><?php endif ?>
+		</td>
+	</tr>
+	<tr>
+		<td>Höhe (mm)</td>
+		<td>
+			<?php if (isset($errors['height'])) : ?><div class="error"><?php endif ?>
+			<input type="number" name="height" value="<?php echo $data['height']; ?>" min="1" />
+			<?php if (isset($errors['height'])) : ?><br /><?php echo $errors['height']; ?></div><?php endif ?>
+		</td>
+	</tr>
+	<tr>
+		<td>Gewicht (g)</td>
+		<td>
+			<?php if (isset($errors['weight'])) : ?><div class="error"><?php endif ?>
+			<input type="number" name="weight" value="<?php echo $data['weight']; ?>" min="1" />
+			<?php if (isset($errors['weight'])) : ?><br /><?php echo $errors['weight']; ?></div><?php endif ?>
+		</td>
+	</tr>
+	<tr>
+		<td></td><td><input type="submit" value="Speichern" /></td>
+	</tr>
+</table>
+</fieldset>	
+</form>

@@ -1,0 +1,124 @@
+<script>
+<!--
+function getPOLines(pOrder) {
+
+	function getPOLinesXML() {
+		var row;
+		if (http.readyState==4) {
+			var po_lineTable = document.getElementById('po_line').getElementsByTagName('tbody')[0];
+			var rowCnt = po_lineTable.rows.length;
+			var rowNr = 0;
+			xmlResult = http.responseXML;
+			if (xmlResult.getElementsByTagName('errorCount')[0].firstChild==null) errorCount = 0;
+			else errorCount = xmlResult.getElementsByTagName('errorCount')[0].firstChild.nodeValue;
+			if (errorCount==0) {
+				po_lines = xmlResult.getElementsByTagName('result');
+				for (vc = 0; vc<po_lines.length; vc++) {
+					if ((vc) >= rowCnt) {
+						row=po_lineTable.insertRow(vc);
+						var tdVariant=row.insertCell(0);
+						var tdarticle=row.insertCell(1);
+						var tdTU=row.insertCell(2);
+						var tdPU_TU=row.insertCell(3);
+						var tdPU=row.insertCell(4);
+						var tdPallets=row.insertCell(5);
+						var tdTU_Pal=row.insertCell(6);
+					} else {
+						row=po_lineTable.rows[vc];
+						var tdVariant=row.cells[0];
+						var tdarticle=row.cells[1];
+						var tdTU=row.cells[2];
+						var tdPU_TU=row.cells[3];
+						var tdPU=row.cells[4];
+						var tdPallets=row.cells[5];
+						var tdTU_Pal=row.cells[6];
+					}
+					tdVariant.innerHTML=po_lines[vc].getElementsByTagName('v_no')[0].firstChild.nodeValue;
+					tdVariant.className="data";
+					tdarticle.innerHTML=po_lines[vc].getElementsByTagName('variant')[0].firstChild.nodeValue;
+					tdarticle.className="data";
+					tdTU.innerHTML=po_lines[vc].getElementsByTagName('Trading_Units')[0].firstChild.nodeValue;
+					tdTU.className="data_num";
+					tdPU_TU.innerHTML=po_lines[vc].getElementsByTagName('PU_TU')[0].firstChild.nodeValue;
+					tdPU_TU.className="data_num";
+					tdPU.innerHTML=po_lines[vc].getElementsByTagName('Packing_Units')[0].firstChild.nodeValue;
+					tdPU.className="data_num";
+					tdPallets.innerHTML=po_lines[vc].getElementsByTagName('Pallets')[0].firstChild.nodeValue;
+					tdPallets.className="data_num";
+					tdTU_Pal.innerHTML=po_lines[vc].getElementsByTagName('TU_Pallet')[0].firstChild.nodeValue;
+					tdTU_Pal.className="data_num";
+				}
+				if (rowCnt>vc) {
+					var lastRow=vc;
+					do {
+						po_lineTable.deleteRow(lastRow);
+						vc++;
+					} while (vc<rowCnt)
+				}
+			} else {
+				errors = xml.getElementsByTagName('error');
+				for (e = 0; e < error_count; e++) {
+					field = errors[e].childNodes[1].nodeName;
+					value = errors[e].childNodes[1].firstChild.nodeValue;
+					errorText = errorText+"["+field+"] "+value+"\n";
+				}
+				if (xml.getElementsByTagName('defaultValue')[0].firstChild!=null)
+					act_input.value = xml.getElementsByTagName('defaultValue')[0].firstChild.nodeValue;
+				else act_input.value = '';	
+				alert(errorText);
+			}
+		}
+	}
+	createRequest();
+	var URI = '/purchaseorder/getpoline/id/'+pOrder;
+	sendRequest('GET', URI, '', getPOLinesXML, true);
+}
+-->
+</script>
+
+
+<a href="/purchaseorder/edit/">Neue Bestellung</a>
+<hr />
+<table>
+	</tr class="data">
+		<th class="data" width="20">Nummer</th>
+		<th class="data" width="50">Lie.-Nr.</th>
+		<th class="data" width="50">Lieferant</th>
+		<th class="data" width="15">Lieferung</th>
+		<th class="data" width="15">Verladung</th>
+		<th class="data" width="20">LKW</th>
+		<th class="data" width="20">Auflieger</th>
+		<th class="data" width="20">Container</th>
+		<th class="data" width="20">Incoterm</th>
+	</tr>
+<?php foreach($this->result as $entry) : ?>
+	<tr class="data">
+		<td class="data"><input type="radio" name="po_no" value="<?php echo $entry['No']; ?>" onfocus="getPOLines(<?php echo $entry['No']; ?>)">
+		<a href="/purchaseorder/edit/id/<?php echo $entry['No']; ?>"><?php echo $entry['No']; ?></a></td>
+		<td class="data"><?php echo $entry['vendor_no']; ?></td>
+		<td class="data"><?php echo $entry['vendor_name'].', '.$entry['vendor_city'].' '.$entry['vendor_CC']; ?></td>
+		<td class="data"><?php echo $entry['arrival']; ?></td>
+		<td class="data"><?php echo $entry['departure']; ?></td>
+		<td class="data"><?php echo $entry['truck']; ?></td>
+		<td class="data"><?php echo $entry['trailor']; ?></td>
+		<td class="data"><?php echo $entry['container']; ?></td>
+		<td class="data"><?php echo $entry['incoterm']; ?></td>
+	</tr>
+<?php endforeach ?>
+</table>
+<hr />
+<a href="/purchaseorder/edit/">Neue Bestellung</a>
+<table id="po_line">
+<thead>
+<th class="data" width="20">Variante</th>
+<th class="data" width="150">Beschreibung</th>
+<th class="data" width="10">Kolli</>
+<th class="data" width="10">Menge/Kolli</th>
+<th class="data" width="12">Menge ges.</th>
+<th class="data" width="6">Paletten</th>
+<th class="data" width="10">Kolli / Pal.</th>
+</thead>
+<tbody>
+</tbody>
+</table>
+<hr />

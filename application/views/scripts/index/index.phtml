@@ -1,0 +1,22 @@
+<?php // Zend_Debug::dump($this->whm_dashboard); ?>
+<div class="extrabox">
+<div class="extrahead">QM</div>
+<table>
+<tr><td>Zertifikate:</td><td><a href="/certificate/vendorcert/"><?php echo $this->qm_dashboard['certs']['cntcrt']; ?></a></td></tr>
+<tr><td>Abgelaufen:</td><td><a href="/certificate/vendorcert/end/NOW()"><?php echo $this->qm_dashboard['cert_exp']['cntcrt']; ?></a></td></tr>
+<tr><td>in 1 Monat:</td><td><a href="/certificate/vendorcert/end/NOW()%2bINTERVAL 1 MONTH"><?php echo $this->qm_dashboard['cert_exp_month']['cntcrt']; ?></td></tr>
+</table>
+</div>
+<div class="extrabox">
+<div class="extrahead">Wareneingang</div>
+<table>
+<tr><td>Wareneingänge heute</td><td><a href="/inbound/index"><?php echo $this->ib_dashboard['inbounds_td']['cntib']; ?></a></td></tr>
+</table>
+</div>
+<div class="extrabox">
+<div class="extrahead">Lager</div>
+<table>
+<tr><td>Letzte Zählung:</td><td><?php echo (count($this->whm_dashboard['last_inv_comp'])>0) ? "Nr. {$this->whm_dashboard['last_inv_comp'][0]['No']} am ".date('d.m.Y', strtotime($this->whm_dashboard['last_inv_comp'][0]['ended'])) : "Keine abg. Zählung"; ?></td></tr>
+<tr><td>laufende Zählung:</td><td><?php echo (count($this->whm_dashboard['act_inventory'])>0) ? "Nr. {$this->whm_dashboard['act_inventory'][0]['No']} am ".date('d.m.Y', strtotime($this->whm_dashboard['act_inventory'][0]['started'])) : "Keine akt. Zählung"; ?></td></tr>
+</table>
+</div>

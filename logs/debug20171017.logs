@@ -1,0 +1,2754 @@
+2017-10-17T11:42:08+02:00 INFO (6): IndexController->IndexAction called
+2017-10-17T11:45:21+02:00 INFO (6): IndexController->IndexAction called
+2017-10-17T11:47:04+02:00 INFO (6): IndexController->IndexAction called
+2017-10-17T11:47:21+02:00 INFO (6): IndexController->IndexAction called
+2017-10-17T11:47:43+02:00 INFO (6): IndexController->IndexAction called
+2017-10-17T11:49:42+02:00 INFO (6): IndexController->IndexAction called
+2017-10-17T12:21:14+02:00 INFO (6): IndexController->IndexAction called
+2017-10-17T12:21:49+02:00 INFO (6): IndexController->IndexAction called
+2017-10-17T12:22:52+02:00 INFO (6): InboundController->IndexAction called
+2017-10-17T12:22:54+02:00 INFO (6): editquality aufgerufen mit Inbound_sheet: Array
+(
+    [No] => 0
+    [inbound] => 0
+    [inb_line] => 0
+    [position] => 
+    [v_delivery_note] => 
+    [vendor] => 
+    [purchase_order] => 
+    [po_line] => 0
+    [po_line_line] => 0
+    [stock_location] => 1
+    [po_arrival_date] => 17.10.2017
+    [po_arrival_time] => 12:22
+    [inb_arrival_date] => 17.10.2017
+    [inb_arrival_time] => 12:22
+    [forwarder] => 
+    [truck] => 
+    [trailor] => 
+    [container] => 
+    [po_transport_temp_min] => 1.00
+    [po_transport_temp_max] => 4.00
+    [inb_transport_temp] => 0
+    [variant] => 
+    [product] => 0026
+    [t_packaging] => 
+    [packaging] => 0
+    [origin] => DE
+    [label] => 0
+    [quality_class] => 1
+    [brand] => 0
+    [quality] => 1
+    [items] => 0
+    [weight_item] => 0
+    [po_lot] => 
+    [po_barcode] => 
+    [po_trading_units] => 0
+    [po_packing_units] => 0
+    [po_pallet] => 
+    [po_pallets] => 0
+    [po_tu_pal] => 0
+    [inb_lot] => 
+    [inb_barcode] => 
+    [items_checked] => 0
+    [inb_trading_units] => 0
+    [inb_packing_units] => 0
+    [inb_pallet] => 
+    [inb_pallets] => 0
+    [inb_tu_pal] => 0
+    [po_brix_min] => 0
+    [po_brix_max] => 0
+    [inb_brix] => 0
+    [inb_certificate] => 1
+    [remarks] => 
+    [res_1] => 0
+    [base_1] => 0
+    [rp_1] => 0 %
+    [rl_1] => check_green
+    [res_2] => 0
+    [base_2] => 0
+    [rp_2] => 0 %
+    [rl_2] => check_green
+    [res_3] => 0
+    [base_3] => 0
+    [rp_3] => 0 %
+    [rl_3] => check_green
+    [res_4] => 0
+    [base_4] => 0
+    [rp_4] => 0 %
+    [rl_4] => check_green
+    [res_7] => 0
+    [base_7] => 0
+    [rp_7] => 0 %
+    [rl_7] => check_green
+    [res_6] => 0
+    [base_6] => 0
+    [rp_6] => 0 %
+    [rl_6] => check_green
+    [res_5] => 0
+    [base_5] => 0
+    [rp_5] => 0 %
+    [rl_5] => check_green
+    [res_10] => 0
+    [base_10] => 0
+    [rp_10] => 0 %
+    [rl_10] => check_green
+    [res_13] => 0
+    [base_13] => 0
+    [rp_13] => 0 %
+    [rl_13] => check_green
+    [res_12] => 0
+    [base_12] => 0
+    [rp_12] => 0 %
+    [rl_12] => check_green
+    [res_11] => 0
+    [base_11] => 0
+    [rp_11] => 0 %
+    [rl_11] => check_green
+    [res_9] => 0
+    [base_9] => 0
+    [rp_9] => 0 %
+    [rl_9] => check_green
+    [res_8] => 0
+    [base_8] => 0
+    [rp_8] => 0 %
+    [rl_8] => check_green
+    [res_15] => 0
+    [base_15] => 0
+    [rp_15] => 0
+    [rl_15] => check_green
+    [res_14] => 0
+    [base_14] => 0
+    [rp_14] => 0
+    [rl_14] => check_green
+    [res_16] => 0
+    [base_16] => 0
+    [rp_16] => nicht OK
+    [rl_16] => check_red
+    [res_17] => 0
+    [base_17] => 0
+    [rp_17] => nicht OK
+    [rl_17] => check_red
+    [res_18] => 0
+    [base_18] => 0
+    [rp_18] => 0
+    [rl_18] => check_green
+    [res_19] => 0
+    [base_19] => 0
+    [rp_19] => 0 %
+    [rl_19] => check_green
+)
+
+2017-10-17T12:23:11+02:00 INFO (6): editquality aufgerufen mit Inbound_sheet: Array
+(
+    [No] => 0
+    [inbound] => 0
+    [inb_line] => 0
+    [position] => 
+    [v_delivery_note] => 
+    [vendor] => 
+    [purchase_order] => 
+    [po_line] => 0
+    [po_line_line] => 0
+    [stock_location] => 1
+    [po_arrival_date] => 17.10.2017
+    [po_arrival_time] => 12:23
+    [inb_arrival_date] => 17.10.2017
+    [inb_arrival_time] => 12:23
+    [forwarder] => 
+    [truck] => 
+    [trailor] => 
+    [container] => 
+    [po_transport_temp_min] => 1.00
+    [po_transport_temp_max] => 4.00
+    [inb_transport_temp] => 0
+    [variant] => 
+    [product] => 0026
+    [t_packaging] => 
+    [packaging] => 0
+    [origin] => DE
+    [label] => 0
+    [quality_class] => 1
+    [brand] => 0
+    [quality] => 1
+    [items] => 0
+    [weight_item] => 0
+    [po_lot] => 
+    [po_barcode] => 
+    [po_trading_units] => 0
+    [po_packing_units] => 0
+    [po_pallet] => 
+    [po_pallets] => 0
+    [po_tu_pal] => 0
+    [inb_lot] => 
+    [inb_barcode] => 
+    [items_checked] => 0
+    [inb_trading_units] => 0
+    [inb_packing_units] => 0
+    [inb_pallet] => 
+    [inb_pallets] => 0
+    [inb_tu_pal] => 0
+    [po_brix_min] => 0
+    [po_brix_max] => 0
+    [inb_brix] => 0
+    [inb_certificate] => 1
+    [remarks] => 
+    [res_1] => 0
+    [base_1] => 0
+    [rp_1] => 0 %
+    [rl_1] => check_green
+    [res_2] => 0
+    [base_2] => 0
+    [rp_2] => 0 %
+    [rl_2] => check_green
+    [res_3] => 0
+    [base_3] => 0
+    [rp_3] => 0 %
+    [rl_3] => check_green
+    [res_4] => 0
+    [base_4] => 0
+    [rp_4] => 0 %
+    [rl_4] => check_green
+    [res_7] => 0
+    [base_7] => 0
+    [rp_7] => 0 %
+    [rl_7] => check_green
+    [res_6] => 0
+    [base_6] => 0
+    [rp_6] => 0 %
+    [rl_6] => check_green
+    [res_5] => 0
+    [base_5] => 0
+    [rp_5] => 0 %
+    [rl_5] => check_green
+    [res_10] => 0
+    [base_10] => 0
+    [rp_10] => 0 %
+    [rl_10] => check_green
+    [res_13] => 0
+    [base_13] => 0
+    [rp_13] => 0 %
+    [rl_13] => check_green
+    [res_12] => 0
+    [base_12] => 0
+    [rp_12] => 0 %
+    [rl_12] => check_green
+    [res_11] => 0
+    [base_11] => 0
+    [rp_11] => 0 %
+    [rl_11] => check_green
+    [res_9] => 0
+    [base_9] => 0
+    [rp_9] => 0 %
+    [rl_9] => check_green
+    [res_8] => 0
+    [base_8] => 0
+    [rp_8] => 0 %
+    [rl_8] => check_green
+    [res_15] => 0
+    [base_15] => 0
+    [rp_15] => 0
+    [rl_15] => check_green
+    [res_14] => 0
+    [base_14] => 0
+    [rp_14] => 0
+    [rl_14] => check_green
+    [res_16] => 0
+    [base_16] => 0
+    [rp_16] => nicht OK
+    [rl_16] => check_red
+    [res_17] => 0
+    [base_17] => 0
+    [rp_17] => nicht OK
+    [rl_17] => check_red
+    [res_18] => 0
+    [base_18] => 0
+    [rp_18] => 0
+    [rl_18] => check_green
+    [res_19] => 0
+    [base_19] => 0
+    [rp_19] => 0 %
+    [rl_19] => check_green
+)
+
+2017-10-17T12:23:46+02:00 INFO (6): editquality aufgerufen mit Inbound_sheet: Array
+(
+    [No] => 0
+    [inbound] => 0
+    [inb_line] => 0
+    [position] => 
+    [v_delivery_note] => 
+    [vendor] => 
+    [purchase_order] => 
+    [po_line] => 0
+    [po_line_line] => 0
+    [stock_location] => 1
+    [po_arrival_date] => 17.10.2017
+    [po_arrival_time] => 12:23
+    [inb_arrival_date] => 17.10.2017
+    [inb_arrival_time] => 12:23
+    [forwarder] => 
+    [truck] => 
+    [trailor] => 
+    [container] => 
+    [po_transport_temp_min] => 1.00
+    [po_transport_temp_max] => 4.00
+    [inb_transport_temp] => 0
+    [variant] => 
+    [product] => 0026
+    [t_packaging] => 
+    [packaging] => 0
+    [origin] => DE
+    [label] => 0
+    [quality_class] => 1
+    [brand] => 0
+    [quality] => 1
+    [items] => 0
+    [weight_item] => 0
+    [po_lot] => 
+    [po_barcode] => 
+    [po_trading_units] => 0
+    [po_packing_units] => 0
+    [po_pallet] => 
+    [po_pallets] => 0
+    [po_tu_pal] => 0
+    [inb_lot] => 
+    [inb_barcode] => 
+    [items_checked] => 0
+    [inb_trading_units] => 0
+    [inb_packing_units] => 0
+    [inb_pallet] => 
+    [inb_pallets] => 0
+    [inb_tu_pal] => 0
+    [po_brix_min] => 0
+    [po_brix_max] => 0
+    [inb_brix] => 0
+    [inb_certificate] => 1
+    [remarks] => 
+    [res_1] => 0
+    [base_1] => 0
+    [rp_1] => 0 %
+    [rl_1] => check_green
+    [res_2] => 0
+    [base_2] => 0
+    [rp_2] => 0 %
+    [rl_2] => check_green
+    [res_3] => 0
+    [base_3] => 0
+    [rp_3] => 0 %
+    [rl_3] => check_green
+    [res_4] => 0
+    [base_4] => 0
+    [rp_4] => 0 %
+    [rl_4] => check_green
+    [res_7] => 0
+    [base_7] => 0
+    [rp_7] => 0 %
+    [rl_7] => check_green
+    [res_6] => 0
+    [base_6] => 0
+    [rp_6] => 0 %
+    [rl_6] => check_green
+    [res_5] => 0
+    [base_5] => 0
+    [rp_5] => 0 %
+    [rl_5] => check_green
+    [res_10] => 0
+    [base_10] => 0
+    [rp_10] => 0 %
+    [rl_10] => check_green
+    [res_13] => 0
+    [base_13] => 0
+    [rp_13] => 0 %
+    [rl_13] => check_green
+    [res_12] => 0
+    [base_12] => 0
+    [rp_12] => 0 %
+    [rl_12] => check_green
+    [res_11] => 0
+    [base_11] => 0
+    [rp_11] => 0 %
+    [rl_11] => check_green
+    [res_9] => 0
+    [base_9] => 0
+    [rp_9] => 0 %
+    [rl_9] => check_green
+    [res_8] => 0
+    [base_8] => 0
+    [rp_8] => 0 %
+    [rl_8] => check_green
+    [res_15] => 0
+    [base_15] => 0
+    [rp_15] => 0
+    [rl_15] => check_green
+    [res_14] => 0
+    [base_14] => 0
+    [rp_14] => 0
+    [rl_14] => check_green
+    [res_16] => 0
+    [base_16] => 0
+    [rp_16] => nicht OK
+    [rl_16] => check_red
+    [res_17] => 0
+    [base_17] => 0
+    [rp_17] => nicht OK
+    [rl_17] => check_red
+    [res_18] => 0
+    [base_18] => 0
+    [rp_18] => 0
+    [rl_18] => check_green
+    [res_19] => 0
+    [base_19] => 0
+    [rp_19] => 0 %
+    [rl_19] => check_green
+)
+
+2017-10-17T12:24:33+02:00 INFO (6): editquality aufgerufen mit Inbound_sheet: Array
+(
+    [No] => 0
+    [inbound] => 0
+    [inb_line] => 0
+    [position] => 
+    [v_delivery_note] => 
+    [vendor] => 
+    [purchase_order] => 
+    [po_line] => 0
+    [po_line_line] => 0
+    [stock_location] => 1
+    [po_arrival_date] => 17.10.2017
+    [po_arrival_time] => 12:24
+    [inb_arrival_date] => 17.10.2017
+    [inb_arrival_time] => 12:24
+    [forwarder] => 
+    [truck] => 
+    [trailor] => 
+    [container] => 
+    [po_transport_temp_min] => 1.00
+    [po_transport_temp_max] => 4.00
+    [inb_transport_temp] => 0
+    [variant] => 
+    [product] => 0026
+    [t_packaging] => 
+    [packaging] => 0
+    [origin] => DE
+    [label] => 0
+    [quality_class] => 1
+    [brand] => 0
+    [quality] => 1
+    [items] => 0
+    [weight_item] => 0
+    [po_lot] => 
+    [po_barcode] => 
+    [po_trading_units] => 0
+    [po_packing_units] => 0
+    [po_pallet] => 
+    [po_pallets] => 0
+    [po_tu_pal] => 0
+    [inb_lot] => 
+    [inb_barcode] => 
+    [items_checked] => 0
+    [inb_trading_units] => 0
+    [inb_packing_units] => 0
+    [inb_pallet] => 
+    [inb_pallets] => 0
+    [inb_tu_pal] => 0
+    [po_brix_min] => 0
+    [po_brix_max] => 0
+    [inb_brix] => 0
+    [inb_certificate] => 1
+    [remarks] => 
+    [res_1] => 0
+    [base_1] => 0
+    [rp_1] => 0 %
+    [rl_1] => check_green
+    [res_2] => 0
+    [base_2] => 0
+    [rp_2] => 0 %
+    [rl_2] => check_green
+    [res_3] => 0
+    [base_3] => 0
+    [rp_3] => 0 %
+    [rl_3] => check_green
+    [res_4] => 0
+    [base_4] => 0
+    [rp_4] => 0 %
+    [rl_4] => check_green
+    [res_7] => 0
+    [base_7] => 0
+    [rp_7] => 0 %
+    [rl_7] => check_green
+    [res_6] => 0
+    [base_6] => 0
+    [rp_6] => 0 %
+    [rl_6] => check_green
+    [res_5] => 0
+    [base_5] => 0
+    [rp_5] => 0 %
+    [rl_5] => check_green
+    [res_10] => 0
+    [base_10] => 0
+    [rp_10] => 0 %
+    [rl_10] => check_green
+    [res_13] => 0
+    [base_13] => 0
+    [rp_13] => 0 %
+    [rl_13] => check_green
+    [res_12] => 0
+    [base_12] => 0
+    [rp_12] => 0 %
+    [rl_12] => check_green
+    [res_11] => 0
+    [base_11] => 0
+    [rp_11] => 0 %
+    [rl_11] => check_green
+    [res_9] => 0
+    [base_9] => 0
+    [rp_9] => 0 %
+    [rl_9] => check_green
+    [res_8] => 0
+    [base_8] => 0
+    [rp_8] => 0 %
+    [rl_8] => check_green
+    [res_15] => 0
+    [base_15] => 0
+    [rp_15] => 0
+    [rl_15] => check_green
+    [res_14] => 0
+    [base_14] => 0
+    [rp_14] => 0
+    [rl_14] => check_green
+    [res_16] => 0
+    [base_16] => 0
+    [rp_16] => nicht OK
+    [rl_16] => check_red
+    [res_17] => 0
+    [base_17] => 0
+    [rp_17] => nicht OK
+    [rl_17] => check_red
+    [res_18] => 0
+    [base_18] => 0
+    [rp_18] => 0
+    [rl_18] => check_green
+    [res_19] => 0
+    [base_19] => 0
+    [rp_19] => 0 %
+    [rl_19] => check_green
+)
+
+2017-10-17T12:25:19+02:00 INFO (6): editquality aufgerufen mit Inbound_sheet: Array
+(
+    [No] => 0
+    [inbound] => 0
+    [inb_line] => 0
+    [position] => 
+    [v_delivery_note] => 
+    [vendor] => 
+    [purchase_order] => 
+    [po_line] => 0
+    [po_line_line] => 0
+    [stock_location] => 1
+    [po_arrival_date] => 17.10.2017
+    [po_arrival_time] => 12:25
+    [inb_arrival_date] => 17.10.2017
+    [inb_arrival_time] => 12:25
+    [forwarder] => 
+    [truck] => 
+    [trailor] => 
+    [container] => 
+    [po_transport_temp_min] => 1.00
+    [po_transport_temp_max] => 4.00
+    [inb_transport_temp] => 0
+    [variant] => 
+    [product] => 0026
+    [t_packaging] => 
+    [packaging] => 0
+    [origin] => DE
+    [label] => 0
+    [quality_class] => 1
+    [brand] => 0
+    [quality] => 1
+    [items] => 0
+    [weight_item] => 0
+    [po_lot] => 
+    [po_barcode] => 
+    [po_trading_units] => 0
+    [po_packing_units] => 0
+    [po_pallet] => 
+    [po_pallets] => 0
+    [po_tu_pal] => 0
+    [inb_lot] => 
+    [inb_barcode] => 
+    [items_checked] => 0
+    [inb_trading_units] => 0
+    [inb_packing_units] => 0
+    [inb_pallet] => 
+    [inb_pallets] => 0
+    [inb_tu_pal] => 0
+    [po_brix_min] => 0
+    [po_brix_max] => 0
+    [inb_brix] => 0
+    [inb_certificate] => 1
+    [remarks] => 
+    [res_1] => 0
+    [base_1] => 0
+    [rp_1] => 0 %
+    [rl_1] => check_green
+    [res_2] => 0
+    [base_2] => 0
+    [rp_2] => 0 %
+    [rl_2] => check_green
+    [res_3] => 0
+    [base_3] => 0
+    [rp_3] => 0 %
+    [rl_3] => check_green
+    [res_4] => 0
+    [base_4] => 0
+    [rp_4] => 0 %
+    [rl_4] => check_green
+    [res_7] => 0
+    [base_7] => 0
+    [rp_7] => 0 %
+    [rl_7] => check_green
+    [res_6] => 0
+    [base_6] => 0
+    [rp_6] => 0 %
+    [rl_6] => check_green
+    [res_5] => 0
+    [base_5] => 0
+    [rp_5] => 0 %
+    [rl_5] => check_green
+    [res_10] => 0
+    [base_10] => 0
+    [rp_10] => 0 %
+    [rl_10] => check_green
+    [res_13] => 0
+    [base_13] => 0
+    [rp_13] => 0 %
+    [rl_13] => check_green
+    [res_12] => 0
+    [base_12] => 0
+    [rp_12] => 0 %
+    [rl_12] => check_green
+    [res_11] => 0
+    [base_11] => 0
+    [rp_11] => 0 %
+    [rl_11] => check_green
+    [res_9] => 0
+    [base_9] => 0
+    [rp_9] => 0 %
+    [rl_9] => check_green
+    [res_8] => 0
+    [base_8] => 0
+    [rp_8] => 0 %
+    [rl_8] => check_green
+    [res_15] => 0
+    [base_15] => 0
+    [rp_15] => 0
+    [rl_15] => check_green
+    [res_14] => 0
+    [base_14] => 0
+    [rp_14] => 0
+    [rl_14] => check_green
+    [res_16] => 0
+    [base_16] => 0
+    [rp_16] => nicht OK
+    [rl_16] => check_red
+    [res_17] => 0
+    [base_17] => 0
+    [rp_17] => nicht OK
+    [rl_17] => check_red
+    [res_18] => 0
+    [base_18] => 0
+    [rp_18] => 0
+    [rl_18] => check_green
+    [res_19] => 0
+    [base_19] => 0
+    [rp_19] => 0 %
+    [rl_19] => check_green
+)
+
+2017-10-17T12:28:41+02:00 INFO (6): SQL: SELECT tbl_HAN.HANVORNR, tbl_HAN.HANPOSNR, tbl_HAN.HANADRNR, tbl_LIE.LIENAME, tbl_LIE.LIESTRAS, tbl_LIE.LIEPLZOR, convert(varchar(25), tbl_HAN.HANLISDT, 127) AS HANLISDT, HANTABZT, tbl_HAN.HANARTTX, tbl_HAN.HANWARGR, tbl_art.ARTGEBIN, tbl_ART.ARTDURGW, tbl_HAN.HANPMENG, tbl_ART.ARTURSLD FROM tbl_HAN JOIN tbl_ART on (tbl_HAN.HANARTNR = tbl_ART.KEYIART1) join tbl_LIE on (tbl_han.HANADRNR = tbl_LIE.KEYILIE1) WHERE tbl_HAN.HANVORAR = 30 AND tbl_art.ARTAKTKZ = 'A' AND tbl_HAN.HANVORNR = '725731'
+2017-10-17T12:28:42+02:00 INFO (6): Bestellungen: Array
+(
+)
+
+2017-10-17T12:28:49+02:00 INFO (6): SQL: SELECT tbl_HAN.HANVORNR, tbl_HAN.HANPOSNR, tbl_HAN.HANADRNR, tbl_LIE.LIENAME, tbl_LIE.LIESTRAS, tbl_LIE.LIEPLZOR, convert(varchar(25), tbl_HAN.HANLISDT, 127) AS HANLISDT, HANTABZT, tbl_HAN.HANARTTX, tbl_HAN.HANWARGR, tbl_art.ARTGEBIN, tbl_ART.ARTDURGW, tbl_HAN.HANPMENG, tbl_ART.ARTURSLD FROM tbl_HAN JOIN tbl_ART on (tbl_HAN.HANARTNR = tbl_ART.KEYIART1) join tbl_LIE on (tbl_han.HANADRNR = tbl_LIE.KEYILIE1) WHERE tbl_HAN.HANVORAR = 30 AND tbl_art.ARTAKTKZ = 'A' AND tbl_HAN.HANVORNR = '425731'
+2017-10-17T12:28:49+02:00 INFO (6): Bestellungen: Array
+(
+    [0] => Array
+        (
+            [HANVORNR] => 425731
+            [HANPOSNR] => 004
+            [HANADRNR] => 082610
+            [LIENAME] => Extraberries SA
+            [LIESTRAS] => Reconquista 1166 Piso 8
+            [LIEPLZOR] => C1003 ABX, Buenos Aires
+            [HANLISDT] => 2017-10-20T00:00:00
+            [HANTABZT] => 12:28
+            [HANARTTX] => Heidelbeere lose    
+            [HANWARGR] => 0031
+            [ARTGEBIN] => 1.000
+            [ARTDURGW] => 1000
+            [HANPMENG] => 3600.00
+            [ARTURSLD] => AR
+        )
+
+)
+
+2017-10-17T12:30:23+02:00 INFO (6): editquality aufgerufen mit Inbound_sheet: Array
+(
+    [No] => 0
+    [inbound] => 0
+    [inb_line] => 0
+    [position] => 
+    [v_delivery_note] => 
+    [vendor] => 
+    [purchase_order] => 
+    [po_line] => 0
+    [po_line_line] => 0
+    [stock_location] => 1
+    [po_arrival_date] => 17.10.2017
+    [po_arrival_time] => 12:30
+    [inb_arrival_date] => 17.10.2017
+    [inb_arrival_time] => 12:30
+    [forwarder] => 
+    [truck] => 
+    [trailor] => 
+    [container] => 
+    [po_transport_temp_min] => 1.00
+    [po_transport_temp_max] => 4.00
+    [inb_transport_temp] => 0
+    [variant] => 
+    [product] => 0026
+    [t_packaging] => 
+    [packaging] => 0
+    [origin] => DE
+    [label] => 0
+    [quality_class] => 1
+    [brand] => 0
+    [quality] => 1
+    [items] => 0
+    [weight_item] => 0
+    [po_lot] => 
+    [po_barcode] => 
+    [po_trading_units] => 0
+    [po_packing_units] => 0
+    [po_pallet] => 
+    [po_pallets] => 0
+    [po_tu_pal] => 0
+    [inb_lot] => 
+    [inb_barcode] => 
+    [items_checked] => 0
+    [inb_trading_units] => 0
+    [inb_packing_units] => 0
+    [inb_pallet] => 
+    [inb_pallets] => 0
+    [inb_tu_pal] => 0
+    [po_brix_min] => 0
+    [po_brix_max] => 0
+    [inb_brix] => 0
+    [inb_certificate] => 1
+    [remarks] => 
+    [res_1] => 0
+    [base_1] => 0
+    [rp_1] => 0 %
+    [rl_1] => check_green
+    [res_2] => 0
+    [base_2] => 0
+    [rp_2] => 0 %
+    [rl_2] => check_green
+    [res_3] => 0
+    [base_3] => 0
+    [rp_3] => 0 %
+    [rl_3] => check_green
+    [res_4] => 0
+    [base_4] => 0
+    [rp_4] => 0 %
+    [rl_4] => check_green
+    [res_7] => 0
+    [base_7] => 0
+    [rp_7] => 0 %
+    [rl_7] => check_green
+    [res_6] => 0
+    [base_6] => 0
+    [rp_6] => 0 %
+    [rl_6] => check_green
+    [res_5] => 0
+    [base_5] => 0
+    [rp_5] => 0 %
+    [rl_5] => check_green
+    [res_10] => 0
+    [base_10] => 0
+    [rp_10] => 0 %
+    [rl_10] => check_green
+    [res_13] => 0
+    [base_13] => 0
+    [rp_13] => 0 %
+    [rl_13] => check_green
+    [res_12] => 0
+    [base_12] => 0
+    [rp_12] => 0 %
+    [rl_12] => check_green
+    [res_11] => 0
+    [base_11] => 0
+    [rp_11] => 0 %
+    [rl_11] => check_green
+    [res_9] => 0
+    [base_9] => 0
+    [rp_9] => 0 %
+    [rl_9] => check_green
+    [res_8] => 0
+    [base_8] => 0
+    [rp_8] => 0 %
+    [rl_8] => check_green
+    [res_15] => 0
+    [base_15] => 0
+    [rp_15] => 0
+    [rl_15] => check_green
+    [res_14] => 0
+    [base_14] => 0
+    [rp_14] => 0
+    [rl_14] => check_green
+    [res_16] => 0
+    [base_16] => 0
+    [rp_16] => nicht OK
+    [rl_16] => check_red
+    [res_17] => 0
+    [base_17] => 0
+    [rp_17] => nicht OK
+    [rl_17] => check_red
+    [res_18] => 0
+    [base_18] => 0
+    [rp_18] => 0
+    [rl_18] => check_green
+    [res_19] => 0
+    [base_19] => 0
+    [rp_19] => 0 %
+    [rl_19] => check_green
+)
+
+2017-10-17T12:31:00+02:00 INFO (6): SQL: SELECT tbl_HAN.HANVORNR, tbl_HAN.HANPOSNR, tbl_HAN.HANADRNR, tbl_LIE.LIENAME, tbl_LIE.LIESTRAS, tbl_LIE.LIEPLZOR, convert(varchar(25), tbl_HAN.HANLISDT, 127) AS HANLISDT, HANTABZT, tbl_HAN.HANARTTX, tbl_HAN.HANWARGR, tbl_art.ARTGEBIN, tbl_ART.ARTDURGW, tbl_HAN.HANPMENG, tbl_ART.ARTURSLD FROM tbl_HAN JOIN tbl_ART on (tbl_HAN.HANARTNR = tbl_ART.KEYIART1) join tbl_LIE on (tbl_han.HANADRNR = tbl_LIE.KEYILIE1) WHERE tbl_HAN.HANVORAR = 30 AND tbl_art.ARTAKTKZ = 'A' AND tbl_HAN.HANVORNR = '425709'
+2017-10-17T12:31:01+02:00 INFO (6): Bestellungen: Array
+(
+    [0] => Array
+        (
+            [HANVORNR] => 425709
+            [HANPOSNR] => 001
+            [HANADRNR] => 082628
+            [LIENAME] => Softberry, LDA
+            [LIESTRAS] => R. Filipe Folque No. 17-1 Dto
+            [LIEPLZOR] => 1050-111 Lisboa
+            [HANLISDT] => 2017-10-17T00:00:00
+            [HANTABZT] => 12:31
+            [HANARTTX] => Himbeere 12x125g    
+            [HANWARGR] => 0032
+            [ARTGEBIN] => 12.000
+            [ARTDURGW] => 125
+            [HANPMENG] => 208.00
+            [ARTURSLD] => PT
+        )
+
+)
+
+2017-10-17T12:32:03+02:00 INFO (6): editquality aufgerufen mit Inbound_sheet: Array
+(
+    [No] => 0
+    [inbound] => 0
+    [inb_line] => 0
+    [position] => 
+    [v_delivery_note] => 
+    [vendor] => 
+    [purchase_order] => 
+    [po_line] => 0
+    [po_line_line] => 0
+    [stock_location] => 1
+    [po_arrival_date] => 17.10.2017
+    [po_arrival_time] => 12:32
+    [inb_arrival_date] => 17.10.2017
+    [inb_arrival_time] => 12:32
+    [forwarder] => 
+    [truck] => 
+    [trailor] => 
+    [container] => 
+    [po_transport_temp_min] => 1.00
+    [po_transport_temp_max] => 4.00
+    [inb_transport_temp] => 0
+    [variant] => 
+    [product] => 0026
+    [t_packaging] => 
+    [packaging] => 0
+    [origin] => DE
+    [label] => 0
+    [quality_class] => 1
+    [brand] => 0
+    [quality] => 1
+    [items] => 0
+    [weight_item] => 0
+    [po_lot] => 
+    [po_barcode] => 
+    [po_trading_units] => 0
+    [po_packing_units] => 0
+    [po_pallet] => 
+    [po_pallets] => 0
+    [po_tu_pal] => 0
+    [inb_lot] => 
+    [inb_barcode] => 
+    [items_checked] => 0
+    [inb_trading_units] => 0
+    [inb_packing_units] => 0
+    [inb_pallet] => 
+    [inb_pallets] => 0
+    [inb_tu_pal] => 0
+    [po_brix_min] => 0
+    [po_brix_max] => 0
+    [inb_brix] => 0
+    [inb_certificate] => 1
+    [remarks] => 
+    [res_1] => 0
+    [base_1] => 0
+    [rp_1] => 0 %
+    [rl_1] => check_green
+    [res_2] => 0
+    [base_2] => 0
+    [rp_2] => 0 %
+    [rl_2] => check_green
+    [res_3] => 0
+    [base_3] => 0
+    [rp_3] => 0 %
+    [rl_3] => check_green
+    [res_4] => 0
+    [base_4] => 0
+    [rp_4] => 0 %
+    [rl_4] => check_green
+    [res_7] => 0
+    [base_7] => 0
+    [rp_7] => 0 %
+    [rl_7] => check_green
+    [res_6] => 0
+    [base_6] => 0
+    [rp_6] => 0 %
+    [rl_6] => check_green
+    [res_5] => 0
+    [base_5] => 0
+    [rp_5] => 0 %
+    [rl_5] => check_green
+    [res_10] => 0
+    [base_10] => 0
+    [rp_10] => 0 %
+    [rl_10] => check_green
+    [res_13] => 0
+    [base_13] => 0
+    [rp_13] => 0 %
+    [rl_13] => check_green
+    [res_12] => 0
+    [base_12] => 0
+    [rp_12] => 0 %
+    [rl_12] => check_green
+    [res_11] => 0
+    [base_11] => 0
+    [rp_11] => 0 %
+    [rl_11] => check_green
+    [res_9] => 0
+    [base_9] => 0
+    [rp_9] => 0 %
+    [rl_9] => check_green
+    [res_8] => 0
+    [base_8] => 0
+    [rp_8] => 0 %
+    [rl_8] => check_green
+    [res_15] => 0
+    [base_15] => 0
+    [rp_15] => 0
+    [rl_15] => check_green
+    [res_14] => 0
+    [base_14] => 0
+    [rp_14] => 0
+    [rl_14] => check_green
+    [res_16] => 0
+    [base_16] => 0
+    [rp_16] => nicht OK
+    [rl_16] => check_red
+    [res_17] => 0
+    [base_17] => 0
+    [rp_17] => nicht OK
+    [rl_17] => check_red
+    [res_18] => 0
+    [base_18] => 0
+    [rp_18] => 0
+    [rl_18] => check_green
+    [res_19] => 0
+    [base_19] => 0
+    [rp_19] => 0 %
+    [rl_19] => check_green
+)
+
+2017-10-17T12:32:09+02:00 INFO (6): SQL: SELECT tbl_HAN.HANVORNR, tbl_HAN.HANPOSNR, tbl_HAN.HANADRNR, tbl_LIE.LIENAME, tbl_LIE.LIESTRAS, tbl_LIE.LIEPLZOR, convert(varchar(25), tbl_HAN.HANLISDT, 127) AS HANLISDT, HANTABZT, tbl_HAN.HANARTTX, tbl_HAN.HANWARGR, tbl_art.ARTGEBIN, tbl_ART.ARTDURGW, tbl_HAN.HANPMENG, tbl_ART.ARTURSLD FROM tbl_HAN JOIN tbl_ART on (tbl_HAN.HANARTNR = tbl_ART.KEYIART1) join tbl_LIE on (tbl_han.HANADRNR = tbl_LIE.KEYILIE1) WHERE tbl_HAN.HANVORAR = 30 AND tbl_art.ARTAKTKZ = 'A' AND tbl_HAN.HANVORNR = '425704'
+2017-10-17T12:32:09+02:00 INFO (6): Bestellungen: Array
+(
+    [0] => Array
+        (
+            [HANVORNR] => 425704
+            [HANPOSNR] => 002
+            [HANADRNR] => 073503
+            [LIENAME] => Heinz Funken KG
+            [LIESTRAS] => Industriering Ost 91
+            [LIEPLZOR] => 47906 Kempen
+            [HANLISDT] => 2017-10-21T00:00:00
+            [HANTABZT] => 1300
+            [HANARTTX] => HokkaidokürbisWürfel
+            [HANWARGR] => 0700
+            [ARTGEBIN] => 1.000
+            [ARTDURGW] => 2500
+            [HANPMENG] => 46.00
+            [ARTURSLD] => DE
+        )
+
+    [1] => Array
+        (
+            [HANVORNR] => 425704
+            [HANPOSNR] => 003
+            [HANADRNR] => 073503
+            [LIENAME] => Heinz Funken KG
+            [LIESTRAS] => Industriering Ost 91
+            [LIEPLZOR] => 47906 Kempen
+            [HANLISDT] => 2017-10-21T00:00:00
+            [HANTABZT] => 1300
+            [HANARTTX] => Butternusskürbis ges
+            [HANWARGR] => 0800
+            [ARTGEBIN] => 1.000
+            [ARTDURGW] => 2500
+            [HANPMENG] => 20.00
+            [ARTURSLD] => DE
+        )
+
+    [2] => Array
+        (
+            [HANVORNR] => 425704
+            [HANPOSNR] => 004
+            [HANADRNR] => 073503
+            [LIENAME] => Heinz Funken KG
+            [LIESTRAS] => Industriering Ost 91
+            [LIEPLZOR] => 47906 Kempen
+            [HANLISDT] => 2017-10-21T00:00:00
+            [HANTABZT] => 1300
+            [HANARTTX] => Petersilie 100g glat
+            [HANWARGR] => 0700
+            [ARTGEBIN] => 1.000
+            [ARTDURGW] => 100
+            [HANPMENG] => 60.00
+            [ARTURSLD] => DE
+        )
+
+    [3] => Array
+        (
+            [HANVORNR] => 425704
+            [HANPOSNR] => 005
+            [HANADRNR] => 073503
+            [LIENAME] => Heinz Funken KG
+            [LIESTRAS] => Industriering Ost 91
+            [LIEPLZOR] => 47906 Kempen
+            [HANLISDT] => 2017-10-21T00:00:00
+            [HANTABZT] => 1300
+            [HANARTTX] => Möhrenstifte 1x1kg 3
+            [HANWARGR] => 0700
+            [ARTGEBIN] => 1.000
+            [ARTDURGW] => 0
+            [HANPMENG] => 165.00
+            [ARTURSLD] => DE
+        )
+
+    [4] => Array
+        (
+            [HANVORNR] => 425704
+            [HANPOSNR] => 006
+            [HANADRNR] => 073503
+            [LIENAME] => Heinz Funken KG
+            [LIESTRAS] => Industriering Ost 91
+            [LIEPLZOR] => 47906 Kempen
+            [HANLISDT] => 2017-10-21T00:00:00
+            [HANTABZT] => 1300
+            [HANARTTX] => KR Petersiliegeh100g
+            [HANWARGR] => 0700
+            [ARTGEBIN] => 1.000
+            [ARTDURGW] => 0
+            [HANPMENG] => 10.00
+            [ARTURSLD] => DE
+        )
+
+    [5] => Array
+        (
+            [HANVORNR] => 425704
+            [HANPOSNR] => 008
+            [HANADRNR] => 073503
+            [LIENAME] => Heinz Funken KG
+            [LIESTRAS] => Industriering Ost 91
+            [LIEPLZOR] => 47906 Kempen
+            [HANLISDT] => 2017-10-21T00:00:00
+            [HANTABZT] => 1300
+            [HANARTTX] => Kartoffeln 5kg gesch
+            [HANWARGR] => 0900
+            [ARTGEBIN] => 1.000
+            [ARTDURGW] => 5000
+            [HANPMENG] => 1.00
+            [ARTURSLD] => DE
+        )
+
+    [6] => Array
+        (
+            [HANVORNR] => 425704
+            [HANPOSNR] => 009
+            [HANADRNR] => 073503
+            [LIENAME] => Heinz Funken KG
+            [LIESTRAS] => Industriering Ost 91
+            [LIEPLZOR] => 47906 Kempen
+            [HANLISDT] => 2017-10-21T00:00:00
+            [HANTABZT] => 1300
+            [HANARTTX] => Schnittlauchröllchen
+            [HANWARGR] => 0700
+            [ARTGEBIN] => 1.000
+            [ARTDURGW] => 0
+            [HANPMENG] => 3.00
+            [ARTURSLD] => DE
+        )
+
+)
+
+2017-10-17T12:32:34+02:00 INFO (6): SQL: SELECT tbl_HAN.HANVORNR, tbl_HAN.HANPOSNR, tbl_HAN.HANADRNR, tbl_LIE.LIENAME, tbl_LIE.LIESTRAS, tbl_LIE.LIEPLZOR, convert(varchar(25), tbl_HAN.HANLISDT, 127) AS HANLISDT, HANTABZT, tbl_HAN.HANARTTX, tbl_HAN.HANWARGR, tbl_art.ARTGEBIN, tbl_ART.ARTDURGW, tbl_HAN.HANPMENG, tbl_ART.ARTURSLD FROM tbl_HAN JOIN tbl_ART on (tbl_HAN.HANARTNR = tbl_ART.KEYIART1) join tbl_LIE on (tbl_han.HANADRNR = tbl_LIE.KEYILIE1) WHERE tbl_HAN.HANVORAR = 30 AND tbl_art.ARTAKTKZ = 'A' AND tbl_HAN.HANVORNR = '425704'
+2017-10-17T12:32:34+02:00 INFO (6): Bestellungen: Array
+(
+    [0] => Array
+        (
+            [HANVORNR] => 425704
+            [HANPOSNR] => 002
+            [HANADRNR] => 073503
+            [LIENAME] => Heinz Funken KG
+            [LIESTRAS] => Industriering Ost 91
+            [LIEPLZOR] => 47906 Kempen
+            [HANLISDT] => 2017-10-21T00:00:00
+            [HANTABZT] => 1300
+            [HANARTTX] => HokkaidokÃ¼rbisWÃ¼rfel
+            [HANWARGR] => 0700
+            [ARTGEBIN] => 1.000
+            [ARTDURGW] => 2500
+            [HANPMENG] => 46.00
+            [ARTURSLD] => DE
+        )
+
+    [1] => Array
+        (
+            [HANVORNR] => 425704
+            [HANPOSNR] => 003
+            [HANADRNR] => 073503
+            [LIENAME] => Heinz Funken KG
+            [LIESTRAS] => Industriering Ost 91
+            [LIEPLZOR] => 47906 Kempen
+            [HANLISDT] => 2017-10-21T00:00:00
+            [HANTABZT] => 1300
+            [HANARTTX] => ButternusskÃ¼rbis ges
+            [HANWARGR] => 0800
+            [ARTGEBIN] => 1.000
+            [ARTDURGW] => 2500
+            [HANPMENG] => 20.00
+            [ARTURSLD] => DE
+        )
+
+    [2] => Array
+        (
+            [HANVORNR] => 425704
+            [HANPOSNR] => 004
+            [HANADRNR] => 073503
+            [LIENAME] => Heinz Funken KG
+            [LIESTRAS] => Industriering Ost 91
+            [LIEPLZOR] => 47906 Kempen
+            [HANLISDT] => 2017-10-21T00:00:00
+            [HANTABZT] => 1300
+            [HANARTTX] => Petersilie 100g glat
+            [HANWARGR] => 0700
+            [ARTGEBIN] => 1.000
+            [ARTDURGW] => 100
+            [HANPMENG] => 60.00
+            [ARTURSLD] => DE
+        )
+
+    [3] => Array
+        (
+            [HANVORNR] => 425704
+            [HANPOSNR] => 005
+            [HANADRNR] => 073503
+            [LIENAME] => Heinz Funken KG
+            [LIESTRAS] => Industriering Ost 91
+            [LIEPLZOR] => 47906 Kempen
+            [HANLISDT] => 2017-10-21T00:00:00
+            [HANTABZT] => 1300
+            [HANARTTX] => MÃ¶hrenstifte 1x1kg 3
+            [HANWARGR] => 0700
+            [ARTGEBIN] => 1.000
+            [ARTDURGW] => 0
+            [HANPMENG] => 165.00
+            [ARTURSLD] => DE
+        )
+
+    [4] => Array
+        (
+            [HANVORNR] => 425704
+            [HANPOSNR] => 006
+            [HANADRNR] => 073503
+            [LIENAME] => Heinz Funken KG
+            [LIESTRAS] => Industriering Ost 91
+            [LIEPLZOR] => 47906 Kempen
+            [HANLISDT] => 2017-10-21T00:00:00
+            [HANTABZT] => 1300
+            [HANARTTX] => KR Petersiliegeh100g
+            [HANWARGR] => 0700
+            [ARTGEBIN] => 1.000
+            [ARTDURGW] => 0
+            [HANPMENG] => 10.00
+            [ARTURSLD] => DE
+        )
+
+    [5] => Array
+        (
+            [HANVORNR] => 425704
+            [HANPOSNR] => 008
+            [HANADRNR] => 073503
+            [LIENAME] => Heinz Funken KG
+            [LIESTRAS] => Industriering Ost 91
+            [LIEPLZOR] => 47906 Kempen
+            [HANLISDT] => 2017-10-21T00:00:00
+            [HANTABZT] => 1300
+            [HANARTTX] => Kartoffeln 5kg gesch
+            [HANWARGR] => 0900
+            [ARTGEBIN] => 1.000
+            [ARTDURGW] => 5000
+            [HANPMENG] => 1.00
+            [ARTURSLD] => DE
+        )
+
+    [6] => Array
+        (
+            [HANVORNR] => 425704
+            [HANPOSNR] => 009
+            [HANADRNR] => 073503
+            [LIENAME] => Heinz Funken KG
+            [LIESTRAS] => Industriering Ost 91
+            [LIEPLZOR] => 47906 Kempen
+            [HANLISDT] => 2017-10-21T00:00:00
+            [HANTABZT] => 1300
+            [HANARTTX] => SchnittlauchrÃ¶llchen
+            [HANWARGR] => 0700
+            [ARTGEBIN] => 1.000
+            [ARTDURGW] => 0
+            [HANPMENG] => 3.00
+            [ARTURSLD] => DE
+        )
+
+)
+
+2017-10-17T12:34:10+02:00 INFO (6): editquality aufgerufen mit Inbound_sheet: Array
+(
+    [No] => 0
+    [inbound] => 0
+    [inb_line] => 0
+    [position] => 
+    [v_delivery_note] => 
+    [vendor] => 
+    [purchase_order] => 
+    [po_line] => 0
+    [po_line_line] => 0
+    [stock_location] => 1
+    [po_arrival_date] => 17.10.2017
+    [po_arrival_time] => 12:34
+    [inb_arrival_date] => 17.10.2017
+    [inb_arrival_time] => 12:34
+    [forwarder] => 
+    [truck] => 
+    [trailor] => 
+    [container] => 
+    [po_transport_temp_min] => 1.00
+    [po_transport_temp_max] => 4.00
+    [inb_transport_temp] => 0
+    [variant] => 
+    [product] => 0026
+    [t_packaging] => 
+    [packaging] => 0
+    [origin] => DE
+    [label] => 0
+    [quality_class] => 1
+    [brand] => 0
+    [quality] => 1
+    [items] => 0
+    [weight_item] => 0
+    [po_lot] => 
+    [po_barcode] => 
+    [po_trading_units] => 0
+    [po_packing_units] => 0
+    [po_pallet] => 
+    [po_pallets] => 0
+    [po_tu_pal] => 0
+    [inb_lot] => 
+    [inb_barcode] => 
+    [items_checked] => 0
+    [inb_trading_units] => 0
+    [inb_packing_units] => 0
+    [inb_pallet] => 
+    [inb_pallets] => 0
+    [inb_tu_pal] => 0
+    [po_brix_min] => 0
+    [po_brix_max] => 0
+    [inb_brix] => 0
+    [inb_certificate] => 1
+    [remarks] => 
+    [res_1] => 0
+    [base_1] => 0
+    [rp_1] => 0 %
+    [rl_1] => check_green
+    [res_2] => 0
+    [base_2] => 0
+    [rp_2] => 0 %
+    [rl_2] => check_green
+    [res_3] => 0
+    [base_3] => 0
+    [rp_3] => 0 %
+    [rl_3] => check_green
+    [res_4] => 0
+    [base_4] => 0
+    [rp_4] => 0 %
+    [rl_4] => check_green
+    [res_7] => 0
+    [base_7] => 0
+    [rp_7] => 0 %
+    [rl_7] => check_green
+    [res_6] => 0
+    [base_6] => 0
+    [rp_6] => 0 %
+    [rl_6] => check_green
+    [res_5] => 0
+    [base_5] => 0
+    [rp_5] => 0 %
+    [rl_5] => check_green
+    [res_10] => 0
+    [base_10] => 0
+    [rp_10] => 0 %
+    [rl_10] => check_green
+    [res_13] => 0
+    [base_13] => 0
+    [rp_13] => 0 %
+    [rl_13] => check_green
+    [res_12] => 0
+    [base_12] => 0
+    [rp_12] => 0 %
+    [rl_12] => check_green
+    [res_11] => 0
+    [base_11] => 0
+    [rp_11] => 0 %
+    [rl_11] => check_green
+    [res_9] => 0
+    [base_9] => 0
+    [rp_9] => 0 %
+    [rl_9] => check_green
+    [res_8] => 0
+    [base_8] => 0
+    [rp_8] => 0 %
+    [rl_8] => check_green
+    [res_15] => 0
+    [base_15] => 0
+    [rp_15] => 0
+    [rl_15] => check_green
+    [res_14] => 0
+    [base_14] => 0
+    [rp_14] => 0
+    [rl_14] => check_green
+    [res_16] => 0
+    [base_16] => 0
+    [rp_16] => nicht OK
+    [rl_16] => check_red
+    [res_17] => 0
+    [base_17] => 0
+    [rp_17] => nicht OK
+    [rl_17] => check_red
+    [res_18] => 0
+    [base_18] => 0
+    [rp_18] => 0
+    [rl_18] => check_green
+    [res_19] => 0
+    [base_19] => 0
+    [rp_19] => 0 %
+    [rl_19] => check_green
+)
+
+2017-10-17T12:34:22+02:00 INFO (6): SQL: SELECT tbl_HAN.HANVORNR, tbl_HAN.HANPOSNR, tbl_HAN.HANADRNR, tbl_LIE.LIENAME, tbl_LIE.LIESTRAS, tbl_LIE.LIEPLZOR, convert(varchar(25), tbl_HAN.HANLISDT, 127) AS HANLISDT, HANTABZT, tbl_HAN.HANARTTX, tbl_HAN.HANWARGR, tbl_art.ARTGEBIN, tbl_ART.ARTDURGW, tbl_HAN.HANPMENG, tbl_ART.ARTURSLD FROM tbl_HAN JOIN tbl_ART on (tbl_HAN.HANARTNR = tbl_ART.KEYIART1) join tbl_LIE on (tbl_han.HANADRNR = tbl_LIE.KEYILIE1) WHERE tbl_HAN.HANVORAR = 30 AND tbl_art.ARTAKTKZ = 'A' AND tbl_HAN.HANVORNR = '425709'
+2017-10-17T12:34:22+02:00 INFO (6): Bestellungen: Array
+(
+    [0] => Array
+        (
+            [HANVORNR] => 425709
+            [HANPOSNR] => 001
+            [HANADRNR] => 082628
+            [LIENAME] => Softberry, LDA
+            [LIESTRAS] => R. Filipe Folque No. 17-1 Dto
+            [LIEPLZOR] => 1050-111 Lisboa
+            [HANLISDT] => 2017-10-17T00:00:00
+            [HANTABZT] => 12:34
+            [HANARTTX] => Himbeere 12x125g    
+            [HANWARGR] => 0032
+            [ARTGEBIN] => 12.000
+            [ARTDURGW] => 125
+            [HANPMENG] => 208.00
+            [ARTURSLD] => PT
+        )
+
+)
+
+2017-10-17T12:35:28+02:00 INFO (6): editquality aufgerufen mit Inbound_sheet: Array
+(
+    [No] => 0
+    [inbound] => 0
+    [inb_line] => 0
+    [position] => 
+    [v_delivery_note] => 
+    [vendor] => 
+    [purchase_order] => 
+    [po_line] => 0
+    [po_line_line] => 0
+    [stock_location] => 1
+    [po_arrival_date] => 17.10.2017
+    [po_arrival_time] => 12:35
+    [inb_arrival_date] => 17.10.2017
+    [inb_arrival_time] => 12:35
+    [forwarder] => 
+    [truck] => 
+    [trailor] => 
+    [container] => 
+    [po_transport_temp_min] => 1.00
+    [po_transport_temp_max] => 4.00
+    [inb_transport_temp] => 0
+    [variant] => 
+    [product] => 0026
+    [t_packaging] => 
+    [packaging] => 0
+    [origin] => DE
+    [label] => 0
+    [quality_class] => 1
+    [brand] => 0
+    [quality] => 1
+    [items] => 0
+    [weight_item] => 0
+    [po_lot] => 
+    [po_barcode] => 
+    [po_trading_units] => 0
+    [po_packing_units] => 0
+    [po_pallet] => 
+    [po_pallets] => 0
+    [po_tu_pal] => 0
+    [inb_lot] => 
+    [inb_barcode] => 
+    [items_checked] => 0
+    [inb_trading_units] => 0
+    [inb_packing_units] => 0
+    [inb_pallet] => 
+    [inb_pallets] => 0
+    [inb_tu_pal] => 0
+    [po_brix_min] => 0
+    [po_brix_max] => 0
+    [inb_brix] => 0
+    [inb_certificate] => 1
+    [remarks] => 
+    [res_1] => 0
+    [base_1] => 0
+    [rp_1] => 0 %
+    [rl_1] => check_green
+    [res_2] => 0
+    [base_2] => 0
+    [rp_2] => 0 %
+    [rl_2] => check_green
+    [res_3] => 0
+    [base_3] => 0
+    [rp_3] => 0 %
+    [rl_3] => check_green
+    [res_4] => 0
+    [base_4] => 0
+    [rp_4] => 0 %
+    [rl_4] => check_green
+    [res_7] => 0
+    [base_7] => 0
+    [rp_7] => 0 %
+    [rl_7] => check_green
+    [res_6] => 0
+    [base_6] => 0
+    [rp_6] => 0 %
+    [rl_6] => check_green
+    [res_5] => 0
+    [base_5] => 0
+    [rp_5] => 0 %
+    [rl_5] => check_green
+    [res_10] => 0
+    [base_10] => 0
+    [rp_10] => 0 %
+    [rl_10] => check_green
+    [res_13] => 0
+    [base_13] => 0
+    [rp_13] => 0 %
+    [rl_13] => check_green
+    [res_12] => 0
+    [base_12] => 0
+    [rp_12] => 0 %
+    [rl_12] => check_green
+    [res_11] => 0
+    [base_11] => 0
+    [rp_11] => 0 %
+    [rl_11] => check_green
+    [res_9] => 0
+    [base_9] => 0
+    [rp_9] => 0 %
+    [rl_9] => check_green
+    [res_8] => 0
+    [base_8] => 0
+    [rp_8] => 0 %
+    [rl_8] => check_green
+    [res_15] => 0
+    [base_15] => 0
+    [rp_15] => 0
+    [rl_15] => check_green
+    [res_14] => 0
+    [base_14] => 0
+    [rp_14] => 0
+    [rl_14] => check_green
+    [res_16] => 0
+    [base_16] => 0
+    [rp_16] => nicht OK
+    [rl_16] => check_red
+    [res_17] => 0
+    [base_17] => 0
+    [rp_17] => nicht OK
+    [rl_17] => check_red
+    [res_18] => 0
+    [base_18] => 0
+    [rp_18] => 0
+    [rl_18] => check_green
+    [res_19] => 0
+    [base_19] => 0
+    [rp_19] => 0 %
+    [rl_19] => check_green
+)
+
+2017-10-17T12:35:32+02:00 INFO (6): SQL: SELECT tbl_HAN.HANVORNR, tbl_HAN.HANPOSNR, tbl_HAN.HANADRNR, tbl_LIE.LIENAME, tbl_LIE.LIESTRAS, tbl_LIE.LIEPLZOR, convert(varchar(25), tbl_HAN.HANLISDT, 127) AS HANLISDT, HANTABZT, tbl_HAN.HANARTTX, tbl_HAN.HANWARGR, tbl_art.ARTGEBIN, tbl_ART.ARTDURGW, tbl_HAN.HANPMENG, tbl_ART.ARTURSLD FROM tbl_HAN JOIN tbl_ART on (tbl_HAN.HANARTNR = tbl_ART.KEYIART1) join tbl_LIE on (tbl_han.HANADRNR = tbl_LIE.KEYILIE1) WHERE tbl_HAN.HANVORAR = 30 AND tbl_art.ARTAKTKZ = 'A' AND tbl_HAN.HANVORNR = '425709'
+2017-10-17T12:35:32+02:00 INFO (6): Bestellungen: Array
+(
+    [0] => Array
+        (
+            [HANVORNR] => 425709
+            [HANPOSNR] => 001
+            [HANADRNR] => 082628
+            [LIENAME] => Softberry, LDA
+            [LIESTRAS] => R. Filipe Folque No. 17-1 Dto
+            [LIEPLZOR] => 1050-111 Lisboa
+            [HANLISDT] => 2017-10-17T00:00:00
+            [HANTABZT] => 12:35
+            [HANARTTX] => Himbeere 12x125g    
+            [HANWARGR] => 0032
+            [ARTGEBIN] => 12.000
+            [ARTDURGW] => 125
+            [HANPMENG] => 208.00
+            [ARTURSLD] => PT
+        )
+
+)
+
+2017-10-17T12:37:54+02:00 INFO (6): editquality aufgerufen mit Inbound_sheet: Array
+(
+    [No] => 0
+    [inbound] => 0
+    [inb_line] => 0
+    [position] => 
+    [v_delivery_note] => 
+    [vendor] => 
+    [purchase_order] => 
+    [po_line] => 0
+    [po_line_line] => 0
+    [stock_location] => 1
+    [po_arrival_date] => 17.10.2017
+    [po_arrival_time] => 12:37
+    [inb_arrival_date] => 17.10.2017
+    [inb_arrival_time] => 12:37
+    [forwarder] => 
+    [truck] => 
+    [trailor] => 
+    [container] => 
+    [po_transport_temp_min] => 1.00
+    [po_transport_temp_max] => 4.00
+    [inb_transport_temp] => 0
+    [variant] => 
+    [product] => 0026
+    [t_packaging] => 
+    [packaging] => 0
+    [origin] => DE
+    [label] => 0
+    [quality_class] => 1
+    [brand] => 0
+    [quality] => 1
+    [items] => 0
+    [weight_item] => 0
+    [po_lot] => 
+    [po_barcode] => 
+    [po_trading_units] => 0
+    [po_packing_units] => 0
+    [po_pallet] => 
+    [po_pallets] => 0
+    [po_tu_pal] => 0
+    [inb_lot] => 
+    [inb_barcode] => 
+    [items_checked] => 0
+    [inb_trading_units] => 0
+    [inb_packing_units] => 0
+    [inb_pallet] => 
+    [inb_pallets] => 0
+    [inb_tu_pal] => 0
+    [po_brix_min] => 0
+    [po_brix_max] => 0
+    [inb_brix] => 0
+    [inb_certificate] => 1
+    [remarks] => 
+    [res_1] => 0
+    [base_1] => 0
+    [rp_1] => 0 %
+    [rl_1] => check_green
+    [res_2] => 0
+    [base_2] => 0
+    [rp_2] => 0 %
+    [rl_2] => check_green
+    [res_3] => 0
+    [base_3] => 0
+    [rp_3] => 0 %
+    [rl_3] => check_green
+    [res_4] => 0
+    [base_4] => 0
+    [rp_4] => 0 %
+    [rl_4] => check_green
+    [res_7] => 0
+    [base_7] => 0
+    [rp_7] => 0 %
+    [rl_7] => check_green
+    [res_6] => 0
+    [base_6] => 0
+    [rp_6] => 0 %
+    [rl_6] => check_green
+    [res_5] => 0
+    [base_5] => 0
+    [rp_5] => 0 %
+    [rl_5] => check_green
+    [res_10] => 0
+    [base_10] => 0
+    [rp_10] => 0 %
+    [rl_10] => check_green
+    [res_13] => 0
+    [base_13] => 0
+    [rp_13] => 0 %
+    [rl_13] => check_green
+    [res_12] => 0
+    [base_12] => 0
+    [rp_12] => 0 %
+    [rl_12] => check_green
+    [res_11] => 0
+    [base_11] => 0
+    [rp_11] => 0 %
+    [rl_11] => check_green
+    [res_9] => 0
+    [base_9] => 0
+    [rp_9] => 0 %
+    [rl_9] => check_green
+    [res_8] => 0
+    [base_8] => 0
+    [rp_8] => 0 %
+    [rl_8] => check_green
+    [res_15] => 0
+    [base_15] => 0
+    [rp_15] => 0
+    [rl_15] => check_green
+    [res_14] => 0
+    [base_14] => 0
+    [rp_14] => 0
+    [rl_14] => check_green
+    [res_16] => 0
+    [base_16] => 0
+    [rp_16] => nicht OK
+    [rl_16] => check_red
+    [res_17] => 0
+    [base_17] => 0
+    [rp_17] => nicht OK
+    [rl_17] => check_red
+    [res_18] => 0
+    [base_18] => 0
+    [rp_18] => 0
+    [rl_18] => check_green
+    [res_19] => 0
+    [base_19] => 0
+    [rp_19] => 0 %
+    [rl_19] => check_green
+)
+
+2017-10-17T12:38:11+02:00 INFO (6): SQL: SELECT tbl_HAN.HANVORNR, tbl_HAN.HANPOSNR, tbl_HAN.HANADRNR, tbl_LIE.LIENAME, tbl_LIE.LIESTRAS, tbl_LIE.LIEPLZOR, convert(varchar(25), tbl_HAN.HANLISDT, 127) AS HANLISDT, HANTABZT, tbl_HAN.HANARTTX, tbl_HAN.HANWARGR, tbl_art.ARTGEBIN, tbl_ART.ARTDURGW, tbl_HAN.HANPMENG, tbl_ART.ARTURSLD FROM tbl_HAN JOIN tbl_ART on (tbl_HAN.HANARTNR = tbl_ART.KEYIART1) join tbl_LIE on (tbl_han.HANADRNR = tbl_LIE.KEYILIE1) WHERE tbl_HAN.HANVORAR = 30 AND tbl_art.ARTAKTKZ = 'A' AND tbl_HAN.HANVORNR = '425742'
+2017-10-17T12:38:11+02:00 INFO (6): Bestellungen: Array
+(
+    [0] => Array
+        (
+            [HANVORNR] => 425742
+            [HANPOSNR] => 003
+            [HANADRNR] => 072136
+            [LIENAME] => Driscolls of Europe
+            [LIESTRAS] => Bijster 26
+            [LIEPLZOR] => 4817 HX Breda
+            [HANLISDT] => 2017-10-18T00:00:00
+            [HANTABZT] => 12:38
+            [HANARTTX] => Erdbeere 10x250g    
+            [HANWARGR] => 0030
+            [ARTGEBIN] => 10.000
+            [ARTDURGW] => 250
+            [HANPMENG] => 120.00
+            [ARTURSLD] => NL
+        )
+
+    [1] => Array
+        (
+            [HANVORNR] => 425742
+            [HANPOSNR] => 006
+            [HANADRNR] => 072136
+            [LIENAME] => Driscolls of Europe
+            [LIESTRAS] => Bijster 26
+            [LIEPLZOR] => 4817 HX Breda
+            [HANLISDT] => 2017-10-18T00:00:00
+            [HANTABZT] => 12:38
+            [HANARTTX] => Heidelbeere 12x125g 
+            [HANWARGR] => 0031
+            [ARTGEBIN] => 12.000
+            [ARTDURGW] => 125
+            [HANPMENG] => 250.00
+            [ARTURSLD] => PE
+        )
+
+    [2] => Array
+        (
+            [HANVORNR] => 425742
+            [HANPOSNR] => 008
+            [HANADRNR] => 072136
+            [LIENAME] => Driscolls of Europe
+            [LIESTRAS] => Bijster 26
+            [LIEPLZOR] => 4817 HX Breda
+            [HANLISDT] => 2017-10-18T00:00:00
+            [HANTABZT] => 12:38
+            [HANARTTX] => Brombeere 8x125g    
+            [HANWARGR] => 0026
+            [ARTGEBIN] => 8.000
+            [ARTDURGW] => 125
+            [HANPMENG] => 120.00
+            [ARTURSLD] => NL
+        )
+
+)
+
+2017-10-17T12:38:27+02:00 INFO (6): SQL: SELECT tbl_HAN.HANVORNR, tbl_HAN.HANPOSNR, tbl_HAN.HANADRNR, tbl_LIE.LIENAME, tbl_LIE.LIESTRAS, tbl_LIE.LIEPLZOR, convert(varchar(25), tbl_HAN.HANLISDT, 127) AS HANLISDT, HANTABZT, tbl_HAN.HANARTTX, tbl_HAN.HANWARGR, tbl_art.ARTGEBIN, tbl_ART.ARTDURGW, tbl_HAN.HANPMENG, tbl_ART.ARTURSLD FROM tbl_HAN JOIN tbl_ART on (tbl_HAN.HANARTNR = tbl_ART.KEYIART1) join tbl_LIE on (tbl_han.HANADRNR = tbl_LIE.KEYILIE1) WHERE tbl_HAN.HANVORAR = 30 AND tbl_art.ARTAKTKZ = 'A' AND tbl_HAN.HANVORNR = '425742'
+2017-10-17T12:38:27+02:00 INFO (6): Bestellungen: Array
+(
+    [0] => Array
+        (
+            [HANVORNR] => 425742
+            [HANPOSNR] => 003
+            [HANADRNR] => 072136
+            [LIENAME] => Driscolls of Europe
+            [LIESTRAS] => Bijster 26
+            [LIEPLZOR] => 4817 HX Breda
+            [HANLISDT] => 2017-10-18T00:00:00
+            [HANTABZT] => 12:38
+            [HANARTTX] => Erdbeere 10x250g
+            [HANWARGR] => 0030
+            [ARTGEBIN] => 10.000
+            [ARTDURGW] => 250
+            [HANPMENG] => 120.00
+            [ARTURSLD] => NL
+        )
+
+    [1] => Array
+        (
+            [HANVORNR] => 425742
+            [HANPOSNR] => 006
+            [HANADRNR] => 072136
+            [LIENAME] => Driscolls of Europe
+            [LIESTRAS] => Bijster 26
+            [LIEPLZOR] => 4817 HX Breda
+            [HANLISDT] => 2017-10-18T00:00:00
+            [HANTABZT] => 12:38
+            [HANARTTX] => Heidelbeere 12x125g
+            [HANWARGR] => 0031
+            [ARTGEBIN] => 12.000
+            [ARTDURGW] => 125
+            [HANPMENG] => 250.00
+            [ARTURSLD] => PE
+        )
+
+    [2] => Array
+        (
+            [HANVORNR] => 425742
+            [HANPOSNR] => 008
+            [HANADRNR] => 072136
+            [LIENAME] => Driscolls of Europe
+            [LIESTRAS] => Bijster 26
+            [LIEPLZOR] => 4817 HX Breda
+            [HANLISDT] => 2017-10-18T00:00:00
+            [HANTABZT] => 12:38
+            [HANARTTX] => Brombeere 8x125g
+            [HANWARGR] => 0026
+            [ARTGEBIN] => 8.000
+            [ARTDURGW] => 125
+            [HANPMENG] => 120.00
+            [ARTURSLD] => NL
+        )
+
+)
+
+2017-10-17T12:39:31+02:00 INFO (6): editquality aufgerufen mit Inbound_sheet: Array
+(
+    [No] => 0
+    [inbound] => 0
+    [inb_line] => 0
+    [position] => 
+    [v_delivery_note] => 
+    [vendor] => 
+    [purchase_order] => 
+    [po_line] => 0
+    [po_line_line] => 0
+    [stock_location] => 1
+    [po_arrival_date] => 17.10.2017
+    [po_arrival_time] => 12:39
+    [inb_arrival_date] => 17.10.2017
+    [inb_arrival_time] => 12:39
+    [forwarder] => 
+    [truck] => 
+    [trailor] => 
+    [container] => 
+    [po_transport_temp_min] => 1.00
+    [po_transport_temp_max] => 4.00
+    [inb_transport_temp] => 0
+    [variant] => 
+    [product] => 0026
+    [t_packaging] => 
+    [packaging] => 0
+    [origin] => DE
+    [label] => 0
+    [quality_class] => 1
+    [brand] => 0
+    [quality] => 1
+    [items] => 0
+    [weight_item] => 0
+    [po_lot] => 
+    [po_barcode] => 
+    [po_trading_units] => 0
+    [po_packing_units] => 0
+    [po_pallet] => 
+    [po_pallets] => 0
+    [po_tu_pal] => 0
+    [inb_lot] => 
+    [inb_barcode] => 
+    [items_checked] => 0
+    [inb_trading_units] => 0
+    [inb_packing_units] => 0
+    [inb_pallet] => 
+    [inb_pallets] => 0
+    [inb_tu_pal] => 0
+    [po_brix_min] => 0
+    [po_brix_max] => 0
+    [inb_brix] => 0
+    [inb_certificate] => 1
+    [remarks] => 
+    [res_1] => 0
+    [base_1] => 0
+    [rp_1] => 0 %
+    [rl_1] => check_green
+    [res_2] => 0
+    [base_2] => 0
+    [rp_2] => 0 %
+    [rl_2] => check_green
+    [res_3] => 0
+    [base_3] => 0
+    [rp_3] => 0 %
+    [rl_3] => check_green
+    [res_4] => 0
+    [base_4] => 0
+    [rp_4] => 0 %
+    [rl_4] => check_green
+    [res_7] => 0
+    [base_7] => 0
+    [rp_7] => 0 %
+    [rl_7] => check_green
+    [res_6] => 0
+    [base_6] => 0
+    [rp_6] => 0 %
+    [rl_6] => check_green
+    [res_5] => 0
+    [base_5] => 0
+    [rp_5] => 0 %
+    [rl_5] => check_green
+    [res_10] => 0
+    [base_10] => 0
+    [rp_10] => 0 %
+    [rl_10] => check_green
+    [res_13] => 0
+    [base_13] => 0
+    [rp_13] => 0 %
+    [rl_13] => check_green
+    [res_12] => 0
+    [base_12] => 0
+    [rp_12] => 0 %
+    [rl_12] => check_green
+    [res_11] => 0
+    [base_11] => 0
+    [rp_11] => 0 %
+    [rl_11] => check_green
+    [res_9] => 0
+    [base_9] => 0
+    [rp_9] => 0 %
+    [rl_9] => check_green
+    [res_8] => 0
+    [base_8] => 0
+    [rp_8] => 0 %
+    [rl_8] => check_green
+    [res_15] => 0
+    [base_15] => 0
+    [rp_15] => 0
+    [rl_15] => check_green
+    [res_14] => 0
+    [base_14] => 0
+    [rp_14] => 0
+    [rl_14] => check_green
+    [res_16] => 0
+    [base_16] => 0
+    [rp_16] => nicht OK
+    [rl_16] => check_red
+    [res_17] => 0
+    [base_17] => 0
+    [rp_17] => nicht OK
+    [rl_17] => check_red
+    [res_18] => 0
+    [base_18] => 0
+    [rp_18] => 0
+    [rl_18] => check_green
+    [res_19] => 0
+    [base_19] => 0
+    [rp_19] => 0 %
+    [rl_19] => check_green
+)
+
+2017-10-17T12:40:28+02:00 INFO (6): SQL: SELECT tbl_HAN.HANVORNR, tbl_HAN.HANPOSNR, tbl_HAN.HANADRNR, tbl_LIE.LIENAME, tbl_LIE.LIESTRAS, tbl_LIE.LIEPLZOR, convert(varchar(25), tbl_HAN.HANLISDT, 127) AS HANLISDT, HANTABZT, tbl_HAN.HANARTTX, tbl_HAN.HANWARGR, tbl_art.ARTGEBIN, tbl_ART.ARTDURGW, tbl_HAN.HANPMENG, tbl_ART.ARTURSLD FROM tbl_HAN JOIN tbl_ART on (tbl_HAN.HANARTNR = tbl_ART.KEYIART1) join tbl_LIE on (tbl_han.HANADRNR = tbl_LIE.KEYILIE1) WHERE tbl_HAN.HANVORAR = 30 AND tbl_art.ARTAKTKZ = 'A' AND tbl_HAN.HANVORNR = '425742'
+2017-10-17T12:40:28+02:00 INFO (6): Bestellungen: Array
+(
+    [0] => Array
+        (
+            [HANVORNR] => 425742
+            [HANPOSNR] => 003
+            [HANADRNR] => 072136
+            [LIENAME] => Driscolls of Europe
+            [LIESTRAS] => Bijster 26
+            [LIEPLZOR] => 4817 HX Breda
+            [HANLISDT] => 2017-10-18T00:00:00
+            [HANTABZT] => 12:40
+            [HANARTTX] => Erdbeere 10x250g
+            [HANWARGR] => 0030
+            [ARTGEBIN] => 10.000
+            [ARTDURGW] => 250
+            [HANPMENG] => 120.00
+            [ARTURSLD] => NL
+        )
+
+    [1] => Array
+        (
+            [HANVORNR] => 425742
+            [HANPOSNR] => 006
+            [HANADRNR] => 072136
+            [LIENAME] => Driscolls of Europe
+            [LIESTRAS] => Bijster 26
+            [LIEPLZOR] => 4817 HX Breda
+            [HANLISDT] => 2017-10-18T00:00:00
+            [HANTABZT] => 12:40
+            [HANARTTX] => Heidelbeere 12x125g
+            [HANWARGR] => 0031
+            [ARTGEBIN] => 12.000
+            [ARTDURGW] => 125
+            [HANPMENG] => 250.00
+            [ARTURSLD] => PE
+        )
+
+    [2] => Array
+        (
+            [HANVORNR] => 425742
+            [HANPOSNR] => 008
+            [HANADRNR] => 072136
+            [LIENAME] => Driscolls of Europe
+            [LIESTRAS] => Bijster 26
+            [LIEPLZOR] => 4817 HX Breda
+            [HANLISDT] => 2017-10-18T00:00:00
+            [HANTABZT] => 12:40
+            [HANARTTX] => Brombeere 8x125g
+            [HANWARGR] => 0026
+            [ARTGEBIN] => 8.000
+            [ARTDURGW] => 125
+            [HANPMENG] => 120.00
+            [ARTURSLD] => NL
+        )
+
+)
+
+2017-10-17T12:41:48+02:00 INFO (6): SQL: SELECT tbl_HAN.HANVORNR, tbl_HAN.HANPOSNR, tbl_HAN.HANADRNR, tbl_LIE.LIENAME, tbl_LIE.LIESTRAS, tbl_LIE.LIEPLZOR, convert(varchar(25), tbl_HAN.HANLISDT, 127) AS HANLISDT, HANTABZT, tbl_HAN.HANARTTX, tbl_HAN.HANWARGR, tbl_art.ARTGEBIN, tbl_ART.ARTDURGW, tbl_HAN.HANPMENG, tbl_ART.ARTURSLD FROM tbl_HAN JOIN tbl_ART on (tbl_HAN.HANARTNR = tbl_ART.KEYIART1) join tbl_LIE on (tbl_han.HANADRNR = tbl_LIE.KEYILIE1) WHERE tbl_HAN.HANVORAR = 30 AND tbl_art.ARTAKTKZ = 'A' AND tbl_HAN.HANVORNR = '425742'
+2017-10-17T12:41:48+02:00 INFO (6): Bestellungen: Array
+(
+    [0] => Array
+        (
+            [HANVORNR] => 425742
+            [HANPOSNR] => 003
+            [HANADRNR] => 072136
+            [LIENAME] => Driscolls of Europe
+            [LIESTRAS] => Bijster 26
+            [LIEPLZOR] => 4817 HX Breda
+            [HANLISDT] => 2017-10-18T00:00:00
+            [HANTABZT] => 12:41
+            [HANARTTX] => Erdbeere 10x250g    
+            [HANWARGR] => 0030
+            [ARTGEBIN] => 10.000
+            [ARTDURGW] => 250
+            [HANPMENG] => 120.00
+            [ARTURSLD] => NL
+        )
+
+    [1] => Array
+        (
+            [HANVORNR] => 425742
+            [HANPOSNR] => 006
+            [HANADRNR] => 072136
+            [LIENAME] => Driscolls of Europe
+            [LIESTRAS] => Bijster 26
+            [LIEPLZOR] => 4817 HX Breda
+            [HANLISDT] => 2017-10-18T00:00:00
+            [HANTABZT] => 12:41
+            [HANARTTX] => Heidelbeere 12x125g 
+            [HANWARGR] => 0031
+            [ARTGEBIN] => 12.000
+            [ARTDURGW] => 125
+            [HANPMENG] => 250.00
+            [ARTURSLD] => PE
+        )
+
+    [2] => Array
+        (
+            [HANVORNR] => 425742
+            [HANPOSNR] => 008
+            [HANADRNR] => 072136
+            [LIENAME] => Driscolls of Europe
+            [LIESTRAS] => Bijster 26
+            [LIEPLZOR] => 4817 HX Breda
+            [HANLISDT] => 2017-10-18T00:00:00
+            [HANTABZT] => 12:41
+            [HANARTTX] => Brombeere 8x125g    
+            [HANWARGR] => 0026
+            [ARTGEBIN] => 8.000
+            [ARTDURGW] => 125
+            [HANPMENG] => 120.00
+            [ARTURSLD] => NL
+        )
+
+)
+
+2017-10-17T12:42:22+02:00 INFO (6): SQL: SELECT tbl_HAN.HANVORNR, tbl_HAN.HANPOSNR, tbl_HAN.HANADRNR, tbl_LIE.LIENAME, tbl_LIE.LIESTRAS, tbl_LIE.LIEPLZOR, convert(varchar(25), tbl_HAN.HANLISDT, 127) AS HANLISDT, HANTABZT, tbl_HAN.HANARTTX, tbl_HAN.HANWARGR, tbl_art.ARTGEBIN, tbl_ART.ARTDURGW, tbl_HAN.HANPMENG, tbl_ART.ARTURSLD FROM tbl_HAN JOIN tbl_ART on (tbl_HAN.HANARTNR = tbl_ART.KEYIART1) join tbl_LIE on (tbl_han.HANADRNR = tbl_LIE.KEYILIE1) WHERE tbl_HAN.HANVORAR = 30 AND tbl_art.ARTAKTKZ = 'A' AND tbl_HAN.HANVORNR = '425742'
+2017-10-17T12:42:22+02:00 INFO (6): Bestellungen: Array
+(
+    [0] => Array
+        (
+            [HANVORNR] => 425742
+            [HANPOSNR] => 003
+            [HANADRNR] => 072136
+            [LIENAME] => Driscolls of Europe
+            [LIESTRAS] => Bijster 26
+            [LIEPLZOR] => 4817 HX Breda
+            [HANLISDT] => 2017-10-18T00:00:00
+            [HANTABZT] => 12:42
+            [HANARTTX] => Erdbeere 10x250g
+            [HANWARGR] => 0030
+            [ARTGEBIN] => 10.000
+            [ARTDURGW] => 250
+            [HANPMENG] => 120.00
+            [ARTURSLD] => NL
+        )
+
+    [1] => Array
+        (
+            [HANVORNR] => 425742
+            [HANPOSNR] => 006
+            [HANADRNR] => 072136
+            [LIENAME] => Driscolls of Europe
+            [LIESTRAS] => Bijster 26
+            [LIEPLZOR] => 4817 HX Breda
+            [HANLISDT] => 2017-10-18T00:00:00
+            [HANTABZT] => 12:42
+            [HANARTTX] => Heidelbeere 12x125g
+            [HANWARGR] => 0031
+            [ARTGEBIN] => 12.000
+            [ARTDURGW] => 125
+            [HANPMENG] => 250.00
+            [ARTURSLD] => PE
+        )
+
+    [2] => Array
+        (
+            [HANVORNR] => 425742
+            [HANPOSNR] => 008
+            [HANADRNR] => 072136
+            [LIENAME] => Driscolls of Europe
+            [LIESTRAS] => Bijster 26
+            [LIEPLZOR] => 4817 HX Breda
+            [HANLISDT] => 2017-10-18T00:00:00
+            [HANTABZT] => 12:42
+            [HANARTTX] => Brombeere 8x125g
+            [HANWARGR] => 0026
+            [ARTGEBIN] => 8.000
+            [ARTDURGW] => 125
+            [HANPMENG] => 120.00
+            [ARTURSLD] => NL
+        )
+
+)
+
+2017-10-17T12:43:12+02:00 INFO (6): SQL: SELECT tbl_HAN.HANVORNR, tbl_HAN.HANPOSNR, tbl_HAN.HANADRNR, tbl_LIE.LIENAME, tbl_LIE.LIESTRAS, tbl_LIE.LIEPLZOR, convert(varchar(25), tbl_HAN.HANLISDT, 127) AS HANLISDT, HANTABZT, tbl_HAN.HANARTTX, tbl_HAN.HANWARGR, tbl_art.ARTGEBIN, tbl_ART.ARTDURGW, tbl_HAN.HANPMENG, tbl_ART.ARTURSLD FROM tbl_HAN JOIN tbl_ART on (tbl_HAN.HANARTNR = tbl_ART.KEYIART1) join tbl_LIE on (tbl_han.HANADRNR = tbl_LIE.KEYILIE1) WHERE tbl_HAN.HANVORAR = 30 AND tbl_art.ARTAKTKZ = 'A' AND tbl_HAN.HANVORNR = '425742'
+2017-10-17T12:43:12+02:00 INFO (6): Bestellungen: Array
+(
+    [0] => Array
+        (
+            [HANVORNR] => 425742
+            [HANPOSNR] => 003
+            [HANADRNR] => 072136
+            [LIENAME] => Driscolls of Europe
+            [LIESTRAS] => Bijster 26
+            [LIEPLZOR] => 4817 HX Breda
+            [HANLISDT] => 2017-10-18T00:00:00
+            [HANTABZT] => 12:43
+            [HANARTTX] => Erdbeere 10x250g
+            [HANWARGR] => 0030
+            [ARTGEBIN] => 10.000
+            [ARTDURGW] => 250
+            [HANPMENG] => 120.00
+            [ARTURSLD] => NL
+        )
+
+    [1] => Array
+        (
+            [HANVORNR] => 425742
+            [HANPOSNR] => 006
+            [HANADRNR] => 072136
+            [LIENAME] => Driscolls of Europe
+            [LIESTRAS] => Bijster 26
+            [LIEPLZOR] => 4817 HX Breda
+            [HANLISDT] => 2017-10-18T00:00:00
+            [HANTABZT] => 12:43
+            [HANARTTX] => Heidelbeere 12x125g
+            [HANWARGR] => 0031
+            [ARTGEBIN] => 12.000
+            [ARTDURGW] => 125
+            [HANPMENG] => 250.00
+            [ARTURSLD] => PE
+        )
+
+    [2] => Array
+        (
+            [HANVORNR] => 425742
+            [HANPOSNR] => 008
+            [HANADRNR] => 072136
+            [LIENAME] => Driscolls of Europe
+            [LIESTRAS] => Bijster 26
+            [LIEPLZOR] => 4817 HX Breda
+            [HANLISDT] => 2017-10-18T00:00:00
+            [HANTABZT] => 12:43
+            [HANARTTX] => Brombeere 8x125g
+            [HANWARGR] => 0026
+            [ARTGEBIN] => 8.000
+            [ARTDURGW] => 125
+            [HANPMENG] => 120.00
+            [ARTURSLD] => NL
+        )
+
+)
+
+2017-10-17T12:43:35+02:00 INFO (6): editquality aufgerufen mit Inbound_sheet: Array
+(
+    [No] => 0
+    [inbound] => 0
+    [inb_line] => 0
+    [position] => 
+    [v_delivery_note] => 
+    [vendor] => 
+    [purchase_order] => 
+    [po_line] => 0
+    [po_line_line] => 0
+    [stock_location] => 1
+    [po_arrival_date] => 17.10.2017
+    [po_arrival_time] => 12:43
+    [inb_arrival_date] => 17.10.2017
+    [inb_arrival_time] => 12:43
+    [forwarder] => 
+    [truck] => 
+    [trailor] => 
+    [container] => 
+    [po_transport_temp_min] => 1.00
+    [po_transport_temp_max] => 4.00
+    [inb_transport_temp] => 0
+    [variant] => 
+    [product] => 0026
+    [t_packaging] => 
+    [packaging] => 0
+    [origin] => DE
+    [label] => 0
+    [quality_class] => 1
+    [brand] => 0
+    [quality] => 1
+    [items] => 0
+    [weight_item] => 0
+    [po_lot] => 
+    [po_barcode] => 
+    [po_trading_units] => 0
+    [po_packing_units] => 0
+    [po_pallet] => 
+    [po_pallets] => 0
+    [po_tu_pal] => 0
+    [inb_lot] => 
+    [inb_barcode] => 
+    [items_checked] => 0
+    [inb_trading_units] => 0
+    [inb_packing_units] => 0
+    [inb_pallet] => 
+    [inb_pallets] => 0
+    [inb_tu_pal] => 0
+    [po_brix_min] => 0
+    [po_brix_max] => 0
+    [inb_brix] => 0
+    [inb_certificate] => 1
+    [remarks] => 
+    [res_1] => 0
+    [base_1] => 0
+    [rp_1] => 0 %
+    [rl_1] => check_green
+    [res_2] => 0
+    [base_2] => 0
+    [rp_2] => 0 %
+    [rl_2] => check_green
+    [res_3] => 0
+    [base_3] => 0
+    [rp_3] => 0 %
+    [rl_3] => check_green
+    [res_4] => 0
+    [base_4] => 0
+    [rp_4] => 0 %
+    [rl_4] => check_green
+    [res_7] => 0
+    [base_7] => 0
+    [rp_7] => 0 %
+    [rl_7] => check_green
+    [res_6] => 0
+    [base_6] => 0
+    [rp_6] => 0 %
+    [rl_6] => check_green
+    [res_5] => 0
+    [base_5] => 0
+    [rp_5] => 0 %
+    [rl_5] => check_green
+    [res_10] => 0
+    [base_10] => 0
+    [rp_10] => 0 %
+    [rl_10] => check_green
+    [res_13] => 0
+    [base_13] => 0
+    [rp_13] => 0 %
+    [rl_13] => check_green
+    [res_12] => 0
+    [base_12] => 0
+    [rp_12] => 0 %
+    [rl_12] => check_green
+    [res_11] => 0
+    [base_11] => 0
+    [rp_11] => 0 %
+    [rl_11] => check_green
+    [res_9] => 0
+    [base_9] => 0
+    [rp_9] => 0 %
+    [rl_9] => check_green
+    [res_8] => 0
+    [base_8] => 0
+    [rp_8] => 0 %
+    [rl_8] => check_green
+    [res_15] => 0
+    [base_15] => 0
+    [rp_15] => 0
+    [rl_15] => check_green
+    [res_14] => 0
+    [base_14] => 0
+    [rp_14] => 0
+    [rl_14] => check_green
+    [res_16] => 0
+    [base_16] => 0
+    [rp_16] => nicht OK
+    [rl_16] => check_red
+    [res_17] => 0
+    [base_17] => 0
+    [rp_17] => nicht OK
+    [rl_17] => check_red
+    [res_18] => 0
+    [base_18] => 0
+    [rp_18] => 0
+    [rl_18] => check_green
+    [res_19] => 0
+    [base_19] => 0
+    [rp_19] => 0 %
+    [rl_19] => check_green
+)
+
+2017-10-17T12:43:57+02:00 INFO (6): SQL: SELECT tbl_HAN.HANVORNR, tbl_HAN.HANPOSNR, tbl_HAN.HANADRNR, tbl_LIE.LIENAME, tbl_LIE.LIESTRAS, tbl_LIE.LIEPLZOR, convert(varchar(25), tbl_HAN.HANLISDT, 127) AS HANLISDT, HANTABZT, tbl_HAN.HANARTTX, tbl_HAN.HANWARGR, tbl_art.ARTGEBIN, tbl_ART.ARTDURGW, tbl_HAN.HANPMENG, tbl_ART.ARTURSLD FROM tbl_HAN JOIN tbl_ART on (tbl_HAN.HANARTNR = tbl_ART.KEYIART1) join tbl_LIE on (tbl_han.HANADRNR = tbl_LIE.KEYILIE1) WHERE tbl_HAN.HANVORAR = 30 AND tbl_art.ARTAKTKZ = 'A' AND tbl_HAN.HANVORNR = '425742'
+2017-10-17T12:43:57+02:00 INFO (6): Bestellungen: Array
+(
+    [0] => Array
+        (
+            [HANVORNR] => 425742
+            [HANPOSNR] => 003
+            [HANADRNR] => 072136
+            [LIENAME] => Driscolls of Europe
+            [LIESTRAS] => Bijster 26
+            [LIEPLZOR] => 4817 HX Breda
+            [HANLISDT] => 2017-10-18T00:00:00
+            [HANTABZT] => 12:43
+            [HANARTTX] => Erdbeere 10x250g
+            [HANWARGR] => 0030
+            [ARTGEBIN] => 10.000
+            [ARTDURGW] => 250
+            [HANPMENG] => 120.00
+            [ARTURSLD] => NL
+        )
+
+    [1] => Array
+        (
+            [HANVORNR] => 425742
+            [HANPOSNR] => 006
+            [HANADRNR] => 072136
+            [LIENAME] => Driscolls of Europe
+            [LIESTRAS] => Bijster 26
+            [LIEPLZOR] => 4817 HX Breda
+            [HANLISDT] => 2017-10-18T00:00:00
+            [HANTABZT] => 12:43
+            [HANARTTX] => Heidelbeere 12x125g
+            [HANWARGR] => 0031
+            [ARTGEBIN] => 12.000
+            [ARTDURGW] => 125
+            [HANPMENG] => 250.00
+            [ARTURSLD] => PE
+        )
+
+    [2] => Array
+        (
+            [HANVORNR] => 425742
+            [HANPOSNR] => 008
+            [HANADRNR] => 072136
+            [LIENAME] => Driscolls of Europe
+            [LIESTRAS] => Bijster 26
+            [LIEPLZOR] => 4817 HX Breda
+            [HANLISDT] => 2017-10-18T00:00:00
+            [HANTABZT] => 12:43
+            [HANARTTX] => Brombeere 8x125g
+            [HANWARGR] => 0026
+            [ARTGEBIN] => 8.000
+            [ARTDURGW] => 125
+            [HANPMENG] => 120.00
+            [ARTURSLD] => NL
+        )
+
+)
+
+2017-10-17T12:47:36+02:00 INFO (6): editquality aufgerufen mit Inbound_sheet: Array
+(
+    [No] => 0
+    [inbound] => 0
+    [inb_line] => 0
+    [position] => 
+    [v_delivery_note] => 
+    [vendor] => 
+    [purchase_order] => 
+    [po_line] => 0
+    [po_line_line] => 0
+    [stock_location] => 1
+    [po_arrival_date] => 17.10.2017
+    [po_arrival_time] => 12:47
+    [inb_arrival_date] => 17.10.2017
+    [inb_arrival_time] => 12:47
+    [forwarder] => 
+    [truck] => 
+    [trailor] => 
+    [container] => 
+    [po_transport_temp_min] => 1.00
+    [po_transport_temp_max] => 4.00
+    [inb_transport_temp] => 0
+    [variant] => 
+    [product] => 0026
+    [t_packaging] => 
+    [packaging] => 0
+    [origin] => DE
+    [label] => 0
+    [quality_class] => 1
+    [brand] => 0
+    [quality] => 1
+    [items] => 0
+    [weight_item] => 0
+    [po_lot] => 
+    [po_barcode] => 
+    [po_trading_units] => 0
+    [po_packing_units] => 0
+    [po_pallet] => 
+    [po_pallets] => 0
+    [po_tu_pal] => 0
+    [inb_lot] => 
+    [inb_barcode] => 
+    [items_checked] => 0
+    [inb_trading_units] => 0
+    [inb_packing_units] => 0
+    [inb_pallet] => 
+    [inb_pallets] => 0
+    [inb_tu_pal] => 0
+    [po_brix_min] => 0
+    [po_brix_max] => 0
+    [inb_brix] => 0
+    [inb_certificate] => 1
+    [remarks] => 
+    [res_1] => 0
+    [base_1] => 0
+    [rp_1] => 0 %
+    [rl_1] => check_green
+    [res_2] => 0
+    [base_2] => 0
+    [rp_2] => 0 %
+    [rl_2] => check_green
+    [res_3] => 0
+    [base_3] => 0
+    [rp_3] => 0 %
+    [rl_3] => check_green
+    [res_4] => 0
+    [base_4] => 0
+    [rp_4] => 0 %
+    [rl_4] => check_green
+    [res_7] => 0
+    [base_7] => 0
+    [rp_7] => 0 %
+    [rl_7] => check_green
+    [res_6] => 0
+    [base_6] => 0
+    [rp_6] => 0 %
+    [rl_6] => check_green
+    [res_5] => 0
+    [base_5] => 0
+    [rp_5] => 0 %
+    [rl_5] => check_green
+    [res_10] => 0
+    [base_10] => 0
+    [rp_10] => 0 %
+    [rl_10] => check_green
+    [res_13] => 0
+    [base_13] => 0
+    [rp_13] => 0 %
+    [rl_13] => check_green
+    [res_12] => 0
+    [base_12] => 0
+    [rp_12] => 0 %
+    [rl_12] => check_green
+    [res_11] => 0
+    [base_11] => 0
+    [rp_11] => 0 %
+    [rl_11] => check_green
+    [res_9] => 0
+    [base_9] => 0
+    [rp_9] => 0 %
+    [rl_9] => check_green
+    [res_8] => 0
+    [base_8] => 0
+    [rp_8] => 0 %
+    [rl_8] => check_green
+    [res_15] => 0
+    [base_15] => 0
+    [rp_15] => 0
+    [rl_15] => check_green
+    [res_14] => 0
+    [base_14] => 0
+    [rp_14] => 0
+    [rl_14] => check_green
+    [res_16] => 0
+    [base_16] => 0
+    [rp_16] => nicht OK
+    [rl_16] => check_red
+    [res_17] => 0
+    [base_17] => 0
+    [rp_17] => nicht OK
+    [rl_17] => check_red
+    [res_18] => 0
+    [base_18] => 0
+    [rp_18] => 0
+    [rl_18] => check_green
+    [res_19] => 0
+    [base_19] => 0
+    [rp_19] => 0 %
+    [rl_19] => check_green
+)
+
+2017-10-17T12:47:50+02:00 INFO (6): SQL: SELECT tbl_HAN.HANVORNR, tbl_HAN.HANPOSNR, tbl_HAN.HANADRNR, tbl_LIE.LIENAME, tbl_LIE.LIESTRAS, tbl_LIE.LIEPLZOR, convert(varchar(25), tbl_HAN.HANLISDT, 127) AS HANLISDT, HANTABZT, tbl_HAN.HANARTTX, tbl_HAN.HANWARGR, tbl_art.ARTGEBIN, tbl_ART.ARTDURGW, tbl_HAN.HANPMENG, tbl_ART.ARTURSLD FROM tbl_HAN JOIN tbl_ART on (tbl_HAN.HANARTNR = tbl_ART.KEYIART1) join tbl_LIE on (tbl_han.HANADRNR = tbl_LIE.KEYILIE1) WHERE tbl_HAN.HANVORAR = 30 AND tbl_art.ARTAKTKZ = 'A' AND tbl_HAN.HANVORNR = '425742'
+2017-10-17T12:47:50+02:00 INFO (6): Bestellungen: Array
+(
+    [0] => Array
+        (
+            [HANVORNR] => 425742
+            [HANPOSNR] => 003
+            [HANADRNR] => 072136
+            [LIENAME] => Driscolls of Europe
+            [LIESTRAS] => Bijster 26
+            [LIEPLZOR] => 4817 HX Breda
+            [HANLISDT] => 2017-10-18T00:00:00
+            [HANTABZT] => 12:47
+            [HANARTTX] => Erdbeere 10x250g
+            [HANWARGR] => 0030
+            [ARTGEBIN] => 10.000
+            [ARTDURGW] => 250
+            [HANPMENG] => 120.00
+            [ARTURSLD] => NL
+        )
+
+    [1] => Array
+        (
+            [HANVORNR] => 425742
+            [HANPOSNR] => 006
+            [HANADRNR] => 072136
+            [LIENAME] => Driscolls of Europe
+            [LIESTRAS] => Bijster 26
+            [LIEPLZOR] => 4817 HX Breda
+            [HANLISDT] => 2017-10-18T00:00:00
+            [HANTABZT] => 12:47
+            [HANARTTX] => Heidelbeere 12x125g
+            [HANWARGR] => 0031
+            [ARTGEBIN] => 12.000
+            [ARTDURGW] => 125
+            [HANPMENG] => 250.00
+            [ARTURSLD] => PE
+        )
+
+    [2] => Array
+        (
+            [HANVORNR] => 425742
+            [HANPOSNR] => 008
+            [HANADRNR] => 072136
+            [LIENAME] => Driscolls of Europe
+            [LIESTRAS] => Bijster 26
+            [LIEPLZOR] => 4817 HX Breda
+            [HANLISDT] => 2017-10-18T00:00:00
+            [HANTABZT] => 12:47
+            [HANARTTX] => Brombeere 8x125g
+            [HANWARGR] => 0026
+            [ARTGEBIN] => 8.000
+            [ARTDURGW] => 125
+            [HANPMENG] => 120.00
+            [ARTURSLD] => NL
+        )
+
+)
+
+2017-10-17T12:49:54+02:00 INFO (6): editquality aufgerufen mit Inbound_sheet: Array
+(
+    [No] => 0
+    [inbound] => 0
+    [inb_line] => 0
+    [position] => 
+    [v_delivery_note] => 
+    [vendor] => 
+    [purchase_order] => 
+    [po_line] => 0
+    [po_line_line] => 0
+    [stock_location] => 1
+    [po_arrival_date] => 17.10.2017
+    [po_arrival_time] => 12:49
+    [inb_arrival_date] => 17.10.2017
+    [inb_arrival_time] => 12:49
+    [forwarder] => 
+    [truck] => 
+    [trailor] => 
+    [container] => 
+    [po_transport_temp_min] => 1.00
+    [po_transport_temp_max] => 4.00
+    [inb_transport_temp] => 0
+    [variant] => 
+    [product] => 0026
+    [t_packaging] => 
+    [packaging] => 0
+    [origin] => DE
+    [label] => 0
+    [quality_class] => 1
+    [brand] => 0
+    [quality] => 1
+    [items] => 0
+    [weight_item] => 0
+    [po_lot] => 
+    [po_barcode] => 
+    [po_trading_units] => 0
+    [po_packing_units] => 0
+    [po_pallet] => 
+    [po_pallets] => 0
+    [po_tu_pal] => 0
+    [inb_lot] => 
+    [inb_barcode] => 
+    [items_checked] => 0
+    [inb_trading_units] => 0
+    [inb_packing_units] => 0
+    [inb_pallet] => 
+    [inb_pallets] => 0
+    [inb_tu_pal] => 0
+    [po_brix_min] => 0
+    [po_brix_max] => 0
+    [inb_brix] => 0
+    [inb_certificate] => 1
+    [remarks] => 
+    [res_1] => 0
+    [base_1] => 0
+    [rp_1] => 0 %
+    [rl_1] => check_green
+    [res_2] => 0
+    [base_2] => 0
+    [rp_2] => 0 %
+    [rl_2] => check_green
+    [res_3] => 0
+    [base_3] => 0
+    [rp_3] => 0 %
+    [rl_3] => check_green
+    [res_4] => 0
+    [base_4] => 0
+    [rp_4] => 0 %
+    [rl_4] => check_green
+    [res_7] => 0
+    [base_7] => 0
+    [rp_7] => 0 %
+    [rl_7] => check_green
+    [res_6] => 0
+    [base_6] => 0
+    [rp_6] => 0 %
+    [rl_6] => check_green
+    [res_5] => 0
+    [base_5] => 0
+    [rp_5] => 0 %
+    [rl_5] => check_green
+    [res_10] => 0
+    [base_10] => 0
+    [rp_10] => 0 %
+    [rl_10] => check_green
+    [res_13] => 0
+    [base_13] => 0
+    [rp_13] => 0 %
+    [rl_13] => check_green
+    [res_12] => 0
+    [base_12] => 0
+    [rp_12] => 0 %
+    [rl_12] => check_green
+    [res_11] => 0
+    [base_11] => 0
+    [rp_11] => 0 %
+    [rl_11] => check_green
+    [res_9] => 0
+    [base_9] => 0
+    [rp_9] => 0 %
+    [rl_9] => check_green
+    [res_8] => 0
+    [base_8] => 0
+    [rp_8] => 0 %
+    [rl_8] => check_green
+    [res_15] => 0
+    [base_15] => 0
+    [rp_15] => 0
+    [rl_15] => check_green
+    [res_14] => 0
+    [base_14] => 0
+    [rp_14] => 0
+    [rl_14] => check_green
+    [res_16] => 0
+    [base_16] => 0
+    [rp_16] => nicht OK
+    [rl_16] => check_red
+    [res_17] => 0
+    [base_17] => 0
+    [rp_17] => nicht OK
+    [rl_17] => check_red
+    [res_18] => 0
+    [base_18] => 0
+    [rp_18] => 0
+    [rl_18] => check_green
+    [res_19] => 0
+    [base_19] => 0
+    [rp_19] => 0 %
+    [rl_19] => check_green
+)
+
+2017-10-17T12:51:01+02:00 INFO (6): SQL: SELECT tbl_HAN.HANVORNR, tbl_HAN.HANPOSNR, tbl_HAN.HANADRNR, tbl_LIE.LIENAME, tbl_LIE.LIESTRAS, tbl_LIE.LIEPLZOR, convert(varchar(25), tbl_HAN.HANLISDT, 127) AS HANLISDT, HANTABZT, tbl_HAN.HANARTTX, tbl_HAN.HANWARGR, tbl_art.ARTGEBIN, tbl_ART.ARTDURGW, tbl_HAN.HANPMENG, tbl_ART.ARTURSLD FROM tbl_HAN JOIN tbl_ART on (tbl_HAN.HANARTNR = tbl_ART.KEYIART1) join tbl_LIE on (tbl_han.HANADRNR = tbl_LIE.KEYILIE1) WHERE tbl_HAN.HANVORAR = 30 AND tbl_art.ARTAKTKZ = 'A' AND tbl_HAN.HANVORNR = '425742'
+2017-10-17T12:51:01+02:00 INFO (6): Bestellungen: Array
+(
+    [0] => Array
+        (
+            [HANVORNR] => 425742
+            [HANPOSNR] => 003
+            [HANADRNR] => 072136
+            [LIENAME] => Driscolls of Europe
+            [LIESTRAS] => Bijster 26
+            [LIEPLZOR] => 4817 HX Breda
+            [HANLISDT] => 2017-10-18T00:00:00
+            [HANTABZT] => 12:51
+            [HANARTTX] => Erdbeere 10x250g
+            [HANWARGR] => 0030
+            [ARTGEBIN] => 10.000
+            [ARTDURGW] => 250
+            [HANPMENG] => 120.00
+            [ARTURSLD] => NL
+        )
+
+    [1] => Array
+        (
+            [HANVORNR] => 425742
+            [HANPOSNR] => 006
+            [HANADRNR] => 072136
+            [LIENAME] => Driscolls of Europe
+            [LIESTRAS] => Bijster 26
+            [LIEPLZOR] => 4817 HX Breda
+            [HANLISDT] => 2017-10-18T00:00:00
+            [HANTABZT] => 12:51
+            [HANARTTX] => Heidelbeere 12x125g
+            [HANWARGR] => 0031
+            [ARTGEBIN] => 12.000
+            [ARTDURGW] => 125
+            [HANPMENG] => 250.00
+            [ARTURSLD] => PE
+        )
+
+    [2] => Array
+        (
+            [HANVORNR] => 425742
+            [HANPOSNR] => 008
+            [HANADRNR] => 072136
+            [LIENAME] => Driscolls of Europe
+            [LIESTRAS] => Bijster 26
+            [LIEPLZOR] => 4817 HX Breda
+            [HANLISDT] => 2017-10-18T00:00:00
+            [HANTABZT] => 12:51
+            [HANARTTX] => Brombeere 8x125g
+            [HANWARGR] => 0026
+            [ARTGEBIN] => 8.000
+            [ARTDURGW] => 125
+            [HANPMENG] => 120.00
+            [ARTURSLD] => NL
+        )
+
+)
+
+2017-10-17T14:45:04+02:00 INFO (6): IndexController->IndexAction called
+2017-10-17T14:45:26+02:00 INFO (6): IndexController->IndexAction called
+2017-10-17T16:37:30+02:00 INFO (6): IndexController->IndexAction called
+2017-10-17T16:39:27+02:00 INFO (6): IndexController->IndexAction called
+2017-10-17T16:41:50+02:00 INFO (6): IndexController->IndexAction called
+2017-10-17T16:41:53+02:00 INFO (6): InboundController->IndexAction called
+2017-10-17T16:42:03+02:00 INFO (6): IndexController->IndexAction called

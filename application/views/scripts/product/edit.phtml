@@ -1,0 +1,47 @@
+
+<?php // Zend_Debug::dump($this->params) ?>
+<?php $data = $this->params['data']; ?>
+<?php $errors = $this->params['errors']; ?>
+<?php $pg = $this->params['pg']; ?>
+<?php // echo $this->form; ?>
+
+<form action="/product/edit/" method="post">
+<legend><?php echo $this->params['title']; ?></legend>
+<?php if (isset($this->errors['all'])) : ?><div class="error">
+<?php echo $this->errors['all']; ?>
+</div><?php  endif ?>
+<fieldset>
+<table>
+	<tr>
+		<td></td><td><input type="hidden" name="old_No" value="<?php echo $data['No']; ?>" /></td>
+	</tr>
+	<tr>
+		<td>Kundennummer</td><td>
+		<?php if (isset($errors['No'])) : ?><div class="error"><?php endif ?>
+		<input type="text" name="No" size="10" value="<?php echo $data['No']; ?>" />
+		<?php if (isset($errors['No'])) : ?><br /><?php echo $errors['No']; ?></div><?php endif ?>
+		</td>
+	</tr>
+	<tr>
+		<td>Produkt</td><td>
+		<?php if (isset($errors['product'])) : ?><div class="error"><?php endif ?>
+		<input type="text" name="product" size="40" maxlength="255" value="<?php echo $data['product']; ?>" /></td>
+		<?php if (isset($errors['product'])) : ?><br /><?php echo $errors['product']; ?></div><?php endif ?>
+	</tr>
+	<tr>
+		<td>Produktgruppe</td>
+		<td>
+			<?php if (isset($errors['product_group'])) : ?><div class="error"><?php endif ?>
+			<select name="product_group" id="product_group">
+			<?php foreach($pg as $key => $val) : ?>
+			<option value="<?php echo $key; ?>"<?php if ($key==$data['product_group']) echo "selected"; ?>><?php echo $val; ?></option>
+			<?php endforeach ?>
+			<?php if (isset($errors['product_group'])) : ?><br /><?php echo $errors['product_group']; ?></div><?php endif ?>
+		</td>
+	</tr>
+	<tr>
+		<td></td><td><input type="submit" /></td>
+	</tr>
+</table>
+</fieldset>	
+</form>

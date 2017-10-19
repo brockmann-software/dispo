@@ -1,0 +1,15 @@
+2017-10-10T12:29:23+02:00 INFO (6): POST: Array
+(
+    [inbound_line] => 7
+    [submit] => Speichern
+)
+
+2017-10-10T12:30:59+02:00 INFO (6): POST: Array
+(
+)
+
+2017-10-10T12:31:10+02:00 INFO (6): POST: Array
+(
+)
+
+2017-10-10T12:31:10+02:00 INFO (6): InboundController->IndexAction called

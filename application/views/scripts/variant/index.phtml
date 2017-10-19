@@ -1,0 +1,38 @@
+<a href="/variant/edit/">Neue Variante</a>
+<hr />
+<table>
+	</tr class="data">
+		<th class="data">Nummer</th>
+		<th class="data">Variante</th>
+		<th class="data">Produkt</th>
+		<th class="data">Herkunft</th>
+		<th class="data">Einheit</th>
+		<th class="data">Gew./Einh.(g)</th>
+		<th class="data">Verpackung</th>
+		<th class="data">Etikett</th>
+		<th class="data">Marke</th>
+		<th class="data">Qualität</th>
+		<th class="data">Umverpackung</th>
+		<th class="data">Gewicht TU Netto</th>
+		<th class="data">Gewicht TU Brutto</th>
+	</tr>
+<?php foreach($this->result as $entry) : ?>
+	<tr class="data">
+		<td class="data"><a href="/variant/edit/id/<?php echo $entry['No']; ?>"><?php echo $entry['No']; ?></a></td>
+		<td class="data"><?php echo $entry['variant']; ?></td>
+		<td class="data"><?php echo $entry['product']; ?></td>
+		<td class="data"><?php echo $entry['origin']; ?></td>
+		<td class="data"><?php echo $entry['items']; ?></td>
+		<td class="data"><?php echo $entry['weight_item']; ?></td>
+		<td class="data"><?php echo $entry['packaging']; ?></td>
+		<td class="data"><?php echo $entry['label']; ?></td>
+		<td class="data"><?php echo $entry['brand']; ?></td>
+		<td class="data"><?php echo $entry['quality']; ?></td>
+		<td class="data"><?php echo $entry['t_packaging']; ?></td>
+		<td class="data"><?php echo $entry['weight_netto']; ?></td>
+		<td class="data"><?php echo $entry['weight_brutto']; ?></td>
+	</tr>
+<?php endforeach ?>
+</table>
+<hr />
+<a href="/variant/edit/">Neue Variante</a>

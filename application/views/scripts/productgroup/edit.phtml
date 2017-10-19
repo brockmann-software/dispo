@@ -1,0 +1,35 @@
+<?php //Zend_Debug::dump($this->params) ?>
+<?php $data = $this->params['data']; ?>
+<?php $errors = $this->params['errors']; ?>
+<?php // echo $this->form; ?>
+
+<form action="/productgroup/edit/" method="post">
+<legend><?php echo $this->params['title']; ?></legend>
+<?php if (isset($this->errors['all'])) : ?><div class="error">
+<?php echo $this->errors['all']; ?>
+</div><?php endif ?>
+<fieldset>
+<table>
+	<tr>
+		<td></td><td><input type="hidden" name="old_No" value="<?php echo $data['no']; ?>" /></td>
+	</tr>
+	<tr>
+		<td>Produktgruppe</td>
+		<td>
+		<?php if (isset($errors['product_group'])) : ?><div class="error"><?php endif ?>
+		<input type="text" name="product_group" size="40" maxlength="255" value="<?php echo $data['product_group']; ?>" /></td>
+		<?php if (isset($errors['product_group'])) : ?><br /><?php echo $errors['product_group']; ?></div><?php endif ?>
+	</tr>
+	<tr>
+		<td>Produktspezifikation</td>
+		<td>
+		<?php if (isset($errors['unece_link'])) : ?><div class="error"><?php endif ?>
+		<input type="text" name="unece_link" size="60" maxlength="255" value="<?php echo $data['unece_link']; ?>" />
+		<?php if (isset($errors['unece_link'])) : ?><br /><?php echo $errors['unece_link']; ?><?php endif ?>
+		</td>
+	<tr>
+		<td></td><td><input type="submit" value="Speichern"/></td>
+	</tr>
+</table>
+</fieldset>	
+</form>

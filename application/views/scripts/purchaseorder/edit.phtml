@@ -1,0 +1,308 @@
+<script>
+var lastPO_Line;
+
+function fillVendortable(vendor)
+{
+	var vendorTable = document.getElementById('vendor_table').getElementsByTagName('tbody')[0];
+	var rowCnt = vendorTable.rows.length;
+	var rowNr = 0;
+	for (vc=0; vc<vendor.length; vc++) {
+		if ((vc) >= rowCnt) {
+			row=vendorTable.insertRow(vc);
+			var tdNo=row.insertCell(0);
+			var tdName=row.insertCell(1);
+			var tdStreet=row.insertCell(2);
+			var tdCity=row.insertCell(3);
+		} else {
+			row=vendorTable.rows[vc];
+			var tdNo=row.cells(0);
+			var tdName=row.cells(1);
+			var tdStreet=row.cells(2);
+			var tdCity=row.cells(3);
+		}
+		tdNo.innerHTML='<input type="radio" name="v_no" value="'+vendor[vc].getElementsByTagName('No')[0].firstChild.nodeValue+'">'+vendor[vc].getElementsByTagName('No')[0].firstChild.nodeValue;
+		tdNo.className="data";
+		tdName.innerHTML=vendor[vc].getElementsByTagName('name')[0].firstChild.nodeValue;
+		tdName.className="data";
+		tdStreet.innerHTML=vendor[vc].getElementsByTagName('street')[0].firstChild.nodeValue;
+		tdStreet.className="data";
+		tdCity.innerHTML=vendor[vc].getElementsByTagName('city')[0].firstChild.nodeValue;
+		tdCity.className="data";
+		if (rowCnt>vc) {
+			var lastRow=vc;
+			do {
+				vendorTable.deleteRow(lastRow);
+				vc++;
+			} while (vc<rowCnt)
+		}
+	}
+}
+
+function newVariantRow(row)
+{
+	var tdVariant=row.insertCell(0);
+	var inpVariant = document.createElement('input');
+	inpVariant.type = 'text';
+	inpVariant.name = 'v_no';
+	inpVariant.size = 30;
+	inpVariant.maxlength = 30;
+	tdVariant.appendChild(inpVariant);
+	
+	var tdarticle=row.insertCell(1);
+	var inpProduct = new document.createElement('input');
+	inpProduct.type = 'text';
+	inpProduct.name = 'variant';
+	inpProduct.size = 50;
+	inpProduct.maxlength = 255;
+	tdarticle.appendChild(inpProduct);
+	
+	var tdTU=row.insertCell(2);
+	var inpTU = new document.createElement('input');
+	inpTU.name = 'Trading_Units';
+	inpTU.type = 'number';
+	inpTU.size = 8;
+	impTU.min = 0;
+	tdTU.appendChild(inpTU);
+	
+	var tdPU_TU=row.insertCell(3);
+	var inpPU_TU = new document.createElement('input');
+	inpPU_TU.type = 'number';
+	inpPU_TU.name = 'PU_TU';
+	inpPU_TU.size = 8;
+	impPU_TU.min = 0;
+	tdPU_TU.appendChild(inpPU_TU);
+
+	var tdPU=row.insertCell(4);
+	var inpPU = new document.createElement('input');
+	inpPU.type = 'number';
+	inpPU.name = 'Packing_Units';
+	inpPU.size = 8;
+	impPU.min = 0;
+	tdPU.appendChild(inpPU);
+	
+	var tdPallets=row.insertCell(5);
+	var inpPallets = new document.createElement('input');
+	inpPallets.type = 'number';
+	inpPallets.name = 'Pallets';
+	inpPallets.size = 8;
+	impPallets.min = 0;
+	tdPallets.appendChild(inpPallets);
+	
+	var tdTU_Pal=row.insertCell(6);
+	var inpTU_Pal = new document.createElement('input');
+	inpTU_Pal.type = 'number';
+	inpTU_Pal.name = 'TU_Pallets';
+	inpTU_Pal.size = 8;
+	impTU_Pal.min = 0;
+	tdTU_Pal.appendChild(inpTU_Pal);
+}
+
+function fillPO_LineTable(PO_Line)
+{
+	var POLineTable = document.getElementById('PO_Lines').getElementsByTagName('tbody')[0];
+	var rowCnt = PO_LineTable.rows.length;
+	var rowNr = 0;
+	for (vc=0; vc<PO_Line.length; vc++) {
+		if ((vc) >= rowCnt) {
+			newVariantRow(po_lineTable.insertRow(vc));
+		}
+		row=po_lineTable.rows[vc];
+		var inpVariants = row.cells(0).getElementsByTagName('v_no')[0];
+		var inpArticle=row.cells(1).getElementsByTagName('variant')[0];
+		var inpTU=row.cells(2).getElementsByTagName('Trading_Units')[0];
+		var inpPU_TU=row.cells(3).getElementsByTagName('PU_TU')[0];
+		var tdPU=row.cells(4).getElementsByTagName('Packing_Units')[0];
+		var tdPallets=row.cells(5).getElementsByTagName('Pallets')[0];
+		var tdTU_Pal=row.cells(6).getElementsByTagName('TU_Pallet')[0];
+		tdVariant.innerHTML=po_lines[vc].getElementsByTagName('v_no')[0].firstChild.nodeValue;
+		tdVariant.className="data";
+		tdarticle.innerHTML=po_lines[vc].getElementsByTagName('variant')[0].firstChild.nodeValue;
+		tdarticle.className="data";
+		tdTU.innerHTML=po_lines[vc].getElementsByTagName('Trading_Units')[0].firstChild.nodeValue;
+		tdTU.className="data_num";
+		tdPU_TU.innerHTML=po_lines[vc].getElementsByTagName('PU_TU')[0].firstChild.nodeValue;
+		tdPU_TU.className="data_num";
+		tdPU.innerHTML=po_lines[vc].getElementsByTagName('Packing_Units')[0].firstChild.nodeValue;
+		tdPU.className="data_num";
+		tdPallets.innerHTML=po_lines[vc].getElementsByTagName('Pallets')[0].firstChild.nodeValue;
+		tdPallets.className="data_num";
+		tdTU_Pal.innerHTML=po_lines[vc].getElementsByTagName('TU_Pallet')[0].firstChild.nodeValue;
+		tdTU_Pal.className="data_num";
+	}
+	if (rowCnt>vc) {
+		var lastRow=vc;
+		do {
+			vendorTable.deleteRow(lastRow);
+			vc++;
+		} while (vc<rowCnt)
+	}
+	lastPO_Line = po_lines[vc].getElementsByTagName('line')[0].firstChild.nodeValue;
+}
+
+
+function loadVendor()
+{
+	function loadVendorXML()
+	{
+		if (http.readyState==4) {
+			xmlResult = http.responseXML;
+			if (xmlResult.getElementsByTagName('errorCount')[0].firstChild==null) errorCount = 0;
+			else errorCount = xmlResult.getElementsByTagName('errorCount')[0].firstChild.nodeValue;
+			if (errorCount==0) {
+				var vendor = xmlResult.getElementsByTagName('result');
+				if (vendor.length==1) {
+					var vendor_name = vendor[0].getElementsByTagName('name')[0].firstChild.nodeValue;
+					vendor_name = vendor_name + ", "+vendor[0].getElementsByTagName('city')[0].firstChild.nodeValue;
+					document.getElementById('vendor_name').innerHTML=vendor_name;
+				} else {
+					var dialog = document.getElementById('vendor_dialog');
+//					filltable(vendor);
+//					dialog.showModal();
+					URI = '/vendor/vendordialog/No/'+document.getElementById('vendor_no').value;
+					result=window.showModalDialog(URI,null,
+		                       'dialogWidth=600px;dialogHeight=400px;diologLeft=0;dialogTop=100;resizable=yes;scroll=yes');
+					document.getElementById('vendor_no').value = result['no'];
+					document.getElementById('vendor_name').innerHTML = result['name']+", "+result['city']+" "+result['country_code'];
+				}
+			} else {
+				var errors = xmlResult.getElementsByTagName('error');
+				for (e = 0; e < errorCount; e++) {
+					field = errors[e].childNodes[1].nodeName;
+					value = errors[e].childNodes[1].firstChild.nodeValue;
+					var errorText = errorText+"["+field+"] "+value+"\n";
+				}
+				alert(errorText);
+			}
+		}
+	}
+	
+	createRequest();
+	var URI = '/vendor/get/No/'+document.getElementById('vendor_no').value;
+	sendRequest("GET", URI, '', loadVendorXML, true);
+}
+
+function loadVariant()
+{	
+	function loadVariantXML()
+	{
+		if (http.readyState==4) {
+			var variant = [];
+			xmlResult = http.responseXML;
+			if (xmlResult.getElementsByTagName('errorCount')[0].firstChild==null) errorCount = 0;
+			else errorCount = xmlResult.getElementsByTagName('errorCount')[0].firstChild.nodeValue;
+			if (errorCount==0) {
+				var variants = xmlResult.getElementsByTagName('result');
+				if (variants.length==1) {
+					variant['No'] = variants[0].getElementsByTagName('No')[0].firstChild.nodeValue;
+					variant['variant'] = variants.getElementsByTagName('variant')[0].firstChild.nodeValue;
+					variant['items'] = variants.getElementsByTagName('items')[0].firstChild.nodeValue;
+				} else {
+					var dialog = document.getElementById('vendor_dialog');
+//					filltable(vendor);
+//					dialog.showModal();
+					URI = '/variant/variantdialog/No/'+row.getElementById('vendor_no').value;
+					result=window.showModalDialog(URI,null,
+		                       'dialogWidth=600px;dialogHeight=400px;diologLeft=0;dialogTop=100;resizable=yes;scroll=yes');
+					document.getElementById('vendor_no').value = result['no'];
+					document.getElementById('vendor_name').innerHTML = result['name'];
+				}
+			} else {
+				var errors = xmlResult.getElementsByTagName('error');
+				for (e = 0; e < errorCount; e++) {
+					field = errors[e].childNodes[1].nodeName;
+					value = errors[e].childNodes[1].firstChild.nodeValue;
+					var errorText = errorText+"["+field+"] "+value+"\n";
+				}
+				alert(errorText);
+			}
+		}
+	}
+
+}
+</script>
+
+
+<?php //Zend_Debug::dump($this->params); ?>
+<?php $data = $this->params['data']; ?>
+<?php $errors = $this->params['errors']; ?>
+<form action="/vendor/edit/" method="post">
+<legend><?php echo $this->params['title']; ?></legend>
+<fieldset>
+<?php if (isset($this->errors['all'])) : ?><div class="error">
+<?php echo $this->errors['all']; ?>
+</div><?php  endif ?>
+<table>
+	<tr>
+		<td></td><td><input type="hidden" name="old_No" value="<?php echo $data['No']; ?>" /></td>
+	</tr>
+	<tr>
+		<td>Nummer</td>
+		<td>
+			<?php if (isset($errors['No'])) :?><div class="error"><?php endif ?>
+			<input type="text" name="No" value="<?php echo $data['No']; ?>" readonly="true" />
+			<?php if (isset($errors['No'])) :?><br /><?php echo $errors['No']; ?></div><?php endif ?>
+		</td>
+	</tr>
+	<tr>
+		<td>Kreditor</td>		
+		<td><input type="text" id="vendor_no" name="vendor" size="20" maxlength="20" value="<?php echo $data['vendor']; ?>" onchange="loadVendor()" />
+		<td>Name</td>
+		<td id="vendor_name"></td>
+	</tr>
+	<tr>
+		<td>Ankunft</td>
+		<td>
+			<input type="text" name="arrival_date" maxlength="10" size="10" value="<?php echo $data['arrival_date']; ?>" /> <input type="text" size="8" maxlength="8" value="<?php echo $data['arrival_time']; ?>" />
+		</td>
+		<td>Abgang</td>
+		<td>
+			<input type="text" name="departure_date" maxlength="10" size="10" value="<?php echo $data['departure_date']; ?>" /> <input type="text" size="8" maxlength="8" value="<?php echo $data['departure_time'];?>" />
+		</td>
+	</tr>
+	<tr>
+		<td>LKW</td>
+		<td><input type="text" name="truck" maxlength="40" size="40" value="<?php echo $data['truck']; ?>" /></td>
+		<td>Anhänger</td>
+		<td><input type="text" name="trailor" maxlength="40" size="40" value="<?php echo $data['trailor']; ?>" /></td>
+	</tr>
+	<tr>
+		<td></td><td><input type="submit" name="submit" value="Speichern" /> <input type="submit" name="submit" value="Abbrechen" /></td>
+	</tr>
+</table>
+<hr />
+<table id="po_lines">
+<thead>
+<tr>
+	<th class="data" width="20">Variante</th>
+	<th class="data" width="150">Beschreibung</th>
+	<th class="data" width="10">Kolli</th>
+	<th class="data" width="10">Menge/Kolli</th>
+	<th class="data" width="12">Menge ges.</th>
+	<th class="data" width="6">Paletten</th>
+	<th class="data" width="10">Kolli / Pal.</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+</form>
+
+<dialog id="vendor_dialog">
+<h2>Lieferant auswählen"</h2>
+<form method="get">
+<table id="vendor_table">
+<thead>
+<tr>
+	<th class="data">Kred-Nr.</th>
+	<th class="data">Kreditor</th>
+	<th class="data">Straße</th>
+	<th class="data">Ort</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<button type="submit" value="Auswählen">
+</form>
+</dialog>
+		<td>Ankunft</td>
