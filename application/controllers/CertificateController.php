@@ -11,6 +11,10 @@ class CertificateController extends Zend_Controller_Action
 		$this->logger = Zend_Registry::get('logger');
 	}
 	
+	public function indexAction()
+	{
+	}
+	
 	public function vendorcertAction()
 	{
 		$certificate = array('IFS', 'GG', 'QS', 'BIO');
