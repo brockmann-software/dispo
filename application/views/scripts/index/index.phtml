@@ -2,9 +2,15 @@
 <div class="extrabox">
 <div class="extrahead">QM</div>
 <table>
-<tr><td>Zertifikate:</td><td><a href="/certificate/vendorcert/"><?php echo $this->qm_dashboard['certs']['cntcrt']; ?></a></td></tr>
-<tr><td>Abgelaufen:</td><td><a href="/certificate/vendorcert/end/NOW()"><?php echo $this->qm_dashboard['cert_exp']['cntcrt']; ?></a></td></tr>
-<tr><td>in 1 Monat:</td><td><a href="/certificate/vendorcert/end/NOW()%2bINTERVAL 1 MONTH"><?php echo $this->qm_dashboard['cert_exp_month']['cntcrt']; ?></td></tr>
+<tr><th>Zertifikat</th><th>Anz</th><th>Abgel.</th><th>Mon.</th></tr>
+<?php foreach ($this->qm_dashboard as $dashboard) : ?>
+<tr>
+<td><?php echo $dashboard['certificate']; ?></td>
+<td style="text-Align:right;"><a href="/certificate/vendorcert/"><?php echo $dashboard['certificates']; ?></a></td>
+<td style="text-Align:right;"><a href="/certificate/vendorcert/end/NOW()"><?php echo $dashboard['over_due']; ?></a></td>
+<td style="text-Align:right;"><a href="/certificate/vendorcert/end/NOW()%2bINTERVAL 1 MONTH"><?php echo $dashboard['over_due_m']; ?></td>
+</tr>
+<?php endforeach ?>
 </table>
 </div>
 <div class="extrabox">

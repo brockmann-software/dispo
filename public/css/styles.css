@@ -136,7 +136,7 @@ td.unselected {
 }
 
 .extrabox {
-  width: 15em; float: left;
+  width: 30em; float: left;
   margin: 0.5em;
   border: 1px solid;
 }
