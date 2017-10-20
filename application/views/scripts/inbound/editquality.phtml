@@ -542,10 +542,10 @@ function loadPoBTM()
 					}
 				} else {
 					error = xmlResult.getElementsByTagName('error');
-					var errText;
+					var errText = '';
 					for (ec = 0; ec < error.length; ec++) {
-						errText += ((error[ec].getElementsByTagName('type')[0].firstChild) ? error[ec].getElementsByTagName('type')[0].firstChild.nodeValue+': ' : 'No type: ');
-						errText += ((error[ec].getElementsByTagName('text')[0].firstChild) ? error[ec].getElementsByTagName('type')[0].firstChild.nodeValue+'\n' : 'No message\n');
+						errText += ((error[ec].getElementsByTagName('error_field')[0].firstChild) ? error[ec].getElementsByTagName('error_field')[0].firstChild.nodeValue+': ' : 'No type: ');
+						errText += ((error[ec].getElementsByTagName('error_text')[0].firstChild) ? error[ec].getElementsByTagName('error_text')[0].firstChild.nodeValue+'\n' : 'No message\n');
 					}
 					alert(errText);
 				}
@@ -970,14 +970,6 @@ function addAtt()
 		<td><input type="text" name="lot" value="<?php echo $data['po_lot']; ?>" size="10" /></td>
 		<td>Barcode</td>
 		<td><input type="text" name="barcode" value="<?php echo $data['po_barcode']; ?>" size="15" /></td>
-	</tr>
-	<tr>
-		<td>Zertifikat</td>
-		<td><select name="certificate">
-		<?php foreach ($certificates as $certificate) : ?>
-		<option value="<?php echo $certificate['No'] ?>"<?php if ($certificate['No']==$data['inb_certificate']) echo " selected" ?>><?php echo $certificate['certificate']; ?></option>
-		<?php endforeach ?>
-		</select></td>
 	</tr>
 </table>
 </fieldset>

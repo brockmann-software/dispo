@@ -4,7 +4,8 @@
 <?php if (count($this->errors)>0): ?>
 <?php foreach ($this->errors as $key => $value):?>
 		<error>
-			<<?php echo $this->escape($key); ?>><?php echo $this->escape($value); ?></<?php echo $this->escape($key); ?>>
+			<error_field><?php echo $this->escape($key); ?></error_field>
+			<error_text><?php echo $this->escape($value); ?></error_text>
 		</error>
 <?php ENDFOREACH ?>
 <?php ENDIF ?>
