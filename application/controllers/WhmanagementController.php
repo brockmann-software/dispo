@@ -303,10 +303,10 @@ class WhmanagementController extends Zend_Controller_Action
 							$movement['No'] = 0;
 							$movement['movement'] = 2;
 							$movement['date'] = $date->toString('YYYY-MM-dd HH:mm:ss');
-							$movement['trading_units'] = -$inventory['trading_units'];
-							$movement['packing_units'] = -$inventory['trading_units'] * $cur_variant['items'];
-							$movement['trading_units_production'] = -$inventory['trading_units'];
-							$movement['packing_units_production'] = -$inventory['trading_units'] * $cur_variant['items'];
+							$movement['trading_units'] = $inventory['trading_units'];
+							$movement['packing_units'] = $inventory['trading_units'] * $cur_variant['items'];
+							$movement['trading_units_production'] = $inventory['trading_units'];
+							$movement['packing_units_production'] = $inventory['trading_units'] * $cur_variant['items'];
 							$movement['status'] = 3;
 							$movement['type'] = 2;
 							$movement['stock_location'] = 1;

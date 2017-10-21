@@ -12,6 +12,16 @@ function selectAll(selection)
 	for (i=0; i<select.length; i++) select[i].selected = true;
 }
 
+function closeWindow()
+{
+	var cert =[];
+	cert['No'] = document.certificate.No.value;
+	cert['cert_id'] = document.certificate.cert_id.value;
+	cert['due_date'] = document.certificate.due_date.value;
+	cert['remark'] = document.certificate.remark.value;
+	window.opener.closeDialog(cert);
+}
+
 function loadArgs()
 {
 	changeProduct(document.getElementById('certificate'));
@@ -33,7 +43,7 @@ function productInList($cert_products, $no)
 <?php $products = $this->params['products']; ?>
 <?php $cert_vendor = $this->params['cert_vendor']; ?>
 <?php $errors = $this->params['errors']; ?>
-<form action="/vendor/editcert" method="post">
+<form name="certificate" action="/vendor/editcert" method="post">
 <fieldset>
 <legend>Allgemeine Daten</legend>
 <input type="hidden" name="No" value="<?php echo $cert_vendor['No']; ?>" />
@@ -124,4 +134,4 @@ function productInList($cert_products, $no)
 </fieldset>
 <div><button type="submit" onclick="selectAll('cert_products')">Speichern</button>
 </form>
-<?php if (isset($errors['no_error'])) : ?><script>window.close();</script><?php endif ?>
+<?php if (isset($errors['no_error'])) : ?><script>closeWindow();</script><?php endif ?>

@@ -2,6 +2,21 @@
 var notIE_popup = null;
 var lastInbLine;
 
+function closeDialog(cert)
+{
+	certRow = document.getElementById(cert.No);
+	if (certRow!=null) {
+		document.getElementById(certRow.id+'_cert_id').value = cert.cert_id;
+		document.getElementById(certRow.id+'_due').value = cert.due_date;
+		document.getElementById(certRow.id+'_remark').value = cert.remark;
+	}
+		
+	if (notIE_popup != null)  {
+		notIE_popup.close();
+		notIE_popup = null;
+	}
+}
+
 function popupFinished(result)
 {
 	if (notIE_popup != null)  {
@@ -93,7 +108,7 @@ function insertCert(field)
 						edit_ref.innerHTML = '<img src="/images/b_edit.png" alt="bearbeiten" title="bearbeiten" />';
 						var del_ref = document.createElement('a');
 						del_ref.onclick = function(){ deleteCert(this); }
-						del_ref.innerHTML = '<img src="/images/s_drop.png" alt"löschen" title="löschen" />';
+						del_ref.innerHTML = '<img src="/images/b_drop.png" alt"löschen" title="löschen" />';
 						row.cells[0].appendChild(edit_ref);
 						row.cells[0].appendChild(del_ref);
 					}
@@ -173,12 +188,13 @@ function openCertDialog(node)
 	var No = row.id;
 	
 	URI = '/vendor/editcert/No/'+No;
-	if (!window.showModalDialog) {
+/*	if (!window.showModalDialog) {
 		notIE_popup = window.open(URI, 'Zertifikate', 'dialogWidth=900px;dialogHeight=600px;diologLeft=0;dialogTop=100;resizable=yes;scroll=yes');
 
 	} else {
 		result=window.showModalDialog(URI,'', 'dialogWidth=900px;dialogHeight=600px;diologLeft=0;dialogTop=100;resizable=yes;scroll=yes');
-	}
+	} */
+	notIE_popup = window.open(URI, 'Zertifikate', 'dialogWidth=900px;dialogHeight=600px;diologLeft=0;dialogTop=100;resizable=yes;scroll=yes');
 }
 
 function openAgreementDialog(node)
@@ -186,12 +202,13 @@ function openAgreementDialog(node)
 	var No = node.value;
 	if (No>-1) {
 		URI = '/vendor/editagreemnt/No/'+No;
-		if (!window.showModalDialog) {
+/*		if (!window.showModalDialog) {
 			notIE_popup = window.open(URI, 'Lieferantenerklärung', 'dialogWidth=900px;dialogHeight=600px;diologLeft=0;dialogTop=100;resizable=yes;scroll=yes');
 
 		} else {
 			result=window.showModalDialog(URI,'', 'dialogWidth=900px;dialogHeight=600px;diologLeft=0;dialogTop=100;resizable=yes;scroll=yes');
-		}
+		} */
+		window.open(URI, 'Lieferantenerklärung', 'dialogWidth=900px;dialogHeight=600px;diologLeft=0;dialogTop=100;resizable=yes;scroll=yes');
 	}
 }
 </script>

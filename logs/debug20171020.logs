@@ -14,3 +14,1921 @@
 2017-10-20T13:34:23+02:00 INFO (6): IndexController->IndexAction called
 2017-10-20T14:22:56+02:00 INFO (6): IndexController->IndexAction called
 2017-10-20T14:34:57+02:00 INFO (6): IndexController->IndexAction called
+2017-10-20T14:53:15+02:00 INFO (6): InboundController->IndexAction called
+2017-10-20T14:53:19+02:00 INFO (6): editquality aufgerufen mit Inbound_sheet: Array
+(
+    [No] => 0
+    [inbound] => 0
+    [inb_line] => 0
+    [position] => 
+    [v_delivery_note] => 
+    [vendor] => 
+    [purchase_order] => 
+    [po_line] => 0
+    [po_line_line] => 0
+    [stock_location] => 1
+    [po_arrival_date] => 20.10.2017
+    [po_arrival_time] => 14:53
+    [inb_arrival_date] => 20.10.2017
+    [inb_arrival_time] => 14:53
+    [forwarder] => 
+    [truck] => 
+    [trailor] => 
+    [container] => 
+    [po_transport_temp_min] => 1.00
+    [po_transport_temp_max] => 4.00
+    [inb_transport_temp] => 0
+    [variant] => 
+    [product] => 0026
+    [t_packaging] => 
+    [packaging] => 0
+    [origin] => DE
+    [label] => 0
+    [quality_class] => 1
+    [brand] => 0
+    [quality] => 1
+    [items] => 0
+    [weight_item] => 0
+    [po_lot] => 
+    [po_barcode] => 
+    [po_trading_units] => 0
+    [po_packing_units] => 0
+    [po_pallet] => 
+    [po_pallets] => 0
+    [po_tu_pal] => 0
+    [inb_lot] => 
+    [inb_barcode] => 
+    [items_checked] => 0
+    [inb_trading_units] => 0
+    [inb_packing_units] => 0
+    [inb_pallet] => 
+    [inb_pallets] => 0
+    [inb_tu_pal] => 0
+    [po_brix_min] => 0
+    [po_brix_max] => 0
+    [inb_brix] => 0
+    [inb_certificate] => 1
+    [remarks] => 
+    [res_1] => 0
+    [base_1] => 0
+    [rp_1] => 0 %
+    [rl_1] => check_green
+    [res_2] => 0
+    [base_2] => 0
+    [rp_2] => 0 %
+    [rl_2] => check_green
+    [res_3] => 0
+    [base_3] => 0
+    [rp_3] => 0 %
+    [rl_3] => check_green
+    [res_4] => 0
+    [base_4] => 0
+    [rp_4] => 0 %
+    [rl_4] => check_green
+    [res_7] => 0
+    [base_7] => 0
+    [rp_7] => 0 %
+    [rl_7] => check_green
+    [res_6] => 0
+    [base_6] => 0
+    [rp_6] => 0 %
+    [rl_6] => check_green
+    [res_5] => 0
+    [base_5] => 0
+    [rp_5] => 0 %
+    [rl_5] => check_green
+    [res_10] => 0
+    [base_10] => 0
+    [rp_10] => 0 %
+    [rl_10] => check_green
+    [res_13] => 0
+    [base_13] => 0
+    [rp_13] => 0 %
+    [rl_13] => check_green
+    [res_12] => 0
+    [base_12] => 0
+    [rp_12] => 0 %
+    [rl_12] => check_green
+    [res_11] => 0
+    [base_11] => 0
+    [rp_11] => 0 %
+    [rl_11] => check_green
+    [res_9] => 0
+    [base_9] => 0
+    [rp_9] => 0 %
+    [rl_9] => check_green
+    [res_8] => 0
+    [base_8] => 0
+    [rp_8] => 0 %
+    [rl_8] => check_green
+    [res_15] => 0
+    [base_15] => 0
+    [rp_15] => 0
+    [rl_15] => check_green
+    [res_14] => 0
+    [base_14] => 0
+    [rp_14] => 0
+    [rl_14] => check_green
+    [res_16] => 0
+    [base_16] => 0
+    [rp_16] => nicht OK
+    [rl_16] => check_red
+    [res_17] => 0
+    [base_17] => 0
+    [rp_17] => nicht OK
+    [rl_17] => check_red
+    [res_18] => 0
+    [base_18] => 0
+    [rp_18] => 0
+    [rl_18] => check_green
+    [res_19] => 0
+    [base_19] => 0
+    [rp_19] => 0 %
+    [rl_19] => check_green
+)
+
+2017-10-20T14:53:27+02:00 INFO (6): SQL: SELECT tbl_HAN.HANVORNR, tbl_HAN.HANPOSNR, tbl_HAN.HANADRNR, tbl_LIE.LIENAME, tbl_LIE.LIESTRAS, tbl_LIE.LIEPLZOR, convert(varchar(25), tbl_HAN.HANLISDT, 127) AS HANLISDT, HANTABZT, tbl_HAN.HANARTTX, tbl_HAN.HANWARGR, tbl_art.ARTGEBIN, tbl_ART.ARTDURGW, tbl_HAN.HANPMENG, tbl_ART.ARTURSLD FROM tbl_HAN JOIN tbl_ART on (tbl_HAN.HANARTNR = tbl_ART.KEYIART1) join tbl_LIE on (tbl_han.HANADRNR = tbl_LIE.KEYILIE1) WHERE tbl_HAN.HANVORAR = 30 AND tbl_art.ARTAKTKZ = 'A' AND tbl_HAN.HANVORNR = '425999'
+2017-10-20T14:53:28+02:00 ERR (3): Fehler bei Abfrage von BTM-Bestellungen! [Microsoft][ODBC Driver 11 for SQL Server][SQL Server]Fehler bei der Anmeldung f�r den Benutzer 'readerbtm'.
+2017-10-20T14:53:53+02:00 INFO (6): editquality aufgerufen mit Inbound_sheet: Array
+(
+    [No] => 0
+    [inbound] => 0
+    [inb_line] => 0
+    [position] => 
+    [v_delivery_note] => 
+    [vendor] => 
+    [purchase_order] => 
+    [po_line] => 0
+    [po_line_line] => 0
+    [stock_location] => 1
+    [po_arrival_date] => 20.10.2017
+    [po_arrival_time] => 14:53
+    [inb_arrival_date] => 20.10.2017
+    [inb_arrival_time] => 14:53
+    [forwarder] => 
+    [truck] => 
+    [trailor] => 
+    [container] => 
+    [po_transport_temp_min] => 1.00
+    [po_transport_temp_max] => 4.00
+    [inb_transport_temp] => 0
+    [variant] => 
+    [product] => 0026
+    [t_packaging] => 
+    [packaging] => 0
+    [origin] => DE
+    [label] => 0
+    [quality_class] => 1
+    [brand] => 0
+    [quality] => 1
+    [items] => 0
+    [weight_item] => 0
+    [po_lot] => 
+    [po_barcode] => 
+    [po_trading_units] => 0
+    [po_packing_units] => 0
+    [po_pallet] => 
+    [po_pallets] => 0
+    [po_tu_pal] => 0
+    [inb_lot] => 
+    [inb_barcode] => 
+    [items_checked] => 0
+    [inb_trading_units] => 0
+    [inb_packing_units] => 0
+    [inb_pallet] => 
+    [inb_pallets] => 0
+    [inb_tu_pal] => 0
+    [po_brix_min] => 0
+    [po_brix_max] => 0
+    [inb_brix] => 0
+    [inb_certificate] => 1
+    [remarks] => 
+    [res_1] => 0
+    [base_1] => 0
+    [rp_1] => 0 %
+    [rl_1] => check_green
+    [res_2] => 0
+    [base_2] => 0
+    [rp_2] => 0 %
+    [rl_2] => check_green
+    [res_3] => 0
+    [base_3] => 0
+    [rp_3] => 0 %
+    [rl_3] => check_green
+    [res_4] => 0
+    [base_4] => 0
+    [rp_4] => 0 %
+    [rl_4] => check_green
+    [res_7] => 0
+    [base_7] => 0
+    [rp_7] => 0 %
+    [rl_7] => check_green
+    [res_6] => 0
+    [base_6] => 0
+    [rp_6] => 0 %
+    [rl_6] => check_green
+    [res_5] => 0
+    [base_5] => 0
+    [rp_5] => 0 %
+    [rl_5] => check_green
+    [res_10] => 0
+    [base_10] => 0
+    [rp_10] => 0 %
+    [rl_10] => check_green
+    [res_13] => 0
+    [base_13] => 0
+    [rp_13] => 0 %
+    [rl_13] => check_green
+    [res_12] => 0
+    [base_12] => 0
+    [rp_12] => 0 %
+    [rl_12] => check_green
+    [res_11] => 0
+    [base_11] => 0
+    [rp_11] => 0 %
+    [rl_11] => check_green
+    [res_9] => 0
+    [base_9] => 0
+    [rp_9] => 0 %
+    [rl_9] => check_green
+    [res_8] => 0
+    [base_8] => 0
+    [rp_8] => 0 %
+    [rl_8] => check_green
+    [res_15] => 0
+    [base_15] => 0
+    [rp_15] => 0
+    [rl_15] => check_green
+    [res_14] => 0
+    [base_14] => 0
+    [rp_14] => 0
+    [rl_14] => check_green
+    [res_16] => 0
+    [base_16] => 0
+    [rp_16] => nicht OK
+    [rl_16] => check_red
+    [res_17] => 0
+    [base_17] => 0
+    [rp_17] => nicht OK
+    [rl_17] => check_red
+    [res_18] => 0
+    [base_18] => 0
+    [rp_18] => 0
+    [rl_18] => check_green
+    [res_19] => 0
+    [base_19] => 0
+    [rp_19] => 0 %
+    [rl_19] => check_green
+)
+
+2017-10-20T14:53:58+02:00 INFO (6): SQL: SELECT tbl_HAN.HANVORNR, tbl_HAN.HANPOSNR, tbl_HAN.HANADRNR, tbl_LIE.LIENAME, tbl_LIE.LIESTRAS, tbl_LIE.LIEPLZOR, convert(varchar(25), tbl_HAN.HANLISDT, 127) AS HANLISDT, HANTABZT, tbl_HAN.HANARTTX, tbl_HAN.HANWARGR, tbl_art.ARTGEBIN, tbl_ART.ARTDURGW, tbl_HAN.HANPMENG, tbl_ART.ARTURSLD FROM tbl_HAN JOIN tbl_ART on (tbl_HAN.HANARTNR = tbl_ART.KEYIART1) join tbl_LIE on (tbl_han.HANADRNR = tbl_LIE.KEYILIE1) WHERE tbl_HAN.HANVORAR = 30 AND tbl_art.ARTAKTKZ = 'A' AND tbl_HAN.HANVORNR = '425999'
+2017-10-20T14:53:58+02:00 ERR (3): Fehler bei Abfrage von BTM-Bestellungen! [Microsoft][ODBC Driver 11 for SQL Server][SQL Server]Fehler bei der Anmeldung f�r den Benutzer 'readerbtm'.
+2017-10-20T14:57:01+02:00 INFO (6): editquality aufgerufen mit Inbound_sheet: Array
+(
+    [No] => 0
+    [inbound] => 0
+    [inb_line] => 0
+    [position] => 
+    [v_delivery_note] => 
+    [vendor] => 
+    [purchase_order] => 
+    [po_line] => 0
+    [po_line_line] => 0
+    [stock_location] => 1
+    [po_arrival_date] => 20.10.2017
+    [po_arrival_time] => 14:57
+    [inb_arrival_date] => 20.10.2017
+    [inb_arrival_time] => 14:57
+    [forwarder] => 
+    [truck] => 
+    [trailor] => 
+    [container] => 
+    [po_transport_temp_min] => 1.00
+    [po_transport_temp_max] => 4.00
+    [inb_transport_temp] => 0
+    [variant] => 
+    [product] => 0026
+    [t_packaging] => 
+    [packaging] => 0
+    [origin] => DE
+    [label] => 0
+    [quality_class] => 1
+    [brand] => 0
+    [quality] => 1
+    [items] => 0
+    [weight_item] => 0
+    [po_lot] => 
+    [po_barcode] => 
+    [po_trading_units] => 0
+    [po_packing_units] => 0
+    [po_pallet] => 
+    [po_pallets] => 0
+    [po_tu_pal] => 0
+    [inb_lot] => 
+    [inb_barcode] => 
+    [items_checked] => 0
+    [inb_trading_units] => 0
+    [inb_packing_units] => 0
+    [inb_pallet] => 
+    [inb_pallets] => 0
+    [inb_tu_pal] => 0
+    [po_brix_min] => 0
+    [po_brix_max] => 0
+    [inb_brix] => 0
+    [inb_certificate] => 1
+    [remarks] => 
+    [res_1] => 0
+    [base_1] => 0
+    [rp_1] => 0 %
+    [rl_1] => check_green
+    [res_2] => 0
+    [base_2] => 0
+    [rp_2] => 0 %
+    [rl_2] => check_green
+    [res_3] => 0
+    [base_3] => 0
+    [rp_3] => 0 %
+    [rl_3] => check_green
+    [res_4] => 0
+    [base_4] => 0
+    [rp_4] => 0 %
+    [rl_4] => check_green
+    [res_7] => 0
+    [base_7] => 0
+    [rp_7] => 0 %
+    [rl_7] => check_green
+    [res_6] => 0
+    [base_6] => 0
+    [rp_6] => 0 %
+    [rl_6] => check_green
+    [res_5] => 0
+    [base_5] => 0
+    [rp_5] => 0 %
+    [rl_5] => check_green
+    [res_10] => 0
+    [base_10] => 0
+    [rp_10] => 0 %
+    [rl_10] => check_green
+    [res_13] => 0
+    [base_13] => 0
+    [rp_13] => 0 %
+    [rl_13] => check_green
+    [res_12] => 0
+    [base_12] => 0
+    [rp_12] => 0 %
+    [rl_12] => check_green
+    [res_11] => 0
+    [base_11] => 0
+    [rp_11] => 0 %
+    [rl_11] => check_green
+    [res_9] => 0
+    [base_9] => 0
+    [rp_9] => 0 %
+    [rl_9] => check_green
+    [res_8] => 0
+    [base_8] => 0
+    [rp_8] => 0 %
+    [rl_8] => check_green
+    [res_15] => 0
+    [base_15] => 0
+    [rp_15] => 0
+    [rl_15] => check_green
+    [res_14] => 0
+    [base_14] => 0
+    [rp_14] => 0
+    [rl_14] => check_green
+    [res_16] => 0
+    [base_16] => 0
+    [rp_16] => nicht OK
+    [rl_16] => check_red
+    [res_17] => 0
+    [base_17] => 0
+    [rp_17] => nicht OK
+    [rl_17] => check_red
+    [res_18] => 0
+    [base_18] => 0
+    [rp_18] => 0
+    [rl_18] => check_green
+    [res_19] => 0
+    [base_19] => 0
+    [rp_19] => 0 %
+    [rl_19] => check_green
+)
+
+2017-10-20T14:57:11+02:00 INFO (6): SQL: SELECT tbl_HAN.HANVORNR, tbl_HAN.HANPOSNR, tbl_HAN.HANADRNR, tbl_LIE.LIENAME, tbl_LIE.LIESTRAS, tbl_LIE.LIEPLZOR, convert(varchar(25), tbl_HAN.HANLISDT, 127) AS HANLISDT, HANTABZT, tbl_HAN.HANARTTX, tbl_HAN.HANWARGR, tbl_art.ARTGEBIN, tbl_ART.ARTDURGW, tbl_HAN.HANPMENG, tbl_ART.ARTURSLD FROM tbl_HAN JOIN tbl_ART on (tbl_HAN.HANARTNR = tbl_ART.KEYIART1) join tbl_LIE on (tbl_han.HANADRNR = tbl_LIE.KEYILIE1) WHERE tbl_HAN.HANVORAR = 30 AND tbl_art.ARTAKTKZ = 'A' AND tbl_HAN.HANVORNR = '425999'
+2017-10-20T14:57:11+02:00 ERR (3): Fehler bei Abfrage von BTM-Bestellungen! [Microsoft][ODBC Driver 11 for SQL Server][SQL Server]Fehler bei der Anmeldung f�r den Benutzer 'readerbtm'.
+2017-10-20T14:57:43+02:00 INFO (6): editquality aufgerufen mit Inbound_sheet: Array
+(
+    [No] => 0
+    [inbound] => 0
+    [inb_line] => 0
+    [position] => 
+    [v_delivery_note] => 
+    [vendor] => 
+    [purchase_order] => 
+    [po_line] => 0
+    [po_line_line] => 0
+    [stock_location] => 1
+    [po_arrival_date] => 20.10.2017
+    [po_arrival_time] => 14:57
+    [inb_arrival_date] => 20.10.2017
+    [inb_arrival_time] => 14:57
+    [forwarder] => 
+    [truck] => 
+    [trailor] => 
+    [container] => 
+    [po_transport_temp_min] => 1.00
+    [po_transport_temp_max] => 4.00
+    [inb_transport_temp] => 0
+    [variant] => 
+    [product] => 0026
+    [t_packaging] => 
+    [packaging] => 0
+    [origin] => DE
+    [label] => 0
+    [quality_class] => 1
+    [brand] => 0
+    [quality] => 1
+    [items] => 0
+    [weight_item] => 0
+    [po_lot] => 
+    [po_barcode] => 
+    [po_trading_units] => 0
+    [po_packing_units] => 0
+    [po_pallet] => 
+    [po_pallets] => 0
+    [po_tu_pal] => 0
+    [inb_lot] => 
+    [inb_barcode] => 
+    [items_checked] => 0
+    [inb_trading_units] => 0
+    [inb_packing_units] => 0
+    [inb_pallet] => 
+    [inb_pallets] => 0
+    [inb_tu_pal] => 0
+    [po_brix_min] => 0
+    [po_brix_max] => 0
+    [inb_brix] => 0
+    [inb_certificate] => 1
+    [remarks] => 
+    [res_1] => 0
+    [base_1] => 0
+    [rp_1] => 0 %
+    [rl_1] => check_green
+    [res_2] => 0
+    [base_2] => 0
+    [rp_2] => 0 %
+    [rl_2] => check_green
+    [res_3] => 0
+    [base_3] => 0
+    [rp_3] => 0 %
+    [rl_3] => check_green
+    [res_4] => 0
+    [base_4] => 0
+    [rp_4] => 0 %
+    [rl_4] => check_green
+    [res_7] => 0
+    [base_7] => 0
+    [rp_7] => 0 %
+    [rl_7] => check_green
+    [res_6] => 0
+    [base_6] => 0
+    [rp_6] => 0 %
+    [rl_6] => check_green
+    [res_5] => 0
+    [base_5] => 0
+    [rp_5] => 0 %
+    [rl_5] => check_green
+    [res_10] => 0
+    [base_10] => 0
+    [rp_10] => 0 %
+    [rl_10] => check_green
+    [res_13] => 0
+    [base_13] => 0
+    [rp_13] => 0 %
+    [rl_13] => check_green
+    [res_12] => 0
+    [base_12] => 0
+    [rp_12] => 0 %
+    [rl_12] => check_green
+    [res_11] => 0
+    [base_11] => 0
+    [rp_11] => 0 %
+    [rl_11] => check_green
+    [res_9] => 0
+    [base_9] => 0
+    [rp_9] => 0 %
+    [rl_9] => check_green
+    [res_8] => 0
+    [base_8] => 0
+    [rp_8] => 0 %
+    [rl_8] => check_green
+    [res_15] => 0
+    [base_15] => 0
+    [rp_15] => 0
+    [rl_15] => check_green
+    [res_14] => 0
+    [base_14] => 0
+    [rp_14] => 0
+    [rl_14] => check_green
+    [res_16] => 0
+    [base_16] => 0
+    [rp_16] => nicht OK
+    [rl_16] => check_red
+    [res_17] => 0
+    [base_17] => 0
+    [rp_17] => nicht OK
+    [rl_17] => check_red
+    [res_18] => 0
+    [base_18] => 0
+    [rp_18] => 0
+    [rl_18] => check_green
+    [res_19] => 0
+    [base_19] => 0
+    [rp_19] => 0 %
+    [rl_19] => check_green
+)
+
+2017-10-20T14:57:55+02:00 INFO (6): SQL: SELECT tbl_HAN.HANVORNR, tbl_HAN.HANPOSNR, tbl_HAN.HANADRNR, tbl_LIE.LIENAME, tbl_LIE.LIESTRAS, tbl_LIE.LIEPLZOR, convert(varchar(25), tbl_HAN.HANLISDT, 127) AS HANLISDT, HANTABZT, tbl_HAN.HANARTTX, tbl_HAN.HANWARGR, tbl_art.ARTGEBIN, tbl_ART.ARTDURGW, tbl_HAN.HANPMENG, tbl_ART.ARTURSLD FROM tbl_HAN JOIN tbl_ART on (tbl_HAN.HANARTNR = tbl_ART.KEYIART1) join tbl_LIE on (tbl_han.HANADRNR = tbl_LIE.KEYILIE1) WHERE tbl_HAN.HANVORAR = 30 AND tbl_art.ARTAKTKZ = 'A' AND tbl_HAN.HANVORNR = '425999'
+2017-10-20T14:57:55+02:00 ERR (3): Fehler bei Abfrage von BTM-Bestellungen! [Microsoft][ODBC Driver 11 for SQL Server][SQL Server]Fehler bei der Anmeldung f�r den Benutzer 'readerbtm'.
+2017-10-20T15:01:26+02:00 INFO (6): editquality aufgerufen mit Inbound_sheet: Array
+(
+    [No] => 0
+    [inbound] => 0
+    [inb_line] => 0
+    [position] => 
+    [v_delivery_note] => 
+    [vendor] => 
+    [purchase_order] => 
+    [po_line] => 0
+    [po_line_line] => 0
+    [stock_location] => 1
+    [po_arrival_date] => 20.10.2017
+    [po_arrival_time] => 15:01
+    [inb_arrival_date] => 20.10.2017
+    [inb_arrival_time] => 15:01
+    [forwarder] => 
+    [truck] => 
+    [trailor] => 
+    [container] => 
+    [po_transport_temp_min] => 1.00
+    [po_transport_temp_max] => 4.00
+    [inb_transport_temp] => 0
+    [variant] => 
+    [product] => 0026
+    [t_packaging] => 
+    [packaging] => 0
+    [origin] => DE
+    [label] => 0
+    [quality_class] => 1
+    [brand] => 0
+    [quality] => 1
+    [items] => 0
+    [weight_item] => 0
+    [po_lot] => 
+    [po_barcode] => 
+    [po_trading_units] => 0
+    [po_packing_units] => 0
+    [po_pallet] => 
+    [po_pallets] => 0
+    [po_tu_pal] => 0
+    [inb_lot] => 
+    [inb_barcode] => 
+    [items_checked] => 0
+    [inb_trading_units] => 0
+    [inb_packing_units] => 0
+    [inb_pallet] => 
+    [inb_pallets] => 0
+    [inb_tu_pal] => 0
+    [po_brix_min] => 0
+    [po_brix_max] => 0
+    [inb_brix] => 0
+    [inb_certificate] => 1
+    [remarks] => 
+    [res_1] => 0
+    [base_1] => 0
+    [rp_1] => 0 %
+    [rl_1] => check_green
+    [res_2] => 0
+    [base_2] => 0
+    [rp_2] => 0 %
+    [rl_2] => check_green
+    [res_3] => 0
+    [base_3] => 0
+    [rp_3] => 0 %
+    [rl_3] => check_green
+    [res_4] => 0
+    [base_4] => 0
+    [rp_4] => 0 %
+    [rl_4] => check_green
+    [res_7] => 0
+    [base_7] => 0
+    [rp_7] => 0 %
+    [rl_7] => check_green
+    [res_6] => 0
+    [base_6] => 0
+    [rp_6] => 0 %
+    [rl_6] => check_green
+    [res_5] => 0
+    [base_5] => 0
+    [rp_5] => 0 %
+    [rl_5] => check_green
+    [res_10] => 0
+    [base_10] => 0
+    [rp_10] => 0 %
+    [rl_10] => check_green
+    [res_13] => 0
+    [base_13] => 0
+    [rp_13] => 0 %
+    [rl_13] => check_green
+    [res_12] => 0
+    [base_12] => 0
+    [rp_12] => 0 %
+    [rl_12] => check_green
+    [res_11] => 0
+    [base_11] => 0
+    [rp_11] => 0 %
+    [rl_11] => check_green
+    [res_9] => 0
+    [base_9] => 0
+    [rp_9] => 0 %
+    [rl_9] => check_green
+    [res_8] => 0
+    [base_8] => 0
+    [rp_8] => 0 %
+    [rl_8] => check_green
+    [res_15] => 0
+    [base_15] => 0
+    [rp_15] => 0
+    [rl_15] => check_green
+    [res_14] => 0
+    [base_14] => 0
+    [rp_14] => 0
+    [rl_14] => check_green
+    [res_16] => 0
+    [base_16] => 0
+    [rp_16] => nicht OK
+    [rl_16] => check_red
+    [res_17] => 0
+    [base_17] => 0
+    [rp_17] => nicht OK
+    [rl_17] => check_red
+    [res_18] => 0
+    [base_18] => 0
+    [rp_18] => 0
+    [rl_18] => check_green
+    [res_19] => 0
+    [base_19] => 0
+    [rp_19] => 0 %
+    [rl_19] => check_green
+)
+
+2017-10-20T15:01:33+02:00 INFO (6): SQL: SELECT tbl_HAN.HANVORNR, tbl_HAN.HANPOSNR, tbl_HAN.HANADRNR, tbl_LIE.LIENAME, tbl_LIE.LIESTRAS, tbl_LIE.LIEPLZOR, convert(varchar(25), tbl_HAN.HANLISDT, 127) AS HANLISDT, HANTABZT, tbl_HAN.HANARTTX, tbl_HAN.HANWARGR, tbl_art.ARTGEBIN, tbl_ART.ARTDURGW, tbl_HAN.HANPMENG, tbl_ART.ARTURSLD FROM tbl_HAN JOIN tbl_ART on (tbl_HAN.HANARTNR = tbl_ART.KEYIART1) join tbl_LIE on (tbl_han.HANADRNR = tbl_LIE.KEYILIE1) WHERE tbl_HAN.HANVORAR = 30 AND tbl_art.ARTAKTKZ = 'A' AND tbl_HAN.HANVORNR = '425999'
+2017-10-20T15:01:33+02:00 ERR (3): Fehler bei Abfrage von BTM-Bestellungen! [Microsoft][ODBC Driver 11 for SQL Server][SQL Server]Fehler bei der Anmeldung f�r den Benutzer 'readerbtm'.
+2017-10-20T15:05:35+02:00 INFO (6): editquality aufgerufen mit Inbound_sheet: Array
+(
+    [No] => 0
+    [inbound] => 0
+    [inb_line] => 0
+    [position] => 
+    [v_delivery_note] => 
+    [vendor] => 
+    [purchase_order] => 
+    [po_line] => 0
+    [po_line_line] => 0
+    [stock_location] => 1
+    [po_arrival_date] => 20.10.2017
+    [po_arrival_time] => 15:05
+    [inb_arrival_date] => 20.10.2017
+    [inb_arrival_time] => 15:05
+    [forwarder] => 
+    [truck] => 
+    [trailor] => 
+    [container] => 
+    [po_transport_temp_min] => 1.00
+    [po_transport_temp_max] => 4.00
+    [inb_transport_temp] => 0
+    [variant] => 
+    [product] => 0026
+    [t_packaging] => 
+    [packaging] => 0
+    [origin] => DE
+    [label] => 0
+    [quality_class] => 1
+    [brand] => 0
+    [quality] => 1
+    [items] => 0
+    [weight_item] => 0
+    [po_lot] => 
+    [po_barcode] => 
+    [po_trading_units] => 0
+    [po_packing_units] => 0
+    [po_pallet] => 
+    [po_pallets] => 0
+    [po_tu_pal] => 0
+    [inb_lot] => 
+    [inb_barcode] => 
+    [items_checked] => 0
+    [inb_trading_units] => 0
+    [inb_packing_units] => 0
+    [inb_pallet] => 
+    [inb_pallets] => 0
+    [inb_tu_pal] => 0
+    [po_brix_min] => 0
+    [po_brix_max] => 0
+    [inb_brix] => 0
+    [inb_certificate] => 1
+    [remarks] => 
+    [res_1] => 0
+    [base_1] => 0
+    [rp_1] => 0 %
+    [rl_1] => check_green
+    [res_2] => 0
+    [base_2] => 0
+    [rp_2] => 0 %
+    [rl_2] => check_green
+    [res_3] => 0
+    [base_3] => 0
+    [rp_3] => 0 %
+    [rl_3] => check_green
+    [res_4] => 0
+    [base_4] => 0
+    [rp_4] => 0 %
+    [rl_4] => check_green
+    [res_7] => 0
+    [base_7] => 0
+    [rp_7] => 0 %
+    [rl_7] => check_green
+    [res_6] => 0
+    [base_6] => 0
+    [rp_6] => 0 %
+    [rl_6] => check_green
+    [res_5] => 0
+    [base_5] => 0
+    [rp_5] => 0 %
+    [rl_5] => check_green
+    [res_10] => 0
+    [base_10] => 0
+    [rp_10] => 0 %
+    [rl_10] => check_green
+    [res_13] => 0
+    [base_13] => 0
+    [rp_13] => 0 %
+    [rl_13] => check_green
+    [res_12] => 0
+    [base_12] => 0
+    [rp_12] => 0 %
+    [rl_12] => check_green
+    [res_11] => 0
+    [base_11] => 0
+    [rp_11] => 0 %
+    [rl_11] => check_green
+    [res_9] => 0
+    [base_9] => 0
+    [rp_9] => 0 %
+    [rl_9] => check_green
+    [res_8] => 0
+    [base_8] => 0
+    [rp_8] => 0 %
+    [rl_8] => check_green
+    [res_15] => 0
+    [base_15] => 0
+    [rp_15] => 0
+    [rl_15] => check_green
+    [res_14] => 0
+    [base_14] => 0
+    [rp_14] => 0
+    [rl_14] => check_green
+    [res_16] => 0
+    [base_16] => 0
+    [rp_16] => nicht OK
+    [rl_16] => check_red
+    [res_17] => 0
+    [base_17] => 0
+    [rp_17] => nicht OK
+    [rl_17] => check_red
+    [res_18] => 0
+    [base_18] => 0
+    [rp_18] => 0
+    [rl_18] => check_green
+    [res_19] => 0
+    [base_19] => 0
+    [rp_19] => 0 %
+    [rl_19] => check_green
+)
+
+2017-10-20T15:05:41+02:00 INFO (6): SQL: SELECT tbl_HAN.HANVORNR, tbl_HAN.HANPOSNR, tbl_HAN.HANADRNR, tbl_LIE.LIENAME, tbl_LIE.LIESTRAS, tbl_LIE.LIEPLZOR, convert(varchar(25), tbl_HAN.HANLISDT, 127) AS HANLISDT, HANTABZT, tbl_HAN.HANARTTX, tbl_HAN.HANWARGR, tbl_art.ARTGEBIN, tbl_ART.ARTDURGW, tbl_HAN.HANPMENG, tbl_ART.ARTURSLD FROM tbl_HAN JOIN tbl_ART on (tbl_HAN.HANARTNR = tbl_ART.KEYIART1) join tbl_LIE on (tbl_han.HANADRNR = tbl_LIE.KEYILIE1) WHERE tbl_HAN.HANVORAR = 30 AND tbl_art.ARTAKTKZ = 'A' AND tbl_HAN.HANVORNR = '425999'
+2017-10-20T15:05:41+02:00 ERR (3): Fehler bei Abfrage von BTM-Bestellungen! [Microsoft][ODBC Driver 11 for SQL Server][SQL Server]Fehler bei der Anmeldung f�r den Benutzer 'readerbtm'.
+2017-10-20T15:59:07+02:00 INFO (6): $where: Array
+(
+    [inventory_head] => Array
+        (
+            [value] => 4
+            [type] => number
+        )
+
+    [position] => Array
+        (
+            [value] => 2
+            [type] => string
+        )
+
+)
+
+2017-10-20T15:59:07+02:00 INFO (6): SQL: SELECT * FROM v_inventory WHERE inventory_head = 4 AND UPPER(position) LIKE UPPER("%2%") ORDER BY position, inbound_line, No
+2017-10-20T15:59:09+02:00 INFO (6): $where: Array
+(
+    [inventory_head] => Array
+        (
+            [value] => 4
+            [type] => number
+        )
+
+    [position] => Array
+        (
+            [value] => 20
+            [type] => string
+        )
+
+)
+
+2017-10-20T15:59:09+02:00 INFO (6): SQL: SELECT * FROM v_inventory WHERE inventory_head = 4 AND UPPER(position) LIKE UPPER("%20%") ORDER BY position, inbound_line, No
+2017-10-20T15:59:10+02:00 INFO (6): $where: Array
+(
+    [inventory_head] => Array
+        (
+            [value] => 4
+            [type] => number
+        )
+
+    [position] => Array
+        (
+            [value] => 200
+            [type] => string
+        )
+
+)
+
+2017-10-20T15:59:10+02:00 INFO (6): SQL: SELECT * FROM v_inventory WHERE inventory_head = 4 AND UPPER(position) LIKE UPPER("%200%") ORDER BY position, inbound_line, No
+2017-10-20T15:59:10+02:00 INFO (6): $where: Array
+(
+    [inventory_head] => Array
+        (
+            [value] => 4
+            [type] => number
+        )
+
+    [position] => Array
+        (
+            [value] => 2008
+            [type] => string
+        )
+
+)
+
+2017-10-20T15:59:10+02:00 INFO (6): SQL: SELECT * FROM v_inventory WHERE inventory_head = 4 AND UPPER(position) LIKE UPPER("%2008%") ORDER BY position, inbound_line, No
+2017-10-20T15:59:11+02:00 INFO (6): $where: Array
+(
+    [inventory_head] => Array
+        (
+            [value] => 4
+            [type] => number
+        )
+
+    [position] => Array
+        (
+            [value] => 20081
+            [type] => string
+        )
+
+)
+
+2017-10-20T15:59:11+02:00 INFO (6): SQL: SELECT * FROM v_inventory WHERE inventory_head = 4 AND UPPER(position) LIKE UPPER("%20081%") ORDER BY position, inbound_line, No
+2017-10-20T15:59:30+02:00 INFO (6): Post-Request mit $_POST: Array
+(
+    [No] => 30
+    [inventory_head] => 4
+    [inbound_line] => 4
+    [room] => 0
+    [rack] => 0
+    [tu_pallet] => 200
+    [pallets] => 1
+    [trading_units] => 200
+    [default_TU] => 0
+    [overwrite] => false
+)
+
+2017-10-20T15:59:30+02:00 INFO (6): Fehler: Array
+(
+)
+
+2017-10-20T15:59:30+02:00 INFO (6): dev_inventory: Array
+(
+    [No] => 30
+    [inventory_head] => 4
+    [inbound_line] => 4
+    [date] => 2017-10-12
+    [room] => 0
+    [rack] => 0
+    [level] => 0
+    [pallets] => 0
+    [tu_pallet] => 200
+    [trading_units] => 0
+)
+
+2017-10-20T15:59:30+02:00 INFO (6): default_tradingUnits: 0
+2017-10-20T15:59:30+02:00 INFO (6): overwrite: 
+2017-10-20T15:59:30+02:00 INFO (6): Die Inventory wurde gespeichert: Array
+(
+    [inventory_head] => 4
+    [inbound_line] => 4
+    [room] => 0
+    [rack] => 0
+    [level] => 0
+    [pallets] => 1
+    [tu_pallet] => 200
+    [trading_units] => 200
+    [No] => 30
+)
+
+2017-10-20T15:59:41+02:00 INFO (6): $where: Array
+(
+    [inventory_head] => Array
+        (
+            [value] => 4
+            [type] => number
+        )
+
+)
+
+2017-10-20T15:59:41+02:00 INFO (6): SQL: SELECT * FROM v_inventory WHERE inventory_head = 4 ORDER BY position, inbound_line, No
+2017-10-20T16:00:54+02:00 INFO (6): Post-Request mit $_POST: Array
+(
+    [No] => 0
+    [inventory_head] => 4
+    [inbound_line] => 1
+    [room] => 7
+    [rack] => 5
+    [tu_pallet] => 200
+    [pallets] => 1
+    [trading_units] => 200
+    [default_TU] => 0
+    [t_packaging] => K438
+    [packaging] => 2
+    [label] => 1
+    [inb_lot] => L4205
+    [overwrite] => false
+)
+
+2017-10-20T16:00:54+02:00 INFO (6): Fehler: Array
+(
+)
+
+2017-10-20T16:00:54+02:00 INFO (6): Variante: Array
+(
+    [No] => 0031PL12125K43821110
+    [product] => 0031
+    [origin] => PL
+    [variant] => 
+    [items] => 12
+    [weight_item] => 125
+    [packaging] => 2
+    [label] => 1
+    [t_packaging] => K438
+    [quality_class] => 1
+    [brand] => 0
+    [quality] => 1
+)
+
+2017-10-20T16:00:54+02:00 INFO (6): new_line: 1
+2017-10-20T16:00:54+02:00 INFO (6): Inbound_Line: Array
+(
+    [lot] => L4205
+)
+
+2017-10-20T16:00:54+02:00 INFO (6): cur_inbound_line: Array
+(
+    [No] => 1
+    [inbound] => 1
+    [line] => 10000
+    [purchase_order] => 425429
+    [po_line] => 1
+    [product] => 0031
+    [variant] => 0031PL12125K438615110
+    [trading_units] => 2000
+    [packing_units] => 24000
+    [pallet] => 1
+    [pallets] => 10
+    [tu_pallet] => 200
+    [lot] => 
+    [barcode] => 
+    [certificate] => 2
+    [brix] => 0.00
+    [ass_line] => 0
+    [items_checked] => 100
+    [remarks] => 
+)
+
+2017-10-20T16:00:54+02:00 INFO (6): po_line_in gespeichert: Array
+(
+    [production_order] => 23
+    [type] => 1
+    [line] => 10000
+    [product] => 0031
+    [variant] => 0031PL12125K438615110
+    [trading_units] => 200
+    [packing_units] => 2400
+    [pallet] => 1
+    [pallets] => 1
+    [tu_pallet] => 200
+    [start] => 2017-10-20 16:00:54
+    [end] => 2017-10-20 16:00:54
+    [No] => 39
+)
+
+2017-10-20T16:00:54+02:00 INFO (6): po_line_out gespeichert: Array
+(
+    [production_order] => 23
+    [type] => 2
+    [line] => 10000
+    [product] => 0031
+    [variant] => 0031PL12125K43821110
+    [trading_units] => 200
+    [packing_units] => 2400
+    [pallet] => 1
+    [pallets] => 1
+    [tu_pallet] => 200
+    [start] => 2017-10-20 16:00:54
+    [end] => 2017-10-20 16:00:54
+    [No] => 40
+)
+
+2017-10-20T16:00:54+02:00 INFO (6): Neue Inbound_line: Array
+(
+    [No] => 10
+    [inbound] => 1
+    [line] => 40000
+    [purchase_order] => 425429
+    [po_line] => 1
+    [product] => 0031
+    [variant] => 0031PL12125K43821110
+    [trading_units] => 0
+    [packing_units] => 0
+    [pallet] => 1
+    [pallets] => 10
+    [tu_pallet] => 200
+    [lot] => L4205
+    [barcode] => 
+    [certificate] => 2
+    [brix] => 0.00
+    [ass_line] => 0
+    [items_checked] => 100
+    [remarks] => 
+)
+
+2017-10-20T16:00:54+02:00 INFO (6): Movement: Array
+(
+    [No] => 0
+    [movement] => 2
+    [date] => 2017-10-20 16:00:54
+    [trading_units] => 200
+    [packing_units] => 2400
+    [trading_units_production] => 200
+    [packing_units_production] => 2400
+    [status] => 3
+    [type] => 2
+    [stock_location] => 1
+    [remarks] => Packauftrag bei Zählung
+    [inbound_line] => 1
+    [out_order_line] => 39
+    [outbound_line] => 39
+)
+
+2017-10-20T16:00:54+02:00 INFO (6): Bewegung wurde gespeichert mit No: 12
+2017-10-20T16:00:54+02:00 INFO (6): Movement: Array
+(
+    [No] => 0
+    [movement] => 1
+    [date] => 2017-10-20 16:00:54
+    [trading_units] => 200
+    [packing_units] => 2400
+    [trading_units_production] => 200
+    [packing_units_production] => 2400
+    [status] => 3
+    [type] => 2
+    [stock_location] => 1
+    [remarks] => Packauftrag bei Zählung
+    [inbound_line] => 10
+    [out_order_line] => 0
+    [outbound_line] => 0
+    [in_order_line] => 40
+)
+
+2017-10-20T16:00:54+02:00 INFO (6): Bewegung wurde gespeichert mit No: 13
+2017-10-20T16:00:54+02:00 INFO (6): Die Inventory wurde neu hinzugefügt: Array
+(
+    [inventory_head] => 4
+    [inbound_line] => 10
+    [room] => 7
+    [rack] => 5
+    [level] => 0
+    [pallets] => 1
+    [tu_pallet] => 200
+    [trading_units] => 200
+    [date] => 2017-10-20 16:00:54
+    [No] => 44
+)
+
+2017-10-20T16:09:19+02:00 INFO (6): $where: Array
+(
+    [inventory_head] => Array
+        (
+            [value] => 4
+            [type] => number
+        )
+
+    [product] => Array
+        (
+            [value] => 0030
+            [type] => string
+        )
+
+)
+
+2017-10-20T16:09:19+02:00 INFO (6): SQL: SELECT * FROM v_inventory WHERE inventory_head = 4 AND UPPER(product) LIKE UPPER("%0030%") ORDER BY position, inbound_line, No
+2017-10-20T16:11:16+02:00 INFO (6): Post-Request mit $_POST: Array
+(
+    [No] => 0
+    [inventory_head] => 4
+    [inbound_line] => 8
+    [room] => 6
+    [rack] => 5
+    [tu_pallet] => 72
+    [pallets] => 2
+    [trading_units] => 144
+    [default_TU] => 0
+    [t_packaging] => E6413
+    [packaging] => 1
+    [label] => 4
+    [inb_lot] => L 4405
+    [overwrite] => false
+)
+
+2017-10-20T16:11:16+02:00 INFO (6): Fehler: Array
+(
+)
+
+2017-10-20T16:11:16+02:00 INFO (6): Variante: Array
+(
+    [No] => 0030DE10500E641314110
+    [product] => 0030
+    [origin] => DE
+    [variant] => 
+    [items] => 10
+    [weight_item] => 500
+    [packaging] => 1
+    [label] => 4
+    [t_packaging] => E6413
+    [quality_class] => 1
+    [brand] => 0
+    [quality] => 1
+)
+
+2017-10-20T16:11:16+02:00 INFO (6): new_line: 1
+2017-10-20T16:11:16+02:00 INFO (6): Inbound_Line: Array
+(
+    [lot] => L 4405
+)
+
+2017-10-20T16:11:16+02:00 INFO (6): cur_inbound_line: Array
+(
+    [No] => 8
+    [inbound] => 5
+    [line] => 10000
+    [purchase_order] => 425390
+    [po_line] => 6
+    [product] => 0030
+    [variant] => 0030DE10500E6413615110
+    [trading_units] => 576
+    [packing_units] => 5760
+    [pallet] => 1
+    [pallets] => 8
+    [tu_pallet] => 72
+    [lot] => 
+    [barcode] => 
+    [certificate] => 1
+    [brix] => 0.00
+    [ass_line] => 0
+    [items_checked] => 100
+    [remarks] => Vereinzelt Verderb
+)
+
+2017-10-20T16:11:16+02:00 INFO (6): po_line_in gespeichert: Array
+(
+    [production_order] => 24
+    [type] => 1
+    [line] => 10000
+    [product] => 0030
+    [variant] => 0030DE10500E6413615110
+    [trading_units] => 144
+    [packing_units] => 1440
+    [pallet] => 1
+    [pallets] => 2
+    [tu_pallet] => 72
+    [start] => 2017-10-20 16:11:16
+    [end] => 2017-10-20 16:11:16
+    [No] => 41
+)
+
+2017-10-20T16:11:16+02:00 INFO (6): po_line_out gespeichert: Array
+(
+    [production_order] => 24
+    [type] => 2
+    [line] => 10000
+    [product] => 0030
+    [variant] => 0030DE10500E641314110
+    [trading_units] => 144
+    [packing_units] => 1440
+    [pallet] => 1
+    [pallets] => 2
+    [tu_pallet] => 72
+    [start] => 2017-10-20 16:11:16
+    [end] => 2017-10-20 16:11:16
+    [No] => 42
+)
+
+2017-10-20T16:11:16+02:00 INFO (6): Neue Inbound_line: Array
+(
+    [No] => 11
+    [inbound] => 5
+    [line] => 20000
+    [purchase_order] => 425390
+    [po_line] => 6
+    [product] => 0030
+    [variant] => 0030DE10500E641314110
+    [trading_units] => 0
+    [packing_units] => 0
+    [pallet] => 1
+    [pallets] => 8
+    [tu_pallet] => 72
+    [lot] => L 4405
+    [barcode] => 
+    [certificate] => 1
+    [brix] => 0.00
+    [ass_line] => 0
+    [items_checked] => 100
+    [remarks] => Vereinzelt Verderb
+)
+
+2017-10-20T16:11:16+02:00 INFO (6): Movement: Array
+(
+    [No] => 0
+    [movement] => 2
+    [date] => 2017-10-20 16:11:16
+    [trading_units] => 144
+    [packing_units] => 1440
+    [trading_units_production] => 144
+    [packing_units_production] => 1440
+    [status] => 3
+    [type] => 2
+    [stock_location] => 1
+    [remarks] => Packauftrag bei Zählung
+    [inbound_line] => 8
+    [out_order_line] => 41
+    [outbound_line] => 41
+)
+
+2017-10-20T16:11:16+02:00 INFO (6): Bewegung wurde gespeichert mit No: 14
+2017-10-20T16:11:16+02:00 INFO (6): Movement: Array
+(
+    [No] => 0
+    [movement] => 1
+    [date] => 2017-10-20 16:11:16
+    [trading_units] => 144
+    [packing_units] => 1440
+    [trading_units_production] => 144
+    [packing_units_production] => 1440
+    [status] => 3
+    [type] => 2
+    [stock_location] => 1
+    [remarks] => Packauftrag bei Zählung
+    [inbound_line] => 11
+    [out_order_line] => 0
+    [outbound_line] => 0
+    [in_order_line] => 42
+)
+
+2017-10-20T16:11:16+02:00 INFO (6): Bewegung wurde gespeichert mit No: 15
+2017-10-20T16:11:16+02:00 INFO (6): Die Inventory wurde neu hinzugefügt: Array
+(
+    [inventory_head] => 4
+    [inbound_line] => 11
+    [room] => 6
+    [rack] => 5
+    [level] => 0
+    [pallets] => 2
+    [tu_pallet] => 72
+    [trading_units] => 144
+    [date] => 2017-10-20 16:11:16
+    [No] => 45
+)
+
+2017-10-20T16:14:57+02:00 INFO (6): $where: Array
+(
+    [inventory_head] => Array
+        (
+            [value] => 4
+            [type] => number
+        )
+
+    [product] => Array
+        (
+            [value] => 0030
+            [type] => string
+        )
+
+)
+
+2017-10-20T16:14:57+02:00 INFO (6): SQL: SELECT * FROM v_inventory WHERE inventory_head = 4 AND UPPER(product) LIKE UPPER("%0030%") ORDER BY position, inbound_line, No
+2017-10-20T16:19:13+02:00 INFO (6): InboundController->IndexAction called
+2017-10-20T16:28:20+02:00 INFO (6): Post-Request mit $_POST: Array
+(
+    [No] => 0
+    [inventory_head] => 4
+    [inbound_line] => 8
+    [room] => 6
+    [rack] => 0
+    [tu_pallet] => 72
+    [pallets] => 1
+    [trading_units] => 72
+    [default_TU] => 0
+    [t_packaging] => E6413
+    [packaging] => 1
+    [label] => 13
+    [inb_lot] => L 4405
+    [overwrite] => false
+)
+
+2017-10-20T16:28:20+02:00 INFO (6): Fehler: Array
+(
+)
+
+2017-10-20T16:28:20+02:00 INFO (6): Variante: Array
+(
+    [No] => 0030DE10500E6413113110
+    [product] => 0030
+    [origin] => DE
+    [variant] => 
+    [items] => 10
+    [weight_item] => 500
+    [packaging] => 1
+    [label] => 13
+    [t_packaging] => E6413
+    [quality_class] => 1
+    [brand] => 0
+    [quality] => 1
+)
+
+2017-10-20T16:28:20+02:00 INFO (6): new_line: 1
+2017-10-20T16:28:20+02:00 INFO (6): Inbound_Line: Array
+(
+    [lot] => L 4405
+)
+
+2017-10-20T16:28:20+02:00 INFO (6): cur_inbound_line: Array
+(
+    [No] => 8
+    [inbound] => 5
+    [line] => 10000
+    [purchase_order] => 425390
+    [po_line] => 6
+    [product] => 0030
+    [variant] => 0030DE10500E6413615110
+    [trading_units] => 576
+    [packing_units] => 5760
+    [pallet] => 1
+    [pallets] => 8
+    [tu_pallet] => 72
+    [lot] => 
+    [barcode] => 
+    [certificate] => 1
+    [brix] => 0.00
+    [ass_line] => 0
+    [items_checked] => 100
+    [remarks] => Vereinzelt Verderb
+)
+
+2017-10-20T16:28:20+02:00 INFO (6): po_line_in gespeichert: Array
+(
+    [production_order] => 25
+    [type] => 1
+    [line] => 10000
+    [product] => 0030
+    [variant] => 0030DE10500E6413615110
+    [trading_units] => 72
+    [packing_units] => 720
+    [pallet] => 1
+    [pallets] => 1
+    [tu_pallet] => 72
+    [start] => 2017-10-20 16:28:20
+    [end] => 2017-10-20 16:28:20
+    [No] => 43
+)
+
+2017-10-20T16:28:20+02:00 INFO (6): po_line_out gespeichert: Array
+(
+    [production_order] => 25
+    [type] => 2
+    [line] => 10000
+    [product] => 0030
+    [variant] => 0030DE10500E6413113110
+    [trading_units] => 72
+    [packing_units] => 720
+    [pallet] => 1
+    [pallets] => 1
+    [tu_pallet] => 72
+    [start] => 2017-10-20 16:28:20
+    [end] => 2017-10-20 16:28:20
+    [No] => 44
+)
+
+2017-10-20T16:28:20+02:00 INFO (6): Neue Inbound_line: Array
+(
+    [No] => 12
+    [inbound] => 5
+    [line] => 30000
+    [purchase_order] => 425390
+    [po_line] => 6
+    [product] => 0030
+    [variant] => 0030DE10500E6413113110
+    [trading_units] => 0
+    [packing_units] => 0
+    [pallet] => 1
+    [pallets] => 8
+    [tu_pallet] => 72
+    [lot] => L 4405
+    [barcode] => 
+    [certificate] => 1
+    [brix] => 0.00
+    [ass_line] => 0
+    [items_checked] => 100
+    [remarks] => Vereinzelt Verderb
+)
+
+2017-10-20T16:28:20+02:00 INFO (6): Movement: Array
+(
+    [No] => 0
+    [movement] => 2
+    [date] => 2017-10-20 16:28:20
+    [trading_units] => 72
+    [packing_units] => 720
+    [trading_units_production] => 72
+    [packing_units_production] => 720
+    [status] => 3
+    [type] => 2
+    [stock_location] => 1
+    [remarks] => Packauftrag bei Zählung
+    [inbound_line] => 8
+    [out_order_line] => 43
+    [outbound_line] => 43
+)
+
+2017-10-20T16:28:20+02:00 INFO (6): Bewegung wurde gespeichert mit No: 16
+2017-10-20T16:28:20+02:00 INFO (6): Movement: Array
+(
+    [No] => 0
+    [movement] => 1
+    [date] => 2017-10-20 16:28:20
+    [trading_units] => 72
+    [packing_units] => 720
+    [trading_units_production] => 72
+    [packing_units_production] => 720
+    [status] => 3
+    [type] => 2
+    [stock_location] => 1
+    [remarks] => Packauftrag bei Zählung
+    [inbound_line] => 12
+    [out_order_line] => 0
+    [outbound_line] => 0
+    [in_order_line] => 44
+)
+
+2017-10-20T16:28:20+02:00 INFO (6): Bewegung wurde gespeichert mit No: 17
+2017-10-20T16:28:20+02:00 INFO (6): Die Inventory wurde neu hinzugefügt: Array
+(
+    [inventory_head] => 4
+    [inbound_line] => 12
+    [room] => 6
+    [rack] => 0
+    [level] => 0
+    [pallets] => 1
+    [tu_pallet] => 72
+    [trading_units] => 72
+    [date] => 2017-10-20 16:28:20
+    [No] => 46
+)
+
+2017-10-20T16:30:43+02:00 INFO (6): $where: Array
+(
+    [inventory_head] => Array
+        (
+            [value] => 4
+            [type] => number
+        )
+
+    [product] => Array
+        (
+            [value] => 0026
+            [type] => string
+        )
+
+)
+
+2017-10-20T16:30:43+02:00 INFO (6): SQL: SELECT * FROM v_inventory WHERE inventory_head = 4 AND UPPER(product) LIKE UPPER("%0026%") ORDER BY position, inbound_line, No
+2017-10-20T16:30:49+02:00 INFO (6): $where: Array
+(
+    [inventory_head] => Array
+        (
+            [value] => 4
+            [type] => number
+        )
+
+    [product] => Array
+        (
+            [value] => 0032
+            [type] => string
+        )
+
+)
+
+2017-10-20T16:30:49+02:00 INFO (6): SQL: SELECT * FROM v_inventory WHERE inventory_head = 4 AND UPPER(product) LIKE UPPER("%0032%") ORDER BY position, inbound_line, No
+2017-10-20T16:31:04+02:00 INFO (6): $where: Array
+(
+    [inventory_head] => Array
+        (
+            [value] => 4
+            [type] => number
+        )
+
+    [position] => Array
+        (
+            [value] => 3
+            [type] => string
+        )
+
+)
+
+2017-10-20T16:31:04+02:00 INFO (6): SQL: SELECT * FROM v_inventory WHERE inventory_head = 4 AND UPPER(position) LIKE UPPER("%3%") ORDER BY position, inbound_line, No
+2017-10-20T16:31:04+02:00 INFO (6): $where: Array
+(
+    [inventory_head] => Array
+        (
+            [value] => 4
+            [type] => number
+        )
+
+    [position] => Array
+        (
+            [value] => 30
+            [type] => string
+        )
+
+)
+
+2017-10-20T16:31:04+02:00 INFO (6): SQL: SELECT * FROM v_inventory WHERE inventory_head = 4 AND UPPER(position) LIKE UPPER("%30%") ORDER BY position, inbound_line, No
+2017-10-20T16:31:06+02:00 INFO (6): $where: Array
+(
+    [inventory_head] => Array
+        (
+            [value] => 4
+            [type] => number
+        )
+
+    [position] => Array
+        (
+            [value] => 300
+            [type] => string
+        )
+
+)
+
+2017-10-20T16:31:06+02:00 INFO (6): SQL: SELECT * FROM v_inventory WHERE inventory_head = 4 AND UPPER(position) LIKE UPPER("%300%") ORDER BY position, inbound_line, No
+2017-10-20T16:31:06+02:00 INFO (6): $where: Array
+(
+    [inventory_head] => Array
+        (
+            [value] => 4
+            [type] => number
+        )
+
+    [position] => Array
+        (
+            [value] => 3005
+            [type] => string
+        )
+
+)
+
+2017-10-20T16:31:06+02:00 INFO (6): SQL: SELECT * FROM v_inventory WHERE inventory_head = 4 AND UPPER(position) LIKE UPPER("%3005%") ORDER BY position, inbound_line, No
+2017-10-20T16:31:07+02:00 INFO (6): $where: Array
+(
+    [inventory_head] => Array
+        (
+            [value] => 4
+            [type] => number
+        )
+
+    [position] => Array
+        (
+            [value] => 30056
+            [type] => string
+        )
+
+)
+
+2017-10-20T16:31:07+02:00 INFO (6): SQL: SELECT * FROM v_inventory WHERE inventory_head = 4 AND UPPER(position) LIKE UPPER("%30056%") ORDER BY position, inbound_line, No
+2017-10-20T16:33:11+02:00 INFO (6): $where: Array
+(
+    [inventory_head] => Array
+        (
+            [value] => 4
+            [type] => number
+        )
+
+)
+
+2017-10-20T16:33:11+02:00 INFO (6): SQL: SELECT * FROM v_inventory WHERE inventory_head = 4 ORDER BY position, inbound_line, No
+2017-10-20T16:34:41+02:00 INFO (6): $where: Array
+(
+    [inventory_head] => Array
+        (
+            [value] => 4
+            [type] => number
+        )
+
+    [product] => Array
+        (
+            [value] => 0030
+            [type] => string
+        )
+
+)
+
+2017-10-20T16:34:41+02:00 INFO (6): SQL: SELECT * FROM v_inventory WHERE inventory_head = 4 AND UPPER(product) LIKE UPPER("%0030%") ORDER BY position, inbound_line, No
+2017-10-20T16:35:10+02:00 INFO (6): $where: Array
+(
+    [inventory_head] => Array
+        (
+            [value] => 4
+            [type] => number
+        )
+
+    [product] => Array
+        (
+            [value] => 0030
+            [type] => string
+        )
+
+)
+
+2017-10-20T16:35:10+02:00 INFO (6): SQL: SELECT * FROM v_inventory WHERE inventory_head = 4 AND UPPER(product) LIKE UPPER("%0030%") ORDER BY position, inbound_line, No
+2017-10-20T16:58:31+02:00 INFO (6): $where: Array
+(
+    [inventory_head] => Array
+        (
+            [value] => 4
+            [type] => number
+        )
+
+    [position] => Array
+        (
+            [value] => 2
+            [type] => string
+        )
+
+    [product] => Array
+        (
+            [value] => 0030
+            [type] => string
+        )
+
+)
+
+2017-10-20T16:58:31+02:00 INFO (6): SQL: SELECT * FROM v_inventory WHERE inventory_head = 4 AND UPPER(position) LIKE UPPER("%2%") AND UPPER(product) LIKE UPPER("%0030%") ORDER BY position, inbound_line, No
+2017-10-20T16:59:24+02:00 INFO (6): Post-Request mit $_POST: Array
+(
+    [No] => 0
+    [inventory_head] => 4
+    [inbound_line] => 6
+    [room] => 6
+    [rack] => 5
+    [tu_pallet] => 72
+    [pallets] => 1
+    [trading_units] => 72
+    [default_TU] => 0
+    [t_packaging] => ILL6410
+    [packaging] => 1
+    [label] => 16
+    [inb_lot] => L 4405
+    [overwrite] => false
+)
+
+2017-10-20T16:59:24+02:00 INFO (6): Fehler: Array
+(
+)
+
+2017-10-20T16:59:24+02:00 INFO (6): Variante: Array
+(
+    [No] => 0030DE10500ILL6410116110
+    [product] => 0030
+    [origin] => DE
+    [variant] => 
+    [items] => 10
+    [weight_item] => 500
+    [packaging] => 1
+    [label] => 16
+    [t_packaging] => ILL6410
+    [quality_class] => 1
+    [brand] => 0
+    [quality] => 1
+)
+
+2017-10-20T16:59:24+02:00 INFO (6): new_line: 1
+2017-10-20T16:59:24+02:00 INFO (6): Inbound_Line: Array
+(
+    [lot] => L 4405
+)
+
+2017-10-20T16:59:24+02:00 INFO (6): cur_inbound_line: Array
+(
+    [No] => 6
+    [inbound] => 3
+    [line] => 20000
+    [purchase_order] => 425219
+    [po_line] => 4
+    [product] => 0030
+    [variant] => 0030DE10500ILL6410615110
+    [trading_units] => 288
+    [packing_units] => 2880
+    [pallet] => 1
+    [pallets] => 4
+    [tu_pallet] => 72
+    [lot] => 
+    [barcode] => 
+    [certificate] => 1
+    [brix] => 0.00
+    [ass_line] => 0
+    [items_checked] => 100
+    [remarks] => 
+)
+
+2017-10-20T16:59:24+02:00 INFO (6): po_line_in gespeichert: Array
+(
+    [production_order] => 26
+    [type] => 1
+    [line] => 10000
+    [product] => 0030
+    [variant] => 0030DE10500ILL6410615110
+    [trading_units] => 72
+    [packing_units] => 720
+    [pallet] => 1
+    [pallets] => 1
+    [tu_pallet] => 72
+    [start] => 2017-10-20 16:59:24
+    [end] => 2017-10-20 16:59:24
+    [No] => 45
+)
+
+2017-10-20T16:59:24+02:00 INFO (6): po_line_out gespeichert: Array
+(
+    [production_order] => 26
+    [type] => 2
+    [line] => 10000
+    [product] => 0030
+    [variant] => 0030DE10500ILL6410116110
+    [trading_units] => 72
+    [packing_units] => 720
+    [pallet] => 1
+    [pallets] => 1
+    [tu_pallet] => 72
+    [start] => 2017-10-20 16:59:24
+    [end] => 2017-10-20 16:59:24
+    [No] => 46
+)
+
+2017-10-20T16:59:24+02:00 INFO (6): Neue Inbound_line: Array
+(
+    [No] => 13
+    [inbound] => 3
+    [line] => 30000
+    [purchase_order] => 425219
+    [po_line] => 4
+    [product] => 0030
+    [variant] => 0030DE10500ILL6410116110
+    [trading_units] => 0
+    [packing_units] => 0
+    [pallet] => 1
+    [pallets] => 4
+    [tu_pallet] => 72
+    [lot] => L 4405
+    [barcode] => 
+    [certificate] => 1
+    [brix] => 0.00
+    [ass_line] => 0
+    [items_checked] => 100
+    [remarks] => 
+)
+
+2017-10-20T16:59:24+02:00 INFO (6): Movement: Array
+(
+    [No] => 0
+    [movement] => 2
+    [date] => 2017-10-20 16:59:24
+    [trading_units] => 72
+    [packing_units] => 720
+    [trading_units_production] => 72
+    [packing_units_production] => 720
+    [status] => 3
+    [type] => 2
+    [stock_location] => 1
+    [remarks] => Packauftrag bei Zählung
+    [inbound_line] => 6
+    [out_order_line] => 45
+    [outbound_line] => 45
+)
+
+2017-10-20T16:59:24+02:00 INFO (6): Bewegung wurde gespeichert mit No: 18
+2017-10-20T16:59:24+02:00 INFO (6): Movement: Array
+(
+    [No] => 0
+    [movement] => 1
+    [date] => 2017-10-20 16:59:24
+    [trading_units] => 72
+    [packing_units] => 720
+    [trading_units_production] => 72
+    [packing_units_production] => 720
+    [status] => 3
+    [type] => 2
+    [stock_location] => 1
+    [remarks] => Packauftrag bei Zählung
+    [inbound_line] => 13
+    [out_order_line] => 0
+    [outbound_line] => 0
+    [in_order_line] => 46
+)
+
+2017-10-20T16:59:24+02:00 INFO (6): Bewegung wurde gespeichert mit No: 19
+2017-10-20T16:59:24+02:00 INFO (6): Die Inventory wurde neu hinzugefügt: Array
+(
+    [inventory_head] => 4
+    [inbound_line] => 13
+    [room] => 6
+    [rack] => 5
+    [level] => 0
+    [pallets] => 1
+    [tu_pallet] => 72
+    [trading_units] => 72
+    [date] => 2017-10-20 16:59:24
+    [No] => 47
+)
+
+2017-10-20T16:59:49+02:00 INFO (6): $where: Array
+(
+    [inventory_head] => Array
+        (
+            [value] => 4
+            [type] => number
+        )
+
+    [position] => Array
+        (
+            [value] => 2
+            [type] => string
+        )
+
+    [product] => Array
+        (
+            [value] => 0030
+            [type] => string
+        )
+
+)
+
+2017-10-20T16:59:49+02:00 INFO (6): SQL: SELECT * FROM v_inventory WHERE inventory_head = 4 AND UPPER(position) LIKE UPPER("%2%") AND UPPER(product) LIKE UPPER("%0030%") ORDER BY position, inbound_line, No
+2017-10-20T17:01:23+02:00 INFO (6): $where: Array
+(
+    [inventory_head] => Array
+        (
+            [value] => 4
+            [type] => number
+        )
+
+    [position] => Array
+        (
+            [value] => 201
+            [type] => string
+        )
+
+)
+
+2017-10-20T17:01:23+02:00 INFO (6): SQL: SELECT * FROM v_inventory WHERE inventory_head = 4 AND UPPER(position) LIKE UPPER("%201%") ORDER BY position, inbound_line, No

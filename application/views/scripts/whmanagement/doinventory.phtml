@@ -258,7 +258,7 @@ function sendInventory(element, overwrite)
 						TU_pallet.id = 'tu_pallet_'+newSufix;
 						trading_units.name = 'trading_units_'+newSufix;
 						trading_units.id = 'trading_units_'+newSufix;
-						filterInventoryLines();
+						setTimeout(filterInventoryLines(), 2000);
 						trading_units.focus();
 					}
 				} else {
@@ -427,7 +427,7 @@ function addLine(sufix)
 	<th class="data">Verpackung</th>
 	<th class="data">Etikett</th>
 	<th class="data">Los</th>
-	<th class="data">WE</th>
+	<th class="data">Datum</th>
 	<th class="data">Sollbestand</th>
 	<th class="data">Raum</th>
 	<th class="data">Regal</th>
@@ -450,7 +450,7 @@ function addLine(sufix)
 	<td class="data" data-packaging="<?php echo $inventory_line['packaging_no']; ?>"><?php echo $inventory_line['packaging']; ?></td>
 	<td class="data" data-label="<?php echo $inventory_line['label_no']; ?>"><?php echo $inventory_line['label']; ?></td>
 	<td class="data"><?php echo $inventory_line['inb_lot']; ?></td>
-	<td class="data"><?php echo split(' ',$inventory_line['inb_arrival'])[0]; ?></td>
+	<td class="data"><?php echo date('d.m.Y',strtotime($inventory_line['inb_arrival'])); ?></td>
 	<td class="data"><?php echo $inventory_line['stock']; ?></td>
 	<td class="data"><select id="room_<?php echo $sufix; ?>" name="room_<?php echo $sufix; ?>">
 					<?php foreach ($rooms as $room) : ?>
