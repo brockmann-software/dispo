@@ -114,7 +114,7 @@ class inboundController extends Zend_Controller_Action
 		$count_inb = $this->db->query("SELECT COUNT(DISTINCT inbound) AS CNT FROM v_inb_line".$whereClause)->fetchAll()[0]['CNT'];
 		$pages = floor($count_inb/20)+1;
 		$inbound = $this->db->query("select * from v_inb_line".$whereClause." GROUP BY inbound ORDER BY inb_arrival DESC LIMIT 20")->fetchAll();
-		$inbound_lines = $this->db->query('SELECT * from v_inb_line WHERE inbound = ?', $inbound[0]['inbound']);
+		(count($inbound)>0) ? $inbound_lines = $this->db->query('SELECT * from v_inb_line WHERE inbound = ?', $inbound[0]['inbound']) : $inbound_lines = array();
 		$this->view->pages = $pages;
 		$this->view->count_inb = $count_inb;
 		$this->view->inbounds = $inbound;
