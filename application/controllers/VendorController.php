@@ -319,8 +319,11 @@ class VendorController extends Zend_Controller_Action
 					if ($vendor_agreement['No']==0) {
 						unset($vendor_agreement['No']);
 						$vendor_agreement_Table->insert($vendor_agreement);
+						$vendor_agreement['No'] = $this->db->lastInsertId();
+						$this->logger->info('Vendor Agreement hinzugefügt: '.print_r($vendor_agreement, true));
 					} else {
 						$vendor_agreement_Table->update($vendor_agreement, array('No = ?'=>$vendor_agreement['No']));
+						$this->logger->info('Vendor Agreement geändert: '.print_r($vendor_agreement, true));
 					}
 				} catch (Exception $e) {
 					$errors['all'] = 'Lieferantenvereinbarung wurden nicht gespeichert!';
@@ -330,13 +333,14 @@ class VendorController extends Zend_Controller_Action
 			if (count($errors)==0) $errors['no_error'] = 'Änderungen erfolgreich';
 		}		
 		($this->hasParam('vendor')) ? $vendor = $this->getParam('vendor') : $errors['vendor'] = 'Keine Lieferantennummer vorhanden!';
-		if ($this->hasParam('No')) {
+		if ($this->hasParam('No') && ($this->getParam('No')<>0)) {
+			$this->logger->info('Agreement No: '.print_r($this->getParam('No')));
 			$vendor_agreement = $this->db->query('SELECT * FROM vendor_agreement WHERE No = ?', $this->getParam('No'))->fetchAll()[0];
 		} else {
 			$vendor_agreement = array(
 				'No' => 0,
-				'vendor' => $cert_vendor,
-				'version_year' => date('Y'),
+				'vendor' => $this->getParam('vendor'),
+				'version_year' => 'V_14',
 				'received' => 0,
 				'responsible' => '',
 				'date_received' => '',
