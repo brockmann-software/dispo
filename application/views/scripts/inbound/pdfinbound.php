@@ -135,8 +135,8 @@ foreach($this->qc_classes as $qc_class) {
 		$qc_no++;
 	}
 }
-$page->drawText($inbound_line['remarks'], 22, 114, 'utf-8');
-$page->drawText('Kontrolliert von: '.$inbound_line['checked_by'], 22, 60, 'utf-8');
+$page->drawText($this->inbound_line['remarks'], 22, 114, 'utf-8');
+$page->drawText('Kontrolliert von: '.$this->inbound_line['checked_by'], 22, 60, 'utf-8');
 $img_count = count($this->pictures);
 $picPerPage = 0;
 Zend_Registry::get('logger')->info('Attachments: '.print_r($this->attachments, true));
