@@ -462,6 +462,7 @@ class inboundController extends Zend_Controller_Action
 			(isset($_POST['inb_brix'])) ? $inbound_line['brix']=$_POST['inb_brix'] : $inb_line['brix']=0;
 			(isset($_POST['items_checked'])) ? $inbound_line['items_checked'] = $_POST['items_checked'] : $inbound_line['items_checked'] = 0;
 			(isset($_POST['remarks'])) ? $inbound_line['remarks'] = $_POST['remarks'] : $inbound_line['remarks'] = '';
+			(isset($_POST['checked_by'])) ? $inbound_line['checked_by'] = $_POST['checked_by'] : $inbound_line['checked_by'] = '';
 			//
 			$inbound_line['inbound']=$inbound['No'];
 			$inbound_line['purchase_order']=$inbound['purchase_order'];
@@ -534,7 +535,8 @@ class inboundController extends Zend_Controller_Action
 				'po_brix_max' => $purchase_order_line['brix_max'],
 				'inb_brix' => $inbound_line['brix'],
 				'inb_certificate'=>1,
-				'remarks' => $inbound_line['remarks']);
+				'remarks' => $inbound_line['remarks'],
+				'checked_by' => $inbound_line['checked_by']);
 				//qualitätsmerkmale laden
 			$qcheckpoints = $this->db->query('SELECT * FROM v_qc_product WHERE type=0 AND UPPER(product) = UPPER("?")',$prod_no)->fetchAll();
 			if (count($qcheckpoints)==0) {
@@ -899,7 +901,8 @@ class inboundController extends Zend_Controller_Action
 				'po_brix_max' => 0,
 				'inb_brix' => 0,
 				'inb_certificate'=>1,
-				'remarks' => '');
+				'remarks' => '',
+				'checked_by' => '');
 			if ($prod_no<>'') {
 				$qcheckpoints = $this->db->query('SELECT * FROM v_qc_product WHERE type=0 AND UPPER(product) = UPPER("?")',$prod_no)->fetchAll();
 				if (count($qcheckpoints)==0) {

@@ -1100,6 +1100,9 @@ function addAtt()
 <div><input type="file" name="attachment[]" multiple /><a onclick="addAtt()"><img src="/images/60.ico" alt="hinzufügen" title="Dok. hinzufügen" /></a></div>
 </fieldset>
 </div>
+<table>
+<tr><td>Geprüft von</td><td><input type="text" name="checked_by" id="checked_by" size="50" maxlength="100" value="<?php echo $data['checked_by']; ?>" /></td><td></td><td></td></tr>
+</table>
 <div><input type="submit" name="submit" value="Speichern" /> <input type="submit" name="submit" value="Abbrechen" /></div>
 </form>
 <dialog id="vendor_dialog">
