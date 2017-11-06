@@ -135,15 +135,21 @@ foreach($this->qc_classes as $qc_class) {
 		$qc_no++;
 	}
 }
+$page->drawText($inbound_line['remarks'], 22, 114, 'utf-8');
+$page->drawText('Kontrolliert von: '.$inbound_line['checked_by'], 22, 60, 'utf-8');
 $img_count = count($this->pictures);
 $picPerPage = 0;
 Zend_Registry::get('logger')->info('Attachments: '.print_r($this->attachments, true));
 $extractor = new Zend_Pdf_Resource_Extractor();
-foreach ($this->attachments as $attachment) {
-	$attPdf = Zend_Pdf::load($this->att_path.'/'.$attachment['path']);
-	foreach ($attPdf->pages as $att_page) {
-		$inbound_protokoll->pages[] = $extractor->clonePage($att_page);
-	}	
+try {
+	foreach ($this->attachments as $attachment) {
+		$attPdf = Zend_Pdf::load($this->att_path.'/'.$attachment['path']);
+		foreach ($attPdf->pages as $att_page) {
+			$inbound_protokoll->pages[] = $extractor->clonePage($att_page);
+		}	
+	}
+} catch (Exception $e) {
+	Zend_Registry::get('logger')->info('Fehler beim laden vom Anhang! '.$e->getMessage());
 }
 Zend_Registry::get('logger')->info('Pictures: '.print_r($this->pictures, true));
 foreach ($this->pictures as $image) {
