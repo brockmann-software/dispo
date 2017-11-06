@@ -29,7 +29,7 @@ function closeDialog()
 {
 	polines_found = document.getElementById('po_table').getElementsByTagName('tbody')[0].rows.length;
 	var po_line;
-	po_lines = document.po_form.po_line.po_line;
+	po_lines = document.po_form.po_line;
 	if (polines_found>1) { 
 		for (var i=0; i<po_lines.length; i++) {
 			if (po_lines[i].checked) {
@@ -43,7 +43,7 @@ function closeDialog()
 		}
 	}
 	if (!window.showModalDialog) {
-		window.opener.popupFinished(po_line);
+		window.opener.popupFinishedPOBTM(po_line);
 	} else {
 		window.returnValue = po_line;
 		window.close();

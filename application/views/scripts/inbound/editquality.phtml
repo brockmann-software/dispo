@@ -46,9 +46,10 @@ function getPOBTM(result, orderCnt)
 	document.getElementById('po_arrival_date').value = arrival_date;
 	document.getElementById('po_arrival_time').value = arrival_time;
 	document.getElementById('product').value = results[orderNo].getElementsByTagName('HANWARGR')[0].firstChild.nodeValue;
-	document.getElementById('items').value = results[orderNo].getElementsByTagName('ARTGEBIN')[0].firstChild.nodeValue;
-	document.getElementById('weight_item').value = results[orderNo].getElementsByTagName('ARTDURGW')[0].firstChild.nodeValue;
+	document.getElementById('items').value = Number(results[orderNo].getElementsByTagName('ARTGEBIN')[0].firstChild.nodeValue);
+	document.getElementById('weight_item').value = Number(results[orderNo].getElementsByTagName('ARTDURGW')[0].firstChild.nodeValue);
 	document.getElementById('po_trading_units').value = results[orderNo].getElementsByTagName('HANPMENG')[0].firstChild.nodeValue;
+	document.getElementById('origin').value = results[orderNo].getElementsByTagName('ARTURSLD')[0].firstChild.nodeValue;
 	loadProduct()
 	checkOnTime('po_arrival_date');
 	checkTemperature();
@@ -837,48 +838,48 @@ function addAtt()
 		<td>Position</td>
 		<td>
 			<?php if (isset($errors['position'])) :?><div class="error"><?php endif ?>
-			<input type="text" name="position" id="position" value="<?php echo $data['position']; ?>" onchange="loadPosition()" />
+			<input type="text" name="position" id="position" value="<?php echo $data['position']; ?>" tabindex="1" onchange="loadPosition()" />
 			<?php if (isset($errors['position'])) :?><br /><?php echo $errors['position']; ?></div><?php endif ?>
 		</td>
 		<td>Lieferant</td>
 		<td>
 			<?php if (isset($errors['vendor'])) :?><div class="error"><?php endif ?>
-			<input type="text"  id="vendor_no" name="vendor_no" value="<?php echo $data['vendor']; ?>" onchange="loadVendor()"/>
+			<input type="text"  id="vendor_no" name="vendor_no" value="<?php echo $data['vendor']; ?>" tabindex="3" onchange="loadVendor()"/>
 			<?php if (isset($errors['vendor'])) :?><br /><?php echo $errors['vendor']; ?></div><?php endif ?>
 		</td>
 	</tr>
 	<tr>
 		<td>Bestellung</td>		
-		<td><input type="text" id="purchase_order" name="purchase_order" size="20" maxlength="20" value="<?php echo $data['purchase_order']; ?>" onchange="loadPoBTM()" />
+		<td><input type="text" id="purchase_order" name="purchase_order" size="20" maxlength="20" value="<?php echo $data['purchase_order']; ?>" tabindex="2" onchange="loadPoBTM()" />
 			<input type="hidden" name="po_line" value="<?php echo $data['po_line']; ?>" />
 			<input type="hidden" name="po_line_line" value="<?php $data['po_line_line']; ?>" /></td>
 		<td>Lieferschein</td>
-		<td><input type="text" id="v_delivery_note" name="v_delivery_note" size="20" maxlength="50" value="<?php echo $data['v_delivery_note']; ?>" /> 
+		<td><input type="text" id="v_delivery_note" name="v_delivery_note" size="20" maxlength="50" tabindex="4" value="<?php echo $data['v_delivery_note']; ?>" /> 
 	</tr>
 	<tr>
 		<td>Spedition</td>
-		<td><input type="text" name="forwarder" id="forwarder" size="30" maxlength="100" value="<?php echo $data['forwarder']; ?>" /></td>
+		<td><input type="text" name="forwarder" id="forwarder" size="30" maxlength="100" tabindex="5" value="<?php echo $data['forwarder']; ?>" /></td>
 	</tr>
 	<tr>
 		<td>Container / AWB</td>
-		<td><input type="text" name="container" id="container" maxlength="40" size="40" value="<?php echo $data['container']; ?>" /></td>
+		<td><input type="text" name="container" id="container" maxlength="40" size="40" tabindex="6" value="<?php echo $data['container']; ?>" /></td>
 		<td>Fahrzeug</td>
-		<td><input type="text" name="trailor" id="trailor" maxlength="40" size="40" value="<?php echo $data['trailor']; ?>" /></td>
+		<td><input type="text" name="trailor" id="trailor" maxlength="40" size="40" tabindex="7" value="<?php echo $data['trailor']; ?>" /></td>
 	</tr>
 	<tr>
 		<td>Ankunft geplant</td>
 		<td>
-			<input type="text" name="po_arrival_date" id="po_arrival_date" maxlength="10" size="10" value="<?php echo $data['po_arrival_date']; ?>" onChange="checkOnTime(this.id)" />&#160;
-			<input type="text" name="po_arrival_time" id="po_arrival_time" size="8" maxlength="8" value="<?php echo $data['po_arrival_time']; ?>" onChange="checkOnTime(this.id)" />
+			<input type="text" name="po_arrival_date" id="po_arrival_date" maxlength="10" size="10" tabindex="8" value="<?php echo $data['po_arrival_date']; ?>" onChange="checkOnTime(this.id)" />&#160;
+			<input type="text" name="po_arrival_time" id="po_arrival_time" size="8" maxlength="8" tabindex="9" value="<?php echo $data['po_arrival_time']; ?>" onChange="checkOnTime(this.id)" />
 		</td>
 		<td></td>
 		<td rowspan"2">
 			<table>
 			<tr><td>Temp. Soll</td><td>Temp. Ist</td></tr>
 			<tr>
-				<td><input type="number" name="po_transport_temp_min" id="po_transport_temp_min" value="<?php echo $data['po_transport_temp_min']; ?>" min="-10" max="50" step="0.1" onchange="checkTemperature()" /> - 
-					<input type="number" name="po_transport_temp_max" id="po_transport_temp_max" value="<?php echo $data['po_transport_temp_max']; ?>" min="-10" max="50" step="0.1" onchange="checkTemperature()" /></td>
-			    <td><input type="number" name="inb_transport_temp" id="inb_transport_temp" value="<?php echo $data['inb_transport_temp']; ?>" min="-10" max="50" step="0.1" onchange="checkTemperature()" /></td>
+				<td><input type="number" name="po_transport_temp_min" id="po_transport_temp_min" tabindex="10" value="<?php echo $data['po_transport_temp_min']; ?>" min="-10" max="50" step="0.1" onchange="checkTemperature()" /> - 
+					<input type="number" name="po_transport_temp_max" id="po_transport_temp_max" tabindex="11" value="<?php echo $data['po_transport_temp_max']; ?>" min="-10" max="50" step="0.1" onchange="checkTemperature()" /></td>
+			    <td><input type="number" name="inb_transport_temp" id="inb_transport_temp" tabindex="12" value="<?php echo $data['inb_transport_temp']; ?>" min="-10" max="50" step="0.1" onchange="checkTemperature()" /></td>
 			</tr>
 			</table>
 		</td>
@@ -886,8 +887,8 @@ function addAtt()
 	<tr>
 		<td>Ankunftszeit</td>
 		<td>
-			<input type="text" name="inb_arrival_date" id="inb_arrival_date" maxlength="10" size="10" value="<?php echo $data['inb_arrival_date']; ?>" onChange="checkOnTime(this.id)" />&#160;
-			<input type="text" name="inb_arrival_time" id="inb_arrival_time" size="8" maxlength="8" value="<?php echo $data['inb_arrival_time']; ?>" onChange="checkOnTime(this.id)" />
+			<input type="text" name="inb_arrival_date" id="inb_arrival_date" maxlength="10" size="10" tabindex="13" value="<?php echo $data['inb_arrival_date']; ?>" onChange="checkOnTime(this.id)" />&#160;
+			<input type="text" name="inb_arrival_time" id="inb_arrival_time" size="8" maxlength="8" tabindex="14" value="<?php echo $data['inb_arrival_time']; ?>" onChange="checkOnTime(this.id)" />
 		</td>
 	</tr>
 </table>
@@ -896,7 +897,7 @@ function addAtt()
 <legend>Artikel</legend>
 <table>
 	<tr>
-		<td>Product <input type="hidden" name="variant" id="variant" value="variant" /></td>
+		<td>Product <input type="hidden" name="variant" id="variant" tabindex="15" value="variant" /></td>
 		<td><select name="product"  id="product" onchange="changeProduct()">
 		<?php foreach ($products as $product) : ?>
 		<option value="<?php echo $product['No'];?>" <?php if ($product['No']==$data['product']) echo 'selected'; ?>><?php echo $product['product']; ?></option>
@@ -905,13 +906,13 @@ function addAtt()
 	</tr>
 	<tr>
 		<td>Einheiten</td>
-		<td><input type="number" name="items" id="items" value="<?php echo $data['items'];?>" size="8" min="1" onchange="calcPU()" />&#160;x&#160;
-			<input type="number" name="weight_item" id="weight_item" value="<?php echo $data['weight_item']; ?>" size="8" min="1" />g
+		<td><input type="number" name="items" id="items" tabindex="16 "value="<?php echo $data['items'];?>" size="8" min="1" onchange="calcPU()" />&#160;x&#160;
+			<input type="number" name="weight_item" id="weight_item" tabindex="17" value="<?php echo $data['weight_item']; ?>" size="8" min="1" />g
 		</td>
 	</tr>
 	<tr>
 		<td>Verpackung</td>
-		<td><select name="packaging">
+		<td><select name="packaging" tabindex="18">
 		<?php foreach ($packagings as $packaging) : ?>
 		<option value="<?php echo $packaging['No'];?>"<?php if ($packaging['No']==$data['packaging']) echo ' selected';?>><?php echo $packaging['packaging']; ?></option>
 		<?php endforeach ?>
@@ -919,7 +920,7 @@ function addAtt()
 	</tr>
 	<tr>
 		<td>Transportverp.</td>
-		<td><select name="t_packaging">
+		<td><select name="t_packaging" tabindex="19">
 		<?php foreach ($t_packagings as $t_packaging) : ?>
 		<option value="<?php echo $t_packaging['no'];?>"<?php if ($t_packaging['no']==$data['t_packaging']) echo ' selected';?>><?php echo $t_packaging['transport_packaging']; ?></option>
 		<?php endforeach ?>
@@ -927,7 +928,7 @@ function addAtt()
 	</tr>
 	<tr>
 		<td>Herkunft</td>
-		<td><select name="origin">
+		<td><select name="origin" id="origin" tabindex="20">
 		<?php foreach ($origins as $origin) : ?>
 		<option value="<?php echo $origin['Id'];?>"<?php if ($origin['Id']==$data['origin']) echo ' selected';?>><?php echo $origin['country']; ?></option>
 		<?php endforeach ?>
@@ -935,7 +936,7 @@ function addAtt()
 	</tr>
 	<tr>
 		<td>Klasse</td>
-		<td><select name="quality_class">
+		<td><select name="quality_class" tabindex="21">
 		<?php foreach ($quality_classes as $quality_class) : ?>
 		<option value="<?php echo $quality_class['No'];?>"<?php if ($quality_class['No']==$data['quality_class']) echo ' selected';?>><?php echo $quality_class['quality_class']; ?></option>
 		<?php endforeach ?>
@@ -943,7 +944,7 @@ function addAtt()
 	</tr>
 	<tr>
 		<td>Qualität</td>
-		<td><select name="quality">
+		<td><select name="quality" tabindex="22">
 		<?php foreach ($qualities as $quality) : ?>
 		<option value="<?php echo $quality['No'];?>"<?php if ($quality['No']==$data['quality']) echo ' selected';?>><?php echo $quality['quality']; ?></option>
 		<?php endforeach ?>
@@ -951,7 +952,7 @@ function addAtt()
 	</tr>
 	<tr>
 		<td>Etikett</td>
-		<td><select name="label">
+		<td><select name="label" tabindex="23">
 		<?php foreach ($labels as $label) : ?>
 		<option value="<?php echo $label['No'];?>"<?php if ($label['No']==$data['label']) echo ' selected';?>><?php echo $label['label']; ?></option>
 		<?php endforeach ?>
@@ -959,7 +960,7 @@ function addAtt()
 	</tr>
 	<tr>
 		<td>Marke</td>
-		<td><select name="brand">
+		<td><select name="brand" tabindex="24">
 		<?php foreach ($brands as $brand) : ?>
 		<option value="<?php echo $brand['No'];?>"<?php if ($brand['No']==$data['brand']) echo ' selected';?>><?php echo $brand['brand']; ?></option>
 		<?php endforeach ?>
@@ -967,7 +968,7 @@ function addAtt()
 	</tr>
 	<tr>
 		<td>Losnummer</td>
-		<td><input type="text" name="lot" value="<?php echo $data['po_lot']; ?>" size="10" /></td>
+		<td><input type="text" name="lot" tabindex="25" value="<?php echo $data['po_lot']; ?>" size="10" /></td>
 		<td>Barcode</td>
 		<td><input type="text" name="barcode" value="<?php echo $data['po_barcode']; ?>" size="15" /></td>
 	</tr>
@@ -981,38 +982,38 @@ function addAtt()
 	</tr>
 	<tr>
 		<td>Kolli</td>
-		<td><input type="number" name="po_trading_units" id="po_trading_units" value="<?php echo $data['po_trading_units']; ?>" min="1" onchange="checkQuantity()" /></td>
+		<td><input type="number" name="po_trading_units" id="po_trading_units" tabindex="26" value="<?php echo $data['po_trading_units']; ?>" min="1" onchange="checkQuantity()" /></td>
 		<td></td>
-		<td><input type="number" name="inb_trading_units" id="inb_trading_units" value="<?php echo $data['inb_trading_units']; ?>" min="0" onchange="checkQuantity()" /></td>
+		<td><input type="number" name="inb_trading_units" id="inb_trading_units" tabindex="27" value="<?php echo $data['inb_trading_units']; ?>" min="0" onchange="checkQuantity()" /></td>
 	</tr>
 	<tr>
 		<td>Packstücke</td>
-		<td><input type="number" name="po_packing_units" id="po_packing_units" value="<?php echo $data['po_packing_units']; ?>" min="1" disabled="disabled" /></td>
+		<td><input type="number" name="po_packing_units" id="po_packing_units" tabindex="28" value="<?php echo $data['po_packing_units']; ?>" min="1" disabled="disabled" /></td>
 		<td></td>
-		<td><input type="number" name="inb_packing_units" id="inb_packing_units" value="<?php echo $data['inb_packing_units']; ?>" min="0" disabled="disabled" /></td>
+		<td><input type="number" name="inb_packing_units" id="inb_packing_units" tabindex="29" value="<?php echo $data['inb_packing_units']; ?>" min="0" disabled="disabled" /></td>
 	</tr>
 	<tr>
-		<td><select name="po_pallet">
+		<td><select name="po_pallet" tabindex="30">
 		<?php foreach ($pallets as $pallet) : ?>
 		<option value="<?php echo $pallet['No']; ?>"<?php if ($pallet['No']==$data['po_pallet']) echo " selected" ?>><?php echo $pallet['pallet']; ?></option>
 		<?php endforeach ?>
 		</select></td>
-		<td><input type="number" name="po_pallets" value="<?php echo $data['po_pallets']; ?>" min="0"  onchange="calcTU_Pal(this)" />&#160;<input type="number" name="po_tu_pal" id="po_tu_pal" value="<?php echo $data['po_tu_pal']; ?>" /></td>
-		<td><select name="inb_pallet">
+		<td><input type="number" name="po_pallets" tabindex="31" value="<?php echo $data['po_pallets']; ?>" min="0"  onchange="calcTU_Pal(this)" />&#160;<input type="number" name="po_tu_pal" id="po_tu_pal" value="<?php echo $data['po_tu_pal']; ?>" /></td>
+		<td><select name="inb_pallet" tabindex="32">
 		<?php foreach ($pallets as $pallet) : ?>
 		<option value="<?php echo $pallet['No']; ?>"<?php if ($pallet['No']==$data['inb_pallet']) echo " selected" ?>><?php echo $pallet['pallet']; ?></option>
 		<?php endforeach ?>
 		</select></td>
-		<td><input type="number" name="inb_pallets" value="<?php echo $data['inb_pallets']; ?>" min="0" onchange="calcTU_Pal(this)" />&#160;<input type="number" name="inb_tu_pal" id="inb_tu_pal" value="<?php echo $data['inb_tu_pal']; ?>" /></td>
+		<td><input type="number" name="inb_pallets" tabindex="33" value="<?php echo $data['inb_pallets']; ?>" min="0" onchange="calcTU_Pal(this)" />&#160;<input type="number" name="inb_tu_pal" id="inb_tu_pal" value="<?php echo $data['inb_tu_pal']; ?>" /></td>
 	</tr>
 	<tr>
 		<td>Brix</td>
-		<td><input type="text" name="po_brix_min" id="po_brix_min" size="4" value="<?php echo $data['po_brix_min']; ?>" onChange="checkBrix()" /> - <input type="text" name="po_brix_max" id="po_brix_max" size="4" value="<?php echo $data['po_brix_max']; ?>" onChange="checkBrix()" /></td>
-		<td></td><td><input type="text" name="inb_brix" id="inb_brix" value="<?php echo $data['inb_brix']; ?>" onChange="checkBrix()" />
+		<td><input type="text" name="po_brix_min" id="po_brix_min" size="4" tabindex="34" value="<?php echo $data['po_brix_min']; ?>" onChange="checkBrix()" /> - <input type="text" name="po_brix_max" id="po_brix_max" size="4" value="<?php echo $data['po_brix_max']; ?>" onChange="checkBrix()" /></td>
+		<td></td><td><input type="text" name="inb_brix" id="inb_brix" tabindex="35" value="<?php echo $data['inb_brix']; ?>" onChange="checkBrix()" />
 	</tr>	
 	<tr>
 		<td>Packstücke geprüft</td>
-		<td><input type="number" name="items_checked" id="items_checked" size="10" min="0" value="<?php echo $data['items_checked']; ?>" /></td>
+		<td><input type="number" name="items_checked" id="items_checked" tabindex="36" size="10" min="0" value="<?php echo $data['items_checked']; ?>" /></td>
 	</tr>
 </table>
 </fieldset>
