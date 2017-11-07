@@ -51,6 +51,14 @@ function addAtt()
 <?php endif ?>
 </div>
 </fieldset>
+<fieldset>
+<?php foreach ($this->attachments as $attachment) : ?>
+<div class="picture_container">
+<a href="/quality/attachments/<?php echo $attachment['path']; ?>"><img src="/images/Adobe_PDF_Icon_klein.png" alt="<?php echo $attachment['path']; ?>" title="<?php echo $attachment['path']; ?>" /></a></br />
+<?php echo $attachment['path']; ?>
+</div>
+<?php endforeach ?>
+</fieldset>
 <fieldset id="new_pictures">
 <legend>Bilder</legend>
 <div><input type="file" name="picture[]" multiple accept="image/*" capture="camera"/><a onclick="addPicture()"><img src="/images/60.ico" alt="hinzufügen" title="Bild hinzufügen" /></a></div>

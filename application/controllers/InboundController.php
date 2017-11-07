@@ -294,9 +294,12 @@ class inboundController extends Zend_Controller_Action
 	{
 		if ($this->hasParam('No')) {
 			$pictures = $this->db->query('SELECT * FROM attachment WHERE inbound_line = ? and type=1', $this->getParam('No'))->fetchAll();
+			$attachments = $this->db->query('SELECT * FROM attachment WHERE inbound_line = ? and type=2', $this->getParam('No'))->fetchAll();
 			$this->view->inbound_line = $this->getParam('No');
 			$this->view->pictures = $pictures;
+			$this->view->attachments = $attachments;
 			$this->view->picture_path = realpath($this->config->upload->quality->pictures);
+			$this->view->att_path = realpath($this->config->upload->quality->attachments);
 		} else {
 			$this->_redirect('inbound/index/');
 		}
