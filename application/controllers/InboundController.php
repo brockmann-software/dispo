@@ -74,6 +74,8 @@ class inboundController extends Zend_Controller_Action
 	public function indexAction()
 	{
         // action body
+		$errors = array();
+		if ($this->hasParam('error')) $errors['all'] = $this->getParam('error');
 		$params = array();
 		if ($this->hasParam('No')) {
 			$params['No']['value'] = $this->getParam('No');
@@ -119,6 +121,7 @@ class inboundController extends Zend_Controller_Action
 		$this->view->count_inb = $count_inb;
 		$this->view->inbounds = $inbound;
 		$this->view->inbound_lines = $inbound_lines;
+		$this->view->errors = $errors;
 	}
 	
 	public function printqualityAction()
@@ -369,7 +372,7 @@ class inboundController extends Zend_Controller_Action
 		$inb_arrival = new Zend_Date();
 		$date = new Zend_Date();
 		if (($this->getRequest()->isPost()) and ($_POST['submit']=='Speichern')) {
-			
+		//Feldinhalte aus Formular empfangen	
 			$this->logger->info('$_POST: '.print_r($_POST, true));
 			$this->logger->info('$_FILES: '.print_r($_FILES, true));
 			//purchase_order auslesen
@@ -472,21 +475,7 @@ class inboundController extends Zend_Controller_Action
 			$inbound_line['purchase_order']=$inbound['purchase_order'];
 			$inbound_line['po_line']=$purchase_order_line['No'];
 			
-			// Movement speichern
-			$movement['No'] = 0;
-			$movement['movement'] = 1;
-			$movement['date'] = $inbound['arrival'];
-			$movement['trading_units'] = $inbound_line['trading_units'];
-			$movement['packing_units'] = $inbound_line['packing_units'];
-			$movement['trading_units_production'] = $inbound_line['trading_units'];
-			$movement['packing_units_production'] = $inbound_line['packing_units'];
-			$movement['status'] = 3;
-			$movement['type'] = 1;
-			$movement['stock_location'] = $inbound['stock_location'];
-			$movement['remarks'] = '';
-			$movement['in_order_line'] = $purchase_order_line['No'];
-			$movement['inbound_line'] = $inbound_line['No'];
-
+			//Felder im Formular mit den gesendeten Inhalten wieder vorbelegen, falls ein Fehler auftritt
 			$inbound_sheet=array(
 				'No'=>$inbound_line['No'],
 				'inbound'=>$inbound_line['inbound'],
@@ -704,7 +693,8 @@ class inboundController extends Zend_Controller_Action
 						$this->logger->info('Wareneingangszeile konnte nicht gespeichert werden! '.$e->getMessage());
 					}
 				}
-				// Movement speichern
+			// Movement speichern
+				// Eingang als Bewegung speichern
 				$movement['No'] = 0;
 				$movement['movement'] = 1;
 				$movement['date'] = $inbound['arrival'];
@@ -935,6 +925,75 @@ class inboundController extends Zend_Controller_Action
 		$params['title']='Qualitätsbericht';
 		$params['errors']=$errors;
 		$this->view->params=$params;
+	}
+	
+	public function reverseinboundlineAction()
+	{
+		$errors = array();
+		if ($this->hasParam('No')) {
+			$inb_line_table = New Application_Model_inboundlineModel();
+			$movement_table = new Application_Model_MovementModel();
+			$inbound_lines = $inb_line_table->find($this->getParam('No'));
+			if ($inbound_lines->count()<>1) {
+				$this->logger->err('Nummer der Lieferzeile nicht eindeutig! Storno kann nicht durchgeführt werden.');
+				$errors['No'] = 'Nummer der Lieferzeile nicht eindeutig! Storno kann nicht durchgeführt werden.';
+				$this->_redirect('inbound/index/error/'.$errors['No']);
+			}
+			$inbound_line = $inbound_lines->current();
+			$stock = $this->db->query('SELECT SUM(trading_units) as trading_units, SUM(packing_units) as packing_units FROM movements WHERE inbound_line = ?', $inbound_line->No)->fetchAll()[0];
+			if (($stock[trading_units]<>$inbound_line->trading_units) || ($stock['packing_units']<>$inbound_line->packing_units)) {
+				$this->logger->err("Bestand auf Inbound_line {$inbound_line->No} ist nicht der Ursprungsbestand!");
+				$errors['stock'] = "Bestand auf Inbound_line {$inbound_line->No} ist nicht der Ursprungsbestand!";
+				$this->_redirect('inbound/index/error/'.$errors['stock']);
+			}
+			if ($inbound_line->reversed_to<>0) {
+				$errors['reversed_to'] = 'Diese Zeile ist ein Storno oder wurde storniert!';
+				$this->logger->info("Inbound_line {$inbound_line->No} ist ein Storno oder wurde storniert!");
+				$this->_redirect('inbound/index/error/'.$errors['reversed_to']);
+			}
+			try {
+				$this->db->beginTransaction();
+				$inbound = $this->db->query('SELECT * FROM inbound WHERE No=?', $inbound_line->inbound)->fetchAll()[0];
+				$reverse_inb_line = $inbound_line->toArray();
+				$inb_lines = $this->db->query('SELECT * FROM inbound_line WHERE inbound = ? AND ass_line=0 ORDER BY line DESC', $inbound['No'])->fetchAll();
+				if (count($inb_lines)==0) {
+					$reverse_inb_line['line'] = 10000;
+				} else {
+					$line = $inb_lines[0]['line'];
+					$reverse_inb_line['line'] = (floor($line/10000)+1)*10000;
+				}
+				unset($reverse_inb_line['No']);
+				$reverse_inb_line['trading_units'] = -$inbound_line->trading_units;
+				$reverse_inb_line['packing_units'] = -$inbound_line->packing_units;
+				$reverse_inb_line['remarks'] = "Storno zu {$inbound['position']} Zeile {$inbound_line->line}";
+				$reverse_inb_line['reversed_to'] = $inbound_line->No;
+				$inb_line_table->insert($reverse_inb_line);
+				$inbound_line->reversed_to = $this->db->lastInsertId();
+				$inbound_line->save();
+				// Storno als Bewegung speichern
+				$movement['No'] = 0;
+				$movement['movement'] = 1;
+				$movement['date'] = date('Y-m-d H:i:s');
+				$movement['trading_units'] = $reverse_inb_line['trading_units'];
+				$movement['packing_units'] = $reverse_inb_line['packing_units'];
+				$movement['trading_units_production'] = $reverse_inb_line['trading_units'];
+				$movement['packing_units_production'] = $reverse_inb_line['packing_units'];
+				$movement['status'] = 3;
+				$movement['type'] = 0;
+				$movement['stock_location'] = $inbound['stock_location'];
+				$movement['remarks'] = "Storno zu {$inbound['position']} Zeile {$inbound_line->line}";
+				$movement['in_order_line'] = 0;
+				$movement['inbound_line'] = $inbound_line->No;
+				$movement['outbound_line'] = $inbound_line->reversed_to;
+				$movement_table->insert($movement);
+				$this->logger->info("Storno von Inbound_line {$inbound_line->No} erfolgreich mit Reverse_inb_line {$inbound_line->reversed_to}");
+				$this->db->commit();
+			} catch (Exception $e) {
+				$this->logger->err('Storno konnte nicht durchgeführt werden! '.$e->getMessage());
+				$this->db->rollBack();
+			}
+			$this->_redirect('inbound/index');
+		}
 	}
 	
 	public function getlinesAction()

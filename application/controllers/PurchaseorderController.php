@@ -33,7 +33,7 @@ class PurchaseorderController extends Zend_Controller_Action
 		$db_btm = Zend_Registry::get('db_btm');
 		try {
 			$po_head = $db_btm->query('SELECT tbl_HAN.HANLFSNR FROM tbl_HAN WHERE tbl_HAN.HANLISKZ = 1 AND tbl_HAN.HANVORNR = ?', $params['purchase_order']['value'])->fetchAll();
-			$sqlStr = 'SELECT tbl_HAN.HANVORNR, tbl_HAN.HANPOSNR, tbl_HAN.HANADRNR, tbl_LIE.LIENAME, tbl_LIE.LIESTRAS, tbl_LIE.LIEPLZOR, convert(varchar(25), tbl_HAN.HANLISDT, 127) AS HANLISDT, convert(varchar(25), tbl_HAN.HANPRODT, 127) AS HANPRODT, HANTABZT, tbl_HAN.HANARTTX, tbl_HAN.HANWARGR, tbl_art.ARTGEBIN, tbl_ART.ARTDURGW, tbl_HAN.HANPMENG, tbl_ART.ARTURSLD';
+			$sqlStr = 'SELECT tbl_HAN.HANVORNR, tbl_HAN.HANPOSNR, tbl_HAN.HANADRNR, tbl_LIE.LIENAME, tbl_LIE.LIESTRAS, tbl_LIE.LIEPLZOR, convert(varchar(25), tbl_HAN.HANPRODT, 127) AS HANLISDT, convert(varchar(25), tbl_HAN.HANPRODT, 127) AS HANPRODT, HANTABZT, tbl_HAN.HANARTTX, tbl_HAN.HANWARGR, tbl_art.ARTGEBIN, tbl_ART.ARTDURGW, tbl_HAN.HANPMENG, tbl_ART.ARTURSLD';
 			$sqlStr.= ' FROM tbl_HAN';
 			$sqlStr.= ' JOIN tbl_ART on (tbl_HAN.HANARTNR = tbl_ART.KEYIART1)';
 			$sqlStr.= ' join tbl_LIE on (tbl_han.HANADRNR = tbl_LIE.KEYILIE1)';
@@ -133,7 +133,7 @@ class PurchaseorderController extends Zend_Controller_Action
 		$db_btm = Zend_Registry::get('db_btm');
 		try {
 			$po_head = $db_btm->query('SELECT tbl_HAN.HANLFSNR FROM tbl_HAN WHERE tbl_HAN.HANLISKZ = 1 AND tbl_HAN.HANVORNR = ?', $params['purchase_order']['value'])->fetchAll();
-			$sqlStr = 'SELECT tbl_HAN.HANVORNR, tbl_HAN.HANPOSNR, tbl_HAN.HANADRNR, tbl_LIE.LIENAME, tbl_LIE.LIESTRAS, tbl_LIE.LIEPLZOR, convert(varchar(25), tbl_HAN.HANLISDT, 127) AS HANLISDT, HANTABZT, tbl_HAN.HANARTTX, tbl_HAN.HANWARGR, tbl_art.ARTGEBIN, tbl_ART.ARTDURGW, tbl_HAN.HANPMENG, tbl_ART.ARTURSLD';
+			$sqlStr = 'SELECT tbl_HAN.HANVORNR, tbl_HAN.HANPOSNR, tbl_HAN.HANADRNR, tbl_LIE.LIENAME, tbl_LIE.LIESTRAS, tbl_LIE.LIEPLZOR, convert(varchar(25), tbl_HAN.HANPRODT, 127) AS HANLISDT, HANTABZT, tbl_HAN.HANARTTX, tbl_HAN.HANWARGR, tbl_art.ARTGEBIN, tbl_ART.ARTDURGW, tbl_HAN.HANPMENG, tbl_ART.ARTURSLD';
 			$sqlStr.= ' FROM tbl_HAN';
 			$sqlStr.= ' JOIN tbl_ART on (tbl_HAN.HANARTNR = tbl_ART.KEYIART1)';
 			$sqlStr.= ' join tbl_LIE on (tbl_han.HANADRNR = tbl_LIE.KEYILIE1)';

@@ -117,6 +117,7 @@ function getInbLines(inbound) {
 						var tdTU_Pal=row.insertCell(7);
 						var tdStock = row.insertCell(8);
 						var tdGrade = row.insertCell(9);
+						var tdRemarks = row.insertCell(10);
 					} else {
 						row=inb_lineTable.rows[vc];
 						var tdActions=row.cells[0];
@@ -129,13 +130,18 @@ function getInbLines(inbound) {
 						var tdTU_Pal=row.cells[7];
 						var tdStock=row.cells[8];
 						var tdGrade=row.cells[9];
+						var tdRemarks = row.cells[10];
 					}
-					row.id = 'inb_line_'+inb_lines[vc].getElementsByTagName('No')[0].firstChild.nodeValue;
+					row.id = inb_lines[vc].getElementsByTagName('No')[0].firstChild.nodeValue;
 					tdActions.innerHTML = '';
-					var link1 = document.createElement('a');
-					link1.href = '/inbound/adminpics/No/'+inb_lines[vc].getElementsByTagName('No')[0].firstChild.nodeValue;;
-					link1.innerHTML = '<img src="/images/photo gallery16x16.png" alt="Bilder" title="Bilder verwalten" />';
-					tdActions.appendChild(link1);
+					var linkRev = document.createElement('a');
+					linkRev.onclick = function() { reverseInboundLine(this); };
+					linkRev.innerHTML = '<img src="/images/b_undo.png" alt="Storno" title="Eingang stornieren" />';
+					var linkPic = document.createElement('a');
+					linkPic.href = '/inbound/adminpics/No/'+inb_lines[vc].getElementsByTagName('No')[0].firstChild.nodeValue;
+					linkPic.innerHTML = '<img src="/images/photo gallery16x16.png" alt="Bilder" title="Bilder verwalten" />';
+					tdActions.appendChild(linkRev);
+					tdActions.appendChild(linkPic);
 					tdVariant.innerHTML=inb_lines[vc].getElementsByTagName('variant')[0].firstChild.nodeValue;
 					tdVariant.className="data";
 					tdarticle.innerHTML=inb_lines[vc].getElementsByTagName('variant_desc')[0].firstChild.nodeValue;
@@ -161,6 +167,8 @@ function getInbLines(inbound) {
 					aGrade.href = "/inbound/printquality/No/"+inb_lines[vc].getElementsByTagName('No')[0].firstChild.nodeValue;
 					aGrade.appendChild(linkText);
 					tdGrade.appendChild(aGrade);
+					tdRemarks.className = 'data';
+					tdRemarks.innerHTML = (inb_lines[vc].getElementsByTagName('remarks')[0].firstChild) ? inb_lines[vc].getElementsByTagName('remarks')[0].firstChild.nodeValue : '';
 				}
 				if (rowCnt>vc) {
 					var lastRow=vc;
@@ -183,6 +191,8 @@ function getInbLines(inbound) {
 			}
 		}
 	}
+	var errorDiv = document.getElementById('error');
+	if (errorDiv) errorDiv.parentNode.removeChild(errorDiv);
 	createRequest();
 	var URI = '/inbound/getinboundlines/inbound/'+inbound;
 	sendRequest('GET', URI, '', getinbLinesXML, true);
@@ -194,11 +204,18 @@ function toggleElement(id) {
         myelement.style.display = (myelement.style.display=='block' ? 'none' : 'block'); 
     } 
 }
+
+function reverseInboundLine(link)
+{
+	url = "/inbound/reverseinboundline/No/"+link.parentNode.parentNode.id;
+	if (confirm("Wareneingang stornieren?")) window.location = url;
+}
 -->
 </script>
 <?php $inbounds = $this->inbounds; ?>
 <?php $inbound_lines = $this->inbound_lines; ?>
 <?php $count_inb = $this->count_inb; ?>
+<?php if (isset($this->errors['all'])) : ?><div class="error" id="error"><?php echo $this->errors['all']; ?></div><?php endif ?>
 <a href="/inbound/editquality/">Neuer Wareneingang</a>
 <hr />
 <div>Wareneingänge: <?php echo $count_inb; ?></div>
@@ -259,9 +276,9 @@ function toggleElement(id) {
 <table id="inbound_lines" style="table-layout:auto;">
 <thead>
 <tr>
-	<th style="width:10px;"></th>
+	<th style="width:36px;"></th>
 	<th class="data" width="30">Variante</th>
-	<th class="data">Beschreibung</th>
+	<th class="data" width="400">Beschreibung</th>
 	<th class="data" width="20">Kolli</th>
 	<th class="data" width="20">Menge/Kolli</th>
 	<th class="data" width="24">Menge ges.</th>
@@ -269,12 +286,16 @@ function toggleElement(id) {
 	<th class="data" width="10">Kolli / Pal.</th>
 	<th class="data" width="10">Bestand</th>
 	<th class="data" width="10">Qualität</th>
+	<th class="data">Bemerkungen</th>
 </tr>
 </thead>
 <tbody>
 <?php foreach ($inbound_lines as $inbound_line) : ?>
-	<tr id="inb_line_<?php echo $inbound_line['No']; ?>">
-		<td><a href="/inbound/adminpics/No/<?php echo $inbound_line['No']; ?>"><img src="/images/photo gallery16x16.png" alt="Bilder" title="Bilder verwalten" /></a></td>
+	<tr id="<?php echo $inbound_line['No']; ?>">
+		<td>
+			<a href="" onclick="reverseInboundLine(this)"><img src="/images/b_undo.png" alt="Storno" title="Eingang stornieren" /></a>
+			<a href="/inbound/adminpics/No/<?php echo $inbound_line['No']; ?>"><img src="/images/photo gallery16x16.png" alt="Bilder" title="Bilder verwalten" /></a>
+		</td>
 		<td class="data"><?php echo $inbound_line['variant']; ?></td>
 		<td class="data"><?php echo $inbound_line['variant_desc']; ?></td>
 		<td class="data_num"><?php echo $inbound_line['inb_trading_units']; ?></td>
@@ -284,6 +305,7 @@ function toggleElement(id) {
 		<td class="data_num"><?php echo $inbound_line['inb_tu_pal']; ?></td>
 		<td class="data_num"><?php echo $inbound_line['stock']; ?></td>
 		<td class="data_num"><a href="/inbound/printquality/No/<?php echo $inbound_line['No']; ?>"><?php echo $inbound_line['grade_weighted']; ?></a></td>
+		<td class="data"><?php echo $inbound_line['remarks'] ?></td>
 	</tr>
 <?php endforeach ?>
 </tbody>
