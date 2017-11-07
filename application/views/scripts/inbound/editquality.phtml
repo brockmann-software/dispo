@@ -39,18 +39,20 @@ function getPOBTM(result, orderCnt)
 	po_arrival = results[orderNo].getElementsByTagName('HANLISDT')[0].firstChild.nodeValue;
 	arrival_array = po_arrival.split("T");
 	arrival_date = arrival_array[0];
-	arrival_time = arrival_array[1];
+	arrival_time = results[orderNo].getElementsByTagName('HANTABZT')[0].firstChild.nodeValue;
 	arrival_date_array=arrival_date.split("-");
 	arrival_date = arrival_date_array[2]+'.'+arrival_date_array[1]+'.'+arrival_date_array[0];
 	document.getElementById('vendor_no').value = results[orderNo].getElementsByTagName('HANADRNR')[0].firstChild.nodeValue;
 	document.getElementById('po_arrival_date').value = arrival_date;
 	document.getElementById('po_arrival_time').value = arrival_time;
+	document.getElementById('v_delivery_note').value = (results[orderNo].getElementsByTagName('HANLFSNR')[0].firstChild) ? results[orderNo].getElementsByTagName('HANLFSNR')[0].firstChild.nodeValue : '';
 	document.getElementById('product').value = results[orderNo].getElementsByTagName('HANWARGR')[0].firstChild.nodeValue;
 	document.getElementById('items').value = Number(results[orderNo].getElementsByTagName('ARTGEBIN')[0].firstChild.nodeValue);
 	document.getElementById('weight_item').value = Number(results[orderNo].getElementsByTagName('ARTDURGW')[0].firstChild.nodeValue);
 	document.getElementById('po_trading_units').value = results[orderNo].getElementsByTagName('HANPMENG')[0].firstChild.nodeValue;
 	document.getElementById('origin').value = results[orderNo].getElementsByTagName('ARTURSLD')[0].firstChild.nodeValue;
 	loadProduct()
+	checkTime('po_arrival_time');
 	checkOnTime('po_arrival_date');
 	checkTemperature();
 	calcPU()		
@@ -323,6 +325,7 @@ function loadQCheckpoints()
 			var inpQCResult = document.createElement("input");
 			inpQCResult.name = "res_"+row.id;
 			inpQCResult.id = "res_"+row.id;
+			inpQCResult.tabindex = 51;
 			inpQCResult.onchange = function(){ changeDev(this.name) };
 			if (quality_chkp[qck]["operator"] < 2) {
 				inpQCResult.type = "number";
@@ -486,9 +489,11 @@ function loadPO()
 	}
 	
 	po_no = document.getElementById('purchase_order').value;
-	createRequest();
-	var URI = '/purchaseorder/get/No/'+po_no;
-	sendRequest("GET", URI, '', loadPOXML, true);
+	if (po_no!='') {
+		createRequest();
+		var URI = '/purchaseorder/get/No/'+po_no;
+		sendRequest("GET", URI, '', loadPOXML, true);
+	}
 }
 
 function loadPoBTM()
@@ -557,9 +562,11 @@ function loadPoBTM()
 	}
 	
 	po_no = document.getElementById('purchase_order').value;
-	createRequest();
-	var uri = '/purchaseorder/getpolinesbtm/purchase_order/'+po_no;
-	sendRequest("GET", uri, '', loadPoBTMXML, true);
+	if (po_no!='') {
+		createRequest();
+		var uri = '/purchaseorder/getpolinesbtm/purchase_order/'+po_no;
+		sendRequest("GET", uri, '', loadPoBTMXML, true);
+	}
 }
 
 function loadPosition()
@@ -607,6 +614,7 @@ function loadPosition()
 						document.getElementById('container').value = result[0].getElementsByTagName('inb_container')[0].firstChild.nodeValue;
 					if (result[0].getElementsByTagName('inb_trailor')[0].firstChild)
 						document.getElementById('trailor').value = result[0].getElementsByTagName('inb_trailor')[0].firstChild.nodeValue;
+					document.getElementById('v_delivery_note').value = (result[0].getElementsByTagName('v_delivery_note')[0].firstChild) ? result[0].getElementsByTagName('v_delivery_note')[0].firstChild.nodeValue : '';
 					checkOnTime('inb_arrival_date');
 					checkTemperature();
 					document.getElementById('product').focus();
@@ -850,7 +858,7 @@ function addAtt()
 	</tr>
 	<tr>
 		<td>Bestellung</td>		
-		<td><input type="text" id="purchase_order" name="purchase_order" size="20" maxlength="20" value="<?php echo $data['purchase_order']; ?>" tabindex="2" onchange="loadPoBTM()" />
+		<td><input type="text" id="purchase_order" name="purchase_order" size="20" maxlength="20" value="<?php echo $data['purchase_order']; ?>" tabindex="2" onblur="loadPoBTM()" />
 			<input type="hidden" name="po_line" value="<?php echo $data['po_line']; ?>" />
 			<input type="hidden" name="po_line_line" value="<?php $data['po_line_line']; ?>" /></td>
 		<td>Lieferschein</td>
@@ -877,9 +885,9 @@ function addAtt()
 			<table>
 			<tr><td>Temp. Soll</td><td>Temp. Ist</td></tr>
 			<tr>
-				<td><input type="number" name="po_transport_temp_min" id="po_transport_temp_min" tabindex="10" value="<?php echo $data['po_transport_temp_min']; ?>" min="-10" max="50" step="0.1" onchange="checkTemperature()" /> - 
-					<input type="number" name="po_transport_temp_max" id="po_transport_temp_max" tabindex="11" value="<?php echo $data['po_transport_temp_max']; ?>" min="-10" max="50" step="0.1" onchange="checkTemperature()" /></td>
-			    <td><input type="number" name="inb_transport_temp" id="inb_transport_temp" tabindex="12" value="<?php echo $data['inb_transport_temp']; ?>" min="-10" max="50" step="0.1" onchange="checkTemperature()" /></td>
+				<td><input type="number" name="po_transport_temp_min" id="po_transport_temp_min" tabindex="12" value="<?php echo $data['po_transport_temp_min']; ?>" min="-10" max="50" step="0.1" onchange="checkTemperature()" /> - 
+					<input type="number" name="po_transport_temp_max" id="po_transport_temp_max" tabindex="13" value="<?php echo $data['po_transport_temp_max']; ?>" min="-10" max="50" step="0.1" onchange="checkTemperature()" /></td>
+			    <td><input type="number" name="inb_transport_temp" id="inb_transport_temp" tabindex="14" value="<?php echo $data['inb_transport_temp']; ?>" min="-10" max="50" step="0.1" onchange="checkTemperature()" /></td>
 			</tr>
 			</table>
 		</td>
@@ -887,8 +895,8 @@ function addAtt()
 	<tr>
 		<td>Ankunftszeit</td>
 		<td>
-			<input type="text" name="inb_arrival_date" id="inb_arrival_date" maxlength="10" size="10" tabindex="13" value="<?php echo $data['inb_arrival_date']; ?>" onChange="checkOnTime(this.id)" />&#160;
-			<input type="text" name="inb_arrival_time" id="inb_arrival_time" size="8" maxlength="8" tabindex="14" value="<?php echo $data['inb_arrival_time']; ?>" onChange="checkOnTime(this.id)" />
+			<input type="text" name="inb_arrival_date" id="inb_arrival_date" maxlength="10" size="10" tabindex="10" value="<?php echo $data['inb_arrival_date']; ?>" onChange="checkOnTime(this.id)" />&#160;
+			<input type="text" name="inb_arrival_time" id="inb_arrival_time" size="8" maxlength="8" tabindex="11" value="<?php echo $data['inb_arrival_time']; ?>" onChange="checkOnTime(this.id)" />
 		</td>
 	</tr>
 </table>
@@ -897,8 +905,8 @@ function addAtt()
 <legend>Artikel</legend>
 <table>
 	<tr>
-		<td>Product <input type="hidden" name="variant" id="variant" tabindex="15" value="variant" /></td>
-		<td><select name="product"  id="product" onchange="changeProduct()">
+		<td>Product <input type="hidden" name="variant" id="variant" value="variant" /></td>
+		<td><select name="product"  id="product" tabindex="15" onchange="changeProduct()">
 		<?php foreach ($products as $product) : ?>
 		<option value="<?php echo $product['No'];?>" <?php if ($product['No']==$data['product']) echo 'selected'; ?>><?php echo $product['product']; ?></option>
 		<?php endforeach ?>
@@ -970,7 +978,7 @@ function addAtt()
 		<td>Losnummer</td>
 		<td><input type="text" name="lot" tabindex="25" value="<?php echo $data['po_lot']; ?>" size="10" /></td>
 		<td>Barcode</td>
-		<td><input type="text" name="barcode" value="<?php echo $data['po_barcode']; ?>" size="15" /></td>
+		<td><input type="text" name="barcode" tabindex="26" value="<?php echo $data['po_barcode']; ?>" size="15" /></td>
 	</tr>
 </table>
 </fieldset>
@@ -982,38 +990,38 @@ function addAtt()
 	</tr>
 	<tr>
 		<td>Kolli</td>
-		<td><input type="number" name="po_trading_units" id="po_trading_units" tabindex="26" value="<?php echo $data['po_trading_units']; ?>" min="1" onchange="checkQuantity()" /></td>
+		<td><input type="number" name="po_trading_units" id="po_trading_units" tabindex="27" value="<?php echo $data['po_trading_units']; ?>" min="1" onchange="checkQuantity()" /></td>
 		<td></td>
-		<td><input type="number" name="inb_trading_units" id="inb_trading_units" tabindex="27" value="<?php echo $data['inb_trading_units']; ?>" min="0" onchange="checkQuantity()" /></td>
+		<td><input type="number" name="inb_trading_units" id="inb_trading_units" tabindex="28" value="<?php echo $data['inb_trading_units']; ?>" min="0" onchange="checkQuantity()" /></td>
 	</tr>
 	<tr>
 		<td>Packstücke</td>
-		<td><input type="number" name="po_packing_units" id="po_packing_units" tabindex="28" value="<?php echo $data['po_packing_units']; ?>" min="1" disabled="disabled" /></td>
+		<td><input type="number" name="po_packing_units" id="po_packing_units" tabindex="29" value="<?php echo $data['po_packing_units']; ?>" min="1" disabled="disabled" /></td>
 		<td></td>
-		<td><input type="number" name="inb_packing_units" id="inb_packing_units" tabindex="29" value="<?php echo $data['inb_packing_units']; ?>" min="0" disabled="disabled" /></td>
+		<td><input type="number" name="inb_packing_units" id="inb_packing_units" tabindex="30" value="<?php echo $data['inb_packing_units']; ?>" min="0" disabled="disabled" /></td>
 	</tr>
 	<tr>
-		<td><select name="po_pallet" tabindex="30">
+		<td><select name="po_pallet" tabindex="31">
 		<?php foreach ($pallets as $pallet) : ?>
 		<option value="<?php echo $pallet['No']; ?>"<?php if ($pallet['No']==$data['po_pallet']) echo " selected" ?>><?php echo $pallet['pallet']; ?></option>
 		<?php endforeach ?>
 		</select></td>
-		<td><input type="number" name="po_pallets" tabindex="31" value="<?php echo $data['po_pallets']; ?>" min="0"  onchange="calcTU_Pal(this)" />&#160;<input type="number" name="po_tu_pal" id="po_tu_pal" value="<?php echo $data['po_tu_pal']; ?>" /></td>
-		<td><select name="inb_pallet" tabindex="32">
+		<td><input type="number" name="po_pallets" tabindex="32" value="<?php echo $data['po_pallets']; ?>" min="0"  onchange="calcTU_Pal(this)" />&#160;<input type="number" name="po_tu_pal" id="po_tu_pal" tabindex="33" value="<?php echo $data['po_tu_pal']; ?>" /></td>
+		<td><select name="inb_pallet" tabindex="34">
 		<?php foreach ($pallets as $pallet) : ?>
 		<option value="<?php echo $pallet['No']; ?>"<?php if ($pallet['No']==$data['inb_pallet']) echo " selected" ?>><?php echo $pallet['pallet']; ?></option>
 		<?php endforeach ?>
 		</select></td>
-		<td><input type="number" name="inb_pallets" tabindex="33" value="<?php echo $data['inb_pallets']; ?>" min="0" onchange="calcTU_Pal(this)" />&#160;<input type="number" name="inb_tu_pal" id="inb_tu_pal" value="<?php echo $data['inb_tu_pal']; ?>" /></td>
+		<td><input type="number" name="inb_pallets" tabindex="35" value="<?php echo $data['inb_pallets']; ?>" min="0" onchange="calcTU_Pal(this)" />&#160;<input type="number" name="inb_tu_pal" id="inb_tu_pal" tabindex="36" value="<?php echo $data['inb_tu_pal']; ?>" /></td>
 	</tr>
 	<tr>
 		<td>Brix</td>
-		<td><input type="text" name="po_brix_min" id="po_brix_min" size="4" tabindex="34" value="<?php echo $data['po_brix_min']; ?>" onChange="checkBrix()" /> - <input type="text" name="po_brix_max" id="po_brix_max" size="4" value="<?php echo $data['po_brix_max']; ?>" onChange="checkBrix()" /></td>
-		<td></td><td><input type="text" name="inb_brix" id="inb_brix" tabindex="35" value="<?php echo $data['inb_brix']; ?>" onChange="checkBrix()" />
+		<td><input type="text" name="po_brix_min" id="po_brix_min" size="4" tabindex="37" value="<?php echo $data['po_brix_min']; ?>" onChange="checkBrix()" /> - <input type="text" name="po_brix_max" id="po_brix_max" size="4" tabindex="38" value="<?php echo $data['po_brix_max']; ?>" onChange="checkBrix()" /></td>
+		<td></td><td><input type="text" name="inb_brix" id="inb_brix" tabindex="39" value="<?php echo $data['inb_brix']; ?>" onChange="checkBrix()" />
 	</tr>	
 	<tr>
 		<td>Packstücke geprüft</td>
-		<td><input type="number" name="items_checked" id="items_checked" tabindex="36" size="10" min="0" value="<?php echo $data['items_checked']; ?>" /></td>
+		<td><input type="number" name="items_checked" id="items_checked" tabindex="40" size="10" min="0" value="<?php echo $data['items_checked']; ?>" /></td>
 	</tr>
 </table>
 </fieldset>
@@ -1035,9 +1043,9 @@ function addAtt()
 		<input type="hidden" name="operator_<?php echo $qcheck_log['qck_no']; ?>" id="operator_<?php echo $qcheck_log['No'];?>" value="<?php echo $qcheck_log['operator']; ?>" />
 		<input type="hidden" name="base_<?php echo $qcheck_log['qck_no']; ?>" id="base_<?php echo $qcheck_log['qck_no']; ?>" value="<?php echo $data['base_'.$qcheck_log['qck_no']]; ?>" />
 		<?php if ($qcheck_log['operator']<2) : ?>
-		<input type="number" name="res_<?php echo $qcheck_log['qck_no']; ?>" id="res_<?php echo $qcheck_log['qck_no']; ?>" size="5" step="0.1" value="<?php echo $data['res_'.$qcheck_log['qck_no']]; ?>" onchange="changeDev(this.name)"/>
+		<input type="number" name="res_<?php echo $qcheck_log['qck_no']; ?>" id="res_<?php echo $qcheck_log['qck_no']; ?>" size="5" step="0.1" tabindex="41" value="<?php echo $data['res_'.$qcheck_log['qck_no']]; ?>" onchange="changeDev(this.name)"/>
 		<?php elseif ($qcheck_log['operator']==2) : ?>
-		<input type="checkbox" name="res_<?php echo $qcheck_log['qck_no']; ?>" id="res_<?php echo $qcheck_log['qck_no']; ?>"<?php if ($data['res_'.$qcheck_log['qck_no']]==true) echo 'checked="checked" '; ?>onchange="changeDev(this.name)" />
+		<input type="checkbox" name="res_<?php echo $qcheck_log['qck_no']; ?>" id="res_<?php echo $qcheck_log['qck_no']; ?>" tabindex="41" <?php if ($data['res_'.$qcheck_log['qck_no']]==true) echo 'checked="checked" '; ?>onchange="changeDev(this.name)" />
 		<?php endif ?>
 	</td>
 	<td class="<?php echo $data['rl_'.$qcheck_log['qck_no']]; ?>" id="dev_percent_<?php echo $qcheck_log['qck_no']; ?>"><?php echo $data['rp_'.$qcheck_log['qck_no']]; ?></td>
@@ -1068,9 +1076,9 @@ function addAtt()
 						 <input type="hidden" name="operator_<?php echo $qcheckpoint['qck_no']; ?>" id="operator_<?php echo $qcheckpoint['qck_no']; ?>" value="<?php echo $qcheckpoint['operator']; ?>" />
 						 <input type="hidden" name="base_<?php echo $qcheckpoint['qck_no']; ?>" id="base_<?php echo $qcheckpoint['qck_no']; ?>" value="<?php echo $data['base_'.$qcheckpoint['qck_no']]; ?>" />
 						 <?php if ($qcheck_log['operator']<2) : ?>
-						 <input type="number" name="res_<?php echo $qcheckpoint['qck_no']; ?>" id="res_<?php echo $qcheckpoint['qck_no']; ?>" size="5" min="0" step="1" value="<?php echo $data['res_'.$qcheckpoint['qck_no']]; ?>" onChange="changeDev(this.name)"/>
+						 <input type="number" name="res_<?php echo $qcheckpoint['qck_no']; ?>" id="res_<?php echo $qcheckpoint['qck_no']; ?>" size="5" min="0" step="1" tabindex="51" value="<?php echo $data['res_'.$qcheckpoint['qck_no']]; ?>" onChange="changeDev(this.name)"/>
 						 <?php elseif ($qcheck_log['operator']==2) : ?>
-						 <input type="checkbox" name="res_<?php echo $qcheckpoint['qck_no']; ?>" id="res_<?php echo $qcheckpoint['qck_no']; ?>"<?php if ($data['res_'.$qcheckpoint['No']]==true) echo 'checked="checked" '; ?>onChange="changeDev(this.name)"/>
+						 <input type="checkbox" name="res_<?php echo $qcheckpoint['qck_no']; ?>" id="res_<?php echo $qcheckpoint['qck_no']; ?>" tabindex="51" <?php if ($data['res_'.$qcheckpoint['No']]==true) echo 'checked="checked" '; ?>onChange="changeDev(this.name)"/>
 						 <?php endif ?>
 	</td>
 	<td class="<?php echo $data['rl_'.$qcheckpoint['qck_no']]; ?>" name="deviation" id="dev_percent_<?php echo $qcheckpoint['No']; ?>"><?php echo $data['rp_'.$qcheckpoint['qck_no']]; ?></td>
@@ -1086,25 +1094,25 @@ function addAtt()
 <div id="remarks_div">
 <fieldset>
 <legend>Bemerkungen</legend>
-<textarea name="remarks" id="remarks" style="width: 95%; hight: 3em; resize: horizontal;"><?php echo $data['remarks']; ?></textarea><br />
+<textarea name="remarks" id="remarks" tabindex="61" style="width: 95%; hight: 3em; resize: horizontal;"><?php echo $data['remarks']; ?></textarea><br />
 </fieldset>
 </div>
 <div>
 <fieldset id="pictures">
 <legend>Bilder</legend>
-<div><input type="file" name="picture[]" multiple accept="image/*" capture="camera"/><a onclick="addPicture()"><img src="/images/60.ico" alt="hinzufügen" title="Bild hinzufügen" /></a></div>
+<div><input type="file" name="picture[]"  tabindex="62" multiple accept="image/*" capture="camera"/><a onclick="addPicture()"><img src="/images/60.ico" alt="hinzufügen" title="Bild hinzufügen" /></a></div>
 </fieldset>
 </div>
 <div>
 <fieldset id="attachments">
 <legend>Dokumente</legend>
-<div><input type="file" name="attachment[]" multiple /><a onclick="addAtt()"><img src="/images/60.ico" alt="hinzufügen" title="Dok. hinzufügen" /></a></div>
+<div><input type="file" name="attachment[]"  tabindex="63" multiple /><a onclick="addAtt()"><img src="/images/60.ico" alt="hinzufügen" title="Dok. hinzufügen" /></a></div>
 </fieldset>
 </div>
 <table>
-<tr><td>Geprüft von</td><td><input type="text" name="checked_by" id="checked_by" size="50" maxlength="100" value="<?php echo $data['checked_by']; ?>" /></td><td></td><td></td></tr>
+<tr><td>Geprüft von</td><td><input type="text" name="checked_by" id="checked_by" size="50" maxlength="100"  tabindex="64" value="<?php echo $data['checked_by']; ?>" /></td><td></td><td></td></tr>
 </table>
-<div><input type="submit" name="submit" value="Speichern" /> <input type="submit" name="submit" value="Abbrechen" /></div>
+<div><input type="submit" name="submit" tabindex="65" value="Speichern" /> <input type="submit" name="submit"  tabindex="66" value="Abbrechen" /></div>
 </form>
 <dialog id="vendor_dialog">
 <h2>Lieferant auswählen"</h2>
