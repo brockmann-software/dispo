@@ -55,7 +55,8 @@ function addAtt()
 <?php foreach ($this->attachments as $attachment) : ?>
 <div class="picture_container">
 <a href="/quality/attachments/<?php echo $attachment['path']; ?>"><img src="/images/Adobe_PDF_Icon_klein.png" alt="<?php echo $attachment['path']; ?>" title="<?php echo $attachment['path']; ?>" /></a></br />
-<?php echo $attachment['path']; ?>
+<?php echo $attachment['path']; ?><br />
+<input type="checkbox" name="<?php echo $attachment['No'] ?>" id="<?php echo $attachment['No'] ?>" onclick="deleteAtt(this)" /><label for="<?php echo $attachment['No'] ?>">Löschen</label>
 </div>
 <?php endforeach ?>
 </fieldset>

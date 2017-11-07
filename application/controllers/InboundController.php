@@ -218,6 +218,7 @@ class inboundController extends Zend_Controller_Action
 			$pictures = $_FILES['picture'];
 			$attachments = $_FILES['attachment'];
 			if (count($errors)==0) {
+				// Bilder und Dokumente löschen
 				foreach($_POST as $key => $value) {
 					if (is_numeric($key) and $value==true) {
 						try {
@@ -225,8 +226,8 @@ class inboundController extends Zend_Controller_Action
 							unlink(realpath($this->config->upload->quality->pictures).'/'.$attachment->path);
 							$attachment->delete();
 						} catch (Exception $e) {
-							$errors[$key] = "Bild {$attachment->path} konnte nicht gelöscht werden!";
-							$this->logger->err("Bild {$attachment->path} konnte nicht gelöscht werden! ".$e->getMessage());
+							$errors[$key] = "Anhang {$attachment->path} konnte nicht gelöscht werden!";
+							$this->logger->err("Anhang {$attachment->path} konnte nicht gelöscht werden! ".$e->getMessage());
 						}
 					}
 				}
