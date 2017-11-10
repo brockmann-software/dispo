@@ -36,19 +36,29 @@ class variantController extends Zend_Controller_Action
 		return $dependencies;
 	}
 	
-	public function buildNo($variant)
+	public function buildNo($data)
 	{
+		if (isset($data['product'])) $variant['product'] = $data['product']; else throw new Exception('field product missing');
+		if (isset($data['origin'])) $variant['origin'] = $data['origin']; else throw new Exception('field origin missing');
+		if (isset($data['items'])) $variant['items'] = $data['items']; else throw new Exception('field items missing');
+		if (isset($data['weight_item'])) $variant['weight_item'] = $data['weight_item']; else throw new Exception('field weight_item missing');
+		if (isset($data['t_packaging'])) $variant['t_packaging'] = $data['t_packaging']; else throw new Exception('field t_packaging missing');
+		if (isset($data['packaging'])) $variant['packaging'] = $data['packaging']; else throw new Exception('field packaging missing');
+		if (isset($data['label'])) $variant['label'] = $data['label']; else throw new Exception('field label missing');
+		if (isset($data['quality'])) $variant['quality'] = $data['quality']; else throw new Exception('field quality missing');
+		if (isset($data['quality_class'])) $variant['quality_class'] = $data['quality_class']; else throw new Exception('field quality_class missing');
+		if (isset($data['brand'])) $variant['brand'] = $data['brand']; else throw new Exception('field brand missing');
 		$variant['No'] = $variant['product']
-				.$variant['origin']
-				.$variant['items']
-				.$variant['weight_item']
-				.$variant['t_packaging']
-				.$variant['packaging']
-				.$variant['label']
-				.$variant['quality']
-				.$variant['quality_class']
-				.$variant['brand'];
-		return $variant['No'];
+						.$variant['origin']
+						.$variant['items']
+						.$variant['weight_item']
+						.$variant['t_packaging']
+						.$variant['packaging']
+						.$variant['label']
+						.$variant['quality']
+						.$variant['quality_class']
+						.$variant['brand'];
+		return $variant;
 	}
 
     public function indexAction()
@@ -95,12 +105,11 @@ class variantController extends Zend_Controller_Action
 					try {
 						$variantTable->insert($variant);
 					} catch (Exception $e) {
-						$errors['all'] = 'Marke wurde nicht gespeichert! '+$e->getMessage();
+						$errors['all'] = 'Variante wurde nicht gespeichert! '+$e->getMessage();
 					}
 				} else {
 					try {
 						$variantTable->update($variant, array('No = ?'=>$old_No));
-						$errors['all']='Ich war hier!!';
 					} catch (Exception $e) {
 						$errors['all'] = 'Die Änderung wurde nicht gespeichert! '+$e->getMessage();
 					}

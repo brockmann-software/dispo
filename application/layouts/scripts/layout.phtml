@@ -25,7 +25,8 @@ echo $this->headScript();
 	</div>
 </div>
 <div id="navi">
-	<?php echo $this->menuHelper(); ?>
+	<?php echo $this->menuHelper(array('onlyActiveBranch'=>true)); ?>
+	<?php //$this->navigation->menu() ?>
 </div>
 <!-- end header -->
 <!-- start page -->

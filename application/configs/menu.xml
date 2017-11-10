@@ -26,6 +26,22 @@
 			<module>default</module>
 			<controller>inbound</controller>
 			<action>index</action>
+			<pages>
+				<newinbound>
+					<label>Neuer Eingang</label>
+					<order>-100</order>
+					<module>default</module>
+					<controller>inbound</controller>
+					<action>editquality</action>
+				</newinbound>
+				<printlabels>
+					<label>Etiketten drucken</label>
+					<order>-90</order>
+					<module>default</module>
+					<controller>inbound</controller>
+					<action>printpalletlabel</action>
+				</printlabels>
+			</pages>
 		</inbound>
 		<whmanagement>
 			<label>Lagerverwaltung</label>

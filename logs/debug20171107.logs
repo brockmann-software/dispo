@@ -1,0 +1,3160 @@
+2017-11-07T06:28:32+01:00 INFO (6): IndexController->IndexAction called
+2017-11-07T06:28:37+01:00 INFO (6): InboundController->IndexAction called
+2017-11-07T06:28:42+01:00 INFO (6): editquality aufgerufen mit Inbound_sheet: Array
+(
+    [No] => 0
+    [inbound] => 0
+    [inb_line] => 0
+    [position] => 
+    [v_delivery_note] => 
+    [vendor] => 
+    [purchase_order] => 
+    [po_line] => 0
+    [po_line_line] => 0
+    [stock_location] => 1
+    [po_arrival_date] => 07.11.2017
+    [po_arrival_time] => 06:28
+    [inb_arrival_date] => 07.11.2017
+    [inb_arrival_time] => 06:28
+    [forwarder] => 
+    [truck] => 
+    [trailor] => 
+    [container] => 
+    [po_transport_temp_min] => 1.00
+    [po_transport_temp_max] => 4.00
+    [inb_transport_temp] => 0
+    [variant] => 
+    [product] => 0026
+    [t_packaging] => 
+    [packaging] => 0
+    [origin] => DE
+    [label] => 0
+    [quality_class] => 1
+    [brand] => 0
+    [quality] => 1
+    [items] => 0
+    [weight_item] => 0
+    [po_lot] => 
+    [po_barcode] => 
+    [po_trading_units] => 0
+    [po_packing_units] => 0
+    [po_pallet] => 
+    [po_pallets] => 0
+    [po_tu_pal] => 0
+    [inb_lot] => 
+    [inb_barcode] => 
+    [items_checked] => 0
+    [inb_trading_units] => 0
+    [inb_packing_units] => 0
+    [inb_pallet] => 
+    [inb_pallets] => 0
+    [inb_tu_pal] => 0
+    [po_brix_min] => 0
+    [po_brix_max] => 0
+    [inb_brix] => 0
+    [inb_certificate] => 1
+    [remarks] => 
+    [checked_by] => 
+    [res_1] => 0
+    [base_1] => 0
+    [rp_1] => 0 %
+    [rl_1] => check_green
+    [res_2] => 0
+    [base_2] => 0
+    [rp_2] => 0 %
+    [rl_2] => check_green
+    [res_3] => 0
+    [base_3] => 0
+    [rp_3] => 0 %
+    [rl_3] => check_green
+    [res_4] => 0
+    [base_4] => 0
+    [rp_4] => 0 %
+    [rl_4] => check_green
+    [res_7] => 0
+    [base_7] => 0
+    [rp_7] => 0 %
+    [rl_7] => check_green
+    [res_6] => 0
+    [base_6] => 0
+    [rp_6] => 0 %
+    [rl_6] => check_green
+    [res_5] => 0
+    [base_5] => 0
+    [rp_5] => 0 %
+    [rl_5] => check_green
+    [res_10] => 0
+    [base_10] => 0
+    [rp_10] => 0 %
+    [rl_10] => check_green
+    [res_13] => 0
+    [base_13] => 0
+    [rp_13] => 0 %
+    [rl_13] => check_green
+    [res_12] => 0
+    [base_12] => 0
+    [rp_12] => 0 %
+    [rl_12] => check_green
+    [res_11] => 0
+    [base_11] => 0
+    [rp_11] => 0 %
+    [rl_11] => check_green
+    [res_9] => 0
+    [base_9] => 0
+    [rp_9] => 0 %
+    [rl_9] => check_green
+    [res_8] => 0
+    [base_8] => 0
+    [rp_8] => 0 %
+    [rl_8] => check_green
+    [res_15] => 0
+    [base_15] => 0
+    [rp_15] => 0
+    [rl_15] => check_green
+    [res_14] => 0
+    [base_14] => 0
+    [rp_14] => 0
+    [rl_14] => check_green
+    [res_16] => 0
+    [base_16] => 0
+    [rp_16] => nicht OK
+    [rl_16] => check_red
+    [res_17] => 0
+    [base_17] => 0
+    [rp_17] => nicht OK
+    [rl_17] => check_red
+    [res_18] => 0
+    [base_18] => 0
+    [rp_18] => 0
+    [rl_18] => check_green
+    [res_19] => 0
+    [base_19] => 0
+    [rp_19] => 0 %
+    [rl_19] => check_green
+)
+
+2017-11-07T07:36:07+01:00 INFO (6): InboundController->IndexAction called
+2017-11-07T07:48:32+01:00 INFO (6): IndexController->IndexAction called
+2017-11-07T07:48:35+01:00 INFO (6): InboundController->IndexAction called
+2017-11-07T07:48:44+01:00 INFO (6): editquality aufgerufen mit Inbound_sheet: Array
+(
+    [No] => 0
+    [inbound] => 0
+    [inb_line] => 0
+    [position] => 
+    [v_delivery_note] => 
+    [vendor] => 
+    [purchase_order] => 
+    [po_line] => 0
+    [po_line_line] => 0
+    [stock_location] => 1
+    [po_arrival_date] => 07.11.2017
+    [po_arrival_time] => 07:48
+    [inb_arrival_date] => 07.11.2017
+    [inb_arrival_time] => 07:48
+    [forwarder] => 
+    [truck] => 
+    [trailor] => 
+    [container] => 
+    [po_transport_temp_min] => 1.00
+    [po_transport_temp_max] => 4.00
+    [inb_transport_temp] => 0
+    [variant] => 
+    [product] => 0026
+    [t_packaging] => 
+    [packaging] => 0
+    [origin] => DE
+    [label] => 0
+    [quality_class] => 1
+    [brand] => 0
+    [quality] => 1
+    [items] => 0
+    [weight_item] => 0
+    [po_lot] => 
+    [po_barcode] => 
+    [po_trading_units] => 0
+    [po_packing_units] => 0
+    [po_pallet] => 
+    [po_pallets] => 0
+    [po_tu_pal] => 0
+    [inb_lot] => 
+    [inb_barcode] => 
+    [items_checked] => 0
+    [inb_trading_units] => 0
+    [inb_packing_units] => 0
+    [inb_pallet] => 
+    [inb_pallets] => 0
+    [inb_tu_pal] => 0
+    [po_brix_min] => 0
+    [po_brix_max] => 0
+    [inb_brix] => 0
+    [inb_certificate] => 1
+    [remarks] => 
+    [checked_by] => 
+    [res_1] => 0
+    [base_1] => 0
+    [rp_1] => 0 %
+    [rl_1] => check_green
+    [res_2] => 0
+    [base_2] => 0
+    [rp_2] => 0 %
+    [rl_2] => check_green
+    [res_3] => 0
+    [base_3] => 0
+    [rp_3] => 0 %
+    [rl_3] => check_green
+    [res_4] => 0
+    [base_4] => 0
+    [rp_4] => 0 %
+    [rl_4] => check_green
+    [res_7] => 0
+    [base_7] => 0
+    [rp_7] => 0 %
+    [rl_7] => check_green
+    [res_6] => 0
+    [base_6] => 0
+    [rp_6] => 0 %
+    [rl_6] => check_green
+    [res_5] => 0
+    [base_5] => 0
+    [rp_5] => 0 %
+    [rl_5] => check_green
+    [res_10] => 0
+    [base_10] => 0
+    [rp_10] => 0 %
+    [rl_10] => check_green
+    [res_13] => 0
+    [base_13] => 0
+    [rp_13] => 0 %
+    [rl_13] => check_green
+    [res_12] => 0
+    [base_12] => 0
+    [rp_12] => 0 %
+    [rl_12] => check_green
+    [res_11] => 0
+    [base_11] => 0
+    [rp_11] => 0 %
+    [rl_11] => check_green
+    [res_9] => 0
+    [base_9] => 0
+    [rp_9] => 0 %
+    [rl_9] => check_green
+    [res_8] => 0
+    [base_8] => 0
+    [rp_8] => 0 %
+    [rl_8] => check_green
+    [res_15] => 0
+    [base_15] => 0
+    [rp_15] => 0
+    [rl_15] => check_green
+    [res_14] => 0
+    [base_14] => 0
+    [rp_14] => 0
+    [rl_14] => check_green
+    [res_16] => 0
+    [base_16] => 0
+    [rp_16] => nicht OK
+    [rl_16] => check_red
+    [res_17] => 0
+    [base_17] => 0
+    [rp_17] => nicht OK
+    [rl_17] => check_red
+    [res_18] => 0
+    [base_18] => 0
+    [rp_18] => 0
+    [rl_18] => check_green
+    [res_19] => 0
+    [base_19] => 0
+    [rp_19] => 0 %
+    [rl_19] => check_green
+)
+
+2017-11-07T07:48:51+01:00 INFO (6): InboundController->getinboundsAction called with whereClause:  WHERE position = 22999
+2017-11-07T07:49:01+01:00 INFO (6): SQL: SELECT tbl_HAN.HANVORNR, tbl_HAN.HANPOSNR, tbl_HAN.HANADRNR, tbl_LIE.LIENAME, tbl_LIE.LIESTRAS, tbl_LIE.LIEPLZOR, convert(varchar(25), tbl_HAN.HANLISDT, 127) AS HANLISDT, HANTABZT, tbl_HAN.HANARTTX, tbl_HAN.HANWARGR, tbl_art.ARTGEBIN, tbl_ART.ARTDURGW, tbl_HAN.HANPMENG, tbl_ART.ARTURSLD FROM tbl_HAN JOIN tbl_ART on (tbl_HAN.HANARTNR = tbl_ART.KEYIART1) join tbl_LIE on (tbl_han.HANADRNR = tbl_LIE.KEYILIE1) WHERE tbl_HAN.HANVORAR = 30 AND tbl_art.ARTAKTKZ = 'A' AND tbl_HAN.HANVORNR = '426137'
+2017-11-07T07:49:02+01:00 INFO (6): Bestellungen: Array
+(
+    [0] => Array
+        (
+            [HANVORNR] => 426137
+            [HANPOSNR] => 002
+            [HANADRNR] => 072136
+            [LIENAME] => Driscolls of Europe
+            [LIESTRAS] => Bijster 26
+            [LIEPLZOR] => 4817 HX Breda
+            [HANLISDT] => 2017-11-07T00:00:00
+            [HANTABZT] => 0700
+            [HANARTTX] => Himbeere 12x125g    
+            [HANWARGR] => 0032
+            [ARTGEBIN] => 12.000
+            [ARTDURGW] => 125
+            [HANPMENG] => 224.00
+            [ARTURSLD] => PT
+            [HANLFSNR] => 6135-1
+        )
+
+    [1] => Array
+        (
+            [HANVORNR] => 426137
+            [HANPOSNR] => 004
+            [HANADRNR] => 072136
+            [LIENAME] => Driscolls of Europe
+            [LIESTRAS] => Bijster 26
+            [LIEPLZOR] => 4817 HX Breda
+            [HANLISDT] => 2017-11-07T00:00:00
+            [HANTABZT] => 0700
+            [HANARTTX] => Himbeere 12x125g    
+            [HANWARGR] => 0032
+            [ARTGEBIN] => 12.000
+            [ARTDURGW] => 125
+            [HANPMENG] => 448.00
+            [ARTURSLD] => PT
+            [HANLFSNR] => 6135-1
+        )
+
+    [2] => Array
+        (
+            [HANVORNR] => 426137
+            [HANPOSNR] => 006
+            [HANADRNR] => 072136
+            [LIENAME] => Driscolls of Europe
+            [LIESTRAS] => Bijster 26
+            [LIEPLZOR] => 4817 HX Breda
+            [HANLISDT] => 2017-11-07T00:00:00
+            [HANTABZT] => 0700
+            [HANARTTX] => Himbeere 12x125g    
+            [HANWARGR] => 0032
+            [ARTGEBIN] => 12.000
+            [ARTDURGW] => 125
+            [HANPMENG] => 448.00
+            [ARTURSLD] => PT
+            [HANLFSNR] => 6135-1
+        )
+
+    [3] => Array
+        (
+            [HANVORNR] => 426137
+            [HANPOSNR] => 008
+            [HANADRNR] => 072136
+            [LIENAME] => Driscolls of Europe
+            [LIESTRAS] => Bijster 26
+            [LIEPLZOR] => 4817 HX Breda
+            [HANLISDT] => 2017-11-07T00:00:00
+            [HANTABZT] => 0700
+            [HANARTTX] => Brombeere 8x125g    
+            [HANWARGR] => 0026
+            [ARTGEBIN] => 8.000
+            [ARTDURGW] => 125
+            [HANPMENG] => 224.00
+            [ARTURSLD] => BE
+            [HANLFSNR] => 6135-1
+        )
+
+)
+
+2017-11-07T07:49:02+01:00 INFO (6): SQL: SELECT tbl_HAN.HANVORNR, tbl_HAN.HANPOSNR, tbl_HAN.HANADRNR, tbl_LIE.LIENAME, tbl_LIE.LIESTRAS, tbl_LIE.LIEPLZOR, convert(varchar(25), tbl_HAN.HANLISDT, 127) AS HANLISDT, convert(varchar(25), tbl_HAN.HANPRODT, 127) AS HANPRODT, HANTABZT, tbl_HAN.HANARTTX, tbl_HAN.HANWARGR, tbl_art.ARTGEBIN, tbl_ART.ARTDURGW, tbl_HAN.HANPMENG, tbl_ART.ARTURSLD FROM tbl_HAN JOIN tbl_ART on (tbl_HAN.HANARTNR = tbl_ART.KEYIART1) join tbl_LIE on (tbl_han.HANADRNR = tbl_LIE.KEYILIE1) WHERE tbl_HAN.HANVORAR = 30 AND tbl_art.ARTAKTKZ = 'A' AND tbl_HAN.HANVORNR = '426137'
+2017-11-07T07:49:02+01:00 INFO (6): Bestellungen: Array
+(
+    [0] => Array
+        (
+            [HANVORNR] => 426137
+            [HANPOSNR] => 002
+            [HANADRNR] => 072136
+            [LIENAME] => Driscolls of Europe
+            [LIESTRAS] => Bijster 26
+            [LIEPLZOR] => 4817 HX Breda
+            [HANLISDT] => 2017-11-07T00:00:00
+            [HANPRODT] => 2017-11-07T00:00:00
+            [HANTABZT] => 0700
+            [HANARTTX] => Himbeere 12x125g
+            [HANWARGR] => 0032
+            [ARTGEBIN] => 12.000
+            [ARTDURGW] => 125
+            [HANPMENG] => 224.00
+            [ARTURSLD] => PT
+            [HANLFSNR] => 6135-1
+        )
+
+    [1] => Array
+        (
+            [HANVORNR] => 426137
+            [HANPOSNR] => 004
+            [HANADRNR] => 072136
+            [LIENAME] => Driscolls of Europe
+            [LIESTRAS] => Bijster 26
+            [LIEPLZOR] => 4817 HX Breda
+            [HANLISDT] => 2017-11-07T00:00:00
+            [HANPRODT] => 2017-11-07T00:00:00
+            [HANTABZT] => 0700
+            [HANARTTX] => Himbeere 12x125g
+            [HANWARGR] => 0032
+            [ARTGEBIN] => 12.000
+            [ARTDURGW] => 125
+            [HANPMENG] => 448.00
+            [ARTURSLD] => PT
+            [HANLFSNR] => 6135-1
+        )
+
+    [2] => Array
+        (
+            [HANVORNR] => 426137
+            [HANPOSNR] => 006
+            [HANADRNR] => 072136
+            [LIENAME] => Driscolls of Europe
+            [LIESTRAS] => Bijster 26
+            [LIEPLZOR] => 4817 HX Breda
+            [HANLISDT] => 2017-11-07T00:00:00
+            [HANPRODT] => 2017-11-07T00:00:00
+            [HANTABZT] => 0700
+            [HANARTTX] => Himbeere 12x125g
+            [HANWARGR] => 0032
+            [ARTGEBIN] => 12.000
+            [ARTDURGW] => 125
+            [HANPMENG] => 448.00
+            [ARTURSLD] => PT
+            [HANLFSNR] => 6135-1
+        )
+
+    [3] => Array
+        (
+            [HANVORNR] => 426137
+            [HANPOSNR] => 008
+            [HANADRNR] => 072136
+            [LIENAME] => Driscolls of Europe
+            [LIESTRAS] => Bijster 26
+            [LIEPLZOR] => 4817 HX Breda
+            [HANLISDT] => 2017-11-07T00:00:00
+            [HANPRODT] => 2017-11-07T00:00:00
+            [HANTABZT] => 0700
+            [HANARTTX] => Brombeere 8x125g
+            [HANWARGR] => 0026
+            [ARTGEBIN] => 8.000
+            [ARTDURGW] => 125
+            [HANPMENG] => 224.00
+            [ARTURSLD] => BE
+            [HANLFSNR] => 6135-1
+        )
+
+)
+
+2017-11-07T08:53:48+01:00 INFO (6): IndexController->IndexAction called
+2017-11-07T08:53:50+01:00 INFO (6): InboundController->IndexAction called
+2017-11-07T08:59:45+01:00 INFO (6): IndexController->IndexAction called
+2017-11-07T08:59:50+01:00 INFO (6): InboundController->IndexAction called
+2017-11-07T09:41:02+01:00 INFO (6): IndexController->IndexAction called
+2017-11-07T09:41:04+01:00 INFO (6): InboundController->IndexAction called
+2017-11-07T09:49:50+01:00 INFO (6): POST: Array
+(
+    [inbound_line] => 7
+    [28] => on
+    [submit] => Speichern
+)
+
+2017-11-07T09:49:50+01:00 INFO (6): pictures: 1
+2017-11-07T09:49:50+01:00 INFO (6): Attachments: Array
+(
+    [name] => Array
+        (
+            [0] => 
+        )
+
+    [type] => Array
+        (
+            [0] => 
+        )
+
+    [tmp_name] => Array
+        (
+            [0] => 
+        )
+
+    [error] => Array
+        (
+            [0] => 4
+        )
+
+    [size] => Array
+        (
+            [0] => 0
+        )
+
+)
+
+2017-11-07T11:35:56+01:00 INFO (6): InboundController->IndexAction called
+2017-11-07T11:37:36+01:00 INFO (6): InboundController->IndexAction called
+2017-11-07T11:38:19+01:00 INFO (6): InboundController->IndexAction called
+2017-11-07T11:42:53+01:00 INFO (6): Storno von Inbound_line 14 erfolgreich mit Reverse_inb_line 20
+2017-11-07T11:42:53+01:00 INFO (6): InboundController->IndexAction called
+2017-11-07T11:52:26+01:00 INFO (6): Storno von Inbound_line 7 erfolgreich mit Reverse_inb_line 21
+2017-11-07T11:52:26+01:00 INFO (6): InboundController->IndexAction called
+2017-11-07T14:13:26+01:00 INFO (6): SQL: SELECT tbl_HAN.HANVORNR, tbl_HAN.HANPOSNR, tbl_HAN.HANADRNR, tbl_LIE.LIENAME, tbl_LIE.LIESTRAS, tbl_LIE.LIEPLZOR, convert(varchar(25), tbl_HAN.HANPRODT, 127) AS HANLISDT, convert(varchar(25), tbl_HAN.HANPRODT, 127) AS HANPRODT, HANTABZT, tbl_HAN.HANARTTX, tbl_HAN.HANWARGR, tbl_art.ARTGEBIN, tbl_ART.ARTDURGW, tbl_HAN.HANPMENG, tbl_ART.ARTURSLD FROM tbl_HAN JOIN tbl_ART on (tbl_HAN.HANARTNR = tbl_ART.KEYIART1) join tbl_LIE on (tbl_han.HANADRNR = tbl_LIE.KEYILIE1) WHERE tbl_HAN.HANVORAR = 30 AND tbl_art.ARTAKTKZ = 'A' AND tbl_HAN.HANVORNR = '426151'
+2017-11-07T14:13:26+01:00 INFO (6): Bestellungen: Array
+(
+    [0] => Array
+        (
+            [HANVORNR] => 426151
+            [HANPOSNR] => 002
+            [HANADRNR] => 072136
+            [LIENAME] => Driscolls of Europe
+            [LIESTRAS] => Bijster 26
+            [LIEPLZOR] => 4817 HX Breda
+            [HANLISDT] => 2017-11-07T00:00:00
+            [HANPRODT] => 2017-11-07T00:00:00
+            [HANTABZT] => 0700
+            [HANARTTX] => Erdbeere 8x500g
+            [HANWARGR] => 0030
+            [ARTGEBIN] => 8.000
+            [ARTDURGW] => 500
+            [HANPMENG] => 50.00
+            [ARTURSLD] => NL
+            [HANLFSNR] => 6572-1
+        )
+
+    [1] => Array
+        (
+            [HANVORNR] => 426151
+            [HANPOSNR] => 004
+            [HANADRNR] => 072136
+            [LIENAME] => Driscolls of Europe
+            [LIESTRAS] => Bijster 26
+            [LIEPLZOR] => 4817 HX Breda
+            [HANLISDT] => 2017-11-07T00:00:00
+            [HANPRODT] => 2017-11-07T00:00:00
+            [HANTABZT] => 0700
+            [HANARTTX] => Erdbeere 8x500g
+            [HANWARGR] => 0030
+            [ARTGEBIN] => 8.000
+            [ARTDURGW] => 500
+            [HANPMENG] => 2.00
+            [ARTURSLD] => NL
+            [HANLFSNR] => 6572-1
+        )
+
+    [2] => Array
+        (
+            [HANVORNR] => 426151
+            [HANPOSNR] => 006
+            [HANADRNR] => 072136
+            [LIENAME] => Driscolls of Europe
+            [LIESTRAS] => Bijster 26
+            [LIEPLZOR] => 4817 HX Breda
+            [HANLISDT] => 2017-11-07T00:00:00
+            [HANPRODT] => 2017-11-07T00:00:00
+            [HANTABZT] => 0700
+            [HANARTTX] => Erdbeere 12x400g
+            [HANWARGR] => 0030
+            [ARTGEBIN] => 12.000
+            [ARTDURGW] => 400
+            [HANPMENG] => 1.00
+            [ARTURSLD] => NL
+            [HANLFSNR] => 6572-1
+        )
+
+    [3] => Array
+        (
+            [HANVORNR] => 426151
+            [HANPOSNR] => 008
+            [HANADRNR] => 072136
+            [LIENAME] => Driscolls of Europe
+            [LIESTRAS] => Bijster 26
+            [LIEPLZOR] => 4817 HX Breda
+            [HANLISDT] => 2017-11-07T00:00:00
+            [HANPRODT] => 2017-11-07T00:00:00
+            [HANTABZT] => 0700
+            [HANARTTX] => Himbeere 12x125g
+            [HANWARGR] => 0032
+            [ARTGEBIN] => 12.000
+            [ARTDURGW] => 125
+            [HANPMENG] => 2010.00
+            [ARTURSLD] => MA
+            [HANLFSNR] => 6572-1
+        )
+
+    [4] => Array
+        (
+            [HANVORNR] => 426151
+            [HANPOSNR] => 010
+            [HANADRNR] => 072136
+            [LIENAME] => Driscolls of Europe
+            [LIESTRAS] => Bijster 26
+            [LIEPLZOR] => 4817 HX Breda
+            [HANLISDT] => 2017-11-07T00:00:00
+            [HANPRODT] => 2017-11-07T00:00:00
+            [HANTABZT] => 0700
+            [HANARTTX] => Himbeere 12x125g
+            [HANWARGR] => 0032
+            [ARTGEBIN] => 12.000
+            [ARTDURGW] => 125
+            [HANPMENG] => 1500.00
+            [ARTURSLD] => PT
+            [HANLFSNR] => 6572-1
+        )
+
+)
+
+2017-11-07T14:13:51+01:00 INFO (6): SQL: SELECT tbl_HAN.HANVORNR, tbl_HAN.HANPOSNR, tbl_HAN.HANADRNR, tbl_LIE.LIENAME, tbl_LIE.LIESTRAS, tbl_LIE.LIEPLZOR, convert(varchar(25), tbl_HAN.HANPRODT, 127) AS HANLISDT, HANTABZT, tbl_HAN.HANARTTX, tbl_HAN.HANWARGR, tbl_art.ARTGEBIN, tbl_ART.ARTDURGW, tbl_HAN.HANPMENG, tbl_ART.ARTURSLD FROM tbl_HAN JOIN tbl_ART on (tbl_HAN.HANARTNR = tbl_ART.KEYIART1) join tbl_LIE on (tbl_han.HANADRNR = tbl_LIE.KEYILIE1) WHERE tbl_HAN.HANVORAR = 30 AND tbl_art.ARTAKTKZ = 'A' AND tbl_HAN.HANVORNR = '426151'
+2017-11-07T14:13:51+01:00 INFO (6): Bestellungen: Array
+(
+    [0] => Array
+        (
+            [HANVORNR] => 426151
+            [HANPOSNR] => 002
+            [HANADRNR] => 072136
+            [LIENAME] => Driscolls of Europe
+            [LIESTRAS] => Bijster 26
+            [LIEPLZOR] => 4817 HX Breda
+            [HANLISDT] => 2017-11-07T00:00:00
+            [HANTABZT] => 0700
+            [HANARTTX] => Erdbeere 8x500g     
+            [HANWARGR] => 0030
+            [ARTGEBIN] => 8.000
+            [ARTDURGW] => 500
+            [HANPMENG] => 50.00
+            [ARTURSLD] => NL
+            [HANLFSNR] => 6572-1
+        )
+
+    [1] => Array
+        (
+            [HANVORNR] => 426151
+            [HANPOSNR] => 004
+            [HANADRNR] => 072136
+            [LIENAME] => Driscolls of Europe
+            [LIESTRAS] => Bijster 26
+            [LIEPLZOR] => 4817 HX Breda
+            [HANLISDT] => 2017-11-07T00:00:00
+            [HANTABZT] => 0700
+            [HANARTTX] => Erdbeere 8x500g     
+            [HANWARGR] => 0030
+            [ARTGEBIN] => 8.000
+            [ARTDURGW] => 500
+            [HANPMENG] => 2.00
+            [ARTURSLD] => NL
+            [HANLFSNR] => 6572-1
+        )
+
+    [2] => Array
+        (
+            [HANVORNR] => 426151
+            [HANPOSNR] => 006
+            [HANADRNR] => 072136
+            [LIENAME] => Driscolls of Europe
+            [LIESTRAS] => Bijster 26
+            [LIEPLZOR] => 4817 HX Breda
+            [HANLISDT] => 2017-11-07T00:00:00
+            [HANTABZT] => 0700
+            [HANARTTX] => Erdbeere 12x400g    
+            [HANWARGR] => 0030
+            [ARTGEBIN] => 12.000
+            [ARTDURGW] => 400
+            [HANPMENG] => 1.00
+            [ARTURSLD] => NL
+            [HANLFSNR] => 6572-1
+        )
+
+    [3] => Array
+        (
+            [HANVORNR] => 426151
+            [HANPOSNR] => 008
+            [HANADRNR] => 072136
+            [LIENAME] => Driscolls of Europe
+            [LIESTRAS] => Bijster 26
+            [LIEPLZOR] => 4817 HX Breda
+            [HANLISDT] => 2017-11-07T00:00:00
+            [HANTABZT] => 0700
+            [HANARTTX] => Himbeere 12x125g    
+            [HANWARGR] => 0032
+            [ARTGEBIN] => 12.000
+            [ARTDURGW] => 125
+            [HANPMENG] => 2010.00
+            [ARTURSLD] => MA
+            [HANLFSNR] => 6572-1
+        )
+
+    [4] => Array
+        (
+            [HANVORNR] => 426151
+            [HANPOSNR] => 010
+            [HANADRNR] => 072136
+            [LIENAME] => Driscolls of Europe
+            [LIESTRAS] => Bijster 26
+            [LIEPLZOR] => 4817 HX Breda
+            [HANLISDT] => 2017-11-07T00:00:00
+            [HANTABZT] => 0700
+            [HANARTTX] => Himbeere 12x125g    
+            [HANWARGR] => 0032
+            [ARTGEBIN] => 12.000
+            [ARTDURGW] => 125
+            [HANPMENG] => 1500.00
+            [ARTURSLD] => PT
+            [HANLFSNR] => 6572-1
+        )
+
+)
+
+2017-11-07T14:20:29+01:00 INFO (6): InboundController->IndexAction called
+2017-11-07T14:22:51+01:00 INFO (6): InboundController->IndexAction called
+2017-11-07T14:25:46+01:00 INFO (6): InboundController->IndexAction called
+2017-11-07T14:33:14+01:00 INFO (6): InboundController->IndexAction called
+2017-11-07T14:33:31+01:00 INFO (6): InboundController->IndexAction called
+2017-11-07T14:37:16+01:00 INFO (6): editquality aufgerufen mit Inbound_sheet: Array
+(
+    [No] => 0
+    [inbound] => 0
+    [inb_line] => 0
+    [position] => 
+    [v_delivery_note] => 
+    [vendor] => 
+    [purchase_order] => 
+    [po_line] => 0
+    [po_line_line] => 0
+    [stock_location] => 1
+    [po_arrival_date] => 07.11.2017
+    [po_arrival_time] => 14:37
+    [inb_arrival_date] => 07.11.2017
+    [inb_arrival_time] => 14:37
+    [forwarder] => 
+    [truck] => 
+    [trailor] => 
+    [container] => 
+    [po_transport_temp_min] => 1.00
+    [po_transport_temp_max] => 4.00
+    [inb_transport_temp] => 0
+    [variant] => 
+    [product] => 0026
+    [t_packaging] => 
+    [packaging] => 0
+    [origin] => DE
+    [label] => 0
+    [quality_class] => 1
+    [brand] => 0
+    [quality] => 1
+    [items] => 0
+    [weight_item] => 0
+    [po_lot] => 
+    [po_barcode] => 
+    [po_trading_units] => 0
+    [po_packing_units] => 0
+    [po_pallet] => 
+    [po_pallets] => 0
+    [po_tu_pal] => 0
+    [inb_lot] => 
+    [inb_barcode] => 
+    [items_checked] => 0
+    [inb_trading_units] => 0
+    [inb_packing_units] => 0
+    [inb_pallet] => 
+    [inb_pallets] => 0
+    [inb_tu_pal] => 0
+    [po_brix_min] => 0
+    [po_brix_max] => 0
+    [inb_brix] => 0
+    [inb_certificate] => 1
+    [remarks] => 
+    [checked_by] => 
+    [res_1] => 0
+    [base_1] => 0
+    [rp_1] => 0 %
+    [rl_1] => check_green
+    [res_2] => 0
+    [base_2] => 0
+    [rp_2] => 0 %
+    [rl_2] => check_green
+    [res_3] => 0
+    [base_3] => 0
+    [rp_3] => 0 %
+    [rl_3] => check_green
+    [res_4] => 0
+    [base_4] => 0
+    [rp_4] => 0 %
+    [rl_4] => check_green
+    [res_7] => 0
+    [base_7] => 0
+    [rp_7] => 0 %
+    [rl_7] => check_green
+    [res_6] => 0
+    [base_6] => 0
+    [rp_6] => 0 %
+    [rl_6] => check_green
+    [res_5] => 0
+    [base_5] => 0
+    [rp_5] => 0 %
+    [rl_5] => check_green
+    [res_10] => 0
+    [base_10] => 0
+    [rp_10] => 0 %
+    [rl_10] => check_green
+    [res_13] => 0
+    [base_13] => 0
+    [rp_13] => 0 %
+    [rl_13] => check_green
+    [res_12] => 0
+    [base_12] => 0
+    [rp_12] => 0 %
+    [rl_12] => check_green
+    [res_11] => 0
+    [base_11] => 0
+    [rp_11] => 0 %
+    [rl_11] => check_green
+    [res_9] => 0
+    [base_9] => 0
+    [rp_9] => 0 %
+    [rl_9] => check_green
+    [res_8] => 0
+    [base_8] => 0
+    [rp_8] => 0 %
+    [rl_8] => check_green
+    [res_15] => 0
+    [base_15] => 0
+    [rp_15] => 0
+    [rl_15] => check_green
+    [res_14] => 0
+    [base_14] => 0
+    [rp_14] => 0
+    [rl_14] => check_green
+    [res_16] => 0
+    [base_16] => 0
+    [rp_16] => nicht OK
+    [rl_16] => check_red
+    [res_17] => 0
+    [base_17] => 0
+    [rp_17] => nicht OK
+    [rl_17] => check_red
+    [res_18] => 0
+    [base_18] => 0
+    [rp_18] => 0
+    [rl_18] => check_green
+    [res_19] => 0
+    [base_19] => 0
+    [rp_19] => 0 %
+    [rl_19] => check_green
+)
+
+2017-11-07T14:37:25+01:00 INFO (6): InboundController->getinboundsAction called with whereClause:  WHERE position = 22772
+2017-11-07T14:37:29+01:00 INFO (6): SQL: SELECT tbl_HAN.HANVORNR, tbl_HAN.HANPOSNR, tbl_HAN.HANADRNR, tbl_LIE.LIENAME, tbl_LIE.LIESTRAS, tbl_LIE.LIEPLZOR, convert(varchar(25), tbl_HAN.HANPRODT, 127) AS HANLISDT, HANTABZT, tbl_HAN.HANARTTX, tbl_HAN.HANWARGR, tbl_art.ARTGEBIN, tbl_ART.ARTDURGW, tbl_HAN.HANPMENG, tbl_ART.ARTURSLD FROM tbl_HAN JOIN tbl_ART on (tbl_HAN.HANARTNR = tbl_ART.KEYIART1) join tbl_LIE on (tbl_han.HANADRNR = tbl_LIE.KEYILIE1) WHERE tbl_HAN.HANVORAR = 30 AND tbl_art.ARTAKTKZ = 'A' AND tbl_HAN.HANVORNR = '426151'
+2017-11-07T14:37:29+01:00 INFO (6): Bestellungen: Array
+(
+    [0] => Array
+        (
+            [HANVORNR] => 426151
+            [HANPOSNR] => 002
+            [HANADRNR] => 072136
+            [LIENAME] => Driscolls of Europe
+            [LIESTRAS] => Bijster 26
+            [LIEPLZOR] => 4817 HX Breda
+            [HANLISDT] => 2017-11-07T00:00:00
+            [HANTABZT] => 0700
+            [HANARTTX] => Erdbeere 8x500g     
+            [HANWARGR] => 0030
+            [ARTGEBIN] => 8.000
+            [ARTDURGW] => 500
+            [HANPMENG] => 50.00
+            [ARTURSLD] => NL
+            [HANLFSNR] => 6572-1
+        )
+
+    [1] => Array
+        (
+            [HANVORNR] => 426151
+            [HANPOSNR] => 004
+            [HANADRNR] => 072136
+            [LIENAME] => Driscolls of Europe
+            [LIESTRAS] => Bijster 26
+            [LIEPLZOR] => 4817 HX Breda
+            [HANLISDT] => 2017-11-07T00:00:00
+            [HANTABZT] => 0700
+            [HANARTTX] => Erdbeere 8x500g     
+            [HANWARGR] => 0030
+            [ARTGEBIN] => 8.000
+            [ARTDURGW] => 500
+            [HANPMENG] => 2.00
+            [ARTURSLD] => NL
+            [HANLFSNR] => 6572-1
+        )
+
+    [2] => Array
+        (
+            [HANVORNR] => 426151
+            [HANPOSNR] => 006
+            [HANADRNR] => 072136
+            [LIENAME] => Driscolls of Europe
+            [LIESTRAS] => Bijster 26
+            [LIEPLZOR] => 4817 HX Breda
+            [HANLISDT] => 2017-11-07T00:00:00
+            [HANTABZT] => 0700
+            [HANARTTX] => Erdbeere 12x400g    
+            [HANWARGR] => 0030
+            [ARTGEBIN] => 12.000
+            [ARTDURGW] => 400
+            [HANPMENG] => 1.00
+            [ARTURSLD] => NL
+            [HANLFSNR] => 6572-1
+        )
+
+    [3] => Array
+        (
+            [HANVORNR] => 426151
+            [HANPOSNR] => 008
+            [HANADRNR] => 072136
+            [LIENAME] => Driscolls of Europe
+            [LIESTRAS] => Bijster 26
+            [LIEPLZOR] => 4817 HX Breda
+            [HANLISDT] => 2017-11-07T00:00:00
+            [HANTABZT] => 0700
+            [HANARTTX] => Himbeere 12x125g    
+            [HANWARGR] => 0032
+            [ARTGEBIN] => 12.000
+            [ARTDURGW] => 125
+            [HANPMENG] => 2010.00
+            [ARTURSLD] => MA
+            [HANLFSNR] => 6572-1
+        )
+
+    [4] => Array
+        (
+            [HANVORNR] => 426151
+            [HANPOSNR] => 010
+            [HANADRNR] => 072136
+            [LIENAME] => Driscolls of Europe
+            [LIESTRAS] => Bijster 26
+            [LIEPLZOR] => 4817 HX Breda
+            [HANLISDT] => 2017-11-07T00:00:00
+            [HANTABZT] => 0700
+            [HANARTTX] => Himbeere 12x125g    
+            [HANWARGR] => 0032
+            [ARTGEBIN] => 12.000
+            [ARTDURGW] => 125
+            [HANPMENG] => 1500.00
+            [ARTURSLD] => PT
+            [HANLFSNR] => 6572-1
+        )
+
+)
+
+2017-11-07T14:37:30+01:00 INFO (6): SQL: SELECT tbl_HAN.HANVORNR, tbl_HAN.HANPOSNR, tbl_HAN.HANADRNR, tbl_LIE.LIENAME, tbl_LIE.LIESTRAS, tbl_LIE.LIEPLZOR, convert(varchar(25), tbl_HAN.HANPRODT, 127) AS HANLISDT, convert(varchar(25), tbl_HAN.HANPRODT, 127) AS HANPRODT, HANTABZT, tbl_HAN.HANARTTX, tbl_HAN.HANWARGR, tbl_art.ARTGEBIN, tbl_ART.ARTDURGW, tbl_HAN.HANPMENG, tbl_ART.ARTURSLD FROM tbl_HAN JOIN tbl_ART on (tbl_HAN.HANARTNR = tbl_ART.KEYIART1) join tbl_LIE on (tbl_han.HANADRNR = tbl_LIE.KEYILIE1) WHERE tbl_HAN.HANVORAR = 30 AND tbl_art.ARTAKTKZ = 'A' AND tbl_HAN.HANVORNR = '426151'
+2017-11-07T14:37:30+01:00 INFO (6): Bestellungen: Array
+(
+    [0] => Array
+        (
+            [HANVORNR] => 426151
+            [HANPOSNR] => 002
+            [HANADRNR] => 072136
+            [LIENAME] => Driscolls of Europe
+            [LIESTRAS] => Bijster 26
+            [LIEPLZOR] => 4817 HX Breda
+            [HANLISDT] => 2017-11-07T00:00:00
+            [HANPRODT] => 2017-11-07T00:00:00
+            [HANTABZT] => 0700
+            [HANARTTX] => Erdbeere 8x500g
+            [HANWARGR] => 0030
+            [ARTGEBIN] => 8.000
+            [ARTDURGW] => 500
+            [HANPMENG] => 50.00
+            [ARTURSLD] => NL
+            [HANLFSNR] => 6572-1
+        )
+
+    [1] => Array
+        (
+            [HANVORNR] => 426151
+            [HANPOSNR] => 004
+            [HANADRNR] => 072136
+            [LIENAME] => Driscolls of Europe
+            [LIESTRAS] => Bijster 26
+            [LIEPLZOR] => 4817 HX Breda
+            [HANLISDT] => 2017-11-07T00:00:00
+            [HANPRODT] => 2017-11-07T00:00:00
+            [HANTABZT] => 0700
+            [HANARTTX] => Erdbeere 8x500g
+            [HANWARGR] => 0030
+            [ARTGEBIN] => 8.000
+            [ARTDURGW] => 500
+            [HANPMENG] => 2.00
+            [ARTURSLD] => NL
+            [HANLFSNR] => 6572-1
+        )
+
+    [2] => Array
+        (
+            [HANVORNR] => 426151
+            [HANPOSNR] => 006
+            [HANADRNR] => 072136
+            [LIENAME] => Driscolls of Europe
+            [LIESTRAS] => Bijster 26
+            [LIEPLZOR] => 4817 HX Breda
+            [HANLISDT] => 2017-11-07T00:00:00
+            [HANPRODT] => 2017-11-07T00:00:00
+            [HANTABZT] => 0700
+            [HANARTTX] => Erdbeere 12x400g
+            [HANWARGR] => 0030
+            [ARTGEBIN] => 12.000
+            [ARTDURGW] => 400
+            [HANPMENG] => 1.00
+            [ARTURSLD] => NL
+            [HANLFSNR] => 6572-1
+        )
+
+    [3] => Array
+        (
+            [HANVORNR] => 426151
+            [HANPOSNR] => 008
+            [HANADRNR] => 072136
+            [LIENAME] => Driscolls of Europe
+            [LIESTRAS] => Bijster 26
+            [LIEPLZOR] => 4817 HX Breda
+            [HANLISDT] => 2017-11-07T00:00:00
+            [HANPRODT] => 2017-11-07T00:00:00
+            [HANTABZT] => 0700
+            [HANARTTX] => Himbeere 12x125g
+            [HANWARGR] => 0032
+            [ARTGEBIN] => 12.000
+            [ARTDURGW] => 125
+            [HANPMENG] => 2010.00
+            [ARTURSLD] => MA
+            [HANLFSNR] => 6572-1
+        )
+
+    [4] => Array
+        (
+            [HANVORNR] => 426151
+            [HANPOSNR] => 010
+            [HANADRNR] => 072136
+            [LIENAME] => Driscolls of Europe
+            [LIESTRAS] => Bijster 26
+            [LIEPLZOR] => 4817 HX Breda
+            [HANLISDT] => 2017-11-07T00:00:00
+            [HANPRODT] => 2017-11-07T00:00:00
+            [HANTABZT] => 0700
+            [HANARTTX] => Himbeere 12x125g
+            [HANWARGR] => 0032
+            [ARTGEBIN] => 12.000
+            [ARTDURGW] => 125
+            [HANPMENG] => 1500.00
+            [ARTURSLD] => PT
+            [HANLFSNR] => 6572-1
+        )
+
+)
+
+2017-11-07T14:39:59+01:00 INFO (6): $_POST: Array
+(
+    [old_No] => 0
+    [inbound] => 0
+    [inb_line] => 0
+    [position] => 22772
+    [vendor_no] => 072136
+    [purchase_order] => 426151
+    [po_line] => 0
+    [po_line_line] => 
+    [v_delivery_note] => 6572-1
+    [forwarder] => 
+    [container] => 
+    [trailor] => 
+    [po_arrival_date] => 07.11.2017
+    [po_arrival_time] => 07:00
+    [po_transport_temp_min] => 1.00
+    [po_transport_temp_max] => 4.00
+    [inb_transport_temp] => 5.5
+    [inb_arrival_date] => 07.11.2017
+    [inb_arrival_time] => 14:37
+    [variant] => variant
+    [product] => 0032
+    [items] => 12
+    [weight_item] => 125
+    [packaging] => 2
+    [t_packaging] => K438
+    [origin] => PT
+    [quality_class] => 1
+    [quality] => 1
+    [label] => 16
+    [brand] => 1
+    [lot] => 
+    [barcode] => 13
+    [po_trading_units] => 1500.00
+    [inb_trading_units] => 1500
+    [po_pallet] => 1
+    [po_pallets] => 7
+    [po_tu_pal] => 224
+    [inb_pallet] => 1
+    [inb_pallets] => 7
+    [inb_tu_pal] => 224
+    [po_brix_min] => 0.00
+    [po_brix_max] => 0.00
+    [inb_brix] => 0
+    [items_checked] => 100
+    [max_good_14] => 1
+    [max_regular_14] => 3
+    [operator_14] => 0
+    [base_14] => 0
+    [res_14] => 1.5
+    [max_good_16] => 0
+    [max_regular_16] => 0
+    [operator_16] => 2
+    [base_16] => 100
+    [res_16] => on
+    [max_good_17] => 0
+    [max_regular_17] => 0
+    [operator_17] => 2
+    [base_17] => 0
+    [max_good_18] => 1
+    [max_regular_18] => 3
+    [operator_18] => 0
+    [base_18] => 0
+    [res_18] => 7.6
+    [max_good_19] => 5
+    [max_regular_19] => 10
+    [operator_19] => 1
+    [base_19] => 1500.00
+    [res_19] => 0
+    [max_good_1] => 1
+    [max_regular_1] => 3
+    [operator_1] => 1
+    [base_1] => 0
+    [res_1] => 0
+    [max_good_2] => 1
+    [max_regular_2] => 2
+    [operator_2] => 1
+    [base_2] => 100
+    [res_2] => 1
+    [max_good_3] => 1
+    [max_regular_3] => 3
+    [operator_3] => 1
+    [base_3] => 0
+    [res_3] => 0
+    [max_good_4] => 1
+    [max_regular_4] => 2
+    [operator_4] => 1
+    [base_4] => 0
+    [res_4] => 0
+    [max_good_7] => 1
+    [max_regular_7] => 2
+    [operator_7] => 1
+    [base_7] => 0
+    [res_7] => 0
+    [max_good_6] => 2
+    [max_regular_6] => 5
+    [operator_6] => 1
+    [base_6] => 0
+    [res_6] => 0
+    [max_good_5] => 1
+    [max_regular_5] => 3
+    [operator_5] => 1
+    [base_5] => 0
+    [res_5] => 0
+    [max_good_10] => 2
+    [max_regular_10] => 5
+    [operator_10] => 1
+    [base_10] => 0
+    [res_10] => 0
+    [max_good_13] => 5
+    [max_regular_13] => 10
+    [operator_13] => 1
+    [base_13] => 0
+    [res_13] => 0
+    [max_good_12] => 2
+    [max_regular_12] => 5
+    [operator_12] => 1
+    [base_12] => 0
+    [res_12] => 0
+    [max_good_11] => 3
+    [max_regular_11] => 6
+    [operator_11] => 1
+    [base_11] => 0
+    [res_11] => 0
+    [max_good_9] => 5
+    [max_regular_9] => 10
+    [operator_9] => 1
+    [base_9] => 0
+    [res_9] => 0
+    [max_good_8] => 5
+    [max_regular_8] => 10
+    [operator_8] => 1
+    [base_8] => 0
+    [res_8] => 0
+    [max_good_15] => 1
+    [max_regular_15] => 3
+    [operator_15] => 0
+    [base_15] => 0
+    [res_15] => 0.0
+    [remarks] => 
+    [checked_by] => 
+    [submit] => Speichern
+)
+
+2017-11-07T14:39:59+01:00 INFO (6): $_FILES: Array
+(
+    [picture] => Array
+        (
+            [name] => Array
+                (
+                    [0] => 
+                )
+
+            [type] => Array
+                (
+                    [0] => 
+                )
+
+            [tmp_name] => Array
+                (
+                    [0] => 
+                )
+
+            [error] => Array
+                (
+                    [0] => 4
+                )
+
+            [size] => Array
+                (
+                    [0] => 0
+                )
+
+        )
+
+    [attachment] => Array
+        (
+            [name] => Array
+                (
+                    [0] => 
+                )
+
+            [type] => Array
+                (
+                    [0] => 
+                )
+
+            [tmp_name] => Array
+                (
+                    [0] => 
+                )
+
+            [error] => Array
+                (
+                    [0] => 4
+                )
+
+            [size] => Array
+                (
+                    [0] => 0
+                )
+
+        )
+
+)
+
+2017-11-07T14:39:59+01:00 INFO (6): Errors nach Eingabe-Check: Array
+(
+)
+
+2017-11-07T14:39:59+01:00 INFO (6): purchase_order: Array
+(
+    [No] => 426151
+    [stock_location] => 1
+    [vendor] => 072136
+    [transport_temp_min] => 1.00
+    [transport_temp_max] => 4.00
+    [forwarder] => 
+    [truck] => 
+    [trailor] => 
+    [container] => 
+    [incoterm] => DDP
+    [vessel] => 
+    [habour] => 
+    [arrival] => 2017-11-07 07:00:00
+    [departure] => 2017-11-07 07:00:00
+)
+
+2017-11-07T14:39:59+01:00 INFO (6): Inbound: Array
+(
+    [No] => 0
+    [position] => 22772
+    [stock_location] => 1
+    [v_delivery_note] => 6572-1
+    [forwarder] => 
+    [truck] => 
+    [trailor] => 
+    [container] => 
+    [transport_temperature] => 5.5
+    [purchase_order] => 426151
+    [arrival] => 2017-11-07 14:37:00
+)
+
+2017-11-07T14:39:59+01:00 INFO (6): Variante: Array
+(
+    [product] => 0032
+    [items] => 12
+    [weight_item] => 125
+    [packaging] => 2
+    [t_packaging] => K438
+    [origin] => PT
+    [quality_class] => 1
+    [quality] => 1
+    [label] => 16
+    [brand] => 1
+    [No] => 0032PT12125K438216111
+)
+
+2017-11-07T14:39:59+01:00 INFO (6): purchase_order_line: Array
+(
+    [No] => 0
+    [Purchase_order] => 426151
+    [Line] => 
+    [product] => 0032
+    [variant] => 0032PT12125K438216111
+    [Trading_Units] => 1500.00
+    [PU_TU] => 12
+    [Packing_Units] => 18000
+    [Pallet] => 1
+    [Pallets] => 7
+    [TU_Pallet] => 224
+    [Price] => 0
+    [Price_Allocation] => 0
+    [lot] => 
+    [barcode] => 
+    [brix_min] => 0.00
+    [brix_max] => 0.00
+)
+
+2017-11-07T14:39:59+01:00 INFO (6): inbound_line: Array
+(
+    [No] => 
+    [line] => 0
+    [lot] => 
+    [product] => 0032
+    [variant] => 0032PT12125K438216111
+    [barcode] => 13
+    [trading_units] => 1500
+    [packing_units] => 18000
+    [Pallet] => 1
+    [Pallets] => 7
+    [tu_pallet] => 224
+    [brix] => 0
+    [items_checked] => 100
+    [remarks] => 
+    [checked_by] => 
+    [inbound] => 0
+    [purchase_order] => 426151
+    [po_line] => 0
+)
+
+2017-11-07T14:39:59+01:00 INFO (6): Transaktion gestartet
+2017-11-07T14:39:59+01:00 INFO (6): Anzahl Purchase Orders gefunden: 0
+2017-11-07T14:39:59+01:00 INFO (6): purchase order wurde hinzugefügt: Array
+(
+    [No] => 0
+    [stock_location] => 1
+    [vendor] => 072136
+    [transport_temp_min] => 1.00
+    [transport_temp_max] => 4.00
+    [forwarder] => 
+    [truck] => 
+    [trailor] => 
+    [container] => 
+    [incoterm] => DDP
+    [vessel] => 
+    [habour] => 
+    [arrival] => 2017-11-07 07:00:00
+    [departure] => 2017-11-07 07:00:00
+)
+
+2017-11-07T14:39:59+01:00 INFO (6): Inbounds gefunden: 0
+2017-11-07T14:39:59+01:00 INFO (6): inbound wurde hinzugefügt mit No 10
+2017-11-07T14:40:06+01:00 INFO (6): $_POST: Array
+(
+    [old_No] => 0
+    [inbound] => 0
+    [inb_line] => 0
+    [position] => 22772
+    [vendor_no] => 072136
+    [purchase_order] => 426151
+    [po_line] => 0
+    [po_line_line] => 
+    [v_delivery_note] => 6572-1
+    [forwarder] => 
+    [container] => 
+    [trailor] => 
+    [po_arrival_date] => 07.11.2017
+    [po_arrival_time] => 07:00
+    [po_transport_temp_min] => 1.00
+    [po_transport_temp_max] => 4.00
+    [inb_transport_temp] => 5.5
+    [inb_arrival_date] => 07.11.2017
+    [inb_arrival_time] => 14:37
+    [variant] => variant
+    [product] => 0032
+    [items] => 12
+    [weight_item] => 125
+    [packaging] => 2
+    [t_packaging] => K438
+    [origin] => PT
+    [quality_class] => 1
+    [quality] => 1
+    [label] => 16
+    [brand] => 1
+    [lot] => 
+    [barcode] => 13
+    [po_trading_units] => 1500.00
+    [inb_trading_units] => 1500
+    [po_pallet] => 1
+    [po_pallets] => 7
+    [po_tu_pal] => 224
+    [inb_pallet] => 1
+    [inb_pallets] => 7
+    [inb_tu_pal] => 224
+    [po_brix_min] => 0.00
+    [po_brix_max] => 0.00
+    [inb_brix] => 0
+    [items_checked] => 100
+    [max_good_14] => 1
+    [max_regular_14] => 3
+    [operator_14] => 0
+    [base_14] => 0
+    [res_14] => 1.5
+    [max_good_16] => 0
+    [max_regular_16] => 0
+    [operator_16] => 2
+    [base_16] => 100
+    [res_16] => on
+    [max_good_17] => 0
+    [max_regular_17] => 0
+    [operator_17] => 2
+    [base_17] => 0
+    [max_good_18] => 1
+    [max_regular_18] => 3
+    [operator_18] => 0
+    [base_18] => 0
+    [res_18] => 7.6
+    [max_good_19] => 5
+    [max_regular_19] => 10
+    [operator_19] => 1
+    [base_19] => 1500.00
+    [res_19] => 0
+    [max_good_1] => 1
+    [max_regular_1] => 3
+    [operator_1] => 1
+    [base_1] => 0
+    [res_1] => 0
+    [max_good_2] => 1
+    [max_regular_2] => 2
+    [operator_2] => 1
+    [base_2] => 100
+    [res_2] => 1
+    [max_good_3] => 1
+    [max_regular_3] => 3
+    [operator_3] => 1
+    [base_3] => 0
+    [res_3] => 0
+    [max_good_4] => 1
+    [max_regular_4] => 2
+    [operator_4] => 1
+    [base_4] => 0
+    [res_4] => 0
+    [max_good_7] => 1
+    [max_regular_7] => 2
+    [operator_7] => 1
+    [base_7] => 0
+    [res_7] => 0
+    [max_good_6] => 2
+    [max_regular_6] => 5
+    [operator_6] => 1
+    [base_6] => 0
+    [res_6] => 0
+    [max_good_5] => 1
+    [max_regular_5] => 3
+    [operator_5] => 1
+    [base_5] => 0
+    [res_5] => 0
+    [max_good_10] => 2
+    [max_regular_10] => 5
+    [operator_10] => 1
+    [base_10] => 0
+    [res_10] => 0
+    [max_good_13] => 5
+    [max_regular_13] => 10
+    [operator_13] => 1
+    [base_13] => 0
+    [res_13] => 0
+    [max_good_12] => 2
+    [max_regular_12] => 5
+    [operator_12] => 1
+    [base_12] => 0
+    [res_12] => 0
+    [max_good_11] => 3
+    [max_regular_11] => 6
+    [operator_11] => 1
+    [base_11] => 0
+    [res_11] => 0
+    [max_good_9] => 5
+    [max_regular_9] => 10
+    [operator_9] => 1
+    [base_9] => 0
+    [res_9] => 0
+    [max_good_8] => 5
+    [max_regular_8] => 10
+    [operator_8] => 1
+    [base_8] => 0
+    [res_8] => 0
+    [max_good_15] => 1
+    [max_regular_15] => 3
+    [operator_15] => 0
+    [base_15] => 0
+    [res_15] => 0.0
+    [remarks] => 
+    [checked_by] => 
+    [submit] => Speichern
+)
+
+2017-11-07T14:40:06+01:00 INFO (6): $_FILES: Array
+(
+    [picture] => Array
+        (
+            [name] => Array
+                (
+                    [0] => 
+                )
+
+            [type] => Array
+                (
+                    [0] => 
+                )
+
+            [tmp_name] => Array
+                (
+                    [0] => 
+                )
+
+            [error] => Array
+                (
+                    [0] => 4
+                )
+
+            [size] => Array
+                (
+                    [0] => 0
+                )
+
+        )
+
+    [attachment] => Array
+        (
+            [name] => Array
+                (
+                    [0] => 
+                )
+
+            [type] => Array
+                (
+                    [0] => 
+                )
+
+            [tmp_name] => Array
+                (
+                    [0] => 
+                )
+
+            [error] => Array
+                (
+                    [0] => 4
+                )
+
+            [size] => Array
+                (
+                    [0] => 0
+                )
+
+        )
+
+)
+
+2017-11-07T14:40:06+01:00 INFO (6): Errors nach Eingabe-Check: Array
+(
+)
+
+2017-11-07T14:40:06+01:00 INFO (6): purchase_order: Array
+(
+    [No] => 426151
+    [stock_location] => 1
+    [vendor] => 072136
+    [transport_temp_min] => 1.00
+    [transport_temp_max] => 4.00
+    [forwarder] => 
+    [truck] => 
+    [trailor] => 
+    [container] => 
+    [incoterm] => DDP
+    [vessel] => 
+    [habour] => 
+    [arrival] => 2017-11-07 07:00:00
+    [departure] => 2017-11-07 07:00:00
+)
+
+2017-11-07T14:40:06+01:00 INFO (6): Inbound: Array
+(
+    [No] => 0
+    [position] => 22772
+    [stock_location] => 1
+    [v_delivery_note] => 6572-1
+    [forwarder] => 
+    [truck] => 
+    [trailor] => 
+    [container] => 
+    [transport_temperature] => 5.5
+    [purchase_order] => 426151
+    [arrival] => 2017-11-07 14:37:00
+)
+
+2017-11-07T14:40:06+01:00 INFO (6): Variante: Array
+(
+    [product] => 0032
+    [items] => 12
+    [weight_item] => 125
+    [packaging] => 2
+    [t_packaging] => K438
+    [origin] => PT
+    [quality_class] => 1
+    [quality] => 1
+    [label] => 16
+    [brand] => 1
+    [No] => 0032PT12125K438216111
+)
+
+2017-11-07T14:40:06+01:00 INFO (6): purchase_order_line: Array
+(
+    [No] => 0
+    [Purchase_order] => 426151
+    [Line] => 
+    [product] => 0032
+    [variant] => 0032PT12125K438216111
+    [Trading_Units] => 1500.00
+    [PU_TU] => 12
+    [Packing_Units] => 18000
+    [Pallet] => 1
+    [Pallets] => 7
+    [TU_Pallet] => 224
+    [Price] => 0
+    [Price_Allocation] => 0
+    [lot] => 
+    [barcode] => 
+    [brix_min] => 0.00
+    [brix_max] => 0.00
+)
+
+2017-11-07T14:40:06+01:00 INFO (6): inbound_line: Array
+(
+    [No] => 
+    [line] => 0
+    [lot] => 
+    [product] => 0032
+    [variant] => 0032PT12125K438216111
+    [barcode] => 13
+    [trading_units] => 1500
+    [packing_units] => 18000
+    [Pallet] => 1
+    [Pallets] => 7
+    [tu_pallet] => 224
+    [brix] => 0
+    [items_checked] => 100
+    [remarks] => 
+    [checked_by] => 
+    [inbound] => 0
+    [purchase_order] => 426151
+    [po_line] => 0
+)
+
+2017-11-07T14:40:06+01:00 INFO (6): Transaktion gestartet
+2017-11-07T14:40:06+01:00 INFO (6): Variante gefunden: Array
+(
+    [No] => 0032PT12125K438216111
+    [product] => 0032
+    [origin] => PT
+    [variant] => 
+    [items] => 12
+    [weight_item] => 125
+    [packaging] => 2
+    [label] => 16
+    [t_packaging] => K438
+    [quality_class] => 1
+    [brand] => 1
+    [quality] => 1
+)
+
+2017-11-07T14:40:06+01:00 INFO (6): Anzahl Purchase Orders gefunden: 0
+2017-11-07T14:40:06+01:00 INFO (6): Es wurde keine Purchase Order Line zur Purchase Order 0 gefunden
+2017-11-07T14:40:06+01:00 INFO (6): Purchase order Line wurde hinzugefügt mit No: 12 und Line: 10000
+2017-11-07T14:40:06+01:00 INFO (6): Inbound Line wurde hinzugefügt mit No: 22 und Line: 10000
+2017-11-07T14:40:06+01:00 INFO (6): Movement: Array
+(
+    [No] => 0
+    [movement] => 1
+    [date] => 2017-11-07 14:37:00
+    [trading_units] => 1500
+    [packing_units] => 18000
+    [trading_units_production] => 1500
+    [packing_units_production] => 18000
+    [status] => 3
+    [type] => 0
+    [stock_location] => 1
+    [remarks] => 
+    [in_order_line] => 12
+    [inbound_line] => 22
+)
+
+2017-11-07T14:40:06+01:00 INFO (6): Bewegung wurde gespeichert mit No: 27
+2017-11-07T14:40:06+01:00 INFO (6): Pfad: C:\www-dev\dispo\public\quality\pictures
+2017-11-07T14:40:06+01:00 INFO (6): Zend_Config Object
+(
+    [_allowModifications:protected] => 
+    [_index:protected] => 0
+    [_count:protected] => 10
+    [_data:protected] => Array
+        (
+            [phpSettings] => Zend_Config Object
+                (
+                    [_allowModifications:protected] => 
+                    [_index:protected] => 0
+                    [_count:protected] => 2
+                    [_data:protected] => Array
+                        (
+                            [display_startup_errors] => 1
+                            [display_errors] => 1
+                        )
+
+                    [_skipNextIteration:protected] => 
+                    [_loadedSection:protected] => 
+                    [_extends:protected] => Array
+                        (
+                        )
+
+                    [_loadFileErrorStr:protected] => 
+                )
+
+            [includePaths] => Zend_Config Object
+                (
+                    [_allowModifications:protected] => 
+                    [_index:protected] => 0
+                    [_count:protected] => 1
+                    [_data:protected] => Array
+                        (
+                            [library] => /www-dev/ZendFramework-1.12.20/library
+                        )
+
+                    [_skipNextIteration:protected] => 
+                    [_loadedSection:protected] => 
+                    [_extends:protected] => Array
+                        (
+                        )
+
+                    [_loadFileErrorStr:protected] => 
+                )
+
+            [bootstrap] => Zend_Config Object
+                (
+                    [_allowModifications:protected] => 
+                    [_index:protected] => 0
+                    [_count:protected] => 2
+                    [_data:protected] => Array
+                        (
+                            [path] => C:\www-dev\dispo\application/Bootstrap.php
+                            [class] => Bootstrap
+                        )
+
+                    [_skipNextIteration:protected] => 
+                    [_loadedSection:protected] => 
+                    [_extends:protected] => Array
+                        (
+                        )
+
+                    [_loadFileErrorStr:protected] => 
+                )
+
+            [appnamespace] => Application
+            [resources] => Zend_Config Object
+                (
+                    [_allowModifications:protected] => 
+                    [_index:protected] => 0
+                    [_count:protected] => 3
+                    [_data:protected] => Array
+                        (
+                            [frontController] => Zend_Config Object
+                                (
+                                    [_allowModifications:protected] => 
+                                    [_index:protected] => 0
+                                    [_count:protected] => 2
+                                    [_data:protected] => Array
+                                        (
+                                            [controllerDirectory] => C:\www-dev\dispo\application/controllers
+                                            [params] => Zend_Config Object
+                                                (
+                                                    [_allowModifications:protected] => 
+                                                    [_index:protected] => 0
+                                                    [_count:protected] => 1
+                                                    [_data:protected] => Array
+                                                        (
+                                                            [displayExceptions] => 1
+                                                        )
+
+                                                    [_skipNextIteration:protected] => 
+                                                    [_loadedSection:protected] => 
+                                                    [_extends:protected] => Array
+                                                        (
+                                                        )
+
+                                                    [_loadFileErrorStr:protected] => 
+                                                )
+
+                                        )
+
+                                    [_skipNextIteration:protected] => 
+                                    [_loadedSection:protected] => 
+                                    [_extends:protected] => Array
+                                        (
+                                        )
+
+                                    [_loadFileErrorStr:protected] => 
+                                )
+
+                            [layout] => Zend_Config Object
+                                (
+                                    [_allowModifications:protected] => 
+                                    [_index:protected] => 0
+                                    [_count:protected] => 1
+                                    [_data:protected] => Array
+                                        (
+                                            [layoutPath] => C:\www-dev\dispo\application/layouts/scripts
+                                        )
+
+                                    [_skipNextIteration:protected] => 
+                                    [_loadedSection:protected] => 
+                                    [_extends:protected] => Array
+                                        (
+                                        )
+
+                                    [_loadFileErrorStr:protected] => 
+                                )
+
+                            [view] => Zend_Config Object
+                                (
+                                    [_allowModifications:protected] => 
+                                    [_index:protected] => 0
+                                    [_count:protected] => 1
+                                    [_data:protected] => Array
+                                        (
+                                            [doctype] => XHTML1_STRICT
+                                        )
+
+                                    [_skipNextIteration:protected] => 
+                                    [_loadedSection:protected] => 
+                                    [_extends:protected] => Array
+                                        (
+                                        )
+
+                                    [_loadFileErrorStr:protected] => 
+                                )
+
+                        )
+
+                    [_skipNextIteration:protected] => 
+                    [_loadedSection:protected] => 
+                    [_extends:protected] => Array
+                        (
+                        )
+
+                    [_loadFileErrorStr:protected] => 
+                )
+
+            [logging] => Zend_Config Object
+                (
+                    [_allowModifications:protected] => 
+                    [_index:protected] => 0
+                    [_count:protected] => 1
+                    [_data:protected] => Array
+                        (
+                            [file] => C:\www-dev\dispo\application/../logs/debug.logs
+                        )
+
+                    [_skipNextIteration:protected] => 
+                    [_loadedSection:protected] => 
+                    [_extends:protected] => Array
+                        (
+                        )
+
+                    [_loadFileErrorStr:protected] => 
+                )
+
+            [database] => Zend_Config Object
+                (
+                    [_allowModifications:protected] => 
+                    [_index:protected] => 0
+                    [_count:protected] => 2
+                    [_data:protected] => Array
+                        (
+                            [adapter] => PDO_MYSQL
+                            [params] => Zend_Config Object
+                                (
+                                    [_allowModifications:protected] => 
+                                    [_index:protected] => 0
+                                    [_count:protected] => 6
+                                    [_data:protected] => Array
+                                        (
+                                            [host] => localhost
+                                            [username] => root
+                                            [password] => 
+                                            [dbname] => disposition
+                                            [charset] => utf8
+                                            [profiler] => 1
+                                        )
+
+                                    [_skipNextIteration:protected] => 
+                                    [_loadedSection:protected] => 
+                                    [_extends:protected] => Array
+                                        (
+                                        )
+
+                                    [_loadFileErrorStr:protected] => 
+                                )
+
+                        )
+
+                    [_skipNextIteration:protected] => 
+                    [_loadedSection:protected] => 
+                    [_extends:protected] => Array
+                        (
+                        )
+
+                    [_loadFileErrorStr:protected] => 
+                )
+
+            [database2] => Zend_Config Object
+                (
+                    [_allowModifications:protected] => 
+                    [_index:protected] => 0
+                    [_count:protected] => 2
+                    [_data:protected] => Array
+                        (
+                            [adapter] => Sqlsrv
+                            [params] => Zend_Config Object
+                                (
+                                    [_allowModifications:protected] => 
+                                    [_index:protected] => 0
+                                    [_count:protected] => 5
+                                    [_data:protected] => Array
+                                        (
+                                            [host] => 192.168.0.233
+                                            [username] => readerbtm
+                                            [password] => reader21
+                                            [dbname] => db_Gromas_000
+                                            [charset] => utf8
+                                        )
+
+                                    [_skipNextIteration:protected] => 
+                                    [_loadedSection:protected] => 
+                                    [_extends:protected] => Array
+                                        (
+                                        )
+
+                                    [_loadFileErrorStr:protected] => 
+                                )
+
+                        )
+
+                    [_skipNextIteration:protected] => 
+                    [_loadedSection:protected] => 
+                    [_extends:protected] => Array
+                        (
+                        )
+
+                    [_loadFileErrorStr:protected] => 
+                )
+
+            [upload] => Zend_Config Object
+                (
+                    [_allowModifications:protected] => 
+                    [_index:protected] => 0
+                    [_count:protected] => 2
+                    [_data:protected] => Array
+                        (
+                            [quality] => Zend_Config Object
+                                (
+                                    [_allowModifications:protected] => 
+                                    [_index:protected] => 0
+                                    [_count:protected] => 2
+                                    [_data:protected] => Array
+                                        (
+                                            [pictures] => C:\www-dev\dispo\application/../public/quality/pictures/
+                                            [attachments] => C:\www-dev\dispo\application/../public/quality/attachments/
+                                        )
+
+                                    [_skipNextIteration:protected] => 
+                                    [_loadedSection:protected] => 
+                                    [_extends:protected] => Array
+                                        (
+                                        )
+
+                                    [_loadFileErrorStr:protected] => 
+                                )
+
+                            [qm] => Zend_Config Object
+                                (
+                                    [_allowModifications:protected] => 
+                                    [_index:protected] => 0
+                                    [_count:protected] => 1
+                                    [_data:protected] => Array
+                                        (
+                                            [supplier_agreements] => C:\www-dev\dispo\application/../public/qm/agreements/
+                                        )
+
+                                    [_skipNextIteration:protected] => 
+                                    [_loadedSection:protected] => 
+                                    [_extends:protected] => Array
+                                        (
+                                        )
+
+                                    [_loadFileErrorStr:protected] => 
+                                )
+
+                        )
+
+                    [_skipNextIteration:protected] => 
+                    [_loadedSection:protected] => 
+                    [_extends:protected] => Array
+                        (
+                        )
+
+                    [_loadFileErrorStr:protected] => 
+                )
+
+            [template] => Zend_Config Object
+                (
+                    [_allowModifications:protected] => 
+                    [_index:protected] => 0
+                    [_count:protected] => 1
+                    [_data:protected] => Array
+                        (
+                            [pdf] => C:\www-dev\dispo\application/templates
+                        )
+
+                    [_skipNextIteration:protected] => 
+                    [_loadedSection:protected] => 
+                    [_extends:protected] => Array
+                        (
+                        )
+
+                    [_loadFileErrorStr:protected] => 
+                )
+
+        )
+
+    [_skipNextIteration:protected] => 
+    [_loadedSection:protected] => 
+    [_extends:protected] => Array
+        (
+        )
+
+    [_loadFileErrorStr:protected] => 
+)
+
+2017-11-07T14:40:06+01:00 INFO (6): Anzahl Qualitätsmerkmale: 0
+2017-11-07T14:40:06+01:00 INFO (6): Bilder: Array
+(
+    [name] => Array
+        (
+            [0] => 
+        )
+
+    [type] => Array
+        (
+            [0] => 
+        )
+
+    [tmp_name] => Array
+        (
+            [0] => 
+        )
+
+    [error] => Array
+        (
+            [0] => 4
+        )
+
+    [size] => Array
+        (
+            [0] => 0
+        )
+
+)
+
+2017-11-07T14:40:06+01:00 INFO (6): QIndex: operator_1
+2017-11-07T14:40:06+01:00 INFO (6): Qcheck_inb_line: Array
+(
+    [no] => 0
+    [quality_checkpoint] => 1
+    [inbound_line] => 22
+    [base] => 100
+    [value] => 0
+    [max_good] => 1
+    [max_regular] => 3
+)
+
+2017-11-07T14:40:07+01:00 INFO (6): Qualitätsmerkmal wurde hinzugefügt
+2017-11-07T14:40:07+01:00 INFO (6): QIndex: operator_2
+2017-11-07T14:40:07+01:00 INFO (6): Qcheck_inb_line: Array
+(
+    [no] => 0
+    [quality_checkpoint] => 2
+    [inbound_line] => 22
+    [base] => 100
+    [value] => 1
+    [max_good] => 1
+    [max_regular] => 2
+)
+
+2017-11-07T14:40:07+01:00 INFO (6): Qualitätsmerkmal wurde hinzugefügt
+2017-11-07T14:40:07+01:00 INFO (6): QIndex: operator_3
+2017-11-07T14:40:07+01:00 INFO (6): Qcheck_inb_line: Array
+(
+    [no] => 0
+    [quality_checkpoint] => 3
+    [inbound_line] => 22
+    [base] => 100
+    [value] => 0
+    [max_good] => 1
+    [max_regular] => 3
+)
+
+2017-11-07T14:40:07+01:00 INFO (6): Qualitätsmerkmal wurde hinzugefügt
+2017-11-07T14:40:07+01:00 INFO (6): QIndex: operator_4
+2017-11-07T14:40:07+01:00 INFO (6): Qcheck_inb_line: Array
+(
+    [no] => 0
+    [quality_checkpoint] => 4
+    [inbound_line] => 22
+    [base] => 100
+    [value] => 0
+    [max_good] => 1
+    [max_regular] => 2
+)
+
+2017-11-07T14:40:07+01:00 INFO (6): Qualitätsmerkmal wurde hinzugefügt
+2017-11-07T14:40:07+01:00 INFO (6): QIndex: operator_5
+2017-11-07T14:40:07+01:00 INFO (6): Qcheck_inb_line: Array
+(
+    [no] => 0
+    [quality_checkpoint] => 5
+    [inbound_line] => 22
+    [base] => 100
+    [value] => 0
+    [max_good] => 1
+    [max_regular] => 3
+)
+
+2017-11-07T14:40:07+01:00 INFO (6): Qualitätsmerkmal wurde hinzugefügt
+2017-11-07T14:40:07+01:00 INFO (6): QIndex: operator_6
+2017-11-07T14:40:07+01:00 INFO (6): Qcheck_inb_line: Array
+(
+    [no] => 0
+    [quality_checkpoint] => 6
+    [inbound_line] => 22
+    [base] => 100
+    [value] => 0
+    [max_good] => 2
+    [max_regular] => 5
+)
+
+2017-11-07T14:40:07+01:00 INFO (6): Qualitätsmerkmal wurde hinzugefügt
+2017-11-07T14:40:07+01:00 INFO (6): QIndex: operator_7
+2017-11-07T14:40:07+01:00 INFO (6): Qcheck_inb_line: Array
+(
+    [no] => 0
+    [quality_checkpoint] => 7
+    [inbound_line] => 22
+    [base] => 100
+    [value] => 0
+    [max_good] => 1
+    [max_regular] => 2
+)
+
+2017-11-07T14:40:07+01:00 INFO (6): Qualitätsmerkmal wurde hinzugefügt
+2017-11-07T14:40:07+01:00 INFO (6): QIndex: operator_8
+2017-11-07T14:40:07+01:00 INFO (6): Qcheck_inb_line: Array
+(
+    [no] => 0
+    [quality_checkpoint] => 8
+    [inbound_line] => 22
+    [base] => 100
+    [value] => 0
+    [max_good] => 5
+    [max_regular] => 10
+)
+
+2017-11-07T14:40:07+01:00 INFO (6): Qualitätsmerkmal wurde hinzugefügt
+2017-11-07T14:40:07+01:00 INFO (6): QIndex: operator_9
+2017-11-07T14:40:07+01:00 INFO (6): Qcheck_inb_line: Array
+(
+    [no] => 0
+    [quality_checkpoint] => 9
+    [inbound_line] => 22
+    [base] => 100
+    [value] => 0
+    [max_good] => 5
+    [max_regular] => 10
+)
+
+2017-11-07T14:40:07+01:00 INFO (6): Qualitätsmerkmal wurde hinzugefügt
+2017-11-07T14:40:07+01:00 INFO (6): QIndex: operator_10
+2017-11-07T14:40:07+01:00 INFO (6): Qcheck_inb_line: Array
+(
+    [no] => 0
+    [quality_checkpoint] => 10
+    [inbound_line] => 22
+    [base] => 100
+    [value] => 0
+    [max_good] => 2
+    [max_regular] => 5
+)
+
+2017-11-07T14:40:07+01:00 INFO (6): Qualitätsmerkmal wurde hinzugefügt
+2017-11-07T14:40:07+01:00 INFO (6): QIndex: operator_11
+2017-11-07T14:40:07+01:00 INFO (6): Qcheck_inb_line: Array
+(
+    [no] => 0
+    [quality_checkpoint] => 11
+    [inbound_line] => 22
+    [base] => 100
+    [value] => 0
+    [max_good] => 3
+    [max_regular] => 6
+)
+
+2017-11-07T14:40:07+01:00 INFO (6): Qualitätsmerkmal wurde hinzugefügt
+2017-11-07T14:40:07+01:00 INFO (6): QIndex: operator_12
+2017-11-07T14:40:07+01:00 INFO (6): Qcheck_inb_line: Array
+(
+    [no] => 0
+    [quality_checkpoint] => 12
+    [inbound_line] => 22
+    [base] => 100
+    [value] => 0
+    [max_good] => 2
+    [max_regular] => 5
+)
+
+2017-11-07T14:40:07+01:00 INFO (6): Qualitätsmerkmal wurde hinzugefügt
+2017-11-07T14:40:07+01:00 INFO (6): QIndex: operator_13
+2017-11-07T14:40:07+01:00 INFO (6): Qcheck_inb_line: Array
+(
+    [no] => 0
+    [quality_checkpoint] => 13
+    [inbound_line] => 22
+    [base] => 100
+    [value] => 0
+    [max_good] => 5
+    [max_regular] => 10
+)
+
+2017-11-07T14:40:07+01:00 INFO (6): Qualitätsmerkmal wurde hinzugefügt
+2017-11-07T14:40:07+01:00 INFO (6): QIndex: operator_14
+2017-11-07T14:40:07+01:00 INFO (6): Qcheck_inb_line: Array
+(
+    [no] => 0
+    [quality_checkpoint] => 14
+    [inbound_line] => 22
+    [base] => 100
+    [value] => 1.5
+    [max_good] => 1
+    [max_regular] => 3
+)
+
+2017-11-07T14:40:07+01:00 INFO (6): Qualitätsmerkmal wurde hinzugefügt
+2017-11-07T14:40:07+01:00 INFO (6): QIndex: operator_15
+2017-11-07T14:40:07+01:00 INFO (6): Qcheck_inb_line: Array
+(
+    [no] => 0
+    [quality_checkpoint] => 15
+    [inbound_line] => 22
+    [base] => 100
+    [value] => 0.0
+    [max_good] => 1
+    [max_regular] => 3
+)
+
+2017-11-07T14:40:07+01:00 INFO (6): Qualitätsmerkmal wurde hinzugefügt
+2017-11-07T14:40:07+01:00 INFO (6): QIndex: operator_16
+2017-11-07T14:40:07+01:00 INFO (6): Qcheck_inb_line: Array
+(
+    [no] => 0
+    [quality_checkpoint] => 16
+    [inbound_line] => 22
+    [base] => 0
+    [value] => 1
+    [max_good] => 0
+    [max_regular] => 0
+)
+
+2017-11-07T14:40:07+01:00 INFO (6): Qualitätsmerkmal wurde hinzugefügt
+2017-11-07T14:40:07+01:00 INFO (6): QIndex: operator_17
+2017-11-07T14:40:07+01:00 INFO (6): Qcheck_inb_line: Array
+(
+    [no] => 0
+    [quality_checkpoint] => 17
+    [inbound_line] => 22
+    [base] => 0
+    [value] => 
+    [max_good] => 0
+    [max_regular] => 0
+)
+
+2017-11-07T14:40:07+01:00 INFO (6): Qualitätsmerkmal wurde hinzugefügt
+2017-11-07T14:40:07+01:00 INFO (6): QIndex: operator_18
+2017-11-07T14:40:07+01:00 INFO (6): Qcheck_inb_line: Array
+(
+    [no] => 0
+    [quality_checkpoint] => 18
+    [inbound_line] => 22
+    [base] => 100
+    [value] => 7.6
+    [max_good] => 1
+    [max_regular] => 3
+)
+
+2017-11-07T14:40:07+01:00 INFO (6): Qualitätsmerkmal wurde hinzugefügt
+2017-11-07T14:40:07+01:00 INFO (6): QIndex: operator_19
+2017-11-07T14:40:07+01:00 INFO (6): Qcheck_inb_line: Array
+(
+    [no] => 0
+    [quality_checkpoint] => 19
+    [inbound_line] => 22
+    [base] => 1500.00
+    [value] => 0
+    [max_good] => 5
+    [max_regular] => 10
+)
+
+2017-11-07T14:40:07+01:00 INFO (6): Qualitätsmerkmal wurde hinzugefügt
+2017-11-07T14:40:07+01:00 INFO (6): Datenbank Committed
+2017-11-07T14:40:07+01:00 INFO (6): Fehler bei Purchase Order: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '426151' for key 'PRIMARY', query was: INSERT INTO `purchase_order` (`No`, `stock_location`, `vendor`, `transport_temp_min`, `transport_temp_max`, `forwarder`, `truck`, `trailor`, `container`, `incoterm`, `vessel`, `habour`, `arrival`, `departure`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2017-11-07T14:40:07+01:00 INFO (6): Inbounds gefunden: 0
+2017-11-07T14:40:07+01:00 INFO (6): inbound wurde hinzugefügt mit No 11
+2017-11-07T14:40:07+01:00 INFO (6): Variante gefunden: Array
+(
+    [No] => 0032PT12125K438216111
+    [product] => 0032
+    [origin] => PT
+    [variant] => 
+    [items] => 12
+    [weight_item] => 125
+    [packaging] => 2
+    [label] => 16
+    [t_packaging] => K438
+    [quality_class] => 1
+    [brand] => 1
+    [quality] => 1
+)
+
+2017-11-07T14:40:07+01:00 INFO (6): Es wurde keine Purchase Order Line zur Purchase Order 426151 gefunden
+2017-11-07T14:40:07+01:00 INFO (6): Purchase Order Line wurde nicht gespeichert! SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '426151-10000' for key 'PO_Line', query was: INSERT INTO `purchase_order_line` (`No`, `Purchase_order`, `Line`, `product`, `variant`, `Trading_Units`, `PU_TU`, `Packing_Units`, `Pallet`, `Pallets`, `TU_Pallet`, `Price`, `Price_Allocation`, `lot`, `barcode`, `brix_min`, `brix_max`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2017-11-07T14:40:07+01:00 INFO (6): Inbound Line wurde hinzugefügt mit No: 23 und Line: 10000
+2017-11-07T14:40:07+01:00 INFO (6): Movement: Array
+(
+    [No] => 0
+    [movement] => 1
+    [date] => 2017-11-07 14:37:00
+    [trading_units] => 1500
+    [packing_units] => 18000
+    [trading_units_production] => 1500
+    [packing_units_production] => 18000
+    [status] => 3
+    [type] => 0
+    [stock_location] => 1
+    [remarks] => 
+    [in_order_line] => 0
+    [inbound_line] => 23
+)
+
+2017-11-07T14:40:07+01:00 INFO (6): Bewegung wurde gespeichert mit No: 28
+2017-11-07T14:40:07+01:00 INFO (6): Pfad: C:\www-dev\dispo\public\quality\pictures
+2017-11-07T14:40:07+01:00 INFO (6): Zend_Config Object
+(
+    [_allowModifications:protected] => 
+    [_index:protected] => 0
+    [_count:protected] => 10
+    [_data:protected] => Array
+        (
+            [phpSettings] => Zend_Config Object
+                (
+                    [_allowModifications:protected] => 
+                    [_index:protected] => 0
+                    [_count:protected] => 2
+                    [_data:protected] => Array
+                        (
+                            [display_startup_errors] => 1
+                            [display_errors] => 1
+                        )
+
+                    [_skipNextIteration:protected] => 
+                    [_loadedSection:protected] => 
+                    [_extends:protected] => Array
+                        (
+                        )
+
+                    [_loadFileErrorStr:protected] => 
+                )
+
+            [includePaths] => Zend_Config Object
+                (
+                    [_allowModifications:protected] => 
+                    [_index:protected] => 0
+                    [_count:protected] => 1
+                    [_data:protected] => Array
+                        (
+                            [library] => /www-dev/ZendFramework-1.12.20/library
+                        )
+
+                    [_skipNextIteration:protected] => 
+                    [_loadedSection:protected] => 
+                    [_extends:protected] => Array
+                        (
+                        )
+
+                    [_loadFileErrorStr:protected] => 
+                )
+
+            [bootstrap] => Zend_Config Object
+                (
+                    [_allowModifications:protected] => 
+                    [_index:protected] => 0
+                    [_count:protected] => 2
+                    [_data:protected] => Array
+                        (
+                            [path] => C:\www-dev\dispo\application/Bootstrap.php
+                            [class] => Bootstrap
+                        )
+
+                    [_skipNextIteration:protected] => 
+                    [_loadedSection:protected] => 
+                    [_extends:protected] => Array
+                        (
+                        )
+
+                    [_loadFileErrorStr:protected] => 
+                )
+
+            [appnamespace] => Application
+            [resources] => Zend_Config Object
+                (
+                    [_allowModifications:protected] => 
+                    [_index:protected] => 0
+                    [_count:protected] => 3
+                    [_data:protected] => Array
+                        (
+                            [frontController] => Zend_Config Object
+                                (
+                                    [_allowModifications:protected] => 
+                                    [_index:protected] => 0
+                                    [_count:protected] => 2
+                                    [_data:protected] => Array
+                                        (
+                                            [controllerDirectory] => C:\www-dev\dispo\application/controllers
+                                            [params] => Zend_Config Object
+                                                (
+                                                    [_allowModifications:protected] => 
+                                                    [_index:protected] => 0
+                                                    [_count:protected] => 1
+                                                    [_data:protected] => Array
+                                                        (
+                                                            [displayExceptions] => 1
+                                                        )
+
+                                                    [_skipNextIteration:protected] => 
+                                                    [_loadedSection:protected] => 
+                                                    [_extends:protected] => Array
+                                                        (
+                                                        )
+
+                                                    [_loadFileErrorStr:protected] => 
+                                                )
+
+                                        )
+
+                                    [_skipNextIteration:protected] => 
+                                    [_loadedSection:protected] => 
+                                    [_extends:protected] => Array
+                                        (
+                                        )
+
+                                    [_loadFileErrorStr:protected] => 
+                                )
+
+                            [layout] => Zend_Config Object
+                                (
+                                    [_allowModifications:protected] => 
+                                    [_index:protected] => 0
+                                    [_count:protected] => 1
+                                    [_data:protected] => Array
+                                        (
+                                            [layoutPath] => C:\www-dev\dispo\application/layouts/scripts
+                                        )
+
+                                    [_skipNextIteration:protected] => 
+                                    [_loadedSection:protected] => 
+                                    [_extends:protected] => Array
+                                        (
+                                        )
+
+                                    [_loadFileErrorStr:protected] => 
+                                )
+
+                            [view] => Zend_Config Object
+                                (
+                                    [_allowModifications:protected] => 
+                                    [_index:protected] => 0
+                                    [_count:protected] => 1
+                                    [_data:protected] => Array
+                                        (
+                                            [doctype] => XHTML1_STRICT
+                                        )
+
+                                    [_skipNextIteration:protected] => 
+                                    [_loadedSection:protected] => 
+                                    [_extends:protected] => Array
+                                        (
+                                        )
+
+                                    [_loadFileErrorStr:protected] => 
+                                )
+
+                        )
+
+                    [_skipNextIteration:protected] => 
+                    [_loadedSection:protected] => 
+                    [_extends:protected] => Array
+                        (
+                        )
+
+                    [_loadFileErrorStr:protected] => 
+                )
+
+            [logging] => Zend_Config Object
+                (
+                    [_allowModifications:protected] => 
+                    [_index:protected] => 0
+                    [_count:protected] => 1
+                    [_data:protected] => Array
+                        (
+                            [file] => C:\www-dev\dispo\application/../logs/debug.logs
+                        )
+
+                    [_skipNextIteration:protected] => 
+                    [_loadedSection:protected] => 
+                    [_extends:protected] => Array
+                        (
+                        )
+
+                    [_loadFileErrorStr:protected] => 
+                )
+
+            [database] => Zend_Config Object
+                (
+                    [_allowModifications:protected] => 
+                    [_index:protected] => 0
+                    [_count:protected] => 2
+                    [_data:protected] => Array
+                        (
+                            [adapter] => PDO_MYSQL
+                            [params] => Zend_Config Object
+                                (
+                                    [_allowModifications:protected] => 
+                                    [_index:protected] => 0
+                                    [_count:protected] => 6
+                                    [_data:protected] => Array
+                                        (
+                                            [host] => localhost
+                                            [username] => root
+                                            [password] => 
+                                            [dbname] => disposition
+                                            [charset] => utf8
+                                            [profiler] => 1
+                                        )
+
+                                    [_skipNextIteration:protected] => 
+                                    [_loadedSection:protected] => 
+                                    [_extends:protected] => Array
+                                        (
+                                        )
+
+                                    [_loadFileErrorStr:protected] => 
+                                )
+
+                        )
+
+                    [_skipNextIteration:protected] => 
+                    [_loadedSection:protected] => 
+                    [_extends:protected] => Array
+                        (
+                        )
+
+                    [_loadFileErrorStr:protected] => 
+                )
+
+            [database2] => Zend_Config Object
+                (
+                    [_allowModifications:protected] => 
+                    [_index:protected] => 0
+                    [_count:protected] => 2
+                    [_data:protected] => Array
+                        (
+                            [adapter] => Sqlsrv
+                            [params] => Zend_Config Object
+                                (
+                                    [_allowModifications:protected] => 
+                                    [_index:protected] => 0
+                                    [_count:protected] => 5
+                                    [_data:protected] => Array
+                                        (
+                                            [host] => 192.168.0.233
+                                            [username] => readerbtm
+                                            [password] => reader21
+                                            [dbname] => db_Gromas_000
+                                            [charset] => utf8
+                                        )
+
+                                    [_skipNextIteration:protected] => 
+                                    [_loadedSection:protected] => 
+                                    [_extends:protected] => Array
+                                        (
+                                        )
+
+                                    [_loadFileErrorStr:protected] => 
+                                )
+
+                        )
+
+                    [_skipNextIteration:protected] => 
+                    [_loadedSection:protected] => 
+                    [_extends:protected] => Array
+                        (
+                        )
+
+                    [_loadFileErrorStr:protected] => 
+                )
+
+            [upload] => Zend_Config Object
+                (
+                    [_allowModifications:protected] => 
+                    [_index:protected] => 0
+                    [_count:protected] => 2
+                    [_data:protected] => Array
+                        (
+                            [quality] => Zend_Config Object
+                                (
+                                    [_allowModifications:protected] => 
+                                    [_index:protected] => 0
+                                    [_count:protected] => 2
+                                    [_data:protected] => Array
+                                        (
+                                            [pictures] => C:\www-dev\dispo\application/../public/quality/pictures/
+                                            [attachments] => C:\www-dev\dispo\application/../public/quality/attachments/
+                                        )
+
+                                    [_skipNextIteration:protected] => 
+                                    [_loadedSection:protected] => 
+                                    [_extends:protected] => Array
+                                        (
+                                        )
+
+                                    [_loadFileErrorStr:protected] => 
+                                )
+
+                            [qm] => Zend_Config Object
+                                (
+                                    [_allowModifications:protected] => 
+                                    [_index:protected] => 0
+                                    [_count:protected] => 1
+                                    [_data:protected] => Array
+                                        (
+                                            [supplier_agreements] => C:\www-dev\dispo\application/../public/qm/agreements/
+                                        )
+
+                                    [_skipNextIteration:protected] => 
+                                    [_loadedSection:protected] => 
+                                    [_extends:protected] => Array
+                                        (
+                                        )
+
+                                    [_loadFileErrorStr:protected] => 
+                                )
+
+                        )
+
+                    [_skipNextIteration:protected] => 
+                    [_loadedSection:protected] => 
+                    [_extends:protected] => Array
+                        (
+                        )
+
+                    [_loadFileErrorStr:protected] => 
+                )
+
+            [template] => Zend_Config Object
+                (
+                    [_allowModifications:protected] => 
+                    [_index:protected] => 0
+                    [_count:protected] => 1
+                    [_data:protected] => Array
+                        (
+                            [pdf] => C:\www-dev\dispo\application/templates
+                        )
+
+                    [_skipNextIteration:protected] => 
+                    [_loadedSection:protected] => 
+                    [_extends:protected] => Array
+                        (
+                        )
+
+                    [_loadFileErrorStr:protected] => 
+                )
+
+        )
+
+    [_skipNextIteration:protected] => 
+    [_loadedSection:protected] => 
+    [_extends:protected] => Array
+        (
+        )
+
+    [_loadFileErrorStr:protected] => 
+)
+
+2017-11-07T14:40:07+01:00 INFO (6): Anzahl Qualitätsmerkmale: 0
+2017-11-07T14:40:07+01:00 INFO (6): Bilder: Array
+(
+    [name] => Array
+        (
+            [0] => 
+        )
+
+    [type] => Array
+        (
+            [0] => 
+        )
+
+    [tmp_name] => Array
+        (
+            [0] => 
+        )
+
+    [error] => Array
+        (
+            [0] => 4
+        )
+
+    [size] => Array
+        (
+            [0] => 0
+        )
+
+)
+
+2017-11-07T14:40:07+01:00 INFO (6): QIndex: operator_1
+2017-11-07T14:40:07+01:00 INFO (6): Qcheck_inb_line: Array
+(
+    [no] => 0
+    [quality_checkpoint] => 1
+    [inbound_line] => 23
+    [base] => 100
+    [value] => 0
+    [max_good] => 1
+    [max_regular] => 3
+)
+
+2017-11-07T14:40:07+01:00 INFO (6): Qualitätsmerkmal wurde hinzugefügt
+2017-11-07T14:40:07+01:00 INFO (6): QIndex: operator_2
+2017-11-07T14:40:07+01:00 INFO (6): Qcheck_inb_line: Array
+(
+    [no] => 0
+    [quality_checkpoint] => 2
+    [inbound_line] => 23
+    [base] => 100
+    [value] => 1
+    [max_good] => 1
+    [max_regular] => 2
+)
+
+2017-11-07T14:40:07+01:00 INFO (6): Qualitätsmerkmal wurde hinzugefügt
+2017-11-07T14:40:07+01:00 INFO (6): QIndex: operator_3
+2017-11-07T14:40:07+01:00 INFO (6): Qcheck_inb_line: Array
+(
+    [no] => 0
+    [quality_checkpoint] => 3
+    [inbound_line] => 23
+    [base] => 100
+    [value] => 0
+    [max_good] => 1
+    [max_regular] => 3
+)
+
+2017-11-07T14:40:07+01:00 INFO (6): Qualitätsmerkmal wurde hinzugefügt
+2017-11-07T14:40:07+01:00 INFO (6): QIndex: operator_4
+2017-11-07T14:40:07+01:00 INFO (6): Qcheck_inb_line: Array
+(
+    [no] => 0
+    [quality_checkpoint] => 4
+    [inbound_line] => 23
+    [base] => 100
+    [value] => 0
+    [max_good] => 1
+    [max_regular] => 2
+)
+
+2017-11-07T14:40:07+01:00 INFO (6): Qualitätsmerkmal wurde hinzugefügt
+2017-11-07T14:40:07+01:00 INFO (6): QIndex: operator_5
+2017-11-07T14:40:07+01:00 INFO (6): Qcheck_inb_line: Array
+(
+    [no] => 0
+    [quality_checkpoint] => 5
+    [inbound_line] => 23
+    [base] => 100
+    [value] => 0
+    [max_good] => 1
+    [max_regular] => 3
+)
+
+2017-11-07T14:40:07+01:00 INFO (6): Qualitätsmerkmal wurde hinzugefügt
+2017-11-07T14:40:07+01:00 INFO (6): QIndex: operator_6
+2017-11-07T14:40:07+01:00 INFO (6): Qcheck_inb_line: Array
+(
+    [no] => 0
+    [quality_checkpoint] => 6
+    [inbound_line] => 23
+    [base] => 100
+    [value] => 0
+    [max_good] => 2
+    [max_regular] => 5
+)
+
+2017-11-07T14:40:07+01:00 INFO (6): Qualitätsmerkmal wurde hinzugefügt
+2017-11-07T14:40:07+01:00 INFO (6): QIndex: operator_7
+2017-11-07T14:40:07+01:00 INFO (6): Qcheck_inb_line: Array
+(
+    [no] => 0
+    [quality_checkpoint] => 7
+    [inbound_line] => 23
+    [base] => 100
+    [value] => 0
+    [max_good] => 1
+    [max_regular] => 2
+)
+
+2017-11-07T14:40:07+01:00 INFO (6): Qualitätsmerkmal wurde hinzugefügt
+2017-11-07T14:40:07+01:00 INFO (6): QIndex: operator_8
+2017-11-07T14:40:07+01:00 INFO (6): Qcheck_inb_line: Array
+(
+    [no] => 0
+    [quality_checkpoint] => 8
+    [inbound_line] => 23
+    [base] => 100
+    [value] => 0
+    [max_good] => 5
+    [max_regular] => 10
+)
+
+2017-11-07T14:40:07+01:00 INFO (6): Qualitätsmerkmal wurde hinzugefügt
+2017-11-07T14:40:07+01:00 INFO (6): QIndex: operator_9
+2017-11-07T14:40:07+01:00 INFO (6): Qcheck_inb_line: Array
+(
+    [no] => 0
+    [quality_checkpoint] => 9
+    [inbound_line] => 23
+    [base] => 100
+    [value] => 0
+    [max_good] => 5
+    [max_regular] => 10
+)
+
+2017-11-07T14:40:07+01:00 INFO (6): Qualitätsmerkmal wurde hinzugefügt
+2017-11-07T14:40:07+01:00 INFO (6): QIndex: operator_10
+2017-11-07T14:40:07+01:00 INFO (6): Qcheck_inb_line: Array
+(
+    [no] => 0
+    [quality_checkpoint] => 10
+    [inbound_line] => 23
+    [base] => 100
+    [value] => 0
+    [max_good] => 2
+    [max_regular] => 5
+)
+
+2017-11-07T14:40:07+01:00 INFO (6): Qualitätsmerkmal wurde hinzugefügt
+2017-11-07T14:40:07+01:00 INFO (6): QIndex: operator_11
+2017-11-07T14:40:07+01:00 INFO (6): Qcheck_inb_line: Array
+(
+    [no] => 0
+    [quality_checkpoint] => 11
+    [inbound_line] => 23
+    [base] => 100
+    [value] => 0
+    [max_good] => 3
+    [max_regular] => 6
+)
+
+2017-11-07T14:40:07+01:00 INFO (6): Qualitätsmerkmal wurde hinzugefügt
+2017-11-07T14:40:07+01:00 INFO (6): QIndex: operator_12
+2017-11-07T14:40:07+01:00 INFO (6): Qcheck_inb_line: Array
+(
+    [no] => 0
+    [quality_checkpoint] => 12
+    [inbound_line] => 23
+    [base] => 100
+    [value] => 0
+    [max_good] => 2
+    [max_regular] => 5
+)
+
+2017-11-07T14:40:07+01:00 INFO (6): Qualitätsmerkmal wurde hinzugefügt
+2017-11-07T14:40:07+01:00 INFO (6): QIndex: operator_13
+2017-11-07T14:40:07+01:00 INFO (6): Qcheck_inb_line: Array
+(
+    [no] => 0
+    [quality_checkpoint] => 13
+    [inbound_line] => 23
+    [base] => 100
+    [value] => 0
+    [max_good] => 5
+    [max_regular] => 10
+)
+
+2017-11-07T14:40:07+01:00 INFO (6): Qualitätsmerkmal wurde hinzugefügt
+2017-11-07T14:40:07+01:00 INFO (6): QIndex: operator_14
+2017-11-07T14:40:07+01:00 INFO (6): Qcheck_inb_line: Array
+(
+    [no] => 0
+    [quality_checkpoint] => 14
+    [inbound_line] => 23
+    [base] => 100
+    [value] => 1.5
+    [max_good] => 1
+    [max_regular] => 3
+)
+
+2017-11-07T14:40:07+01:00 INFO (6): Qualitätsmerkmal wurde hinzugefügt
+2017-11-07T14:40:07+01:00 INFO (6): QIndex: operator_15
+2017-11-07T14:40:07+01:00 INFO (6): Qcheck_inb_line: Array
+(
+    [no] => 0
+    [quality_checkpoint] => 15
+    [inbound_line] => 23
+    [base] => 100
+    [value] => 0.0
+    [max_good] => 1
+    [max_regular] => 3
+)
+
+2017-11-07T14:40:07+01:00 INFO (6): Qualitätsmerkmal wurde hinzugefügt
+2017-11-07T14:40:07+01:00 INFO (6): QIndex: operator_16
+2017-11-07T14:40:07+01:00 INFO (6): Qcheck_inb_line: Array
+(
+    [no] => 0
+    [quality_checkpoint] => 16
+    [inbound_line] => 23
+    [base] => 0
+    [value] => 1
+    [max_good] => 0
+    [max_regular] => 0
+)
+
+2017-11-07T14:40:07+01:00 INFO (6): Qualitätsmerkmal wurde hinzugefügt
+2017-11-07T14:40:07+01:00 INFO (6): QIndex: operator_17
+2017-11-07T14:40:07+01:00 INFO (6): Qcheck_inb_line: Array
+(
+    [no] => 0
+    [quality_checkpoint] => 17
+    [inbound_line] => 23
+    [base] => 0
+    [value] => 
+    [max_good] => 0
+    [max_regular] => 0
+)
+
+2017-11-07T14:40:07+01:00 INFO (6): Qualitätsmerkmal wurde hinzugefügt
+2017-11-07T14:40:07+01:00 INFO (6): QIndex: operator_18
+2017-11-07T14:40:07+01:00 INFO (6): Qcheck_inb_line: Array
+(
+    [no] => 0
+    [quality_checkpoint] => 18
+    [inbound_line] => 23
+    [base] => 100
+    [value] => 7.6
+    [max_good] => 1
+    [max_regular] => 3
+)
+
+2017-11-07T14:40:07+01:00 INFO (6): Qualitätsmerkmal wurde hinzugefügt
+2017-11-07T14:40:07+01:00 INFO (6): QIndex: operator_19
+2017-11-07T14:40:07+01:00 INFO (6): Qcheck_inb_line: Array
+(
+    [no] => 0
+    [quality_checkpoint] => 19
+    [inbound_line] => 23
+    [base] => 1500.00
+    [value] => 0
+    [max_good] => 5
+    [max_regular] => 10
+)
+
+2017-11-07T14:40:07+01:00 INFO (6): Qualitätsmerkmal wurde hinzugefügt
+2017-11-07T14:40:07+01:00 INFO (6): Datenbank rolled back
+2017-11-07T14:40:07+01:00 INFO (6): editquality aufgerufen mit Inbound_sheet: Array
+(
+    [No] => 
+    [inbound] => 0
+    [inb_line] => 0
+    [position] => 22772
+    [v_delivery_note] => 6572-1
+    [vendor] => 072136
+    [purchase_order] => 426151
+    [po_line] => 0
+    [po_line_line] => 
+    [stock_location] => 1
+    [po_arrival_date] => 07.11.2017
+    [po_arrival_time] => 07:00
+    [inb_arrival_date] => 07.11.2017
+    [inb_arrival_time] => 14:37
+    [forwarder] => 
+    [truck] => 
+    [trailor] => 
+    [container] => 
+    [po_transport_temp_min] => 1.00
+    [po_transport_temp_max] => 4.00
+    [inb_transport_temp] => 5.5
+    [variant] => 0032PT12125K438216111
+    [product] => 0032
+    [t_packaging] => K438
+    [packaging] => 2
+    [origin] => PT
+    [label] => 16
+    [quality_class] => 1
+    [brand] => 1
+    [quality] => 1
+    [items] => 12
+    [weight_item] => 125
+    [po_lot] => 
+    [po_barcode] => 
+    [po_trading_units] => 1500.00
+    [po_packing_units] => 18000
+    [po_pallet] => 1
+    [po_pallets] => 7
+    [po_tu_pal] => 224
+    [inb_lot] => 
+    [inb_barcode] => 13
+    [items_checked] => 100
+    [inb_trading_units] => 1500
+    [inb_packing_units] => 18000
+    [inb_pallet] => 1
+    [inb_pallets] => 7
+    [inb_tu_pal] => 224
+    [po_brix_min] => 0.00
+    [po_brix_max] => 0.00
+    [inb_brix] => 0
+    [inb_certificate] => 1
+    [remarks] => 
+    [checked_by] => 
+    [res_1] => 0
+    [base_1] => 0
+    [rp_1] => 0 %
+    [rl_1] => check_green
+    [res_2] => 1
+    [base_2] => 100
+    [rp_2] => 1 %
+    [rl_2] => check_yellow
+    [res_3] => 0
+    [base_3] => 0
+    [rp_3] => 0 %
+    [rl_3] => check_green
+    [res_4] => 0
+    [base_4] => 0
+    [rp_4] => 0 %
+    [rl_4] => check_green
+    [res_7] => 0
+    [base_7] => 0
+    [rp_7] => 0 %
+    [rl_7] => check_green
+    [res_6] => 0
+    [base_6] => 0
+    [rp_6] => 0 %
+    [rl_6] => check_green
+    [res_5] => 0
+    [base_5] => 0
+    [rp_5] => 0 %
+    [rl_5] => check_green
+    [res_10] => 0
+    [base_10] => 0
+    [rp_10] => 0 %
+    [rl_10] => check_green
+    [res_13] => 0
+    [base_13] => 0
+    [rp_13] => 0 %
+    [rl_13] => check_green
+    [res_12] => 0
+    [base_12] => 0
+    [rp_12] => 0 %
+    [rl_12] => check_green
+    [res_11] => 0
+    [base_11] => 0
+    [rp_11] => 0 %
+    [rl_11] => check_green
+    [res_9] => 0
+    [base_9] => 0
+    [rp_9] => 0 %
+    [rl_9] => check_green
+    [res_8] => 0
+    [base_8] => 0
+    [rp_8] => 0 %
+    [rl_8] => check_green
+    [res_15] => 0.0
+    [base_15] => 0
+    [rp_15] => 0.0
+    [rl_15] => check_green
+    [res_14] => 1.5
+    [base_14] => 0
+    [rp_14] => 1.5
+    [rl_14] => check_yellow
+    [res_16] => on
+    [base_16] => 100
+    [rp_16] => OK
+    [rl_16] => check_green
+    [res_17] => 
+    [base_17] => 0
+    [rp_17] => nicht OK
+    [rl_17] => check_red
+    [res_18] => 7.6
+    [base_18] => 0
+    [rp_18] => 7.6
+    [rl_18] => check_red
+    [res_19] => 0
+    [base_19] => 1500.00
+    [rp_19] => 0 %
+    [rl_19] => check_green
+)
+
+2017-11-07T14:40:24+01:00 INFO (6): InboundController->IndexAction called
+2017-11-07T14:52:03+01:00 ERR (3): Bestand auf Inbound_line 20 ist nicht der Ursprungsbestand!
+2017-11-07T14:52:03+01:00 INFO (6): InboundController->IndexAction called
+2017-11-07T14:55:14+01:00 INFO (6): InboundController->IndexAction called
+2017-11-07T15:05:55+01:00 INFO (6): InboundController->IndexAction called
+2017-11-07T15:07:01+01:00 INFO (6): InboundController->IndexAction called
+2017-11-07T15:07:46+01:00 INFO (6): InboundController->IndexAction called
+2017-11-07T15:12:17+01:00 INFO (6): InboundController->IndexAction called
+2017-11-07T15:12:46+01:00 INFO (6): InboundController->IndexAction called
+2017-11-07T15:12:57+01:00 INFO (6): InboundController->IndexAction called
+2017-11-07T15:13:05+01:00 INFO (6): InboundController->IndexAction called
+2017-11-07T15:13:21+01:00 INFO (6): InboundController->IndexAction called
+2017-11-07T15:17:46+01:00 INFO (6): InboundController->IndexAction called
+2017-11-07T15:18:32+01:00 INFO (6): InboundController->IndexAction called
+2017-11-07T15:19:01+01:00 INFO (6): InboundController->IndexAction called
+2017-11-07T15:19:59+01:00 INFO (6): InboundController->IndexAction called
+2017-11-07T15:20:32+01:00 ERR (3): Bestand auf Inbound_line 20 ist nicht der Ursprungsbestand!
+2017-11-07T15:20:32+01:00 INFO (6): InboundController->IndexAction called
+2017-11-07T15:39:02+01:00 INFO (6): InboundController->IndexAction called
+2017-11-07T15:39:10+01:00 INFO (6): InboundController->IndexAction called
+2017-11-07T15:39:25+01:00 INFO (6): InboundController->IndexAction called
+2017-11-07T15:39:45+01:00 ERR (3): Bestand auf Inbound_line 20 ist nicht der Ursprungsbestand!
+2017-11-07T15:39:45+01:00 INFO (6): InboundController->IndexAction called

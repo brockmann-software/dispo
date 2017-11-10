@@ -1,0 +1,574 @@
+2017-11-03T09:18:08+01:00 INFO (6): IndexController->IndexAction called
+2017-11-03T09:18:11+01:00 INFO (6): QSL: 
+2017-11-03T09:18:23+01:00 INFO (6): QSL:  WHERE UPPER(name) LIKE UPPER("%weyers%")
+2017-11-03T09:18:38+01:00 INFO (6): Agreement No: 1
+2017-11-03T09:18:38+01:00 INFO (6): Array
+(
+    [No] => 496
+    [vendor] => 086838
+    [version_year] => V_14
+    [received] => 1
+    [responsible] => AF
+    [date_sent] => 2017-01-01 00:00:00
+    [date_received] => 2017-10-13 00:00:00
+    [constraint_1] => nur an ALDI und EDEKA
+Rest auf Anfrage
+keine Eigenmarken REWE
+    [constraint_2] => 
+    [remark] => 
+    [path] => 
+)
+
+2017-11-03T09:19:25+01:00 INFO (6): Agreement No: 1
+2017-11-03T09:19:25+01:00 INFO (6): Array
+(
+    [No] => 496
+    [vendor] => 086838
+    [version_year] => V_14
+    [received] => 1
+    [responsible] => AF
+    [date_sent] => 2017-01-01 00:00:00
+    [date_received] => 2017-10-13 00:00:00
+    [constraint_1] => nur an ALDI und EDEKA
+Rest auf Anfrage
+keine Eigenmarken REWE
+    [constraint_2] => 
+    [remark] => 
+    [path] => 
+)
+
+2017-11-03T11:16:37+01:00 INFO (6): QSL: 
+2017-11-03T11:17:03+01:00 INFO (6): QSL: 
+2017-11-03T11:18:21+01:00 INFO (6): QSL: 
+2017-11-03T11:20:44+01:00 INFO (6): QSL: 
+2017-11-03T11:24:55+01:00 INFO (6): QSL: 
+2017-11-03T11:25:03+01:00 INFO (6): QSL: 
+2017-11-03T11:27:54+01:00 INFO (6): QSL: 
+2017-11-03T11:30:01+01:00 INFO (6): QSL: 
+2017-11-03T11:31:45+01:00 INFO (6): QSL: 
+2017-11-03T11:36:41+01:00 INFO (6): Array
+(
+    [No] => 0
+    [vendor] => 
+    [version_year] => V_14
+    [received] => 0
+    [responsible] => 
+    [date_received] => 
+    [date_sent] => 03.11.2017
+    [constraint_1] => 
+    [constraint_2] => 
+    [remark] => 
+    [path] => 
+)
+
+2017-11-03T11:38:02+01:00 INFO (6): Array
+(
+    [path] => Array
+        (
+            [name] => African Blue.pdf
+            [type] => 
+            [tmp_name] => 
+            [error] => 1
+            [size] => 0
+        )
+
+)
+
+2017-11-03T11:38:02+01:00 INFO (6): Vendor Agreement hinzugefügt: Array
+(
+    [vendor] => 
+    [version_year] => V_14
+    [received] => 1
+    [date_received] => 2017-11-03
+    [date_sent] => 2017-11-03
+    [constraint_1] => Nur Gastro
+    [constraint_2] => 
+    [remark] => 
+    [No] => 502
+)
+
+2017-11-03T11:38:02+01:00 INFO (6): Array
+(
+    [No] => 0
+    [vendor] => 
+    [version_year] => V_14
+    [received] => 0
+    [responsible] => 
+    [date_received] => 
+    [date_sent] => 03.11.2017
+    [constraint_1] => 
+    [constraint_2] => 
+    [remark] => 
+    [path] => 
+)
+
+2017-11-03T11:38:02+01:00 INFO (6): Array
+(
+    [No] => 0
+    [vendor] => 
+    [version_year] => V_14
+    [received] => 0
+    [responsible] => 
+    [date_received] => 
+    [date_sent] => 03.11.2017
+    [constraint_1] => 
+    [constraint_2] => 
+    [remark] => 
+    [path] => 
+)
+
+2017-11-03T11:41:51+01:00 INFO (6): Array
+(
+    [No] => 0
+    [vendor] => 
+    [version_year] => V_14
+    [received] => 0
+    [responsible] => 
+    [date_received] => 
+    [date_sent] => 03.11.2017
+    [constraint_1] => 
+    [constraint_2] => 
+    [remark] => 
+    [path] => 
+)
+
+2017-11-03T11:49:52+01:00 INFO (6): Array
+(
+    [No] => 0
+    [vendor] => 000817
+    [version_year] => V_14
+    [received] => 0
+    [responsible] => 
+    [date_received] => 
+    [date_sent] => 03.11.2017
+    [constraint_1] => 
+    [constraint_2] => 
+    [remark] => 
+    [path] => 
+)
+
+2017-11-03T11:51:07+01:00 INFO (6): Array
+(
+    [path] => Array
+        (
+            [name] => Aartsenfruit.pdf
+            [type] => application/pdf
+            [tmp_name] => C:\xampp\tmp\php3D03.tmp
+            [error] => 0
+            [size] => 6978056
+        )
+
+)
+
+2017-11-03T11:51:07+01:00 INFO (6): Vendor Agreement hinzugefügt: Array
+(
+    [vendor] => 000817
+    [version_year] => V_14
+    [received] => 1
+    [date_received] => 2017-11-03
+    [date_sent] => 2017-11-03
+    [constraint_1] => Nur Gastro
+    [constraint_2] => 
+    [remark] => 
+    [path] => Aartsenfruit.pdf
+    [No] => 503
+)
+
+2017-11-03T11:51:07+01:00 INFO (6): Array
+(
+    [No] => 0
+    [vendor] => 000817
+    [version_year] => V_14
+    [received] => 0
+    [responsible] => 
+    [date_received] => 
+    [date_sent] => 03.11.2017
+    [constraint_1] => 
+    [constraint_2] => 
+    [remark] => 
+    [path] => 
+)
+
+2017-11-03T11:51:07+01:00 INFO (6): Array
+(
+    [No] => 0
+    [vendor] => 
+    [version_year] => V_14
+    [received] => 0
+    [responsible] => 
+    [date_received] => 
+    [date_sent] => 03.11.2017
+    [constraint_1] => 
+    [constraint_2] => 
+    [remark] => 
+    [path] => 
+)
+
+2017-11-03T11:51:14+01:00 INFO (6): Agreement No: 1
+2017-11-03T11:51:14+01:00 INFO (6): Array
+(
+    [No] => 503
+    [vendor] => 000817
+    [version_year] => V_14
+    [received] => 1
+    [responsible] => 
+    [date_sent] => 2017-11-03 00:00:00
+    [date_received] => 2017-11-03 00:00:00
+    [constraint_1] => Nur Gastro
+    [constraint_2] => 
+    [remark] => 
+    [path] => Aartsenfruit.pdf
+)
+
+2017-11-03T14:04:31+01:00 INFO (6): IndexController->IndexAction called
+2017-11-03T14:04:53+01:00 INFO (6): QSL: 
+2017-11-03T14:06:12+01:00 INFO (6): Array
+(
+    [No] => 0
+    [vendor] => 000817
+    [version_year] => V_14
+    [received] => 0
+    [responsible] => 
+    [date_received] => 
+    [date_sent] => 03.11.2017
+    [constraint_1] => 
+    [constraint_2] => 
+    [remark] => 
+    [path] => 
+)
+
+2017-11-03T14:06:52+01:00 INFO (6): Array
+(
+    [path] => Array
+        (
+            [name] => 
+            [type] => 
+            [tmp_name] => 
+            [error] => 4
+            [size] => 0
+        )
+
+)
+
+2017-11-03T14:06:52+01:00 INFO (6): Vendor Agreement hinzugefügt: Array
+(
+    [vendor] => 000817
+    [version_year] => V_15
+    [received] => 1
+    [date_received] => 2017-11-03
+    [date_sent] => 2017-11-03
+    [constraint_1] => 
+    [constraint_2] => 
+    [remark] => Neue Erklärung
+    [No] => 504
+)
+
+2017-11-03T14:06:52+01:00 INFO (6): Array
+(
+    [No] => 0
+    [vendor] => 000817
+    [version_year] => V_14
+    [received] => 0
+    [responsible] => 
+    [date_received] => 
+    [date_sent] => 03.11.2017
+    [constraint_1] => 
+    [constraint_2] => 
+    [remark] => 
+    [path] => 
+)
+
+2017-11-03T14:10:08+01:00 INFO (6): Array
+(
+    [No] => 0
+    [vendor] => 000817
+    [version_year] => V_14
+    [received] => 0
+    [responsible] => 
+    [date_received] => 
+    [date_sent] => 03.11.2017
+    [constraint_1] => 
+    [constraint_2] => 
+    [remark] => 
+    [path] => 
+)
+
+2017-11-03T14:10:25+01:00 INFO (6): Array
+(
+    [path] => Array
+        (
+            [name] => 
+            [type] => 
+            [tmp_name] => 
+            [error] => 4
+            [size] => 0
+        )
+
+)
+
+2017-11-03T14:10:25+01:00 INFO (6): Vendor Agreement hinzugefügt: Array
+(
+    [vendor] => 000817
+    [version_year] => V_14
+    [received] => 1
+    [date_received] => 2017-11-03
+    [date_sent] => 2017-11-03
+    [constraint_1] => 
+    [constraint_2] => 
+    [remark] => 
+    [No] => 505
+)
+
+2017-11-03T14:10:25+01:00 INFO (6): Array
+(
+    [No] => 0
+    [vendor] => 000817
+    [version_year] => V_14
+    [received] => 0
+    [responsible] => 
+    [date_received] => 
+    [date_sent] => 03.11.2017
+    [constraint_1] => 
+    [constraint_2] => 
+    [remark] => 
+    [path] => 
+)
+
+2017-11-03T14:14:42+01:00 INFO (6): Array
+(
+    [No] => 0
+    [vendor] => 000817
+    [version_year] => V_14
+    [received] => 0
+    [responsible] => 
+    [date_received] => 
+    [date_sent] => 03.11.2017
+    [constraint_1] => 
+    [constraint_2] => 
+    [remark] => 
+    [path] => 
+)
+
+2017-11-03T14:16:04+01:00 INFO (6): Array
+(
+    [No] => 0
+    [vendor] => 000817
+    [version_year] => V_14
+    [received] => 0
+    [responsible] => 
+    [date_received] => 
+    [date_sent] => 03.11.2017
+    [constraint_1] => 
+    [constraint_2] => 
+    [remark] => 
+    [path] => 
+)
+
+2017-11-03T14:16:46+01:00 INFO (6): Array
+(
+    [path] => Array
+        (
+            [name] => 
+            [type] => 
+            [tmp_name] => 
+            [error] => 4
+            [size] => 0
+        )
+
+)
+
+2017-11-03T14:16:46+01:00 INFO (6): Vendor Agreement hinzugefügt: Array
+(
+    [vendor] => 000817
+    [version_year] => V_14
+    [received] => 1
+    [date_received] => 2017-11-03
+    [date_sent] => 2017-11-03
+    [constraint_1] => Keine
+    [constraint_2] => 
+    [remark] => Test
+    [No] => 506
+)
+
+2017-11-03T14:16:46+01:00 INFO (6): Array
+(
+    [No] => 0
+    [vendor] => 000817
+    [version_year] => V_14
+    [received] => 0
+    [responsible] => 
+    [date_received] => 
+    [date_sent] => 03.11.2017
+    [constraint_1] => 
+    [constraint_2] => 
+    [remark] => 
+    [path] => 
+)
+
+2017-11-03T14:31:28+01:00 INFO (6): Array
+(
+    [No] => 0
+    [vendor] => 000817
+    [version_year] => V_14
+    [received] => 0
+    [responsible] => 
+    [date_received] => 
+    [date_sent] => 03.11.2017
+    [constraint_1] => 
+    [constraint_2] => 
+    [remark] => 
+    [path] => 
+)
+
+2017-11-03T14:31:55+01:00 INFO (6): Array
+(
+    [path] => Array
+        (
+            [name] => 
+            [type] => 
+            [tmp_name] => 
+            [error] => 4
+            [size] => 0
+        )
+
+)
+
+2017-11-03T14:31:55+01:00 INFO (6): Vendor Agreement hinzugefügt: Array
+(
+    [vendor] => 000817
+    [version_year] => V_15
+    [received] => 1
+    [date_received] => 2017-11-03
+    [date_sent] => 2017-11-03
+    [constraint_1] => keine
+    [constraint_2] => 
+    [remark] => Neue Version
+    [No] => 507
+)
+
+2017-11-03T14:31:55+01:00 INFO (6): Array
+(
+    [No] => 0
+    [vendor] => 000817
+    [version_year] => V_14
+    [received] => 0
+    [responsible] => 
+    [date_received] => 
+    [date_sent] => 03.11.2017
+    [constraint_1] => 
+    [constraint_2] => 
+    [remark] => 
+    [path] => 
+)
+
+2017-11-03T14:47:15+01:00 INFO (6): Array
+(
+    [No] => 0
+    [vendor] => 000817
+    [version_year] => V_14
+    [received] => 0
+    [responsible] => 
+    [date_received] => 
+    [date_sent] => 03.11.2017
+    [constraint_1] => 
+    [constraint_2] => 
+    [remark] => 
+    [path] => 
+)
+
+2017-11-03T14:47:37+01:00 INFO (6): Array
+(
+    [path] => Array
+        (
+            [name] => 
+            [type] => 
+            [tmp_name] => 
+            [error] => 4
+            [size] => 0
+        )
+
+)
+
+2017-11-03T14:47:37+01:00 INFO (6): Vendor Agreement hinzugefügt: Array
+(
+    [vendor] => 000817
+    [version_year] => V_15
+    [received] => 1
+    [date_received] => 2017-11-03
+    [date_sent] => 2017-11-03
+    [constraint_1] => Keine
+    [constraint_2] => 
+    [remark] => Test
+    [No] => 508
+)
+
+2017-11-03T14:47:37+01:00 INFO (6): Array
+(
+    [vendor] => 000817
+    [version_year] => V_15
+    [received] => 1
+    [date_received] => 2017-11-03
+    [date_sent] => 2017-11-03
+    [constraint_1] => Keine
+    [constraint_2] => 
+    [remark] => Test
+    [No] => 508
+)
+
+2017-11-03T14:48:32+01:00 INFO (6): QSL: 
+2017-11-03T15:19:14+01:00 INFO (6): QSL:  WHERE UPPER(name) LIKE UPPER("%asc%")
+2017-11-03T15:20:15+01:00 INFO (6): QSL: 
+2017-11-03T15:27:51+01:00 INFO (6): Order:  ORDER BY name asc
+2017-11-03T15:27:51+01:00 INFO (6): QSL: 
+2017-11-03T15:30:38+01:00 INFO (6): QSL:  WHERE UPPER(No) LIKE UPPER("%70122%")
+2017-11-03T15:30:44+01:00 INFO (6): Agreement No: 1
+2017-11-03T15:30:44+01:00 INFO (6): Array
+(
+    [No] => 265
+    [vendor] => 070122
+    [version_year] => V_14
+    [received] => 1
+    [responsible] => RGT
+    [date_sent] => 2017-01-01 00:00:00
+    [date_received] => 2017-10-13 00:00:00
+    [constraint_1] => erst n夨stes Jahr GRASP
+    [constraint_2] => 
+    [remark] => BRC, Tesco, ISO 2200
+    [path] => 
+)
+
+2017-11-03T15:31:07+01:00 INFO (6): Errors: Array
+(
+    [vendor] => Keine Lieferantennummer vorhanden!
+)
+
+2017-11-03T15:31:16+01:00 INFO (6): Post: Array
+(
+    [No] => 342
+    [vendor] => 070122
+    [certificate] => 2
+    [reg_id] => 
+    [cert_id] => 4050373384470
+    [scope] => 1
+    [due_date] => 31.01.2018
+    [cert_option] => 1
+    [remark] => 
+    [cert_products] => Array
+        (
+            [0] => 0031
+        )
+
+)
+
+2017-11-03T15:31:16+01:00 INFO (6): Array
+(
+    [0] => 0031
+)
+
+2017-11-03T15:31:16+01:00 INFO (6): Produkt 0031 ist neu und wurde hinzugefügt!
+2017-11-03T15:31:16+01:00 INFO (6): Errors: Array
+(
+    [no_error] => Änderungen erfolgreich
+)
+
+2017-11-03T15:31:30+01:00 INFO (6): QSL: 

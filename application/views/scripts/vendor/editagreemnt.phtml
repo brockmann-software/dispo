@@ -2,20 +2,28 @@
 function loadArgs()
 {
 }
+
+function closeWindow()
+{
+	var agreement = [];
+	agreement['No'] = document.getElementById('No').value;
+	agreement['version_year'] = document.getElementById('version_year').value;
+	window.opener.closeSDDialog(agreement);
+}
+	
 </script>
-<?php
-?>
+<?php //Zend_Debug::dump($this->params['vendor_agreement']); ?>
 <?php $vendor_agreement = $this->params['vendor_agreement']; ?>
 <?php $errors = $this->params['errors']; ?>
 <form action="/vendor/editagreemnt" method="post" enctype="multipart/form-data">
 <fieldset>
 <legend>Lieferantenerklärung</legend>
-<input type="hidden" name="No" value="<?php echo $vendor_agreement['No']; ?>" />
-<input type="hidden" name="vendor" value="<?php echo $vendor_agreement['vendor']; ?>" />
+<input type="hidden" name="No" id="No" value="<?php echo $vendor_agreement['No']; ?>" />
+<input type="hidden" name="vendor" id="vendor" value="<?php echo $vendor_agreement['vendor']; ?>" />
 <table>
 <tr>
 	<td>Version</td><td><?php if (isset($errors['version_year'])) : ?><div class="error"><?php endif ?>
-	<input type="text" name="version_year" maxlength="4" required value="<?php echo $vendor_agreement['version_year']; ?>" />
+	<input type="text" name="version_year" id="version_year" maxlength="4" required value="<?php echo $vendor_agreement['version_year']; ?>" />
 	<?php if (isset($errors['version_year'])) : ?><br /><?php echo $errors['version_year']; ?></div><?php endif ?></td>
 </tr>
 <tr>
@@ -49,6 +57,6 @@ function loadArgs()
 	<?php if (isset($errors['path'])) : ?><br /><?php echo $errors['path']; ?></div><?php endif ?></td>
 </table>
 </fieldset>
-<div><button type="submit">Speichern</button>
+<div><button type="submit">Speichern</button></div>
 </form>
-<?php if (isset($errors['no_error'])) : ?><script>open(location, '_self').close();</script><?php endif ?>
+<?php if (isset($errors['no_error'])) : ?><script>closeWindow();</script><?php endif ?>

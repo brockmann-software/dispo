@@ -1,3 +1,4 @@
+<?php if (isset($this->errors['all'])) : ?><div class="error"><?php echo $this->errors['all']; ?></div><?php endif ?>
 <a href="/whmanagement/doinventory/">Neue Zählung beginnen</a>
 <hr />
 <?php $inventory_heads = $this->data; ?>
@@ -11,7 +12,9 @@
 <tbody>
 <?php foreach ($inventory_heads as $data) : ?>
 <tr>
-	<td class="data"><a href="/whmanagement/doinventory/No/<?php echo $data['No'] ?>"><img title="count" alt="Zählen" src="/images/b_dbstatistics.png" /></a><?php echo $data['date']; ?></td>
+	<td class="data"><?php if ($data['state']==2) : ?><a href="/whmanagement/print/No/<?php echo $data['No'] ?>"><img title="drucken" alt="drucken" src="/images/b_print.png" /></a>
+					<?php else : ?><a href="/whmanagement/doinventory/No/<?php echo $data['No'] ?>"><img title="count" alt="Zählen" src="/images/b_dbstatistics.png" /></a><?php endif ?>					
+					<?php echo $data['date']; ?></td>
 	<td class="data"><?php echo $data['state']; ?></td>
 	<td class="data"><?php echo $data['started']; ?></td>
 	<td class="data"><?php echo $data['ended']; ?></td>

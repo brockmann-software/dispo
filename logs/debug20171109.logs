@@ -1,0 +1,1436 @@
+2017-11-09T07:43:04+01:00 INFO (6): IndexController->IndexAction called
+2017-11-09T07:43:25+01:00 INFO (6): SQL: SELECT tbl_HAN.HANVORNR, tbl_HAN.HANPOSNR, tbl_HAN.HANADRNR, tbl_LIE.LIENAME, tbl_LIE.LIESTRAS, tbl_LIE.LIEPLZOR, convert(varchar(25), tbl_HAN.HANPRODT, 127) AS HANLISDT, HANTABZT, tbl_HAN.HANARTTX, tbl_HAN.HANWARGR, tbl_art.ARTGEBIN, tbl_ART.ARTDURGW, tbl_HAN.HANPMENG, tbl_ART.ARTURSLD FROM tbl_HAN JOIN tbl_ART on (tbl_HAN.HANARTNR = tbl_ART.KEYIART1) join tbl_LIE on (tbl_han.HANADRNR = tbl_LIE.KEYILIE1) WHERE tbl_HAN.HANVORAR = 30 AND tbl_art.ARTAKTKZ = 'A' AND tbl_HAN.HANVORNR = '426154'
+2017-11-09T07:43:25+01:00 INFO (6): Bestellungen: Array
+(
+    [0] => Array
+        (
+            [HANVORNR] => 426154
+            [HANPOSNR] => 001
+            [HANADRNR] => 095940
+            [LIENAME] => Surberry S.L.
+            [LIESTRAS] => C/Lentisco 3 / Office 25
+            [LIEPLZOR] => 21001 Huelva
+            [HANLISDT] => 2017-11-09T00:00:00
+            [HANTABZT] => 07:43
+            [HANARTTX] => Himbeere 12x125g    
+            [HANWARGR] => 0032
+            [ARTGEBIN] => 12.000
+            [ARTDURGW] => 125
+            [HANPMENG] => 240.00
+            [ARTURSLD] => ES
+            [HANLFSNR] => 
+        )
+
+)
+
+2017-11-09T07:43:59+01:00 INFO (6): InboundController->IndexAction called
+2017-11-09T08:11:05+01:00 INFO (6): InboundController->IndexAction called
+2017-11-09T08:11:23+01:00 INFO (6): SQL: SELECT tbl_HAN.HANVORNR, tbl_HAN.HANPOSNR, tbl_HAN.HANADRNR, tbl_LIE.LIENAME, tbl_LIE.LIESTRAS, tbl_LIE.LIEPLZOR, convert(varchar(25), tbl_HAN.HANPRODT, 127) AS HANLISDT, HANTABZT, tbl_HAN.HANARTTX, tbl_HAN.HANWARGR, tbl_art.ARTGEBIN, tbl_ART.ARTDURGW, tbl_HAN.HANPMENG, tbl_ART.ARTURSLD FROM tbl_HAN JOIN tbl_ART on (tbl_HAN.HANARTNR = tbl_ART.KEYIART1) join tbl_LIE on (tbl_han.HANADRNR = tbl_LIE.KEYILIE1) WHERE tbl_HAN.HANVORAR = 30 AND tbl_art.ARTAKTKZ = 'A' AND tbl_HAN.HANVORNR = '426154'
+2017-11-09T08:11:23+01:00 INFO (6): Bestellungen: Array
+(
+    [0] => Array
+        (
+            [HANVORNR] => 426154
+            [HANPOSNR] => 001
+            [HANADRNR] => 095940
+            [LIENAME] => Surberry S.L.
+            [LIESTRAS] => C/Lentisco 3 / Office 25
+            [LIEPLZOR] => 21001 Huelva
+            [HANLISDT] => 2017-11-09T00:00:00
+            [HANTABZT] => 08:11
+            [HANARTTX] => Himbeere 12x125g    
+            [HANWARGR] => 0032
+            [ARTGEBIN] => 12.000
+            [ARTDURGW] => 125
+            [HANPMENG] => 240.00
+            [ARTURSLD] => ES
+            [HANLFSNR] => 
+        )
+
+)
+
+2017-11-09T09:25:08+01:00 INFO (6): InboundController->IndexAction called
+2017-11-09T09:45:57+01:00 INFO (6): SQL: SELECT tbl_HAN.HANVORNR, tbl_HAN.HANPOSNR, tbl_HAN.HANADRNR, tbl_LIE.LIENAME, tbl_LIE.LIESTRAS, tbl_LIE.LIEPLZOR, convert(varchar(25), tbl_HAN.HANPRODT, 127) AS HANLISDT, HANTABZT, tbl_HAN.HANARTTX, tbl_HAN.HANWARGR, tbl_art.ARTGEBIN, tbl_ART.ARTDURGW, tbl_HAN.HANPMENG, tbl_ART.ARTURSLD FROM tbl_HAN JOIN tbl_ART on (tbl_HAN.HANARTNR = tbl_ART.KEYIART1) join tbl_LIE on (tbl_han.HANADRNR = tbl_LIE.KEYILIE1) WHERE tbl_HAN.HANVORAR = 30 AND tbl_art.ARTAKTKZ = 'A' AND tbl_HAN.HANVORNR = '426154'
+2017-11-09T09:45:57+01:00 INFO (6): Bestellungen: Array
+(
+    [0] => Array
+        (
+            [HANVORNR] => 426154
+            [HANPOSNR] => 001
+            [HANADRNR] => 095940
+            [LIENAME] => Surberry S.L.
+            [LIESTRAS] => C/Lentisco 3 / Office 25
+            [LIEPLZOR] => 21001 Huelva
+            [HANLISDT] => 2017-11-09T00:00:00
+            [HANTABZT] => 09:45
+            [HANARTTX] => Himbeere 12x125g    
+            [HANWARGR] => 0032
+            [ARTGEBIN] => 12.000
+            [ARTDURGW] => 125
+            [HANPMENG] => 240.00
+            [ARTURSLD] => ES
+            [HANLFSNR] => 
+        )
+
+)
+
+2017-11-09T09:47:23+01:00 INFO (6): Fehler bei Variante: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'position' in 'field list', query was: INSERT INTO `variant` (`position`, `purchase_order`, `vendor_name`, `product`, `items`, `weight_item`, `packaging`, `t_packaging`, `origin`, `quality_class`, `quality`, `label`, `brand`, `lot`, `barcode`, `pallets`, `No`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2017-11-09T09:48:28+01:00 INFO (6): SQL: SELECT tbl_HAN.HANVORNR, tbl_HAN.HANPOSNR, tbl_HAN.HANADRNR, tbl_LIE.LIENAME, tbl_LIE.LIESTRAS, tbl_LIE.LIEPLZOR, convert(varchar(25), tbl_HAN.HANPRODT, 127) AS HANLISDT, HANTABZT, tbl_HAN.HANARTTX, tbl_HAN.HANWARGR, tbl_art.ARTGEBIN, tbl_ART.ARTDURGW, tbl_HAN.HANPMENG, tbl_ART.ARTURSLD FROM tbl_HAN JOIN tbl_ART on (tbl_HAN.HANARTNR = tbl_ART.KEYIART1) join tbl_LIE on (tbl_han.HANADRNR = tbl_LIE.KEYILIE1) WHERE tbl_HAN.HANVORAR = 30 AND tbl_art.ARTAKTKZ = 'A' AND tbl_HAN.HANVORNR = '426154'
+2017-11-09T09:48:28+01:00 INFO (6): Bestellungen: Array
+(
+    [0] => Array
+        (
+            [HANVORNR] => 426154
+            [HANPOSNR] => 001
+            [HANADRNR] => 095940
+            [LIENAME] => Surberry S.L.
+            [LIESTRAS] => C/Lentisco 3 / Office 25
+            [LIEPLZOR] => 21001 Huelva
+            [HANLISDT] => 2017-11-09T00:00:00
+            [HANTABZT] => 09:48
+            [HANARTTX] => Himbeere 12x125g    
+            [HANWARGR] => 0032
+            [ARTGEBIN] => 12.000
+            [ARTDURGW] => 125
+            [HANPMENG] => 240.00
+            [ARTURSLD] => ES
+            [HANLFSNR] => 
+        )
+
+)
+
+2017-11-09T09:48:37+01:00 INFO (6): Fehler bei Variante: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'position' in 'field list', query was: INSERT INTO `variant` (`position`, `purchase_order`, `vendor_name`, `product`, `items`, `weight_item`, `packaging`, `t_packaging`, `origin`, `quality_class`, `quality`, `label`, `brand`, `lot`, `barcode`, `pallets`, `No`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2017-11-09T09:49:34+01:00 INFO (6): Fehler bei Variante: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'position' in 'field list', query was: INSERT INTO `variant` (`position`, `purchase_order`, `vendor_name`, `product`, `items`, `weight_item`, `packaging`, `t_packaging`, `origin`, `quality_class`, `quality`, `label`, `brand`, `lot`, `barcode`, `pallets`, `No`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2017-11-09T09:50:33+01:00 INFO (6): SQL: SELECT tbl_HAN.HANVORNR, tbl_HAN.HANPOSNR, tbl_HAN.HANADRNR, tbl_LIE.LIENAME, tbl_LIE.LIESTRAS, tbl_LIE.LIEPLZOR, convert(varchar(25), tbl_HAN.HANPRODT, 127) AS HANLISDT, HANTABZT, tbl_HAN.HANARTTX, tbl_HAN.HANWARGR, tbl_art.ARTGEBIN, tbl_ART.ARTDURGW, tbl_HAN.HANPMENG, tbl_ART.ARTURSLD FROM tbl_HAN JOIN tbl_ART on (tbl_HAN.HANARTNR = tbl_ART.KEYIART1) join tbl_LIE on (tbl_han.HANADRNR = tbl_LIE.KEYILIE1) WHERE tbl_HAN.HANVORAR = 30 AND tbl_art.ARTAKTKZ = 'A' AND tbl_HAN.HANVORNR = '426154'
+2017-11-09T09:50:33+01:00 INFO (6): Bestellungen: Array
+(
+    [0] => Array
+        (
+            [HANVORNR] => 426154
+            [HANPOSNR] => 001
+            [HANADRNR] => 095940
+            [LIENAME] => Surberry S.L.
+            [LIESTRAS] => C/Lentisco 3 / Office 25
+            [LIEPLZOR] => 21001 Huelva
+            [HANLISDT] => 2017-11-09T00:00:00
+            [HANTABZT] => 09:50
+            [HANARTTX] => Himbeere 12x125g    
+            [HANWARGR] => 0032
+            [ARTGEBIN] => 12.000
+            [ARTDURGW] => 125
+            [HANPMENG] => 240.00
+            [ARTURSLD] => ES
+            [HANLFSNR] => 
+        )
+
+)
+
+2017-11-09T09:50:39+01:00 INFO (6): Fehler bei Variante: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'position' in 'field list', query was: INSERT INTO `variant` (`position`, `purchase_order`, `vendor_name`, `product`, `items`, `weight_item`, `packaging`, `t_packaging`, `origin`, `quality_class`, `quality`, `label`, `brand`, `lot`, `barcode`, `pallets`, `No`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2017-11-09T09:59:51+01:00 INFO (6): Fehler bei Variante: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'position' in 'field list', query was: INSERT INTO `variant` (`position`, `purchase_order`, `vendor_name`, `product`, `items`, `weight_item`, `packaging`, `t_packaging`, `origin`, `quality_class`, `quality`, `label`, `brand`, `lot`, `barcode`, `pallets`, `No`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2017-11-09T09:59:52+01:00 INFO (6): InboundController->IndexAction called
+2017-11-09T10:00:06+01:00 INFO (6): SQL: SELECT tbl_HAN.HANVORNR, tbl_HAN.HANPOSNR, tbl_HAN.HANADRNR, tbl_LIE.LIENAME, tbl_LIE.LIESTRAS, tbl_LIE.LIEPLZOR, convert(varchar(25), tbl_HAN.HANPRODT, 127) AS HANLISDT, HANTABZT, tbl_HAN.HANARTTX, tbl_HAN.HANWARGR, tbl_art.ARTGEBIN, tbl_ART.ARTDURGW, tbl_HAN.HANPMENG, tbl_ART.ARTURSLD FROM tbl_HAN JOIN tbl_ART on (tbl_HAN.HANARTNR = tbl_ART.KEYIART1) join tbl_LIE on (tbl_han.HANADRNR = tbl_LIE.KEYILIE1) WHERE tbl_HAN.HANVORAR = 30 AND tbl_art.ARTAKTKZ = 'A' AND tbl_HAN.HANVORNR = '426154'
+2017-11-09T10:00:06+01:00 INFO (6): Bestellungen: Array
+(
+    [0] => Array
+        (
+            [HANVORNR] => 426154
+            [HANPOSNR] => 001
+            [HANADRNR] => 095940
+            [LIENAME] => Surberry S.L.
+            [LIESTRAS] => C/Lentisco 3 / Office 25
+            [LIEPLZOR] => 21001 Huelva
+            [HANLISDT] => 2017-11-09T00:00:00
+            [HANTABZT] => 10:00
+            [HANARTTX] => Himbeere 12x125g    
+            [HANWARGR] => 0032
+            [ARTGEBIN] => 12.000
+            [ARTDURGW] => 125
+            [HANPMENG] => 240.00
+            [ARTURSLD] => ES
+            [HANLFSNR] => 
+        )
+
+)
+
+2017-11-09T10:00:13+01:00 INFO (6): Fehler bei Variante: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'position' in 'field list', query was: INSERT INTO `variant` (`position`, `purchase_order`, `vendor_name`, `product`, `items`, `weight_item`, `packaging`, `t_packaging`, `origin`, `quality_class`, `quality`, `label`, `brand`, `lot`, `barcode`, `pallets`, `No`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2017-11-09T10:00:13+01:00 INFO (6): InboundController->IndexAction called
+2017-11-09T10:00:54+01:00 INFO (6): SQL: SELECT tbl_HAN.HANVORNR, tbl_HAN.HANPOSNR, tbl_HAN.HANADRNR, tbl_LIE.LIENAME, tbl_LIE.LIESTRAS, tbl_LIE.LIEPLZOR, convert(varchar(25), tbl_HAN.HANPRODT, 127) AS HANLISDT, HANTABZT, tbl_HAN.HANARTTX, tbl_HAN.HANWARGR, tbl_art.ARTGEBIN, tbl_ART.ARTDURGW, tbl_HAN.HANPMENG, tbl_ART.ARTURSLD FROM tbl_HAN JOIN tbl_ART on (tbl_HAN.HANARTNR = tbl_ART.KEYIART1) join tbl_LIE on (tbl_han.HANADRNR = tbl_LIE.KEYILIE1) WHERE tbl_HAN.HANVORAR = 30 AND tbl_art.ARTAKTKZ = 'A' AND tbl_HAN.HANVORNR = '426154'
+2017-11-09T10:00:54+01:00 INFO (6): Bestellungen: Array
+(
+    [0] => Array
+        (
+            [HANVORNR] => 426154
+            [HANPOSNR] => 001
+            [HANADRNR] => 095940
+            [LIENAME] => Surberry S.L.
+            [LIESTRAS] => C/Lentisco 3 / Office 25
+            [LIEPLZOR] => 21001 Huelva
+            [HANLISDT] => 2017-11-09T00:00:00
+            [HANTABZT] => 10:00
+            [HANARTTX] => Himbeere 12x125g    
+            [HANWARGR] => 0032
+            [ARTGEBIN] => 12.000
+            [ARTDURGW] => 125
+            [HANPMENG] => 240.00
+            [ARTURSLD] => ES
+            [HANLFSNR] => 
+        )
+
+)
+
+2017-11-09T10:00:58+01:00 INFO (6): Fehler bei Variante: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'position' in 'field list', query was: INSERT INTO `variant` (`position`, `purchase_order`, `vendor_name`, `product`, `items`, `weight_item`, `packaging`, `t_packaging`, `origin`, `quality_class`, `quality`, `label`, `brand`, `lot`, `barcode`, `pallets`, `No`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2017-11-09T10:02:29+01:00 INFO (6): Fehler bei Variante: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'position' in 'field list', query was: INSERT INTO `variant` (`position`, `purchase_order`, `vendor_name`, `product`, `items`, `weight_item`, `packaging`, `t_packaging`, `origin`, `quality_class`, `quality`, `label`, `brand`, `lot`, `barcode`, `pallets`, `No`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2017-11-09T10:03:28+01:00 INFO (6): Fehler bei Variante: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'position' in 'field list', query was: INSERT INTO `variant` (`position`, `purchase_order`, `vendor_name`, `product`, `items`, `weight_item`, `packaging`, `t_packaging`, `origin`, `quality_class`, `quality`, `label`, `brand`, `lot`, `barcode`, `pallets`, `No`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2017-11-09T10:08:42+01:00 INFO (6): Fehler bei Variante: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'position' in 'field list', query was: INSERT INTO `variant` (`position`, `purchase_order`, `vendor_name`, `product`, `items`, `weight_item`, `packaging`, `t_packaging`, `origin`, `quality_class`, `quality`, `label`, `brand`, `lot`, `barcode`, `pallets`, `No`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2017-11-09T10:12:33+01:00 INFO (6): Fehler bei Variante: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'position' in 'field list', query was: INSERT INTO `variant` (`position`, `purchase_order`, `vendor_name`, `product`, `items`, `weight_item`, `packaging`, `t_packaging`, `origin`, `quality_class`, `quality`, `label`, `brand`, `lot`, `barcode`, `pallets`, `No`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2017-11-09T10:14:05+01:00 INFO (6): Fehler bei Variante: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'position' in 'field list', query was: INSERT INTO `variant` (`position`, `purchase_order`, `vendor_name`, `product`, `items`, `weight_item`, `packaging`, `t_packaging`, `origin`, `quality_class`, `quality`, `label`, `brand`, `lot`, `barcode`, `pallets`, `No`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2017-11-09T10:16:56+01:00 INFO (6): Fehler bei Variante: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'position' in 'field list', query was: INSERT INTO `variant` (`position`, `purchase_order`, `vendor_name`, `product`, `items`, `weight_item`, `packaging`, `t_packaging`, `origin`, `quality_class`, `quality`, `label`, `brand`, `lot`, `barcode`, `pallets`, `No`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2017-11-09T10:17:28+01:00 INFO (6): Fehler bei Variante: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'position' in 'field list', query was: INSERT INTO `variant` (`position`, `purchase_order`, `vendor_name`, `product`, `items`, `weight_item`, `packaging`, `t_packaging`, `origin`, `quality_class`, `quality`, `label`, `brand`, `lot`, `barcode`, `pallets`, `No`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2017-11-09T10:18:57+01:00 INFO (6): Fehler bei Variante: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'position' in 'field list', query was: INSERT INTO `variant` (`position`, `purchase_order`, `vendor_name`, `product`, `items`, `weight_item`, `packaging`, `t_packaging`, `origin`, `quality_class`, `quality`, `label`, `brand`, `lot`, `barcode`, `pallets`, `No`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2017-11-09T10:54:43+01:00 INFO (6): Fehler bei Variante: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'position' in 'field list', query was: INSERT INTO `variant` (`position`, `purchase_order`, `vendor_name`, `product`, `items`, `weight_item`, `packaging`, `t_packaging`, `origin`, `quality_class`, `quality`, `label`, `brand`, `lot`, `barcode`, `pallets`, `No`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2017-11-09T10:55:21+01:00 INFO (6): Fehler bei Variante: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'position' in 'field list', query was: INSERT INTO `variant` (`position`, `purchase_order`, `vendor_name`, `product`, `items`, `weight_item`, `packaging`, `t_packaging`, `origin`, `quality_class`, `quality`, `label`, `brand`, `lot`, `barcode`, `pallets`, `No`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2017-11-09T10:55:38+01:00 INFO (6): Fehler bei Variante: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'position' in 'field list', query was: INSERT INTO `variant` (`position`, `purchase_order`, `vendor_name`, `product`, `items`, `weight_item`, `packaging`, `t_packaging`, `origin`, `quality_class`, `quality`, `label`, `brand`, `lot`, `barcode`, `pallets`, `No`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2017-11-09T10:55:59+01:00 INFO (6): Fehler bei Variante: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'position' in 'field list', query was: INSERT INTO `variant` (`position`, `purchase_order`, `vendor_name`, `product`, `items`, `weight_item`, `packaging`, `t_packaging`, `origin`, `quality_class`, `quality`, `label`, `brand`, `lot`, `barcode`, `pallets`, `No`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2017-11-09T10:57:54+01:00 INFO (6): Fehler bei Variante: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'position' in 'field list', query was: INSERT INTO `variant` (`position`, `purchase_order`, `vendor_name`, `product`, `items`, `weight_item`, `packaging`, `t_packaging`, `origin`, `quality_class`, `quality`, `label`, `brand`, `lot`, `barcode`, `pallets`, `No`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2017-11-09T11:11:35+01:00 INFO (6): Fehler bei Variante: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'position' in 'field list', query was: INSERT INTO `variant` (`position`, `purchase_order`, `vendor_name`, `product`, `items`, `weight_item`, `packaging`, `t_packaging`, `origin`, `quality_class`, `quality`, `label`, `brand`, `lot`, `barcode`, `pallets`, `No`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2017-11-09T11:14:25+01:00 INFO (6): editquality aufgerufen mit Inbound_sheet: Array
+(
+    [No] => 0
+    [inbound] => 0
+    [inb_line] => 0
+    [position] => 
+    [v_delivery_note] => 
+    [vendor] => 
+    [purchase_order] => 
+    [po_line] => 0
+    [po_line_line] => 0
+    [stock_location] => 1
+    [po_arrival_date] => 09.11.2017
+    [po_arrival_time] => 11:14
+    [inb_arrival_date] => 09.11.2017
+    [inb_arrival_time] => 11:14
+    [forwarder] => 
+    [truck] => 
+    [trailor] => 
+    [container] => 
+    [po_transport_temp_min] => 1.00
+    [po_transport_temp_max] => 4.00
+    [inb_transport_temp] => 0
+    [variant] => 
+    [product] => 0026
+    [t_packaging] => 
+    [packaging] => 0
+    [origin] => DE
+    [label] => 0
+    [quality_class] => 1
+    [brand] => 0
+    [quality] => 1
+    [items] => 0
+    [weight_item] => 0
+    [po_lot] => 
+    [po_barcode] => 
+    [po_trading_units] => 0
+    [po_packing_units] => 0
+    [po_pallet] => 
+    [po_pallets] => 0
+    [po_tu_pal] => 0
+    [inb_lot] => 
+    [inb_barcode] => 
+    [items_checked] => 0
+    [inb_trading_units] => 0
+    [inb_packing_units] => 0
+    [inb_pallet] => 
+    [inb_pallets] => 0
+    [inb_tu_pal] => 0
+    [po_brix_min] => 0
+    [po_brix_max] => 0
+    [inb_brix] => 0
+    [inb_certificate] => 1
+    [remarks] => 
+    [checked_by] => 
+    [res_1] => 0
+    [base_1] => 0
+    [rp_1] => 0 %
+    [rl_1] => check_green
+    [res_2] => 0
+    [base_2] => 0
+    [rp_2] => 0 %
+    [rl_2] => check_green
+    [res_3] => 0
+    [base_3] => 0
+    [rp_3] => 0 %
+    [rl_3] => check_green
+    [res_4] => 0
+    [base_4] => 0
+    [rp_4] => 0 %
+    [rl_4] => check_green
+    [res_7] => 0
+    [base_7] => 0
+    [rp_7] => 0 %
+    [rl_7] => check_green
+    [res_6] => 0
+    [base_6] => 0
+    [rp_6] => 0 %
+    [rl_6] => check_green
+    [res_5] => 0
+    [base_5] => 0
+    [rp_5] => 0 %
+    [rl_5] => check_green
+    [res_10] => 0
+    [base_10] => 0
+    [rp_10] => 0 %
+    [rl_10] => check_green
+    [res_13] => 0
+    [base_13] => 0
+    [rp_13] => 0 %
+    [rl_13] => check_green
+    [res_12] => 0
+    [base_12] => 0
+    [rp_12] => 0 %
+    [rl_12] => check_green
+    [res_11] => 0
+    [base_11] => 0
+    [rp_11] => 0 %
+    [rl_11] => check_green
+    [res_9] => 0
+    [base_9] => 0
+    [rp_9] => 0 %
+    [rl_9] => check_green
+    [res_8] => 0
+    [base_8] => 0
+    [rp_8] => 0 %
+    [rl_8] => check_green
+    [res_15] => 0
+    [base_15] => 0
+    [rp_15] => 0
+    [rl_15] => check_green
+    [res_14] => 0
+    [base_14] => 0
+    [rp_14] => 0
+    [rl_14] => check_green
+    [res_16] => 0
+    [base_16] => 0
+    [rp_16] => nicht OK
+    [rl_16] => check_red
+    [res_17] => 0
+    [base_17] => 0
+    [rp_17] => nicht OK
+    [rl_17] => check_red
+    [res_18] => 0
+    [base_18] => 0
+    [rp_18] => 0
+    [rl_18] => check_green
+    [res_19] => 0
+    [base_19] => 0
+    [rp_19] => 0 %
+    [rl_19] => check_green
+)
+
+2017-11-09T11:14:34+01:00 INFO (6): SQL: SELECT tbl_HAN.HANVORNR, tbl_HAN.HANPOSNR, tbl_HAN.HANADRNR, tbl_LIE.LIENAME, tbl_LIE.LIESTRAS, tbl_LIE.LIEPLZOR, convert(varchar(25), tbl_HAN.HANPRODT, 127) AS HANLISDT, HANTABZT, tbl_HAN.HANARTTX, tbl_HAN.HANWARGR, tbl_art.ARTGEBIN, tbl_ART.ARTDURGW, tbl_HAN.HANPMENG, tbl_ART.ARTURSLD FROM tbl_HAN JOIN tbl_ART on (tbl_HAN.HANARTNR = tbl_ART.KEYIART1) join tbl_LIE on (tbl_han.HANADRNR = tbl_LIE.KEYILIE1) WHERE tbl_HAN.HANVORAR = 30 AND tbl_art.ARTAKTKZ = 'A' AND tbl_HAN.HANVORNR = '426154'
+2017-11-09T11:14:34+01:00 INFO (6): Bestellungen: Array
+(
+    [0] => Array
+        (
+            [HANVORNR] => 426154
+            [HANPOSNR] => 001
+            [HANADRNR] => 095940
+            [LIENAME] => Surberry S.L.
+            [LIESTRAS] => C/Lentisco 3 / Office 25
+            [LIEPLZOR] => 21001 Huelva
+            [HANLISDT] => 2017-11-09T00:00:00
+            [HANTABZT] => 11:14
+            [HANARTTX] => Himbeere 12x125g    
+            [HANWARGR] => 0032
+            [ARTGEBIN] => 12.000
+            [ARTDURGW] => 125
+            [HANPMENG] => 240.00
+            [ARTURSLD] => ES
+            [HANLFSNR] => 
+        )
+
+)
+
+2017-11-09T11:14:41+01:00 INFO (6): Fehler bei Variante: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'position' in 'field list', query was: INSERT INTO `variant` (`position`, `purchase_order`, `vendor_name`, `product`, `items`, `weight_item`, `packaging`, `t_packaging`, `origin`, `quality_class`, `quality`, `label`, `brand`, `lot`, `barcode`, `pallets`, `No`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2017-11-09T11:14:41+01:00 INFO (6): C:\www-dev\dispo\public\fontsARIALBD.ttf
+2017-11-09T11:17:13+01:00 INFO (6): Fehler bei Variante: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'position' in 'field list', query was: INSERT INTO `variant` (`position`, `purchase_order`, `vendor_name`, `product`, `items`, `weight_item`, `packaging`, `t_packaging`, `origin`, `quality_class`, `quality`, `label`, `brand`, `lot`, `barcode`, `pallets`, `No`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2017-11-09T11:17:13+01:00 INFO (6): C:\www-dev\dispo\public\fonts\ARIALBD.TTF
+2017-11-09T11:18:15+01:00 INFO (6): Fehler bei Variante: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'position' in 'field list', query was: INSERT INTO `variant` (`position`, `purchase_order`, `vendor_name`, `product`, `items`, `weight_item`, `packaging`, `t_packaging`, `origin`, `quality_class`, `quality`, `label`, `brand`, `lot`, `barcode`, `pallets`, `No`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2017-11-09T11:18:15+01:00 INFO (6): C:\www-dev\dispo\public\fonts\ARIALBD.TTF
+2017-11-09T11:35:57+01:00 INFO (6): InboundController->IndexAction called
+2017-11-09T11:36:07+01:00 INFO (6): SQL: SELECT tbl_HAN.HANVORNR, tbl_HAN.HANPOSNR, tbl_HAN.HANADRNR, tbl_LIE.LIENAME, tbl_LIE.LIESTRAS, tbl_LIE.LIEPLZOR, convert(varchar(25), tbl_HAN.HANPRODT, 127) AS HANLISDT, HANTABZT, tbl_HAN.HANARTTX, tbl_HAN.HANWARGR, tbl_art.ARTGEBIN, tbl_ART.ARTDURGW, tbl_HAN.HANPMENG, tbl_ART.ARTURSLD FROM tbl_HAN JOIN tbl_ART on (tbl_HAN.HANARTNR = tbl_ART.KEYIART1) join tbl_LIE on (tbl_han.HANADRNR = tbl_LIE.KEYILIE1) WHERE tbl_HAN.HANVORAR = 30 AND tbl_art.ARTAKTKZ = 'A' AND tbl_HAN.HANVORNR = '426154'
+2017-11-09T11:36:07+01:00 INFO (6): Bestellungen: Array
+(
+    [0] => Array
+        (
+            [HANVORNR] => 426154
+            [HANPOSNR] => 001
+            [HANADRNR] => 095940
+            [LIENAME] => Surberry S.L.
+            [LIESTRAS] => C/Lentisco 3 / Office 25
+            [LIEPLZOR] => 21001 Huelva
+            [HANLISDT] => 2017-11-09T00:00:00
+            [HANTABZT] => 11:36
+            [HANARTTX] => Himbeere 12x125g    
+            [HANWARGR] => 0032
+            [ARTGEBIN] => 12.000
+            [ARTDURGW] => 125
+            [HANPMENG] => 240.00
+            [ARTURSLD] => ES
+            [HANLFSNR] => 
+        )
+
+)
+
+2017-11-09T11:38:48+01:00 INFO (6): InboundController->IndexAction called
+2017-11-09T11:38:55+01:00 INFO (6): SQL: SELECT tbl_HAN.HANVORNR, tbl_HAN.HANPOSNR, tbl_HAN.HANADRNR, tbl_LIE.LIENAME, tbl_LIE.LIESTRAS, tbl_LIE.LIEPLZOR, convert(varchar(25), tbl_HAN.HANPRODT, 127) AS HANLISDT, HANTABZT, tbl_HAN.HANARTTX, tbl_HAN.HANWARGR, tbl_art.ARTGEBIN, tbl_ART.ARTDURGW, tbl_HAN.HANPMENG, tbl_ART.ARTURSLD FROM tbl_HAN JOIN tbl_ART on (tbl_HAN.HANARTNR = tbl_ART.KEYIART1) join tbl_LIE on (tbl_han.HANADRNR = tbl_LIE.KEYILIE1) WHERE tbl_HAN.HANVORAR = 30 AND tbl_art.ARTAKTKZ = 'A' AND tbl_HAN.HANVORNR = '426154'
+2017-11-09T11:38:55+01:00 INFO (6): Bestellungen: Array
+(
+    [0] => Array
+        (
+            [HANVORNR] => 426154
+            [HANPOSNR] => 001
+            [HANADRNR] => 095940
+            [LIENAME] => Surberry S.L.
+            [LIESTRAS] => C/Lentisco 3 / Office 25
+            [LIEPLZOR] => 21001 Huelva
+            [HANLISDT] => 2017-11-09T00:00:00
+            [HANTABZT] => 11:38
+            [HANARTTX] => Himbeere 12x125g    
+            [HANWARGR] => 0032
+            [ARTGEBIN] => 12.000
+            [ARTDURGW] => 125
+            [HANPMENG] => 240.00
+            [ARTURSLD] => ES
+            [HANLFSNR] => 
+        )
+
+)
+
+2017-11-09T11:45:45+01:00 INFO (6): SQL: SELECT tbl_HAN.HANVORNR, tbl_HAN.HANPOSNR, tbl_HAN.HANADRNR, tbl_LIE.LIENAME, tbl_LIE.LIESTRAS, tbl_LIE.LIEPLZOR, convert(varchar(25), tbl_HAN.HANPRODT, 127) AS HANLISDT, HANTABZT, tbl_HAN.HANARTTX, tbl_HAN.HANWARGR, tbl_art.ARTGEBIN, tbl_ART.ARTDURGW, tbl_HAN.HANPMENG, tbl_ART.ARTURSLD FROM tbl_HAN JOIN tbl_ART on (tbl_HAN.HANARTNR = tbl_ART.KEYIART1) join tbl_LIE on (tbl_han.HANADRNR = tbl_LIE.KEYILIE1) WHERE tbl_HAN.HANVORAR = 30 AND tbl_art.ARTAKTKZ = 'A' AND tbl_HAN.HANVORNR = '426154'
+2017-11-09T11:45:45+01:00 INFO (6): Bestellungen: Array
+(
+    [0] => Array
+        (
+            [HANVORNR] => 426154
+            [HANPOSNR] => 001
+            [HANADRNR] => 095940
+            [LIENAME] => Surberry S.L.
+            [LIESTRAS] => C/Lentisco 3 / Office 25
+            [LIEPLZOR] => 21001 Huelva
+            [HANLISDT] => 2017-11-09T00:00:00
+            [HANTABZT] => 11:45
+            [HANARTTX] => Himbeere 12x125g    
+            [HANWARGR] => 0032
+            [ARTGEBIN] => 12.000
+            [ARTDURGW] => 125
+            [HANPMENG] => 240.00
+            [ARTURSLD] => ES
+            [HANLFSNR] => 
+        )
+
+)
+
+2017-11-09T11:46:25+01:00 INFO (6): Variante wurde hinzugefügt mit No: 0
+2017-11-09T11:46:25+01:00 INFO (6): C:\www-dev\dispo\public\fonts\ARIALBD.TTF
+2017-11-09T12:37:47+01:00 INFO (6): InboundController->IndexAction called
+2017-11-09T12:46:41+01:00 INFO (6): SQL: SELECT tbl_HAN.HANVORNR, tbl_HAN.HANPOSNR, tbl_HAN.HANADRNR, tbl_LIE.LIENAME, tbl_LIE.LIESTRAS, tbl_LIE.LIEPLZOR, convert(varchar(25), tbl_HAN.HANPRODT, 127) AS HANLISDT, HANTABZT, tbl_HAN.HANARTTX, tbl_HAN.HANWARGR, tbl_art.ARTGEBIN, tbl_ART.ARTDURGW, tbl_HAN.HANPMENG, tbl_ART.ARTURSLD FROM tbl_HAN JOIN tbl_ART on (tbl_HAN.HANARTNR = tbl_ART.KEYIART1) join tbl_LIE on (tbl_han.HANADRNR = tbl_LIE.KEYILIE1) WHERE tbl_HAN.HANVORAR = 30 AND tbl_art.ARTAKTKZ = 'A' AND tbl_HAN.HANVORNR = '426154'
+2017-11-09T12:46:41+01:00 INFO (6): Bestellungen: Array
+(
+    [0] => Array
+        (
+            [HANVORNR] => 426154
+            [HANPOSNR] => 001
+            [HANADRNR] => 095940
+            [LIENAME] => Surberry S.L.
+            [LIESTRAS] => C/Lentisco 3 / Office 25
+            [LIEPLZOR] => 21001 Huelva
+            [HANLISDT] => 2017-11-09T00:00:00
+            [HANTABZT] => 12:46
+            [HANARTTX] => Himbeere 12x125g    
+            [HANWARGR] => 0032
+            [ARTGEBIN] => 12.000
+            [ARTDURGW] => 125
+            [HANPMENG] => 240.00
+            [ARTURSLD] => ES
+            [HANLFSNR] => 
+        )
+
+)
+
+2017-11-09T12:47:06+01:00 INFO (6): Variante wurde hinzugefügt: 0032ES12125K438216111
+2017-11-09T13:41:33+01:00 INFO (6): InboundController->IndexAction called
+2017-11-09T13:41:44+01:00 INFO (6): SQL: SELECT tbl_HAN.HANVORNR, tbl_HAN.HANPOSNR, tbl_HAN.HANADRNR, tbl_LIE.LIENAME, tbl_LIE.LIESTRAS, tbl_LIE.LIEPLZOR, convert(varchar(25), tbl_HAN.HANPRODT, 127) AS HANLISDT, HANTABZT, tbl_HAN.HANARTTX, tbl_HAN.HANWARGR, tbl_art.ARTGEBIN, tbl_ART.ARTDURGW, tbl_HAN.HANPMENG, tbl_ART.ARTURSLD FROM tbl_HAN JOIN tbl_ART on (tbl_HAN.HANARTNR = tbl_ART.KEYIART1) join tbl_LIE on (tbl_han.HANADRNR = tbl_LIE.KEYILIE1) WHERE tbl_HAN.HANVORAR = 30 AND tbl_art.ARTAKTKZ = 'A' AND tbl_HAN.HANVORNR = '426154'
+2017-11-09T13:41:44+01:00 INFO (6): Bestellungen: Array
+(
+    [0] => Array
+        (
+            [HANVORNR] => 426154
+            [HANPOSNR] => 001
+            [HANADRNR] => 095940
+            [LIENAME] => Surberry S.L.
+            [LIESTRAS] => C/Lentisco 3 / Office 25
+            [LIEPLZOR] => 21001 Huelva
+            [HANLISDT] => 2017-11-09T00:00:00
+            [HANTABZT] => 13:41
+            [HANARTTX] => Himbeere 12x125g    
+            [HANWARGR] => 0032
+            [ARTGEBIN] => 12.000
+            [ARTDURGW] => 125
+            [HANPMENG] => 240.00
+            [ARTURSLD] => ES
+            [HANLFSNR] => 
+        )
+
+)
+
+2017-11-09T13:42:23+01:00 INFO (6): Variante wurde hinzugefügt: 0032ES12125K438016111
+2017-11-09T13:43:36+01:00 INFO (6): IndexController->IndexAction called
+2017-11-09T13:44:19+01:00 INFO (6): InboundController->IndexAction called
+2017-11-09T13:56:26+01:00 INFO (6): SQL: SELECT tbl_HAN.HANVORNR, tbl_HAN.HANPOSNR, tbl_HAN.HANADRNR, tbl_LIE.LIENAME, tbl_LIE.LIESTRAS, tbl_LIE.LIEPLZOR, convert(varchar(25), tbl_HAN.HANPRODT, 127) AS HANLISDT, HANTABZT, tbl_HAN.HANARTTX, tbl_HAN.HANWARGR, tbl_art.ARTGEBIN, tbl_ART.ARTDURGW, tbl_HAN.HANPMENG, tbl_ART.ARTURSLD FROM tbl_HAN JOIN tbl_ART on (tbl_HAN.HANARTNR = tbl_ART.KEYIART1) join tbl_LIE on (tbl_han.HANADRNR = tbl_LIE.KEYILIE1) WHERE tbl_HAN.HANVORAR = 30 AND tbl_art.ARTAKTKZ = 'A' AND tbl_HAN.HANVORNR = '426154'
+2017-11-09T13:56:26+01:00 INFO (6): Bestellungen: Array
+(
+    [0] => Array
+        (
+            [HANVORNR] => 426154
+            [HANPOSNR] => 001
+            [HANADRNR] => 095940
+            [LIENAME] => Surberry S.L.
+            [LIESTRAS] => C/Lentisco 3 / Office 25
+            [LIEPLZOR] => 21001 Huelva
+            [HANLISDT] => 2017-11-09T00:00:00
+            [HANTABZT] => 13:56
+            [HANARTTX] => Himbeere 12x125g    
+            [HANWARGR] => 0032
+            [ARTGEBIN] => 12.000
+            [ARTDURGW] => 125
+            [HANPMENG] => 240.00
+            [ARTURSLD] => ES
+            [HANLFSNR] => 
+        )
+
+)
+
+2017-11-09T14:48:30+01:00 INFO (6): InboundController->IndexAction called
+2017-11-09T14:48:45+01:00 INFO (6): SQL: SELECT tbl_HAN.HANVORNR, tbl_HAN.HANPOSNR, tbl_HAN.HANADRNR, tbl_LIE.LIENAME, tbl_LIE.LIESTRAS, tbl_LIE.LIEPLZOR, convert(varchar(25), tbl_HAN.HANPRODT, 127) AS HANLISDT, HANTABZT, tbl_HAN.HANARTTX, tbl_HAN.HANWARGR, tbl_art.ARTGEBIN, tbl_ART.ARTDURGW, tbl_HAN.HANPMENG, tbl_ART.ARTURSLD FROM tbl_HAN JOIN tbl_ART on (tbl_HAN.HANARTNR = tbl_ART.KEYIART1) join tbl_LIE on (tbl_han.HANADRNR = tbl_LIE.KEYILIE1) WHERE tbl_HAN.HANVORAR = 30 AND tbl_art.ARTAKTKZ = 'A' AND tbl_HAN.HANVORNR = '426154'
+2017-11-09T14:48:45+01:00 INFO (6): Bestellungen: Array
+(
+    [0] => Array
+        (
+            [HANVORNR] => 426154
+            [HANPOSNR] => 001
+            [HANADRNR] => 095940
+            [LIENAME] => Surberry S.L.
+            [LIESTRAS] => C/Lentisco 3 / Office 25
+            [LIEPLZOR] => 21001 Huelva
+            [HANLISDT] => 2017-11-09T00:00:00
+            [HANTABZT] => 14:48
+            [HANARTTX] => Himbeere 12x125g    
+            [HANWARGR] => 0032
+            [ARTGEBIN] => 12.000
+            [ARTDURGW] => 125
+            [HANPMENG] => 240.00
+            [ARTURSLD] => ES
+            [HANLFSNR] => 
+        )
+
+)
+
+2017-11-09T14:49:35+01:00 ERR (3): File "Zend\Barcode\Object\Ean-8.php" does not exist or class "Zend_Barcode_Object_Ean-8" was not found in the file
+2017-11-09T14:51:30+01:00 ERR (3): Invalid file path: 
+2017-11-09T15:10:31+01:00 ERR (3): Zend_Pdf_Exception Object
+(
+    [_previous:Zend_Exception:private] => 
+    [message:protected] => Invalid file path: 
+    [string:Exception:private] => 
+    [code:protected] => 257
+    [file:protected] => C:\www-dev\ZendFramework-1.12.20\library\Zend\Pdf\FileParserDataSource\File.php
+    [line:protected] => 79
+    [trace:Exception:private] => Array
+        (
+            [0] => Array
+                (
+                    [file] => C:\www-dev\ZendFramework-1.12.20\library\Zend\Pdf\Font.php
+                    [line] => 603
+                    [function] => __construct
+                    [class] => Zend_Pdf_FileParserDataSource_File
+                    [type] => ->
+                    [args] => Array
+                        (
+                            [0] => 
+                        )
+
+                )
+
+            [1] => Array
+                (
+                    [file] => C:\www-dev\ZendFramework-1.12.20\library\Zend\Barcode\Renderer\Pdf.php
+                    [line] => 199
+                    [function] => fontWithPath
+                    [class] => Zend_Pdf_Font
+                    [type] => ::
+                    [args] => Array
+                        (
+                            [0] => 
+                        )
+
+                )
+
+            [2] => Array
+                (
+                    [file] => C:\www-dev\ZendFramework-1.12.20\library\Zend\Barcode\Renderer\RendererAbstract.php
+                    [line] => 491
+                    [function] => _drawText
+                    [class] => Zend_Barcode_Renderer_Pdf
+                    [type] => ->
+                    [args] => Array
+                        (
+                            [0] => 0
+                            [1] => 10
+                            [2] => Array
+                                (
+                                    [0] => 13
+                                    [1] => 61
+                                )
+
+                            [3] => 
+                            [4] => 0
+                            [5] => left
+                            [6] => 0
+                        )
+
+                )
+
+            [3] => Array
+                (
+                    [file] => C:\www-dev\ZendFramework-1.12.20\library\Zend\Barcode\Renderer\RendererAbstract.php
+                    [line] => 441
+                    [function] => _drawInstructionList
+                    [class] => Zend_Barcode_Renderer_RendererAbstract
+                    [type] => ->
+                    [args] => Array
+                        (
+                        )
+
+                )
+
+            [4] => Array
+                (
+                    [file] => C:\www-dev\dispo\application\views\scripts\inbound\pdfpalletlabel.php
+                    [line] => 31
+                    [function] => draw
+                    [class] => Zend_Barcode_Renderer_RendererAbstract
+                    [type] => ->
+                    [args] => Array
+                        (
+                        )
+
+                )
+
+            [5] => Array
+                (
+                    [file] => C:\www-dev\ZendFramework-1.12.20\library\Zend\View.php
+                    [line] => 157
+                    [args] => Array
+                        (
+                            [0] => C:\www-dev\dispo\application\views\scripts\inbound\pdfpalletlabel.php
+                        )
+
+                    [function] => include
+                )
+
+            [6] => Array
+                (
+                    [file] => C:\www-dev\ZendFramework-1.12.20\library\Zend\View\Abstract.php
+                    [line] => 888
+                    [function] => _run
+                    [class] => Zend_View
+                    [type] => ->
+                    [args] => Array
+                        (
+                            [0] => C:/www-dev/dispo/application/views\scripts//inbound/pdfpalletlabel.php
+                        )
+
+                )
+
+            [7] => Array
+                (
+                    [file] => C:\www-dev\ZendFramework-1.12.20\library\Zend\Controller\Action\Helper\ViewRenderer.php
+                    [line] => 912
+                    [function] => render
+                    [class] => Zend_View_Abstract
+                    [type] => ->
+                    [args] => Array
+                        (
+                            [0] => /inbound/pdfpalletlabel.php
+                        )
+
+                )
+
+            [8] => Array
+                (
+                    [file] => C:\www-dev\ZendFramework-1.12.20\library\Zend\Controller\Action.php
+                    [line] => 243
+                    [function] => renderScript
+                    [class] => Zend_Controller_Action_Helper_ViewRenderer
+                    [type] => ->
+                    [args] => Array
+                        (
+                            [0] => /inbound/pdfpalletlabel.php
+                            [1] => 
+                        )
+
+                )
+
+            [9] => Array
+                (
+                    [file] => C:\www-dev\dispo\application\controllers\InboundController.php
+                    [line] => 229
+                    [function] => renderScript
+                    [class] => Zend_Controller_Action
+                    [type] => ->
+                    [args] => Array
+                        (
+                            [0] => /inbound/pdfpalletlabel.php
+                        )
+
+                )
+
+            [10] => Array
+                (
+                    [file] => C:\www-dev\ZendFramework-1.12.20\library\Zend\Controller\Action.php
+                    [line] => 516
+                    [function] => printpalletlabelAction
+                    [class] => inboundController
+                    [type] => ->
+                    [args] => Array
+                        (
+                        )
+
+                )
+
+            [11] => Array
+                (
+                    [file] => C:\www-dev\ZendFramework-1.12.20\library\Zend\Controller\Dispatcher\Standard.php
+                    [line] => 308
+                    [function] => dispatch
+                    [class] => Zend_Controller_Action
+                    [type] => ->
+                    [args] => Array
+                        (
+                            [0] => printpalletlabelAction
+                        )
+
+                )
+
+            [12] => Array
+                (
+                    [file] => C:\www-dev\ZendFramework-1.12.20\library\Zend\Controller\Front.php
+                    [line] => 954
+                    [function] => dispatch
+                    [class] => Zend_Controller_Dispatcher_Standard
+                    [type] => ->
+                    [args] => Array
+                        (
+                            [0] => Zend_Controller_Request_Http Object
+                                (
+                                    [_paramSources:protected] => Array
+                                        (
+                                            [0] => _GET
+                                            [1] => _POST
+                                        )
+
+                                    [_requestUri:protected] => /inbound/printpalletlabel
+                                    [_baseUrl:protected] => 
+                                    [_basePath:protected] => 
+                                    [_pathInfo:protected] => /inbound/printpalletlabel
+                                    [_params:protected] => Array
+                                        (
+                                            [controller] => inbound
+                                            [action] => printpalletlabel
+                                            [module] => default
+                                        )
+
+                                    [_rawBody:protected] => 
+                                    [_aliases:protected] => Array
+                                        (
+                                        )
+
+                                    [_dispatched:protected] => 1
+                                    [_module:protected] => default
+                                    [_moduleKey:protected] => module
+                                    [_controller:protected] => inbound
+                                    [_controllerKey:protected] => controller
+                                    [_action:protected] => printpalletlabel
+                                    [_actionKey:protected] => action
+                                )
+
+                            [1] => Zend_Controller_Response_Http Object
+                                (
+                                    [_body:protected] => Array
+                                        (
+                                        )
+
+                                    [_exceptions:protected] => Array
+                                        (
+                                        )
+
+                                    [_headers:protected] => Array
+                                        (
+                                        )
+
+                                    [_headersRaw:protected] => Array
+                                        (
+                                        )
+
+                                    [_httpResponseCode:protected] => 200
+                                    [_isRedirect:protected] => 
+                                    [_renderExceptions:protected] => 
+                                    [headersSentThrowsException] => 1
+                                )
+
+                        )
+
+                )
+
+            [13] => Array
+                (
+                    [file] => C:\www-dev\ZendFramework-1.12.20\library\Zend\Application\Bootstrap\Bootstrap.php
+                    [line] => 105
+                    [function] => dispatch
+                    [class] => Zend_Controller_Front
+                    [type] => ->
+                    [args] => Array
+                        (
+                        )
+
+                )
+
+            [14] => Array
+                (
+                    [file] => C:\www-dev\ZendFramework-1.12.20\library\Zend\Application.php
+                    [line] => 384
+                    [function] => run
+                    [class] => Zend_Application_Bootstrap_Bootstrap
+                    [type] => ->
+                    [args] => Array
+                        (
+                        )
+
+                )
+
+            [15] => Array
+                (
+                    [file] => C:\www-dev\dispo\public\index.php
+                    [line] => 22
+                    [function] => run
+                    [class] => Zend_Application
+                    [type] => ->
+                    [args] => Array
+                        (
+                        )
+
+                )
+
+        )
+
+    [previous:Exception:private] => 
+)
+
+2017-11-09T15:18:58+01:00 ERR (3): Zend_Pdf_Exception Object
+(
+    [_previous:Zend_Exception:private] => 
+    [message:protected] => Invalid file path: 3
+    [string:Exception:private] => 
+    [code:protected] => 257
+    [file:protected] => C:\www-dev\ZendFramework-1.12.20\library\Zend\Pdf\FileParserDataSource\File.php
+    [line:protected] => 79
+    [trace:Exception:private] => Array
+        (
+            [0] => Array
+                (
+                    [file] => C:\www-dev\ZendFramework-1.12.20\library\Zend\Pdf\Font.php
+                    [line] => 603
+                    [function] => __construct
+                    [class] => Zend_Pdf_FileParserDataSource_File
+                    [type] => ->
+                    [args] => Array
+                        (
+                            [0] => 3
+                        )
+
+                )
+
+            [1] => Array
+                (
+                    [file] => C:\www-dev\ZendFramework-1.12.20\library\Zend\Barcode\Renderer\Pdf.php
+                    [line] => 199
+                    [function] => fontWithPath
+                    [class] => Zend_Pdf_Font
+                    [type] => ::
+                    [args] => Array
+                        (
+                            [0] => 3
+                        )
+
+                )
+
+            [2] => Array
+                (
+                    [file] => C:\www-dev\ZendFramework-1.12.20\library\Zend\Barcode\Renderer\RendererAbstract.php
+                    [line] => 491
+                    [function] => _drawText
+                    [class] => Zend_Barcode_Renderer_Pdf
+                    [type] => ->
+                    [args] => Array
+                        (
+                            [0] => 0
+                            [1] => 13
+                            [2] => Array
+                                (
+                                    [0] => 13
+                                    [1] => 64
+                                )
+
+                            [3] => 3
+                            [4] => 0
+                            [5] => left
+                            [6] => 0
+                        )
+
+                )
+
+            [3] => Array
+                (
+                    [file] => C:\www-dev\ZendFramework-1.12.20\library\Zend\Barcode\Renderer\RendererAbstract.php
+                    [line] => 441
+                    [function] => _drawInstructionList
+                    [class] => Zend_Barcode_Renderer_RendererAbstract
+                    [type] => ->
+                    [args] => Array
+                        (
+                        )
+
+                )
+
+            [4] => Array
+                (
+                    [file] => C:\www-dev\dispo\application\views\scripts\inbound\pdfpalletlabel.php
+                    [line] => 31
+                    [function] => draw
+                    [class] => Zend_Barcode_Renderer_RendererAbstract
+                    [type] => ->
+                    [args] => Array
+                        (
+                        )
+
+                )
+
+            [5] => Array
+                (
+                    [file] => C:\www-dev\ZendFramework-1.12.20\library\Zend\View.php
+                    [line] => 157
+                    [args] => Array
+                        (
+                            [0] => C:\www-dev\dispo\application\views\scripts\inbound\pdfpalletlabel.php
+                        )
+
+                    [function] => include
+                )
+
+            [6] => Array
+                (
+                    [file] => C:\www-dev\ZendFramework-1.12.20\library\Zend\View\Abstract.php
+                    [line] => 888
+                    [function] => _run
+                    [class] => Zend_View
+                    [type] => ->
+                    [args] => Array
+                        (
+                            [0] => C:/www-dev/dispo/application/views\scripts//inbound/pdfpalletlabel.php
+                        )
+
+                )
+
+            [7] => Array
+                (
+                    [file] => C:\www-dev\ZendFramework-1.12.20\library\Zend\Controller\Action\Helper\ViewRenderer.php
+                    [line] => 912
+                    [function] => render
+                    [class] => Zend_View_Abstract
+                    [type] => ->
+                    [args] => Array
+                        (
+                            [0] => /inbound/pdfpalletlabel.php
+                        )
+
+                )
+
+            [8] => Array
+                (
+                    [file] => C:\www-dev\ZendFramework-1.12.20\library\Zend\Controller\Action.php
+                    [line] => 243
+                    [function] => renderScript
+                    [class] => Zend_Controller_Action_Helper_ViewRenderer
+                    [type] => ->
+                    [args] => Array
+                        (
+                            [0] => /inbound/pdfpalletlabel.php
+                            [1] => 
+                        )
+
+                )
+
+            [9] => Array
+                (
+                    [file] => C:\www-dev\dispo\application\controllers\InboundController.php
+                    [line] => 229
+                    [function] => renderScript
+                    [class] => Zend_Controller_Action
+                    [type] => ->
+                    [args] => Array
+                        (
+                            [0] => /inbound/pdfpalletlabel.php
+                        )
+
+                )
+
+            [10] => Array
+                (
+                    [file] => C:\www-dev\ZendFramework-1.12.20\library\Zend\Controller\Action.php
+                    [line] => 516
+                    [function] => printpalletlabelAction
+                    [class] => inboundController
+                    [type] => ->
+                    [args] => Array
+                        (
+                        )
+
+                )
+
+            [11] => Array
+                (
+                    [file] => C:\www-dev\ZendFramework-1.12.20\library\Zend\Controller\Dispatcher\Standard.php
+                    [line] => 308
+                    [function] => dispatch
+                    [class] => Zend_Controller_Action
+                    [type] => ->
+                    [args] => Array
+                        (
+                            [0] => printpalletlabelAction
+                        )
+
+                )
+
+            [12] => Array
+                (
+                    [file] => C:\www-dev\ZendFramework-1.12.20\library\Zend\Controller\Front.php
+                    [line] => 954
+                    [function] => dispatch
+                    [class] => Zend_Controller_Dispatcher_Standard
+                    [type] => ->
+                    [args] => Array
+                        (
+                            [0] => Zend_Controller_Request_Http Object
+                                (
+                                    [_paramSources:protected] => Array
+                                        (
+                                            [0] => _GET
+                                            [1] => _POST
+                                        )
+
+                                    [_requestUri:protected] => /inbound/printpalletlabel
+                                    [_baseUrl:protected] => 
+                                    [_basePath:protected] => 
+                                    [_pathInfo:protected] => /inbound/printpalletlabel
+                                    [_params:protected] => Array
+                                        (
+                                            [controller] => inbound
+                                            [action] => printpalletlabel
+                                            [module] => default
+                                        )
+
+                                    [_rawBody:protected] => 
+                                    [_aliases:protected] => Array
+                                        (
+                                        )
+
+                                    [_dispatched:protected] => 1
+                                    [_module:protected] => default
+                                    [_moduleKey:protected] => module
+                                    [_controller:protected] => inbound
+                                    [_controllerKey:protected] => controller
+                                    [_action:protected] => printpalletlabel
+                                    [_actionKey:protected] => action
+                                )
+
+                            [1] => Zend_Controller_Response_Http Object
+                                (
+                                    [_body:protected] => Array
+                                        (
+                                        )
+
+                                    [_exceptions:protected] => Array
+                                        (
+                                        )
+
+                                    [_headers:protected] => Array
+                                        (
+                                        )
+
+                                    [_headersRaw:protected] => Array
+                                        (
+                                        )
+
+                                    [_httpResponseCode:protected] => 200
+                                    [_isRedirect:protected] => 
+                                    [_renderExceptions:protected] => 
+                                    [headersSentThrowsException] => 1
+                                )
+
+                        )
+
+                )
+
+            [13] => Array
+                (
+                    [file] => C:\www-dev\ZendFramework-1.12.20\library\Zend\Application\Bootstrap\Bootstrap.php
+                    [line] => 105
+                    [function] => dispatch
+                    [class] => Zend_Controller_Front
+                    [type] => ->
+                    [args] => Array
+                        (
+                        )
+
+                )
+
+            [14] => Array
+                (
+                    [file] => C:\www-dev\ZendFramework-1.12.20\library\Zend\Application.php
+                    [line] => 384
+                    [function] => run
+                    [class] => Zend_Application_Bootstrap_Bootstrap
+                    [type] => ->
+                    [args] => Array
+                        (
+                        )
+
+                )
+
+            [15] => Array
+                (
+                    [file] => C:\www-dev\dispo\public\index.php
+                    [line] => 22
+                    [function] => run
+                    [class] => Zend_Application
+                    [type] => ->
+                    [args] => Array
+                        (
+                        )
+
+                )
+
+        )
+
+    [previous:Exception:private] => 
+)
+
+2017-11-09T15:29:35+01:00 ERR (3): Zend_Pdf_Exception Object
+(
+    [_previous:Zend_Exception:private] => 
+    [message:protected] => Invalid file path: 3
+    [string:Exception:private] => 
+    [code:protected] => 257
+    [file:protected] => C:\www-dev\ZendFramework-1.12.20\library\Zend\Pdf\FileParserDataSource\File.php
+    [line:protected] => 79
+    [trace:Exception:private] => Array
+        (
+            [0] => Array
+                (
+                    [file] => C:\www-dev\ZendFramework-1.12.20\library\Zend\Pdf\Font.php
+                    [line] => 603
+                    [function] => __construct
+                    [class] => Zend_Pdf_FileParserDataSource_File
+                    [type] => ->
+                    [args] => Array
+                        (
+                            [0] => 3
+                        )
+
+                )
+
+            [1] => Array
+                (
+                    [file] => C:\www-dev\ZendFramework-1.12.20\library\Zend\Barcode\Renderer\Pdf.php
+                    [line] => 199
+                    [function] => fontWithPath
+                    [class] => Zend_Pdf_Font
+                    [type] => ::
+                    [args] => Array
+                        (
+                            [0] => 3
+                        )
+
+                )
+
+            [2] => Array
+                (
+                    [file] => C:\www-dev\ZendFramework-1.12.20\library\Zend\Barcode\Renderer\RendererAbstract.php
+                    [line] => 491
+                    [function] => _drawText
+                    [class] => Zend_Barcode_Renderer_Pdf
+                    [type] => ->
+                    [args] => Array
+                        (
+                            [0] => 0
+                            [1] => 13
+                            [2] => Array
+                                (
+                                    [0] => 13
+                                    [1] => 64
+                                )
+
+                            [3] => 3
+                            [4] => 0
+                            [5] => left
+                            [6] => 0
+                        )
+
+                )
+
+            [3] => Array
+                (
+                    [file] => C:\www-dev\ZendFramework-1.12.20\library\Zend\Barcode\Renderer\RendererAbstract.php
+                    [line] => 441
+                    [function] => _drawInstructionList
+                    [class] => Zend_Barcode_Renderer_RendererAbstract
+                    [type] => ->
+                    [args] => Array
+                        (
+                        )
+
+                )
+
+            [4] => Array
+                (
+                    [file] => C:\www-dev\dispo\application\views\scripts\inbound\pdfpalletlabel.php
+                    [line] => 31
+                    [function] => draw
+                    [class] => Zend_Barcode_Renderer_RendererAbstract
+                    [type] => ->
+                    [args] => Array
+                        (
+                        )
+
+                )
+
+            [5] => Array
+                (
+                    [file] => C:\www-dev\ZendFramework-1.12.20\library\Zend\View.php
+                    [line] => 157
+                    [args] => Array
+                        (
+                            [0] => C:\www-dev\dispo\application\views\scripts\inbound\pdfpalletlabel.php
+                        )
+
+                    [function] => include
+                )
+
+            [6] => Array
+                (
+                    [file] => C:\www-dev\ZendFramework-1.12.20\library\Zend\View\Abstract.php
+                    [line] => 888
+                    [function] => _run
+                    [class] => Zend_View
+                    [type] => ->
+                    [args] => Array
+                        (
+                            [0] => C:/www-dev/dispo/application/views\scripts//inbound/pdfpalletlabel.php
+                        )
+
+                )
+
+            [7] => Array
+                (
+                    [file] => C:\www-dev\ZendFramework-1.12.20\library\Zend\Controller\Action\Helper\ViewRenderer.php
+                    [line] => 912
+                    [function] => render
+                    [class] => Zend_View_Abstract
+                    [type] => ->
+                    [args] => Array
+                        (
+                            [0] => /inbound/pdfpalletlabel.php
+                        )
+
+                )
+
+            [8] => Array
+                (
+                    [file] => C:\www-dev\ZendFramework-1.12.20\library\Zend\Controller\Action.php
+                    [line] => 243
+                    [function] => renderScript
+                    [class] => Zend_Controller_Action_Helper_ViewRenderer
+                    [type] => ->
+                    [args] => Array
+                        (
+                            [0] => /inbound/pdfpalletlabel.php
+                            [1] => 
+                        )
+
+                )
+
+            [9] => Array
+                (
+                    [file] => C:\www-dev\dispo\application\controllers\InboundController.php
+                    [line] => 229
+                    [function] => renderScript
+                    [class] => Zend_Controller_Action
+                    [type] => ->
+                    [args] => Array
+                        (
+                            [0] => /inbound/pdfpalletlabel.php
+                        )
+
+                )
+
+            [10] => Array
+                (
+                    [file] => C:\www-dev\ZendFramework-1.12.20\library\Zend\Controller\Action.php
+                    [line] => 516
+                    [function] => printpalletlabelAction
+                    [class] => inboundController
+                    [type] => ->
+                    [args] => Array
+                        (
+                        )
+
+                )
+
+            [11] => Array
+                (
+                    [file] => C:\www-dev\ZendFramework-1.12.20\library\Zend\Controller\Dispatcher\Standard.php
+                    [line] => 308
+                    [function] => dispatch
+                    [class] => Zend_Controller_Action
+                    [type] => ->
+                    [args] => Array
+                        (
+                            [0] => printpalletlabelAction
+                        )
+
+                )
+
+            [12] => Array
+                (
+                    [file] => C:\www-dev\ZendFramework-1.12.20\library\Zend\Controller\Front.php
+                    [line] => 954
+                    [function] => dispatch
+                    [class] => Zend_Controller_Dispatcher_Standard
+                    [type] => ->
+                    [args] => Array
+                        (
+                            [0] => Zend_Controller_Request_Http Object
+                                (
+                                    [_paramSources:protected] => Array
+                                        (
+                                            [0] => _GET
+                                            [1] => _POST
+                                        )
+
+                                    [_requestUri:protected] => /inbound/printpalletlabel
+                                    [_baseUrl:protected] => 
+                                    [_basePath:protected] => 
+                                    [_pathInfo:protected] => /inbound/printpalletlabel
+                                    [_params:protected] => Array
+                                        (
+                                            [controller] => inbound
+                                            [action] => printpalletlabel
+                                            [module] => default
+                                        )
+
+                                    [_rawBody:protected] => 
+                                    [_aliases:protected] => Array
+                                        (
+                                        )
+
+                                    [_dispatched:protected] => 1
+                                    [_module:protected] => default
+                                    [_moduleKey:protected] => module
+                                    [_controller:protected] => inbound
+                                    [_controllerKey:protected] => controller
+                                    [_action:protected] => printpalletlabel
+                                    [_actionKey:protected] => action
+                                )
+
+                            [1] => Zend_Controller_Response_Http Object
+                                (
+                                    [_body:protected] => Array
+                                        (
+                                        )
+
+                                    [_exceptions:protected] => Array
+                                        (
+                                        )
+
+                                    [_headers:protected] => Array
+                                        (
+                                        )
+
+                                    [_headersRaw:protected] => Array
+                                        (
+                                        )
+
+                                    [_httpResponseCode:protected] => 200
+                                    [_isRedirect:protected] => 
+                                    [_renderExceptions:protected] => 
+                                    [headersSentThrowsException] => 1
+                                )
+
+                        )
+
+                )
+
+            [13] => Array
+                (
+                    [file] => C:\www-dev\ZendFramework-1.12.20\library\Zend\Application\Bootstrap\Bootstrap.php
+                    [line] => 105
+                    [function] => dispatch
+                    [class] => Zend_Controller_Front
+                    [type] => ->
+                    [args] => Array
+                        (
+                        )
+
+                )
+
+            [14] => Array
+                (
+                    [file] => C:\www-dev\ZendFramework-1.12.20\library\Zend\Application.php
+                    [line] => 384
+                    [function] => run
+                    [class] => Zend_Application_Bootstrap_Bootstrap
+                    [type] => ->
+                    [args] => Array
+                        (
+                        )
+
+                )
+
+            [15] => Array
+                (
+                    [file] => C:\www-dev\dispo\public\index.php
+                    [line] => 22
+                    [function] => run
+                    [class] => Zend_Application
+                    [type] => ->
+                    [args] => Array
+                        (
+                        )
+
+                )
+
+        )
+
+    [previous:Exception:private] => 
+)
+

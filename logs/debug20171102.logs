@@ -1,0 +1,116 @@
+2017-11-02T05:49:25+01:00 INFO (6): IndexController->IndexAction called
+2017-11-02T05:49:31+01:00 INFO (6): QSL: 
+2017-11-02T05:54:33+01:00 INFO (6): QSL: 
+2017-11-02T05:54:58+01:00 INFO (6): QSL:  WHERE UPPER(No) LIKE UPPER("%0026%")
+2017-11-02T05:55:31+01:00 INFO (6): QSL:  WHERE UPPER(country_code) LIKE UPPER("%AM%")
+2017-11-02T05:55:44+01:00 INFO (6): QSL: 
+2017-11-02T05:56:49+01:00 INFO (6): QSL: 
+2017-11-02T05:56:53+01:00 INFO (6): QSL:  WHERE UPPER(No) LIKE UPPER("%0026%")
+2017-11-02T06:00:47+01:00 INFO (6): IndexController->IndexAction called
+2017-11-02T06:00:50+01:00 INFO (6): QSL: 
+2017-11-02T06:00:58+01:00 INFO (6): QSL:  WHERE UPPER(No) LIKE UPPER("%0026%")
+2017-11-02T06:01:17+01:00 INFO (6): QSL: 
+2017-11-02T06:49:00+01:00 INFO (6): IndexController->IndexAction called
+2017-11-02T06:49:03+01:00 INFO (6): QSL: 
+2017-11-02T06:49:09+01:00 INFO (6): QSL:  WHERE UPPER(name) LIKE UPPER("%test%")
+2017-11-02T06:49:26+01:00 INFO (6): QSL:  WHERE UPPER(name) LIKE UPPER("%test%") AND UPPER(city) LIKE UPPER("%%")
+2017-11-02T06:50:50+01:00 INFO (6): QSL:  WHERE UPPER(name) LIKE UPPER("%test%") AND UPPER(city) LIKE UPPER("%maxdorf%")
+2017-11-02T06:50:57+01:00 INFO (6): QSL:  WHERE UPPER(city) LIKE UPPER("%maxdorf%")
+2017-11-02T06:56:40+01:00 INFO (6): QSL:  WHERE UPPER(city) LIKE UPPER("%maxdorf%")
+2017-11-02T06:56:46+01:00 INFO (6): QSL: 
+2017-11-02T06:58:39+01:00 INFO (6): QSL: 
+2017-11-02T06:58:42+01:00 INFO (6): QSL: 
+2017-11-02T07:02:30+01:00 INFO (6): QSL: 
+2017-11-02T16:21:54+01:00 INFO (6): QSL: 
+2017-11-02T16:22:00+01:00 INFO (6): QSL:  WHERE UPPER(country_code) LIKE UPPER("%NL%")
+2017-11-02T16:22:20+01:00 INFO (6): QSL:  WHERE UPPER(name) LIKE UPPER("%weyers%") AND UPPER(country_code) LIKE UPPER("%NL%")
+2017-11-02T16:22:38+01:00 INFO (6): Agreement No: 1
+2017-11-02T16:22:38+01:00 INFO (6): Array
+(
+    [No] => 496
+    [vendor] => 086838
+    [version_year] => V_14
+    [received] => 1
+    [responsible] => AF
+    [date_sent] => 2017-01-01 00:00:00
+    [date_received] => 2017-10-13 00:00:00
+    [constraint_1] => nur an ALDI und EDEKA
+Rest auf Anfrage
+keine Eigenmarken REWE
+    [constraint_2] => 
+    [remark] => 
+    [path] => 
+)
+
+2017-11-02T16:24:41+01:00 INFO (6): Agreement No: 1
+2017-11-02T16:24:41+01:00 INFO (6): Array
+(
+    [No] => 496
+    [vendor] => 086838
+    [version_year] => V_14
+    [received] => 1
+    [responsible] => AF
+    [date_sent] => 2017-01-01 00:00:00
+    [date_received] => 2017-10-13 00:00:00
+    [constraint_1] => nur an ALDI und EDEKA
+Rest auf Anfrage
+keine Eigenmarken REWE
+    [constraint_2] => 
+    [remark] => 
+    [path] => 
+)
+
+2017-11-02T16:33:00+01:00 INFO (6): Agreement No: 1
+2017-11-02T16:33:00+01:00 INFO (6): Array
+(
+    [No] => 496
+    [vendor] => 086838
+    [version_year] => V_14
+    [received] => 1
+    [responsible] => AF
+    [date_sent] => 2017-01-01 00:00:00
+    [date_received] => 2017-10-13 00:00:00
+    [constraint_1] => nur an ALDI und EDEKA
+Rest auf Anfrage
+keine Eigenmarken REWE
+    [constraint_2] => 
+    [remark] => 
+    [path] => 
+)
+
+2017-11-02T16:33:41+01:00 INFO (6): Agreement No: 1
+2017-11-02T16:33:41+01:00 INFO (6): Array
+(
+    [No] => 496
+    [vendor] => 086838
+    [version_year] => V_14
+    [received] => 1
+    [responsible] => AF
+    [date_sent] => 2017-01-01 00:00:00
+    [date_received] => 2017-10-13 00:00:00
+    [constraint_1] => nur an ALDI und EDEKA
+Rest auf Anfrage
+keine Eigenmarken REWE
+    [constraint_2] => 
+    [remark] => 
+    [path] => 
+)
+
+2017-11-02T16:41:33+01:00 INFO (6): Agreement No: 1
+2017-11-02T16:41:33+01:00 INFO (6): Array
+(
+    [No] => 496
+    [vendor] => 086838
+    [version_year] => V_14
+    [received] => 1
+    [responsible] => AF
+    [date_sent] => 2017-01-01 00:00:00
+    [date_received] => 2017-10-13 00:00:00
+    [constraint_1] => nur an ALDI und EDEKA
+Rest auf Anfrage
+keine Eigenmarken REWE
+    [constraint_2] => 
+    [remark] => 
+    [path] => 
+)
+

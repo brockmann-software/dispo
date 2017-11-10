@@ -1,0 +1,697 @@
+2017-10-27T10:00:15+02:00 INFO (6): IndexController->IndexAction called
+2017-10-27T10:09:20+02:00 INFO (6): IndexController->IndexAction called
+2017-10-27T10:09:43+02:00 INFO (6): QSL: 
+2017-10-27T10:10:08+02:00 INFO (6): Array
+(
+    [No] => 0
+    [vendor] => 
+    [version_year] => 2017
+    [received] => 0
+    [responsible] => 
+    [date_received] => 
+    [date_sent] => 27.10.2017
+    [constraint_1] => 
+    [constraint_2] => 
+    [remark] => 
+    [path] => 
+)
+
+2017-10-27T10:10:55+02:00 INFO (6): Array
+(
+    [No] => 0
+    [vendor] => 
+    [version_year] => 2017
+    [received] => 0
+    [responsible] => 
+    [date_received] => 
+    [date_sent] => 27.10.2017
+    [constraint_1] => 
+    [constraint_2] => 
+    [remark] => 
+    [path] => 
+)
+
+2017-10-27T10:14:14+02:00 INFO (6): Array
+(
+    [No] => 0
+    [vendor] => 
+    [version_year] => 2017
+    [received] => 0
+    [responsible] => 
+    [date_received] => 
+    [date_sent] => 27.10.2017
+    [constraint_1] => 
+    [constraint_2] => 
+    [remark] => 
+    [path] => 
+)
+
+2017-10-27T10:15:28+02:00 INFO (6): Array
+(
+    [No] => 0
+    [vendor] => 
+    [version_year] => 2017
+    [received] => 0
+    [responsible] => 
+    [date_received] => 
+    [date_sent] => 27.10.2017
+    [constraint_1] => 
+    [constraint_2] => 
+    [remark] => 
+    [path] => 
+)
+
+2017-10-27T10:18:51+02:00 INFO (6): Array
+(
+    [No] => 0
+    [vendor] => 
+    [version_year] => 2017
+    [received] => 0
+    [responsible] => 
+    [date_received] => 
+    [date_sent] => 27.10.2017
+    [constraint_1] => 
+    [constraint_2] => 
+    [remark] => 
+    [path] => 
+)
+
+2017-10-27T15:26:04+02:00 INFO (6): Inventory: Array
+(
+    [inventory_head] => 3
+    [state] => 2
+    [started] => 2017-10-12 13:55:39
+    [ended] => 2017-10-12 14:23:03
+    [vendor_no] => 070126
+    [vendor_name] => Agro Trade - Sandra Stefaniak
+    [position] => 20081
+    [inb_arrival] => 2017-10-05 08:30:00
+    [variant] => 0031PL12125K438015110
+    [variant_desc] => PL Heidelbeeren Standard 12x125g Stück I  WOL
+    [product] => 0031
+    [product_desc] => Heidelbeeren
+    [origin] => PL
+    [items] => 12
+    [weight_item] => 125
+    [t_packaging] => K438
+    [packaging_no] => 0
+    [packaging] => Stück
+    [quality_no] => 1
+    [quality] => Standard
+    [brand_no] => 0
+    [brand] => 
+    [label_no] => 15
+    [label] => Ohne Auszeichnung
+    [inb_lot] => 
+    [stock] => 200
+    [sum_pallets] => 0
+    [sum_trading_units] => 0
+)
+
+2017-10-27T15:26:36+02:00 INFO (6): Inventory: Array
+(
+    [inventory_head] => 3
+    [state] => 2
+    [started] => 2017-10-12 13:55:39
+    [ended] => 2017-10-12 14:23:03
+    [vendor_no] => 070126
+    [vendor_name] => Agro Trade - Sandra Stefaniak
+    [position] => 20081
+    [inb_arrival] => 2017-10-05 08:30:00
+    [variant] => 0031PL12125K438015110
+    [variant_desc] => PL Heidelbeeren Standard 12x125g Stück I  WOL
+    [product] => 0031
+    [product_desc] => Heidelbeeren
+    [origin] => PL
+    [items] => 12
+    [weight_item] => 125
+    [t_packaging] => K438
+    [packaging_no] => 0
+    [packaging] => Stück
+    [quality_no] => 1
+    [quality] => Standard
+    [brand_no] => 0
+    [brand] => 
+    [label_no] => 15
+    [label] => Ohne Auszeichnung
+    [inb_lot] => 
+    [stock] => 200
+    [sum_pallets] => 0
+    [sum_trading_units] => 0
+)
+
+2017-10-27T15:28:22+02:00 INFO (6): Inventory: Array
+(
+    [inventory_head] => 3
+    [state] => 2
+    [started] => 2017-10-12 13:55:39
+    [ended] => 2017-10-12 14:23:03
+    [vendor_no] => 070126
+    [vendor_name] => Agro Trade - Sandra Stefaniak
+    [position] => 20081
+    [inb_arrival] => 2017-10-05 08:30:00
+    [variant] => 0031PL12125K438015110
+    [variant_desc] => PL Heidelbeeren Standard 12x125g Stück I  WOL
+    [product] => 0031
+    [product_desc] => Heidelbeeren
+    [origin] => PL
+    [items] => 12
+    [weight_item] => 125
+    [t_packaging] => K438
+    [packaging_no] => 0
+    [packaging] => Stück
+    [quality_no] => 1
+    [quality] => Standard
+    [brand_no] => 0
+    [brand] => 
+    [label_no] => 15
+    [label] => Ohne Auszeichnung
+    [inb_lot] => 
+    [stock] => 200
+    [sum_pallets] => 0
+    [sum_trading_units] => 0
+)
+
+2017-10-27T15:30:40+02:00 INFO (6): Inventory: Array
+(
+    [inventory_head] => 3
+    [state] => 2
+    [started] => 2017-10-12 13:55:39
+    [ended] => 2017-10-12 14:23:03
+    [vendor_no] => 070722
+    [vendor_name] => Charlys Erdbeerhof
+    [position] => 20181
+    [inb_arrival] => 2017-10-06 14:12:00
+    [variant] => 0030DE10500E6413615110
+    [variant_desc] => DE Erdbeeren Standard 10x500g Schale offen I  WOL
+    [product] => 0030
+    [product_desc] => Erdbeeren
+    [origin] => DE
+    [items] => 10
+    [weight_item] => 500
+    [t_packaging] => E6413
+    [packaging_no] => 6
+    [packaging] => Schale offen
+    [quality_no] => 1
+    [quality] => Standard
+    [brand_no] => 0
+    [brand] => 
+    [label_no] => 15
+    [label] => Ohne Auszeichnung
+    [inb_lot] => 
+    [stock] => 360
+    [sum_pallets] => 0
+    [sum_trading_units] => 0
+)
+
+2017-10-27T18:15:39+02:00 INFO (6): Inventory: Array
+(
+    [inventory_head] => 3
+    [state] => 2
+    [started] => 2017-10-12 13:55:39
+    [ended] => 2017-10-12 14:23:03
+    [vendor_no] => 070722
+    [vendor_name] => Charlys Erdbeerhof
+    [position] => 20181
+    [inb_arrival] => 2017-10-06 14:12:00
+    [variant] => 0030DE10500E6413615110
+    [variant_desc] => DE Erdbeeren Standard 10x500g Schale offen I  WOL
+    [product] => 0030
+    [product_desc] => Erdbeeren
+    [origin] => DE
+    [items] => 10
+    [weight_item] => 500
+    [t_packaging] => E6413
+    [packaging_no] => 6
+    [packaging] => Schale offen
+    [quality_no] => 1
+    [quality] => Standard
+    [brand_no] => 0
+    [brand] => 
+    [label_no] => 15
+    [label] => Ohne Auszeichnung
+    [inb_lot] => 
+    [stock] => 360
+    [sum_pallets] => 0
+    [sum_trading_units] => 0
+)
+
+2017-10-27T18:20:06+02:00 INFO (6): Inventory: Array
+(
+    [inventory_head] => 3
+    [state] => 2
+    [started] => 2017-10-12 13:55:39
+    [ended] => 2017-10-12 14:23:03
+    [vendor_no] => 070722
+    [vendor_name] => Charlys Erdbeerhof
+    [position] => 20181
+    [inb_arrival] => 2017-10-06 14:12:00
+    [variant] => 0030DE10500E6413615110
+    [variant_desc] => DE Erdbeeren Standard 10x500g Schale offen I  WOL
+    [product] => 0030
+    [product_desc] => Erdbeeren
+    [origin] => DE
+    [items] => 10
+    [weight_item] => 500
+    [t_packaging] => E6413
+    [packaging_no] => 6
+    [packaging] => Schale offen
+    [quality_no] => 1
+    [quality] => Standard
+    [brand_no] => 0
+    [brand] => 
+    [label_no] => 15
+    [label] => Ohne Auszeichnung
+    [inb_lot] => 
+    [stock] => 360
+    [sum_pallets] => 0
+    [sum_trading_units] => 0
+)
+
+2017-10-27T18:20:06+02:00 INFO (6): Line: 1
+2017-10-27T18:27:03+02:00 INFO (6): Inventory: Array
+(
+    [inventory_head] => 3
+    [state] => 2
+    [started] => 2017-10-12 13:55:39
+    [ended] => 2017-10-12 14:23:03
+    [vendor_no] => 070722
+    [vendor_name] => Charlys Erdbeerhof
+    [position] => 20181
+    [inb_arrival] => 2017-10-06 14:12:00
+    [variant] => 0030DE10500E6413615110
+    [variant_desc] => DE Erdbeeren Standard 10x500g Schale offen I  WOL
+    [product] => 0030
+    [product_desc] => Erdbeeren
+    [origin] => DE
+    [items] => 10
+    [weight_item] => 500
+    [t_packaging] => E6413
+    [packaging_no] => 6
+    [packaging] => Schale offen
+    [quality_no] => 1
+    [quality] => Standard
+    [brand_no] => 0
+    [brand] => 
+    [label_no] => 15
+    [label] => Ohne Auszeichnung
+    [inb_lot] => 
+    [stock] => 360
+    [sum_pallets] => 0
+    [sum_trading_units] => 0
+)
+
+2017-10-27T18:27:03+02:00 INFO (6): Line: 1
+2017-10-27T18:31:02+02:00 INFO (6): Inventory: Array
+(
+    [inventory_head] => 3
+    [state] => 2
+    [started] => 2017-10-12 13:55:39
+    [ended] => 2017-10-12 14:23:03
+    [vendor_no] => 070722
+    [vendor_name] => Charlys Erdbeerhof
+    [position] => 20181
+    [inb_arrival] => 2017-10-06 14:12:00
+    [variant] => 0030DE10500E6413615110
+    [variant_desc] => DE Erdbeeren Standard 10x500g Schale offen I  WOL
+    [product] => 0030
+    [product_desc] => Erdbeeren
+    [origin] => DE
+    [items] => 10
+    [weight_item] => 500
+    [t_packaging] => E6413
+    [packaging_no] => 6
+    [packaging] => Schale offen
+    [quality_no] => 1
+    [quality] => Standard
+    [brand_no] => 0
+    [brand] => 
+    [label_no] => 15
+    [label] => Ohne Auszeichnung
+    [inb_lot] => 
+    [stock] => 360
+    [sum_pallets] => 0
+    [sum_trading_units] => 0
+)
+
+2017-10-27T18:31:02+02:00 INFO (6): Line: 1
+2017-10-27T18:32:47+02:00 INFO (6): Inventory: Array
+(
+    [inventory_head] => 3
+    [state] => 2
+    [started] => 2017-10-12 13:55:39
+    [ended] => 2017-10-12 14:23:03
+    [vendor_no] => 070722
+    [vendor_name] => Charlys Erdbeerhof
+    [position] => 20181
+    [inb_arrival] => 2017-10-06 14:12:00
+    [variant] => 0030DE10500E6413615110
+    [variant_desc] => DE Erdbeeren Standard 10x500g Schale offen I  WOL
+    [product] => 0030
+    [product_desc] => Erdbeeren
+    [origin] => DE
+    [items] => 10
+    [weight_item] => 500
+    [t_packaging] => E6413
+    [packaging_no] => 6
+    [packaging] => Schale offen
+    [quality_no] => 1
+    [quality] => Standard
+    [brand_no] => 0
+    [brand] => 
+    [label_no] => 15
+    [label] => Ohne Auszeichnung
+    [inb_lot] => 
+    [stock] => 360
+    [sum_pallets] => 0
+    [sum_trading_units] => 0
+)
+
+2017-10-27T18:32:47+02:00 INFO (6): Line: 1
+2017-10-27T18:34:27+02:00 INFO (6): Inventory: Array
+(
+    [inventory_head] => 3
+    [state] => 2
+    [started] => 2017-10-12 13:55:39
+    [ended] => 2017-10-12 14:23:03
+    [vendor_no] => 070722
+    [vendor_name] => Charlys Erdbeerhof
+    [position] => 20181
+    [inb_arrival] => 2017-10-06 14:12:00
+    [variant] => 0030DE10500E6413615110
+    [variant_desc] => DE Erdbeeren Standard 10x500g Schale offen I  WOL
+    [product] => 0030
+    [product_desc] => Erdbeeren
+    [origin] => DE
+    [items] => 10
+    [weight_item] => 500
+    [t_packaging] => E6413
+    [packaging_no] => 6
+    [packaging] => Schale offen
+    [quality_no] => 1
+    [quality] => Standard
+    [brand_no] => 0
+    [brand] => 
+    [label_no] => 15
+    [label] => Ohne Auszeichnung
+    [inb_lot] => 
+    [stock] => 360
+    [sum_pallets] => 0
+    [sum_trading_units] => 0
+)
+
+2017-10-27T18:34:27+02:00 INFO (6): Line: 1
+2017-10-27T18:34:27+02:00 INFO (6): Line: 1
+2017-10-27T18:34:27+02:00 INFO (6): Line: 1
+2017-10-27T18:34:27+02:00 INFO (6): Neuer Artikel: 1
+2017-10-27T18:34:27+02:00 INFO (6): Neue Einheit: 1
+2017-10-27T18:34:27+02:00 INFO (6): Neues Gewicht: 1
+2017-10-27T18:34:27+02:00 INFO (6): Neue Verpackung: 
+2017-10-27T18:34:27+02:00 INFO (6): Neue Verpackung: 
+2017-10-27T18:35:28+02:00 INFO (6): Inventory: Array
+(
+    [inventory_head] => 3
+    [state] => 2
+    [started] => 2017-10-12 13:55:39
+    [ended] => 2017-10-12 14:23:03
+    [vendor_no] => 070722
+    [vendor_name] => Charlys Erdbeerhof
+    [position] => 20181
+    [inb_arrival] => 2017-10-06 14:12:00
+    [variant] => 0030DE10500E6413615110
+    [variant_desc] => DE Erdbeeren Standard 10x500g Schale offen I  WOL
+    [product] => 0030
+    [product_desc] => Erdbeeren
+    [origin] => DE
+    [items] => 10
+    [weight_item] => 500
+    [t_packaging] => E6413
+    [packaging_no] => 6
+    [packaging] => Schale offen
+    [quality_no] => 1
+    [quality] => Standard
+    [brand_no] => 0
+    [brand] => 
+    [label_no] => 15
+    [label] => Ohne Auszeichnung
+    [inb_lot] => 
+    [stock] => 360
+    [sum_pallets] => 0
+    [sum_trading_units] => 0
+)
+
+2017-10-27T18:35:28+02:00 INFO (6): Line: 1
+2017-10-27T18:35:28+02:00 INFO (6): Line: 1
+2017-10-27T18:35:28+02:00 INFO (6): Line: 1
+2017-10-27T18:35:28+02:00 INFO (6): Neuer Artikel: 1
+2017-10-27T18:35:28+02:00 INFO (6): Neue Einheit: 1
+2017-10-27T18:35:28+02:00 INFO (6): Neues Gewicht: 1
+2017-10-27T18:35:28+02:00 INFO (6): Neue Verpackung: 
+2017-10-27T18:35:28+02:00 INFO (6): Neue Qualität: 
+2017-10-27T18:35:28+02:00 INFO (6): Line: 4
+2017-10-27T18:35:28+02:00 INFO (6): Neuer Artikel: 1
+2017-10-27T18:35:28+02:00 INFO (6): Neue Einheit: 1
+2017-10-27T18:35:28+02:00 INFO (6): Neues Gewicht: 1
+2017-10-27T18:35:28+02:00 INFO (6): Neue Verpackung: 1
+2017-10-27T18:35:28+02:00 INFO (6): Neue Qualität: 
+2017-10-27T18:35:28+02:00 INFO (6): Line: 7
+2017-10-27T18:35:28+02:00 INFO (6): Neuer Artikel: 1
+2017-10-27T18:35:28+02:00 INFO (6): Neue Einheit: 1
+2017-10-27T18:35:28+02:00 INFO (6): Neues Gewicht: 1
+2017-10-27T18:35:28+02:00 INFO (6): Neue Verpackung: 1
+2017-10-27T18:35:28+02:00 INFO (6): Neue Qualität: 
+2017-10-27T18:35:28+02:00 INFO (6): Line: 10
+2017-10-27T18:35:28+02:00 INFO (6): Neuer Artikel: 1
+2017-10-27T18:35:28+02:00 INFO (6): Neue Einheit: 1
+2017-10-27T18:35:28+02:00 INFO (6): Neues Gewicht: 1
+2017-10-27T18:35:28+02:00 INFO (6): Neue Verpackung: 1
+2017-10-27T18:35:28+02:00 INFO (6): Neue Qualität: 
+2017-10-27T18:35:28+02:00 INFO (6): Line: 13
+2017-10-27T18:35:28+02:00 INFO (6): Neuer Artikel: 1
+2017-10-27T18:35:28+02:00 INFO (6): Neue Einheit: 1
+2017-10-27T18:35:28+02:00 INFO (6): Neues Gewicht: 1
+2017-10-27T18:35:28+02:00 INFO (6): Neue Verpackung: 1
+2017-10-27T18:35:28+02:00 INFO (6): Neue Qualität: 
+2017-10-27T18:35:28+02:00 INFO (6): Line: 16
+2017-10-27T18:37:59+02:00 INFO (6): Inventory: Array
+(
+    [inventory_head] => 3
+    [state] => 2
+    [started] => 2017-10-12 13:55:39
+    [ended] => 2017-10-12 14:23:03
+    [vendor_no] => 070722
+    [vendor_name] => Charlys Erdbeerhof
+    [position] => 20181
+    [inb_arrival] => 2017-10-06 14:12:00
+    [variant] => 0030DE10500E6413615110
+    [variant_desc] => DE Erdbeeren Standard 10x500g Schale offen I  WOL
+    [product] => 0030
+    [product_desc] => Erdbeeren
+    [origin] => DE
+    [items] => 10
+    [weight_item] => 500
+    [t_packaging] => E6413
+    [packaging_no] => 6
+    [packaging] => Schale offen
+    [quality_no] => 1
+    [quality] => Standard
+    [brand_no] => 0
+    [brand] => 
+    [label_no] => 15
+    [label] => Ohne Auszeichnung
+    [inb_lot] => 
+    [stock] => 360
+    [sum_pallets] => 0
+    [sum_trading_units] => 0
+)
+
+2017-10-27T18:38:25+02:00 INFO (6): Inventory: Array
+(
+    [inventory_head] => 3
+    [state] => 2
+    [started] => 2017-10-12 13:55:39
+    [ended] => 2017-10-12 14:23:03
+    [vendor_no] => 070722
+    [vendor_name] => Charlys Erdbeerhof
+    [position] => 20181
+    [inb_arrival] => 2017-10-06 14:12:00
+    [variant] => 0030DE10500E6413615110
+    [variant_desc] => DE Erdbeeren Standard 10x500g Schale offen I  WOL
+    [product] => 0030
+    [product_desc] => Erdbeeren
+    [origin] => DE
+    [items] => 10
+    [weight_item] => 500
+    [t_packaging] => E6413
+    [packaging_no] => 6
+    [packaging] => Schale offen
+    [quality_no] => 1
+    [quality] => Standard
+    [brand_no] => 0
+    [brand] => 
+    [label_no] => 15
+    [label] => Ohne Auszeichnung
+    [inb_lot] => 
+    [stock] => 360
+    [sum_pallets] => 0
+    [sum_trading_units] => 0
+)
+
+2017-10-27T18:38:25+02:00 INFO (6): Line: 1
+2017-10-27T18:38:25+02:00 INFO (6): Line: 2
+2017-10-27T18:38:25+02:00 INFO (6): Line: 3
+2017-10-27T18:38:25+02:00 INFO (6): Neuer Artikel: 1
+2017-10-27T18:38:25+02:00 INFO (6): Neue Einheit: 1
+2017-10-27T18:38:25+02:00 INFO (6): Neues Gewicht: 1
+2017-10-27T18:38:25+02:00 INFO (6): Neue Verpackung: 
+2017-10-27T18:38:25+02:00 INFO (6): Neue Qualität: 
+2017-10-27T18:38:25+02:00 INFO (6): Line: 7
+2017-10-27T18:38:25+02:00 INFO (6): Neuer Artikel: 1
+2017-10-27T18:38:25+02:00 INFO (6): Neue Einheit: 1
+2017-10-27T18:38:25+02:00 INFO (6): Neues Gewicht: 1
+2017-10-27T18:38:25+02:00 INFO (6): Neue Verpackung: 1
+2017-10-27T18:38:25+02:00 INFO (6): Neue Qualität: 
+2017-10-27T18:38:25+02:00 INFO (6): Line: 11
+2017-10-27T18:38:25+02:00 INFO (6): Neuer Artikel: 1
+2017-10-27T18:38:25+02:00 INFO (6): Neue Einheit: 1
+2017-10-27T18:38:25+02:00 INFO (6): Neues Gewicht: 1
+2017-10-27T18:38:25+02:00 INFO (6): Neue Verpackung: 1
+2017-10-27T18:38:25+02:00 INFO (6): Neue Qualität: 
+2017-10-27T18:38:25+02:00 INFO (6): Line: 15
+2017-10-27T18:38:25+02:00 INFO (6): Neuer Artikel: 1
+2017-10-27T18:38:25+02:00 INFO (6): Neue Einheit: 1
+2017-10-27T18:38:25+02:00 INFO (6): Neues Gewicht: 1
+2017-10-27T18:38:25+02:00 INFO (6): Neue Verpackung: 1
+2017-10-27T18:38:25+02:00 INFO (6): Neue Qualität: 
+2017-10-27T18:38:25+02:00 INFO (6): Line: 19
+2017-10-27T18:38:25+02:00 INFO (6): Neuer Artikel: 1
+2017-10-27T18:38:25+02:00 INFO (6): Neue Einheit: 1
+2017-10-27T18:38:25+02:00 INFO (6): Neues Gewicht: 1
+2017-10-27T18:38:25+02:00 INFO (6): Neue Verpackung: 1
+2017-10-27T18:38:25+02:00 INFO (6): Neue Qualität: 
+2017-10-27T18:38:25+02:00 INFO (6): Line: 23
+2017-10-27T18:41:56+02:00 INFO (6): Inventory: Array
+(
+    [inventory_head] => 3
+    [state] => 2
+    [started] => 2017-10-12 13:55:39
+    [ended] => 2017-10-12 14:23:03
+    [vendor_no] => 070722
+    [vendor_name] => Charlys Erdbeerhof
+    [position] => 20181
+    [inb_arrival] => 2017-10-06 14:12:00
+    [variant] => 0030DE10500E6413615110
+    [variant_desc] => DE Erdbeeren Standard 10x500g Schale offen I  WOL
+    [product] => 0030
+    [product_desc] => Erdbeeren
+    [origin] => DE
+    [items] => 10
+    [weight_item] => 500
+    [t_packaging] => E6413
+    [packaging_no] => 6
+    [packaging] => Schale offen
+    [quality_no] => 1
+    [quality] => Standard
+    [brand_no] => 0
+    [brand] => 
+    [label_no] => 15
+    [label] => Ohne Auszeichnung
+    [inb_lot] => 
+    [stock] => 360
+    [sum_pallets] => 0
+    [sum_trading_units] => 0
+)
+
+2017-10-27T18:41:56+02:00 INFO (6): Line: 1
+2017-10-27T18:41:56+02:00 INFO (6): Line: 2
+2017-10-27T18:41:56+02:00 INFO (6): Line: 3
+2017-10-27T18:41:56+02:00 INFO (6): Neuer Artikel: 1
+2017-10-27T18:41:56+02:00 INFO (6): Neue Einheit: 1
+2017-10-27T18:41:56+02:00 INFO (6): Neues Gewicht: 1
+2017-10-27T18:41:56+02:00 INFO (6): Neue Verpackung: 
+2017-10-27T18:41:56+02:00 INFO (6): Neue Qualität: 
+2017-10-27T18:41:56+02:00 INFO (6): Line: 7
+2017-10-27T18:41:56+02:00 INFO (6): Neuer Artikel: 1
+2017-10-27T18:41:56+02:00 INFO (6): Neue Einheit: 1
+2017-10-27T18:41:56+02:00 INFO (6): Neues Gewicht: 1
+2017-10-27T18:41:56+02:00 INFO (6): Neue Verpackung: 1
+2017-10-27T18:41:56+02:00 INFO (6): Neue Qualität: 
+2017-10-27T18:41:56+02:00 INFO (6): Line: 11
+2017-10-27T18:41:56+02:00 INFO (6): Neuer Artikel: 1
+2017-10-27T18:41:56+02:00 INFO (6): Neue Einheit: 1
+2017-10-27T18:41:56+02:00 INFO (6): Neues Gewicht: 1
+2017-10-27T18:41:56+02:00 INFO (6): Neue Verpackung: 1
+2017-10-27T18:41:56+02:00 INFO (6): Neue Qualität: 
+2017-10-27T18:41:56+02:00 INFO (6): Line: 15
+2017-10-27T18:41:56+02:00 INFO (6): Neuer Artikel: 1
+2017-10-27T18:41:56+02:00 INFO (6): Neue Einheit: 1
+2017-10-27T18:41:56+02:00 INFO (6): Neues Gewicht: 1
+2017-10-27T18:41:56+02:00 INFO (6): Neue Verpackung: 1
+2017-10-27T18:41:56+02:00 INFO (6): Neue Qualität: 
+2017-10-27T18:41:56+02:00 INFO (6): Line: 19
+2017-10-27T18:41:56+02:00 INFO (6): Neuer Artikel: 1
+2017-10-27T18:41:56+02:00 INFO (6): Neue Einheit: 1
+2017-10-27T18:41:56+02:00 INFO (6): Neues Gewicht: 1
+2017-10-27T18:41:56+02:00 INFO (6): Neue Verpackung: 1
+2017-10-27T18:41:56+02:00 INFO (6): Neue Qualität: 
+2017-10-27T18:41:56+02:00 INFO (6): Line: 23
+2017-10-27T18:52:23+02:00 INFO (6): Inventory: Array
+(
+    [inventory_head] => 3
+    [state] => 2
+    [started] => 2017-10-12 13:55:39
+    [ended] => 2017-10-12 14:23:03
+    [vendor_no] => 070722
+    [vendor_name] => Charlys Erdbeerhof
+    [position] => 20181
+    [inb_arrival] => 2017-10-06 14:12:00
+    [variant] => 0030DE10500E6413615110
+    [variant_desc] => DE Erdbeeren Standard 10x500g Schale offen I  WOL
+    [product] => 0030
+    [product_desc] => Erdbeeren
+    [origin] => DE
+    [items] => 10
+    [weight_item] => 500
+    [t_packaging] => E6413
+    [packaging_no] => 6
+    [packaging] => Schale offen
+    [quality_no] => 1
+    [quality] => Standard
+    [brand_no] => 0
+    [brand] => 
+    [label_no] => 15
+    [label] => Ohne Auszeichnung
+    [inb_lot] => 
+    [stock] => 360
+    [sum_pallets] => 0
+    [sum_trading_units] => 0
+)
+
+2017-10-27T18:52:23+02:00 INFO (6): Line: 1
+2017-10-27T18:52:23+02:00 INFO (6): Line: 2
+2017-10-27T18:52:23+02:00 INFO (6): Line: 3
+2017-10-27T18:52:23+02:00 INFO (6): Neuer Artikel: 1
+2017-10-27T18:52:23+02:00 INFO (6): Neue Einheit: 1
+2017-10-27T18:52:23+02:00 INFO (6): Neues Gewicht: 1
+2017-10-27T18:52:23+02:00 INFO (6): Neue Verpackung: 
+2017-10-27T18:52:23+02:00 INFO (6): Neue Qualität: 
+2017-10-27T18:52:23+02:00 INFO (6): Line: 7
+2017-10-27T18:52:23+02:00 INFO (6): Neuer Artikel: 
+2017-10-27T18:52:23+02:00 INFO (6): Neue Einheit: 
+2017-10-27T18:52:23+02:00 INFO (6): Neues Gewicht: 
+2017-10-27T18:52:23+02:00 INFO (6): Neue Verpackung: 1
+2017-10-27T18:52:23+02:00 INFO (6): Neue Qualität: 
+2017-10-27T18:52:23+02:00 INFO (6): Line: 10
+2017-10-27T18:52:23+02:00 INFO (6): Neuer Artikel: 
+2017-10-27T18:52:23+02:00 INFO (6): Neue Einheit: 
+2017-10-27T18:52:23+02:00 INFO (6): Neues Gewicht: 
+2017-10-27T18:52:23+02:00 INFO (6): Neue Verpackung: 1
+2017-10-27T18:52:23+02:00 INFO (6): Neue Qualität: 
+2017-10-27T18:52:23+02:00 INFO (6): Line: 13
+2017-10-27T18:52:23+02:00 INFO (6): Neuer Artikel: 1
+2017-10-27T18:52:23+02:00 INFO (6): Neue Einheit: 1
+2017-10-27T18:52:23+02:00 INFO (6): Neues Gewicht: 
+2017-10-27T18:52:23+02:00 INFO (6): Neue Verpackung: 1
+2017-10-27T18:52:23+02:00 INFO (6): Neue Qualität: 
+2017-10-27T18:52:23+02:00 INFO (6): Line: 17
+2017-10-27T18:52:23+02:00 INFO (6): Line: 18

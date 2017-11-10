@@ -1,0 +1,2421 @@
+2017-10-23T08:57:03+02:00 INFO (6): IndexController->IndexAction called
+2017-10-23T08:57:48+02:00 INFO (6): InboundController->IndexAction called
+2017-10-23T08:57:52+02:00 INFO (6): Inbund_line: Array
+(
+    [No] => 9
+    [inbound] => 6
+    [position] => 30011
+    [inb_line] => 10000
+    [purchase_order] => 425595
+    [po_line] => 7
+    [po_line_line] => 10000
+    [stock_location] => 1
+    [vendor_no] => 071580
+    [vendor_name] => Santa Maria de la Rábida
+    [vendor_name_2] => Sociedad Cooperativa Andaluza
+    [vendor_street] => Camino de la Cocola, s/n.
+    [vendor_street_2] => 
+    [vendor_PO_code] => 21810
+    [vendor_city] => PalosdelaFrontera
+    [vendor_CC] => ES
+    [vendor_country] => Spanien
+    [sales_order] => 
+    [v_delivery_note] => 
+    [inb_forwarder] => Carrion
+    [inb_truck] => 
+    [inb_trailor] => 4051 XYZ
+    [inb_container] => 
+    [po_arrival] => 2017-10-14 00:00:00
+    [inb_arrival] => 2017-10-14 14:18:00
+    [po_transport_temp_min] => 1.00
+    [po_transport_temp_max] => 4.00
+    [inb_transport_temp] => 6.00
+    [product] => 0032
+    [product_desc] => Himbeeren
+    [variant] => 0032ES8.000125K438215110
+    [variant_desc] => ES Himbeeren Standard 8x125g Schale/Deckel I  WOL
+    [origin] => ES
+    [packaging_no] => 2
+    [packaging] => Schale/Deckel
+    [t_packaging] => K438
+    [quality_no] => 1
+    [quality] => Standard
+    [brand_no] => 0
+    [brand] => 
+    [qc_no] => 1
+    [quality_class] => Klasse I
+    [label_no] => 15
+    [label] => Ohne Auszeichnung
+    [items] => 8
+    [weight_item] => 125
+    [po_trading_units] => 310
+    [po_PU_TU] => 8
+    [po_packing_units] => 2480
+    [po_pallet] => 1
+    [po_pallet_desc] => Euro
+    [po_pallets] => 2
+    [po_tu_pal] => 155
+    [po_lot] => 
+    [po_barcode] => 
+    [inb_lot] => 
+    [inb_barcode] => 
+    [po_brix_min] => 0.00
+    [po_brix_max] => 0.00
+    [inb_brix] => 0.00
+    [inb_trading_units] => 310
+    [inb_packing_units] => 2480
+    [inb_pallet] => 1
+    [inb_pallet_desc] => Euro
+    [inb_pallets] => 2
+    [inb_tu_pal] => 155
+    [items_checked] => 100
+    [stock] => 310
+    [grade_weighted] => 2.2
+)
+
+2017-10-23T08:57:52+02:00 INFO (6): po_arrival: Array
+(
+    [0] => 2017-10-14
+    [1] => 00:00:00
+)
+
+2017-10-23T08:57:52+02:00 INFO (6): inb_arrival: Array
+(
+    [0] => 2017-10-14
+    [1] => 14:18:00
+)
+
+2017-10-23T08:57:53+02:00 INFO (6): cq_inb_lines_log: Array
+(
+    [0] => Array
+        (
+            [No] => 128
+            [inbound_line] => 9
+            [qc_no] => 14
+            [quality_checkpoint] => Temperatur
+            [qc_type_no] => 1
+            [qc_type] => Logistik
+            [qc_class_no] => 4
+            [qc_class] => logistic
+            [qc_weightning] => 5
+            [operator] => 0
+            [max_good] => 1.00
+            [max_regular] => 3.00
+            [value] => 2.0000
+            [base] => 100.00
+            [grade] => 4
+            [grade_weighted] => 20
+            [res_percent] => 2.0000
+            [res_level] => check_yellow
+        )
+
+    [1] => Array
+        (
+            [No] => 130
+            [inbound_line] => 9
+            [qc_no] => 16
+            [quality_checkpoint] => Label Packstück
+            [qc_type_no] => 1
+            [qc_type] => Logistik
+            [qc_class_no] => 4
+            [qc_class] => logistic
+            [qc_weightning] => 5
+            [operator] => 2
+            [max_good] => 0.00
+            [max_regular] => 0.00
+            [value] => 1.0000
+            [base] => 0.00
+            [grade] => 5
+            [grade_weighted] => 25
+            [res_percent] => OK
+            [res_level] => check_green
+        )
+
+    [2] => Array
+        (
+            [No] => 131
+            [inbound_line] => 9
+            [qc_no] => 17
+            [quality_checkpoint] => Label Verkaufseinheit
+            [qc_type_no] => 1
+            [qc_type] => Logistik
+            [qc_class_no] => 4
+            [qc_class] => logistic
+            [qc_weightning] => 5
+            [operator] => 2
+            [max_good] => 0.00
+            [max_regular] => 0.00
+            [value] => 1.0000
+            [base] => 0.00
+            [grade] => 5
+            [grade_weighted] => 25
+            [res_percent] => OK
+            [res_level] => check_green
+        )
+
+    [3] => Array
+        (
+            [No] => 132
+            [inbound_line] => 9
+            [qc_no] => 18
+            [quality_checkpoint] => Pünktlichkeit
+            [qc_type_no] => 1
+            [qc_type] => Logistik
+            [qc_class_no] => 4
+            [qc_class] => logistic
+            [qc_weightning] => 5
+            [operator] => 0
+            [max_good] => 1.00
+            [max_regular] => 3.00
+            [value] => 14.3000
+            [base] => 100.00
+            [grade] => 5
+            [grade_weighted] => 25
+            [res_percent] => 14.3000
+            [res_level] => check_red
+        )
+
+    [4] => Array
+        (
+            [No] => 133
+            [inbound_line] => 9
+            [qc_no] => 19
+            [quality_checkpoint] => Lieferfehlmenge
+            [qc_type_no] => 1
+            [qc_type] => Logistik
+            [qc_class_no] => 4
+            [qc_class] => logistic
+            [qc_weightning] => 5
+            [operator] => 1
+            [max_good] => 5.00
+            [max_regular] => 10.00
+            [value] => 0.0000
+            [base] => 310.00
+            [grade] => 1
+            [grade_weighted] => 5
+            [res_percent] => 0 %
+            [res_level] => check_green
+        )
+
+)
+
+2017-10-23T08:57:53+02:00 INFO (6): qc_inb_lines_quality: Array
+(
+    [0] => Array
+        (
+            [No] => 115
+            [inbound_line] => 9
+            [qc_no] => 1
+            [quality_checkpoint] => Verderb - Schimmel
+            [qc_type_no] => 0
+            [qc_type] => Qualität
+            [qc_class_no] => 1
+            [qc_class] => mayor defects
+            [qc_weightning] => 5
+            [operator] => 1
+            [max_good] => 1.00
+            [max_regular] => 3.00
+            [value] => 2.0000
+            [base] => 100.00
+            [grade] => 4
+            [grade_weighted] => 20
+            [res_percent] => 2 %
+            [res_level] => check_yellow
+        )
+
+    [1] => Array
+        (
+            [No] => 116
+            [inbound_line] => 9
+            [qc_no] => 2
+            [quality_checkpoint] => Saftaustritt
+            [qc_type_no] => 0
+            [qc_type] => Qualität
+            [qc_class_no] => 1
+            [qc_class] => mayor defects
+            [qc_weightning] => 5
+            [operator] => 1
+            [max_good] => 1.00
+            [max_regular] => 2.00
+            [value] => 3.0000
+            [base] => 100.00
+            [grade] => 5
+            [grade_weighted] => 25
+            [res_percent] => 3 %
+            [res_level] => check_red
+        )
+
+    [2] => Array
+        (
+            [No] => 117
+            [inbound_line] => 9
+            [qc_no] => 3
+            [quality_checkpoint] => Ungeziefer
+            [qc_type_no] => 0
+            [qc_type] => Qualität
+            [qc_class_no] => 1
+            [qc_class] => mayor defects
+            [qc_weightning] => 5
+            [operator] => 1
+            [max_good] => 1.00
+            [max_regular] => 3.00
+            [value] => 0.0000
+            [base] => 100.00
+            [grade] => 1
+            [grade_weighted] => 5
+            [res_percent] => 0 %
+            [res_level] => check_green
+        )
+
+    [3] => Array
+        (
+            [No] => 118
+            [inbound_line] => 9
+            [qc_no] => 4
+            [quality_checkpoint] => Untergewicht
+            [qc_type_no] => 0
+            [qc_type] => Qualität
+            [qc_class_no] => 1
+            [qc_class] => mayor defects
+            [qc_weightning] => 5
+            [operator] => 1
+            [max_good] => 1.00
+            [max_regular] => 2.00
+            [value] => 0.0000
+            [base] => 100.00
+            [grade] => 1
+            [grade_weighted] => 5
+            [res_percent] => 0 %
+            [res_level] => check_green
+        )
+
+    [4] => Array
+        (
+            [No] => 119
+            [inbound_line] => 9
+            [qc_no] => 5
+            [quality_checkpoint] => Ueberreif / Weich
+            [qc_type_no] => 0
+            [qc_type] => Qualität
+            [qc_class_no] => 2
+            [qc_class] => minor defects
+            [qc_weightning] => 3
+            [operator] => 1
+            [max_good] => 1.00
+            [max_regular] => 3.00
+            [value] => 6.0000
+            [base] => 100.00
+            [grade] => 5
+            [grade_weighted] => 15
+            [res_percent] => 6 %
+            [res_level] => check_red
+        )
+
+    [5] => Array
+        (
+            [No] => 120
+            [inbound_line] => 9
+            [qc_no] => 6
+            [quality_checkpoint] => Druckstellen
+            [qc_type_no] => 0
+            [qc_type] => Qualität
+            [qc_class_no] => 2
+            [qc_class] => minor defects
+            [qc_weightning] => 3
+            [operator] => 1
+            [max_good] => 2.00
+            [max_regular] => 5.00
+            [value] => 0.0000
+            [base] => 100.00
+            [grade] => 1
+            [grade_weighted] => 3
+            [res_percent] => 0 %
+            [res_level] => check_green
+        )
+
+    [6] => Array
+        (
+            [No] => 121
+            [inbound_line] => 9
+            [qc_no] => 7
+            [quality_checkpoint] => Dehydriert
+            [qc_type_no] => 0
+            [qc_type] => Qualität
+            [qc_class_no] => 2
+            [qc_class] => minor defects
+            [qc_weightning] => 3
+            [operator] => 1
+            [max_good] => 1.00
+            [max_regular] => 2.00
+            [value] => 0.0000
+            [base] => 100.00
+            [grade] => 1
+            [grade_weighted] => 3
+            [res_percent] => 0 %
+            [res_level] => check_green
+        )
+
+    [7] => Array
+        (
+            [No] => 124
+            [inbound_line] => 9
+            [qc_no] => 10
+            [quality_checkpoint] => Unreif
+            [qc_type_no] => 0
+            [qc_type] => Qualität
+            [qc_class_no] => 2
+            [qc_class] => minor defects
+            [qc_weightning] => 3
+            [operator] => 1
+            [max_good] => 2.00
+            [max_regular] => 5.00
+            [value] => 0.0000
+            [base] => 100.00
+            [grade] => 1
+            [grade_weighted] => 3
+            [res_percent] => 0 %
+            [res_level] => check_green
+        )
+
+    [8] => Array
+        (
+            [No] => 122
+            [inbound_line] => 9
+            [qc_no] => 8
+            [quality_checkpoint] => Schalenfehler
+            [qc_type_no] => 0
+            [qc_type] => Qualität
+            [qc_class_no] => 3
+            [qc_class] => remarks
+            [qc_weightning] => 1
+            [operator] => 1
+            [max_good] => 5.00
+            [max_regular] => 10.00
+            [value] => 0.0000
+            [base] => 100.00
+            [grade] => 1
+            [grade_weighted] => 1
+            [res_percent] => 0 %
+            [res_level] => check_green
+        )
+
+    [9] => Array
+        (
+            [No] => 123
+            [inbound_line] => 9
+            [qc_no] => 9
+            [quality_checkpoint] => Restschmutz
+            [qc_type_no] => 0
+            [qc_type] => Qualität
+            [qc_class_no] => 3
+            [qc_class] => remarks
+            [qc_weightning] => 1
+            [operator] => 1
+            [max_good] => 5.00
+            [max_regular] => 10.00
+            [value] => 0.0000
+            [base] => 100.00
+            [grade] => 1
+            [grade_weighted] => 1
+            [res_percent] => 0 %
+            [res_level] => check_green
+        )
+
+    [10] => Array
+        (
+            [No] => 125
+            [inbound_line] => 9
+            [qc_no] => 11
+            [quality_checkpoint] => Beschaedigungen
+            [qc_type_no] => 0
+            [qc_type] => Qualität
+            [qc_class_no] => 3
+            [qc_class] => remarks
+            [qc_weightning] => 1
+            [operator] => 1
+            [max_good] => 3.00
+            [max_regular] => 6.00
+            [value] => 0.0000
+            [base] => 100.00
+            [grade] => 1
+            [grade_weighted] => 1
+            [res_percent] => 0 %
+            [res_level] => check_green
+        )
+
+    [11] => Array
+        (
+            [No] => 126
+            [inbound_line] => 9
+            [qc_no] => 12
+            [quality_checkpoint] => Andere
+            [qc_type_no] => 0
+            [qc_type] => Qualität
+            [qc_class_no] => 3
+            [qc_class] => remarks
+            [qc_weightning] => 1
+            [operator] => 1
+            [max_good] => 2.00
+            [max_regular] => 5.00
+            [value] => 0.0000
+            [base] => 100.00
+            [grade] => 1
+            [grade_weighted] => 1
+            [res_percent] => 0 %
+            [res_level] => check_green
+        )
+
+    [12] => Array
+        (
+            [No] => 127
+            [inbound_line] => 9
+            [qc_no] => 13
+            [quality_checkpoint] => Untermass
+            [qc_type_no] => 0
+            [qc_type] => Qualität
+            [qc_class_no] => 3
+            [qc_class] => remarks
+            [qc_weightning] => 1
+            [operator] => 1
+            [max_good] => 5.00
+            [max_regular] => 10.00
+            [value] => 0.0000
+            [base] => 100.00
+            [grade] => 1
+            [grade_weighted] => 1
+            [res_percent] => 0 %
+            [res_level] => check_green
+        )
+
+    [13] => Array
+        (
+            [No] => 129
+            [inbound_line] => 9
+            [qc_no] => 15
+            [quality_checkpoint] => Brixgehalt
+            [qc_type_no] => 0
+            [qc_type] => Qualität
+            [qc_class_no] => 3
+            [qc_class] => remarks
+            [qc_weightning] => 1
+            [operator] => 0
+            [max_good] => 1.00
+            [max_regular] => 3.00
+            [value] => 0.0000
+            [base] => 100.00
+            [grade] => 1
+            [grade_weighted] => 1
+            [res_percent] => 0.0000
+            [res_level] => check_green
+        )
+
+)
+
+2017-10-23T08:57:53+02:00 INFO (6): Attachments: Array
+(
+)
+
+2017-10-23T08:57:53+02:00 INFO (6): Pictures: Array
+(
+)
+
+2017-10-23T11:38:47+02:00 INFO (6): QSL: 
+2017-10-23T11:39:00+02:00 INFO (6): QSL:  WHERE UPPER(name) LIKE UPPER("%greenyard%")
+2017-10-23T11:39:07+02:00 INFO (6): QSL: 
+2017-10-23T12:41:18+02:00 INFO (6): QSL: 
+2017-10-23T13:30:08+02:00 INFO (6): InboundController->IndexAction called
+2017-10-23T13:30:16+02:00 INFO (6): Inbund_line: Array
+(
+    [No] => 8
+    [inbound] => 5
+    [position] => 30056
+    [inb_line] => 10000
+    [purchase_order] => 425390
+    [po_line] => 6
+    [po_line_line] => 10000
+    [stock_location] => 1
+    [vendor_no] => 070722
+    [vendor_name] => Charlys Erdbeerhof
+    [vendor_name_2] => 
+    [vendor_street] => Am Friedhof 1
+    [vendor_street_2] => 
+    [vendor_PO_code] => 52428
+    [vendor_city] => Jülich-Broich
+    [vendor_CC] => DE
+    [vendor_country] => Deutschland
+    [sales_order] => 
+    [v_delivery_note] => 
+    [inb_forwarder] => MVS
+    [inb_truck] => 
+    [inb_trailor] => DU DS 3033
+    [inb_container] => 
+    [po_arrival] => 2017-10-11 10:00:00
+    [inb_arrival] => 2017-10-11 10:52:00
+    [po_transport_temp_min] => 1.00
+    [po_transport_temp_max] => 4.00
+    [inb_transport_temp] => 8.00
+    [product] => 0030
+    [product_desc] => Erdbeeren
+    [variant] => 0030DE10500E6413615110
+    [variant_desc] => DE Erdbeeren Standard 10x500g Schale offen I  WOL
+    [origin] => DE
+    [packaging_no] => 6
+    [packaging] => Schale offen
+    [t_packaging] => E6413
+    [quality_no] => 1
+    [quality] => Standard
+    [brand_no] => 0
+    [brand] => 
+    [qc_no] => 1
+    [quality_class] => Klasse I
+    [label_no] => 15
+    [label] => Ohne Auszeichnung
+    [items] => 10
+    [weight_item] => 500
+    [po_trading_units] => 720
+    [po_PU_TU] => 10
+    [po_packing_units] => 7200
+    [po_pallet] => 1
+    [po_pallet_desc] => Euro
+    [po_pallets] => 10
+    [po_tu_pal] => 72
+    [po_lot] => 
+    [po_barcode] => 
+    [inb_lot] => 
+    [inb_barcode] => 
+    [po_brix_min] => 0.00
+    [po_brix_max] => 0.00
+    [inb_brix] => 0.00
+    [inb_trading_units] => 576
+    [inb_packing_units] => 5760
+    [inb_pallet] => 1
+    [inb_pallet_desc] => Euro
+    [inb_pallets] => 8
+    [inb_tu_pal] => 72
+    [items_checked] => 100
+    [stock] => 360
+    [grade_weighted] => 1.7
+)
+
+2017-10-23T13:30:16+02:00 INFO (6): po_arrival: Array
+(
+    [0] => 2017-10-11
+    [1] => 10:00:00
+)
+
+2017-10-23T13:30:16+02:00 INFO (6): inb_arrival: Array
+(
+    [0] => 2017-10-11
+    [1] => 10:52:00
+)
+
+2017-10-23T13:30:16+02:00 INFO (6): cq_inb_lines_log: Array
+(
+    [0] => Array
+        (
+            [No] => 109
+            [inbound_line] => 8
+            [qc_no] => 14
+            [quality_checkpoint] => Temperatur
+            [qc_type_no] => 1
+            [qc_type] => Logistik
+            [qc_class_no] => 4
+            [qc_class] => logistic
+            [qc_weightning] => 5
+            [operator] => 0
+            [max_good] => 1.00
+            [max_regular] => 3.00
+            [value] => 4.0000
+            [base] => 100.00
+            [grade] => 5
+            [grade_weighted] => 25
+            [res_percent] => 4.0000
+            [res_level] => check_red
+        )
+
+    [1] => Array
+        (
+            [No] => 111
+            [inbound_line] => 8
+            [qc_no] => 16
+            [quality_checkpoint] => Label Packstück
+            [qc_type_no] => 1
+            [qc_type] => Logistik
+            [qc_class_no] => 4
+            [qc_class] => logistic
+            [qc_weightning] => 5
+            [operator] => 2
+            [max_good] => 0.00
+            [max_regular] => 0.00
+            [value] => 1.0000
+            [base] => 0.00
+            [grade] => 5
+            [grade_weighted] => 25
+            [res_percent] => OK
+            [res_level] => check_green
+        )
+
+    [2] => Array
+        (
+            [No] => 112
+            [inbound_line] => 8
+            [qc_no] => 17
+            [quality_checkpoint] => Label Verkaufseinheit
+            [qc_type_no] => 1
+            [qc_type] => Logistik
+            [qc_class_no] => 4
+            [qc_class] => logistic
+            [qc_weightning] => 5
+            [operator] => 2
+            [max_good] => 0.00
+            [max_regular] => 0.00
+            [value] => 1.0000
+            [base] => 0.00
+            [grade] => 5
+            [grade_weighted] => 25
+            [res_percent] => OK
+            [res_level] => check_green
+        )
+
+    [3] => Array
+        (
+            [No] => 113
+            [inbound_line] => 8
+            [qc_no] => 18
+            [quality_checkpoint] => Pünktlichkeit
+            [qc_type_no] => 1
+            [qc_type] => Logistik
+            [qc_class_no] => 4
+            [qc_class] => logistic
+            [qc_weightning] => 5
+            [operator] => 0
+            [max_good] => 1.00
+            [max_regular] => 3.00
+            [value] => 0.9000
+            [base] => 100.00
+            [grade] => 2
+            [grade_weighted] => 10
+            [res_percent] => 0.9000
+            [res_level] => check_green
+        )
+
+    [4] => Array
+        (
+            [No] => 114
+            [inbound_line] => 8
+            [qc_no] => 19
+            [quality_checkpoint] => Lieferfehlmenge
+            [qc_type_no] => 1
+            [qc_type] => Logistik
+            [qc_class_no] => 4
+            [qc_class] => logistic
+            [qc_weightning] => 5
+            [operator] => 1
+            [max_good] => 5.00
+            [max_regular] => 10.00
+            [value] => -144.0000
+            [base] => 720.00
+            [grade] => 1
+            [grade_weighted] => 5
+            [res_percent] => -20 %
+            [res_level] => check_red
+        )
+
+)
+
+2017-10-23T13:30:16+02:00 INFO (6): qc_inb_lines_quality: Array
+(
+    [0] => Array
+        (
+            [No] => 96
+            [inbound_line] => 8
+            [qc_no] => 1
+            [quality_checkpoint] => Verderb - Schimmel
+            [qc_type_no] => 0
+            [qc_type] => Qualität
+            [qc_class_no] => 1
+            [qc_class] => mayor defects
+            [qc_weightning] => 5
+            [operator] => 1
+            [max_good] => 1.00
+            [max_regular] => 3.00
+            [value] => 3.0000
+            [base] => 100.00
+            [grade] => 5
+            [grade_weighted] => 25
+            [res_percent] => 3 %
+            [res_level] => check_red
+        )
+
+    [1] => Array
+        (
+            [No] => 97
+            [inbound_line] => 8
+            [qc_no] => 2
+            [quality_checkpoint] => Saftaustritt
+            [qc_type_no] => 0
+            [qc_type] => Qualität
+            [qc_class_no] => 1
+            [qc_class] => mayor defects
+            [qc_weightning] => 5
+            [operator] => 1
+            [max_good] => 1.00
+            [max_regular] => 2.00
+            [value] => 0.0000
+            [base] => 100.00
+            [grade] => 1
+            [grade_weighted] => 5
+            [res_percent] => 0 %
+            [res_level] => check_green
+        )
+
+    [2] => Array
+        (
+            [No] => 98
+            [inbound_line] => 8
+            [qc_no] => 3
+            [quality_checkpoint] => Ungeziefer
+            [qc_type_no] => 0
+            [qc_type] => Qualität
+            [qc_class_no] => 1
+            [qc_class] => mayor defects
+            [qc_weightning] => 5
+            [operator] => 1
+            [max_good] => 1.00
+            [max_regular] => 3.00
+            [value] => 0.0000
+            [base] => 100.00
+            [grade] => 1
+            [grade_weighted] => 5
+            [res_percent] => 0 %
+            [res_level] => check_green
+        )
+
+    [3] => Array
+        (
+            [No] => 99
+            [inbound_line] => 8
+            [qc_no] => 4
+            [quality_checkpoint] => Untergewicht
+            [qc_type_no] => 0
+            [qc_type] => Qualität
+            [qc_class_no] => 1
+            [qc_class] => mayor defects
+            [qc_weightning] => 5
+            [operator] => 1
+            [max_good] => 1.00
+            [max_regular] => 2.00
+            [value] => 0.0000
+            [base] => 100.00
+            [grade] => 1
+            [grade_weighted] => 5
+            [res_percent] => 0 %
+            [res_level] => check_green
+        )
+
+    [4] => Array
+        (
+            [No] => 100
+            [inbound_line] => 8
+            [qc_no] => 5
+            [quality_checkpoint] => Ueberreif / Weich
+            [qc_type_no] => 0
+            [qc_type] => Qualität
+            [qc_class_no] => 2
+            [qc_class] => minor defects
+            [qc_weightning] => 3
+            [operator] => 1
+            [max_good] => 1.00
+            [max_regular] => 3.00
+            [value] => 0.0000
+            [base] => 100.00
+            [grade] => 1
+            [grade_weighted] => 3
+            [res_percent] => 0 %
+            [res_level] => check_green
+        )
+
+    [5] => Array
+        (
+            [No] => 101
+            [inbound_line] => 8
+            [qc_no] => 6
+            [quality_checkpoint] => Druckstellen
+            [qc_type_no] => 0
+            [qc_type] => Qualität
+            [qc_class_no] => 2
+            [qc_class] => minor defects
+            [qc_weightning] => 3
+            [operator] => 1
+            [max_good] => 2.00
+            [max_regular] => 5.00
+            [value] => 2.0000
+            [base] => 100.00
+            [grade] => 3
+            [grade_weighted] => 9
+            [res_percent] => 2 %
+            [res_level] => check_yellow
+        )
+
+    [6] => Array
+        (
+            [No] => 102
+            [inbound_line] => 8
+            [qc_no] => 7
+            [quality_checkpoint] => Dehydriert
+            [qc_type_no] => 0
+            [qc_type] => Qualität
+            [qc_class_no] => 2
+            [qc_class] => minor defects
+            [qc_weightning] => 3
+            [operator] => 1
+            [max_good] => 1.00
+            [max_regular] => 2.00
+            [value] => 0.0000
+            [base] => 100.00
+            [grade] => 1
+            [grade_weighted] => 3
+            [res_percent] => 0 %
+            [res_level] => check_green
+        )
+
+    [7] => Array
+        (
+            [No] => 105
+            [inbound_line] => 8
+            [qc_no] => 10
+            [quality_checkpoint] => Unreif
+            [qc_type_no] => 0
+            [qc_type] => Qualität
+            [qc_class_no] => 2
+            [qc_class] => minor defects
+            [qc_weightning] => 3
+            [operator] => 1
+            [max_good] => 2.00
+            [max_regular] => 5.00
+            [value] => 0.0000
+            [base] => 100.00
+            [grade] => 1
+            [grade_weighted] => 3
+            [res_percent] => 0 %
+            [res_level] => check_green
+        )
+
+    [8] => Array
+        (
+            [No] => 103
+            [inbound_line] => 8
+            [qc_no] => 8
+            [quality_checkpoint] => Schalenfehler
+            [qc_type_no] => 0
+            [qc_type] => Qualität
+            [qc_class_no] => 3
+            [qc_class] => remarks
+            [qc_weightning] => 1
+            [operator] => 1
+            [max_good] => 5.00
+            [max_regular] => 10.00
+            [value] => 0.0000
+            [base] => 100.00
+            [grade] => 1
+            [grade_weighted] => 1
+            [res_percent] => 0 %
+            [res_level] => check_green
+        )
+
+    [9] => Array
+        (
+            [No] => 104
+            [inbound_line] => 8
+            [qc_no] => 9
+            [quality_checkpoint] => Restschmutz
+            [qc_type_no] => 0
+            [qc_type] => Qualität
+            [qc_class_no] => 3
+            [qc_class] => remarks
+            [qc_weightning] => 1
+            [operator] => 1
+            [max_good] => 5.00
+            [max_regular] => 10.00
+            [value] => 0.0000
+            [base] => 100.00
+            [grade] => 1
+            [grade_weighted] => 1
+            [res_percent] => 0 %
+            [res_level] => check_green
+        )
+
+    [10] => Array
+        (
+            [No] => 106
+            [inbound_line] => 8
+            [qc_no] => 11
+            [quality_checkpoint] => Beschaedigungen
+            [qc_type_no] => 0
+            [qc_type] => Qualität
+            [qc_class_no] => 3
+            [qc_class] => remarks
+            [qc_weightning] => 1
+            [operator] => 1
+            [max_good] => 3.00
+            [max_regular] => 6.00
+            [value] => 0.0000
+            [base] => 100.00
+            [grade] => 1
+            [grade_weighted] => 1
+            [res_percent] => 0 %
+            [res_level] => check_green
+        )
+
+    [11] => Array
+        (
+            [No] => 107
+            [inbound_line] => 8
+            [qc_no] => 12
+            [quality_checkpoint] => Andere
+            [qc_type_no] => 0
+            [qc_type] => Qualität
+            [qc_class_no] => 3
+            [qc_class] => remarks
+            [qc_weightning] => 1
+            [operator] => 1
+            [max_good] => 2.00
+            [max_regular] => 5.00
+            [value] => 0.0000
+            [base] => 100.00
+            [grade] => 1
+            [grade_weighted] => 1
+            [res_percent] => 0 %
+            [res_level] => check_green
+        )
+
+    [12] => Array
+        (
+            [No] => 108
+            [inbound_line] => 8
+            [qc_no] => 13
+            [quality_checkpoint] => Untermass
+            [qc_type_no] => 0
+            [qc_type] => Qualität
+            [qc_class_no] => 3
+            [qc_class] => remarks
+            [qc_weightning] => 1
+            [operator] => 1
+            [max_good] => 5.00
+            [max_regular] => 10.00
+            [value] => 2.0000
+            [base] => 100.00
+            [grade] => 1
+            [grade_weighted] => 1
+            [res_percent] => 2 %
+            [res_level] => check_green
+        )
+
+    [13] => Array
+        (
+            [No] => 110
+            [inbound_line] => 8
+            [qc_no] => 15
+            [quality_checkpoint] => Brixgehalt
+            [qc_type_no] => 0
+            [qc_type] => Qualität
+            [qc_class_no] => 3
+            [qc_class] => remarks
+            [qc_weightning] => 1
+            [operator] => 0
+            [max_good] => 1.00
+            [max_regular] => 3.00
+            [value] => 0.0000
+            [base] => 100.00
+            [grade] => 1
+            [grade_weighted] => 1
+            [res_percent] => 0.0000
+            [res_level] => check_green
+        )
+
+)
+
+2017-10-23T13:30:16+02:00 INFO (6): Attachments: Array
+(
+)
+
+2017-10-23T13:30:16+02:00 INFO (6): Pictures: Array
+(
+)
+
+2017-10-23T13:30:31+02:00 INFO (6): Inbund_line: Array
+(
+    [No] => 7
+    [inbound] => 4
+    [position] => 20351
+    [inb_line] => 10000
+    [purchase_order] => 425496
+    [po_line] => 5
+    [po_line_line] => 10000
+    [stock_location] => 1
+    [vendor_no] => 078893
+    [vendor_name] => Esther & Peter Münch GbR
+    [vendor_name_2] => Grafschafter Beerenhof
+    [vendor_street] => Max-Planck-Str.2
+    [vendor_street_2] => 
+    [vendor_PO_code] => 53501
+    [vendor_city] => GrafschaftGelsdorf
+    [vendor_CC] => DE
+    [vendor_country] => Deutschland
+    [sales_order] => 
+    [v_delivery_note] => 20160561
+    [inb_forwarder] => MVS
+    [inb_truck] => 
+    [inb_trailor] => DU-DS 3033
+    [inb_container] => 
+    [po_arrival] => 2017-10-08 22:00:00
+    [inb_arrival] => 2017-10-08 22:00:00
+    [po_transport_temp_min] => 1.00
+    [po_transport_temp_max] => 4.00
+    [inb_transport_temp] => 8.00
+    [product] => 0032
+    [product_desc] => Himbeeren
+    [variant] => 0032DE8125K438215110
+    [variant_desc] => DE Himbeeren Standard 8x125g Schale/Deckel I  WOL
+    [origin] => DE
+    [packaging_no] => 2
+    [packaging] => Schale/Deckel
+    [t_packaging] => K438
+    [quality_no] => 1
+    [quality] => Standard
+    [brand_no] => 0
+    [brand] => 
+    [qc_no] => 1
+    [quality_class] => Klasse I
+    [label_no] => 15
+    [label] => Ohne Auszeichnung
+    [items] => 8
+    [weight_item] => 125
+    [po_trading_units] => 100
+    [po_PU_TU] => 8
+    [po_packing_units] => 800
+    [po_pallet] => 1
+    [po_pallet_desc] => Euro
+    [po_pallets] => 1
+    [po_tu_pal] => 100
+    [po_lot] => 
+    [po_barcode] => 
+    [inb_lot] => 
+    [inb_barcode] => 
+    [po_brix_min] => 0.00
+    [po_brix_max] => 0.00
+    [inb_brix] => 0.00
+    [inb_trading_units] => 98
+    [inb_packing_units] => 784
+    [inb_pallet] => 1
+    [inb_pallet_desc] => Euro
+    [inb_pallets] => 1
+    [inb_tu_pal] => 98
+    [items_checked] => 100
+    [stock] => 98
+    [grade_weighted] => 1.8
+)
+
+2017-10-23T13:30:31+02:00 INFO (6): po_arrival: Array
+(
+    [0] => 2017-10-08
+    [1] => 22:00:00
+)
+
+2017-10-23T13:30:31+02:00 INFO (6): inb_arrival: Array
+(
+    [0] => 2017-10-08
+    [1] => 22:00:00
+)
+
+2017-10-23T13:30:31+02:00 INFO (6): cq_inb_lines_log: Array
+(
+    [0] => Array
+        (
+            [No] => 90
+            [inbound_line] => 7
+            [qc_no] => 14
+            [quality_checkpoint] => Temperatur
+            [qc_type_no] => 1
+            [qc_type] => Logistik
+            [qc_class_no] => 4
+            [qc_class] => logistic
+            [qc_weightning] => 5
+            [operator] => 0
+            [max_good] => 1.00
+            [max_regular] => 3.00
+            [value] => 4.0000
+            [base] => 100.00
+            [grade] => 5
+            [grade_weighted] => 25
+            [res_percent] => 4.0000
+            [res_level] => check_red
+        )
+
+    [1] => Array
+        (
+            [No] => 92
+            [inbound_line] => 7
+            [qc_no] => 16
+            [quality_checkpoint] => Label Packstück
+            [qc_type_no] => 1
+            [qc_type] => Logistik
+            [qc_class_no] => 4
+            [qc_class] => logistic
+            [qc_weightning] => 5
+            [operator] => 2
+            [max_good] => 0.00
+            [max_regular] => 0.00
+            [value] => 1.0000
+            [base] => 0.00
+            [grade] => 5
+            [grade_weighted] => 25
+            [res_percent] => OK
+            [res_level] => check_green
+        )
+
+    [2] => Array
+        (
+            [No] => 93
+            [inbound_line] => 7
+            [qc_no] => 17
+            [quality_checkpoint] => Label Verkaufseinheit
+            [qc_type_no] => 1
+            [qc_type] => Logistik
+            [qc_class_no] => 4
+            [qc_class] => logistic
+            [qc_weightning] => 5
+            [operator] => 2
+            [max_good] => 0.00
+            [max_regular] => 0.00
+            [value] => 1.0000
+            [base] => 0.00
+            [grade] => 5
+            [grade_weighted] => 25
+            [res_percent] => OK
+            [res_level] => check_green
+        )
+
+    [3] => Array
+        (
+            [No] => 94
+            [inbound_line] => 7
+            [qc_no] => 18
+            [quality_checkpoint] => Pünktlichkeit
+            [qc_type_no] => 1
+            [qc_type] => Logistik
+            [qc_class_no] => 4
+            [qc_class] => logistic
+            [qc_weightning] => 5
+            [operator] => 0
+            [max_good] => 1.00
+            [max_regular] => 3.00
+            [value] => 0.0000
+            [base] => 100.00
+            [grade] => 1
+            [grade_weighted] => 5
+            [res_percent] => 0.0000
+            [res_level] => check_green
+        )
+
+    [4] => Array
+        (
+            [No] => 95
+            [inbound_line] => 7
+            [qc_no] => 19
+            [quality_checkpoint] => Lieferfehlmenge
+            [qc_type_no] => 1
+            [qc_type] => Logistik
+            [qc_class_no] => 4
+            [qc_class] => logistic
+            [qc_weightning] => 5
+            [operator] => 1
+            [max_good] => 5.00
+            [max_regular] => 10.00
+            [value] => -2.0000
+            [base] => 100.00
+            [grade] => 1
+            [grade_weighted] => 5
+            [res_percent] => -2 %
+            [res_level] => check_green
+        )
+
+)
+
+2017-10-23T13:30:31+02:00 INFO (6): qc_inb_lines_quality: Array
+(
+    [0] => Array
+        (
+            [No] => 77
+            [inbound_line] => 7
+            [qc_no] => 1
+            [quality_checkpoint] => Verderb - Schimmel
+            [qc_type_no] => 0
+            [qc_type] => Qualität
+            [qc_class_no] => 1
+            [qc_class] => mayor defects
+            [qc_weightning] => 5
+            [operator] => 1
+            [max_good] => 1.00
+            [max_regular] => 3.00
+            [value] => 0.0000
+            [base] => 100.00
+            [grade] => 1
+            [grade_weighted] => 5
+            [res_percent] => 0 %
+            [res_level] => check_green
+        )
+
+    [1] => Array
+        (
+            [No] => 78
+            [inbound_line] => 7
+            [qc_no] => 2
+            [quality_checkpoint] => Saftaustritt
+            [qc_type_no] => 0
+            [qc_type] => Qualität
+            [qc_class_no] => 1
+            [qc_class] => mayor defects
+            [qc_weightning] => 5
+            [operator] => 1
+            [max_good] => 1.00
+            [max_regular] => 2.00
+            [value] => 2.0000
+            [base] => 100.00
+            [grade] => 5
+            [grade_weighted] => 25
+            [res_percent] => 2 %
+            [res_level] => check_red
+        )
+
+    [2] => Array
+        (
+            [No] => 79
+            [inbound_line] => 7
+            [qc_no] => 3
+            [quality_checkpoint] => Ungeziefer
+            [qc_type_no] => 0
+            [qc_type] => Qualität
+            [qc_class_no] => 1
+            [qc_class] => mayor defects
+            [qc_weightning] => 5
+            [operator] => 1
+            [max_good] => 1.00
+            [max_regular] => 3.00
+            [value] => 0.0000
+            [base] => 100.00
+            [grade] => 1
+            [grade_weighted] => 5
+            [res_percent] => 0 %
+            [res_level] => check_green
+        )
+
+    [3] => Array
+        (
+            [No] => 80
+            [inbound_line] => 7
+            [qc_no] => 4
+            [quality_checkpoint] => Untergewicht
+            [qc_type_no] => 0
+            [qc_type] => Qualität
+            [qc_class_no] => 1
+            [qc_class] => mayor defects
+            [qc_weightning] => 5
+            [operator] => 1
+            [max_good] => 1.00
+            [max_regular] => 2.00
+            [value] => 1.0000
+            [base] => 100.00
+            [grade] => 3
+            [grade_weighted] => 15
+            [res_percent] => 1 %
+            [res_level] => check_yellow
+        )
+
+    [4] => Array
+        (
+            [No] => 81
+            [inbound_line] => 7
+            [qc_no] => 5
+            [quality_checkpoint] => Ueberreif / Weich
+            [qc_type_no] => 0
+            [qc_type] => Qualität
+            [qc_class_no] => 2
+            [qc_class] => minor defects
+            [qc_weightning] => 3
+            [operator] => 1
+            [max_good] => 1.00
+            [max_regular] => 3.00
+            [value] => 0.0000
+            [base] => 100.00
+            [grade] => 1
+            [grade_weighted] => 3
+            [res_percent] => 0 %
+            [res_level] => check_green
+        )
+
+    [5] => Array
+        (
+            [No] => 82
+            [inbound_line] => 7
+            [qc_no] => 6
+            [quality_checkpoint] => Druckstellen
+            [qc_type_no] => 0
+            [qc_type] => Qualität
+            [qc_class_no] => 2
+            [qc_class] => minor defects
+            [qc_weightning] => 3
+            [operator] => 1
+            [max_good] => 2.00
+            [max_regular] => 5.00
+            [value] => 0.0000
+            [base] => 100.00
+            [grade] => 1
+            [grade_weighted] => 3
+            [res_percent] => 0 %
+            [res_level] => check_green
+        )
+
+    [6] => Array
+        (
+            [No] => 83
+            [inbound_line] => 7
+            [qc_no] => 7
+            [quality_checkpoint] => Dehydriert
+            [qc_type_no] => 0
+            [qc_type] => Qualität
+            [qc_class_no] => 2
+            [qc_class] => minor defects
+            [qc_weightning] => 3
+            [operator] => 1
+            [max_good] => 1.00
+            [max_regular] => 2.00
+            [value] => 0.0000
+            [base] => 100.00
+            [grade] => 1
+            [grade_weighted] => 3
+            [res_percent] => 0 %
+            [res_level] => check_green
+        )
+
+    [7] => Array
+        (
+            [No] => 86
+            [inbound_line] => 7
+            [qc_no] => 10
+            [quality_checkpoint] => Unreif
+            [qc_type_no] => 0
+            [qc_type] => Qualität
+            [qc_class_no] => 2
+            [qc_class] => minor defects
+            [qc_weightning] => 3
+            [operator] => 1
+            [max_good] => 2.00
+            [max_regular] => 5.00
+            [value] => 0.0000
+            [base] => 100.00
+            [grade] => 1
+            [grade_weighted] => 3
+            [res_percent] => 0 %
+            [res_level] => check_green
+        )
+
+    [8] => Array
+        (
+            [No] => 84
+            [inbound_line] => 7
+            [qc_no] => 8
+            [quality_checkpoint] => Schalenfehler
+            [qc_type_no] => 0
+            [qc_type] => Qualität
+            [qc_class_no] => 3
+            [qc_class] => remarks
+            [qc_weightning] => 1
+            [operator] => 1
+            [max_good] => 5.00
+            [max_regular] => 10.00
+            [value] => 0.0000
+            [base] => 100.00
+            [grade] => 1
+            [grade_weighted] => 1
+            [res_percent] => 0 %
+            [res_level] => check_green
+        )
+
+    [9] => Array
+        (
+            [No] => 85
+            [inbound_line] => 7
+            [qc_no] => 9
+            [quality_checkpoint] => Restschmutz
+            [qc_type_no] => 0
+            [qc_type] => Qualität
+            [qc_class_no] => 3
+            [qc_class] => remarks
+            [qc_weightning] => 1
+            [operator] => 1
+            [max_good] => 5.00
+            [max_regular] => 10.00
+            [value] => 0.0000
+            [base] => 100.00
+            [grade] => 1
+            [grade_weighted] => 1
+            [res_percent] => 0 %
+            [res_level] => check_green
+        )
+
+    [10] => Array
+        (
+            [No] => 87
+            [inbound_line] => 7
+            [qc_no] => 11
+            [quality_checkpoint] => Beschaedigungen
+            [qc_type_no] => 0
+            [qc_type] => Qualität
+            [qc_class_no] => 3
+            [qc_class] => remarks
+            [qc_weightning] => 1
+            [operator] => 1
+            [max_good] => 3.00
+            [max_regular] => 6.00
+            [value] => 0.0000
+            [base] => 100.00
+            [grade] => 1
+            [grade_weighted] => 1
+            [res_percent] => 0 %
+            [res_level] => check_green
+        )
+
+    [11] => Array
+        (
+            [No] => 88
+            [inbound_line] => 7
+            [qc_no] => 12
+            [quality_checkpoint] => Andere
+            [qc_type_no] => 0
+            [qc_type] => Qualität
+            [qc_class_no] => 3
+            [qc_class] => remarks
+            [qc_weightning] => 1
+            [operator] => 1
+            [max_good] => 2.00
+            [max_regular] => 5.00
+            [value] => 0.0000
+            [base] => 100.00
+            [grade] => 1
+            [grade_weighted] => 1
+            [res_percent] => 0 %
+            [res_level] => check_green
+        )
+
+    [12] => Array
+        (
+            [No] => 89
+            [inbound_line] => 7
+            [qc_no] => 13
+            [quality_checkpoint] => Untermass
+            [qc_type_no] => 0
+            [qc_type] => Qualität
+            [qc_class_no] => 3
+            [qc_class] => remarks
+            [qc_weightning] => 1
+            [operator] => 1
+            [max_good] => 5.00
+            [max_regular] => 10.00
+            [value] => 0.0000
+            [base] => 100.00
+            [grade] => 1
+            [grade_weighted] => 1
+            [res_percent] => 0 %
+            [res_level] => check_green
+        )
+
+    [13] => Array
+        (
+            [No] => 91
+            [inbound_line] => 7
+            [qc_no] => 15
+            [quality_checkpoint] => Brixgehalt
+            [qc_type_no] => 0
+            [qc_type] => Qualität
+            [qc_class_no] => 3
+            [qc_class] => remarks
+            [qc_weightning] => 1
+            [operator] => 0
+            [max_good] => 1.00
+            [max_regular] => 3.00
+            [value] => 0.0000
+            [base] => 100.00
+            [grade] => 1
+            [grade_weighted] => 1
+            [res_percent] => 0.0000
+            [res_level] => check_green
+        )
+
+)
+
+2017-10-23T13:30:31+02:00 INFO (6): Attachments: Array
+(
+    [0] => Array
+        (
+            [No] => 26
+            [inbound_line] => 7
+            [path] => att_20351_7_1.pdf
+            [type] => 2
+        )
+
+    [1] => Array
+        (
+            [No] => 27
+            [inbound_line] => 7
+            [path] => att_20351_7_2.pdf
+            [type] => 2
+        )
+
+    [2] => Array
+        (
+            [No] => 28
+            [inbound_line] => 7
+            [path] => att_20351_7_3.pdf
+            [type] => 2
+        )
+
+)
+
+2017-10-23T13:30:31+02:00 INFO (6): Pictures: Array
+(
+    [0] => Array
+        (
+            [No] => 3
+            [inbound_line] => 7
+            [path] => pic_20351_7_1.jpg
+            [type] => 1
+        )
+
+    [1] => Array
+        (
+            [No] => 4
+            [inbound_line] => 7
+            [path] => pic_20351_7_2.jpg
+            [type] => 1
+        )
+
+    [2] => Array
+        (
+            [No] => 6
+            [inbound_line] => 7
+            [path] => pic_20351_7_4.jpg
+            [type] => 1
+        )
+
+    [3] => Array
+        (
+            [No] => 7
+            [inbound_line] => 7
+            [path] => pic_20351_7_5.jpg
+            [type] => 1
+        )
+
+    [4] => Array
+        (
+            [No] => 8
+            [inbound_line] => 7
+            [path] => pic_20351_7_6.jpg
+            [type] => 1
+        )
+
+    [5] => Array
+        (
+            [No] => 9
+            [inbound_line] => 7
+            [path] => pic_20351_7_7.jpg
+            [type] => 1
+        )
+
+    [6] => Array
+        (
+            [No] => 12
+            [inbound_line] => 7
+            [path] => pic__7_7.jpg
+            [type] => 1
+        )
+
+)
+
+2017-10-23T13:30:31+02:00 INFO (6): Image Path: C:\www-dev\dispo\public\quality\pictures/pic_20351_7_1.jpg
+2017-10-23T13:30:31+02:00 INFO (6): Image Attr.:Array
+(
+    [0] => 1600
+    [1] => 1200
+    [2] => 2
+    [3] => width="1600" height="1200"
+    [bits] => 8
+    [channels] => 3
+    [mime] => image/jpeg
+)
+
+2017-10-23T13:30:31+02:00 INFO (6): Position: 20:20
+2017-10-23T13:30:31+02:00 INFO (6): Image Path: C:\www-dev\dispo\public\quality\pictures/pic_20351_7_2.jpg
+2017-10-23T13:30:31+02:00 INFO (6): Image Attr.:Array
+(
+    [0] => 1600
+    [1] => 1200
+    [2] => 2
+    [3] => width="1600" height="1200"
+    [bits] => 8
+    [channels] => 3
+    [mime] => image/jpeg
+)
+
+2017-10-23T13:30:31+02:00 INFO (6): Position: 20:308
+2017-10-23T13:30:31+02:00 INFO (6): Image Path: C:\www-dev\dispo\public\quality\pictures/pic_20351_7_4.jpg
+2017-10-23T13:30:31+02:00 INFO (6): Image Attr.:Array
+(
+    [0] => 1600
+    [1] => 1200
+    [2] => 2
+    [3] => width="1600" height="1200"
+    [bits] => 8
+    [channels] => 3
+    [mime] => image/jpeg
+)
+
+2017-10-23T13:30:31+02:00 INFO (6): Position: 401:20
+2017-10-23T13:30:31+02:00 INFO (6): Image Path: C:\www-dev\dispo\public\quality\pictures/pic_20351_7_5.jpg
+2017-10-23T13:30:31+02:00 INFO (6): Image Attr.:Array
+(
+    [0] => 1600
+    [1] => 1200
+    [2] => 2
+    [3] => width="1600" height="1200"
+    [bits] => 8
+    [channels] => 3
+    [mime] => image/jpeg
+)
+
+2017-10-23T13:30:31+02:00 INFO (6): Position: 401:308
+2017-10-23T13:30:31+02:00 INFO (6): Image Path: C:\www-dev\dispo\public\quality\pictures/pic_20351_7_6.jpg
+2017-10-23T13:30:31+02:00 INFO (6): Image Attr.:Array
+(
+    [0] => 1600
+    [1] => 1200
+    [2] => 2
+    [3] => width="1600" height="1200"
+    [bits] => 8
+    [channels] => 3
+    [mime] => image/jpeg
+)
+
+2017-10-23T13:30:31+02:00 INFO (6): Position: 20:20
+2017-10-23T13:30:31+02:00 INFO (6): Image Path: C:\www-dev\dispo\public\quality\pictures/pic_20351_7_7.jpg
+2017-10-23T13:30:31+02:00 INFO (6): Image Attr.:Array
+(
+    [0] => 1600
+    [1] => 1200
+    [2] => 2
+    [3] => width="1600" height="1200"
+    [bits] => 8
+    [channels] => 3
+    [mime] => image/jpeg
+)
+
+2017-10-23T13:30:31+02:00 INFO (6): Position: 20:308
+2017-10-23T13:30:31+02:00 INFO (6): Image Path: C:\www-dev\dispo\public\quality\pictures/pic__7_7.jpg
+2017-10-23T13:30:31+02:00 INFO (6): Image Attr.:Array
+(
+    [0] => 1600
+    [1] => 1200
+    [2] => 2
+    [3] => width="1600" height="1200"
+    [bits] => 8
+    [channels] => 3
+    [mime] => image/jpeg
+)
+
+2017-10-23T13:30:31+02:00 INFO (6): Position: 401:20
+2017-10-23T13:39:32+02:00 INFO (6): IndexController->IndexAction called
+2017-10-23T13:39:34+02:00 INFO (6): InboundController->IndexAction called
+2017-10-23T13:39:36+02:00 INFO (6): editquality aufgerufen mit Inbound_sheet: Array
+(
+    [No] => 0
+    [inbound] => 0
+    [inb_line] => 0
+    [position] => 
+    [v_delivery_note] => 
+    [vendor] => 
+    [purchase_order] => 
+    [po_line] => 0
+    [po_line_line] => 0
+    [stock_location] => 1
+    [po_arrival_date] => 23.10.2017
+    [po_arrival_time] => 13:39
+    [inb_arrival_date] => 23.10.2017
+    [inb_arrival_time] => 13:39
+    [forwarder] => 
+    [truck] => 
+    [trailor] => 
+    [container] => 
+    [po_transport_temp_min] => 1.00
+    [po_transport_temp_max] => 4.00
+    [inb_transport_temp] => 0
+    [variant] => 
+    [product] => 0026
+    [t_packaging] => 
+    [packaging] => 0
+    [origin] => DE
+    [label] => 0
+    [quality_class] => 1
+    [brand] => 0
+    [quality] => 1
+    [items] => 0
+    [weight_item] => 0
+    [po_lot] => 
+    [po_barcode] => 
+    [po_trading_units] => 0
+    [po_packing_units] => 0
+    [po_pallet] => 
+    [po_pallets] => 0
+    [po_tu_pal] => 0
+    [inb_lot] => 
+    [inb_barcode] => 
+    [items_checked] => 0
+    [inb_trading_units] => 0
+    [inb_packing_units] => 0
+    [inb_pallet] => 
+    [inb_pallets] => 0
+    [inb_tu_pal] => 0
+    [po_brix_min] => 0
+    [po_brix_max] => 0
+    [inb_brix] => 0
+    [inb_certificate] => 1
+    [remarks] => 
+    [res_1] => 0
+    [base_1] => 0
+    [rp_1] => 0 %
+    [rl_1] => check_green
+    [res_2] => 0
+    [base_2] => 0
+    [rp_2] => 0 %
+    [rl_2] => check_green
+    [res_3] => 0
+    [base_3] => 0
+    [rp_3] => 0 %
+    [rl_3] => check_green
+    [res_4] => 0
+    [base_4] => 0
+    [rp_4] => 0 %
+    [rl_4] => check_green
+    [res_7] => 0
+    [base_7] => 0
+    [rp_7] => 0 %
+    [rl_7] => check_green
+    [res_6] => 0
+    [base_6] => 0
+    [rp_6] => 0 %
+    [rl_6] => check_green
+    [res_5] => 0
+    [base_5] => 0
+    [rp_5] => 0 %
+    [rl_5] => check_green
+    [res_10] => 0
+    [base_10] => 0
+    [rp_10] => 0 %
+    [rl_10] => check_green
+    [res_13] => 0
+    [base_13] => 0
+    [rp_13] => 0 %
+    [rl_13] => check_green
+    [res_12] => 0
+    [base_12] => 0
+    [rp_12] => 0 %
+    [rl_12] => check_green
+    [res_11] => 0
+    [base_11] => 0
+    [rp_11] => 0 %
+    [rl_11] => check_green
+    [res_9] => 0
+    [base_9] => 0
+    [rp_9] => 0 %
+    [rl_9] => check_green
+    [res_8] => 0
+    [base_8] => 0
+    [rp_8] => 0 %
+    [rl_8] => check_green
+    [res_15] => 0
+    [base_15] => 0
+    [rp_15] => 0
+    [rl_15] => check_green
+    [res_14] => 0
+    [base_14] => 0
+    [rp_14] => 0
+    [rl_14] => check_green
+    [res_16] => 0
+    [base_16] => 0
+    [rp_16] => nicht OK
+    [rl_16] => check_red
+    [res_17] => 0
+    [base_17] => 0
+    [rp_17] => nicht OK
+    [rl_17] => check_red
+    [res_18] => 0
+    [base_18] => 0
+    [rp_18] => 0
+    [rl_18] => check_green
+    [res_19] => 0
+    [base_19] => 0
+    [rp_19] => 0 %
+    [rl_19] => check_green
+)
+
+2017-10-23T13:40:01+02:00 INFO (6): SQL: SELECT tbl_HAN.HANVORNR, tbl_HAN.HANPOSNR, tbl_HAN.HANADRNR, tbl_LIE.LIENAME, tbl_LIE.LIESTRAS, tbl_LIE.LIEPLZOR, convert(varchar(25), tbl_HAN.HANLISDT, 127) AS HANLISDT, HANTABZT, tbl_HAN.HANARTTX, tbl_HAN.HANWARGR, tbl_art.ARTGEBIN, tbl_ART.ARTDURGW, tbl_HAN.HANPMENG, tbl_ART.ARTURSLD FROM tbl_HAN JOIN tbl_ART on (tbl_HAN.HANARTNR = tbl_ART.KEYIART1) join tbl_LIE on (tbl_han.HANADRNR = tbl_LIE.KEYILIE1) WHERE tbl_HAN.HANVORAR = 30 AND tbl_art.ARTAKTKZ = 'A' AND tbl_HAN.HANVORNR = '425806'
+2017-10-23T13:40:01+02:00 INFO (6): Bestellungen: Array
+(
+    [0] => Array
+        (
+            [HANVORNR] => 425806
+            [HANPOSNR] => 001
+            [HANADRNR] => 088912
+            [LIENAME] => Zaltbommel en Omstreken B.A.
+            [LIESTRAS] => Stationsweg 28
+            [LIEPLZOR] => 5301 KH Zaltbommel
+            [HANLISDT] => 2017-10-23T00:00:00
+            [HANTABZT] => 13:40
+            [HANARTTX] => Erdbeere 10x250g    
+            [HANWARGR] => 0030
+            [ARTGEBIN] => 10.000
+            [ARTDURGW] => 250
+            [HANPMENG] => 360.00
+            [ARTURSLD] => NL
+        )
+
+)
+
+2017-10-23T13:45:00+02:00 INFO (6): IndexController->IndexAction called
+2017-10-23T13:45:03+02:00 INFO (6): InboundController->IndexAction called
+2017-10-23T13:45:08+02:00 INFO (6): editquality aufgerufen mit Inbound_sheet: Array
+(
+    [No] => 0
+    [inbound] => 0
+    [inb_line] => 0
+    [position] => 
+    [v_delivery_note] => 
+    [vendor] => 
+    [purchase_order] => 
+    [po_line] => 0
+    [po_line_line] => 0
+    [stock_location] => 1
+    [po_arrival_date] => 23.10.2017
+    [po_arrival_time] => 13:45
+    [inb_arrival_date] => 23.10.2017
+    [inb_arrival_time] => 13:45
+    [forwarder] => 
+    [truck] => 
+    [trailor] => 
+    [container] => 
+    [po_transport_temp_min] => 1.00
+    [po_transport_temp_max] => 4.00
+    [inb_transport_temp] => 0
+    [variant] => 
+    [product] => 0026
+    [t_packaging] => 
+    [packaging] => 0
+    [origin] => DE
+    [label] => 0
+    [quality_class] => 1
+    [brand] => 0
+    [quality] => 1
+    [items] => 0
+    [weight_item] => 0
+    [po_lot] => 
+    [po_barcode] => 
+    [po_trading_units] => 0
+    [po_packing_units] => 0
+    [po_pallet] => 
+    [po_pallets] => 0
+    [po_tu_pal] => 0
+    [inb_lot] => 
+    [inb_barcode] => 
+    [items_checked] => 0
+    [inb_trading_units] => 0
+    [inb_packing_units] => 0
+    [inb_pallet] => 
+    [inb_pallets] => 0
+    [inb_tu_pal] => 0
+    [po_brix_min] => 0
+    [po_brix_max] => 0
+    [inb_brix] => 0
+    [inb_certificate] => 1
+    [remarks] => 
+    [res_1] => 0
+    [base_1] => 0
+    [rp_1] => 0 %
+    [rl_1] => check_green
+    [res_2] => 0
+    [base_2] => 0
+    [rp_2] => 0 %
+    [rl_2] => check_green
+    [res_3] => 0
+    [base_3] => 0
+    [rp_3] => 0 %
+    [rl_3] => check_green
+    [res_4] => 0
+    [base_4] => 0
+    [rp_4] => 0 %
+    [rl_4] => check_green
+    [res_7] => 0
+    [base_7] => 0
+    [rp_7] => 0 %
+    [rl_7] => check_green
+    [res_6] => 0
+    [base_6] => 0
+    [rp_6] => 0 %
+    [rl_6] => check_green
+    [res_5] => 0
+    [base_5] => 0
+    [rp_5] => 0 %
+    [rl_5] => check_green
+    [res_10] => 0
+    [base_10] => 0
+    [rp_10] => 0 %
+    [rl_10] => check_green
+    [res_13] => 0
+    [base_13] => 0
+    [rp_13] => 0 %
+    [rl_13] => check_green
+    [res_12] => 0
+    [base_12] => 0
+    [rp_12] => 0 %
+    [rl_12] => check_green
+    [res_11] => 0
+    [base_11] => 0
+    [rp_11] => 0 %
+    [rl_11] => check_green
+    [res_9] => 0
+    [base_9] => 0
+    [rp_9] => 0 %
+    [rl_9] => check_green
+    [res_8] => 0
+    [base_8] => 0
+    [rp_8] => 0 %
+    [rl_8] => check_green
+    [res_15] => 0
+    [base_15] => 0
+    [rp_15] => 0
+    [rl_15] => check_green
+    [res_14] => 0
+    [base_14] => 0
+    [rp_14] => 0
+    [rl_14] => check_green
+    [res_16] => 0
+    [base_16] => 0
+    [rp_16] => nicht OK
+    [rl_16] => check_red
+    [res_17] => 0
+    [base_17] => 0
+    [rp_17] => nicht OK
+    [rl_17] => check_red
+    [res_18] => 0
+    [base_18] => 0
+    [rp_18] => 0
+    [rl_18] => check_green
+    [res_19] => 0
+    [base_19] => 0
+    [rp_19] => 0 %
+    [rl_19] => check_green
+)
+
+2017-10-23T13:48:48+02:00 INFO (6): editquality aufgerufen mit Inbound_sheet: Array
+(
+    [No] => 0
+    [inbound] => 0
+    [inb_line] => 0
+    [position] => 
+    [v_delivery_note] => 
+    [vendor] => 
+    [purchase_order] => 
+    [po_line] => 0
+    [po_line_line] => 0
+    [stock_location] => 1
+    [po_arrival_date] => 23.10.2017
+    [po_arrival_time] => 13:48
+    [inb_arrival_date] => 23.10.2017
+    [inb_arrival_time] => 13:48
+    [forwarder] => 
+    [truck] => 
+    [trailor] => 
+    [container] => 
+    [po_transport_temp_min] => 1.00
+    [po_transport_temp_max] => 4.00
+    [inb_transport_temp] => 0
+    [variant] => 
+    [product] => 0026
+    [t_packaging] => 
+    [packaging] => 0
+    [origin] => DE
+    [label] => 0
+    [quality_class] => 1
+    [brand] => 0
+    [quality] => 1
+    [items] => 0
+    [weight_item] => 0
+    [po_lot] => 
+    [po_barcode] => 
+    [po_trading_units] => 0
+    [po_packing_units] => 0
+    [po_pallet] => 
+    [po_pallets] => 0
+    [po_tu_pal] => 0
+    [inb_lot] => 
+    [inb_barcode] => 
+    [items_checked] => 0
+    [inb_trading_units] => 0
+    [inb_packing_units] => 0
+    [inb_pallet] => 
+    [inb_pallets] => 0
+    [inb_tu_pal] => 0
+    [po_brix_min] => 0
+    [po_brix_max] => 0
+    [inb_brix] => 0
+    [inb_certificate] => 1
+    [remarks] => 
+    [res_1] => 0
+    [base_1] => 0
+    [rp_1] => 0 %
+    [rl_1] => check_green
+    [res_2] => 0
+    [base_2] => 0
+    [rp_2] => 0 %
+    [rl_2] => check_green
+    [res_3] => 0
+    [base_3] => 0
+    [rp_3] => 0 %
+    [rl_3] => check_green
+    [res_4] => 0
+    [base_4] => 0
+    [rp_4] => 0 %
+    [rl_4] => check_green
+    [res_7] => 0
+    [base_7] => 0
+    [rp_7] => 0 %
+    [rl_7] => check_green
+    [res_6] => 0
+    [base_6] => 0
+    [rp_6] => 0 %
+    [rl_6] => check_green
+    [res_5] => 0
+    [base_5] => 0
+    [rp_5] => 0 %
+    [rl_5] => check_green
+    [res_10] => 0
+    [base_10] => 0
+    [rp_10] => 0 %
+    [rl_10] => check_green
+    [res_13] => 0
+    [base_13] => 0
+    [rp_13] => 0 %
+    [rl_13] => check_green
+    [res_12] => 0
+    [base_12] => 0
+    [rp_12] => 0 %
+    [rl_12] => check_green
+    [res_11] => 0
+    [base_11] => 0
+    [rp_11] => 0 %
+    [rl_11] => check_green
+    [res_9] => 0
+    [base_9] => 0
+    [rp_9] => 0 %
+    [rl_9] => check_green
+    [res_8] => 0
+    [base_8] => 0
+    [rp_8] => 0 %
+    [rl_8] => check_green
+    [res_15] => 0
+    [base_15] => 0
+    [rp_15] => 0
+    [rl_15] => check_green
+    [res_14] => 0
+    [base_14] => 0
+    [rp_14] => 0
+    [rl_14] => check_green
+    [res_16] => 0
+    [base_16] => 0
+    [rp_16] => nicht OK
+    [rl_16] => check_red
+    [res_17] => 0
+    [base_17] => 0
+    [rp_17] => nicht OK
+    [rl_17] => check_red
+    [res_18] => 0
+    [base_18] => 0
+    [rp_18] => 0
+    [rl_18] => check_green
+    [res_19] => 0
+    [base_19] => 0
+    [rp_19] => 0 %
+    [rl_19] => check_green
+)
+
+2017-10-23T14:12:49+02:00 INFO (6): IndexController->IndexAction called
+2017-10-23T14:42:00+02:00 INFO (6): InboundController->IndexAction called
+2017-10-23T15:47:59+02:00 INFO (6): Inventories: 
+2017-10-23T15:49:29+02:00 INFO (6): Inventories: Array
+(
+    [0] => Array
+        (
+            [inventory_head] => 3
+            [state] => 2
+            [started] => 2017-10-12 13:55:39
+            [ended] => 2017-10-12 14:23:03
+            [vendor_no] => 070126
+            [vendor_name] => Agro Trade - Sandra Stefaniak
+            [position] => 20081
+            [inb_arrival] => 2017-10-05 08:30:00
+            [variant] => 0031PL12125K438015110
+            [variant_desc] => PL Heidelbeeren Standard 12x125g Stück I  WOL
+            [product] => 0031
+            [product_desc] => Heidelbeeren
+            [origin] => PL
+            [items] => 12
+            [weight_item] => 125
+            [t_packaging] => K438
+            [packaging_no] => 0
+            [packaging] => Stück
+            [quality_no] => 1
+            [quality] => Standard
+            [brand_no] => 0
+            [brand] => 
+            [label_no] => 15
+            [label] => Ohne Auszeichnung
+            [inb_lot] => 
+            [stock] => 200
+            [sum_pallets] => 0
+            [sum_trading_units] => 0
+        )
+
+    [1] => Array
+        (
+            [inventory_head] => 3
+            [state] => 2
+            [started] => 2017-10-12 13:55:39
+            [ended] => 2017-10-12 14:23:03
+            [vendor_no] => 070126
+            [vendor_name] => Agro Trade - Sandra Stefaniak
+            [position] => 20081
+            [inb_arrival] => 2017-10-05 08:30:00
+            [variant] => 0031PL12125K43821110
+            [variant_desc] => PL Heidelbeeren Standard 12x125g Schale/Deckel I  AN
+            [product] => 0031
+            [product_desc] => Heidelbeeren
+            [origin] => PL
+            [items] => 12
+            [weight_item] => 125
+            [t_packaging] => K438
+            [packaging_no] => 2
+            [packaging] => Schale/Deckel
+            [quality_no] => 1
+            [quality] => Standard
+            [brand_no] => 0
+            [brand] => 
+            [label_no] => 1
+            [label] => ALDI NORD Heidelbeeren
+            [inb_lot] => L4004
+            [stock] => 320
+            [sum_pallets] => 2
+            [sum_trading_units] => 320
+        )
+
+    [2] => Array
+        (
+            [inventory_head] => 3
+            [state] => 2
+            [started] => 2017-10-12 13:55:39
+            [ended] => 2017-10-12 14:23:03
+            [vendor_no] => 070126
+            [vendor_name] => Agro Trade - Sandra Stefaniak
+            [position] => 20081
+            [inb_arrival] => 2017-10-05 08:30:00
+            [variant] => 0031PL12125K438615110
+            [variant_desc] => PL Heidelbeeren Standard 12x125g Schale offen I  WOL
+            [product] => 0031
+            [product_desc] => Heidelbeeren
+            [origin] => PL
+            [items] => 12
+            [weight_item] => 125
+            [t_packaging] => K438
+            [packaging_no] => 6
+            [packaging] => Schale offen
+            [quality_no] => 1
+            [quality] => Standard
+            [brand_no] => 0
+            [brand] => 
+            [label_no] => 15
+            [label] => Ohne Auszeichnung
+            [inb_lot] => 
+            [stock] => 1280
+            [sum_pallets] => 2
+            [sum_trading_units] => 400
+        )
+
+    [3] => Array
+        (
+            [inventory_head] => 3
+            [state] => 2
+            [started] => 2017-10-12 13:55:39
+            [ended] => 2017-10-12 14:23:03
+            [vendor_no] => 070722
+            [vendor_name] => Charlys Erdbeerhof
+            [position] => 20181
+            [inb_arrival] => 2017-10-06 14:12:00
+            [variant] => 0030DE10500E6413615110
+            [variant_desc] => DE Erdbeeren Standard 10x500g Schale offen I  WOL
+            [product] => 0030
+            [product_desc] => Erdbeeren
+            [origin] => DE
+            [items] => 10
+            [weight_item] => 500
+            [t_packaging] => E6413
+            [packaging_no] => 6
+            [packaging] => Schale offen
+            [quality_no] => 1
+            [quality] => Standard
+            [brand_no] => 0
+            [brand] => 
+            [label_no] => 15
+            [label] => Ohne Auszeichnung
+            [inb_lot] => 
+            [stock] => 360
+            [sum_pallets] => 0
+            [sum_trading_units] => 0
+        )
+
+    [4] => Array
+        (
+            [inventory_head] => 3
+            [state] => 2
+            [started] => 2017-10-12 13:55:39
+            [ended] => 2017-10-12 14:23:03
+            [vendor_no] => 070722
+            [vendor_name] => Charlys Erdbeerhof
+            [position] => 20181
+            [inb_arrival] => 2017-10-06 14:12:00
+            [variant] => 0030DE10500ILL6410615110
+            [variant_desc] => DE Erdbeeren Standard 10x500g Schale offen I  WOL
+            [product] => 0030
+            [product_desc] => Erdbeeren
+            [origin] => DE
+            [items] => 10
+            [weight_item] => 500
+            [t_packaging] => ILL6410
+            [packaging_no] => 6
+            [packaging] => Schale offen
+            [quality_no] => 1
+            [quality] => Standard
+            [brand_no] => 0
+            [brand] => 
+            [label_no] => 15
+            [label] => Ohne Auszeichnung
+            [inb_lot] => 
+            [stock] => 216
+            [sum_pallets] => 0
+            [sum_trading_units] => 0
+        )
+
+    [5] => Array
+        (
+            [inventory_head] => 3
+            [state] => 2
+            [started] => 2017-10-12 13:55:39
+            [ended] => 2017-10-12 14:23:03
+            [vendor_no] => 070722
+            [vendor_name] => Charlys Erdbeerhof
+            [position] => 30056
+            [inb_arrival] => 2017-10-11 10:52:00
+            [variant] => 0030DE10500E6413615110
+            [variant_desc] => DE Erdbeeren Standard 10x500g Schale offen I  WOL
+            [product] => 0030
+            [product_desc] => Erdbeeren
+            [origin] => DE
+            [items] => 10
+            [weight_item] => 500
+            [t_packaging] => E6413
+            [packaging_no] => 6
+            [packaging] => Schale offen
+            [quality_no] => 1
+            [quality] => Standard
+            [brand_no] => 0
+            [brand] => 
+            [label_no] => 15
+            [label] => Ohne Auszeichnung
+            [inb_lot] => 
+            [stock] => 360
+            [sum_pallets] => 0
+            [sum_trading_units] => 0
+        )
+
+    [6] => Array
+        (
+            [inventory_head] => 3
+            [state] => 2
+            [started] => 2017-10-12 13:55:39
+            [ended] => 2017-10-12 14:23:03
+            [vendor_no] => 078893
+            [vendor_name] => Esther & Peter Münch GbR
+            [position] => 20351
+            [inb_arrival] => 2017-10-08 22:00:00
+            [variant] => 0032DE8125K438215110
+            [variant_desc] => DE Himbeeren Standard 8x125g Schale/Deckel I  WOL
+            [product] => 0032
+            [product_desc] => Himbeeren
+            [origin] => DE
+            [items] => 8
+            [weight_item] => 125
+            [t_packaging] => K438
+            [packaging_no] => 2
+            [packaging] => Schale/Deckel
+            [quality_no] => 1
+            [quality] => Standard
+            [brand_no] => 0
+            [brand] => 
+            [label_no] => 15
+            [label] => Ohne Auszeichnung
+            [inb_lot] => 
+            [stock] => 98
+            [sum_pallets] => 0
+            [sum_trading_units] => 0
+        )
+
+    [7] => Array
+        (
+            [inventory_head] => 3
+            [state] => 2
+            [started] => 2017-10-12 13:55:39
+            [ended] => 2017-10-12 14:23:03
+            [vendor_no] => 079131
+            [vendor_name] => New Deal-Agriculture LDA
+            [position] => 20173
+            [inb_arrival] => 2017-10-06 13:00:00
+            [variant] => 0032ES8125K438215110
+            [variant_desc] => ES Himbeeren Standard 8x125g Schale/Deckel I  WOL
+            [product] => 0032
+            [product_desc] => Himbeeren
+            [origin] => ES
+            [items] => 8
+            [weight_item] => 125
+            [t_packaging] => K438
+            [packaging_no] => 2
+            [packaging] => Schale/Deckel
+            [quality_no] => 1
+            [quality] => Standard
+            [brand_no] => 0
+            [brand] => 
+            [label_no] => 15
+            [label] => Ohne Auszeichnung
+            [inb_lot] => 
+            [stock] => 498
+            [sum_pallets] => 0
+            [sum_trading_units] => 0
+        )
+
+)
+

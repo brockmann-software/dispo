@@ -12,12 +12,44 @@ function sendSearchpattern()
 	var vendor = document.getElementById('vendor');
 	var street = document.getElementById('street');
 	var city = document.getElementById('city');
+	var country_code = document.getElementById('country_code');
 	uri = '/vendor/index';
 	if (no.value!='') uri+='/No/'+no.value;
 	if (vendor.value !='') uri+='/name/'+vendor.value;
 	if (street.value !='') uri+='/street/'+street.value;
 	if (city.value !='') uri+='/city/'+city.value;
+	if (country_code.value != '0') uri+='/country_code/'+country_code.value;
+	if (document.getElementById('vendors').dataset.order !='') uri+=document.getElementById('vendors').dataset.order;
 	window.location = uri;
+}
+
+function orderVendor(column)
+{
+	order_img = document.getElementById('order_img');
+	if (order_img!=undefined) {
+		priorColumn = order_img.parentNode;
+		if (priorColumn.dataset.columnOrder) delete priorColumn.dataset.ColumnOrder;
+		order_img.parentNode.removeChild(order_img);
+	}
+	if ((column.dataset.order==undefined) || (column.dataset.order=='desc')) {
+		column.dataset.ColumnOrder = 'asc';
+		column.innerHTML+='<img id="order_img" src="/images/s_asc.png" />';
+	} else {
+		column.dataset.columnOrder = 'desc';
+		column.innerHTML+='<img id="order_img" src="/images/s_desc.png" />';
+	}
+	document.getElementById('vendors').dataset.order = '/order/'+column.id+'/orientation/'+column.dataset.ColumnOrder;
+	sendSearchpattern();
+}
+
+function searchKeyPress(e)
+{
+	e = e || window.event;
+	if (e.keyCode == 13) {
+		document.getElementById('searchButton').click();
+		return false;
+	}
+	return true;
 }
 </script>
 <?php $vendor_count = $this->vendor_count; ?>
@@ -33,13 +65,19 @@ function sendSearchpattern()
 		<th>Lieferant</th>
 		<th>Straße</th>
 		<th>Ort</th>
+		<th>Land</th>
 	</tr>
 	<tr>
-		<td><input type="text" name="no" id="no" value="<?php echo isset($this->searchparams['No']) ? $this->searchparams['No']['value'] : ''; ?>"/></td>
-		<td><input type="text" name="vendor" id="vendor"  value="<?php echo isset($this->searchparams['name']) ? $this->searchparams['name']['value'] : ''; ?>"/></td>
-		<td><input type="text" name="street" id="street"  value="<?php echo isset($this->searchparams['street']) ? $this->searchparams['street']['value'] : ''; ?>"/></td>
-		<td><input type="text" name="city" id="city"  value="<?php echo isset($this->searchparams['city']) ? $this->searchparams['city']['value'] : ''; ?>"/></td>
-		<td><button type="button" onclick="sendSearchpattern()">Suchen</button></td>
+		<td><input type="text" name="no" id="no" value="<?php echo isset($this->searchparams['No']) ? $this->searchparams['No']['value'] : ''; ?>" onkeypress="return searchKeyPress(event)" /></td>
+		<td><input type="text" name="vendor" id="vendor"  value="<?php echo isset($this->searchparams['name']) ? $this->searchparams['name']['value'] : ''; ?>" onkeypress="return searchKeyPress(event)" /></td>
+		<td><input type="text" name="street" id="street"  value="<?php echo isset($this->searchparams['street']) ? $this->searchparams['street']['value'] : ''; ?>" onkeypress="return searchKeyPress(event)" /></td>
+		<td><input type="text" name="city" id="city"  value="<?php echo isset($this->searchparams['city']) ? $this->searchparams['city']['value'] : ''; ?>" onkeypress="return searchKeyPress(event)" /></td>
+		<td><select name="country_code" id="country_code" onkeypress="return searchKeyPress(event)" >
+			<?php foreach ($this->countries as $country) : ?>
+			<option value="<?php echo $country['Id']; ?>"<?php if ($country['Id']==(isset($this->searchparams['country_code']['value']) ? $this->searchparams['country_code']['value'] : '0')) echo " selected"; ?>><?php echo $country['country']; ?></option>
+			<?php endforeach ?>
+			</select></td>
+		<td><button type="button" id="searchButton" onclick="sendSearchpattern()">Suchen</button></td>
 	</tr>
 </table>
 </div>
@@ -53,15 +91,15 @@ function sendSearchpattern()
 <?php if (($cur_page+1)<$pages) : ?><a href="/vendor/index/page/<?php echo $pages; ?>">>></a><?php endif ?>
 </div>
 <?php endif ?>
-<table class="data">
+<table class="data" id="vendors" data-order="">
 <thead>
 	<tr class="data">
-		<th class="data" width="3cm">Nummer</th>
-		<th class="data" width="20cm">Name</th>
-		<th class="data" width="20cm">Straße</th>
-		<th class="data" width="20cm">Ort</th>	
-		<th class="data" width="2cm">Land</th>
-		<th class="data" width="2cm">Zert.</th>
+		<th id="No" class="data" width="3cm" onclick="orderVendor(this)">Nummer</th>
+		<th id="name" class="data" width="20cm" onclick="orderVendor(this)">Name</th>
+		<th id="street" class="data" width="20cm" onclick="orderVendor(this)">Straße</th>
+		<th id="city" class="data" width="20cm" onclick="orderVendor(this)">Ort</th>	
+		<th id="country_code" class="data" width="2cm" onclick="orderVendor(this)">Land</th>
+		<th id="cnt_cert" class="data" width="2cm">Zert.</th>
 	</tr>
 </thead>
 <tbody>

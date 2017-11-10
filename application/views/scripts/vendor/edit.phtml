@@ -17,8 +17,16 @@ function closeDialog(cert)
 	}
 }
 
-function popupFinished(result)
+function closeSDDialog(result)
 {
+	var vendor_agreements = document.getElementById('vendor_agreements');
+	if (vendor_agreements.value == '0') {
+		var new_option = document.createElement('option');
+		new_option.text = result.version_year;
+		new_option.value = result.No;
+		vendor_agreements.add(new_option);
+		vendor_agreements.value = result.No;
+	}
 	if (notIE_popup != null)  {
 		notIE_popup.close();
 		notIE_popup = null;
@@ -200,15 +208,16 @@ function openCertDialog(node)
 function openAgreementDialog(node)
 {
 	var No = node.value;
+	var vendor = document.getElementById('old_No').value;
 	if (No>-1) {
-		URI = '/vendor/editagreemnt/No/'+No;
+		URI = '/vendor/editagreemnt/No/'+No+'/vendor/'+vendor;
 /*		if (!window.showModalDialog) {
 			notIE_popup = window.open(URI, 'Lieferantenerklärung', 'dialogWidth=900px;dialogHeight=600px;diologLeft=0;dialogTop=100;resizable=yes;scroll=yes');
 
 		} else {
 			result=window.showModalDialog(URI,'', 'dialogWidth=900px;dialogHeight=600px;diologLeft=0;dialogTop=100;resizable=yes;scroll=yes');
 		} */
-		window.open(URI, 'Lieferantenerklärung', 'dialogWidth=900px;dialogHeight=600px;diologLeft=0;dialogTop=100;resizable=yes;scroll=yes');
+		notIE_popup = window.open(URI, 'Lieferantenerklärung', 'dialogWidth=900px;dialogHeight=600px;diologLeft=0;dialogTop=100;resizable=yes;scroll=yes');
 	}
 }
 </script>

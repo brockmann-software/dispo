@@ -178,7 +178,81 @@ class inboundController extends Zend_Controller_Action
 			$layout->setLayout('print_layout');
 */
 		}
-	}	
+	}
+
+	public function printpalletlabelAction()
+	{
+		require_once(APPLICATION_PATH.'/controllers/variantController.php');
+		$variantTable = new Application_Model_VariantModel();
+		$errors = array();
+		if ($this->getRequest()->isPost()) {
+			isset($_POST['position']) ? $data['position'] = $_POST['position'] : $data['position'] = '';
+			isset($_POST['purchase_order']) ? $data['purchase_order'] = $_POST['purchase_order'] : $data['purchase_order'] = '';
+			isset($_POST['vendor_name']) ? $data['vendor_name'] = $_POST['vendor_name'] : $data['vendor_name'] = '';
+			isset($_POST['product']) ? $data['product'] = $_POST['product'] : $data['product'] = '';
+			isset($_POST['items']) ? $data['items'] = $_POST['items']  : $data['items'] = 0;
+			isset($_POST['weight_item']) ? $data['weight_item'] = $_POST['weight_item']  : $data['weight_item'] = 0;
+			isset($_POST['packaging']) ? $data['packaging'] = $_POST['packaging']  : $data['packaging'] = 0;
+			isset($_POST['t_packaging']) ? $data['t_packaging'] = $_POST['t_packaging']  : $data['t_packaging'] = '';
+			isset($_POST['origin']) ? $data['origin'] = $_POST['origin']  : $data['origin'] = 0;
+			isset($_POST['quality_class']) ? $data['quality_class'] = $_POST['quality_class']  : $data['quality_class'] = 0;
+			isset($_POST['quality']) ? $data['quality'] = $_POST['quality']  : $data['quality'] = 0;
+			isset($_POST['label']) ? $data['label'] = $_POST['label']  : $data['label'] = 0;
+			isset($_POST['brand']) ? $data['brand'] = $_POST['brand']  : $data['brand'] = 0;
+			isset($_POST['lot']) ? $data['lot'] = $_POST['lot']  : $data['lot'] = '';
+			isset($_POST['barcode']) ? $data['barcode'] = $_POST['barcode']  : $data['barcode'] = '';
+			isset($_POST['pallets']) ? $data['pallets'] = $_POST['pallets']  : $data['pallets'] = 0;
+			if ($data['position']=='') $errors['position'] = 'Es muss eine Position vergeben sein!';
+			if ($data['purchase_order']=='') $errors['purchase_order'] = 'Bestellnummer darf nicht leer sein!';
+			if (($data['items']=='') || ($data['items']==0)) $errors['items'] = "Einheit darf nicht leer oder 0 sein!";
+			if (($data['weight_item']=='') || ($data['weight_item']==0)) $errors['weight_item'] = "Gewicht/Einheit darf nicht leer oder 0 sein";
+			if (count($errors)==0) {
+				$variant = variantController::buildNo($data);
+				$data['variant'] = $variant['No'];
+				// falls Variante nicht existiert, anlegen	
+				$variants = $variantTable->find($variant['No']);
+				if ($variants->count()==0) {
+					try {
+						$variantTable->insert($variant);
+						$this->logger->info('Variante wurde hinzugefügt: '.print_r($variant['No'], true));
+					} catch (Exception $e) {
+						$errors['all'] = 'Eine neue Variante konnte nicht angelegt werden! '.$e->getMessage();
+						$this->logger->info('Fehler bei Variante: '.$e->getMessage());
+					}
+				}
+				$variant = $this->db->query('SELECT * FROM v_variant WHERE No = ?', $variant['No'])->fetchAll()[0];
+				$this->view->data = $data;
+				$this->view->variant = $variant;
+				$this->view->filename = 'palletlabel.pdf';
+				$layout = $this->_helper->layout();
+				$layout->setLayout('pdf_layout');
+				$this->renderScript('/inbound/pdfpalletlabel.php');
+				//$this->_redirect('/inbound/index/');
+			}
+		} else {
+			$data = array(
+					'position'=>'',
+					'purchase_order'=>'',
+					'vendor_name'=>'',
+					'product'=>'',
+					'items'=>0,
+					'weight_item'=>0,
+					'packaging'=>0,
+					't_packaging'=>'',
+					'origin'=>'',
+					'quality_class'=>1,
+					'quality'=>1,
+					'label'=>0,
+					'brand'=>0,
+					'lot'=>'',
+					'barcode'=>'',
+					'pallets'=>0);
+		}
+		$params = $this->loadDependencies();
+		$this->view->params = $params;
+		$this->view->data = $data;
+		$this->view->errors = $errors;
+	}
 	
 	public function editAction()
 	{

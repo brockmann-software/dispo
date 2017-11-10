@@ -1,0 +1,155 @@
+2017-11-10T08:22:29+01:00 INFO (6): IndexController->IndexAction called
+2017-11-10T08:23:51+01:00 INFO (6): SQL: SELECT tbl_HAN.HANVORNR, tbl_HAN.HANPOSNR, tbl_HAN.HANADRNR, tbl_LIE.LIENAME, tbl_LIE.LIESTRAS, tbl_LIE.LIEPLZOR, convert(varchar(25), tbl_HAN.HANPRODT, 127) AS HANLISDT, HANTABZT, tbl_HAN.HANARTTX, tbl_HAN.HANWARGR, tbl_art.ARTGEBIN, tbl_ART.ARTDURGW, tbl_HAN.HANPMENG, tbl_ART.ARTURSLD FROM tbl_HAN JOIN tbl_ART on (tbl_HAN.HANARTNR = tbl_ART.KEYIART1) join tbl_LIE on (tbl_han.HANADRNR = tbl_LIE.KEYILIE1) WHERE tbl_HAN.HANVORAR = 30 AND tbl_art.ARTAKTKZ = 'A' AND tbl_HAN.HANVORNR = '426'
+2017-11-10T08:23:51+01:00 INFO (6): Bestellungen: Array
+(
+)
+
+2017-11-10T08:24:07+01:00 INFO (6): SQL: SELECT tbl_HAN.HANVORNR, tbl_HAN.HANPOSNR, tbl_HAN.HANADRNR, tbl_LIE.LIENAME, tbl_LIE.LIESTRAS, tbl_LIE.LIEPLZOR, convert(varchar(25), tbl_HAN.HANPRODT, 127) AS HANLISDT, HANTABZT, tbl_HAN.HANARTTX, tbl_HAN.HANWARGR, tbl_art.ARTGEBIN, tbl_ART.ARTDURGW, tbl_HAN.HANPMENG, tbl_ART.ARTURSLD FROM tbl_HAN JOIN tbl_ART on (tbl_HAN.HANARTNR = tbl_ART.KEYIART1) join tbl_LIE on (tbl_han.HANADRNR = tbl_LIE.KEYILIE1) WHERE tbl_HAN.HANVORAR = 30 AND tbl_art.ARTAKTKZ = 'A' AND tbl_HAN.HANVORNR = '426'
+2017-11-10T08:24:07+01:00 INFO (6): Bestellungen: Array
+(
+)
+
+2017-11-10T08:24:09+01:00 INFO (6): SQL: SELECT tbl_HAN.HANVORNR, tbl_HAN.HANPOSNR, tbl_HAN.HANADRNR, tbl_LIE.LIENAME, tbl_LIE.LIESTRAS, tbl_LIE.LIEPLZOR, convert(varchar(25), tbl_HAN.HANPRODT, 127) AS HANLISDT, HANTABZT, tbl_HAN.HANARTTX, tbl_HAN.HANWARGR, tbl_art.ARTGEBIN, tbl_ART.ARTDURGW, tbl_HAN.HANPMENG, tbl_ART.ARTURSLD FROM tbl_HAN JOIN tbl_ART on (tbl_HAN.HANARTNR = tbl_ART.KEYIART1) join tbl_LIE on (tbl_han.HANADRNR = tbl_LIE.KEYILIE1) WHERE tbl_HAN.HANVORAR = 30 AND tbl_art.ARTAKTKZ = 'A' AND tbl_HAN.HANVORNR = '426'
+2017-11-10T08:24:09+01:00 INFO (6): Bestellungen: Array
+(
+)
+
+2017-11-10T08:24:10+01:00 INFO (6): SQL: SELECT tbl_HAN.HANVORNR, tbl_HAN.HANPOSNR, tbl_HAN.HANADRNR, tbl_LIE.LIENAME, tbl_LIE.LIESTRAS, tbl_LIE.LIEPLZOR, convert(varchar(25), tbl_HAN.HANPRODT, 127) AS HANLISDT, HANTABZT, tbl_HAN.HANARTTX, tbl_HAN.HANWARGR, tbl_art.ARTGEBIN, tbl_ART.ARTDURGW, tbl_HAN.HANPMENG, tbl_ART.ARTURSLD FROM tbl_HAN JOIN tbl_ART on (tbl_HAN.HANARTNR = tbl_ART.KEYIART1) join tbl_LIE on (tbl_han.HANADRNR = tbl_LIE.KEYILIE1) WHERE tbl_HAN.HANVORAR = 30 AND tbl_art.ARTAKTKZ = 'A' AND tbl_HAN.HANVORNR = '426'
+2017-11-10T08:24:10+01:00 INFO (6): Bestellungen: Array
+(
+)
+
+2017-11-10T08:24:11+01:00 INFO (6): SQL: SELECT tbl_HAN.HANVORNR, tbl_HAN.HANPOSNR, tbl_HAN.HANADRNR, tbl_LIE.LIENAME, tbl_LIE.LIESTRAS, tbl_LIE.LIEPLZOR, convert(varchar(25), tbl_HAN.HANPRODT, 127) AS HANLISDT, HANTABZT, tbl_HAN.HANARTTX, tbl_HAN.HANWARGR, tbl_art.ARTGEBIN, tbl_ART.ARTDURGW, tbl_HAN.HANPMENG, tbl_ART.ARTURSLD FROM tbl_HAN JOIN tbl_ART on (tbl_HAN.HANARTNR = tbl_ART.KEYIART1) join tbl_LIE on (tbl_han.HANADRNR = tbl_LIE.KEYILIE1) WHERE tbl_HAN.HANVORAR = 30 AND tbl_art.ARTAKTKZ = 'A' AND tbl_HAN.HANVORNR = '426'
+2017-11-10T08:24:11+01:00 INFO (6): Bestellungen: Array
+(
+)
+
+2017-11-10T08:24:31+01:00 INFO (6): IndexController->IndexAction called
+2017-11-10T08:24:44+01:00 INFO (6): SQL: SELECT tbl_HAN.HANVORNR, tbl_HAN.HANPOSNR, tbl_HAN.HANADRNR, tbl_LIE.LIENAME, tbl_LIE.LIESTRAS, tbl_LIE.LIEPLZOR, convert(varchar(25), tbl_HAN.HANPRODT, 127) AS HANLISDT, HANTABZT, tbl_HAN.HANARTTX, tbl_HAN.HANWARGR, tbl_art.ARTGEBIN, tbl_ART.ARTDURGW, tbl_HAN.HANPMENG, tbl_ART.ARTURSLD FROM tbl_HAN JOIN tbl_ART on (tbl_HAN.HANARTNR = tbl_ART.KEYIART1) join tbl_LIE on (tbl_han.HANADRNR = tbl_LIE.KEYILIE1) WHERE tbl_HAN.HANVORAR = 30 AND tbl_art.ARTAKTKZ = 'A' AND tbl_HAN.HANVORNR = '426180'
+2017-11-10T08:24:44+01:00 INFO (6): Bestellungen: Array
+(
+    [0] => Array
+        (
+            [HANVORNR] => 426180
+            [HANPOSNR] => 003
+            [HANADRNR] => 070154
+            [LIENAME] => Del Ande Alimentos S.A.C.
+            [LIESTRAS] => Calle Benjamin Vizquerre S/N Potrer
+            [LIEPLZOR] => 615-4200 Lima
+            [HANLISDT] => 2017-11-10T00:00:00
+            [HANTABZT] => 08:24
+            [HANARTTX] => Erdbeere 8x250g     
+            [HANWARGR] => 0030
+            [ARTGEBIN] => 8.000
+            [ARTDURGW] => 250
+            [HANPMENG] => 256.00
+            [ARTURSLD] => PE
+            [HANLFSNR] => 
+        )
+
+)
+
+2017-11-10T08:25:12+01:00 INFO (6): Variante wurde hinzugefügt: 0030PE8250K438015110
+2017-11-10T09:42:13+01:00 INFO (6): Text Properties: Array
+(
+    [text_width] => 443.39599609375
+    [max_width] => 443.39599609375
+    [height] => 32.8466796875
+    [lines] => Array
+        (
+            [0] => Del Ande Alimentos S.A.C.
+        )
+
+)
+
+2017-11-10T09:46:51+01:00 INFO (6): Text Properties: Array
+(
+    [text_width] => 281.982421875
+    [max_width] => 283
+    [height] => 65.693359375
+    [lines] => Array
+        (
+            [0] => Del Ande
+            [1] => Alimentos S.A.C.
+        )
+
+)
+
+2017-11-10T09:54:32+01:00 INFO (6): Text Properties: Array
+(
+    [text_width] => 281.982421875
+    [max_width] => 283
+    [height] => 65.693359375
+    [lines] => Array
+        (
+            [0] => Del Ande
+            [1] => Alimentos S.A.C.
+        )
+
+)
+
+2017-11-10T09:55:06+01:00 INFO (6): Text Properties: Array
+(
+    [text_width] => 281.982421875
+    [max_width] => 283
+    [height] => 65.693359375
+    [lines] => Array
+        (
+            [0] => Del Ande
+            [1] => Alimentos S.A.C.
+        )
+
+)
+
+2017-11-10T09:59:42+01:00 INFO (6): Text Properties: Array
+(
+    [text_width] => 281.982421875
+    [max_width] => 283
+    [height] => 65.693359375
+    [lines] => Array
+        (
+            [0] => Del Ande
+            [1] => Alimentos S.A.C.
+        )
+
+)
+
+2017-11-10T10:12:22+01:00 INFO (6): Text Properties: Array
+(
+    [text_width] => 281.982421875
+    [max_width] => 283
+    [height] => 65.693359375
+    [lines] => Array
+        (
+            [0] => Del Ande
+            [1] => Alimentos S.A.C.
+        )
+
+)
+
+2017-11-10T10:20:13+01:00 INFO (6): InboundController->IndexAction called
+2017-11-10T10:20:32+01:00 INFO (6): SQL: SELECT tbl_HAN.HANVORNR, tbl_HAN.HANPOSNR, tbl_HAN.HANADRNR, tbl_LIE.LIENAME, tbl_LIE.LIESTRAS, tbl_LIE.LIEPLZOR, convert(varchar(25), tbl_HAN.HANPRODT, 127) AS HANLISDT, HANTABZT, tbl_HAN.HANARTTX, tbl_HAN.HANWARGR, tbl_art.ARTGEBIN, tbl_ART.ARTDURGW, tbl_HAN.HANPMENG, tbl_ART.ARTURSLD FROM tbl_HAN JOIN tbl_ART on (tbl_HAN.HANARTNR = tbl_ART.KEYIART1) join tbl_LIE on (tbl_han.HANADRNR = tbl_LIE.KEYILIE1) WHERE tbl_HAN.HANVORAR = 30 AND tbl_art.ARTAKTKZ = 'A' AND tbl_HAN.HANVORNR = '426180'
+2017-11-10T10:20:32+01:00 INFO (6): Bestellungen: Array
+(
+    [0] => Array
+        (
+            [HANVORNR] => 426180
+            [HANPOSNR] => 003
+            [HANADRNR] => 070154
+            [LIENAME] => Del Ande Alimentos S.A.C.
+            [LIESTRAS] => Calle Benjamin Vizquerre S/N Potrer
+            [LIEPLZOR] => 615-4200 Lima
+            [HANLISDT] => 2017-11-10T00:00:00
+            [HANTABZT] => 10:20
+            [HANARTTX] => Erdbeere 8x250g     
+            [HANWARGR] => 0030
+            [ARTGEBIN] => 8.000
+            [ARTDURGW] => 250
+            [HANPMENG] => 256.00
+            [ARTURSLD] => PE
+            [HANLFSNR] => 
+        )
+
+)
+
+2017-11-10T10:21:05+01:00 INFO (6): Variante wurde hinzugefügt: 0030PE8250K438215110

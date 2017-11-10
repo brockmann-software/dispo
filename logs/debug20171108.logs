@@ -1,0 +1,681 @@
+2017-11-08T09:01:51+01:00 INFO (6): IndexController->IndexAction called
+2017-11-08T09:01:54+01:00 INFO (6): InboundController->IndexAction called
+2017-11-08T09:01:58+01:00 INFO (6): QSL: 
+2017-11-08T09:02:18+01:00 INFO (6): QSL: 
+2017-11-08T11:03:10+01:00 INFO (6): IndexController->IndexAction called
+2017-11-08T11:03:13+01:00 INFO (6): QSL: 
+2017-11-08T11:05:27+01:00 INFO (6): QSL: 
+2017-11-08T11:07:46+01:00 INFO (6): QSL: 
+2017-11-08T11:08:25+01:00 INFO (6): Order:  ORDER BY name asc
+2017-11-08T11:08:25+01:00 INFO (6): QSL: 
+2017-11-08T11:09:00+01:00 INFO (6): QSL:  WHERE UPPER(name) LIKE UPPER("%a%")
+2017-11-08T11:09:07+01:00 INFO (6): Order:  ORDER BY name asc
+2017-11-08T11:09:07+01:00 INFO (6): QSL:  WHERE UPPER(name) LIKE UPPER("%a%")
+2017-11-08T11:09:31+01:00 INFO (6): Order:  ORDER BY country_code asc
+2017-11-08T11:09:31+01:00 INFO (6): QSL:  WHERE UPPER(name) LIKE UPPER("%a%")
+2017-11-08T14:08:25+01:00 INFO (6): Order:  ORDER BY country_code asc
+2017-11-08T14:08:25+01:00 INFO (6): QSL:  WHERE UPPER(name) LIKE UPPER("%a%")
+2017-11-08T14:08:33+01:00 INFO (6): IndexController->IndexAction called
+2017-11-08T14:08:36+01:00 INFO (6): InboundController->IndexAction called
+2017-11-08T14:14:54+01:00 INFO (6): InboundController->IndexAction called
+2017-11-08T14:15:07+01:00 INFO (6): InboundController->IndexAction called
+2017-11-08T14:15:25+01:00 INFO (6): IndexController->IndexAction called
+2017-11-08T14:16:10+01:00 INFO (6): IndexController->IndexAction called
+2017-11-08T14:16:13+01:00 INFO (6): editquality aufgerufen mit Inbound_sheet: Array
+(
+    [No] => 0
+    [inbound] => 0
+    [inb_line] => 0
+    [position] => 
+    [v_delivery_note] => 
+    [vendor] => 
+    [purchase_order] => 
+    [po_line] => 0
+    [po_line_line] => 0
+    [stock_location] => 1
+    [po_arrival_date] => 08.11.2017
+    [po_arrival_time] => 14:16
+    [inb_arrival_date] => 08.11.2017
+    [inb_arrival_time] => 14:16
+    [forwarder] => 
+    [truck] => 
+    [trailor] => 
+    [container] => 
+    [po_transport_temp_min] => 1.00
+    [po_transport_temp_max] => 4.00
+    [inb_transport_temp] => 0
+    [variant] => 
+    [product] => 0026
+    [t_packaging] => 
+    [packaging] => 0
+    [origin] => DE
+    [label] => 0
+    [quality_class] => 1
+    [brand] => 0
+    [quality] => 1
+    [items] => 0
+    [weight_item] => 0
+    [po_lot] => 
+    [po_barcode] => 
+    [po_trading_units] => 0
+    [po_packing_units] => 0
+    [po_pallet] => 
+    [po_pallets] => 0
+    [po_tu_pal] => 0
+    [inb_lot] => 
+    [inb_barcode] => 
+    [items_checked] => 0
+    [inb_trading_units] => 0
+    [inb_packing_units] => 0
+    [inb_pallet] => 
+    [inb_pallets] => 0
+    [inb_tu_pal] => 0
+    [po_brix_min] => 0
+    [po_brix_max] => 0
+    [inb_brix] => 0
+    [inb_certificate] => 1
+    [remarks] => 
+    [checked_by] => 
+    [res_1] => 0
+    [base_1] => 0
+    [rp_1] => 0 %
+    [rl_1] => check_green
+    [res_2] => 0
+    [base_2] => 0
+    [rp_2] => 0 %
+    [rl_2] => check_green
+    [res_3] => 0
+    [base_3] => 0
+    [rp_3] => 0 %
+    [rl_3] => check_green
+    [res_4] => 0
+    [base_4] => 0
+    [rp_4] => 0 %
+    [rl_4] => check_green
+    [res_7] => 0
+    [base_7] => 0
+    [rp_7] => 0 %
+    [rl_7] => check_green
+    [res_6] => 0
+    [base_6] => 0
+    [rp_6] => 0 %
+    [rl_6] => check_green
+    [res_5] => 0
+    [base_5] => 0
+    [rp_5] => 0 %
+    [rl_5] => check_green
+    [res_10] => 0
+    [base_10] => 0
+    [rp_10] => 0 %
+    [rl_10] => check_green
+    [res_13] => 0
+    [base_13] => 0
+    [rp_13] => 0 %
+    [rl_13] => check_green
+    [res_12] => 0
+    [base_12] => 0
+    [rp_12] => 0 %
+    [rl_12] => check_green
+    [res_11] => 0
+    [base_11] => 0
+    [rp_11] => 0 %
+    [rl_11] => check_green
+    [res_9] => 0
+    [base_9] => 0
+    [rp_9] => 0 %
+    [rl_9] => check_green
+    [res_8] => 0
+    [base_8] => 0
+    [rp_8] => 0 %
+    [rl_8] => check_green
+    [res_15] => 0
+    [base_15] => 0
+    [rp_15] => 0
+    [rl_15] => check_green
+    [res_14] => 0
+    [base_14] => 0
+    [rp_14] => 0
+    [rl_14] => check_green
+    [res_16] => 0
+    [base_16] => 0
+    [rp_16] => nicht OK
+    [rl_16] => check_red
+    [res_17] => 0
+    [base_17] => 0
+    [rp_17] => nicht OK
+    [rl_17] => check_red
+    [res_18] => 0
+    [base_18] => 0
+    [rp_18] => 0
+    [rl_18] => check_green
+    [res_19] => 0
+    [base_19] => 0
+    [rp_19] => 0 %
+    [rl_19] => check_green
+)
+
+2017-11-08T14:16:16+01:00 INFO (6): InboundController->IndexAction called
+2017-11-08T14:19:19+01:00 INFO (6): InboundController->IndexAction called
+2017-11-08T14:40:14+01:00 INFO (6): InboundController->IndexAction called
+2017-11-08T14:40:18+01:00 INFO (6): InboundController->IndexAction called
+2017-11-08T14:40:19+01:00 INFO (6): IndexController->IndexAction called
+2017-11-08T14:40:21+01:00 INFO (6): InboundController->IndexAction called
+2017-11-08T14:40:23+01:00 INFO (6): editquality aufgerufen mit Inbound_sheet: Array
+(
+    [No] => 0
+    [inbound] => 0
+    [inb_line] => 0
+    [position] => 
+    [v_delivery_note] => 
+    [vendor] => 
+    [purchase_order] => 
+    [po_line] => 0
+    [po_line_line] => 0
+    [stock_location] => 1
+    [po_arrival_date] => 08.11.2017
+    [po_arrival_time] => 14:40
+    [inb_arrival_date] => 08.11.2017
+    [inb_arrival_time] => 14:40
+    [forwarder] => 
+    [truck] => 
+    [trailor] => 
+    [container] => 
+    [po_transport_temp_min] => 1.00
+    [po_transport_temp_max] => 4.00
+    [inb_transport_temp] => 0
+    [variant] => 
+    [product] => 0026
+    [t_packaging] => 
+    [packaging] => 0
+    [origin] => DE
+    [label] => 0
+    [quality_class] => 1
+    [brand] => 0
+    [quality] => 1
+    [items] => 0
+    [weight_item] => 0
+    [po_lot] => 
+    [po_barcode] => 
+    [po_trading_units] => 0
+    [po_packing_units] => 0
+    [po_pallet] => 
+    [po_pallets] => 0
+    [po_tu_pal] => 0
+    [inb_lot] => 
+    [inb_barcode] => 
+    [items_checked] => 0
+    [inb_trading_units] => 0
+    [inb_packing_units] => 0
+    [inb_pallet] => 
+    [inb_pallets] => 0
+    [inb_tu_pal] => 0
+    [po_brix_min] => 0
+    [po_brix_max] => 0
+    [inb_brix] => 0
+    [inb_certificate] => 1
+    [remarks] => 
+    [checked_by] => 
+    [res_1] => 0
+    [base_1] => 0
+    [rp_1] => 0 %
+    [rl_1] => check_green
+    [res_2] => 0
+    [base_2] => 0
+    [rp_2] => 0 %
+    [rl_2] => check_green
+    [res_3] => 0
+    [base_3] => 0
+    [rp_3] => 0 %
+    [rl_3] => check_green
+    [res_4] => 0
+    [base_4] => 0
+    [rp_4] => 0 %
+    [rl_4] => check_green
+    [res_7] => 0
+    [base_7] => 0
+    [rp_7] => 0 %
+    [rl_7] => check_green
+    [res_6] => 0
+    [base_6] => 0
+    [rp_6] => 0 %
+    [rl_6] => check_green
+    [res_5] => 0
+    [base_5] => 0
+    [rp_5] => 0 %
+    [rl_5] => check_green
+    [res_10] => 0
+    [base_10] => 0
+    [rp_10] => 0 %
+    [rl_10] => check_green
+    [res_13] => 0
+    [base_13] => 0
+    [rp_13] => 0 %
+    [rl_13] => check_green
+    [res_12] => 0
+    [base_12] => 0
+    [rp_12] => 0 %
+    [rl_12] => check_green
+    [res_11] => 0
+    [base_11] => 0
+    [rp_11] => 0 %
+    [rl_11] => check_green
+    [res_9] => 0
+    [base_9] => 0
+    [rp_9] => 0 %
+    [rl_9] => check_green
+    [res_8] => 0
+    [base_8] => 0
+    [rp_8] => 0 %
+    [rl_8] => check_green
+    [res_15] => 0
+    [base_15] => 0
+    [rp_15] => 0
+    [rl_15] => check_green
+    [res_14] => 0
+    [base_14] => 0
+    [rp_14] => 0
+    [rl_14] => check_green
+    [res_16] => 0
+    [base_16] => 0
+    [rp_16] => nicht OK
+    [rl_16] => check_red
+    [res_17] => 0
+    [base_17] => 0
+    [rp_17] => nicht OK
+    [rl_17] => check_red
+    [res_18] => 0
+    [base_18] => 0
+    [rp_18] => 0
+    [rl_18] => check_green
+    [res_19] => 0
+    [base_19] => 0
+    [rp_19] => 0 %
+    [rl_19] => check_green
+)
+
+2017-11-08T14:40:27+01:00 INFO (6): purchaseorderController->IndexAction called
+2017-11-08T14:40:28+01:00 INFO (6): IndexController->IndexAction called
+2017-11-08T14:40:52+01:00 INFO (6): IndexController->IndexAction called
+2017-11-08T14:44:38+01:00 INFO (6): IndexController->IndexAction called
+2017-11-08T14:47:11+01:00 INFO (6): IndexController->IndexAction called
+2017-11-08T14:47:56+01:00 INFO (6): IndexController->IndexAction called
+2017-11-08T14:48:19+01:00 INFO (6): InboundController->IndexAction called
+2017-11-08T15:57:44+01:00 INFO (6): SQL: SELECT tbl_HAN.HANVORNR, tbl_HAN.HANPOSNR, tbl_HAN.HANADRNR, tbl_LIE.LIENAME, tbl_LIE.LIESTRAS, tbl_LIE.LIEPLZOR, convert(varchar(25), tbl_HAN.HANPRODT, 127) AS HANLISDT, HANTABZT, tbl_HAN.HANARTTX, tbl_HAN.HANWARGR, tbl_art.ARTGEBIN, tbl_ART.ARTDURGW, tbl_HAN.HANPMENG, tbl_ART.ARTURSLD FROM tbl_HAN JOIN tbl_ART on (tbl_HAN.HANARTNR = tbl_ART.KEYIART1) join tbl_LIE on (tbl_han.HANADRNR = tbl_LIE.KEYILIE1) WHERE tbl_HAN.HANVORAR = 30 AND tbl_art.ARTAKTKZ = 'A' AND tbl_HAN.HANVORNR = '426154'
+2017-11-08T15:57:45+01:00 INFO (6): Bestellungen: Array
+(
+    [0] => Array
+        (
+            [HANVORNR] => 426154
+            [HANPOSNR] => 001
+            [HANADRNR] => 095940
+            [LIENAME] => Surberry S.L.
+            [LIESTRAS] => C/Lentisco 3 / Office 25
+            [LIEPLZOR] => 21001 Huelva
+            [HANLISDT] => 2017-11-09T00:00:00
+            [HANTABZT] => 15:57
+            [HANARTTX] => Himbeere 12x125g    
+            [HANWARGR] => 0032
+            [ARTGEBIN] => 12.000
+            [ARTDURGW] => 125
+            [HANPMENG] => 240.00
+            [ARTURSLD] => ES
+            [HANLFSNR] => 
+        )
+
+)
+
+2017-11-08T16:00:07+01:00 INFO (6): SQL: SELECT tbl_HAN.HANVORNR, tbl_HAN.HANPOSNR, tbl_HAN.HANADRNR, tbl_LIE.LIENAME, tbl_LIE.LIESTRAS, tbl_LIE.LIEPLZOR, convert(varchar(25), tbl_HAN.HANPRODT, 127) AS HANLISDT, HANTABZT, tbl_HAN.HANARTTX, tbl_HAN.HANWARGR, tbl_art.ARTGEBIN, tbl_ART.ARTDURGW, tbl_HAN.HANPMENG, tbl_ART.ARTURSLD FROM tbl_HAN JOIN tbl_ART on (tbl_HAN.HANARTNR = tbl_ART.KEYIART1) join tbl_LIE on (tbl_han.HANADRNR = tbl_LIE.KEYILIE1) WHERE tbl_HAN.HANVORAR = 30 AND tbl_art.ARTAKTKZ = 'A' AND tbl_HAN.HANVORNR = '426154'
+2017-11-08T16:00:07+01:00 INFO (6): Bestellungen: Array
+(
+    [0] => Array
+        (
+            [HANVORNR] => 426154
+            [HANPOSNR] => 001
+            [HANADRNR] => 095940
+            [LIENAME] => Surberry S.L.
+            [LIESTRAS] => C/Lentisco 3 / Office 25
+            [LIEPLZOR] => 21001 Huelva
+            [HANLISDT] => 2017-11-09T00:00:00
+            [HANTABZT] => 16:00
+            [HANARTTX] => Himbeere 12x125g    
+            [HANWARGR] => 0032
+            [ARTGEBIN] => 12.000
+            [ARTDURGW] => 125
+            [HANPMENG] => 240.00
+            [ARTURSLD] => ES
+            [HANLFSNR] => 
+        )
+
+)
+
+2017-11-08T16:50:10+01:00 INFO (6): SQL: SELECT tbl_HAN.HANVORNR, tbl_HAN.HANPOSNR, tbl_HAN.HANADRNR, tbl_LIE.LIENAME, tbl_LIE.LIESTRAS, tbl_LIE.LIEPLZOR, convert(varchar(25), tbl_HAN.HANPRODT, 127) AS HANLISDT, HANTABZT, tbl_HAN.HANARTTX, tbl_HAN.HANWARGR, tbl_art.ARTGEBIN, tbl_ART.ARTDURGW, tbl_HAN.HANPMENG, tbl_ART.ARTURSLD FROM tbl_HAN JOIN tbl_ART on (tbl_HAN.HANARTNR = tbl_ART.KEYIART1) join tbl_LIE on (tbl_han.HANADRNR = tbl_LIE.KEYILIE1) WHERE tbl_HAN.HANVORAR = 30 AND tbl_art.ARTAKTKZ = 'A' AND tbl_HAN.HANVORNR = '426154'
+2017-11-08T16:50:10+01:00 INFO (6): Bestellungen: Array
+(
+    [0] => Array
+        (
+            [HANVORNR] => 426154
+            [HANPOSNR] => 001
+            [HANADRNR] => 095940
+            [LIENAME] => Surberry S.L.
+            [LIESTRAS] => C/Lentisco 3 / Office 25
+            [LIEPLZOR] => 21001 Huelva
+            [HANLISDT] => 2017-11-09T00:00:00
+            [HANTABZT] => 16:50
+            [HANARTTX] => Himbeere 12x125g    
+            [HANWARGR] => 0032
+            [ARTGEBIN] => 12.000
+            [ARTDURGW] => 125
+            [HANPMENG] => 240.00
+            [ARTURSLD] => ES
+            [HANLFSNR] => 
+        )
+
+)
+
+2017-11-08T16:51:17+01:00 INFO (6): SQL: SELECT tbl_HAN.HANVORNR, tbl_HAN.HANPOSNR, tbl_HAN.HANADRNR, tbl_LIE.LIENAME, tbl_LIE.LIESTRAS, tbl_LIE.LIEPLZOR, convert(varchar(25), tbl_HAN.HANPRODT, 127) AS HANLISDT, HANTABZT, tbl_HAN.HANARTTX, tbl_HAN.HANWARGR, tbl_art.ARTGEBIN, tbl_ART.ARTDURGW, tbl_HAN.HANPMENG, tbl_ART.ARTURSLD FROM tbl_HAN JOIN tbl_ART on (tbl_HAN.HANARTNR = tbl_ART.KEYIART1) join tbl_LIE on (tbl_han.HANADRNR = tbl_LIE.KEYILIE1) WHERE tbl_HAN.HANVORAR = 30 AND tbl_art.ARTAKTKZ = 'A' AND tbl_HAN.HANVORNR = '426154'
+2017-11-08T16:51:17+01:00 INFO (6): Bestellungen: Array
+(
+    [0] => Array
+        (
+            [HANVORNR] => 426154
+            [HANPOSNR] => 001
+            [HANADRNR] => 095940
+            [LIENAME] => Surberry S.L.
+            [LIESTRAS] => C/Lentisco 3 / Office 25
+            [LIEPLZOR] => 21001 Huelva
+            [HANLISDT] => 2017-11-09T00:00:00
+            [HANTABZT] => 16:51
+            [HANARTTX] => Himbeere 12x125g    
+            [HANWARGR] => 0032
+            [ARTGEBIN] => 12.000
+            [ARTDURGW] => 125
+            [HANPMENG] => 240.00
+            [ARTURSLD] => ES
+            [HANLFSNR] => 
+        )
+
+)
+
+2017-11-08T16:52:53+01:00 INFO (6): SQL: SELECT tbl_HAN.HANVORNR, tbl_HAN.HANPOSNR, tbl_HAN.HANADRNR, tbl_LIE.LIENAME, tbl_LIE.LIESTRAS, tbl_LIE.LIEPLZOR, convert(varchar(25), tbl_HAN.HANPRODT, 127) AS HANLISDT, HANTABZT, tbl_HAN.HANARTTX, tbl_HAN.HANWARGR, tbl_art.ARTGEBIN, tbl_ART.ARTDURGW, tbl_HAN.HANPMENG, tbl_ART.ARTURSLD FROM tbl_HAN JOIN tbl_ART on (tbl_HAN.HANARTNR = tbl_ART.KEYIART1) join tbl_LIE on (tbl_han.HANADRNR = tbl_LIE.KEYILIE1) WHERE tbl_HAN.HANVORAR = 30 AND tbl_art.ARTAKTKZ = 'A' AND tbl_HAN.HANVORNR = '426154'
+2017-11-08T16:52:53+01:00 INFO (6): Bestellungen: Array
+(
+    [0] => Array
+        (
+            [HANVORNR] => 426154
+            [HANPOSNR] => 001
+            [HANADRNR] => 095940
+            [LIENAME] => Surberry S.L.
+            [LIESTRAS] => C/Lentisco 3 / Office 25
+            [LIEPLZOR] => 21001 Huelva
+            [HANLISDT] => 2017-11-09T00:00:00
+            [HANTABZT] => 16:52
+            [HANARTTX] => Himbeere 12x125g    
+            [HANWARGR] => 0032
+            [ARTGEBIN] => 12.000
+            [ARTDURGW] => 125
+            [HANPMENG] => 240.00
+            [ARTURSLD] => ES
+            [HANLFSNR] => 
+        )
+
+)
+
+2017-11-08T16:55:49+01:00 INFO (6): SQL: SELECT tbl_HAN.HANVORNR, tbl_HAN.HANPOSNR, tbl_HAN.HANADRNR, tbl_LIE.LIENAME, tbl_LIE.LIESTRAS, tbl_LIE.LIEPLZOR, convert(varchar(25), tbl_HAN.HANPRODT, 127) AS HANLISDT, HANTABZT, tbl_HAN.HANARTTX, tbl_HAN.HANWARGR, tbl_art.ARTGEBIN, tbl_ART.ARTDURGW, tbl_HAN.HANPMENG, tbl_ART.ARTURSLD FROM tbl_HAN JOIN tbl_ART on (tbl_HAN.HANARTNR = tbl_ART.KEYIART1) join tbl_LIE on (tbl_han.HANADRNR = tbl_LIE.KEYILIE1) WHERE tbl_HAN.HANVORAR = 30 AND tbl_art.ARTAKTKZ = 'A' AND tbl_HAN.HANVORNR = '426154'
+2017-11-08T16:55:49+01:00 INFO (6): Bestellungen: Array
+(
+    [0] => Array
+        (
+            [HANVORNR] => 426154
+            [HANPOSNR] => 001
+            [HANADRNR] => 095940
+            [LIENAME] => Surberry S.L.
+            [LIESTRAS] => C/Lentisco 3 / Office 25
+            [LIEPLZOR] => 21001 Huelva
+            [HANLISDT] => 2017-11-09T00:00:00
+            [HANTABZT] => 16:55
+            [HANARTTX] => Himbeere 12x125g    
+            [HANWARGR] => 0032
+            [ARTGEBIN] => 12.000
+            [ARTDURGW] => 125
+            [HANPMENG] => 240.00
+            [ARTURSLD] => ES
+            [HANLFSNR] => 
+        )
+
+)
+
+2017-11-08T16:57:58+01:00 INFO (6): SQL: SELECT tbl_HAN.HANVORNR, tbl_HAN.HANPOSNR, tbl_HAN.HANADRNR, tbl_LIE.LIENAME, tbl_LIE.LIESTRAS, tbl_LIE.LIEPLZOR, convert(varchar(25), tbl_HAN.HANPRODT, 127) AS HANLISDT, HANTABZT, tbl_HAN.HANARTTX, tbl_HAN.HANWARGR, tbl_art.ARTGEBIN, tbl_ART.ARTDURGW, tbl_HAN.HANPMENG, tbl_ART.ARTURSLD FROM tbl_HAN JOIN tbl_ART on (tbl_HAN.HANARTNR = tbl_ART.KEYIART1) join tbl_LIE on (tbl_han.HANADRNR = tbl_LIE.KEYILIE1) WHERE tbl_HAN.HANVORAR = 30 AND tbl_art.ARTAKTKZ = 'A' AND tbl_HAN.HANVORNR = '426154'
+2017-11-08T16:57:58+01:00 INFO (6): Bestellungen: Array
+(
+    [0] => Array
+        (
+            [HANVORNR] => 426154
+            [HANPOSNR] => 001
+            [HANADRNR] => 095940
+            [LIENAME] => Surberry S.L.
+            [LIESTRAS] => C/Lentisco 3 / Office 25
+            [LIEPLZOR] => 21001 Huelva
+            [HANLISDT] => 2017-11-09T00:00:00
+            [HANTABZT] => 16:57
+            [HANARTTX] => Himbeere 12x125g    
+            [HANWARGR] => 0032
+            [ARTGEBIN] => 12.000
+            [ARTDURGW] => 125
+            [HANPMENG] => 240.00
+            [ARTURSLD] => ES
+            [HANLFSNR] => 
+        )
+
+)
+
+2017-11-08T17:02:28+01:00 INFO (6): SQL: SELECT tbl_HAN.HANVORNR, tbl_HAN.HANPOSNR, tbl_HAN.HANADRNR, tbl_LIE.LIENAME, tbl_LIE.LIESTRAS, tbl_LIE.LIEPLZOR, convert(varchar(25), tbl_HAN.HANPRODT, 127) AS HANLISDT, HANTABZT, tbl_HAN.HANARTTX, tbl_HAN.HANWARGR, tbl_art.ARTGEBIN, tbl_ART.ARTDURGW, tbl_HAN.HANPMENG, tbl_ART.ARTURSLD FROM tbl_HAN JOIN tbl_ART on (tbl_HAN.HANARTNR = tbl_ART.KEYIART1) join tbl_LIE on (tbl_han.HANADRNR = tbl_LIE.KEYILIE1) WHERE tbl_HAN.HANVORAR = 30 AND tbl_art.ARTAKTKZ = 'A' AND tbl_HAN.HANVORNR = '426'
+2017-11-08T17:02:28+01:00 INFO (6): Bestellungen: Array
+(
+)
+
+2017-11-08T17:02:37+01:00 INFO (6): SQL: SELECT tbl_HAN.HANVORNR, tbl_HAN.HANPOSNR, tbl_HAN.HANADRNR, tbl_LIE.LIENAME, tbl_LIE.LIESTRAS, tbl_LIE.LIEPLZOR, convert(varchar(25), tbl_HAN.HANPRODT, 127) AS HANLISDT, HANTABZT, tbl_HAN.HANARTTX, tbl_HAN.HANWARGR, tbl_art.ARTGEBIN, tbl_ART.ARTDURGW, tbl_HAN.HANPMENG, tbl_ART.ARTURSLD FROM tbl_HAN JOIN tbl_ART on (tbl_HAN.HANARTNR = tbl_ART.KEYIART1) join tbl_LIE on (tbl_han.HANADRNR = tbl_LIE.KEYILIE1) WHERE tbl_HAN.HANVORAR = 30 AND tbl_art.ARTAKTKZ = 'A' AND tbl_HAN.HANVORNR = '426'
+2017-11-08T17:02:37+01:00 INFO (6): Bestellungen: Array
+(
+)
+
+2017-11-08T17:02:39+01:00 INFO (6): SQL: SELECT tbl_HAN.HANVORNR, tbl_HAN.HANPOSNR, tbl_HAN.HANADRNR, tbl_LIE.LIENAME, tbl_LIE.LIESTRAS, tbl_LIE.LIEPLZOR, convert(varchar(25), tbl_HAN.HANPRODT, 127) AS HANLISDT, HANTABZT, tbl_HAN.HANARTTX, tbl_HAN.HANWARGR, tbl_art.ARTGEBIN, tbl_ART.ARTDURGW, tbl_HAN.HANPMENG, tbl_ART.ARTURSLD FROM tbl_HAN JOIN tbl_ART on (tbl_HAN.HANARTNR = tbl_ART.KEYIART1) join tbl_LIE on (tbl_han.HANADRNR = tbl_LIE.KEYILIE1) WHERE tbl_HAN.HANVORAR = 30 AND tbl_art.ARTAKTKZ = 'A' AND tbl_HAN.HANVORNR = '426'
+2017-11-08T17:02:39+01:00 INFO (6): Bestellungen: Array
+(
+)
+
+2017-11-08T17:02:40+01:00 INFO (6): SQL: SELECT tbl_HAN.HANVORNR, tbl_HAN.HANPOSNR, tbl_HAN.HANADRNR, tbl_LIE.LIENAME, tbl_LIE.LIESTRAS, tbl_LIE.LIEPLZOR, convert(varchar(25), tbl_HAN.HANPRODT, 127) AS HANLISDT, HANTABZT, tbl_HAN.HANARTTX, tbl_HAN.HANWARGR, tbl_art.ARTGEBIN, tbl_ART.ARTDURGW, tbl_HAN.HANPMENG, tbl_ART.ARTURSLD FROM tbl_HAN JOIN tbl_ART on (tbl_HAN.HANARTNR = tbl_ART.KEYIART1) join tbl_LIE on (tbl_han.HANADRNR = tbl_LIE.KEYILIE1) WHERE tbl_HAN.HANVORAR = 30 AND tbl_art.ARTAKTKZ = 'A' AND tbl_HAN.HANVORNR = '426'
+2017-11-08T17:02:40+01:00 INFO (6): Bestellungen: Array
+(
+)
+
+2017-11-08T17:02:41+01:00 INFO (6): SQL: SELECT tbl_HAN.HANVORNR, tbl_HAN.HANPOSNR, tbl_HAN.HANADRNR, tbl_LIE.LIENAME, tbl_LIE.LIESTRAS, tbl_LIE.LIEPLZOR, convert(varchar(25), tbl_HAN.HANPRODT, 127) AS HANLISDT, HANTABZT, tbl_HAN.HANARTTX, tbl_HAN.HANWARGR, tbl_art.ARTGEBIN, tbl_ART.ARTDURGW, tbl_HAN.HANPMENG, tbl_ART.ARTURSLD FROM tbl_HAN JOIN tbl_ART on (tbl_HAN.HANARTNR = tbl_ART.KEYIART1) join tbl_LIE on (tbl_han.HANADRNR = tbl_LIE.KEYILIE1) WHERE tbl_HAN.HANVORAR = 30 AND tbl_art.ARTAKTKZ = 'A' AND tbl_HAN.HANVORNR = '426'
+2017-11-08T17:02:41+01:00 INFO (6): Bestellungen: Array
+(
+)
+
+2017-11-08T17:02:47+01:00 INFO (6): SQL: SELECT tbl_HAN.HANVORNR, tbl_HAN.HANPOSNR, tbl_HAN.HANADRNR, tbl_LIE.LIENAME, tbl_LIE.LIESTRAS, tbl_LIE.LIEPLZOR, convert(varchar(25), tbl_HAN.HANPRODT, 127) AS HANLISDT, HANTABZT, tbl_HAN.HANARTTX, tbl_HAN.HANWARGR, tbl_art.ARTGEBIN, tbl_ART.ARTDURGW, tbl_HAN.HANPMENG, tbl_ART.ARTURSLD FROM tbl_HAN JOIN tbl_ART on (tbl_HAN.HANARTNR = tbl_ART.KEYIART1) join tbl_LIE on (tbl_han.HANADRNR = tbl_LIE.KEYILIE1) WHERE tbl_HAN.HANVORAR = 30 AND tbl_art.ARTAKTKZ = 'A' AND tbl_HAN.HANVORNR = '426'
+2017-11-08T17:02:47+01:00 INFO (6): Bestellungen: Array
+(
+)
+
+2017-11-08T17:02:50+01:00 INFO (6): SQL: SELECT tbl_HAN.HANVORNR, tbl_HAN.HANPOSNR, tbl_HAN.HANADRNR, tbl_LIE.LIENAME, tbl_LIE.LIESTRAS, tbl_LIE.LIEPLZOR, convert(varchar(25), tbl_HAN.HANPRODT, 127) AS HANLISDT, HANTABZT, tbl_HAN.HANARTTX, tbl_HAN.HANWARGR, tbl_art.ARTGEBIN, tbl_ART.ARTDURGW, tbl_HAN.HANPMENG, tbl_ART.ARTURSLD FROM tbl_HAN JOIN tbl_ART on (tbl_HAN.HANARTNR = tbl_ART.KEYIART1) join tbl_LIE on (tbl_han.HANADRNR = tbl_LIE.KEYILIE1) WHERE tbl_HAN.HANVORAR = 30 AND tbl_art.ARTAKTKZ = 'A' AND tbl_HAN.HANVORNR = '426'
+2017-11-08T17:02:50+01:00 INFO (6): Bestellungen: Array
+(
+)
+
+2017-11-08T17:02:55+01:00 INFO (6): SQL: SELECT tbl_HAN.HANVORNR, tbl_HAN.HANPOSNR, tbl_HAN.HANADRNR, tbl_LIE.LIENAME, tbl_LIE.LIESTRAS, tbl_LIE.LIEPLZOR, convert(varchar(25), tbl_HAN.HANPRODT, 127) AS HANLISDT, HANTABZT, tbl_HAN.HANARTTX, tbl_HAN.HANWARGR, tbl_art.ARTGEBIN, tbl_ART.ARTDURGW, tbl_HAN.HANPMENG, tbl_ART.ARTURSLD FROM tbl_HAN JOIN tbl_ART on (tbl_HAN.HANARTNR = tbl_ART.KEYIART1) join tbl_LIE on (tbl_han.HANADRNR = tbl_LIE.KEYILIE1) WHERE tbl_HAN.HANVORAR = 30 AND tbl_art.ARTAKTKZ = 'A' AND tbl_HAN.HANVORNR = '426189'
+2017-11-08T17:02:55+01:00 INFO (6): Bestellungen: Array
+(
+    [0] => Array
+        (
+            [HANVORNR] => 426189
+            [HANPOSNR] => 003
+            [HANADRNR] => 099809
+            [LIENAME] => Dieter Schwerin - Retouren
+            [LIESTRAS] => Paul-RÃ¼cker-Str. 6b
+            [LIEPLZOR] => 47059 Duisburg
+            [HANLISDT] => 2017-11-09T00:00:00
+            [HANTABZT] => 17:02
+            [HANARTTX] => Brombeere 8x125g    
+            [HANWARGR] => 0026
+            [ARTGEBIN] => 8.000
+            [ARTDURGW] => 125
+            [HANPMENG] => 47.00
+            [ARTURSLD] => NL
+            [HANLFSNR] => 
+        )
+
+    [1] => Array
+        (
+            [HANVORNR] => 426189
+            [HANPOSNR] => 005
+            [HANADRNR] => 099809
+            [LIENAME] => Dieter Schwerin - Retouren
+            [LIESTRAS] => Paul-RÃ¼cker-Str. 6b
+            [LIEPLZOR] => 47059 Duisburg
+            [HANLISDT] => 2017-11-09T00:00:00
+            [HANTABZT] => 17:02
+            [HANARTTX] => Brombeere 8x125g    
+            [HANWARGR] => 0026
+            [ARTGEBIN] => 8.000
+            [ARTDURGW] => 125
+            [HANPMENG] => 49.00
+            [ARTURSLD] => NL
+            [HANLFSNR] => 
+        )
+
+)
+
+2017-11-08T17:02:55+01:00 INFO (6): SQL: SELECT tbl_HAN.HANVORNR, tbl_HAN.HANPOSNR, tbl_HAN.HANADRNR, tbl_LIE.LIENAME, tbl_LIE.LIESTRAS, tbl_LIE.LIEPLZOR, convert(varchar(25), tbl_HAN.HANPRODT, 127) AS HANLISDT, convert(varchar(25), tbl_HAN.HANPRODT, 127) AS HANPRODT, HANTABZT, tbl_HAN.HANARTTX, tbl_HAN.HANWARGR, tbl_art.ARTGEBIN, tbl_ART.ARTDURGW, tbl_HAN.HANPMENG, tbl_ART.ARTURSLD FROM tbl_HAN JOIN tbl_ART on (tbl_HAN.HANARTNR = tbl_ART.KEYIART1) join tbl_LIE on (tbl_han.HANADRNR = tbl_LIE.KEYILIE1) WHERE tbl_HAN.HANVORAR = 30 AND tbl_art.ARTAKTKZ = 'A' AND tbl_HAN.HANVORNR = '426189'
+2017-11-08T17:02:55+01:00 INFO (6): Bestellungen: Array
+(
+    [0] => Array
+        (
+            [HANVORNR] => 426189
+            [HANPOSNR] => 003
+            [HANADRNR] => 099809
+            [LIENAME] => Dieter Schwerin - Retouren
+            [LIESTRAS] => Paul-RÃ¼cker-Str. 6b
+            [LIEPLZOR] => 47059 Duisburg
+            [HANLISDT] => 2017-11-09T00:00:00
+            [HANPRODT] => 2017-11-09T00:00:00
+            [HANTABZT] => 17:02
+            [HANARTTX] => Brombeere 8x125g
+            [HANWARGR] => 0026
+            [ARTGEBIN] => 8.000
+            [ARTDURGW] => 125
+            [HANPMENG] => 47.00
+            [ARTURSLD] => NL
+            [HANLFSNR] => 
+        )
+
+    [1] => Array
+        (
+            [HANVORNR] => 426189
+            [HANPOSNR] => 005
+            [HANADRNR] => 099809
+            [LIENAME] => Dieter Schwerin - Retouren
+            [LIESTRAS] => Paul-RÃ¼cker-Str. 6b
+            [LIEPLZOR] => 47059 Duisburg
+            [HANLISDT] => 2017-11-09T00:00:00
+            [HANPRODT] => 2017-11-09T00:00:00
+            [HANTABZT] => 17:02
+            [HANARTTX] => Brombeere 8x125g
+            [HANWARGR] => 0026
+            [ARTGEBIN] => 8.000
+            [ARTDURGW] => 125
+            [HANPMENG] => 49.00
+            [ARTURSLD] => NL
+            [HANLFSNR] => 
+        )
+
+)
+
+2017-11-08T17:03:53+01:00 INFO (6): SQL: SELECT tbl_HAN.HANVORNR, tbl_HAN.HANPOSNR, tbl_HAN.HANADRNR, tbl_LIE.LIENAME, tbl_LIE.LIESTRAS, tbl_LIE.LIEPLZOR, convert(varchar(25), tbl_HAN.HANPRODT, 127) AS HANLISDT, HANTABZT, tbl_HAN.HANARTTX, tbl_HAN.HANWARGR, tbl_art.ARTGEBIN, tbl_ART.ARTDURGW, tbl_HAN.HANPMENG, tbl_ART.ARTURSLD FROM tbl_HAN JOIN tbl_ART on (tbl_HAN.HANARTNR = tbl_ART.KEYIART1) join tbl_LIE on (tbl_han.HANADRNR = tbl_LIE.KEYILIE1) WHERE tbl_HAN.HANVORAR = 30 AND tbl_art.ARTAKTKZ = 'A' AND tbl_HAN.HANVORNR = '426187'
+2017-11-08T17:03:53+01:00 INFO (6): Bestellungen: Array
+(
+    [0] => Array
+        (
+            [HANVORNR] => 426187
+            [HANPOSNR] => 002
+            [HANADRNR] => 072136
+            [LIENAME] => Driscolls of Europe
+            [LIESTRAS] => Bijster 26
+            [LIEPLZOR] => 4817 HX Breda
+            [HANLISDT] => 2017-11-09T00:00:00
+            [HANTABZT] => 17:03
+            [HANARTTX] => Brombeere 8x125g    
+            [HANWARGR] => 0026
+            [ARTGEBIN] => 8.000
+            [ARTDURGW] => 125
+            [HANPMENG] => 224.00
+            [ARTURSLD] => NL
+            [HANLFSNR] => 
+        )
+
+    [1] => Array
+        (
+            [HANVORNR] => 426187
+            [HANPOSNR] => 004
+            [HANADRNR] => 072136
+            [LIENAME] => Driscolls of Europe
+            [LIESTRAS] => Bijster 26
+            [LIEPLZOR] => 4817 HX Breda
+            [HANLISDT] => 2017-11-09T00:00:00
+            [HANTABZT] => 17:03
+            [HANARTTX] => Himbeere 12x125g    
+            [HANWARGR] => 0032
+            [ARTGEBIN] => 12.000
+            [ARTDURGW] => 125
+            [HANPMENG] => 224.00
+            [ARTURSLD] => PT
+            [HANLFSNR] => 
+        )
+
+)
+
+2017-11-08T17:03:53+01:00 INFO (6): SQL: SELECT tbl_HAN.HANVORNR, tbl_HAN.HANPOSNR, tbl_HAN.HANADRNR, tbl_LIE.LIENAME, tbl_LIE.LIESTRAS, tbl_LIE.LIEPLZOR, convert(varchar(25), tbl_HAN.HANPRODT, 127) AS HANLISDT, convert(varchar(25), tbl_HAN.HANPRODT, 127) AS HANPRODT, HANTABZT, tbl_HAN.HANARTTX, tbl_HAN.HANWARGR, tbl_art.ARTGEBIN, tbl_ART.ARTDURGW, tbl_HAN.HANPMENG, tbl_ART.ARTURSLD FROM tbl_HAN JOIN tbl_ART on (tbl_HAN.HANARTNR = tbl_ART.KEYIART1) join tbl_LIE on (tbl_han.HANADRNR = tbl_LIE.KEYILIE1) WHERE tbl_HAN.HANVORAR = 30 AND tbl_art.ARTAKTKZ = 'A' AND tbl_HAN.HANVORNR = '426187'
+2017-11-08T17:03:53+01:00 INFO (6): Bestellungen: Array
+(
+    [0] => Array
+        (
+            [HANVORNR] => 426187
+            [HANPOSNR] => 002
+            [HANADRNR] => 072136
+            [LIENAME] => Driscolls of Europe
+            [LIESTRAS] => Bijster 26
+            [LIEPLZOR] => 4817 HX Breda
+            [HANLISDT] => 2017-11-09T00:00:00
+            [HANPRODT] => 2017-11-09T00:00:00
+            [HANTABZT] => 17:03
+            [HANARTTX] => Brombeere 8x125g
+            [HANWARGR] => 0026
+            [ARTGEBIN] => 8.000
+            [ARTDURGW] => 125
+            [HANPMENG] => 224.00
+            [ARTURSLD] => NL
+            [HANLFSNR] => 
+        )
+
+    [1] => Array
+        (
+            [HANVORNR] => 426187
+            [HANPOSNR] => 004
+            [HANADRNR] => 072136
+            [LIENAME] => Driscolls of Europe
+            [LIESTRAS] => Bijster 26
+            [LIEPLZOR] => 4817 HX Breda
+            [HANLISDT] => 2017-11-09T00:00:00
+            [HANPRODT] => 2017-11-09T00:00:00
+            [HANTABZT] => 17:03
+            [HANARTTX] => Himbeere 12x125g
+            [HANWARGR] => 0032
+            [ARTGEBIN] => 12.000
+            [ARTDURGW] => 125
+            [HANPMENG] => 224.00
+            [ARTURSLD] => PT
+            [HANLFSNR] => 
+        )
+
+)
+

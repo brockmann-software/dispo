@@ -74,6 +74,7 @@ class VendorController extends Zend_Controller_Action
 	public function indexAction()
 	{
 		$params = array();
+		$order = '';
 		$searching = false;
 		($this->hasParam('page')) ? $page = $this->getParam('page') : $page = 1;
 		if ($this->hasParam('No')) {
@@ -88,18 +89,27 @@ class VendorController extends Zend_Controller_Action
 		}
 		if ($this->hasParam('street')) {
 			$searching = true;
-			$params['street']['value'] = $this->getParam('No');
+			$params['street']['value'] = $this->getParam('street');
 			$params['street']['type'] = 'string';
 		}
 		if ($this->hasParam('PO_code')) {
 			$searching = true;
-			$params['PO_code']['value'] = $this->getParam('No');
+			$params['PO_code']['value'] = $this->getParam('PO_Code');
 			$params['PO_code']['type'] = 'string';
 		}
 		if ($this->hasParam('city')) {
 			$searching = true;
-			$params['city']['value'] = $this->getParam('No');
+			$params['city']['value'] = $this->getParam('city');
 			$params['city']['type'] = 'string';
+		}
+		if ($this->hasParam('country_code')) {
+			$searching = true;
+			$params['country_code']['value'] = $this->getParam('country_code');
+			$params['country_code']['type'] = 'string';
+		}
+		if ($this->hasParam('order')) {
+			$order = ' ORDER BY '.$this->getParam('order').' '.$this->getParam('orientation');
+			$this->logger->info('Order: '.print_r($order, true));
 		}
 		($this->hasParam('connector')) ? $connector = $this->getParam('connector') : $connector = 'AND';
 		$pNo = 0;
@@ -111,7 +121,10 @@ class VendorController extends Zend_Controller_Action
 		}
 		$this->logger->info('QSL: '.$sqlStr);
 		$vendor_count = $this->db->query('SELECT COUNT(No) as VENCNT FROM v_vendor'.$sqlStr)->fetchAll()[0]['VENCNT'];
-		$vendors = $this->db->query("SELECT * FROM v_vendor".$sqlStr." LIMIT ".(($page-1)*25).", 25")->fetchAll();
+		$vendors = $this->db->query("SELECT * FROM v_vendor".$sqlStr.$order." LIMIT ".(($page-1)*25).", 25")->fetchAll();
+		$countries = $this->db->query('SELECT * FROM country')->fetchAll();
+		$countries[count($countries)]= array('Id' => '0', 'country' => '- alle -');
+		$this->view->countries = $countries;
 		$this->view->vendor_count = $vendor_count;
 		$this->view->cur_page = $page;
 		$this->view->searching = $searching;
@@ -331,24 +344,25 @@ class VendorController extends Zend_Controller_Action
 				}
 			}
 			if (count($errors)==0) $errors['no_error'] = 'Änderungen erfolgreich';
-		}		
-		($this->hasParam('vendor')) ? $vendor = $this->getParam('vendor') : $errors['vendor'] = 'Keine Lieferantennummer vorhanden!';
-		if ($this->hasParam('No') && ($this->getParam('No')<>0)) {
-			$this->logger->info('Agreement No: '.print_r($this->getParam('No')));
-			$vendor_agreement = $this->db->query('SELECT * FROM vendor_agreement WHERE No = ?', $this->getParam('No'))->fetchAll()[0];
-		} else {
-			$vendor_agreement = array(
-				'No' => 0,
-				'vendor' => $this->getParam('vendor'),
-				'version_year' => 'V_14',
-				'received' => 0,
-				'responsible' => '',
-				'date_received' => '',
-				'date_sent' => date('d.m.Y'),
-				'constraint_1' => '',
-				'constraint_2' => '',
-				'remark' => '',
-				'path' => '');
+		} else {		
+			($this->hasParam('vendor')) ? $vendor = $this->getParam('vendor') : $errors['vendor'] = 'Keine Lieferantennummer vorhanden!';
+			if ($this->hasParam('No') && ($this->getParam('No')<>0)) {
+				$this->logger->info('Agreement No: '.print_r($this->getParam('No')));
+				$vendor_agreement = $this->db->query('SELECT * FROM vendor_agreement WHERE No = ?', $this->getParam('No'))->fetchAll()[0];
+			} else {
+				$vendor_agreement = array(
+					'No' => 0,
+					'vendor' => $this->getParam('vendor'),
+					'version_year' => 'V_14',
+					'received' => 0,
+					'responsible' => '',
+					'date_received' => '',
+					'date_sent' => date('d.m.Y'),
+					'constraint_1' => '',
+					'constraint_2' => '',
+					'remark' => '',
+					'path' => '');
+			}
 		}
 		$this->logger->info(print_r($vendor_agreement, true)); 	
 		$params['errors'] = $errors;

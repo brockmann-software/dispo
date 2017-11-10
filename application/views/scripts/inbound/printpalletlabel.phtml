@@ -1,0 +1,212 @@
+<script>
+function popupFinishedPOBTM(result)
+{
+	getPOBTM(result, 2);
+	if (notIE_popup != null)  {
+		notIE_popup.close();
+		notIE_popup = null;
+	}
+}
+
+function getPOBTM(result, orderCnt)
+{
+	results = http.responseXML.getElementsByTagName('result');
+	if (orderCnt>1) {
+		for (rc = 0; rc<results.length; rc++) {
+			if (result == results[rc].getElementsByTagName('HANPOSNR')[0].firstChild.nodeValue) {
+				orderNo = rc;
+				break;
+			}
+		}
+	} else if (orderCnt==1) { orderNo = 0; }
+	vendor_name = results[orderNo].getElementsByTagName('LIENAME')[0].firstChild.nodeValue;
+	document.getElementById('vendor_name').value = vendor_name;
+	po_arrival = results[orderNo].getElementsByTagName('HANLISDT')[0].firstChild.nodeValue;
+	arrival_array = po_arrival.split("T");
+	arrival_date = arrival_array[0];
+	arrival_time = results[orderNo].getElementsByTagName('HANTABZT')[0].firstChild.nodeValue;
+	arrival_date_array=arrival_date.split("-");
+	arrival_date = arrival_date_array[2]+'.'+arrival_date_array[1]+'.'+arrival_date_array[0];
+//	document.getElementById('vendor_no').value = results[orderNo].getElementsByTagName('HANADRNR')[0].firstChild.nodeValue;
+	document.getElementById('product').value = results[orderNo].getElementsByTagName('HANWARGR')[0].firstChild.nodeValue;
+	document.getElementById('items').value = Number(results[orderNo].getElementsByTagName('ARTGEBIN')[0].firstChild.nodeValue);
+	document.getElementById('weight_item').value = Number(results[orderNo].getElementsByTagName('ARTDURGW')[0].firstChild.nodeValue);
+//	document.getElementById('po_trading_units').value = results[orderNo].getElementsByTagName('HANPMENG')[0].firstChild.nodeValue;
+	document.getElementById('origin').value = results[orderNo].getElementsByTagName('ARTURSLD')[0].firstChild.nodeValue;
+}
+
+function loadPoBTM()
+{
+	function loadPoBTMXML()
+	{
+		if (http.readyState==4) {
+			if (http.responseXML) {
+				xmlResult = http.responseXML;
+				errorCount = ((!xmlResult.getElementsByTagName('errorCount')[0].firstChild) ? 0 : xmlResult.getElementsByTagName('errorCount')[0].firstChild.nodeValue);
+				if (errorCount==0) {
+					result = xmlResult.getElementsByTagName('result');
+					if (result.length>1) {
+						
+						URI = '/purchaseorder/purchaseorderbtmdialog/purchase_order/'+document.getElementById('purchase_order').value;
+						if (!window.showModalDialog) {
+							notIE_popup = window.open(URI, 'Bestellung', 'dialogWidth=800px;dialogHeight=600px;diologLeft=0;dialogTop=100;resizable=yes;scroll=yes');
+				
+						} else {
+							pos=window.showModalDialog(URI,'',
+								   'dialogWidth=800px;dialogHeight=600px;diologLeft=0;dialogTop=100;resizable=yes;scroll=yes');
+							getPOBTM(pos, result.length);
+						}
+					} else if (result.length==1) {
+						getPOBTM('', 1);
+					} else {
+						alert('Keine Bestellung gefunden');
+					}
+				} else {
+					error = xmlResult.getElementsByTagName('error');
+					var errText = '';
+					for (ec = 0; ec < error.length; ec++) {
+						errText += ((error[ec].getElementsByTagName('error_field')[0].firstChild) ? error[ec].getElementsByTagName('error_field')[0].firstChild.nodeValue+': ' : 'No type: ');
+						errText += ((error[ec].getElementsByTagName('error_text')[0].firstChild) ? error[ec].getElementsByTagName('error_text')[0].firstChild.nodeValue+'\n' : 'No message\n');
+					}
+					alert(errText);
+				}
+			} else {
+				alert(http.responseText);
+			}
+		}
+	}
+	
+	po_no = document.getElementById('purchase_order').value;
+	if (po_no!='') {
+		createRequest();
+		var uri = '/purchaseorder/getpolinesbtm/purchase_order/'+po_no;
+		sendRequest("GET", uri, '', loadPoBTMXML, true);
+	}
+}
+</script>
+<?php $data = $this->data; ?>
+<?php $products = $this->params['products'] ?>
+<?php $origins = $this->params['countries']; ?>
+<?php $packagings = $this->params['packagings'] ?>
+<?php $t_packagings = $this->params['t_packagings']; ?>
+<?php $quality_classes = $this->params['quality_classes']; ?>
+<?php $qualities = $this->params['qualities']; ?>
+<?php $brands = $this->params['brands']; ?>
+<?php $labels = $this->params['labels']; ?>
+<form name="pallet_label" method="post">
+<fieldset>
+<legend>Palettendaten</legend>
+<table>
+	<tr>
+		<td>Position</td>
+		<td>
+			<?php if (isset($this->errors['position'])) : ?><div class="error"><?php endif ?>
+			<input type="text" name="position" id="position" size="10" tabindex="1" value="<?php echo $this->data['position']; ?>" />
+			<?php if (isset($this->errors['position'])) : ?><br /><?php echo $this->errors['position']; ?></div><?php endif ?>
+		</td>
+	<tr>
+	<tr>
+		<td>Bestellung</td>
+		<td>
+			<?php if (isset($this->errors['purchase_order'])) : ?><div class="error"><?php endif ?>
+			<input type="text" name="purchase_order" id="purchase_order" size="10" tabindex="2" value="<?php echo $this->data['purchase_order']; ?>" onchange="loadPoBTM()" />
+			<?php if (isset($this->errors['purchase_order'])) : ?><br /><?php echo $this->errors['purchase_order']; ?></div><?php endif ?>
+		</td>
+	</tr>
+	<tr>
+		<td>Lieferant</td>
+		<td><input type="text" name="vendor_name" id="vendor_name" size="100" value="<?php echo $data['vendor_name']; ?>" /></td>
+	</tr>
+	<tr>
+		<td>Product <input type="hidden" name="variant" id="variant" value="variant" /></td>
+		<td><select name="product"  id="product" tabindex="3" onchange="changeProduct()">
+		<?php foreach ($products as $product) : ?>
+		<option value="<?php echo $product['No'];?>" <?php if ($product['No']==$data['product']) echo 'selected'; ?>><?php echo $product['product']; ?></option>
+		<?php endforeach ?>
+		</select></td>
+	</tr>
+	<tr>
+		<td>Einheiten</td>
+		<td><?php if (isset($this->errors['items'])) : ?><div class="error"><?php endif ?>
+			<input type="number" name="items" id="items" size="5" tabindex="4 "value="<?php echo $data['items'];?>" size="8" min="1" />
+			<?php if (isset($this->errors['items'])) : ?><br /><?php echo $this->errors['items']; ?></div><?php endif ?>
+			&#160;x&#160;
+			<?php if (isset($this->errors['weight_item'])) : ?><div class="error"><?php endif ?>
+			<input type="number" name="weight_item" id="weight_item" size="5" tabindex="5" value="<?php echo $data['weight_item']; ?>" size="8" min="1" />g
+			<?php if (isset($this->errors['weight_item'])) : ?><br /><?php echo $this->errors['weight_item']; ?></div><?php endif ?>
+		</td>
+	</tr>
+	<tr>
+		<td>Verpackung</td>
+		<td><select name="packaging" tabindex="6">
+		<?php foreach ($packagings as $packaging) : ?>
+		<option value="<?php echo $packaging['No'];?>"<?php if ($packaging['No']==$data['packaging']) echo ' selected';?>><?php echo $packaging['packaging']; ?></option>
+		<?php endforeach ?>
+		</select></td>
+	</tr>
+	<tr>
+		<td>Transportverp.</td>
+		<td><select name="t_packaging" tabindex="7">
+		<?php foreach ($t_packagings as $t_packaging) : ?>
+		<option value="<?php echo $t_packaging['no'];?>"<?php if ($t_packaging['no']==$data['t_packaging']) echo ' selected';?>><?php echo $t_packaging['transport_packaging']; ?></option>
+		<?php endforeach ?>
+		</select></td>
+	</tr>
+	<tr>
+		<td>Herkunft</td>
+		<td><select name="origin" id="origin" tabindex="8">
+		<?php foreach ($origins as $origin) : ?>
+		<option value="<?php echo $origin['Id'];?>"<?php if ($origin['Id']==$data['origin']) echo ' selected';?>><?php echo $origin['country']; ?></option>
+		<?php endforeach ?>
+		</select></td>
+	</tr>
+	<tr>
+		<td>Klasse</td>
+		<td><select name="quality_class" tabindex="9">
+		<?php foreach ($quality_classes as $quality_class) : ?>
+		<option value="<?php echo $quality_class['No'];?>"<?php if ($quality_class['No']==$data['quality_class']) echo ' selected';?>><?php echo $quality_class['quality_class']; ?></option>
+		<?php endforeach ?>
+		</select></td>
+	</tr>
+	<tr>
+		<td>Qualität</td>
+		<td><select name="quality" tabindex="10">
+		<?php foreach ($qualities as $quality) : ?>
+		<option value="<?php echo $quality['No'];?>"<?php if ($quality['No']==$data['quality']) echo ' selected';?>><?php echo $quality['quality']; ?></option>
+		<?php endforeach ?>
+		</select></td>
+	</tr>
+	<tr>
+		<td>Etikett</td>
+		<td><select name="label" tabindex="11">
+		<?php foreach ($labels as $label) : ?>
+		<option value="<?php echo $label['No'];?>"<?php if ($label['No']==$data['label']) echo ' selected';?>><?php echo $label['label']; ?></option>
+		<?php endforeach ?>
+		</select></td>
+	</tr>
+	<tr>
+		<td>Marke</td>
+		<td><select name="brand" tabindex="12">
+		<?php foreach ($brands as $brand) : ?>
+		<option value="<?php echo $brand['No'];?>"<?php if ($brand['No']==$data['brand']) echo ' selected';?>><?php echo $brand['brand']; ?></option>
+		<?php endforeach ?>
+		</select></td>
+	</tr>
+	<tr>
+		<td>Losnummer</td>
+		<td><input type="text" name="lot" tabindex="13" value="<?php echo $data['lot']; ?>" size="10" /></td>
+	</tr>
+	<tr>
+		<td>Barcode</td>
+		<td><input type="text" name="barcode" tabindex="14" value="<?php echo $data['barcode']; ?>" size="15" /></td>
+	</tr>
+	<tr>
+		<td>Anzahl Paletten</td>
+		<td><input type="number" name="pallets" min="1" step="1" tabindex="15" value="<?php echo $data['pallets']; ?>" /></td>
+	</tr>
+	<tr>
+		<td></td><td><button type="submit">Drucken</button></td>
+	</tr>
+</table>
+</fieldset>
+</form>
