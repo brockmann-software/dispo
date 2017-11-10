@@ -226,7 +226,7 @@ class inboundController extends Zend_Controller_Action
 				$this->view->filename = 'palletlabel.pdf';
 				$layout = $this->_helper->layout();
 				$layout->setLayout('pdf_layout');
-				$this->renderScript('/inbound/pdfpalletlabel.php');
+				$this->renderScript('/inbound/pdfpalletlabeltest.php');
 				//$this->_redirect('/inbound/index/');
 			}
 		} else {
