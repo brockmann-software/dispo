@@ -17,7 +17,7 @@ $textColor = new Zend_Pdf_Color_HTML('black');
 try {
 	$palletlabel = new My_Pdf();
 	for ($p = 0; $p<$this->data['pallets']; $p++) {
-		$page = new My_Pdf_Page(283, 425);
+		$page = new My_Pdf_Page(283, 431);
 		$page->setFont($fontBold, 45);
 		$page->drawText($this->data['vendor_name'], 283/2, 50, 'utf-8', true, My_Pdf::CENTER);
 		$page->setFont($fontBold, 45);
