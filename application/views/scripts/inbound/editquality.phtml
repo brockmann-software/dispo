@@ -1075,9 +1075,9 @@ function addAtt()
 						 <input type="hidden" name="max_regular_<?php echo $qcheckpoint['qck_no']; ?>" id="max_regular_<?php echo $qcheckpoint['qck_no'];?>" value="<?php echo $qcheckpoint['max_regular']; ?>" />
 						 <input type="hidden" name="operator_<?php echo $qcheckpoint['qck_no']; ?>" id="operator_<?php echo $qcheckpoint['qck_no']; ?>" value="<?php echo $qcheckpoint['operator']; ?>" />
 						 <input type="hidden" name="base_<?php echo $qcheckpoint['qck_no']; ?>" id="base_<?php echo $qcheckpoint['qck_no']; ?>" value="<?php echo $data['base_'.$qcheckpoint['qck_no']]; ?>" />
-						 <?php if ($qcheck_log['operator']<2) : ?>
+						 <?php if ($qcheckpoint['operator']<2) : ?>
 						 <input type="number" name="res_<?php echo $qcheckpoint['qck_no']; ?>" id="res_<?php echo $qcheckpoint['qck_no']; ?>" size="5" min="0" step="1" tabindex="51" value="<?php echo $data['res_'.$qcheckpoint['qck_no']]; ?>" onChange="changeDev(this.name)"/>
-						 <?php elseif ($qcheck_log['operator']==2) : ?>
+						 <?php elseif ($qcheckpoint['operator']==2) : ?>
 						 <input type="checkbox" name="res_<?php echo $qcheckpoint['qck_no']; ?>" id="res_<?php echo $qcheckpoint['qck_no']; ?>" tabindex="51" <?php if ($data['res_'.$qcheckpoint['No']]==true) echo 'checked="checked" '; ?>onChange="changeDev(this.name)"/>
 						 <?php endif ?>
 	</td>

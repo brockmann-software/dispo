@@ -1,16 +1,4 @@
 <?php
-function getTextWidth($text, $font, $font_size) {
-    $drawing_text = iconv('', 'UTF-8', $text);
-    $characters    = array();
-    for ($i = 0; $i < strlen($drawing_text); $i++) {
-        $characters[] = ord ($drawing_text[$i]);
-    }
-    $glyphs        = $font->glyphNumbersForCharacters($characters);
-    $widths        = $font->widthsForGlyphs($glyphs);
-    $text_width   = (array_sum($widths) / $font->getUnitsPerEm()) * $font_size;
-    return $text_width;
-}
-
 $fontBold = Zend_Pdf_Font::fontWithPath(realpath(APPLICATION_PATH.'/../public/fonts/').'/compact_bold.ttf');
 $fontNormal = Zend_Pdf_Font::fontWithPath(realpath(APPLICATION_PATH.'/../public/fonts/').'/compact.ttf');
 $textColor = new Zend_Pdf_Color_HTML('black');
