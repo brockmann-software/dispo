@@ -86,6 +86,10 @@ class inboundController extends Zend_Controller_Action
 			$params['inbound']['value'] = $this->getParam('inbound');
 			$params['inbound']['type'] = 'number';
 		}
+		if ($this->hasParam('inb_arrival')) {
+			$params['inb_arrival']['value'] = $this->getParam('inb_arrival');
+			$params['inb_arrival']['type'] = 'date';
+		}
 		if ($this->hasParam('position')) {
 			$params['position']['value'] = $this->getParam('position');
 			$params['position']['type'] = 'string';
@@ -127,9 +131,15 @@ class inboundController extends Zend_Controller_Action
 		foreach ($params as $key => $val) {
 			($pNo==0) ? $whereClause.=' WHERE ' : $whereClause.=' AND ';
 			$pNo++;
-			$val['type']=='string' ? $whereClause.= 'UPPER('.$key.') LIKE UPPER("%'.$val['value'].'%")' : $whereClause.= $key.' = '.$val['value'];
+			switch ($val['type']) {
+				case 'string':	$whereClause.= 'UPPER('.$key.') LIKE UPPER("%'.$val['value'].'%")';
+								break;
+				case 'date':	$whereClause.= "DATE(".$key.") = '".date('Y-m-d', strtotime($val['value']))."'";
+								break;
+				default: $whereClause.= $key.' = '.$val['value'];
+			}
 		}
-		$this->logger->info('InboundController->IndexAction called');
+		$this->logger->info('InboundController->IndexAction called with whereClause: '.$whereClause);
 		$count_inb = $this->db->query("SELECT COUNT(DISTINCT inbound) AS CNT FROM v_inb_line".$whereClause)->fetchAll()[0]['CNT'];
 		$pages = floor($count_inb/20)+1;
 		$inbound = $this->db->query("select * from v_inb_line".$whereClause." GROUP BY inbound ORDER BY inb_arrival DESC LIMIT ".(($page-1)*20).", 20")->fetchAll();

@@ -215,6 +215,7 @@ function sendSearchpattern()
 {
 	var no = document.getElementById('no');
 	var position = document.getElementById('position');
+	var arrival = document.getElementById('arrival');
 	var vendor = document.getElementById('vendor');
 	var purchase_order = document.getElementById('purchase_order');
 	var delivery_note = document.getElementById('delivery_note');
@@ -223,6 +224,10 @@ function sendSearchpattern()
 	
 	uri = '/inbound/index';
 	if (position.value!='') uri+='/position/'+position.value;
+	if (arrival.value!='') {
+		checkDate('arrival');
+		uri+='/inb_arrival/'+arrival.value;
+	}
 	if (vendor.value !='') uri+='/name/'+vendor.value;
 	if (purchase_order.value !='') uri+='/purchase_order/'+purchase_order.value;
 	if (delivery_note.value !='') uri+='/v_delivery_note/'+delivery_note.value;
@@ -267,6 +272,7 @@ function searchKeyPress(e)
 <table id="search_fields" style="display:none">
 	<tr>
 		<th>Position</th>
+		<th>Eingang</th>
 		<th>Lieferant</th>
 		<th>Bestellung</th>
 		<th>Lieferschein</th>
@@ -275,6 +281,7 @@ function searchKeyPress(e)
 	</tr>
 	<tr>
 		<td><input type="text" name="position" id="position" onkeypress="return searchKeyPress(event)" /></td>
+		<td><input type="text" name="arrival" id="arrival" onchange="checkDate('arrival')" onkeypress=" return searchKeyPress(event)" /></td>
 		<td><input type="text" name="vendor" id="vendor" onkeypress="return searchKeyPress(event)" /></td>
 		<td><input type="text" name="purchase_order" id="purchase_order" onkeypress="return searchKeyPress(event)" /></td>
 		<td><input type="text" name="delivery_note" id="delivery_note" onkeypress="return searchKeyPress(event)" /></td>
@@ -305,7 +312,7 @@ function searchKeyPress(e)
 		<a href="/inbound/edit/No/<?php echo $inbound['No']; ?>"><?php echo $inbound['position']; ?></a></td>
 		<td class="data"><?php echo $inbound['vendor_no']; ?></td>
 		<td class="data"><?php echo $inbound['vendor_name'].', '.$inbound['vendor_city'].' '.$inbound['vendor_CC']; ?></td>
-		<td class="data"><?php echo $inbound['inb_arrival']; ?></td>
+		<td class="data"><?php echo date('d.m.Y H:i', strtotime($inbound['inb_arrival'])); ?></td>
 		<td class="data"><?php echo $inbound['v_delivery_note']; ?></td>
 		<td class="data"><?php echo $inbound['inb_truck']; ?></td>
 		<td class="data"><?php echo $inbound['inb_trailor']; ?></td>
