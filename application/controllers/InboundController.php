@@ -77,6 +77,7 @@ class inboundController extends Zend_Controller_Action
 		$errors = array();
 		if ($this->hasParam('error')) $errors['all'] = $this->getParam('error');
 		$params = array();
+		($this->hasParam('page')) ? $page = $this->getParam('page') : $page = 1;
 		if ($this->hasParam('No')) {
 			$params['No']['value'] = $this->getParam('No');
 			$params['No']['type'] = 'number';
@@ -84,6 +85,10 @@ class inboundController extends Zend_Controller_Action
 		if ($this->hasParam('inbound')) {
 			$params['inbound']['value'] = $this->getParam('inbound');
 			$params['inbound']['type'] = 'number';
+		}
+		if ($this->hasParam('position')) {
+			$params['position']['value'] = $this->getParam('position');
+			$params['position']['type'] = 'string';
 		}
 		if ($this->hasParam('purchase_order')) {
 			$params['purchase_order']['value'] = $this->getParam('purchase_order');
@@ -96,6 +101,18 @@ class inboundController extends Zend_Controller_Action
 		if ($this->hasParam('vendor_name')) {
 			$params['vendor_name']['value'] = $this->getParam('vendor_name');
 			$params['vendor_name']['type'] = 'string';
+		}
+		if ($this->hasParam('v_delivery_note')) {
+			$params['v_delivery_note']['value'] = $this->getParam('v_delivery_note');
+			$params['v_delivery_note']['type'] = 'string';
+		}
+		if ($this->hasParam('inb_trailor')) {
+			$params['inb_trailor']['value'] = $this->getParam('inb_trailor');
+			$params['inb_trailor']['type'] = 'string';
+		}
+		if ($this->hasParam('inb_container')) {
+			$params['inb_container']['value'] = $this->getParam('inb_container');
+			$params['inb_container']['type'] = 'string';
 		}
 		if ($this->hasParam('variety')) {
 			$params['variety']['value'] = $this->getParam('variety');
@@ -115,11 +132,12 @@ class inboundController extends Zend_Controller_Action
 		$this->logger->info('InboundController->IndexAction called');
 		$count_inb = $this->db->query("SELECT COUNT(DISTINCT inbound) AS CNT FROM v_inb_line".$whereClause)->fetchAll()[0]['CNT'];
 		$pages = floor($count_inb/20)+1;
-		$inbound = $this->db->query("select * from v_inb_line".$whereClause." GROUP BY inbound ORDER BY inb_arrival DESC LIMIT 20")->fetchAll();
+		$inbound = $this->db->query("select * from v_inb_line".$whereClause." GROUP BY inbound ORDER BY inb_arrival DESC LIMIT ".(($page-1)*20).", 20")->fetchAll();
 		(count($inbound)>0) ? $inbound_lines = $this->db->query('SELECT * from v_inb_line WHERE inbound = ?', $inbound[0]['inbound']) : $inbound_lines = array();
 		$this->view->pages = $pages;
 		$this->view->count_inb = $count_inb;
 		$this->view->inbounds = $inbound;
+		$this->view->cur_page = $page;
 		$this->view->inbound_lines = $inbound_lines;
 		$this->view->errors = $errors;
 	}

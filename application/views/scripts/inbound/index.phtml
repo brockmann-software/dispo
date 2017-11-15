@@ -210,14 +210,57 @@ function reverseInboundLine(link)
 	url = "/inbound/reverseinboundline/No/"+link.parentNode.parentNode.id;
 	if (confirm("Wareneingang stornieren?")) window.location = url;
 }
+
+function sendSearchpattern()
+{
+	var no = document.getElementById('no');
+	var position = document.getElementById('position');
+	var vendor = document.getElementById('vendor');
+	var purchase_order = document.getElementById('purchase_order');
+	var delivery_note = document.getElementById('delivery_note');
+	var trailor = document.getElementById('trailor');
+	var container = document.getElementById('container');
+	
+	uri = '/inbound/index';
+	if (position.value!='') uri+='/position/'+position.value;
+	if (vendor.value !='') uri+='/name/'+vendor.value;
+	if (purchase_order.value !='') uri+='/purchase_order/'+purchase_order.value;
+	if (delivery_note.value !='') uri+='/v_delivery_note/'+delivery_note.value;
+	if (trailor.value != '') uri+='/inb_trailor/'+trailor.value;
+	if (container.value!='') uri+='/inb_container/'+container.value;
+//	if (document.getElementById('vendors').dataset.order !='') uri+=document.getElementById('vendors').dataset.order;
+	window.location = uri;
+}
+
+function searchKeyPress(e)
+{
+	e = e || window.event;
+	if (e.keyCode == 13) {
+		document.getElementById('searchButton').click();
+		return false;
+	}
+	return true;
+}
 -->
 </script>
 <?php $inbounds = $this->inbounds; ?>
 <?php $inbound_lines = $this->inbound_lines; ?>
 <?php $count_inb = $this->count_inb; ?>
+<?php $pages = floor($count_inb/20) + 1; ?>
+<?php $cur_page = $this->cur_page; ?>
 <?php if (isset($this->errors['all'])) : ?><div class="error" id="error"><?php echo $this->errors['all']; ?></div><?php endif ?>
 <a href="/inbound/editquality/">Neuer Wareneingang</a>
 <hr />
+<?php if ($pages > 1) : ?>
+<div id="page">
+<?php if ($cur_page>2) : ?><a href="/inbound/index/page/1"><<</a>&#160;<?php endif ?>
+<?php if ($cur_page>1) : ?><a href="/inbound/index/page/<?php echo $cur_page-1; ?>"><</a>&#160;<?php endif ?>
+<?php echo "Seite $cur_page" ?>&#160;
+<?php if ($cur_page<$pages) : ?><a href="/inbound/index/page/<?php echo $cur_page+1; ?>">></a>&#160;<?php endif ?>
+<?php if (($cur_page+1)<$pages) : ?><a href="/inbound/index/page/<?php echo $pages; ?>">>></a><?php endif ?>
+</div>
+<?php endif ?>
+
 <div>Wareneingänge: <?php echo $count_inb; ?></div>
 <div id="search_inb" class="search_dialog" >
 <button onclick="toggleElement('search_fields')">Suchen</button>
@@ -231,12 +274,13 @@ function reverseInboundLine(link)
 		<th>Container</th>
 	</tr>
 	<tr>
-		<td><input type="text" name="position" id="position" /></td>
-		<td><input type="text" name="vendor" id="vendor" /></td>
-		<td><input type="text" name="purchase_order" id="purchase_order" /></td>
-		<td><input type="text" name="delivery_note" id="delivery_note" /></td>
-		<td><input type="text" name="truck" id="truck" /></td>
-		<td><input type="text" name="container" id="container" /></td>
+		<td><input type="text" name="position" id="position" onkeypress="return searchKeyPress(event)" /></td>
+		<td><input type="text" name="vendor" id="vendor" onkeypress="return searchKeyPress(event)" /></td>
+		<td><input type="text" name="purchase_order" id="purchase_order" onkeypress="return searchKeyPress(event)" /></td>
+		<td><input type="text" name="delivery_note" id="delivery_note" onkeypress="return searchKeyPress(event)" /></td>
+		<td><input type="text" name="trailor" id="trailor" onkeypress="return searchKeyPress(event)" /></td>
+		<td><input type="text" name="container" id="container" onkeypress="return searchKeyPress(event)" /></td>
+		<td><button type="button" id="searchButton" onclick="sendSearchpattern()">Suchen</button></td>
 	</tr>
 </table>
 </div>
@@ -310,4 +354,13 @@ function reverseInboundLine(link)
 <?php endforeach ?>
 </tbody>
 </table>
+<?php if ($pages > 1) : ?>
+<div id="page">
+<?php if ($cur_page>2) : ?><a href="/inbound/index/page/1"><<</a>&#160;<?php endif ?>
+<?php if ($cur_page>1) : ?><a href="/inbound/index/page/<?php echo $cur_page-1; ?>"><</a>&#160;<?php endif ?>
+<?php echo "Seite $cur_page" ?>&#160;
+<?php if ($cur_page<$pages) : ?><a href="/inbound/index/page/<?php echo $cur_page+1; ?>">></a>&#160;<?php endif ?>
+<?php if (($cur_page+1)<$pages) : ?><a href="/inbound/index/page/<?php echo $pages; ?>">>></a><?php endif ?>
+</div>
+<?php endif ?>
 <hr />
