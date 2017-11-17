@@ -1,24 +1,186 @@
 <?php
-function getTextWidth($text, $font, $font_size) {
-    $drawing_text = iconv('', 'UTF-8', $text);
-    $characters    = array();
-    for ($i = 0; $i < strlen($drawing_text); $i++) {
-        $characters[] = ord ($drawing_text[$i]);
-    }
-    $glyphs        = $font->glyphNumbersForCharacters($characters);
-    $widths        = $font->widthsForGlyphs($glyphs);
-    $text_width   = (array_sum($widths) / $font->getUnitsPerEm()) * $font_size;
-    return $text_width;
-}
+try {
+	$style_body = new Zend_Pdf_Style();
+	$style_body->setLineWidth(1);
+	$fontBold = Zend_Pdf_Font::fontWithPath(realpath(APPLICATION_PATH.'/../public/fonts/').'/ARIALBD.ttf');
+	$fontNormal = Zend_Pdf_Font::fontWithPath(realpath(APPLICATION_PATH.'/../public/fonts/').'/arial.ttf');
 
-$palletlabel = new Zend_Pdf();
-$page = new Zend_Pdf_Page(283, 425);
-$palletlabel->pages[] = $page;
-$fontBold = Zend_Pdf_Font::fontWithName(Zend_Pdf_Font::FONT_TIMES_BOLD);
-$fontNormal = Zend_Pdf_Font::fontWithName(Zend_Pdf_Font::FONT_TIMES);
-$textColor = new Zend_Pdf_Color_HTML('black');
-$page->setFont($fontBold, 32);
-$page->drawText(date('d.m.Y'), 10, 20, 'utf-8');
-//$page->drawText('P '.$this->data['position'], 10, 45, 'utf-8');
-//$page->drawText("{$this->data['items']}X{$this->data['weight_item']}g", 10, 80, 'utf-8');
-echo $palletlabel->render();
+// Report Header
+	$headerTable = new My_Pdf_Table(2);
+	$headRow = new My_Pdf_Table_Row();
+	$headRow->setFont($fontBold, 12);
+	$headCol = array();
+	
+	$headCol[0] = new My_Pdf_Table_Column();
+	$headCol[0]->setWidth(array(6, 'cm'));
+	$headCol[0]->setImage(realpath(APPLICATION_PATH.'/../public/images/logo_mvs.jpg'), My_Pdf::LEFT, My_Pdf::CENTER, 0.5);
+	
+	$headCol[1] = new My_Pdf_Table_Column();
+	$headCol[1]->setFont($fontBold, 14);
+	$headCol[1]->setText('Warenbestandsliste');
+	
+	$headRow->setColumns($headCol);
+	$headerTable->addRow($headRow);
+
+// Spaltendefinition
+// Design Kopfzeile
+// Design Ränder
+	$borderStyle = new Zend_Pdf_Style();
+	$borderStyle->setLineWidth(1);
+	$borderStyle->setFillColor(new Zend_Pdf_Color_HTML('black'));
+	$borderStyle->setLinedashingPattern(Zend_Pdf_Page::LINE_DASHING_SOLID);
+	
+	$headerStyle = new My_Pdf_Table_Column_Style();
+	$headerStyle->setFillColor(new Zend_Pdf_Color_HTML('black'));
+	$headerStyle->setBackgroundColor(New Zend_Pdf_Color_HTML('yellow'));
+	$headerStyle->setFont($fontBold, 8);
+	$headerStyle->setTextAlign(My_Pdf::CENTER);
+	$headerStyle->setBorder(array(My_Pdf::LEFT=>$borderStyle, My_Pdf::TOP=>$borderStyle, My_Pdf::RIGHT=>$borderStyle, My_Pdf::BOTTOM=>$borderStyle));
+	$headerStyle->setPadding(array(2,2,2,2));
+	
+// Design Datenzeilen
+// Wie Kopfzeile
+	$bodyStyle = new My_Pdf_Table_Column_Style($headerStyle);
+//  Anderer Font und Ausrichtung
+	$bodyStyle->setBackgroundColor(new Zend_Pdf_Color_HTML('white'));
+	$bodyStyle->setFont($fontNormal, 7);
+	$bodyStyle->setTextAlign(My_Pdf::LEFT);
+	
+	$columns = array();
+	$column = new My_Pdf_Report_Column('product_desc', 'Produkt', array(2.2, 'cm'));
+	$column->setHeaderStyle($headerStyle);
+	$column->setBodyStyle($bodyStyle);
+	$columns[] = $column;
+	
+	$column = new My_Pdf_Report_Column('origin', 'Urs', array(0.85, 'cm'));
+	$column->setHeaderStyle($headerStyle);
+	$column->setBodyStyle($bodyStyle);
+	$columns[] = $column;
+
+	$column = new My_Pdf_Report_Column('inb_lot', 'Los-Nr', array(1, 'cm'));
+	$column->setHeaderStyle($headerStyle);
+	$column->setBodyStyle($bodyStyle);
+	$columns[] = $column;
+		
+	$column = new My_Pdf_Report_Column('label', 'Auszeichn', array(3.5, 'cm'));
+	$column->setHeaderStyle($headerStyle);
+	$column->setBodyStyle($bodyStyle);
+	$columns[] = $column;
+		
+	$column = new My_Pdf_Report_Column('t_packaging', 'Verp', array(1, 'cm'));
+	$column->setHeaderStyle($headerStyle);
+	$column->setBodyStyle($bodyStyle);
+	$columns[] = $column;
+
+	$column = new My_Pdf_Report_Column('items', 'Pkst', array(0.8, 'cm'));
+	$column->setHeaderStyle($headerStyle);
+	$column->setBodyStyle($bodyStyle);
+	$column->setColumnAlign(My_Pdf::CENTER);
+	$columns[] = $column;
+
+	$column = new My_Pdf_Report_Column('weight_item', 'g Pkst', array(1, 'cm'));
+	$column->setHeaderStyle($headerStyle);
+	$column->setBodyStyle($bodyStyle);
+	$column->setColumnAlign(My_Pdf::CENTER);
+	$columns[] = $column;
+
+	$column = new My_Pdf_Report_Column('brand', 'Marke', array(1.5, 'cm'));
+	$column->setHeaderStyle($headerStyle);
+	$column->setBodyStyle($bodyStyle);
+	$column->setColumnAlign(My_Pdf::CENTER);
+	$columns[] = $column;
+
+	$column = new My_Pdf_Report_Column('vendor_name', 'Lieferant', array(4.5, 'cm'));
+	$column->setHeaderStyle($headerStyle);
+	$column->setBodyStyle($bodyStyle);
+	$columns[] = $column;
+
+	$column = new My_Pdf_Report_Column('inb_arrival', 'Eingang', array(1.2, 'cm'), array('date', 'd.m.y'));
+	$column->setHeaderStyle($headerStyle);
+	$column->setBodyStyle($bodyStyle);
+	$column->setColumnAlign(My_Pdf::CENTER);
+	$columns[] = $column;
+
+	$column = new My_Pdf_Report_Column('stock_pallets', 'Pal', array(0.8, 'cm'));
+	$column->setHeaderStyle($headerStyle);
+	$column->setBodyStyle($bodyStyle);
+	$column->setColumnAlign(My_Pdf::RIGHT);
+	$columns[] = $column;
+		
+	$column = new My_Pdf_Report_Column('stock', 'Bestand', array(1.5, 'cm'));
+	$column->setHeaderStyle($headerStyle);
+	$column->setBodyStyle($bodyStyle);
+	$column->setColumnAlign(My_Pdf::RIGHT);
+	$columns[] = $column;
+		
+	$column = new My_Pdf_Report_Column('grade_weighted', 'QC', array(0.5, 'cm'));
+	$column->setHeaderStyle($headerStyle);
+	$column->setBodyStyle($bodyStyle);
+	$column->setColumnAlign(My_Pdf::CENTER);
+	$columns[] = $column;
+	
+	$column = new My_Pdf_Report_Column('remarks', 'Bemerkungen');
+	$column->setHeaderStyle($headerStyle);
+	$column->setBodyStyle($bodyStyle);
+	$columns[] = $column;
+	
+// Gruppen definieren	
+	$groupHeaderStyle = new My_Pdf_Table_Column_Style($bodyStyle);
+	$groupHeaderStyle->setBackgroundColor(new Zend_Pdf_Color_HTML('green'));
+	$groupColumns = array();
+	
+	$groupFooterStyle = new My_Pdf_Table_Column_Style($headerStyle);
+	$groupFooterStyle->setBackgroundColor(new Zend_Pdf_Color_HTML('lightgrey'));
+
+	$groups = array();
+// Gruppe 1
+	$groupColumn = new My_Pdf_Report_Group_Column('product_desc', true, true);
+	$groupColumn->setHeaderStyle($groupHeaderStyle);
+	$groupColumns[] = $groupColumn;
+
+	$groupColumn = new My_Pdf_Report_Group_Column('stock', false, true, My_Pdf_Report_Group::COMPUTE);
+	$groupColumn->setHeaderStyle($groupHeaderStyle);
+	$groupColumn->setFooterStyle($groupFooterStyle);
+	$groupColumn->getFooterStyle()->setTextAlign(My_Pdf::RIGHT);
+	$groupColumns[] = $groupColumn;
+
+	echo "Spalten Gruppe 1: ".count($groupColumns)."<br />";
+	$group = new My_Pdf_Report_Group($groupColumns, $groupHeaderStyle, $groupFooterStyle);
+	$groups[] = $group;
+	
+	$groupColumns = array();
+
+	$groupColumn = new My_Pdf_Report_Group_Column('product_desc', false, true);
+	$groupColumn->setHeaderStyle($groupHeaderStyle);
+	$groupColumns[] = $groupColumn;
+
+	$groupColumn = new My_Pdf_Report_Group_Column('items', false, true);
+	$groupColumn->setHeaderStyle($groupHeaderStyle);
+	$groupColumns[] = $groupColumn;
+
+	$groupColumn = new My_Pdf_Report_Group_Column('weight_item', false, true);
+	$groupColumn->setHeaderStyle($groupHeaderStyle);
+	$groupColumns[] = $groupColumn;
+
+	$groupColumn = new My_Pdf_Report_Group_Column('brand', false, true);
+	$groupColumn->setHeaderStyle($groupHeaderStyle);
+	$groupColumns[] = $groupColumn;
+
+	$groupColumn = new My_Pdf_Report_Group_Column('stock', false, true, My_Pdf_Report_Group::COMPUTE);
+	$groupColumn->setHeaderStyle($groupHeaderStyle);
+	$groupColumn->setFooterStyle($groupFooterStyle);
+	$groupColumn->getFooterStyle()->setTextAlign(My_Pdf::RIGHT);
+	$groupColumns[] = $groupColumn;
+	echo "Spalten Gruppe 2: ".count($groupColumns)."<br />";
+	$group = new My_Pdf_Report_Group($groupColumns, $groupHeaderStyle, $groupFooterStyle);
+	$groups[] = $group;
+	echo "Gruppen: ".count($groups)."<br />";
+	
+	$inventoryReport = new My_Pdf_Report('Bestand.pdf', 'C:\www-dev\dispo\\', $this->inventories, Zend_Pdf_Page::SIZE_A4_LANDSCAPE, 'utf-8');
+	$inventoryReport->setHeader($headerTable);
+	$inventoryReport->setColumns($columns);
+	$inventoryReport->setGroups($groups);
+	$inventoryReport->save();
+} catch (Exception $e) {
+	Zend_Registry::get('logger')->err($e->getMessage());
+}
