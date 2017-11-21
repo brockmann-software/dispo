@@ -1,0 +1,8 @@
+2017-11-11T09:49:51+01:00 INFO (6): IndexController->IndexAction called
+2017-11-11T10:20:07+01:00 ERR (3): not defined
+2017-11-11T11:41:20+01:00 INFO (6): Variante wurde hinzugefügt: 0030MA10500K438215110
+2017-11-11T12:02:15+01:00 ERR (3): Can not open 'C:\www-dev\dispo\/Bestand.pdf' file for writing.
+2017-11-11T12:04:52+01:00 ERR (3): Can not open 'C:\www-dev\dispo\/Bestand.pdf' file for writing.
+2017-11-11T12:32:12+01:00 ERR (3): Can not open 'C:\www-dev\dispo\/Bestand.pdf' file for writing.
+2017-11-11T13:08:12+01:00 ERR (3): Can not open 'C:\www-dev\dispo\/Bestand.pdf' file for writing.
+2017-11-11T15:05:45+01:00 ERR (3): Can not open 'C:\www-dev\dispo\/Bestand.pdf' file for writing.

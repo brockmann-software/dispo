@@ -1,0 +1,2634 @@
+2017-11-20T10:44:15+01:00 INFO (6): IndexController->IndexAction called
+2017-11-20T10:58:43+01:00 INFO (6): POST: Array
+(
+    [No] => new
+    [product] => 0026
+    [quality_checkpoint] => 1
+    [max_good] => 3
+    [max_regular] => 
+)
+
+2017-11-20T11:07:32+01:00 INFO (6): POST: Array
+(
+    [No] => new
+    [product] => 0026
+    [quality_checkpoint] => 20
+    [max_good] => 
+    [max_regular] => 
+)
+
+2017-11-20T11:07:32+01:00 INFO (6): qc_product: Array
+(
+    [No] => new
+    [product] => 0026
+    [quality_checkpoint] => 20
+    [max_good] => 
+    [max_regular] => 
+    [operator] => 0
+)
+
+2017-11-20T11:10:31+01:00 INFO (6): editquality aufgerufen mit Inbound_sheet: Array
+(
+    [No] => 0
+    [inbound] => 0
+    [inb_line] => 0
+    [position] => 
+    [v_delivery_note] => 
+    [vendor] => 
+    [purchase_order] => 
+    [po_line] => 0
+    [po_line_line] => 0
+    [stock_location] => 1
+    [po_arrival_date] => 20.11.2017
+    [po_arrival_time] => 11:10
+    [inb_arrival_date] => 20.11.2017
+    [inb_arrival_time] => 11:10
+    [forwarder] => 
+    [truck] => 
+    [trailor] => 
+    [container] => 
+    [po_transport_temp_min] => 1.00
+    [po_transport_temp_max] => 4.00
+    [inb_transport_temp] => 0
+    [variant] => 
+    [product] => 0026
+    [t_packaging] => 
+    [packaging] => 0
+    [origin] => DE
+    [label] => 0
+    [quality_class] => 1
+    [brand] => 0
+    [quality] => 1
+    [items] => 0
+    [weight_item] => 0
+    [po_lot] => 
+    [po_barcode] => 
+    [po_trading_units] => 0
+    [po_packing_units] => 0
+    [po_pallet] => 
+    [po_pallets] => 0
+    [po_tu_pal] => 0
+    [inb_lot] => 
+    [inb_barcode] => 
+    [items_checked] => 0
+    [inb_trading_units] => 0
+    [inb_packing_units] => 0
+    [inb_pallet] => 
+    [inb_pallets] => 0
+    [inb_tu_pal] => 0
+    [po_brix_min] => 0
+    [po_brix_max] => 0
+    [inb_brix] => 0
+    [inb_certificate] => 1
+    [remarks] => 
+    [checked_by] => 
+    [res_1] => 0
+    [base_1] => 0
+    [rp_1] => 0 %
+    [rl_1] => check_green
+    [res_4] => 0
+    [base_4] => 0
+    [rp_4] => 0 %
+    [rl_4] => check_green
+    [res_3] => 0
+    [base_3] => 0
+    [rp_3] => 0 %
+    [rl_3] => check_green
+    [res_2] => 0
+    [base_2] => 0
+    [rp_2] => 0 %
+    [rl_2] => check_green
+    [res_6] => 0
+    [base_6] => 0
+    [rp_6] => 0 %
+    [rl_6] => check_green
+    [res_5] => 0
+    [base_5] => 0
+    [rp_5] => 0 %
+    [rl_5] => check_green
+    [res_20] => 0
+    [base_20] => 0
+    [rp_20] => 0 %
+    [rl_20] => check_green
+    [res_10] => 0
+    [base_10] => 0
+    [rp_10] => 0 %
+    [rl_10] => check_green
+    [res_7] => 0
+    [base_7] => 0
+    [rp_7] => 0 %
+    [rl_7] => check_green
+    [res_9] => 0
+    [base_9] => 0
+    [rp_9] => 0 %
+    [rl_9] => check_green
+    [res_8] => 0
+    [base_8] => 0
+    [rp_8] => 0 %
+    [rl_8] => check_green
+    [res_15] => 0
+    [base_15] => 0
+    [rp_15] => 0
+    [rl_15] => check_green
+    [res_13] => 0
+    [base_13] => 0
+    [rp_13] => 0 %
+    [rl_13] => check_green
+    [res_12] => 0
+    [base_12] => 0
+    [rp_12] => 0 %
+    [rl_12] => check_green
+    [res_11] => 0
+    [base_11] => 0
+    [rp_11] => 0 %
+    [rl_11] => check_green
+    [res_21] => 0
+    [base_21] => 0
+    [rp_21] => 0 %
+    [rl_21] => check_green
+    [res_14] => 0
+    [base_14] => 0
+    [rp_14] => 0
+    [rl_14] => check_green
+    [res_19] => 0
+    [base_19] => 0
+    [rp_19] => 0 %
+    [rl_19] => check_green
+    [res_18] => 0
+    [base_18] => 0
+    [rp_18] => 0
+    [rl_18] => check_green
+    [res_17] => 0
+    [base_17] => 0
+    [rp_17] => nicht OK
+    [rl_17] => check_red
+    [res_16] => 0
+    [base_16] => 0
+    [rp_16] => nicht OK
+    [rl_16] => check_red
+)
+
+2017-11-20T11:11:15+01:00 INFO (6): InboundController->IndexAction called with whereClause: 
+2017-11-20T11:52:55+01:00 INFO (6): POST: Array
+(
+    [No] => 1
+    [product] => 0026
+    [quality_checkpoint] => 20
+    [max_good] => 1
+    [max_regular] => 0.00
+)
+
+2017-11-20T11:52:55+01:00 INFO (6): qc_product: Array
+(
+    [No] => 1
+    [product] => 0026
+    [quality_checkpoint] => 20
+    [max_good] => 1
+    [max_regular] => 0.00
+    [operator] => 0
+)
+
+2017-11-20T11:52:58+01:00 INFO (6): POST: Array
+(
+    [No] => 1
+    [product] => 0026
+    [quality_checkpoint] => 20
+    [max_good] => 1
+    [max_regular] => 3
+)
+
+2017-11-20T11:52:58+01:00 INFO (6): qc_product: Array
+(
+    [No] => 1
+    [product] => 0026
+    [quality_checkpoint] => 20
+    [max_good] => 1
+    [max_regular] => 3
+    [operator] => 0
+)
+
+2017-11-20T12:10:35+01:00 INFO (6): InboundController->IndexAction called with whereClause: 
+2017-11-20T12:10:37+01:00 INFO (6): editquality aufgerufen mit Inbound_sheet: Array
+(
+    [No] => 0
+    [inbound] => 0
+    [inb_line] => 0
+    [position] => 
+    [v_delivery_note] => 
+    [vendor] => 
+    [purchase_order] => 
+    [po_line] => 0
+    [po_line_line] => 0
+    [stock_location] => 1
+    [po_arrival_date] => 20.11.2017
+    [po_arrival_time] => 12:10
+    [inb_arrival_date] => 20.11.2017
+    [inb_arrival_time] => 12:10
+    [forwarder] => 
+    [truck] => 
+    [trailor] => 
+    [container] => 
+    [po_transport_temp_min] => 1.00
+    [po_transport_temp_max] => 4.00
+    [inb_transport_temp] => 0
+    [variant] => 
+    [product] => 0026
+    [t_packaging] => 
+    [packaging] => 0
+    [origin] => DE
+    [label] => 0
+    [quality_class] => 1
+    [brand] => 0
+    [quality] => 1
+    [items] => 0
+    [weight_item] => 0
+    [po_lot] => 
+    [po_barcode] => 
+    [po_trading_units] => 0
+    [po_packing_units] => 0
+    [po_pallet] => 
+    [po_pallets] => 0
+    [po_tu_pal] => 0
+    [inb_lot] => 
+    [inb_barcode] => 
+    [items_checked] => 0
+    [inb_trading_units] => 0
+    [inb_packing_units] => 0
+    [inb_pallet] => 
+    [inb_pallets] => 0
+    [inb_tu_pal] => 0
+    [po_brix_min] => 0
+    [po_brix_max] => 0
+    [inb_brix] => 0
+    [inb_certificate] => 1
+    [remarks] => 
+    [checked_by] => 
+    [res_1] => 0
+    [base_1] => 0
+    [rp_1] => 0 %
+    [rl_1] => check_green
+    [res_4] => 0
+    [base_4] => 0
+    [rp_4] => 0 %
+    [rl_4] => check_green
+    [res_3] => 0
+    [base_3] => 0
+    [rp_3] => 0 %
+    [rl_3] => check_green
+    [res_2] => 0
+    [base_2] => 0
+    [rp_2] => 0 %
+    [rl_2] => check_green
+    [res_6] => 0
+    [base_6] => 0
+    [rp_6] => 0 %
+    [rl_6] => check_green
+    [res_5] => 0
+    [base_5] => 0
+    [rp_5] => 0 %
+    [rl_5] => check_green
+    [res_20] => 0
+    [base_20] => 0
+    [rp_20] => 0 %
+    [rl_20] => check_green
+    [res_10] => 0
+    [base_10] => 0
+    [rp_10] => 0 %
+    [rl_10] => check_green
+    [res_7] => 0
+    [base_7] => 0
+    [rp_7] => 0 %
+    [rl_7] => check_green
+    [res_9] => 0
+    [base_9] => 0
+    [rp_9] => 0 %
+    [rl_9] => check_green
+    [res_8] => 0
+    [base_8] => 0
+    [rp_8] => 0 %
+    [rl_8] => check_green
+    [res_15] => 0
+    [base_15] => 0
+    [rp_15] => 0
+    [rl_15] => check_green
+    [res_13] => 0
+    [base_13] => 0
+    [rp_13] => 0 %
+    [rl_13] => check_green
+    [res_12] => 0
+    [base_12] => 0
+    [rp_12] => 0 %
+    [rl_12] => check_green
+    [res_11] => 0
+    [base_11] => 0
+    [rp_11] => 0 %
+    [rl_11] => check_green
+    [res_21] => 0
+    [base_21] => 0
+    [rp_21] => 0 %
+    [rl_21] => check_green
+    [res_14] => 0
+    [base_14] => 0
+    [rp_14] => 0
+    [rl_14] => check_green
+    [res_19] => 0
+    [base_19] => 0
+    [rp_19] => 0 %
+    [rl_19] => check_green
+    [res_18] => 0
+    [base_18] => 0
+    [rp_18] => 0
+    [rl_18] => check_green
+    [res_17] => 0
+    [base_17] => 0
+    [rp_17] => nicht OK
+    [rl_17] => check_red
+    [res_16] => 0
+    [base_16] => 0
+    [rp_16] => nicht OK
+    [rl_16] => check_red
+)
+
+2017-11-20T12:25:05+01:00 INFO (6): product_no: 
+2017-11-20T12:25:05+01:00 INFO (6): QCheckpoints: 0026
+2017-11-20T12:25:05+01:00 INFO (6): editquality aufgerufen mit Inbound_sheet: Array
+(
+    [No] => 0
+    [inbound] => 0
+    [inb_line] => 0
+    [position] => 
+    [v_delivery_note] => 
+    [vendor] => 
+    [purchase_order] => 
+    [po_line] => 0
+    [po_line_line] => 0
+    [stock_location] => 1
+    [po_arrival_date] => 20.11.2017
+    [po_arrival_time] => 12:25
+    [inb_arrival_date] => 20.11.2017
+    [inb_arrival_time] => 12:25
+    [forwarder] => 
+    [truck] => 
+    [trailor] => 
+    [container] => 
+    [po_transport_temp_min] => 1.00
+    [po_transport_temp_max] => 4.00
+    [inb_transport_temp] => 0
+    [variant] => 
+    [product] => 0026
+    [t_packaging] => 
+    [packaging] => 0
+    [origin] => DE
+    [label] => 0
+    [quality_class] => 1
+    [brand] => 0
+    [quality] => 1
+    [items] => 0
+    [weight_item] => 0
+    [po_lot] => 
+    [po_barcode] => 
+    [po_trading_units] => 0
+    [po_packing_units] => 0
+    [po_pallet] => 
+    [po_pallets] => 0
+    [po_tu_pal] => 0
+    [inb_lot] => 
+    [inb_barcode] => 
+    [items_checked] => 0
+    [inb_trading_units] => 0
+    [inb_packing_units] => 0
+    [inb_pallet] => 
+    [inb_pallets] => 0
+    [inb_tu_pal] => 0
+    [po_brix_min] => 0
+    [po_brix_max] => 0
+    [inb_brix] => 0
+    [inb_certificate] => 1
+    [remarks] => 
+    [checked_by] => 
+    [res_1] => 0
+    [base_1] => 0
+    [rp_1] => 0 %
+    [rl_1] => check_green
+    [res_4] => 0
+    [base_4] => 0
+    [rp_4] => 0 %
+    [rl_4] => check_green
+    [res_3] => 0
+    [base_3] => 0
+    [rp_3] => 0 %
+    [rl_3] => check_green
+    [res_2] => 0
+    [base_2] => 0
+    [rp_2] => 0 %
+    [rl_2] => check_green
+    [res_6] => 0
+    [base_6] => 0
+    [rp_6] => 0 %
+    [rl_6] => check_green
+    [res_5] => 0
+    [base_5] => 0
+    [rp_5] => 0 %
+    [rl_5] => check_green
+    [res_20] => 0
+    [base_20] => 0
+    [rp_20] => 0 %
+    [rl_20] => check_green
+    [res_10] => 0
+    [base_10] => 0
+    [rp_10] => 0 %
+    [rl_10] => check_green
+    [res_7] => 0
+    [base_7] => 0
+    [rp_7] => 0 %
+    [rl_7] => check_green
+    [res_9] => 0
+    [base_9] => 0
+    [rp_9] => 0 %
+    [rl_9] => check_green
+    [res_8] => 0
+    [base_8] => 0
+    [rp_8] => 0 %
+    [rl_8] => check_green
+    [res_15] => 0
+    [base_15] => 0
+    [rp_15] => 0
+    [rl_15] => check_green
+    [res_13] => 0
+    [base_13] => 0
+    [rp_13] => 0 %
+    [rl_13] => check_green
+    [res_12] => 0
+    [base_12] => 0
+    [rp_12] => 0 %
+    [rl_12] => check_green
+    [res_11] => 0
+    [base_11] => 0
+    [rp_11] => 0 %
+    [rl_11] => check_green
+    [res_21] => 0
+    [base_21] => 0
+    [rp_21] => 0 %
+    [rl_21] => check_green
+    [res_14] => 0
+    [base_14] => 0
+    [rp_14] => 0
+    [rl_14] => check_green
+    [res_19] => 0
+    [base_19] => 0
+    [rp_19] => 0 %
+    [rl_19] => check_green
+    [res_18] => 0
+    [base_18] => 0
+    [rp_18] => 0
+    [rl_18] => check_green
+    [res_17] => 0
+    [base_17] => 0
+    [rp_17] => nicht OK
+    [rl_17] => check_red
+    [res_16] => 0
+    [base_16] => 0
+    [rp_16] => nicht OK
+    [rl_16] => check_red
+)
+
+2017-11-20T12:26:11+01:00 INFO (6): product_no: 0026
+2017-11-20T12:26:11+01:00 INFO (6): QCheckpoints: Array
+(
+)
+
+2017-11-20T12:26:11+01:00 INFO (6): editquality aufgerufen mit Inbound_sheet: Array
+(
+    [No] => 0
+    [inbound] => 0
+    [inb_line] => 0
+    [position] => 
+    [v_delivery_note] => 
+    [vendor] => 
+    [purchase_order] => 
+    [po_line] => 0
+    [po_line_line] => 0
+    [stock_location] => 1
+    [po_arrival_date] => 20.11.2017
+    [po_arrival_time] => 12:26
+    [inb_arrival_date] => 20.11.2017
+    [inb_arrival_time] => 12:26
+    [forwarder] => 
+    [truck] => 
+    [trailor] => 
+    [container] => 
+    [po_transport_temp_min] => 1.00
+    [po_transport_temp_max] => 4.00
+    [inb_transport_temp] => 0
+    [variant] => 
+    [product] => 0026
+    [t_packaging] => 
+    [packaging] => 0
+    [origin] => DE
+    [label] => 0
+    [quality_class] => 1
+    [brand] => 0
+    [quality] => 1
+    [items] => 0
+    [weight_item] => 0
+    [po_lot] => 
+    [po_barcode] => 
+    [po_trading_units] => 0
+    [po_packing_units] => 0
+    [po_pallet] => 
+    [po_pallets] => 0
+    [po_tu_pal] => 0
+    [inb_lot] => 
+    [inb_barcode] => 
+    [items_checked] => 0
+    [inb_trading_units] => 0
+    [inb_packing_units] => 0
+    [inb_pallet] => 
+    [inb_pallets] => 0
+    [inb_tu_pal] => 0
+    [po_brix_min] => 0
+    [po_brix_max] => 0
+    [inb_brix] => 0
+    [inb_certificate] => 1
+    [remarks] => 
+    [checked_by] => 
+    [res_1] => 0
+    [base_1] => 0
+    [rp_1] => 0 %
+    [rl_1] => check_green
+    [res_4] => 0
+    [base_4] => 0
+    [rp_4] => 0 %
+    [rl_4] => check_green
+    [res_3] => 0
+    [base_3] => 0
+    [rp_3] => 0 %
+    [rl_3] => check_green
+    [res_2] => 0
+    [base_2] => 0
+    [rp_2] => 0 %
+    [rl_2] => check_green
+    [res_6] => 0
+    [base_6] => 0
+    [rp_6] => 0 %
+    [rl_6] => check_green
+    [res_5] => 0
+    [base_5] => 0
+    [rp_5] => 0 %
+    [rl_5] => check_green
+    [res_20] => 0
+    [base_20] => 0
+    [rp_20] => 0 %
+    [rl_20] => check_green
+    [res_10] => 0
+    [base_10] => 0
+    [rp_10] => 0 %
+    [rl_10] => check_green
+    [res_7] => 0
+    [base_7] => 0
+    [rp_7] => 0 %
+    [rl_7] => check_green
+    [res_9] => 0
+    [base_9] => 0
+    [rp_9] => 0 %
+    [rl_9] => check_green
+    [res_8] => 0
+    [base_8] => 0
+    [rp_8] => 0 %
+    [rl_8] => check_green
+    [res_15] => 0
+    [base_15] => 0
+    [rp_15] => 0
+    [rl_15] => check_green
+    [res_13] => 0
+    [base_13] => 0
+    [rp_13] => 0 %
+    [rl_13] => check_green
+    [res_12] => 0
+    [base_12] => 0
+    [rp_12] => 0 %
+    [rl_12] => check_green
+    [res_11] => 0
+    [base_11] => 0
+    [rp_11] => 0 %
+    [rl_11] => check_green
+    [res_21] => 0
+    [base_21] => 0
+    [rp_21] => 0 %
+    [rl_21] => check_green
+    [res_14] => 0
+    [base_14] => 0
+    [rp_14] => 0
+    [rl_14] => check_green
+    [res_19] => 0
+    [base_19] => 0
+    [rp_19] => 0 %
+    [rl_19] => check_green
+    [res_18] => 0
+    [base_18] => 0
+    [rp_18] => 0
+    [rl_18] => check_green
+    [res_17] => 0
+    [base_17] => 0
+    [rp_17] => nicht OK
+    [rl_17] => check_red
+    [res_16] => 0
+    [base_16] => 0
+    [rp_16] => nicht OK
+    [rl_16] => check_red
+)
+
+2017-11-20T12:29:29+01:00 INFO (6): InboundController->IndexAction called with whereClause: 
+2017-11-20T12:29:31+01:00 INFO (6): product_no: 0026
+2017-11-20T12:30:28+01:00 INFO (6): product_no: 0026
+2017-11-20T12:30:28+01:00 INFO (6): QCheckpoints: Array
+(
+    [0] => Array
+        (
+            [No] => 1
+            [product_group] => Beerenfrüchte
+            [unece_link] => http://www.unece.org/fileadmin/DAM/trade/agr/standard/fresh/FFV-Std/English/57BerryFruits.pdf
+            [product_no] => 0026
+            [product] => Brombeeren
+            [qck_no] => 20
+            [type] => 0
+            [qc_type] => Qualität
+            [qchk_class_no] => 2
+            [checkpoint_class] => minor defects
+            [quality_checkpoint] => Rote Zellen
+            [max_good] => 1.00
+            [max_regular] => 3.00
+            [operator] => 0
+            [operator_name] => Prozent
+        )
+
+)
+
+2017-11-20T12:30:28+01:00 INFO (6): editquality aufgerufen mit Inbound_sheet: Array
+(
+    [No] => 0
+    [inbound] => 0
+    [inb_line] => 0
+    [position] => 
+    [v_delivery_note] => 
+    [vendor] => 
+    [purchase_order] => 
+    [po_line] => 0
+    [po_line_line] => 0
+    [stock_location] => 1
+    [po_arrival_date] => 20.11.2017
+    [po_arrival_time] => 12:30
+    [inb_arrival_date] => 20.11.2017
+    [inb_arrival_time] => 12:30
+    [forwarder] => 
+    [truck] => 
+    [trailor] => 
+    [container] => 
+    [po_transport_temp_min] => 1.00
+    [po_transport_temp_max] => 4.00
+    [inb_transport_temp] => 0
+    [variant] => 
+    [product] => 0026
+    [t_packaging] => 
+    [packaging] => 0
+    [origin] => DE
+    [label] => 0
+    [quality_class] => 1
+    [brand] => 0
+    [quality] => 1
+    [items] => 0
+    [weight_item] => 0
+    [po_lot] => 
+    [po_barcode] => 
+    [po_trading_units] => 0
+    [po_packing_units] => 0
+    [po_pallet] => 
+    [po_pallets] => 0
+    [po_tu_pal] => 0
+    [inb_lot] => 
+    [inb_barcode] => 
+    [items_checked] => 0
+    [inb_trading_units] => 0
+    [inb_packing_units] => 0
+    [inb_pallet] => 
+    [inb_pallets] => 0
+    [inb_tu_pal] => 0
+    [po_brix_min] => 0
+    [po_brix_max] => 0
+    [inb_brix] => 0
+    [inb_certificate] => 1
+    [remarks] => 
+    [checked_by] => 
+    [res_20] => 0
+    [base_20] => 0
+    [rp_20] => 0
+    [rl_20] => check_green
+    [res_21] => 0
+    [base_21] => 0
+    [rp_21] => 0 %
+    [rl_21] => check_green
+    [res_14] => 0
+    [base_14] => 0
+    [rp_14] => 0
+    [rl_14] => check_green
+    [res_19] => 0
+    [base_19] => 0
+    [rp_19] => 0 %
+    [rl_19] => check_green
+    [res_18] => 0
+    [base_18] => 0
+    [rp_18] => 0
+    [rl_18] => check_green
+    [res_17] => 0
+    [base_17] => 0
+    [rp_17] => nicht OK
+    [rl_17] => check_red
+    [res_16] => 0
+    [base_16] => 0
+    [rp_16] => nicht OK
+    [rl_16] => check_red
+)
+
+2017-11-20T13:23:53+01:00 INFO (6): POST: Array
+(
+    [No] => new
+    [product] => 0026
+    [quality_checkpoint] => 1
+    [max_good] => 1
+    [max_regular] => 
+)
+
+2017-11-20T13:23:53+01:00 INFO (6): qc_product: Array
+(
+    [No] => new
+    [product] => 0026
+    [quality_checkpoint] => 1
+    [max_good] => 1
+    [max_regular] => 
+    [operator] => 0
+)
+
+2017-11-20T13:24:46+01:00 INFO (6): POST: Array
+(
+    [No] => 2
+    [product] => 0026
+    [quality_checkpoint] => 1
+    [max_good] => 1.00
+    [max_regular] => 3
+)
+
+2017-11-20T13:24:46+01:00 INFO (6): qc_product: Array
+(
+    [No] => 2
+    [product] => 0026
+    [quality_checkpoint] => 1
+    [max_good] => 1.00
+    [max_regular] => 3
+    [operator] => 0
+)
+
+2017-11-20T13:24:46+01:00 ERR (3): Prüfpunkt nicht gespeichert! SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '2' for key 'PRIMARY', query was: UPDATE `qcheckpoint_product` SET `No` = ?, `product` = ?, `quality_checkpoint` = ?, `max_good` = ?, `max_regular` = ?, `operator` = ? WHERE (No)
+2017-11-20T13:27:26+01:00 INFO (6): POST: Array
+(
+    [No] => 2
+    [product] => 0026
+    [quality_checkpoint] => 1
+    [max_good] => 1.00
+    [max_regular] => 3
+)
+
+2017-11-20T13:27:26+01:00 INFO (6): qc_product: Array
+(
+    [product] => 0026
+    [quality_checkpoint] => 1
+    [max_good] => 1.00
+    [max_regular] => 3
+    [operator] => 0
+)
+
+2017-11-20T13:27:26+01:00 ERR (3): Prüfpunkt nicht gespeichert! SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '0026-1' for key 'product_qc', query was: UPDATE `qcheckpoint_product` SET `product` = ?, `quality_checkpoint` = ?, `max_good` = ?, `max_regular` = ?, `operator` = ? WHERE (No)
+2017-11-20T13:32:28+01:00 INFO (6): POST: Array
+(
+    [No] => 2
+    [product] => 0026
+    [quality_checkpoint] => 1
+    [max_good] => 1.00
+    [max_regular] => 3
+)
+
+2017-11-20T13:32:28+01:00 INFO (6): qc_product: Array
+(
+    [product] => 0026
+    [quality_checkpoint] => 1
+    [max_good] => 1.00
+    [max_regular] => 3
+    [operator] => 0
+)
+
+2017-11-20T13:33:16+01:00 INFO (6): POST: Array
+(
+    [No] => new
+    [product] => 0026
+    [quality_checkpoint] => 2
+    [max_good] => 
+    [max_regular] => 
+)
+
+2017-11-20T13:33:16+01:00 INFO (6): qc_product: Array
+(
+    [product] => 0026
+    [quality_checkpoint] => 2
+    [max_good] => 
+    [max_regular] => 
+    [operator] => 0
+)
+
+2017-11-20T13:34:38+01:00 INFO (6): POST: Array
+(
+    [No] => 3
+    [product] => 0026
+    [quality_checkpoint] => 2
+    [max_good] => 1
+    [max_regular] => 0.00
+)
+
+2017-11-20T13:34:38+01:00 INFO (6): qc_product: Array
+(
+    [product] => 0026
+    [quality_checkpoint] => 2
+    [max_good] => 1
+    [max_regular] => 0.00
+    [operator] => 0
+)
+
+2017-11-20T13:34:39+01:00 INFO (6): POST: Array
+(
+    [No] => 3
+    [product] => 0026
+    [quality_checkpoint] => 2
+    [max_good] => 1.00
+    [max_regular] => 3
+)
+
+2017-11-20T13:34:39+01:00 INFO (6): qc_product: Array
+(
+    [product] => 0026
+    [quality_checkpoint] => 2
+    [max_good] => 1.00
+    [max_regular] => 3
+    [operator] => 0
+)
+
+2017-11-20T13:35:09+01:00 INFO (6): POST: Array
+(
+    [No] => new
+    [product] => 0026
+    [quality_checkpoint] => 6
+    [max_good] => 
+    [max_regular] => 
+)
+
+2017-11-20T13:35:09+01:00 INFO (6): qc_product: Array
+(
+    [product] => 0026
+    [quality_checkpoint] => 6
+    [max_good] => 
+    [max_regular] => 
+    [operator] => 0
+)
+
+2017-11-20T13:35:16+01:00 INFO (6): POST: Array
+(
+    [No] => new
+    [product] => 0026
+    [quality_checkpoint] => 6
+    [max_good] => 1
+    [max_regular] => 0.00
+)
+
+2017-11-20T13:35:16+01:00 INFO (6): qc_product: Array
+(
+    [product] => 0026
+    [quality_checkpoint] => 6
+    [max_good] => 1
+    [max_regular] => 0.00
+    [operator] => 0
+)
+
+2017-11-20T13:35:16+01:00 ERR (3): Prüfpunkt nicht gespeichert! SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '0026-6' for key 'product_qc', query was: INSERT INTO `qcheckpoint_product` (`product`, `quality_checkpoint`, `max_good`, `max_regular`, `operator`) VALUES (?, ?, ?, ?, ?)
+2017-11-20T13:38:38+01:00 INFO (6): POST: Array
+(
+    [No] => new
+    [product] => 0026
+    [quality_checkpoint] => 4
+    [max_good] => 
+    [max_regular] => 
+)
+
+2017-11-20T13:38:38+01:00 INFO (6): qc_product: Array
+(
+    [product] => 0026
+    [quality_checkpoint] => 4
+    [max_good] => 
+    [max_regular] => 
+    [operator] => 0
+)
+
+2017-11-20T13:41:38+01:00 INFO (6): POST: Array
+(
+    [No] => 6
+    [product] => 0026
+    [quality_checkpoint] => 4
+    [max_good] => 1
+    [max_regular] => 0.00
+)
+
+2017-11-20T13:41:38+01:00 INFO (6): qc_product: Array
+(
+    [product] => 0026
+    [quality_checkpoint] => 4
+    [max_good] => 1
+    [max_regular] => 0.00
+    [operator] => 0
+)
+
+2017-11-20T13:42:05+01:00 INFO (6): POST: Array
+(
+    [No] => 6
+    [product] => 0026
+    [quality_checkpoint] => 4
+    [max_good] => 1.00
+    [max_regular] => 3
+)
+
+2017-11-20T13:42:05+01:00 INFO (6): qc_product: Array
+(
+    [product] => 0026
+    [quality_checkpoint] => 4
+    [max_good] => 1.00
+    [max_regular] => 3
+    [operator] => 0
+)
+
+2017-11-20T13:42:52+01:00 INFO (6): POST: Array
+(
+    [No] => new
+    [product] => 0026
+    [quality_checkpoint] => 7
+    [max_good] => 
+    [max_regular] => 
+)
+
+2017-11-20T13:42:52+01:00 INFO (6): qc_product: Array
+(
+    [product] => 0026
+    [quality_checkpoint] => 7
+    [max_good] => 
+    [max_regular] => 
+    [operator] => 0
+)
+
+2017-11-20T13:50:14+01:00 INFO (6): InboundController->IndexAction called with whereClause: 
+2017-11-20T13:50:16+01:00 INFO (6): product_no: 0026
+2017-11-20T13:50:16+01:00 INFO (6): QCheckpoints: Array
+(
+    [0] => Array
+        (
+            [No] => 1
+            [product_group] => Beerenfrüchte
+            [unece_link] => http://www.unece.org/fileadmin/DAM/trade/agr/standard/fresh/FFV-Std/English/57BerryFruits.pdf
+            [product_no] => 0026
+            [product] => Brombeeren
+            [qck_no] => 20
+            [type] => 0
+            [qc_type] => Qualität
+            [qchk_class_no] => 2
+            [checkpoint_class] => minor defects
+            [quality_checkpoint] => Rote Zellen
+            [max_good] => 1.00
+            [max_regular] => 3.00
+            [operator] => 0
+            [operator_name] => Prozent
+        )
+
+    [1] => Array
+        (
+            [No] => 2
+            [product_group] => Beerenfrüchte
+            [unece_link] => http://www.unece.org/fileadmin/DAM/trade/agr/standard/fresh/FFV-Std/English/57BerryFruits.pdf
+            [product_no] => 0026
+            [product] => Brombeeren
+            [qck_no] => 1
+            [type] => 0
+            [qc_type] => Qualität
+            [qchk_class_no] => 1
+            [checkpoint_class] => mayor defects
+            [quality_checkpoint] => Verderb - Schimmel
+            [max_good] => 1.00
+            [max_regular] => 3.00
+            [operator] => 0
+            [operator_name] => Prozent
+        )
+
+    [2] => Array
+        (
+            [No] => 3
+            [product_group] => Beerenfrüchte
+            [unece_link] => http://www.unece.org/fileadmin/DAM/trade/agr/standard/fresh/FFV-Std/English/57BerryFruits.pdf
+            [product_no] => 0026
+            [product] => Brombeeren
+            [qck_no] => 2
+            [type] => 0
+            [qc_type] => Qualität
+            [qchk_class_no] => 1
+            [checkpoint_class] => mayor defects
+            [quality_checkpoint] => Saftaustritt
+            [max_good] => 1.00
+            [max_regular] => 3.00
+            [operator] => 0
+            [operator_name] => Prozent
+        )
+
+    [3] => Array
+        (
+            [No] => 4
+            [product_group] => Beerenfrüchte
+            [unece_link] => http://www.unece.org/fileadmin/DAM/trade/agr/standard/fresh/FFV-Std/English/57BerryFruits.pdf
+            [product_no] => 0026
+            [product] => Brombeeren
+            [qck_no] => 6
+            [type] => 0
+            [qc_type] => Qualität
+            [qchk_class_no] => 2
+            [checkpoint_class] => minor defects
+            [quality_checkpoint] => Druckstellen
+            [max_good] => 1.00
+            [max_regular] => 3.00
+            [operator] => 0
+            [operator_name] => Prozent
+        )
+
+    [4] => Array
+        (
+            [No] => 6
+            [product_group] => Beerenfrüchte
+            [unece_link] => http://www.unece.org/fileadmin/DAM/trade/agr/standard/fresh/FFV-Std/English/57BerryFruits.pdf
+            [product_no] => 0026
+            [product] => Brombeeren
+            [qck_no] => 4
+            [type] => 0
+            [qc_type] => Qualität
+            [qchk_class_no] => 1
+            [checkpoint_class] => mayor defects
+            [quality_checkpoint] => Untergewicht
+            [max_good] => 1.00
+            [max_regular] => 3.00
+            [operator] => 0
+            [operator_name] => Prozent
+        )
+
+    [5] => Array
+        (
+            [No] => 7
+            [product_group] => Beerenfrüchte
+            [unece_link] => http://www.unece.org/fileadmin/DAM/trade/agr/standard/fresh/FFV-Std/English/57BerryFruits.pdf
+            [product_no] => 0026
+            [product] => Brombeeren
+            [qck_no] => 7
+            [type] => 0
+            [qc_type] => Qualität
+            [qchk_class_no] => 2
+            [checkpoint_class] => minor defects
+            [quality_checkpoint] => Dehydriert
+            [max_good] => 0.00
+            [max_regular] => 0.00
+            [operator] => 0
+            [operator_name] => Prozent
+        )
+
+)
+
+2017-11-20T13:50:16+01:00 INFO (6): editquality aufgerufen mit Inbound_sheet: Array
+(
+    [No] => 0
+    [inbound] => 0
+    [inb_line] => 0
+    [position] => 
+    [v_delivery_note] => 
+    [vendor] => 
+    [purchase_order] => 
+    [po_line] => 0
+    [po_line_line] => 0
+    [stock_location] => 1
+    [po_arrival_date] => 20.11.2017
+    [po_arrival_time] => 13:50
+    [inb_arrival_date] => 20.11.2017
+    [inb_arrival_time] => 13:50
+    [forwarder] => 
+    [truck] => 
+    [trailor] => 
+    [container] => 
+    [po_transport_temp_min] => 1.00
+    [po_transport_temp_max] => 4.00
+    [inb_transport_temp] => 0
+    [variant] => 
+    [product] => 0026
+    [t_packaging] => 
+    [packaging] => 0
+    [origin] => DE
+    [label] => 0
+    [quality_class] => 1
+    [brand] => 0
+    [quality] => 1
+    [items] => 0
+    [weight_item] => 0
+    [po_lot] => 
+    [po_barcode] => 
+    [po_trading_units] => 0
+    [po_packing_units] => 0
+    [po_pallet] => 
+    [po_pallets] => 0
+    [po_tu_pal] => 0
+    [inb_lot] => 
+    [inb_barcode] => 
+    [items_checked] => 0
+    [inb_trading_units] => 0
+    [inb_packing_units] => 0
+    [inb_pallet] => 
+    [inb_pallets] => 0
+    [inb_tu_pal] => 0
+    [po_brix_min] => 0
+    [po_brix_max] => 0
+    [inb_brix] => 0
+    [inb_certificate] => 1
+    [remarks] => 
+    [checked_by] => 
+    [res_20] => 0
+    [base_20] => 0
+    [rp_20] => 0
+    [rl_20] => check_green
+    [res_1] => 0
+    [base_1] => 0
+    [rp_1] => 0
+    [rl_1] => check_green
+    [res_2] => 0
+    [base_2] => 0
+    [rp_2] => 0
+    [rl_2] => check_green
+    [res_6] => 0
+    [base_6] => 0
+    [rp_6] => 0
+    [rl_6] => check_green
+    [res_4] => 0
+    [base_4] => 0
+    [rp_4] => 0
+    [rl_4] => check_green
+    [res_7] => 0
+    [base_7] => 0
+    [rp_7] => 0
+    [rl_7] => check_red
+    [res_21] => 0
+    [base_21] => 0
+    [rp_21] => 0 %
+    [rl_21] => check_green
+    [res_14] => 0
+    [base_14] => 0
+    [rp_14] => 0
+    [rl_14] => check_green
+    [res_19] => 0
+    [base_19] => 0
+    [rp_19] => 0 %
+    [rl_19] => check_green
+    [res_18] => 0
+    [base_18] => 0
+    [rp_18] => 0
+    [rl_18] => check_green
+    [res_17] => 0
+    [base_17] => 0
+    [rp_17] => nicht OK
+    [rl_17] => check_red
+    [res_16] => 0
+    [base_16] => 0
+    [rp_16] => nicht OK
+    [rl_16] => check_red
+)
+
+2017-11-20T13:52:03+01:00 INFO (6): POST: Array
+(
+    [No] => new
+    [product] => 0026
+    [quality_checkpoint] => 5
+    [max_good] => 
+    [max_regular] => 
+)
+
+2017-11-20T13:52:03+01:00 INFO (6): qc_product: Array
+(
+    [product] => 0026
+    [quality_checkpoint] => 5
+    [max_good] => 
+    [max_regular] => 
+    [operator] => 0
+)
+
+2017-11-20T13:52:41+01:00 INFO (6): POST: Array
+(
+    [No] => 8
+    [product] => 0026
+    [quality_checkpoint] => 5
+    [max_good] => 3
+    [max_regular] => 0.00
+)
+
+2017-11-20T13:52:41+01:00 INFO (6): qc_product: Array
+(
+    [product] => 0026
+    [quality_checkpoint] => 5
+    [max_good] => 3
+    [max_regular] => 0.00
+    [operator] => 0
+)
+
+2017-11-20T13:52:50+01:00 INFO (6): POST: Array
+(
+    [No] => 8
+    [product] => 0026
+    [quality_checkpoint] => 5
+    [max_good] => 3.00
+    [max_regular] => 5
+)
+
+2017-11-20T13:52:50+01:00 INFO (6): qc_product: Array
+(
+    [product] => 0026
+    [quality_checkpoint] => 5
+    [max_good] => 3.00
+    [max_regular] => 5
+    [operator] => 0
+)
+
+2017-11-20T13:54:05+01:00 INFO (6): POST: Array
+(
+    [No] => new
+    [product] => 0026
+    [quality_checkpoint] => 10
+    [max_good] => 
+    [max_regular] => 
+)
+
+2017-11-20T13:54:05+01:00 INFO (6): qc_product: Array
+(
+    [product] => 0026
+    [quality_checkpoint] => 10
+    [max_good] => 
+    [max_regular] => 
+    [operator] => 0
+)
+
+2017-11-20T13:58:23+01:00 INFO (6): product_no: 0026
+2017-11-20T13:58:23+01:00 INFO (6): QCheckpoints: Array
+(
+    [0] => Array
+        (
+            [No] => 1
+            [product_group] => Beerenfrüchte
+            [unece_link] => http://www.unece.org/fileadmin/DAM/trade/agr/standard/fresh/FFV-Std/English/57BerryFruits.pdf
+            [product_no] => 0026
+            [product] => Brombeeren
+            [qck_no] => 20
+            [type] => 0
+            [qc_type] => Qualität
+            [qchk_class_no] => 2
+            [checkpoint_class] => minor defects
+            [quality_checkpoint] => Rote Zellen
+            [max_good] => 3.00
+            [max_regular] => 5.00
+            [operator] => 0
+            [operator_name] => Prozent
+        )
+
+    [1] => Array
+        (
+            [No] => 2
+            [product_group] => Beerenfrüchte
+            [unece_link] => http://www.unece.org/fileadmin/DAM/trade/agr/standard/fresh/FFV-Std/English/57BerryFruits.pdf
+            [product_no] => 0026
+            [product] => Brombeeren
+            [qck_no] => 1
+            [type] => 0
+            [qc_type] => Qualität
+            [qchk_class_no] => 1
+            [checkpoint_class] => mayor defects
+            [quality_checkpoint] => Verderb - Schimmel
+            [max_good] => 3.00
+            [max_regular] => 5.00
+            [operator] => 0
+            [operator_name] => Prozent
+        )
+
+    [2] => Array
+        (
+            [No] => 3
+            [product_group] => Beerenfrüchte
+            [unece_link] => http://www.unece.org/fileadmin/DAM/trade/agr/standard/fresh/FFV-Std/English/57BerryFruits.pdf
+            [product_no] => 0026
+            [product] => Brombeeren
+            [qck_no] => 2
+            [type] => 0
+            [qc_type] => Qualität
+            [qchk_class_no] => 1
+            [checkpoint_class] => mayor defects
+            [quality_checkpoint] => Saftaustritt
+            [max_good] => 3.00
+            [max_regular] => 5.00
+            [operator] => 0
+            [operator_name] => Prozent
+        )
+
+    [3] => Array
+        (
+            [No] => 4
+            [product_group] => Beerenfrüchte
+            [unece_link] => http://www.unece.org/fileadmin/DAM/trade/agr/standard/fresh/FFV-Std/English/57BerryFruits.pdf
+            [product_no] => 0026
+            [product] => Brombeeren
+            [qck_no] => 6
+            [type] => 0
+            [qc_type] => Qualität
+            [qchk_class_no] => 2
+            [checkpoint_class] => minor defects
+            [quality_checkpoint] => Druckstellen
+            [max_good] => 3.00
+            [max_regular] => 5.00
+            [operator] => 0
+            [operator_name] => Prozent
+        )
+
+    [4] => Array
+        (
+            [No] => 6
+            [product_group] => Beerenfrüchte
+            [unece_link] => http://www.unece.org/fileadmin/DAM/trade/agr/standard/fresh/FFV-Std/English/57BerryFruits.pdf
+            [product_no] => 0026
+            [product] => Brombeeren
+            [qck_no] => 4
+            [type] => 0
+            [qc_type] => Qualität
+            [qchk_class_no] => 1
+            [checkpoint_class] => mayor defects
+            [quality_checkpoint] => Untergewicht
+            [max_good] => 3.00
+            [max_regular] => 5.00
+            [operator] => 0
+            [operator_name] => Prozent
+        )
+
+    [5] => Array
+        (
+            [No] => 7
+            [product_group] => Beerenfrüchte
+            [unece_link] => http://www.unece.org/fileadmin/DAM/trade/agr/standard/fresh/FFV-Std/English/57BerryFruits.pdf
+            [product_no] => 0026
+            [product] => Brombeeren
+            [qck_no] => 7
+            [type] => 0
+            [qc_type] => Qualität
+            [qchk_class_no] => 2
+            [checkpoint_class] => minor defects
+            [quality_checkpoint] => Dehydriert
+            [max_good] => 3.00
+            [max_regular] => 5.00
+            [operator] => 0
+            [operator_name] => Prozent
+        )
+
+    [6] => Array
+        (
+            [No] => 8
+            [product_group] => Beerenfrüchte
+            [unece_link] => http://www.unece.org/fileadmin/DAM/trade/agr/standard/fresh/FFV-Std/English/57BerryFruits.pdf
+            [product_no] => 0026
+            [product] => Brombeeren
+            [qck_no] => 5
+            [type] => 0
+            [qc_type] => Qualität
+            [qchk_class_no] => 2
+            [checkpoint_class] => minor defects
+            [quality_checkpoint] => Ueberreif / Weich
+            [max_good] => 3.00
+            [max_regular] => 5.00
+            [operator] => 0
+            [operator_name] => Prozent
+        )
+
+    [7] => Array
+        (
+            [No] => 9
+            [product_group] => Beerenfrüchte
+            [unece_link] => http://www.unece.org/fileadmin/DAM/trade/agr/standard/fresh/FFV-Std/English/57BerryFruits.pdf
+            [product_no] => 0026
+            [product] => Brombeeren
+            [qck_no] => 10
+            [type] => 0
+            [qc_type] => Qualität
+            [qchk_class_no] => 2
+            [checkpoint_class] => minor defects
+            [quality_checkpoint] => Unreif
+            [max_good] => 0.00
+            [max_regular] => 0.00
+            [operator] => 0
+            [operator_name] => Prozent
+        )
+
+)
+
+2017-11-20T13:58:23+01:00 INFO (6): editquality aufgerufen mit Inbound_sheet: Array
+(
+    [No] => 0
+    [inbound] => 0
+    [inb_line] => 0
+    [position] => 
+    [v_delivery_note] => 
+    [vendor] => 
+    [purchase_order] => 
+    [po_line] => 0
+    [po_line_line] => 0
+    [stock_location] => 1
+    [po_arrival_date] => 20.11.2017
+    [po_arrival_time] => 13:58
+    [inb_arrival_date] => 20.11.2017
+    [inb_arrival_time] => 13:58
+    [forwarder] => 
+    [truck] => 
+    [trailor] => 
+    [container] => 
+    [po_transport_temp_min] => 1.00
+    [po_transport_temp_max] => 4.00
+    [inb_transport_temp] => 0
+    [variant] => 
+    [product] => 0026
+    [t_packaging] => 
+    [packaging] => 0
+    [origin] => DE
+    [label] => 0
+    [quality_class] => 1
+    [brand] => 0
+    [quality] => 1
+    [items] => 0
+    [weight_item] => 0
+    [po_lot] => 
+    [po_barcode] => 
+    [po_trading_units] => 0
+    [po_packing_units] => 0
+    [po_pallet] => 
+    [po_pallets] => 0
+    [po_tu_pal] => 0
+    [inb_lot] => 
+    [inb_barcode] => 
+    [items_checked] => 0
+    [inb_trading_units] => 0
+    [inb_packing_units] => 0
+    [inb_pallet] => 
+    [inb_pallets] => 0
+    [inb_tu_pal] => 0
+    [po_brix_min] => 0
+    [po_brix_max] => 0
+    [inb_brix] => 0
+    [inb_certificate] => 1
+    [remarks] => 
+    [checked_by] => 
+    [res_20] => 0
+    [base_20] => 0
+    [rp_20] => 0
+    [rl_20] => check_green
+    [res_1] => 0
+    [base_1] => 0
+    [rp_1] => 0
+    [rl_1] => check_green
+    [res_2] => 0
+    [base_2] => 0
+    [rp_2] => 0
+    [rl_2] => check_green
+    [res_6] => 0
+    [base_6] => 0
+    [rp_6] => 0
+    [rl_6] => check_green
+    [res_4] => 0
+    [base_4] => 0
+    [rp_4] => 0
+    [rl_4] => check_green
+    [res_7] => 0
+    [base_7] => 0
+    [rp_7] => 0
+    [rl_7] => check_green
+    [res_5] => 0
+    [base_5] => 0
+    [rp_5] => 0
+    [rl_5] => check_green
+    [res_10] => 0
+    [base_10] => 0
+    [rp_10] => 0
+    [rl_10] => check_red
+    [res_21] => 0
+    [base_21] => 0
+    [rp_21] => 0 %
+    [rl_21] => check_green
+    [res_14] => 0
+    [base_14] => 0
+    [rp_14] => 0
+    [rl_14] => check_green
+    [res_19] => 0
+    [base_19] => 0
+    [rp_19] => 0 %
+    [rl_19] => check_green
+    [res_18] => 0
+    [base_18] => 0
+    [rp_18] => 0
+    [rl_18] => check_green
+    [res_17] => 0
+    [base_17] => 0
+    [rp_17] => nicht OK
+    [rl_17] => check_red
+    [res_16] => 0
+    [base_16] => 0
+    [rp_16] => nicht OK
+    [rl_16] => check_red
+)
+
+2017-11-20T16:32:21+01:00 INFO (6): Zend_Mail_Transport_Smtp Object
+(
+    [EOL] => 
+
+    [_host:protected] => 
+    [_port:protected] => 
+    [_name:protected] => localhost
+    [_auth:protected] => login
+    [_config:protected] => Array
+        (
+            [auth] => login
+            [username] => smtprelay9@britec.de
+            [password] => zxhY46S7VB
+        )
+
+    [_connection:protected] => 
+    [body] => 
+    [boundary] => 
+    [header] => 
+    [_headers:protected] => Array
+        (
+        )
+
+    [_isMultipart:protected] => 
+    [_mail:protected] => 
+    [_parts:protected] => Array
+        (
+        )
+
+    [recipients] => 
+)
+
+2017-11-20T16:34:29+01:00 INFO (6): Zend_Mail_Transport_Smtp Object
+(
+    [EOL] => 
+
+    [_host:protected] => 
+    [_port:protected] => 
+    [_name:protected] => localhost
+    [_auth:protected] => login
+    [_config:protected] => Array
+        (
+            [auth] => login
+            [username] => smtprelay9@britec.de
+            [password] => zxhY46S7VB
+        )
+
+    [_connection:protected] => 
+    [body] => 
+    [boundary] => 
+    [header] => 
+    [_headers:protected] => Array
+        (
+        )
+
+    [_isMultipart:protected] => 
+    [_mail:protected] => 
+    [_parts:protected] => Array
+        (
+        )
+
+    [recipients] => 
+)
+
+2017-11-20T16:35:37+01:00 INFO (6): Zend_Mail_Transport_Smtp Object
+(
+    [EOL] => 
+
+    [_host:protected] => smtp.britec.de
+    [_port:protected] => 
+    [_name:protected] => localhost
+    [_auth:protected] => login
+    [_config:protected] => Array
+        (
+            [auth] => login
+            [username] => smtprelay9@britec.de
+            [password] => zxhY46S7VB
+        )
+
+    [_connection:protected] => 
+    [body] => 
+    [boundary] => 
+    [header] => 
+    [_headers:protected] => Array
+        (
+        )
+
+    [_isMultipart:protected] => 
+    [_mail:protected] => 
+    [_parts:protected] => Array
+        (
+        )
+
+    [recipients] => 
+)
+
+2017-11-20T16:43:55+01:00 INFO (6): product_no: 0026
+2017-11-20T16:43:55+01:00 INFO (6): QCheckpoints: Array
+(
+)
+
+2017-11-20T16:43:55+01:00 INFO (6): editquality aufgerufen mit Inbound_sheet: Array
+(
+    [No] => 0
+    [inbound] => 0
+    [inb_line] => 0
+    [position] => 
+    [v_delivery_note] => 
+    [vendor] => 
+    [purchase_order] => 
+    [po_line] => 0
+    [po_line_line] => 0
+    [stock_location] => 1
+    [po_arrival_date] => 20.11.2017
+    [po_arrival_time] => 16:43
+    [inb_arrival_date] => 20.11.2017
+    [inb_arrival_time] => 16:43
+    [forwarder] => 
+    [truck] => 
+    [trailor] => 
+    [container] => 
+    [po_transport_temp_min] => 1.00
+    [po_transport_temp_max] => 4.00
+    [inb_transport_temp] => 0
+    [variant] => 
+    [product] => 0026
+    [t_packaging] => 
+    [packaging] => 0
+    [origin] => DE
+    [label] => 0
+    [quality_class] => 1
+    [brand] => 0
+    [quality] => 1
+    [items] => 0
+    [weight_item] => 0
+    [po_lot] => 
+    [po_barcode] => 
+    [po_trading_units] => 0
+    [po_packing_units] => 0
+    [po_pallet] => 
+    [po_pallets] => 0
+    [po_tu_pal] => 0
+    [inb_lot] => 
+    [inb_barcode] => 
+    [items_checked] => 0
+    [inb_trading_units] => 0
+    [inb_packing_units] => 0
+    [inb_pallet] => 
+    [inb_pallets] => 0
+    [inb_tu_pal] => 0
+    [po_brix_min] => 0
+    [po_brix_max] => 0
+    [inb_brix] => 0
+    [inb_certificate] => 1
+    [remarks] => 
+    [checked_by] => 
+    [res_1] => 0
+    [base_1] => 0
+    [rp_1] => 0 %
+    [rl_1] => check_green
+    [res_4] => 0
+    [base_4] => 0
+    [rp_4] => 0 %
+    [rl_4] => check_green
+    [res_3] => 0
+    [base_3] => 0
+    [rp_3] => 0 %
+    [rl_3] => check_green
+    [res_2] => 0
+    [base_2] => 0
+    [rp_2] => 0 %
+    [rl_2] => check_green
+    [res_6] => 0
+    [base_6] => 0
+    [rp_6] => 0 %
+    [rl_6] => check_green
+    [res_5] => 0
+    [base_5] => 0
+    [rp_5] => 0 %
+    [rl_5] => check_green
+    [res_20] => 0
+    [base_20] => 0
+    [rp_20] => 0 %
+    [rl_20] => check_green
+    [res_10] => 0
+    [base_10] => 0
+    [rp_10] => 0 %
+    [rl_10] => check_green
+    [res_7] => 0
+    [base_7] => 0
+    [rp_7] => 0 %
+    [rl_7] => check_green
+    [res_9] => 0
+    [base_9] => 0
+    [rp_9] => 0 %
+    [rl_9] => check_green
+    [res_8] => 0
+    [base_8] => 0
+    [rp_8] => 0 %
+    [rl_8] => check_green
+    [res_15] => 0
+    [base_15] => 0
+    [rp_15] => 0
+    [rl_15] => check_green
+    [res_13] => 0
+    [base_13] => 0
+    [rp_13] => 0 %
+    [rl_13] => check_green
+    [res_12] => 0
+    [base_12] => 0
+    [rp_12] => 0 %
+    [rl_12] => check_green
+    [res_11] => 0
+    [base_11] => 0
+    [rp_11] => 0 %
+    [rl_11] => check_green
+    [res_21] => 0
+    [base_21] => 0
+    [rp_21] => 0 %
+    [rl_21] => check_green
+    [res_14] => 0
+    [base_14] => 0
+    [rp_14] => 0
+    [rl_14] => check_green
+    [res_19] => 0
+    [base_19] => 0
+    [rp_19] => 0 %
+    [rl_19] => check_green
+    [res_18] => 0
+    [base_18] => 0
+    [rp_18] => 0
+    [rl_18] => check_green
+    [res_17] => 0
+    [base_17] => 0
+    [rp_17] => nicht OK
+    [rl_17] => check_red
+    [res_16] => 0
+    [base_16] => 0
+    [rp_16] => nicht OK
+    [rl_16] => check_red
+)
+
+2017-11-20T16:44:00+01:00 INFO (6): InboundController->getinboundsAction called with whereClause:  WHERE position = 39999
+2017-11-20T16:44:09+01:00 INFO (6): SQL: SELECT tbl_HAN.HANVORNR, tbl_HAN.HANPOSNR, tbl_HAN.HANADRNR, tbl_LIE.LIENAME, tbl_LIE.LIESTRAS, tbl_LIE.LIEPLZOR, convert(varchar(25), tbl_HAN.HANPRODT, 127) AS HANLISDT, HANTABZT, tbl_HAN.HANARTTX, tbl_HAN.HANWARGR, tbl_art.ARTGEBIN, tbl_ART.ARTDURGW, tbl_HAN.HANPMENG, tbl_ART.ARTURSLD FROM tbl_HAN JOIN tbl_ART on (tbl_HAN.HANARTNR = tbl_ART.KEYIART1) join tbl_LIE on (tbl_han.HANADRNR = tbl_LIE.KEYILIE1) WHERE tbl_HAN.HANVORAR = 30 AND tbl_art.ARTAKTKZ = 'A' AND tbl_HAN.HANVORNR = '426350'
+2017-11-20T16:44:09+01:00 INFO (6): Bestellungen: Array
+(
+    [0] => Array
+        (
+            [HANVORNR] => 426350
+            [HANPOSNR] => 003
+            [HANADRNR] => 099809
+            [LIENAME] => Dieter Schwerin - Retouren
+            [LIESTRAS] => Paul-RÃ¼cker-Str. 6b
+            [LIEPLZOR] => 47059 Duisburg
+            [HANLISDT] => 2017-11-15T00:00:00
+            [HANTABZT] => 16:44
+            [HANARTTX] => Heidelbeere 12x125g 
+            [HANWARGR] => 0031
+            [ARTGEBIN] => 12.000
+            [ARTDURGW] => 125
+            [HANPMENG] => 1120.00
+            [ARTURSLD] => UY
+            [HANLFSNR] => 
+        )
+
+)
+
+2017-11-20T16:44:56+01:00 INFO (6): $_POST: Array
+(
+    [old_No] => 0
+    [inbound] => 0
+    [inb_line] => 0
+    [position] => 39999
+    [vendor_no] => 099809
+    [purchase_order] => 426350
+    [po_line] => 0
+    [po_line_line] => 
+    [v_delivery_note] => 
+    [forwarder] => 
+    [container] => 
+    [trailor] => 
+    [po_arrival_date] => 15.11.2017
+    [po_arrival_time] => 16:44
+    [po_transport_temp_min] => 1.00
+    [po_transport_temp_max] => 4.00
+    [inb_transport_temp] => 0
+    [inb_arrival_date] => 20.11.2017
+    [inb_arrival_time] => 16:44
+    [variant] => variant
+    [product] => 0031
+    [items] => 12
+    [weight_item] => 125
+    [packaging] => 0
+    [t_packaging] => E6410
+    [origin] => UY
+    [quality_class] => 1
+    [quality] => 1
+    [label] => 1
+    [brand] => 0
+    [lot] => 
+    [barcode] => 
+    [po_trading_units] => 1120.00
+    [inb_trading_units] => 1120
+    [po_pallet] => 1
+    [po_pallets] => 5
+    [po_tu_pal] => 224
+    [inb_pallet] => 1
+    [inb_pallets] => 5
+    [inb_tu_pal] => 224
+    [po_brix_min] => 0.00
+    [po_brix_max] => 0.00
+    [inb_brix] => 0
+    [items_checked] => 100
+    [max_good_21] => 1
+    [max_regular_21] => 5
+    [operator_21] => 1
+    [base_21] => 0
+    [res_21] => 0
+    [max_good_14] => 1
+    [max_regular_14] => 3
+    [operator_14] => 0
+    [base_14] => 0
+    [res_14] => 1.0
+    [max_good_19] => 5
+    [max_regular_19] => 10
+    [operator_19] => 1
+    [base_19] => 1120.00
+    [res_19] => 0
+    [max_good_18] => 1
+    [max_regular_18] => 3
+    [operator_18] => 0
+    [base_18] => 0
+    [res_18] => 120.0
+    [max_good_17] => 0
+    [max_regular_17] => 0
+    [operator_17] => 2
+    [base_17] => 100
+    [res_17] => on
+    [max_good_16] => 0
+    [max_regular_16] => 0
+    [operator_16] => 2
+    [base_16] => 100
+    [res_16] => on
+    [max_good_1] => 1
+    [max_regular_1] => 3
+    [operator_1] => 1
+    [base_1] => 100
+    [res_1] => 5
+    [max_good_4] => 1
+    [max_regular_4] => 2
+    [operator_4] => 1
+    [base_4] => 0
+    [res_4] => 0
+    [max_good_3] => 1
+    [max_regular_3] => 3
+    [operator_3] => 1
+    [base_3] => 100
+    [res_3] => 3
+    [max_good_2] => 1
+    [max_regular_2] => 2
+    [operator_2] => 1
+    [base_2] => 0
+    [res_2] => 0
+    [max_good_6] => 2
+    [max_regular_6] => 5
+    [operator_6] => 1
+    [base_6] => 0
+    [res_6] => 0
+    [max_good_5] => 1
+    [max_regular_5] => 3
+    [operator_5] => 1
+    [base_5] => 100
+    [res_5] => 2
+    [max_good_20] => 3
+    [max_regular_20] => 5
+    [operator_20] => 1
+    [base_20] => 0
+    [res_20] => 0
+    [max_good_10] => 2
+    [max_regular_10] => 5
+    [operator_10] => 1
+    [base_10] => 0
+    [res_10] => 0
+    [max_good_7] => 1
+    [max_regular_7] => 2
+    [operator_7] => 1
+    [base_7] => 0
+    [res_7] => 0
+    [max_good_9] => 5
+    [max_regular_9] => 10
+    [operator_9] => 1
+    [base_9] => 100
+    [res_9] => 1
+    [max_good_8] => 5
+    [max_regular_8] => 10
+    [operator_8] => 1
+    [base_8] => 0
+    [res_8] => 0
+    [max_good_15] => 1
+    [max_regular_15] => 3
+    [operator_15] => 0
+    [base_15] => 0
+    [res_15] => 0.0
+    [max_good_13] => 5
+    [max_regular_13] => 10
+    [operator_13] => 1
+    [base_13] => 0
+    [res_13] => 0
+    [max_good_12] => 2
+    [max_regular_12] => 5
+    [operator_12] => 1
+    [base_12] => 0
+    [res_12] => 0
+    [max_good_11] => 3
+    [max_regular_11] => 6
+    [operator_11] => 1
+    [base_11] => 0
+    [res_11] => 0
+    [remarks] => 
+    [checked_by] => Ich
+    [submit] => Speichern
+)
+
+2017-11-20T16:44:56+01:00 INFO (6): $_FILES: Array
+(
+    [picture] => Array
+        (
+            [name] => Array
+                (
+                    [0] => 
+                )
+
+            [type] => Array
+                (
+                    [0] => 
+                )
+
+            [tmp_name] => Array
+                (
+                    [0] => 
+                )
+
+            [error] => Array
+                (
+                    [0] => 4
+                )
+
+            [size] => Array
+                (
+                    [0] => 0
+                )
+
+        )
+
+    [attachment] => Array
+        (
+            [name] => Array
+                (
+                    [0] => 
+                )
+
+            [type] => Array
+                (
+                    [0] => 
+                )
+
+            [tmp_name] => Array
+                (
+                    [0] => 
+                )
+
+            [error] => Array
+                (
+                    [0] => 4
+                )
+
+            [size] => Array
+                (
+                    [0] => 0
+                )
+
+        )
+
+)
+
+2017-11-20T16:44:56+01:00 INFO (6): Errors nach Eingabe-Check: Array
+(
+)
+
+2017-11-20T16:44:56+01:00 INFO (6): purchase_order: Array
+(
+    [No] => 426350
+    [stock_location] => 1
+    [vendor] => 099809
+    [transport_temp_min] => 1.00
+    [transport_temp_max] => 4.00
+    [forwarder] => 
+    [truck] => 
+    [trailor] => 
+    [container] => 
+    [incoterm] => DDP
+    [vessel] => 
+    [habour] => 
+    [arrival] => 2017-11-15 16:44:00
+    [departure] => 2017-11-15 16:44:00
+)
+
+2017-11-20T16:44:56+01:00 INFO (6): Inbound: Array
+(
+    [No] => 0
+    [position] => 39999
+    [stock_location] => 1
+    [v_delivery_note] => 
+    [forwarder] => 
+    [truck] => 
+    [trailor] => 
+    [container] => 
+    [transport_temperature] => 0
+    [purchase_order] => 426350
+    [arrival] => 2017-11-20 16:44:00
+)
+
+2017-11-20T16:44:56+01:00 INFO (6): Variante: Array
+(
+    [product] => 0031
+    [items] => 12
+    [weight_item] => 125
+    [packaging] => 0
+    [t_packaging] => E6410
+    [origin] => UY
+    [quality_class] => 1
+    [quality] => 1
+    [label] => 1
+    [brand] => 0
+    [No] => 0031UY12125E641001110
+)
+
+2017-11-20T16:44:56+01:00 INFO (6): purchase_order_line: Array
+(
+    [No] => 0
+    [Purchase_order] => 426350
+    [Line] => 
+    [product] => 0031
+    [variant] => 0031UY12125E641001110
+    [Trading_Units] => 1120.00
+    [PU_TU] => 12
+    [Packing_Units] => 13440
+    [Pallet] => 1
+    [Pallets] => 5
+    [TU_Pallet] => 224
+    [Price] => 0
+    [Price_Allocation] => 0
+    [lot] => 
+    [barcode] => 
+    [brix_min] => 0.00
+    [brix_max] => 0.00
+)
+
+2017-11-20T16:44:56+01:00 INFO (6): inbound_line: Array
+(
+    [No] => 
+    [line] => 0
+    [lot] => 
+    [product] => 0031
+    [variant] => 0031UY12125E641001110
+    [barcode] => 
+    [trading_units] => 1120
+    [packing_units] => 13440
+    [Pallet] => 1
+    [Pallets] => 5
+    [tu_pallet] => 224
+    [brix] => 0
+    [items_checked] => 100
+    [remarks] => 
+    [checked_by] => Ich
+    [inbound] => 0
+    [purchase_order] => 426350
+    [po_line] => 0
+)
+
+2017-11-20T16:44:56+01:00 INFO (6): Transaktion gestartet
+2017-11-20T16:44:56+01:00 INFO (6): Anzahl Purchase Orders gefunden: 1
+2017-11-20T16:44:56+01:00 INFO (6): Array
+(
+    [No] => 426350
+    [vendor] => 099809
+    [stock_location] => 1
+    [departure] => 2017-11-15 00:30:00
+    [arrival] => 2017-11-15 00:30:00
+    [v_sales_order] => 
+    [forwarder] => MVS
+    [truck] => 
+    [trailor] => DU DS 3055
+    [container] => 
+    [vessel] => 0
+    [habour] => 0
+    [incoterm] => DDP
+    [transport_temp_min] => 1.00
+    [transport_temp_max] => 4.00
+)
+
+2017-11-20T16:44:56+01:00 INFO (6): Purchase Order gefunden mit No: 426350
+2017-11-20T16:44:56+01:00 INFO (6): Inbounds gefunden: 0
+2017-11-20T16:44:56+01:00 INFO (6): inbound wurde hinzugefügt mit No 62
+2017-11-20T16:44:56+01:00 INFO (6): Variante wurde hinzugefügt mit No: 0
+2017-11-20T16:44:56+01:00 INFO (6): Es wurden 1 Purchase Order Lines gefunden. Die höchste Zeile ist 10000
+2017-11-20T16:44:56+01:00 INFO (6): Purchase order Line wurde hinzugefügt mit No: 85 und Line: 20000
+2017-11-20T16:44:56+01:00 INFO (6): Inbound Line wurde hinzugefügt mit No: 92 und Line: 10000
+2017-11-20T16:44:56+01:00 INFO (6): Movement: Array
+(
+    [No] => 0
+    [movement] => 1
+    [date] => 2017-11-20 16:44:00
+    [trading_units] => 1120
+    [packing_units] => 13440
+    [trading_units_production] => 1120
+    [packing_units_production] => 13440
+    [status] => 3
+    [type] => 0
+    [stock_location] => 1
+    [remarks] => 
+    [in_order_line] => 85
+    [inbound_line] => 92
+)
+
+2017-11-20T16:44:56+01:00 INFO (6): Bewegung wurde gespeichert mit No: 93
+2017-11-20T16:44:56+01:00 INFO (6): Anzahl Qualitätsmerkmale: 0
+2017-11-20T16:44:56+01:00 INFO (6): Bilder: Array
+(
+    [name] => Array
+        (
+            [0] => 
+        )
+
+    [type] => Array
+        (
+            [0] => 
+        )
+
+    [tmp_name] => Array
+        (
+            [0] => 
+        )
+
+    [error] => Array
+        (
+            [0] => 4
+        )
+
+    [size] => Array
+        (
+            [0] => 0
+        )
+
+)
+
+2017-11-20T16:44:56+01:00 INFO (6): QIndex: operator_1
+2017-11-20T16:44:56+01:00 INFO (6): Qcheck_inb_line: Array
+(
+    [no] => 0
+    [quality_checkpoint] => 1
+    [inbound_line] => 92
+    [base] => 100
+    [value] => 5
+    [max_good] => 1
+    [max_regular] => 3
+)
+
+2017-11-20T16:44:57+01:00 INFO (6): Qualitätsmerkmal wurde hinzugefügt
+2017-11-20T16:44:57+01:00 INFO (6): QIndex: operator_2
+2017-11-20T16:44:57+01:00 INFO (6): Qcheck_inb_line: Array
+(
+    [no] => 0
+    [quality_checkpoint] => 2
+    [inbound_line] => 92
+    [base] => 100
+    [value] => 0
+    [max_good] => 1
+    [max_regular] => 2
+)
+
+2017-11-20T16:44:57+01:00 INFO (6): Qualitätsmerkmal wurde hinzugefügt
+2017-11-20T16:44:57+01:00 INFO (6): QIndex: operator_3
+2017-11-20T16:44:57+01:00 INFO (6): Qcheck_inb_line: Array
+(
+    [no] => 0
+    [quality_checkpoint] => 3
+    [inbound_line] => 92
+    [base] => 100
+    [value] => 3
+    [max_good] => 1
+    [max_regular] => 3
+)
+
+2017-11-20T16:44:57+01:00 INFO (6): Qualitätsmerkmal wurde hinzugefügt
+2017-11-20T16:44:57+01:00 INFO (6): QIndex: operator_4
+2017-11-20T16:44:57+01:00 INFO (6): Qcheck_inb_line: Array
+(
+    [no] => 0
+    [quality_checkpoint] => 4
+    [inbound_line] => 92
+    [base] => 100
+    [value] => 0
+    [max_good] => 1
+    [max_regular] => 2
+)
+
+2017-11-20T16:44:57+01:00 INFO (6): Qualitätsmerkmal wurde hinzugefügt
+2017-11-20T16:44:57+01:00 INFO (6): QIndex: operator_5
+2017-11-20T16:44:57+01:00 INFO (6): Qcheck_inb_line: Array
+(
+    [no] => 0
+    [quality_checkpoint] => 5
+    [inbound_line] => 92
+    [base] => 100
+    [value] => 2
+    [max_good] => 1
+    [max_regular] => 3
+)
+
+2017-11-20T16:44:57+01:00 INFO (6): Qualitätsmerkmal wurde hinzugefügt
+2017-11-20T16:44:57+01:00 INFO (6): QIndex: operator_6
+2017-11-20T16:44:57+01:00 INFO (6): Qcheck_inb_line: Array
+(
+    [no] => 0
+    [quality_checkpoint] => 6
+    [inbound_line] => 92
+    [base] => 100
+    [value] => 0
+    [max_good] => 2
+    [max_regular] => 5
+)
+
+2017-11-20T16:44:57+01:00 INFO (6): Qualitätsmerkmal wurde hinzugefügt
+2017-11-20T16:44:57+01:00 INFO (6): QIndex: operator_7
+2017-11-20T16:44:57+01:00 INFO (6): Qcheck_inb_line: Array
+(
+    [no] => 0
+    [quality_checkpoint] => 7
+    [inbound_line] => 92
+    [base] => 100
+    [value] => 0
+    [max_good] => 1
+    [max_regular] => 2
+)
+
+2017-11-20T16:44:57+01:00 INFO (6): Qualitätsmerkmal wurde hinzugefügt
+2017-11-20T16:44:57+01:00 INFO (6): QIndex: operator_8
+2017-11-20T16:44:57+01:00 INFO (6): Qcheck_inb_line: Array
+(
+    [no] => 0
+    [quality_checkpoint] => 8
+    [inbound_line] => 92
+    [base] => 100
+    [value] => 0
+    [max_good] => 5
+    [max_regular] => 10
+)
+
+2017-11-20T16:44:57+01:00 INFO (6): Qualitätsmerkmal wurde hinzugefügt
+2017-11-20T16:44:57+01:00 INFO (6): QIndex: operator_9
+2017-11-20T16:44:57+01:00 INFO (6): Qcheck_inb_line: Array
+(
+    [no] => 0
+    [quality_checkpoint] => 9
+    [inbound_line] => 92
+    [base] => 100
+    [value] => 1
+    [max_good] => 5
+    [max_regular] => 10
+)
+
+2017-11-20T16:44:57+01:00 INFO (6): Qualitätsmerkmal wurde hinzugefügt
+2017-11-20T16:44:57+01:00 INFO (6): QIndex: operator_10
+2017-11-20T16:44:57+01:00 INFO (6): Qcheck_inb_line: Array
+(
+    [no] => 0
+    [quality_checkpoint] => 10
+    [inbound_line] => 92
+    [base] => 100
+    [value] => 0
+    [max_good] => 2
+    [max_regular] => 5
+)
+
+2017-11-20T16:44:57+01:00 INFO (6): Qualitätsmerkmal wurde hinzugefügt
+2017-11-20T16:44:57+01:00 INFO (6): QIndex: operator_11
+2017-11-20T16:44:57+01:00 INFO (6): Qcheck_inb_line: Array
+(
+    [no] => 0
+    [quality_checkpoint] => 11
+    [inbound_line] => 92
+    [base] => 100
+    [value] => 0
+    [max_good] => 3
+    [max_regular] => 6
+)
+
+2017-11-20T16:44:57+01:00 INFO (6): Qualitätsmerkmal wurde hinzugefügt
+2017-11-20T16:44:57+01:00 INFO (6): QIndex: operator_12
+2017-11-20T16:44:57+01:00 INFO (6): Qcheck_inb_line: Array
+(
+    [no] => 0
+    [quality_checkpoint] => 12
+    [inbound_line] => 92
+    [base] => 100
+    [value] => 0
+    [max_good] => 2
+    [max_regular] => 5
+)
+
+2017-11-20T16:44:57+01:00 INFO (6): Qualitätsmerkmal wurde hinzugefügt
+2017-11-20T16:44:57+01:00 INFO (6): QIndex: operator_13
+2017-11-20T16:44:57+01:00 INFO (6): Qcheck_inb_line: Array
+(
+    [no] => 0
+    [quality_checkpoint] => 13
+    [inbound_line] => 92
+    [base] => 100
+    [value] => 0
+    [max_good] => 5
+    [max_regular] => 10
+)
+
+2017-11-20T16:44:57+01:00 INFO (6): Qualitätsmerkmal wurde hinzugefügt
+2017-11-20T16:44:57+01:00 INFO (6): QIndex: operator_14
+2017-11-20T16:44:57+01:00 INFO (6): Qcheck_inb_line: Array
+(
+    [no] => 0
+    [quality_checkpoint] => 14
+    [inbound_line] => 92
+    [base] => 100
+    [value] => 1.0
+    [max_good] => 1
+    [max_regular] => 3
+)
+
+2017-11-20T16:44:57+01:00 INFO (6): Qualitätsmerkmal wurde hinzugefügt
+2017-11-20T16:44:57+01:00 INFO (6): QIndex: operator_15
+2017-11-20T16:44:57+01:00 INFO (6): Qcheck_inb_line: Array
+(
+    [no] => 0
+    [quality_checkpoint] => 15
+    [inbound_line] => 92
+    [base] => 100
+    [value] => 0.0
+    [max_good] => 1
+    [max_regular] => 3
+)
+
+2017-11-20T16:44:57+01:00 INFO (6): Qualitätsmerkmal wurde hinzugefügt
+2017-11-20T16:44:57+01:00 INFO (6): QIndex: operator_16
+2017-11-20T16:44:57+01:00 INFO (6): Qcheck_inb_line: Array
+(
+    [no] => 0
+    [quality_checkpoint] => 16
+    [inbound_line] => 92
+    [base] => 0
+    [value] => 1
+    [max_good] => 0
+    [max_regular] => 0
+)
+
+2017-11-20T16:44:57+01:00 INFO (6): Qualitätsmerkmal wurde hinzugefügt
+2017-11-20T16:44:57+01:00 INFO (6): QIndex: operator_17
+2017-11-20T16:44:57+01:00 INFO (6): Qcheck_inb_line: Array
+(
+    [no] => 0
+    [quality_checkpoint] => 17
+    [inbound_line] => 92
+    [base] => 0
+    [value] => 1
+    [max_good] => 0
+    [max_regular] => 0
+)
+
+2017-11-20T16:44:57+01:00 INFO (6): Qualitätsmerkmal wurde hinzugefügt
+2017-11-20T16:44:57+01:00 INFO (6): QIndex: operator_18
+2017-11-20T16:44:57+01:00 INFO (6): Qcheck_inb_line: Array
+(
+    [no] => 0
+    [quality_checkpoint] => 18
+    [inbound_line] => 92
+    [base] => 100
+    [value] => 120.0
+    [max_good] => 1
+    [max_regular] => 3
+)
+
+2017-11-20T16:44:57+01:00 INFO (6): Qualitätsmerkmal wurde hinzugefügt
+2017-11-20T16:44:57+01:00 INFO (6): QIndex: operator_19
+2017-11-20T16:44:57+01:00 INFO (6): Qcheck_inb_line: Array
+(
+    [no] => 0
+    [quality_checkpoint] => 19
+    [inbound_line] => 92
+    [base] => 1120.00
+    [value] => 0
+    [max_good] => 5
+    [max_regular] => 10
+)
+
+2017-11-20T16:44:57+01:00 INFO (6): Qualitätsmerkmal wurde hinzugefügt
+2017-11-20T16:44:57+01:00 INFO (6): QIndex: operator_20
+2017-11-20T16:44:57+01:00 INFO (6): Qcheck_inb_line: Array
+(
+    [no] => 0
+    [quality_checkpoint] => 20
+    [inbound_line] => 92
+    [base] => 100
+    [value] => 0
+    [max_good] => 3
+    [max_regular] => 5
+)
+
+2017-11-20T16:44:57+01:00 INFO (6): Qualitätsmerkmal wurde hinzugefügt
+2017-11-20T16:44:57+01:00 INFO (6): QIndex: operator_21
+2017-11-20T16:44:57+01:00 INFO (6): Qcheck_inb_line: Array
+(
+    [no] => 0
+    [quality_checkpoint] => 21
+    [inbound_line] => 92
+    [base] => 100
+    [value] => 0
+    [max_good] => 1
+    [max_regular] => 5
+)
+
+2017-11-20T16:44:57+01:00 INFO (6): Qualitätsmerkmal wurde hinzugefügt
+2017-11-20T16:44:57+01:00 INFO (6): Datenbank Committed
+2017-11-20T16:44:58+01:00 INFO (6): product_no: 0026
+2017-11-20T16:44:58+01:00 INFO (6): QCheckpoints: Array
+(
+)
+
+2017-11-20T16:44:58+01:00 INFO (6): editquality aufgerufen mit Inbound_sheet: Array
+(
+    [No] => 0
+    [inbound] => 0
+    [inb_line] => 0
+    [position] => 
+    [v_delivery_note] => 
+    [vendor] => 
+    [purchase_order] => 
+    [po_line] => 0
+    [po_line_line] => 0
+    [stock_location] => 1
+    [po_arrival_date] => 20.11.2017
+    [po_arrival_time] => 16:44
+    [inb_arrival_date] => 20.11.2017
+    [inb_arrival_time] => 16:44
+    [forwarder] => 
+    [truck] => 
+    [trailor] => 
+    [container] => 
+    [po_transport_temp_min] => 1.00
+    [po_transport_temp_max] => 4.00
+    [inb_transport_temp] => 0
+    [variant] => 
+    [product] => 0026
+    [t_packaging] => 
+    [packaging] => 0
+    [origin] => DE
+    [label] => 0
+    [quality_class] => 1
+    [brand] => 0
+    [quality] => 1
+    [items] => 0
+    [weight_item] => 0
+    [po_lot] => 
+    [po_barcode] => 
+    [po_trading_units] => 0
+    [po_packing_units] => 0
+    [po_pallet] => 
+    [po_pallets] => 0
+    [po_tu_pal] => 0
+    [inb_lot] => 
+    [inb_barcode] => 
+    [items_checked] => 0
+    [inb_trading_units] => 0
+    [inb_packing_units] => 0
+    [inb_pallet] => 
+    [inb_pallets] => 0
+    [inb_tu_pal] => 0
+    [po_brix_min] => 0
+    [po_brix_max] => 0
+    [inb_brix] => 0
+    [inb_certificate] => 1
+    [remarks] => 
+    [checked_by] => 
+    [res_1] => 0
+    [base_1] => 0
+    [rp_1] => 0 %
+    [rl_1] => check_green
+    [res_4] => 0
+    [base_4] => 0
+    [rp_4] => 0 %
+    [rl_4] => check_green
+    [res_3] => 0
+    [base_3] => 0
+    [rp_3] => 0 %
+    [rl_3] => check_green
+    [res_2] => 0
+    [base_2] => 0
+    [rp_2] => 0 %
+    [rl_2] => check_green
+    [res_6] => 0
+    [base_6] => 0
+    [rp_6] => 0 %
+    [rl_6] => check_green
+    [res_5] => 0
+    [base_5] => 0
+    [rp_5] => 0 %
+    [rl_5] => check_green
+    [res_20] => 0
+    [base_20] => 0
+    [rp_20] => 0 %
+    [rl_20] => check_green
+    [res_10] => 0
+    [base_10] => 0
+    [rp_10] => 0 %
+    [rl_10] => check_green
+    [res_7] => 0
+    [base_7] => 0
+    [rp_7] => 0 %
+    [rl_7] => check_green
+    [res_9] => 0
+    [base_9] => 0
+    [rp_9] => 0 %
+    [rl_9] => check_green
+    [res_8] => 0
+    [base_8] => 0
+    [rp_8] => 0 %
+    [rl_8] => check_green
+    [res_15] => 0
+    [base_15] => 0
+    [rp_15] => 0
+    [rl_15] => check_green
+    [res_13] => 0
+    [base_13] => 0
+    [rp_13] => 0 %
+    [rl_13] => check_green
+    [res_12] => 0
+    [base_12] => 0
+    [rp_12] => 0 %
+    [rl_12] => check_green
+    [res_11] => 0
+    [base_11] => 0
+    [rp_11] => 0 %
+    [rl_11] => check_green
+    [res_21] => 0
+    [base_21] => 0
+    [rp_21] => 0 %
+    [rl_21] => check_green
+    [res_14] => 0
+    [base_14] => 0
+    [rp_14] => 0
+    [rl_14] => check_green
+    [res_19] => 0
+    [base_19] => 0
+    [rp_19] => 0 %
+    [rl_19] => check_green
+    [res_18] => 0
+    [base_18] => 0
+    [rp_18] => 0
+    [rl_18] => check_green
+    [res_17] => 0
+    [base_17] => 0
+    [rp_17] => nicht OK
+    [rl_17] => check_red
+    [res_16] => 0
+    [base_16] => 0
+    [rp_16] => nicht OK
+    [rl_16] => check_red
+)
+
+2017-11-20T16:45:28+01:00 INFO (6): InboundController->IndexAction called with whereClause: 

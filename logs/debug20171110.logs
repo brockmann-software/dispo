@@ -153,3 +153,156 @@
 )
 
 2017-11-10T10:21:05+01:00 INFO (6): Variante wurde hinzugefügt: 0030PE8250K438215110
+2017-11-10T11:01:14+01:00 INFO (6): IndexController->IndexAction called
+2017-11-10T12:25:43+01:00 INFO (6): IndexController->IndexAction called
+2017-11-10T12:25:51+01:00 INFO (6): SQL: SELECT tbl_HAN.HANVORNR, tbl_HAN.HANPOSNR, tbl_HAN.HANADRNR, tbl_LIE.LIENAME, tbl_LIE.LIESTRAS, tbl_LIE.LIEPLZOR, convert(varchar(25), tbl_HAN.HANPRODT, 127) AS HANLISDT, HANTABZT, tbl_HAN.HANARTTX, tbl_HAN.HANWARGR, tbl_art.ARTGEBIN, tbl_ART.ARTDURGW, tbl_HAN.HANPMENG, tbl_ART.ARTURSLD FROM tbl_HAN JOIN tbl_ART on (tbl_HAN.HANARTNR = tbl_ART.KEYIART1) join tbl_LIE on (tbl_han.HANADRNR = tbl_LIE.KEYILIE1) WHERE tbl_HAN.HANVORAR = 30 AND tbl_art.ARTAKTKZ = 'A' AND tbl_HAN.HANVORNR = '426180'
+2017-11-10T12:25:51+01:00 INFO (6): Bestellungen: Array
+(
+    [0] => Array
+        (
+            [HANVORNR] => 426180
+            [HANPOSNR] => 003
+            [HANADRNR] => 070154
+            [LIENAME] => Del Ande Alimentos S.A.C.
+            [LIESTRAS] => Calle Benjamin Vizquerre S/N Potrer
+            [LIEPLZOR] => 615-4200 Lima
+            [HANLISDT] => 2017-11-10T00:00:00
+            [HANTABZT] => 12:25
+            [HANARTTX] => Erdbeere 8x250g     
+            [HANWARGR] => 0030
+            [ARTGEBIN] => 8.000
+            [ARTDURGW] => 250
+            [HANPMENG] => 256.00
+            [ARTURSLD] => PE
+            [HANLFSNR] => 
+        )
+
+)
+
+2017-11-10T12:26:06+01:00 INFO (6): Variante wurde hinzugefügt: 0030PE8250K438216110
+2017-11-10T14:52:56+01:00 INFO (6): Variante wurde hinzugefügt: 0030PE8250K438216112
+2017-11-10T15:06:10+01:00 INFO (6): Array
+(
+    [text_width] => 308.12
+    [max_width] => 308.12
+    [height] => 43.64
+    [lines] => Array
+        (
+            [0] => BerryValley L 4504
+        )
+
+)
+
+2017-11-10T15:06:10+01:00 INFO (6): Array
+(
+    [text_width] => 308.12
+    [max_width] => 308.12
+    [height] => 43.64
+    [lines] => Array
+        (
+            [0] => BerryValley L 4504
+        )
+
+)
+
+2017-11-10T15:06:10+01:00 INFO (6): Array
+(
+    [text_width] => 308.12
+    [max_width] => 308.12
+    [height] => 43.64
+    [lines] => Array
+        (
+            [0] => BerryValley L 4504
+        )
+
+)
+
+2017-11-10T15:06:10+01:00 INFO (6): Array
+(
+    [text_width] => 308.12
+    [max_width] => 308.12
+    [height] => 43.64
+    [lines] => Array
+        (
+            [0] => BerryValley L 4504
+        )
+
+)
+
+2017-11-10T15:06:10+01:00 INFO (6): Array
+(
+    [text_width] => 308.12
+    [max_width] => 308.12
+    [height] => 43.64
+    [lines] => Array
+        (
+            [0] => BerryValley L 4504
+        )
+
+)
+
+2017-11-10T15:08:32+01:00 INFO (6): Array
+(
+    [text_width] => 208.92
+    [max_width] => 283
+    [height] => 87.28
+    [lines] => Array
+        (
+            [0] => BerryValley L
+            [1] => 4504
+        )
+
+)
+
+2017-11-10T15:08:32+01:00 INFO (6): Array
+(
+    [text_width] => 208.92
+    [max_width] => 283
+    [height] => 87.28
+    [lines] => Array
+        (
+            [0] => BerryValley L
+            [1] => 4504
+        )
+
+)
+
+2017-11-10T15:08:32+01:00 INFO (6): Array
+(
+    [text_width] => 208.92
+    [max_width] => 283
+    [height] => 87.28
+    [lines] => Array
+        (
+            [0] => BerryValley L
+            [1] => 4504
+        )
+
+)
+
+2017-11-10T15:08:32+01:00 INFO (6): Array
+(
+    [text_width] => 208.92
+    [max_width] => 283
+    [height] => 87.28
+    [lines] => Array
+        (
+            [0] => BerryValley L
+            [1] => 4504
+        )
+
+)
+
+2017-11-10T15:08:32+01:00 INFO (6): Array
+(
+    [text_width] => 208.92
+    [max_width] => 283
+    [height] => 87.28
+    [lines] => Array
+        (
+            [0] => BerryValley L
+            [1] => 4504
+        )
+
+)
+

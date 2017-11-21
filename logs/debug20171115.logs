@@ -1,0 +1,747 @@
+2017-11-15T11:44:47+01:00 INFO (6): IndexController->IndexAction called
+2017-11-15T11:44:55+01:00 INFO (6): 4
+2017-11-15T11:44:55+01:00 INFO (6): 3
+2017-11-15T11:46:11+01:00 INFO (6): 4
+2017-11-15T11:46:11+01:00 INFO (6): 3
+2017-11-15T11:48:13+01:00 INFO (6): 4
+2017-11-15T11:48:13+01:00 INFO (6): 3
+2017-11-15T11:48:13+01:00 INFO (6): 4
+2017-11-15T11:48:13+01:00 INFO (6): 4
+2017-11-15T11:48:13+01:00 INFO (6): 4
+2017-11-15T11:48:13+01:00 INFO (6): 1
+2017-11-15T11:48:13+01:00 INFO (6): 1
+2017-11-15T11:49:01+01:00 INFO (6): 4
+2017-11-15T11:49:01+01:00 INFO (6): 3
+2017-11-15T11:49:01+01:00 INFO (6): 4
+2017-11-15T11:49:01+01:00 INFO (6): 4
+2017-11-15T11:49:01+01:00 INFO (6): 4
+2017-11-15T11:49:01+01:00 INFO (6): 1
+2017-11-15T11:49:01+01:00 INFO (6): 1
+2017-11-15T11:50:03+01:00 INFO (6): 4
+2017-11-15T11:50:03+01:00 INFO (6): 3
+2017-11-15T11:50:03+01:00 INFO (6): 4
+2017-11-15T11:50:03+01:00 INFO (6): 4
+2017-11-15T11:50:03+01:00 INFO (6): 4
+2017-11-15T11:50:03+01:00 INFO (6): 1
+2017-11-15T11:50:03+01:00 INFO (6): 1
+2017-11-15T11:50:35+01:00 INFO (6): 4
+2017-11-15T11:50:35+01:00 INFO (6): 3
+2017-11-15T11:50:35+01:00 INFO (6): 4
+2017-11-15T11:50:35+01:00 INFO (6): 4
+2017-11-15T11:50:35+01:00 INFO (6): 4
+2017-11-15T11:50:35+01:00 INFO (6): 1
+2017-11-15T11:50:35+01:00 INFO (6): 1
+2017-11-15T13:01:21+01:00 INFO (6): 4
+2017-11-15T13:01:21+01:00 INFO (6): 3
+2017-11-15T13:01:21+01:00 INFO (6): 4
+2017-11-15T13:01:21+01:00 INFO (6): 4
+2017-11-15T13:01:21+01:00 INFO (6): 4
+2017-11-15T13:01:21+01:00 INFO (6): 1
+2017-11-15T13:01:21+01:00 INFO (6): 1
+2017-11-15T13:02:02+01:00 INFO (6): 4
+2017-11-15T13:02:02+01:00 INFO (6): 3
+2017-11-15T13:02:02+01:00 INFO (6): 4
+2017-11-15T13:02:02+01:00 INFO (6): 4
+2017-11-15T13:02:02+01:00 INFO (6): 4
+2017-11-15T13:02:02+01:00 INFO (6): 1
+2017-11-15T13:02:02+01:00 INFO (6): 1
+2017-11-15T13:03:25+01:00 INFO (6): 4
+2017-11-15T13:03:25+01:00 INFO (6): 3
+2017-11-15T13:03:25+01:00 INFO (6): 4
+2017-11-15T13:03:25+01:00 INFO (6): 4
+2017-11-15T13:03:25+01:00 INFO (6): 4
+2017-11-15T13:03:25+01:00 INFO (6): 1
+2017-11-15T13:03:25+01:00 INFO (6): 1
+2017-11-15T13:05:19+01:00 INFO (6): 4
+2017-11-15T13:05:19+01:00 INFO (6): 3
+2017-11-15T13:05:19+01:00 INFO (6): 4
+2017-11-15T13:05:19+01:00 INFO (6): 4
+2017-11-15T13:05:19+01:00 INFO (6): 4
+2017-11-15T13:05:19+01:00 INFO (6): 1
+2017-11-15T13:05:19+01:00 INFO (6): 1
+2017-11-15T13:05:52+01:00 INFO (6): 4
+2017-11-15T13:05:52+01:00 INFO (6): 3
+2017-11-15T13:05:52+01:00 INFO (6): 4
+2017-11-15T13:05:52+01:00 INFO (6): 4
+2017-11-15T13:05:52+01:00 INFO (6): 4
+2017-11-15T13:05:52+01:00 INFO (6): 1
+2017-11-15T13:05:52+01:00 INFO (6): 1
+2017-11-15T13:06:11+01:00 INFO (6): 4
+2017-11-15T13:06:11+01:00 INFO (6): 3
+2017-11-15T13:06:11+01:00 INFO (6): 4
+2017-11-15T13:06:11+01:00 INFO (6): 4
+2017-11-15T13:06:11+01:00 INFO (6): 4
+2017-11-15T13:06:11+01:00 INFO (6): 1
+2017-11-15T13:06:11+01:00 INFO (6): 1
+2017-11-15T13:06:40+01:00 INFO (6): 4
+2017-11-15T13:06:40+01:00 INFO (6): 3
+2017-11-15T13:06:40+01:00 INFO (6): 4
+2017-11-15T13:06:40+01:00 INFO (6): 4
+2017-11-15T13:06:40+01:00 INFO (6): 4
+2017-11-15T13:06:40+01:00 INFO (6): 1
+2017-11-15T13:06:40+01:00 INFO (6): 1
+2017-11-15T13:07:29+01:00 INFO (6): 4
+2017-11-15T13:07:29+01:00 INFO (6): 3
+2017-11-15T13:07:29+01:00 INFO (6): 4
+2017-11-15T13:07:29+01:00 INFO (6): 4
+2017-11-15T13:07:29+01:00 INFO (6): 4
+2017-11-15T13:07:29+01:00 INFO (6): 1
+2017-11-15T13:07:29+01:00 INFO (6): 1
+2017-11-15T13:07:29+01:00 INFO (6): product_desc Align: 3
+2017-11-15T13:07:29+01:00 INFO (6): origin Align: 3
+2017-11-15T13:07:29+01:00 INFO (6): inb_lot Align: 3
+2017-11-15T13:07:29+01:00 INFO (6): label Align: 3
+2017-11-15T13:07:29+01:00 INFO (6): t_packaging Align: 3
+2017-11-15T13:07:29+01:00 INFO (6): items Align: 4
+2017-11-15T13:07:29+01:00 INFO (6): weight_item Align: 4
+2017-11-15T13:07:29+01:00 INFO (6): vendor_name Align: 3
+2017-11-15T13:07:29+01:00 INFO (6): inb_arrival Align: 4
+2017-11-15T13:07:29+01:00 INFO (6): sum_pallets Align: 1
+2017-11-15T13:07:29+01:00 INFO (6): stock Align: 1
+2017-11-15T13:07:29+01:00 INFO (6): @empty Align: 3
+2017-11-15T13:07:29+01:00 INFO (6): product_desc Align: 3
+2017-11-15T13:07:29+01:00 INFO (6): origin Align: 3
+2017-11-15T13:07:29+01:00 INFO (6): inb_lot Align: 3
+2017-11-15T13:07:29+01:00 INFO (6): label Align: 3
+2017-11-15T13:07:29+01:00 INFO (6): t_packaging Align: 3
+2017-11-15T13:07:29+01:00 INFO (6): items Align: 4
+2017-11-15T13:07:29+01:00 INFO (6): weight_item Align: 4
+2017-11-15T13:07:29+01:00 INFO (6): vendor_name Align: 3
+2017-11-15T13:07:29+01:00 INFO (6): inb_arrival Align: 4
+2017-11-15T13:07:29+01:00 INFO (6): sum_pallets Align: 1
+2017-11-15T13:07:29+01:00 INFO (6): stock Align: 1
+2017-11-15T13:07:29+01:00 INFO (6): @empty Align: 3
+2017-11-15T13:07:29+01:00 INFO (6): product_desc Align: 3
+2017-11-15T13:07:29+01:00 INFO (6): origin Align: 3
+2017-11-15T13:07:29+01:00 INFO (6): inb_lot Align: 3
+2017-11-15T13:07:29+01:00 INFO (6): label Align: 3
+2017-11-15T13:07:29+01:00 INFO (6): t_packaging Align: 3
+2017-11-15T13:07:29+01:00 INFO (6): items Align: 4
+2017-11-15T13:07:29+01:00 INFO (6): weight_item Align: 4
+2017-11-15T13:07:29+01:00 INFO (6): vendor_name Align: 3
+2017-11-15T13:07:29+01:00 INFO (6): inb_arrival Align: 4
+2017-11-15T13:07:29+01:00 INFO (6): sum_pallets Align: 1
+2017-11-15T13:07:29+01:00 INFO (6): stock Align: 1
+2017-11-15T13:07:29+01:00 INFO (6): @empty Align: 3
+2017-11-15T13:07:29+01:00 INFO (6): product_desc Align: 3
+2017-11-15T13:07:29+01:00 INFO (6): origin Align: 3
+2017-11-15T13:07:29+01:00 INFO (6): inb_lot Align: 3
+2017-11-15T13:07:29+01:00 INFO (6): label Align: 3
+2017-11-15T13:07:29+01:00 INFO (6): t_packaging Align: 3
+2017-11-15T13:07:29+01:00 INFO (6): items Align: 4
+2017-11-15T13:07:29+01:00 INFO (6): weight_item Align: 4
+2017-11-15T13:07:29+01:00 INFO (6): vendor_name Align: 3
+2017-11-15T13:07:29+01:00 INFO (6): inb_arrival Align: 4
+2017-11-15T13:07:29+01:00 INFO (6): sum_pallets Align: 1
+2017-11-15T13:07:29+01:00 INFO (6): stock Align: 1
+2017-11-15T13:07:29+01:00 INFO (6): @empty Align: 3
+2017-11-15T13:07:29+01:00 INFO (6): product_desc Align: 3
+2017-11-15T13:07:29+01:00 INFO (6): origin Align: 3
+2017-11-15T13:07:29+01:00 INFO (6): inb_lot Align: 3
+2017-11-15T13:07:29+01:00 INFO (6): label Align: 3
+2017-11-15T13:07:29+01:00 INFO (6): t_packaging Align: 3
+2017-11-15T13:07:29+01:00 INFO (6): items Align: 4
+2017-11-15T13:07:29+01:00 INFO (6): weight_item Align: 4
+2017-11-15T13:07:29+01:00 INFO (6): vendor_name Align: 3
+2017-11-15T13:07:29+01:00 INFO (6): inb_arrival Align: 4
+2017-11-15T13:07:29+01:00 INFO (6): sum_pallets Align: 1
+2017-11-15T13:07:29+01:00 INFO (6): stock Align: 1
+2017-11-15T13:07:29+01:00 INFO (6): @empty Align: 3
+2017-11-15T13:07:29+01:00 INFO (6): product_desc Align: 3
+2017-11-15T13:07:29+01:00 INFO (6): origin Align: 3
+2017-11-15T13:07:29+01:00 INFO (6): inb_lot Align: 3
+2017-11-15T13:07:29+01:00 INFO (6): label Align: 3
+2017-11-15T13:07:29+01:00 INFO (6): t_packaging Align: 3
+2017-11-15T13:07:29+01:00 INFO (6): items Align: 4
+2017-11-15T13:07:29+01:00 INFO (6): weight_item Align: 4
+2017-11-15T13:07:29+01:00 INFO (6): vendor_name Align: 3
+2017-11-15T13:07:29+01:00 INFO (6): inb_arrival Align: 4
+2017-11-15T13:07:29+01:00 INFO (6): sum_pallets Align: 1
+2017-11-15T13:07:29+01:00 INFO (6): stock Align: 1
+2017-11-15T13:07:29+01:00 INFO (6): @empty Align: 3
+2017-11-15T13:07:29+01:00 INFO (6): product_desc Align: 3
+2017-11-15T13:07:29+01:00 INFO (6): origin Align: 3
+2017-11-15T13:07:29+01:00 INFO (6): inb_lot Align: 3
+2017-11-15T13:07:29+01:00 INFO (6): label Align: 3
+2017-11-15T13:07:29+01:00 INFO (6): t_packaging Align: 3
+2017-11-15T13:07:29+01:00 INFO (6): items Align: 4
+2017-11-15T13:07:29+01:00 INFO (6): weight_item Align: 4
+2017-11-15T13:07:29+01:00 INFO (6): vendor_name Align: 3
+2017-11-15T13:07:29+01:00 INFO (6): inb_arrival Align: 4
+2017-11-15T13:07:29+01:00 INFO (6): sum_pallets Align: 1
+2017-11-15T13:07:29+01:00 INFO (6): stock Align: 1
+2017-11-15T13:07:29+01:00 INFO (6): @empty Align: 3
+2017-11-15T13:07:29+01:00 INFO (6): product_desc Align: 3
+2017-11-15T13:07:29+01:00 INFO (6): origin Align: 3
+2017-11-15T13:07:29+01:00 INFO (6): inb_lot Align: 3
+2017-11-15T13:07:29+01:00 INFO (6): label Align: 3
+2017-11-15T13:07:29+01:00 INFO (6): t_packaging Align: 3
+2017-11-15T13:07:29+01:00 INFO (6): items Align: 4
+2017-11-15T13:07:29+01:00 INFO (6): weight_item Align: 4
+2017-11-15T13:07:29+01:00 INFO (6): vendor_name Align: 3
+2017-11-15T13:07:29+01:00 INFO (6): inb_arrival Align: 4
+2017-11-15T13:07:29+01:00 INFO (6): sum_pallets Align: 1
+2017-11-15T13:07:29+01:00 INFO (6): stock Align: 1
+2017-11-15T13:07:29+01:00 INFO (6): @empty Align: 3
+2017-11-15T13:51:43+01:00 INFO (6): IndexController->IndexAction called
+2017-11-15T13:51:46+01:00 INFO (6): InboundController->IndexAction called
+2017-11-15T13:53:11+01:00 INFO (6): InboundController->IndexAction called
+2017-11-15T13:56:50+01:00 INFO (6): InboundController->IndexAction called
+2017-11-15T14:14:56+01:00 INFO (6): InboundController->IndexAction called
+2017-11-15T14:16:29+01:00 INFO (6): InboundController->IndexAction called
+2017-11-15T14:17:08+01:00 INFO (6): InboundController->IndexAction called
+2017-11-15T14:18:10+01:00 INFO (6): InboundController->IndexAction called
+2017-11-15T14:19:07+01:00 INFO (6): InboundController->IndexAction called
+2017-11-15T14:19:17+01:00 INFO (6): QSL: 
+2017-11-15T14:20:58+01:00 INFO (6): InboundController->IndexAction called
+2017-11-15T14:21:06+01:00 INFO (6): InboundController->IndexAction called
+2017-11-15T14:21:11+01:00 INFO (6): InboundController->IndexAction called
+2017-11-15T14:22:13+01:00 INFO (6): QSL: 
+2017-11-15T14:22:14+01:00 INFO (6): QSL: 
+2017-11-15T14:22:51+01:00 INFO (6): QSL: 
+2017-11-15T14:22:54+01:00 INFO (6): InboundController->IndexAction called
+2017-11-15T14:23:47+01:00 INFO (6): InboundController->IndexAction called
+2017-11-15T14:23:51+01:00 INFO (6): InboundController->IndexAction called
+2017-11-15T14:39:36+01:00 INFO (6): IndexController->IndexAction called
+2017-11-15T14:39:37+01:00 INFO (6): InboundController->IndexAction called
+2017-11-15T14:43:16+01:00 INFO (6): InboundController->IndexAction called
+2017-11-15T14:44:36+01:00 INFO (6): InboundController->IndexAction called
+2017-11-15T14:44:41+01:00 INFO (6): InboundController->IndexAction called
+2017-11-15T14:56:12+01:00 INFO (6): InboundController->IndexAction called
+2017-11-15T14:56:18+01:00 INFO (6): InboundController->IndexAction called
+2017-11-15T14:56:32+01:00 INFO (6): InboundController->IndexAction called
+2017-11-15T14:59:15+01:00 INFO (6): InboundController->IndexAction called
+2017-11-15T14:59:37+01:00 INFO (6): InboundController->IndexAction called
+2017-11-15T15:00:32+01:00 INFO (6): InboundController->IndexAction called
+2017-11-15T15:00:37+01:00 INFO (6): InboundController->IndexAction called
+2017-11-15T15:00:48+01:00 INFO (6): InboundController->IndexAction called
+2017-11-15T15:02:24+01:00 INFO (6): InboundController->IndexAction called
+2017-11-15T15:02:30+01:00 INFO (6): InboundController->IndexAction called
+2017-11-15T15:03:20+01:00 INFO (6): InboundController->IndexAction called with whereClause: whereClause
+2017-11-15T15:03:32+01:00 INFO (6): InboundController->IndexAction called with whereClause:  WHERE DATE('.inb_arrival.') = '2017-11-07'
+2017-11-15T15:20:26+01:00 INFO (6): InboundController->IndexAction called with whereClause:  WHERE DATE(inb_arrival) = '2017-11-07'
+2017-11-15T15:21:12+01:00 INFO (6): InboundController->IndexAction called with whereClause: 
+2017-11-15T15:22:55+01:00 INFO (6): InboundController->IndexAction called with whereClause: 
+2017-11-15T15:22:57+01:00 INFO (6): InboundController->IndexAction called with whereClause: 
+2017-11-15T15:23:06+01:00 INFO (6): InboundController->IndexAction called with whereClause:  WHERE DATE(inb_arrival) = '2017-11-07'
+2017-11-15T15:24:05+01:00 INFO (6): InboundController->IndexAction called with whereClause: 
+2017-11-15T15:28:26+01:00 INFO (6): InboundController->IndexAction called with whereClause: 
+2017-11-15T15:28:33+01:00 INFO (6): InboundController->IndexAction called with whereClause:  WHERE UPPER(vendor_name) LIKE UPPER("%dris%")
+2017-11-15T15:28:49+01:00 INFO (6): InboundController->IndexAction called with whereClause: 
+2017-11-15T15:29:07+01:00 INFO (6): InboundController->IndexAction called with whereClause:  WHERE UPPER(vendor_name) LIKE UPPER("%eu%")
+2017-11-15T15:29:16+01:00 INFO (6): InboundController->IndexAction called with whereClause: 
+2017-11-15T15:34:39+01:00 INFO (6): InboundController->IndexAction called with whereClause: 
+2017-11-15T15:34:59+01:00 INFO (6): InboundController->IndexAction called with whereClause: 
+2017-11-15T15:35:57+01:00 INFO (6): InboundController->IndexAction called with whereClause: 
+2017-11-15T15:36:15+01:00 INFO (6): InboundController->IndexAction called with whereClause: 
+2017-11-15T15:36:46+01:00 INFO (6): InboundController->IndexAction called with whereClause: 
+2017-11-15T15:43:06+01:00 INFO (6): InboundController->IndexAction called with whereClause: 
+2017-11-15T15:43:12+01:00 INFO (6): InboundController->IndexAction called with whereClause:  WHERE UPPER(vendor_no) LIKE UPPER("%0721%")
+2017-11-15T15:43:21+01:00 INFO (6): InboundController->IndexAction called with whereClause:  WHERE UPPER(vendor_name) LIKE UPPER("%Dris%")
+2017-11-15T15:43:28+01:00 INFO (6): InboundController->IndexAction called with whereClause:  WHERE UPPER(vendor_name) LIKE UPPER("%char%")
+2017-11-15T15:43:38+01:00 INFO (6): InboundController->IndexAction called with whereClause:  WHERE UPPER(vendor_no) LIKE UPPER("%0707%")
+2017-11-15T15:43:52+01:00 INFO (6): InboundController->IndexAction called with whereClause:  WHERE UPPER(vendor_no) LIKE UPPER("%722%")
+2017-11-15T15:47:42+01:00 INFO (6): 4
+2017-11-15T15:47:42+01:00 INFO (6): 3
+2017-11-15T15:47:42+01:00 INFO (6): 4
+2017-11-15T15:47:42+01:00 INFO (6): 4
+2017-11-15T15:47:42+01:00 INFO (6): 4
+2017-11-15T15:47:42+01:00 INFO (6): 1
+2017-11-15T15:47:42+01:00 INFO (6): 1
+2017-11-15T15:47:42+01:00 INFO (6): product_desc Align: 3
+2017-11-15T15:47:42+01:00 INFO (6): origin Align: 3
+2017-11-15T15:47:42+01:00 INFO (6): inb_lot Align: 3
+2017-11-15T15:47:42+01:00 INFO (6): label Align: 3
+2017-11-15T15:47:42+01:00 INFO (6): t_packaging Align: 3
+2017-11-15T15:47:42+01:00 INFO (6): items Align: 4
+2017-11-15T15:47:42+01:00 INFO (6): weight_item Align: 4
+2017-11-15T15:47:42+01:00 INFO (6): vendor_name Align: 3
+2017-11-15T15:47:42+01:00 INFO (6): inb_arrival Align: 4
+2017-11-15T15:47:42+01:00 INFO (6): sum_pallets Align: 1
+2017-11-15T15:47:42+01:00 INFO (6): stock Align: 1
+2017-11-15T15:47:42+01:00 INFO (6): @empty Align: 3
+2017-11-15T15:47:42+01:00 INFO (6): product_desc Align: 3
+2017-11-15T15:47:42+01:00 INFO (6): origin Align: 3
+2017-11-15T15:47:42+01:00 INFO (6): inb_lot Align: 3
+2017-11-15T15:47:42+01:00 INFO (6): label Align: 3
+2017-11-15T15:47:42+01:00 INFO (6): t_packaging Align: 3
+2017-11-15T15:47:42+01:00 INFO (6): items Align: 4
+2017-11-15T15:47:42+01:00 INFO (6): weight_item Align: 4
+2017-11-15T15:47:42+01:00 INFO (6): vendor_name Align: 3
+2017-11-15T15:47:42+01:00 INFO (6): inb_arrival Align: 4
+2017-11-15T15:47:42+01:00 INFO (6): sum_pallets Align: 1
+2017-11-15T15:47:42+01:00 INFO (6): stock Align: 1
+2017-11-15T15:47:42+01:00 INFO (6): @empty Align: 3
+2017-11-15T15:47:42+01:00 INFO (6): product_desc Align: 3
+2017-11-15T15:47:42+01:00 INFO (6): origin Align: 3
+2017-11-15T15:47:42+01:00 INFO (6): inb_lot Align: 3
+2017-11-15T15:47:42+01:00 INFO (6): label Align: 3
+2017-11-15T15:47:42+01:00 INFO (6): t_packaging Align: 3
+2017-11-15T15:47:42+01:00 INFO (6): items Align: 4
+2017-11-15T15:47:42+01:00 INFO (6): weight_item Align: 4
+2017-11-15T15:47:42+01:00 INFO (6): vendor_name Align: 3
+2017-11-15T15:47:42+01:00 INFO (6): inb_arrival Align: 4
+2017-11-15T15:47:42+01:00 INFO (6): sum_pallets Align: 1
+2017-11-15T15:47:42+01:00 INFO (6): stock Align: 1
+2017-11-15T15:47:42+01:00 INFO (6): @empty Align: 3
+2017-11-15T15:47:42+01:00 INFO (6): product_desc Align: 3
+2017-11-15T15:47:42+01:00 INFO (6): origin Align: 3
+2017-11-15T15:47:42+01:00 INFO (6): inb_lot Align: 3
+2017-11-15T15:47:42+01:00 INFO (6): label Align: 3
+2017-11-15T15:47:42+01:00 INFO (6): t_packaging Align: 3
+2017-11-15T15:47:42+01:00 INFO (6): items Align: 4
+2017-11-15T15:47:42+01:00 INFO (6): weight_item Align: 4
+2017-11-15T15:47:42+01:00 INFO (6): vendor_name Align: 3
+2017-11-15T15:47:42+01:00 INFO (6): inb_arrival Align: 4
+2017-11-15T15:47:42+01:00 INFO (6): sum_pallets Align: 1
+2017-11-15T15:47:42+01:00 INFO (6): stock Align: 1
+2017-11-15T15:47:42+01:00 INFO (6): @empty Align: 3
+2017-11-15T15:47:42+01:00 INFO (6): product_desc Align: 3
+2017-11-15T15:47:42+01:00 INFO (6): origin Align: 3
+2017-11-15T15:47:42+01:00 INFO (6): inb_lot Align: 3
+2017-11-15T15:47:42+01:00 INFO (6): label Align: 3
+2017-11-15T15:47:42+01:00 INFO (6): t_packaging Align: 3
+2017-11-15T15:47:42+01:00 INFO (6): items Align: 4
+2017-11-15T15:47:42+01:00 INFO (6): weight_item Align: 4
+2017-11-15T15:47:42+01:00 INFO (6): vendor_name Align: 3
+2017-11-15T15:47:42+01:00 INFO (6): inb_arrival Align: 4
+2017-11-15T15:47:42+01:00 INFO (6): sum_pallets Align: 1
+2017-11-15T15:47:42+01:00 INFO (6): stock Align: 1
+2017-11-15T15:47:42+01:00 INFO (6): @empty Align: 3
+2017-11-15T15:47:42+01:00 INFO (6): product_desc Align: 3
+2017-11-15T15:47:42+01:00 INFO (6): origin Align: 3
+2017-11-15T15:47:42+01:00 INFO (6): inb_lot Align: 3
+2017-11-15T15:47:42+01:00 INFO (6): label Align: 3
+2017-11-15T15:47:42+01:00 INFO (6): t_packaging Align: 3
+2017-11-15T15:47:42+01:00 INFO (6): items Align: 4
+2017-11-15T15:47:42+01:00 INFO (6): weight_item Align: 4
+2017-11-15T15:47:42+01:00 INFO (6): vendor_name Align: 3
+2017-11-15T15:47:42+01:00 INFO (6): inb_arrival Align: 4
+2017-11-15T15:47:42+01:00 INFO (6): sum_pallets Align: 1
+2017-11-15T15:47:42+01:00 INFO (6): stock Align: 1
+2017-11-15T15:47:42+01:00 INFO (6): @empty Align: 3
+2017-11-15T15:47:42+01:00 INFO (6): product_desc Align: 3
+2017-11-15T15:47:42+01:00 INFO (6): origin Align: 3
+2017-11-15T15:47:42+01:00 INFO (6): inb_lot Align: 3
+2017-11-15T15:47:42+01:00 INFO (6): label Align: 3
+2017-11-15T15:47:42+01:00 INFO (6): t_packaging Align: 3
+2017-11-15T15:47:42+01:00 INFO (6): items Align: 4
+2017-11-15T15:47:42+01:00 INFO (6): weight_item Align: 4
+2017-11-15T15:47:42+01:00 INFO (6): vendor_name Align: 3
+2017-11-15T15:47:42+01:00 INFO (6): inb_arrival Align: 4
+2017-11-15T15:47:42+01:00 INFO (6): sum_pallets Align: 1
+2017-11-15T15:47:42+01:00 INFO (6): stock Align: 1
+2017-11-15T15:47:42+01:00 INFO (6): @empty Align: 3
+2017-11-15T15:47:42+01:00 INFO (6): product_desc Align: 3
+2017-11-15T15:47:42+01:00 INFO (6): origin Align: 3
+2017-11-15T15:47:42+01:00 INFO (6): inb_lot Align: 3
+2017-11-15T15:47:42+01:00 INFO (6): label Align: 3
+2017-11-15T15:47:42+01:00 INFO (6): t_packaging Align: 3
+2017-11-15T15:47:42+01:00 INFO (6): items Align: 4
+2017-11-15T15:47:42+01:00 INFO (6): weight_item Align: 4
+2017-11-15T15:47:42+01:00 INFO (6): vendor_name Align: 3
+2017-11-15T15:47:42+01:00 INFO (6): inb_arrival Align: 4
+2017-11-15T15:47:42+01:00 INFO (6): sum_pallets Align: 1
+2017-11-15T15:47:42+01:00 INFO (6): stock Align: 1
+2017-11-15T15:47:42+01:00 INFO (6): @empty Align: 3
+2017-11-15T15:57:13+01:00 INFO (6): 4
+2017-11-15T15:57:13+01:00 INFO (6): 3
+2017-11-15T15:57:13+01:00 INFO (6): 4
+2017-11-15T15:57:13+01:00 INFO (6): 4
+2017-11-15T15:57:13+01:00 INFO (6): 4
+2017-11-15T15:57:13+01:00 INFO (6): 1
+2017-11-15T15:57:13+01:00 INFO (6): 1
+2017-11-15T15:58:00+01:00 INFO (6): 4
+2017-11-15T15:58:00+01:00 INFO (6): 3
+2017-11-15T15:58:00+01:00 INFO (6): 4
+2017-11-15T15:58:00+01:00 INFO (6): 4
+2017-11-15T15:58:00+01:00 INFO (6): 4
+2017-11-15T15:58:00+01:00 INFO (6): 1
+2017-11-15T15:58:00+01:00 INFO (6): 1
+2017-11-15T15:58:33+01:00 INFO (6): 4
+2017-11-15T15:58:33+01:00 INFO (6): 3
+2017-11-15T15:58:33+01:00 INFO (6): 4
+2017-11-15T15:58:33+01:00 INFO (6): 4
+2017-11-15T15:58:33+01:00 INFO (6): 4
+2017-11-15T15:58:33+01:00 INFO (6): 1
+2017-11-15T15:58:33+01:00 INFO (6): 1
+2017-11-15T15:59:36+01:00 INFO (6): 4
+2017-11-15T15:59:36+01:00 INFO (6): 3
+2017-11-15T15:59:36+01:00 INFO (6): 4
+2017-11-15T15:59:36+01:00 INFO (6): 4
+2017-11-15T15:59:36+01:00 INFO (6): 4
+2017-11-15T15:59:36+01:00 INFO (6): 1
+2017-11-15T15:59:36+01:00 INFO (6): 1
+2017-11-15T16:00:08+01:00 INFO (6): 4
+2017-11-15T16:00:08+01:00 INFO (6): 3
+2017-11-15T16:00:08+01:00 INFO (6): 4
+2017-11-15T16:00:08+01:00 INFO (6): 4
+2017-11-15T16:00:08+01:00 INFO (6): 4
+2017-11-15T16:00:08+01:00 INFO (6): 1
+2017-11-15T16:00:08+01:00 INFO (6): 1
+2017-11-15T16:00:25+01:00 INFO (6): 4
+2017-11-15T16:00:25+01:00 INFO (6): 3
+2017-11-15T16:00:25+01:00 INFO (6): 4
+2017-11-15T16:00:25+01:00 INFO (6): 4
+2017-11-15T16:00:25+01:00 INFO (6): 4
+2017-11-15T16:00:25+01:00 INFO (6): 1
+2017-11-15T16:00:25+01:00 INFO (6): 1
+2017-11-15T16:01:58+01:00 INFO (6): 4
+2017-11-15T16:01:58+01:00 INFO (6): 3
+2017-11-15T16:01:58+01:00 INFO (6): 4
+2017-11-15T16:01:58+01:00 INFO (6): 4
+2017-11-15T16:01:58+01:00 INFO (6): 4
+2017-11-15T16:01:58+01:00 INFO (6): 1
+2017-11-15T16:01:58+01:00 INFO (6): 1
+2017-11-15T16:02:29+01:00 INFO (6): 4
+2017-11-15T16:02:29+01:00 INFO (6): 3
+2017-11-15T16:02:29+01:00 INFO (6): 4
+2017-11-15T16:02:29+01:00 INFO (6): 4
+2017-11-15T16:02:29+01:00 INFO (6): 4
+2017-11-15T16:02:29+01:00 INFO (6): 1
+2017-11-15T16:02:29+01:00 INFO (6): 1
+2017-11-15T16:06:00+01:00 INFO (6): 4
+2017-11-15T16:06:00+01:00 INFO (6): 3
+2017-11-15T16:06:00+01:00 INFO (6): 4
+2017-11-15T16:06:00+01:00 INFO (6): 4
+2017-11-15T16:06:00+01:00 INFO (6): 4
+2017-11-15T16:06:00+01:00 INFO (6): 1
+2017-11-15T16:06:00+01:00 INFO (6): 1
+2017-11-15T16:15:19+01:00 INFO (6): 4
+2017-11-15T16:15:19+01:00 INFO (6): 3
+2017-11-15T16:15:19+01:00 INFO (6): 4
+2017-11-15T16:15:19+01:00 INFO (6): 4
+2017-11-15T16:15:19+01:00 INFO (6): 4
+2017-11-15T16:15:19+01:00 INFO (6): 1
+2017-11-15T16:15:19+01:00 INFO (6): 1
+2017-11-15T16:16:17+01:00 INFO (6): 4
+2017-11-15T16:16:17+01:00 INFO (6): 3
+2017-11-15T16:16:17+01:00 INFO (6): 4
+2017-11-15T16:16:17+01:00 INFO (6): 4
+2017-11-15T16:16:17+01:00 INFO (6): 4
+2017-11-15T16:16:17+01:00 INFO (6): 1
+2017-11-15T16:16:17+01:00 INFO (6): 1
+2017-11-15T16:23:17+01:00 INFO (6): 4
+2017-11-15T16:23:17+01:00 INFO (6): 3
+2017-11-15T16:23:17+01:00 INFO (6): 4
+2017-11-15T16:23:17+01:00 INFO (6): 4
+2017-11-15T16:23:17+01:00 INFO (6): 4
+2017-11-15T16:23:17+01:00 INFO (6): 1
+2017-11-15T16:23:17+01:00 INFO (6): 1
+2017-11-15T16:23:17+01:00 INFO (6): product_desc Align: 3
+2017-11-15T16:23:17+01:00 INFO (6): origin Align: 3
+2017-11-15T16:23:17+01:00 INFO (6): inb_lot Align: 3
+2017-11-15T16:23:17+01:00 INFO (6): label Align: 3
+2017-11-15T16:23:17+01:00 INFO (6): t_packaging Align: 3
+2017-11-15T16:23:17+01:00 INFO (6): items Align: 4
+2017-11-15T16:23:17+01:00 INFO (6): weight_item Align: 4
+2017-11-15T16:23:17+01:00 INFO (6): vendor_name Align: 3
+2017-11-15T16:23:17+01:00 INFO (6): inb_arrival Align: 4
+2017-11-15T16:23:17+01:00 INFO (6): sum_pallets Align: 1
+2017-11-15T16:23:17+01:00 INFO (6): stock Align: 1
+2017-11-15T16:23:17+01:00 INFO (6): @empty Align: 3
+2017-11-15T16:23:17+01:00 INFO (6): product_desc Align: 3
+2017-11-15T16:23:17+01:00 INFO (6): origin Align: 3
+2017-11-15T16:23:17+01:00 INFO (6): inb_lot Align: 3
+2017-11-15T16:23:17+01:00 INFO (6): label Align: 3
+2017-11-15T16:23:17+01:00 INFO (6): t_packaging Align: 3
+2017-11-15T16:23:17+01:00 INFO (6): items Align: 4
+2017-11-15T16:23:17+01:00 INFO (6): weight_item Align: 4
+2017-11-15T16:23:17+01:00 INFO (6): vendor_name Align: 3
+2017-11-15T16:23:17+01:00 INFO (6): inb_arrival Align: 4
+2017-11-15T16:23:17+01:00 INFO (6): sum_pallets Align: 1
+2017-11-15T16:23:17+01:00 INFO (6): stock Align: 1
+2017-11-15T16:23:17+01:00 INFO (6): @empty Align: 3
+2017-11-15T16:23:17+01:00 INFO (6): product_desc Align: 3
+2017-11-15T16:23:17+01:00 INFO (6): origin Align: 3
+2017-11-15T16:23:17+01:00 INFO (6): inb_lot Align: 3
+2017-11-15T16:23:17+01:00 INFO (6): label Align: 3
+2017-11-15T16:23:17+01:00 INFO (6): t_packaging Align: 3
+2017-11-15T16:23:17+01:00 INFO (6): items Align: 4
+2017-11-15T16:23:17+01:00 INFO (6): weight_item Align: 4
+2017-11-15T16:23:17+01:00 INFO (6): vendor_name Align: 3
+2017-11-15T16:23:17+01:00 INFO (6): inb_arrival Align: 4
+2017-11-15T16:23:17+01:00 INFO (6): sum_pallets Align: 1
+2017-11-15T16:23:17+01:00 INFO (6): stock Align: 1
+2017-11-15T16:23:17+01:00 INFO (6): @empty Align: 3
+2017-11-15T16:23:17+01:00 INFO (6): product_desc Align: 3
+2017-11-15T16:23:17+01:00 INFO (6): origin Align: 3
+2017-11-15T16:23:17+01:00 INFO (6): inb_lot Align: 3
+2017-11-15T16:23:17+01:00 INFO (6): label Align: 3
+2017-11-15T16:23:17+01:00 INFO (6): t_packaging Align: 3
+2017-11-15T16:23:17+01:00 INFO (6): items Align: 4
+2017-11-15T16:23:17+01:00 INFO (6): weight_item Align: 4
+2017-11-15T16:23:17+01:00 INFO (6): vendor_name Align: 3
+2017-11-15T16:23:17+01:00 INFO (6): inb_arrival Align: 4
+2017-11-15T16:23:17+01:00 INFO (6): sum_pallets Align: 1
+2017-11-15T16:23:17+01:00 INFO (6): stock Align: 1
+2017-11-15T16:23:17+01:00 INFO (6): @empty Align: 3
+2017-11-15T16:23:17+01:00 INFO (6): product_desc Align: 3
+2017-11-15T16:23:17+01:00 INFO (6): origin Align: 3
+2017-11-15T16:23:17+01:00 INFO (6): inb_lot Align: 3
+2017-11-15T16:23:17+01:00 INFO (6): label Align: 3
+2017-11-15T16:23:17+01:00 INFO (6): t_packaging Align: 3
+2017-11-15T16:23:17+01:00 INFO (6): items Align: 4
+2017-11-15T16:23:17+01:00 INFO (6): weight_item Align: 4
+2017-11-15T16:23:17+01:00 INFO (6): vendor_name Align: 3
+2017-11-15T16:23:17+01:00 INFO (6): inb_arrival Align: 4
+2017-11-15T16:23:17+01:00 INFO (6): sum_pallets Align: 1
+2017-11-15T16:23:17+01:00 INFO (6): stock Align: 1
+2017-11-15T16:23:17+01:00 INFO (6): @empty Align: 3
+2017-11-15T16:23:17+01:00 INFO (6): product_desc Align: 3
+2017-11-15T16:23:17+01:00 INFO (6): origin Align: 3
+2017-11-15T16:23:17+01:00 INFO (6): inb_lot Align: 3
+2017-11-15T16:23:17+01:00 INFO (6): label Align: 3
+2017-11-15T16:23:17+01:00 INFO (6): t_packaging Align: 3
+2017-11-15T16:23:17+01:00 INFO (6): items Align: 4
+2017-11-15T16:23:17+01:00 INFO (6): weight_item Align: 4
+2017-11-15T16:23:17+01:00 INFO (6): vendor_name Align: 3
+2017-11-15T16:23:17+01:00 INFO (6): inb_arrival Align: 4
+2017-11-15T16:23:17+01:00 INFO (6): sum_pallets Align: 1
+2017-11-15T16:23:17+01:00 INFO (6): stock Align: 1
+2017-11-15T16:23:17+01:00 INFO (6): @empty Align: 3
+2017-11-15T16:23:17+01:00 INFO (6): product_desc Align: 3
+2017-11-15T16:23:17+01:00 INFO (6): origin Align: 3
+2017-11-15T16:23:17+01:00 INFO (6): inb_lot Align: 3
+2017-11-15T16:23:17+01:00 INFO (6): label Align: 3
+2017-11-15T16:23:17+01:00 INFO (6): t_packaging Align: 3
+2017-11-15T16:23:17+01:00 INFO (6): items Align: 4
+2017-11-15T16:23:17+01:00 INFO (6): weight_item Align: 4
+2017-11-15T16:23:17+01:00 INFO (6): vendor_name Align: 3
+2017-11-15T16:23:17+01:00 INFO (6): inb_arrival Align: 4
+2017-11-15T16:23:17+01:00 INFO (6): sum_pallets Align: 1
+2017-11-15T16:23:17+01:00 INFO (6): stock Align: 1
+2017-11-15T16:23:17+01:00 INFO (6): @empty Align: 3
+2017-11-15T16:23:17+01:00 INFO (6): product_desc Align: 3
+2017-11-15T16:23:17+01:00 INFO (6): origin Align: 3
+2017-11-15T16:23:17+01:00 INFO (6): inb_lot Align: 3
+2017-11-15T16:23:17+01:00 INFO (6): label Align: 3
+2017-11-15T16:23:17+01:00 INFO (6): t_packaging Align: 3
+2017-11-15T16:23:17+01:00 INFO (6): items Align: 4
+2017-11-15T16:23:17+01:00 INFO (6): weight_item Align: 4
+2017-11-15T16:23:17+01:00 INFO (6): vendor_name Align: 3
+2017-11-15T16:23:17+01:00 INFO (6): inb_arrival Align: 4
+2017-11-15T16:23:17+01:00 INFO (6): sum_pallets Align: 1
+2017-11-15T16:23:17+01:00 INFO (6): stock Align: 1
+2017-11-15T16:23:17+01:00 INFO (6): @empty Align: 3
+2017-11-15T17:35:30+01:00 INFO (6): IndexController->IndexAction called
+2017-11-15T17:35:35+01:00 INFO (6): 4
+2017-11-15T17:35:35+01:00 INFO (6): 3
+2017-11-15T17:35:35+01:00 INFO (6): 4
+2017-11-15T17:35:35+01:00 INFO (6): 4
+2017-11-15T17:35:35+01:00 INFO (6): 4
+2017-11-15T17:35:35+01:00 INFO (6): 1
+2017-11-15T17:35:35+01:00 INFO (6): 1
+2017-11-15T17:36:18+01:00 INFO (6): 4
+2017-11-15T17:36:18+01:00 INFO (6): 3
+2017-11-15T17:36:18+01:00 INFO (6): 4
+2017-11-15T17:36:18+01:00 INFO (6): 4
+2017-11-15T17:36:18+01:00 INFO (6): 4
+2017-11-15T17:36:18+01:00 INFO (6): 1
+2017-11-15T17:36:18+01:00 INFO (6): 1
+2017-11-15T17:36:18+01:00 INFO (6): product_desc Align: 3
+2017-11-15T17:36:18+01:00 INFO (6): origin Align: 3
+2017-11-15T17:36:18+01:00 INFO (6): inb_lot Align: 3
+2017-11-15T17:36:18+01:00 INFO (6): label Align: 3
+2017-11-15T17:36:18+01:00 INFO (6): t_packaging Align: 3
+2017-11-15T17:36:18+01:00 INFO (6): items Align: 4
+2017-11-15T17:36:18+01:00 INFO (6): weight_item Align: 4
+2017-11-15T17:36:18+01:00 INFO (6): vendor_name Align: 3
+2017-11-15T17:36:18+01:00 INFO (6): inb_arrival Align: 4
+2017-11-15T17:36:18+01:00 INFO (6): sum_pallets Align: 1
+2017-11-15T17:36:18+01:00 INFO (6): stock Align: 1
+2017-11-15T17:36:18+01:00 INFO (6): @empty Align: 3
+2017-11-15T17:36:18+01:00 INFO (6): product_desc Align: 3
+2017-11-15T17:36:18+01:00 INFO (6): origin Align: 3
+2017-11-15T17:36:18+01:00 INFO (6): inb_lot Align: 3
+2017-11-15T17:36:18+01:00 INFO (6): label Align: 3
+2017-11-15T17:36:18+01:00 INFO (6): t_packaging Align: 3
+2017-11-15T17:36:18+01:00 INFO (6): items Align: 4
+2017-11-15T17:36:18+01:00 INFO (6): weight_item Align: 4
+2017-11-15T17:36:18+01:00 INFO (6): vendor_name Align: 3
+2017-11-15T17:36:18+01:00 INFO (6): inb_arrival Align: 4
+2017-11-15T17:36:18+01:00 INFO (6): sum_pallets Align: 1
+2017-11-15T17:36:18+01:00 INFO (6): stock Align: 1
+2017-11-15T17:36:18+01:00 INFO (6): @empty Align: 3
+2017-11-15T17:36:18+01:00 INFO (6): product_desc Align: 3
+2017-11-15T17:36:18+01:00 INFO (6): origin Align: 3
+2017-11-15T17:36:18+01:00 INFO (6): inb_lot Align: 3
+2017-11-15T17:36:18+01:00 INFO (6): label Align: 3
+2017-11-15T17:36:18+01:00 INFO (6): t_packaging Align: 3
+2017-11-15T17:36:18+01:00 INFO (6): items Align: 4
+2017-11-15T17:36:18+01:00 INFO (6): weight_item Align: 4
+2017-11-15T17:36:18+01:00 INFO (6): vendor_name Align: 3
+2017-11-15T17:36:18+01:00 INFO (6): inb_arrival Align: 4
+2017-11-15T17:36:18+01:00 INFO (6): sum_pallets Align: 1
+2017-11-15T17:36:18+01:00 INFO (6): stock Align: 1
+2017-11-15T17:36:18+01:00 INFO (6): @empty Align: 3
+2017-11-15T17:36:18+01:00 INFO (6): product_desc Align: 3
+2017-11-15T17:36:18+01:00 INFO (6): origin Align: 3
+2017-11-15T17:36:18+01:00 INFO (6): inb_lot Align: 3
+2017-11-15T17:36:18+01:00 INFO (6): label Align: 3
+2017-11-15T17:36:18+01:00 INFO (6): t_packaging Align: 3
+2017-11-15T17:36:18+01:00 INFO (6): items Align: 4
+2017-11-15T17:36:18+01:00 INFO (6): weight_item Align: 4
+2017-11-15T17:36:18+01:00 INFO (6): vendor_name Align: 3
+2017-11-15T17:36:18+01:00 INFO (6): inb_arrival Align: 4
+2017-11-15T17:36:18+01:00 INFO (6): sum_pallets Align: 1
+2017-11-15T17:36:18+01:00 INFO (6): stock Align: 1
+2017-11-15T17:36:18+01:00 INFO (6): @empty Align: 3
+2017-11-15T17:36:18+01:00 INFO (6): product_desc Align: 3
+2017-11-15T17:36:18+01:00 INFO (6): origin Align: 3
+2017-11-15T17:36:18+01:00 INFO (6): inb_lot Align: 3
+2017-11-15T17:36:18+01:00 INFO (6): label Align: 3
+2017-11-15T17:36:18+01:00 INFO (6): t_packaging Align: 3
+2017-11-15T17:36:18+01:00 INFO (6): items Align: 4
+2017-11-15T17:36:18+01:00 INFO (6): weight_item Align: 4
+2017-11-15T17:36:18+01:00 INFO (6): vendor_name Align: 3
+2017-11-15T17:36:18+01:00 INFO (6): inb_arrival Align: 4
+2017-11-15T17:36:18+01:00 INFO (6): sum_pallets Align: 1
+2017-11-15T17:36:18+01:00 INFO (6): stock Align: 1
+2017-11-15T17:36:18+01:00 INFO (6): @empty Align: 3
+2017-11-15T17:36:18+01:00 INFO (6): product_desc Align: 3
+2017-11-15T17:36:18+01:00 INFO (6): origin Align: 3
+2017-11-15T17:36:18+01:00 INFO (6): inb_lot Align: 3
+2017-11-15T17:36:18+01:00 INFO (6): label Align: 3
+2017-11-15T17:36:18+01:00 INFO (6): t_packaging Align: 3
+2017-11-15T17:36:18+01:00 INFO (6): items Align: 4
+2017-11-15T17:36:18+01:00 INFO (6): weight_item Align: 4
+2017-11-15T17:36:18+01:00 INFO (6): vendor_name Align: 3
+2017-11-15T17:36:18+01:00 INFO (6): inb_arrival Align: 4
+2017-11-15T17:36:18+01:00 INFO (6): sum_pallets Align: 1
+2017-11-15T17:36:18+01:00 INFO (6): stock Align: 1
+2017-11-15T17:36:18+01:00 INFO (6): @empty Align: 3
+2017-11-15T17:36:18+01:00 INFO (6): product_desc Align: 3
+2017-11-15T17:36:18+01:00 INFO (6): origin Align: 3
+2017-11-15T17:36:18+01:00 INFO (6): inb_lot Align: 3
+2017-11-15T17:36:18+01:00 INFO (6): label Align: 3
+2017-11-15T17:36:18+01:00 INFO (6): t_packaging Align: 3
+2017-11-15T17:36:18+01:00 INFO (6): items Align: 4
+2017-11-15T17:36:18+01:00 INFO (6): weight_item Align: 4
+2017-11-15T17:36:18+01:00 INFO (6): vendor_name Align: 3
+2017-11-15T17:36:18+01:00 INFO (6): inb_arrival Align: 4
+2017-11-15T17:36:18+01:00 INFO (6): sum_pallets Align: 1
+2017-11-15T17:36:18+01:00 INFO (6): stock Align: 1
+2017-11-15T17:36:18+01:00 INFO (6): @empty Align: 3
+2017-11-15T17:36:18+01:00 INFO (6): product_desc Align: 3
+2017-11-15T17:36:18+01:00 INFO (6): origin Align: 3
+2017-11-15T17:36:18+01:00 INFO (6): inb_lot Align: 3
+2017-11-15T17:36:18+01:00 INFO (6): label Align: 3
+2017-11-15T17:36:18+01:00 INFO (6): t_packaging Align: 3
+2017-11-15T17:36:18+01:00 INFO (6): items Align: 4
+2017-11-15T17:36:18+01:00 INFO (6): weight_item Align: 4
+2017-11-15T17:36:18+01:00 INFO (6): vendor_name Align: 3
+2017-11-15T17:36:18+01:00 INFO (6): inb_arrival Align: 4
+2017-11-15T17:36:18+01:00 INFO (6): sum_pallets Align: 1
+2017-11-15T17:36:18+01:00 INFO (6): stock Align: 1
+2017-11-15T17:36:18+01:00 INFO (6): @empty Align: 3
+2017-11-15T17:37:10+01:00 INFO (6): 4
+2017-11-15T17:37:10+01:00 INFO (6): 3
+2017-11-15T17:37:10+01:00 INFO (6): 4
+2017-11-15T17:37:10+01:00 INFO (6): 4
+2017-11-15T17:37:10+01:00 INFO (6): 4
+2017-11-15T17:37:10+01:00 INFO (6): 1
+2017-11-15T17:37:10+01:00 INFO (6): 1
+2017-11-15T17:37:10+01:00 INFO (6): product_desc Align: 3
+2017-11-15T17:37:10+01:00 INFO (6): origin Align: 3
+2017-11-15T17:37:10+01:00 INFO (6): inb_lot Align: 3
+2017-11-15T17:37:10+01:00 INFO (6): label Align: 3
+2017-11-15T17:37:10+01:00 INFO (6): t_packaging Align: 3
+2017-11-15T17:37:10+01:00 INFO (6): items Align: 4
+2017-11-15T17:37:10+01:00 INFO (6): weight_item Align: 4
+2017-11-15T17:37:10+01:00 INFO (6): vendor_name Align: 3
+2017-11-15T17:37:10+01:00 INFO (6): inb_arrival Align: 4
+2017-11-15T17:37:10+01:00 INFO (6): sum_pallets Align: 1
+2017-11-15T17:37:10+01:00 INFO (6): stock Align: 1
+2017-11-15T17:37:10+01:00 INFO (6): @empty Align: 3
+2017-11-15T17:37:10+01:00 INFO (6): product_desc Align: 3
+2017-11-15T17:37:10+01:00 INFO (6): origin Align: 3
+2017-11-15T17:37:10+01:00 INFO (6): inb_lot Align: 3
+2017-11-15T17:37:10+01:00 INFO (6): label Align: 3
+2017-11-15T17:37:10+01:00 INFO (6): t_packaging Align: 3
+2017-11-15T17:37:10+01:00 INFO (6): items Align: 4
+2017-11-15T17:37:10+01:00 INFO (6): weight_item Align: 4
+2017-11-15T17:37:10+01:00 INFO (6): vendor_name Align: 3
+2017-11-15T17:37:10+01:00 INFO (6): inb_arrival Align: 4
+2017-11-15T17:37:10+01:00 INFO (6): sum_pallets Align: 1
+2017-11-15T17:37:10+01:00 INFO (6): stock Align: 1
+2017-11-15T17:37:10+01:00 INFO (6): @empty Align: 3
+2017-11-15T17:37:10+01:00 INFO (6): product_desc Align: 3
+2017-11-15T17:37:10+01:00 INFO (6): origin Align: 3
+2017-11-15T17:37:10+01:00 INFO (6): inb_lot Align: 3
+2017-11-15T17:37:10+01:00 INFO (6): label Align: 3
+2017-11-15T17:37:10+01:00 INFO (6): t_packaging Align: 3
+2017-11-15T17:37:10+01:00 INFO (6): items Align: 4
+2017-11-15T17:37:10+01:00 INFO (6): weight_item Align: 4
+2017-11-15T17:37:10+01:00 INFO (6): vendor_name Align: 3
+2017-11-15T17:37:10+01:00 INFO (6): inb_arrival Align: 4
+2017-11-15T17:37:10+01:00 INFO (6): sum_pallets Align: 1
+2017-11-15T17:37:10+01:00 INFO (6): stock Align: 1
+2017-11-15T17:37:10+01:00 INFO (6): @empty Align: 3
+2017-11-15T17:37:10+01:00 INFO (6): product_desc Align: 3
+2017-11-15T17:37:10+01:00 INFO (6): origin Align: 3
+2017-11-15T17:37:10+01:00 INFO (6): inb_lot Align: 3
+2017-11-15T17:37:10+01:00 INFO (6): label Align: 3
+2017-11-15T17:37:10+01:00 INFO (6): t_packaging Align: 3
+2017-11-15T17:37:10+01:00 INFO (6): items Align: 4
+2017-11-15T17:37:10+01:00 INFO (6): weight_item Align: 4
+2017-11-15T17:37:10+01:00 INFO (6): vendor_name Align: 3
+2017-11-15T17:37:10+01:00 INFO (6): inb_arrival Align: 4
+2017-11-15T17:37:10+01:00 INFO (6): sum_pallets Align: 1
+2017-11-15T17:37:10+01:00 INFO (6): stock Align: 1
+2017-11-15T17:37:10+01:00 INFO (6): @empty Align: 3
+2017-11-15T17:37:10+01:00 INFO (6): product_desc Align: 3
+2017-11-15T17:37:10+01:00 INFO (6): origin Align: 3
+2017-11-15T17:37:10+01:00 INFO (6): inb_lot Align: 3
+2017-11-15T17:37:10+01:00 INFO (6): label Align: 3
+2017-11-15T17:37:10+01:00 INFO (6): t_packaging Align: 3
+2017-11-15T17:37:10+01:00 INFO (6): items Align: 4
+2017-11-15T17:37:10+01:00 INFO (6): weight_item Align: 4
+2017-11-15T17:37:10+01:00 INFO (6): vendor_name Align: 3
+2017-11-15T17:37:10+01:00 INFO (6): inb_arrival Align: 4
+2017-11-15T17:37:10+01:00 INFO (6): sum_pallets Align: 1
+2017-11-15T17:37:10+01:00 INFO (6): stock Align: 1
+2017-11-15T17:37:10+01:00 INFO (6): @empty Align: 3
+2017-11-15T17:37:10+01:00 INFO (6): product_desc Align: 3
+2017-11-15T17:37:10+01:00 INFO (6): origin Align: 3
+2017-11-15T17:37:10+01:00 INFO (6): inb_lot Align: 3
+2017-11-15T17:37:10+01:00 INFO (6): label Align: 3
+2017-11-15T17:37:10+01:00 INFO (6): t_packaging Align: 3
+2017-11-15T17:37:10+01:00 INFO (6): items Align: 4
+2017-11-15T17:37:10+01:00 INFO (6): weight_item Align: 4
+2017-11-15T17:37:10+01:00 INFO (6): vendor_name Align: 3
+2017-11-15T17:37:10+01:00 INFO (6): inb_arrival Align: 4
+2017-11-15T17:37:10+01:00 INFO (6): sum_pallets Align: 1
+2017-11-15T17:37:10+01:00 INFO (6): stock Align: 1
+2017-11-15T17:37:10+01:00 INFO (6): @empty Align: 3
+2017-11-15T17:37:10+01:00 INFO (6): product_desc Align: 3
+2017-11-15T17:37:10+01:00 INFO (6): origin Align: 3
+2017-11-15T17:37:10+01:00 INFO (6): inb_lot Align: 3
+2017-11-15T17:37:10+01:00 INFO (6): label Align: 3
+2017-11-15T17:37:10+01:00 INFO (6): t_packaging Align: 3
+2017-11-15T17:37:10+01:00 INFO (6): items Align: 4
+2017-11-15T17:37:10+01:00 INFO (6): weight_item Align: 4
+2017-11-15T17:37:10+01:00 INFO (6): vendor_name Align: 3
+2017-11-15T17:37:10+01:00 INFO (6): inb_arrival Align: 4
+2017-11-15T17:37:10+01:00 INFO (6): sum_pallets Align: 1
+2017-11-15T17:37:10+01:00 INFO (6): stock Align: 1
+2017-11-15T17:37:10+01:00 INFO (6): @empty Align: 3
+2017-11-15T17:37:10+01:00 INFO (6): product_desc Align: 3
+2017-11-15T17:37:10+01:00 INFO (6): origin Align: 3
+2017-11-15T17:37:10+01:00 INFO (6): inb_lot Align: 3
+2017-11-15T17:37:10+01:00 INFO (6): label Align: 3
+2017-11-15T17:37:10+01:00 INFO (6): t_packaging Align: 3
+2017-11-15T17:37:10+01:00 INFO (6): items Align: 4
+2017-11-15T17:37:10+01:00 INFO (6): weight_item Align: 4
+2017-11-15T17:37:10+01:00 INFO (6): vendor_name Align: 3
+2017-11-15T17:37:10+01:00 INFO (6): inb_arrival Align: 4
+2017-11-15T17:37:10+01:00 INFO (6): sum_pallets Align: 1
+2017-11-15T17:37:10+01:00 INFO (6): stock Align: 1
+2017-11-15T17:37:10+01:00 INFO (6): @empty Align: 3
+2017-11-15T17:39:33+01:00 INFO (6): 4
+2017-11-15T17:39:33+01:00 INFO (6): 3
+2017-11-15T17:39:33+01:00 INFO (6): 4
+2017-11-15T17:39:33+01:00 INFO (6): 4
+2017-11-15T17:39:33+01:00 INFO (6): 4
+2017-11-15T17:39:33+01:00 INFO (6): 1
+2017-11-15T17:39:33+01:00 INFO (6): 1

@@ -74,6 +74,7 @@ class VendorController extends Zend_Controller_Action
 	public function indexAction()
 	{
 		$params = array();
+		$orderParams = array();
 		$order = '';
 		$searching = false;
 		($this->hasParam('page')) ? $page = $this->getParam('page') : $page = 1;
@@ -110,6 +111,8 @@ class VendorController extends Zend_Controller_Action
 		if ($this->hasParam('order')) {
 			$order = ' ORDER BY '.$this->getParam('order').' '.$this->getParam('orientation');
 			$this->logger->info('Order: '.print_r($order, true));
+			$orderParams['field'] = $this->getParam('order');
+			$orderParams['orientation'] = $this->getParam('orientation');
 		}
 		($this->hasParam('connector')) ? $connector = $this->getParam('connector') : $connector = 'AND';
 		$pNo = 0;
@@ -129,6 +132,7 @@ class VendorController extends Zend_Controller_Action
 		$this->view->cur_page = $page;
 		$this->view->searching = $searching;
 		$this->view->searchparams = $params;
+		$this->orderParams = $orderParams;
 		$this->view->vendors = $vendors;
 	}
 
@@ -591,7 +595,7 @@ class VendorController extends Zend_Controller_Action
 					$vendor->PO_code = $city[$c];
 					$c++;
 					while ($c < count($city)) {
-						$vendor->city.= $city[$c];
+						$vendor->city.= " ".$city[$c];
 						$c++;
 					}
 					$vendor->city = trim($vendor->city);

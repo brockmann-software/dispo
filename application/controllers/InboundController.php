@@ -1227,8 +1227,8 @@ class inboundController extends Zend_Controller_Action
 			$transport = new Zend_Mail_Transport_SMTP($this->config->mailserver, $mailconfig);
 			$mail = new Zend_Mail();
 			$mail->setBodyText($emailText);
-			$mail->setFrom('dispo@marktvertrieb.de', 'Wareneingang');
-			$mail->addTo('bernhard.brockmann@marktvertrieb.de');
+			$mail->setFrom('dispo@marktvertrieb.de', 'MVS-Dispo Wareneingang');
+			$mail->addTo('vt_verkauf@marktvertrieb.de');
 			$mail->setSubject("Wareneingang {$inbound_line[0]['position']} {$inbound_line[0]['vendor_name']} {$inbound_line[0]['origin']} {$inbound_line[0]['product_desc']} {$inbound_line[0]['items']}x{$inbound_line[0]['weight_item']}g");
 			$mail->send($transport);
 		}

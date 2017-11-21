@@ -1,0 +1,385 @@
+2017-11-19T09:44:08+01:00 INFO (6): qcheckpointController->IndexAction called
+2017-11-19T13:26:21+01:00 ERR (3): Fehler: Array
+(
+    [max_regular] => Der Wert muss größer sein als der Maximalwert für Gut!
+)
+
+2017-11-19T13:31:21+01:00 INFO (6): POST: Array
+(
+    [curNo] => <br />
+<b>Notice</b>:  Undefined index: No in <b>C:\www-dev\dispo\application\views\scripts\qcheckpoint\editgeneral.phtml</b> on line <b>9</b><br />
+
+    [quality_checkpoint] => Rote Zellen
+    [type] => 
+    [checkpoint_class] => 2
+    [max_good] => 1
+    [max_regular] => 3
+    [operator] => 1
+)
+
+2017-11-19T13:31:21+01:00 ERR (3): Fehler: Array
+(
+    [max_regular] => Der Wert muss größer sein als der Maximalwert für Gut!
+)
+
+2017-11-19T14:30:52+01:00 INFO (6): POST: Array
+(
+)
+
+2017-11-19T14:31:11+01:00 INFO (6): POST: Array
+(
+    [curNo] => 
+    [quality_checkpoint] => Rote Zellen
+    [type] => 0
+    [checkpoint_class] => 2
+    [max_good] => 1
+    [max_regular] => 3
+    [operator] => 1
+)
+
+2017-11-19T14:31:11+01:00 ERR (3): Fehler: Array
+(
+    [max_regular] => Der Wert muss größer sein als der Maximalwert für Gut!
+)
+
+2017-11-19T14:36:05+01:00 INFO (6): POST: Array
+(
+    [curNo] => <br />
+<b>Notice</b>:  Undefined index: No in <b>C:\www-dev\dispo\application\views\scripts\qcheckpoint\editgeneral.phtml</b> on line <b>9</b><br />
+
+    [quality_checkpoint] => Rote Zellen
+    [type] => 0
+    [checkpoint_class] => 2
+    [max_good] => 1
+    [max_regular] => 3
+    [operator] => 1
+)
+
+2017-11-19T14:36:05+01:00 ERR (3): Fehler: Array
+(
+    [max_regular] => Der Wert muss größer sein als der Maximalwert für Gut!
+)
+
+2017-11-19T14:36:05+01:00 ERR (3): Qcheckpoint: Array
+(
+    [quality_checkpoint] => Rote Zellen
+    [type] => 0
+    [checkpoint_class] => 2
+    [max_good] => 1
+    [max_regular] => 3
+    [operator] => 1
+)
+
+2017-11-19T14:38:42+01:00 INFO (6): POST: Array
+(
+)
+
+2017-11-19T16:03:53+01:00 INFO (6): POST: Array
+(
+    [curNo] => 
+    [quality_checkpoint] => Rote Zellen
+    [type] => 0
+    [checkpoint_class] => 2
+    [max_good] => 3
+    [max_regular] => 5
+    [operator] => 1
+)
+
+2017-11-19T16:03:53+01:00 INFO (6): Qcheckpoint wurde hinzugefügt
+2017-11-19T16:04:05+01:00 INFO (6): InboundController->IndexAction called with whereClause: 
+2017-11-19T16:04:07+01:00 INFO (6): editquality aufgerufen mit Inbound_sheet: Array
+(
+    [No] => 0
+    [inbound] => 0
+    [inb_line] => 0
+    [position] => 
+    [v_delivery_note] => 
+    [vendor] => 
+    [purchase_order] => 
+    [po_line] => 0
+    [po_line_line] => 0
+    [stock_location] => 1
+    [po_arrival_date] => 19.11.2017
+    [po_arrival_time] => 16:04
+    [inb_arrival_date] => 19.11.2017
+    [inb_arrival_time] => 16:04
+    [forwarder] => 
+    [truck] => 
+    [trailor] => 
+    [container] => 
+    [po_transport_temp_min] => 1.00
+    [po_transport_temp_max] => 4.00
+    [inb_transport_temp] => 0
+    [variant] => 
+    [product] => 0026
+    [t_packaging] => 
+    [packaging] => 0
+    [origin] => DE
+    [label] => 0
+    [quality_class] => 1
+    [brand] => 0
+    [quality] => 1
+    [items] => 0
+    [weight_item] => 0
+    [po_lot] => 
+    [po_barcode] => 
+    [po_trading_units] => 0
+    [po_packing_units] => 0
+    [po_pallet] => 
+    [po_pallets] => 0
+    [po_tu_pal] => 0
+    [inb_lot] => 
+    [inb_barcode] => 
+    [items_checked] => 0
+    [inb_trading_units] => 0
+    [inb_packing_units] => 0
+    [inb_pallet] => 
+    [inb_pallets] => 0
+    [inb_tu_pal] => 0
+    [po_brix_min] => 0
+    [po_brix_max] => 0
+    [inb_brix] => 0
+    [inb_certificate] => 1
+    [remarks] => 
+    [checked_by] => 
+    [res_1] => 0
+    [base_1] => 0
+    [rp_1] => 0 %
+    [rl_1] => check_green
+    [res_4] => 0
+    [base_4] => 0
+    [rp_4] => 0 %
+    [rl_4] => check_green
+    [res_3] => 0
+    [base_3] => 0
+    [rp_3] => 0 %
+    [rl_3] => check_green
+    [res_2] => 0
+    [base_2] => 0
+    [rp_2] => 0 %
+    [rl_2] => check_green
+    [res_6] => 0
+    [base_6] => 0
+    [rp_6] => 0 %
+    [rl_6] => check_green
+    [res_5] => 0
+    [base_5] => 0
+    [rp_5] => 0 %
+    [rl_5] => check_green
+    [res_20] => 0
+    [base_20] => 0
+    [rp_20] => 0 %
+    [rl_20] => check_green
+    [res_10] => 0
+    [base_10] => 0
+    [rp_10] => 0 %
+    [rl_10] => check_green
+    [res_7] => 0
+    [base_7] => 0
+    [rp_7] => 0 %
+    [rl_7] => check_green
+    [res_9] => 0
+    [base_9] => 0
+    [rp_9] => 0 %
+    [rl_9] => check_green
+    [res_8] => 0
+    [base_8] => 0
+    [rp_8] => 0 %
+    [rl_8] => check_green
+    [res_15] => 0
+    [base_15] => 0
+    [rp_15] => 0
+    [rl_15] => check_green
+    [res_13] => 0
+    [base_13] => 0
+    [rp_13] => 0 %
+    [rl_13] => check_green
+    [res_12] => 0
+    [base_12] => 0
+    [rp_12] => 0 %
+    [rl_12] => check_green
+    [res_11] => 0
+    [base_11] => 0
+    [rp_11] => 0 %
+    [rl_11] => check_green
+    [res_14] => 0
+    [base_14] => 0
+    [rp_14] => 0
+    [rl_14] => check_green
+    [res_19] => 0
+    [base_19] => 0
+    [rp_19] => 0 %
+    [rl_19] => check_green
+    [res_18] => 0
+    [base_18] => 0
+    [rp_18] => 0
+    [rl_18] => check_green
+    [res_17] => 0
+    [base_17] => 0
+    [rp_17] => nicht OK
+    [rl_17] => check_red
+    [res_16] => 0
+    [base_16] => 0
+    [rp_16] => nicht OK
+    [rl_16] => check_red
+)
+
+2017-11-19T16:04:39+01:00 INFO (6): POST: Array
+(
+)
+
+2017-11-19T16:05:03+01:00 INFO (6): POST: Array
+(
+    [curNo] => 
+    [quality_checkpoint] => Bruch
+    [type] => 1
+    [checkpoint_class] => 1
+    [max_good] => 1
+    [max_regular] => 5
+    [operator] => 1
+)
+
+2017-11-19T16:05:03+01:00 INFO (6): Qcheckpoint wurde hinzugefügt
+2017-11-19T16:05:09+01:00 INFO (6): editquality aufgerufen mit Inbound_sheet: Array
+(
+    [No] => 0
+    [inbound] => 0
+    [inb_line] => 0
+    [position] => 
+    [v_delivery_note] => 
+    [vendor] => 
+    [purchase_order] => 
+    [po_line] => 0
+    [po_line_line] => 0
+    [stock_location] => 1
+    [po_arrival_date] => 19.11.2017
+    [po_arrival_time] => 16:05
+    [inb_arrival_date] => 19.11.2017
+    [inb_arrival_time] => 16:05
+    [forwarder] => 
+    [truck] => 
+    [trailor] => 
+    [container] => 
+    [po_transport_temp_min] => 1.00
+    [po_transport_temp_max] => 4.00
+    [inb_transport_temp] => 0
+    [variant] => 
+    [product] => 0026
+    [t_packaging] => 
+    [packaging] => 0
+    [origin] => DE
+    [label] => 0
+    [quality_class] => 1
+    [brand] => 0
+    [quality] => 1
+    [items] => 0
+    [weight_item] => 0
+    [po_lot] => 
+    [po_barcode] => 
+    [po_trading_units] => 0
+    [po_packing_units] => 0
+    [po_pallet] => 
+    [po_pallets] => 0
+    [po_tu_pal] => 0
+    [inb_lot] => 
+    [inb_barcode] => 
+    [items_checked] => 0
+    [inb_trading_units] => 0
+    [inb_packing_units] => 0
+    [inb_pallet] => 
+    [inb_pallets] => 0
+    [inb_tu_pal] => 0
+    [po_brix_min] => 0
+    [po_brix_max] => 0
+    [inb_brix] => 0
+    [inb_certificate] => 1
+    [remarks] => 
+    [checked_by] => 
+    [res_1] => 0
+    [base_1] => 0
+    [rp_1] => 0 %
+    [rl_1] => check_green
+    [res_4] => 0
+    [base_4] => 0
+    [rp_4] => 0 %
+    [rl_4] => check_green
+    [res_3] => 0
+    [base_3] => 0
+    [rp_3] => 0 %
+    [rl_3] => check_green
+    [res_2] => 0
+    [base_2] => 0
+    [rp_2] => 0 %
+    [rl_2] => check_green
+    [res_6] => 0
+    [base_6] => 0
+    [rp_6] => 0 %
+    [rl_6] => check_green
+    [res_5] => 0
+    [base_5] => 0
+    [rp_5] => 0 %
+    [rl_5] => check_green
+    [res_20] => 0
+    [base_20] => 0
+    [rp_20] => 0 %
+    [rl_20] => check_green
+    [res_10] => 0
+    [base_10] => 0
+    [rp_10] => 0 %
+    [rl_10] => check_green
+    [res_7] => 0
+    [base_7] => 0
+    [rp_7] => 0 %
+    [rl_7] => check_green
+    [res_9] => 0
+    [base_9] => 0
+    [rp_9] => 0 %
+    [rl_9] => check_green
+    [res_8] => 0
+    [base_8] => 0
+    [rp_8] => 0 %
+    [rl_8] => check_green
+    [res_15] => 0
+    [base_15] => 0
+    [rp_15] => 0
+    [rl_15] => check_green
+    [res_13] => 0
+    [base_13] => 0
+    [rp_13] => 0 %
+    [rl_13] => check_green
+    [res_12] => 0
+    [base_12] => 0
+    [rp_12] => 0 %
+    [rl_12] => check_green
+    [res_11] => 0
+    [base_11] => 0
+    [rp_11] => 0 %
+    [rl_11] => check_green
+    [res_21] => 0
+    [base_21] => 0
+    [rp_21] => 0 %
+    [rl_21] => check_green
+    [res_14] => 0
+    [base_14] => 0
+    [rp_14] => 0
+    [rl_14] => check_green
+    [res_19] => 0
+    [base_19] => 0
+    [rp_19] => 0 %
+    [rl_19] => check_green
+    [res_18] => 0
+    [base_18] => 0
+    [rp_18] => 0
+    [rl_18] => check_green
+    [res_17] => 0
+    [base_17] => 0
+    [rp_17] => nicht OK
+    [rl_17] => check_red
+    [res_16] => 0
+    [base_16] => 0
+    [rp_16] => nicht OK
+    [rl_16] => check_red
+)
+
+2017-11-19T16:11:52+01:00 INFO (6): IndexController->IndexAction called
+2017-11-19T18:54:05+01:00 INFO (6): IndexController->IndexAction called

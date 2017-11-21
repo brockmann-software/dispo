@@ -1,0 +1,4861 @@
+2017-11-21T08:16:33+01:00 INFO (6): IndexController->IndexAction called
+2017-11-21T08:16:59+01:00 INFO (6): InboundController->IndexAction called with whereClause: 
+2017-11-21T08:17:14+01:00 INFO (6): Zend_Mail_Transport_Smtp Object
+(
+    [EOL] => 
+
+    [_host:protected] => smtp.britec.de
+    [_port:protected] => 
+    [_name:protected] => localhost
+    [_auth:protected] => login
+    [_config:protected] => Array
+        (
+            [auth] => login
+            [username] => smtprelay9@britec.de
+            [password] => zxhY46S7VB
+        )
+
+    [_connection:protected] => 
+    [body] => 
+    [boundary] => 
+    [header] => 
+    [_headers:protected] => Array
+        (
+        )
+
+    [_isMultipart:protected] => 
+    [_mail:protected] => 
+    [_parts:protected] => Array
+        (
+        )
+
+    [recipients] => 
+)
+
+2017-11-21T09:40:19+01:00 INFO (6): IndexController->IndexAction called
+2017-11-21T11:42:04+01:00 INFO (6): POST: Array
+(
+    [No] => 13
+    [delete] => DELETE
+)
+
+2017-11-21T11:42:04+01:00 INFO (6): Anzahl Checkpoints gefunden: 1
+2017-11-21T11:42:04+01:00 INFO (6): Prüfpunkt wurde gelöscht. Array
+(
+    [No] => 13
+    [product] => 0026
+    [quality_checkpoint] => 7
+    [max_good] => 1.00
+    [max_regular] => 2.00
+    [operator] => 1
+)
+
+2017-11-21T12:17:59+01:00 INFO (6): IndexController->IndexAction called
+2017-11-21T12:19:16+01:00 INFO (6): product_no: 0026
+2017-11-21T12:19:16+01:00 INFO (6): QCheckpoints: Array
+(
+    [0] => Array
+        (
+            [No] => 6
+            [product_group] => Beerenfrüchte
+            [unece_link] => http://www.unece.org/fileadmin/DAM/trade/agr/standard/fresh/FFV-Std/English/57BerryFruits.pdf
+            [product_no] => 0026
+            [product] => Brombeeren
+            [qck_no] => 1
+            [type] => 0
+            [qc_type] => Qualität
+            [qchk_class_no] => 1
+            [checkpoint_class] => mayor defects
+            [quality_checkpoint] => Verderb - Schimmel
+            [max_good] => 1.00
+            [max_regular] => 3.00
+            [operator] => 1
+            [operator_name] => Prozent
+        )
+
+    [1] => Array
+        (
+            [No] => 7
+            [product_group] => Beerenfrüchte
+            [unece_link] => http://www.unece.org/fileadmin/DAM/trade/agr/standard/fresh/FFV-Std/English/57BerryFruits.pdf
+            [product_no] => 0026
+            [product] => Brombeeren
+            [qck_no] => 2
+            [type] => 0
+            [qc_type] => Qualität
+            [qchk_class_no] => 1
+            [checkpoint_class] => mayor defects
+            [quality_checkpoint] => Saftaustritt
+            [max_good] => 1.00
+            [max_regular] => 2.00
+            [operator] => 1
+            [operator_name] => Prozent
+        )
+
+    [2] => Array
+        (
+            [No] => 8
+            [product_group] => Beerenfrüchte
+            [unece_link] => http://www.unece.org/fileadmin/DAM/trade/agr/standard/fresh/FFV-Std/English/57BerryFruits.pdf
+            [product_no] => 0026
+            [product] => Brombeeren
+            [qck_no] => 3
+            [type] => 0
+            [qc_type] => Qualität
+            [qchk_class_no] => 1
+            [checkpoint_class] => mayor defects
+            [quality_checkpoint] => Ungeziefer
+            [max_good] => 1.00
+            [max_regular] => 3.00
+            [operator] => 1
+            [operator_name] => Prozent
+        )
+
+    [3] => Array
+        (
+            [No] => 9
+            [product_group] => Beerenfrüchte
+            [unece_link] => http://www.unece.org/fileadmin/DAM/trade/agr/standard/fresh/FFV-Std/English/57BerryFruits.pdf
+            [product_no] => 0026
+            [product] => Brombeeren
+            [qck_no] => 4
+            [type] => 0
+            [qc_type] => Qualität
+            [qchk_class_no] => 1
+            [checkpoint_class] => mayor defects
+            [quality_checkpoint] => Untergewicht
+            [max_good] => 1.00
+            [max_regular] => 2.00
+            [operator] => 1
+            [operator_name] => Prozent
+        )
+
+    [4] => Array
+        (
+            [No] => 11
+            [product_group] => Beerenfrüchte
+            [unece_link] => http://www.unece.org/fileadmin/DAM/trade/agr/standard/fresh/FFV-Std/English/57BerryFruits.pdf
+            [product_no] => 0026
+            [product] => Brombeeren
+            [qck_no] => 5
+            [type] => 0
+            [qc_type] => Qualität
+            [qchk_class_no] => 2
+            [checkpoint_class] => minor defects
+            [quality_checkpoint] => Ueberreif / Weich
+            [max_good] => 1.00
+            [max_regular] => 3.00
+            [operator] => 1
+            [operator_name] => Prozent
+        )
+
+    [5] => Array
+        (
+            [No] => 12
+            [product_group] => Beerenfrüchte
+            [unece_link] => http://www.unece.org/fileadmin/DAM/trade/agr/standard/fresh/FFV-Std/English/57BerryFruits.pdf
+            [product_no] => 0026
+            [product] => Brombeeren
+            [qck_no] => 6
+            [type] => 0
+            [qc_type] => Qualität
+            [qchk_class_no] => 2
+            [checkpoint_class] => minor defects
+            [quality_checkpoint] => Druckstellen
+            [max_good] => 2.00
+            [max_regular] => 5.00
+            [operator] => 1
+            [operator_name] => Prozent
+        )
+
+    [6] => Array
+        (
+            [No] => 14
+            [product_group] => Beerenfrüchte
+            [unece_link] => http://www.unece.org/fileadmin/DAM/trade/agr/standard/fresh/FFV-Std/English/57BerryFruits.pdf
+            [product_no] => 0026
+            [product] => Brombeeren
+            [qck_no] => 10
+            [type] => 0
+            [qc_type] => Qualität
+            [qchk_class_no] => 2
+            [checkpoint_class] => minor defects
+            [quality_checkpoint] => Unreif
+            [max_good] => 2.00
+            [max_regular] => 5.00
+            [operator] => 1
+            [operator_name] => Prozent
+        )
+
+    [7] => Array
+        (
+            [No] => 15
+            [product_group] => Beerenfrüchte
+            [unece_link] => http://www.unece.org/fileadmin/DAM/trade/agr/standard/fresh/FFV-Std/English/57BerryFruits.pdf
+            [product_no] => 0026
+            [product] => Brombeeren
+            [qck_no] => 20
+            [type] => 0
+            [qc_type] => Qualität
+            [qchk_class_no] => 2
+            [checkpoint_class] => minor defects
+            [quality_checkpoint] => Rote Zellen
+            [max_good] => 3.00
+            [max_regular] => 5.00
+            [operator] => 1
+            [operator_name] => Prozent
+        )
+
+    [8] => Array
+        (
+            [No] => 16
+            [product_group] => Beerenfrüchte
+            [unece_link] => http://www.unece.org/fileadmin/DAM/trade/agr/standard/fresh/FFV-Std/English/57BerryFruits.pdf
+            [product_no] => 0026
+            [product] => Brombeeren
+            [qck_no] => 8
+            [type] => 0
+            [qc_type] => Qualität
+            [qchk_class_no] => 3
+            [checkpoint_class] => remarks
+            [quality_checkpoint] => Schalenfehler
+            [max_good] => 5.00
+            [max_regular] => 10.00
+            [operator] => 1
+            [operator_name] => Prozent
+        )
+
+    [9] => Array
+        (
+            [No] => 17
+            [product_group] => Beerenfrüchte
+            [unece_link] => http://www.unece.org/fileadmin/DAM/trade/agr/standard/fresh/FFV-Std/English/57BerryFruits.pdf
+            [product_no] => 0026
+            [product] => Brombeeren
+            [qck_no] => 9
+            [type] => 0
+            [qc_type] => Qualität
+            [qchk_class_no] => 3
+            [checkpoint_class] => remarks
+            [quality_checkpoint] => Restschmutz
+            [max_good] => 5.00
+            [max_regular] => 10.00
+            [operator] => 1
+            [operator_name] => Prozent
+        )
+
+    [10] => Array
+        (
+            [No] => 18
+            [product_group] => Beerenfrüchte
+            [unece_link] => http://www.unece.org/fileadmin/DAM/trade/agr/standard/fresh/FFV-Std/English/57BerryFruits.pdf
+            [product_no] => 0026
+            [product] => Brombeeren
+            [qck_no] => 11
+            [type] => 0
+            [qc_type] => Qualität
+            [qchk_class_no] => 3
+            [checkpoint_class] => remarks
+            [quality_checkpoint] => Beschaedigungen
+            [max_good] => 3.00
+            [max_regular] => 6.00
+            [operator] => 1
+            [operator_name] => Prozent
+        )
+
+    [11] => Array
+        (
+            [No] => 19
+            [product_group] => Beerenfrüchte
+            [unece_link] => http://www.unece.org/fileadmin/DAM/trade/agr/standard/fresh/FFV-Std/English/57BerryFruits.pdf
+            [product_no] => 0026
+            [product] => Brombeeren
+            [qck_no] => 12
+            [type] => 0
+            [qc_type] => Qualität
+            [qchk_class_no] => 3
+            [checkpoint_class] => remarks
+            [quality_checkpoint] => Andere
+            [max_good] => 2.00
+            [max_regular] => 5.00
+            [operator] => 1
+            [operator_name] => Prozent
+        )
+
+    [12] => Array
+        (
+            [No] => 20
+            [product_group] => Beerenfrüchte
+            [unece_link] => http://www.unece.org/fileadmin/DAM/trade/agr/standard/fresh/FFV-Std/English/57BerryFruits.pdf
+            [product_no] => 0026
+            [product] => Brombeeren
+            [qck_no] => 13
+            [type] => 0
+            [qc_type] => Qualität
+            [qchk_class_no] => 3
+            [checkpoint_class] => remarks
+            [quality_checkpoint] => Untermass
+            [max_good] => 5.00
+            [max_regular] => 10.00
+            [operator] => 1
+            [operator_name] => Prozent
+        )
+
+    [13] => Array
+        (
+            [No] => 21
+            [product_group] => Beerenfrüchte
+            [unece_link] => http://www.unece.org/fileadmin/DAM/trade/agr/standard/fresh/FFV-Std/English/57BerryFruits.pdf
+            [product_no] => 0026
+            [product] => Brombeeren
+            [qck_no] => 15
+            [type] => 0
+            [qc_type] => Qualität
+            [qchk_class_no] => 3
+            [checkpoint_class] => remarks
+            [quality_checkpoint] => Brixgehalt
+            [max_good] => 1.00
+            [max_regular] => 3.00
+            [operator] => 0
+            [operator_name] => Differenz
+        )
+
+)
+
+2017-11-21T12:19:16+01:00 INFO (6): editquality aufgerufen mit Inbound_sheet: Array
+(
+    [No] => 0
+    [inbound] => 0
+    [inb_line] => 0
+    [position] => 
+    [v_delivery_note] => 
+    [vendor] => 
+    [purchase_order] => 
+    [po_line] => 0
+    [po_line_line] => 0
+    [stock_location] => 1
+    [po_arrival_date] => 21.11.2017
+    [po_arrival_time] => 12:19
+    [inb_arrival_date] => 21.11.2017
+    [inb_arrival_time] => 12:19
+    [forwarder] => 
+    [truck] => 
+    [trailor] => 
+    [container] => 
+    [po_transport_temp_min] => 1.00
+    [po_transport_temp_max] => 4.00
+    [inb_transport_temp] => 0
+    [variant] => 
+    [product] => 0026
+    [t_packaging] => 
+    [packaging] => 0
+    [origin] => DE
+    [label] => 0
+    [quality_class] => 1
+    [brand] => 0
+    [quality] => 1
+    [items] => 0
+    [weight_item] => 0
+    [po_lot] => 
+    [po_barcode] => 
+    [po_trading_units] => 0
+    [po_packing_units] => 0
+    [po_pallet] => 
+    [po_pallets] => 0
+    [po_tu_pal] => 0
+    [inb_lot] => 
+    [inb_barcode] => 
+    [items_checked] => 0
+    [inb_trading_units] => 0
+    [inb_packing_units] => 0
+    [inb_pallet] => 
+    [inb_pallets] => 0
+    [inb_tu_pal] => 0
+    [po_brix_min] => 0
+    [po_brix_max] => 0
+    [inb_brix] => 0
+    [inb_certificate] => 1
+    [remarks] => 
+    [checked_by] => 
+    [res_1] => 0
+    [base_1] => 0
+    [rp_1] => 0 %
+    [rl_1] => check_green
+    [res_2] => 0
+    [base_2] => 0
+    [rp_2] => 0 %
+    [rl_2] => check_green
+    [res_3] => 0
+    [base_3] => 0
+    [rp_3] => 0 %
+    [rl_3] => check_green
+    [res_4] => 0
+    [base_4] => 0
+    [rp_4] => 0 %
+    [rl_4] => check_green
+    [res_5] => 0
+    [base_5] => 0
+    [rp_5] => 0 %
+    [rl_5] => check_green
+    [res_6] => 0
+    [base_6] => 0
+    [rp_6] => 0 %
+    [rl_6] => check_green
+    [res_10] => 0
+    [base_10] => 0
+    [rp_10] => 0 %
+    [rl_10] => check_green
+    [res_20] => 0
+    [base_20] => 0
+    [rp_20] => 0 %
+    [rl_20] => check_green
+    [res_8] => 0
+    [base_8] => 0
+    [rp_8] => 0 %
+    [rl_8] => check_green
+    [res_9] => 0
+    [base_9] => 0
+    [rp_9] => 0 %
+    [rl_9] => check_green
+    [res_11] => 0
+    [base_11] => 0
+    [rp_11] => 0 %
+    [rl_11] => check_green
+    [res_12] => 0
+    [base_12] => 0
+    [rp_12] => 0 %
+    [rl_12] => check_green
+    [res_13] => 0
+    [base_13] => 0
+    [rp_13] => 0 %
+    [rl_13] => check_green
+    [res_15] => 0
+    [base_15] => 0
+    [rp_15] => 0
+    [rl_15] => check_green
+    [res_21] => 0
+    [base_21] => 0
+    [rp_21] => 0 %
+    [rl_21] => check_green
+    [res_19] => 0
+    [base_19] => 0
+    [rp_19] => 0 %
+    [rl_19] => check_green
+    [res_18] => 0
+    [base_18] => 0
+    [rp_18] => 0
+    [rl_18] => check_green
+    [res_17] => 0
+    [base_17] => 0
+    [rp_17] => nicht OK
+    [rl_17] => check_red
+    [res_16] => 0
+    [base_16] => 0
+    [rp_16] => nicht OK
+    [rl_16] => check_red
+    [res_14] => 0
+    [base_14] => 0
+    [rp_14] => 0
+    [rl_14] => check_green
+)
+
+2017-11-21T12:20:34+01:00 INFO (6): InboundController->getinboundsAction called with whereClause:  WHERE position = 39999
+2017-11-21T12:20:35+01:00 INFO (6): SQL: SELECT tbl_HAN.HANVORNR, tbl_HAN.HANPOSNR, tbl_HAN.HANADRNR, tbl_LIE.LIENAME, tbl_LIE.LIESTRAS, tbl_LIE.LIEPLZOR, convert(varchar(25), tbl_HAN.HANPRODT, 127) AS HANLISDT, HANTABZT, tbl_HAN.HANARTTX, tbl_HAN.HANWARGR, tbl_art.ARTGEBIN, tbl_ART.ARTDURGW, tbl_HAN.HANPMENG, tbl_ART.ARTURSLD FROM tbl_HAN JOIN tbl_ART on (tbl_HAN.HANARTNR = tbl_ART.KEYIART1) join tbl_LIE on (tbl_han.HANADRNR = tbl_LIE.KEYILIE1) WHERE tbl_HAN.HANVORAR = 30 AND tbl_art.ARTAKTKZ = 'A' AND tbl_HAN.HANVORNR = '426350'
+2017-11-21T12:20:35+01:00 INFO (6): Bestellungen: Array
+(
+    [0] => Array
+        (
+            [HANVORNR] => 426350
+            [HANPOSNR] => 003
+            [HANADRNR] => 099809
+            [LIENAME] => Dieter Schwerin - Retouren
+            [LIESTRAS] => Paul-RÃ¼cker-Str. 6b
+            [LIEPLZOR] => 47059 Duisburg
+            [HANLISDT] => 2017-11-15T00:00:00
+            [HANTABZT] => 12:20
+            [HANARTTX] => Heidelbeere 12x125g 
+            [HANWARGR] => 0031
+            [ARTGEBIN] => 12.000
+            [ARTDURGW] => 125
+            [HANPMENG] => 1120.00
+            [ARTURSLD] => UY
+            [HANLFSNR] => 
+        )
+
+)
+
+2017-11-21T12:21:38+01:00 INFO (6): product_no: 0026
+2017-11-21T12:21:38+01:00 INFO (6): QCheckpoints: Array
+(
+    [0] => Array
+        (
+            [No] => 6
+            [product_group] => Beerenfrüchte
+            [unece_link] => http://www.unece.org/fileadmin/DAM/trade/agr/standard/fresh/FFV-Std/English/57BerryFruits.pdf
+            [product_no] => 0026
+            [product] => Brombeeren
+            [qck_no] => 1
+            [type] => 0
+            [qc_type] => Qualität
+            [qchk_class_no] => 1
+            [checkpoint_class] => mayor defects
+            [quality_checkpoint] => Verderb - Schimmel
+            [max_good] => 1.00
+            [max_regular] => 3.00
+            [operator] => 1
+            [operator_name] => Prozent
+        )
+
+    [1] => Array
+        (
+            [No] => 7
+            [product_group] => Beerenfrüchte
+            [unece_link] => http://www.unece.org/fileadmin/DAM/trade/agr/standard/fresh/FFV-Std/English/57BerryFruits.pdf
+            [product_no] => 0026
+            [product] => Brombeeren
+            [qck_no] => 2
+            [type] => 0
+            [qc_type] => Qualität
+            [qchk_class_no] => 1
+            [checkpoint_class] => mayor defects
+            [quality_checkpoint] => Saftaustritt
+            [max_good] => 1.00
+            [max_regular] => 2.00
+            [operator] => 1
+            [operator_name] => Prozent
+        )
+
+    [2] => Array
+        (
+            [No] => 8
+            [product_group] => Beerenfrüchte
+            [unece_link] => http://www.unece.org/fileadmin/DAM/trade/agr/standard/fresh/FFV-Std/English/57BerryFruits.pdf
+            [product_no] => 0026
+            [product] => Brombeeren
+            [qck_no] => 3
+            [type] => 0
+            [qc_type] => Qualität
+            [qchk_class_no] => 1
+            [checkpoint_class] => mayor defects
+            [quality_checkpoint] => Ungeziefer
+            [max_good] => 1.00
+            [max_regular] => 3.00
+            [operator] => 1
+            [operator_name] => Prozent
+        )
+
+    [3] => Array
+        (
+            [No] => 9
+            [product_group] => Beerenfrüchte
+            [unece_link] => http://www.unece.org/fileadmin/DAM/trade/agr/standard/fresh/FFV-Std/English/57BerryFruits.pdf
+            [product_no] => 0026
+            [product] => Brombeeren
+            [qck_no] => 4
+            [type] => 0
+            [qc_type] => Qualität
+            [qchk_class_no] => 1
+            [checkpoint_class] => mayor defects
+            [quality_checkpoint] => Untergewicht
+            [max_good] => 1.00
+            [max_regular] => 2.00
+            [operator] => 1
+            [operator_name] => Prozent
+        )
+
+    [4] => Array
+        (
+            [No] => 11
+            [product_group] => Beerenfrüchte
+            [unece_link] => http://www.unece.org/fileadmin/DAM/trade/agr/standard/fresh/FFV-Std/English/57BerryFruits.pdf
+            [product_no] => 0026
+            [product] => Brombeeren
+            [qck_no] => 5
+            [type] => 0
+            [qc_type] => Qualität
+            [qchk_class_no] => 2
+            [checkpoint_class] => minor defects
+            [quality_checkpoint] => Ueberreif / Weich
+            [max_good] => 1.00
+            [max_regular] => 3.00
+            [operator] => 1
+            [operator_name] => Prozent
+        )
+
+    [5] => Array
+        (
+            [No] => 12
+            [product_group] => Beerenfrüchte
+            [unece_link] => http://www.unece.org/fileadmin/DAM/trade/agr/standard/fresh/FFV-Std/English/57BerryFruits.pdf
+            [product_no] => 0026
+            [product] => Brombeeren
+            [qck_no] => 6
+            [type] => 0
+            [qc_type] => Qualität
+            [qchk_class_no] => 2
+            [checkpoint_class] => minor defects
+            [quality_checkpoint] => Druckstellen
+            [max_good] => 2.00
+            [max_regular] => 5.00
+            [operator] => 1
+            [operator_name] => Prozent
+        )
+
+    [6] => Array
+        (
+            [No] => 14
+            [product_group] => Beerenfrüchte
+            [unece_link] => http://www.unece.org/fileadmin/DAM/trade/agr/standard/fresh/FFV-Std/English/57BerryFruits.pdf
+            [product_no] => 0026
+            [product] => Brombeeren
+            [qck_no] => 10
+            [type] => 0
+            [qc_type] => Qualität
+            [qchk_class_no] => 2
+            [checkpoint_class] => minor defects
+            [quality_checkpoint] => Unreif
+            [max_good] => 2.00
+            [max_regular] => 5.00
+            [operator] => 1
+            [operator_name] => Prozent
+        )
+
+    [7] => Array
+        (
+            [No] => 15
+            [product_group] => Beerenfrüchte
+            [unece_link] => http://www.unece.org/fileadmin/DAM/trade/agr/standard/fresh/FFV-Std/English/57BerryFruits.pdf
+            [product_no] => 0026
+            [product] => Brombeeren
+            [qck_no] => 20
+            [type] => 0
+            [qc_type] => Qualität
+            [qchk_class_no] => 2
+            [checkpoint_class] => minor defects
+            [quality_checkpoint] => Rote Zellen
+            [max_good] => 3.00
+            [max_regular] => 5.00
+            [operator] => 1
+            [operator_name] => Prozent
+        )
+
+    [8] => Array
+        (
+            [No] => 16
+            [product_group] => Beerenfrüchte
+            [unece_link] => http://www.unece.org/fileadmin/DAM/trade/agr/standard/fresh/FFV-Std/English/57BerryFruits.pdf
+            [product_no] => 0026
+            [product] => Brombeeren
+            [qck_no] => 8
+            [type] => 0
+            [qc_type] => Qualität
+            [qchk_class_no] => 3
+            [checkpoint_class] => remarks
+            [quality_checkpoint] => Schalenfehler
+            [max_good] => 5.00
+            [max_regular] => 10.00
+            [operator] => 1
+            [operator_name] => Prozent
+        )
+
+    [9] => Array
+        (
+            [No] => 17
+            [product_group] => Beerenfrüchte
+            [unece_link] => http://www.unece.org/fileadmin/DAM/trade/agr/standard/fresh/FFV-Std/English/57BerryFruits.pdf
+            [product_no] => 0026
+            [product] => Brombeeren
+            [qck_no] => 9
+            [type] => 0
+            [qc_type] => Qualität
+            [qchk_class_no] => 3
+            [checkpoint_class] => remarks
+            [quality_checkpoint] => Restschmutz
+            [max_good] => 5.00
+            [max_regular] => 10.00
+            [operator] => 1
+            [operator_name] => Prozent
+        )
+
+    [10] => Array
+        (
+            [No] => 18
+            [product_group] => Beerenfrüchte
+            [unece_link] => http://www.unece.org/fileadmin/DAM/trade/agr/standard/fresh/FFV-Std/English/57BerryFruits.pdf
+            [product_no] => 0026
+            [product] => Brombeeren
+            [qck_no] => 11
+            [type] => 0
+            [qc_type] => Qualität
+            [qchk_class_no] => 3
+            [checkpoint_class] => remarks
+            [quality_checkpoint] => Beschaedigungen
+            [max_good] => 3.00
+            [max_regular] => 6.00
+            [operator] => 1
+            [operator_name] => Prozent
+        )
+
+    [11] => Array
+        (
+            [No] => 19
+            [product_group] => Beerenfrüchte
+            [unece_link] => http://www.unece.org/fileadmin/DAM/trade/agr/standard/fresh/FFV-Std/English/57BerryFruits.pdf
+            [product_no] => 0026
+            [product] => Brombeeren
+            [qck_no] => 12
+            [type] => 0
+            [qc_type] => Qualität
+            [qchk_class_no] => 3
+            [checkpoint_class] => remarks
+            [quality_checkpoint] => Andere
+            [max_good] => 2.00
+            [max_regular] => 5.00
+            [operator] => 1
+            [operator_name] => Prozent
+        )
+
+    [12] => Array
+        (
+            [No] => 20
+            [product_group] => Beerenfrüchte
+            [unece_link] => http://www.unece.org/fileadmin/DAM/trade/agr/standard/fresh/FFV-Std/English/57BerryFruits.pdf
+            [product_no] => 0026
+            [product] => Brombeeren
+            [qck_no] => 13
+            [type] => 0
+            [qc_type] => Qualität
+            [qchk_class_no] => 3
+            [checkpoint_class] => remarks
+            [quality_checkpoint] => Untermass
+            [max_good] => 5.00
+            [max_regular] => 10.00
+            [operator] => 1
+            [operator_name] => Prozent
+        )
+
+    [13] => Array
+        (
+            [No] => 21
+            [product_group] => Beerenfrüchte
+            [unece_link] => http://www.unece.org/fileadmin/DAM/trade/agr/standard/fresh/FFV-Std/English/57BerryFruits.pdf
+            [product_no] => 0026
+            [product] => Brombeeren
+            [qck_no] => 15
+            [type] => 0
+            [qc_type] => Qualität
+            [qchk_class_no] => 3
+            [checkpoint_class] => remarks
+            [quality_checkpoint] => Brixgehalt
+            [max_good] => 1.00
+            [max_regular] => 3.00
+            [operator] => 0
+            [operator_name] => Differenz
+        )
+
+)
+
+2017-11-21T12:21:38+01:00 INFO (6): editquality aufgerufen mit Inbound_sheet: Array
+(
+    [No] => 0
+    [inbound] => 0
+    [inb_line] => 0
+    [position] => 
+    [v_delivery_note] => 
+    [vendor] => 
+    [purchase_order] => 
+    [po_line] => 0
+    [po_line_line] => 0
+    [stock_location] => 1
+    [po_arrival_date] => 21.11.2017
+    [po_arrival_time] => 12:21
+    [inb_arrival_date] => 21.11.2017
+    [inb_arrival_time] => 12:21
+    [forwarder] => 
+    [truck] => 
+    [trailor] => 
+    [container] => 
+    [po_transport_temp_min] => 1.00
+    [po_transport_temp_max] => 4.00
+    [inb_transport_temp] => 0
+    [variant] => 
+    [product] => 0026
+    [t_packaging] => 
+    [packaging] => 0
+    [origin] => DE
+    [label] => 0
+    [quality_class] => 1
+    [brand] => 0
+    [quality] => 1
+    [items] => 0
+    [weight_item] => 0
+    [po_lot] => 
+    [po_barcode] => 
+    [po_trading_units] => 0
+    [po_packing_units] => 0
+    [po_pallet] => 
+    [po_pallets] => 0
+    [po_tu_pal] => 0
+    [inb_lot] => 
+    [inb_barcode] => 
+    [items_checked] => 0
+    [inb_trading_units] => 0
+    [inb_packing_units] => 0
+    [inb_pallet] => 
+    [inb_pallets] => 0
+    [inb_tu_pal] => 0
+    [po_brix_min] => 0
+    [po_brix_max] => 0
+    [inb_brix] => 0
+    [inb_certificate] => 1
+    [remarks] => 
+    [checked_by] => 
+    [res_1] => 0
+    [base_1] => 0
+    [rp_1] => 0 %
+    [rl_1] => check_green
+    [res_2] => 0
+    [base_2] => 0
+    [rp_2] => 0 %
+    [rl_2] => check_green
+    [res_3] => 0
+    [base_3] => 0
+    [rp_3] => 0 %
+    [rl_3] => check_green
+    [res_4] => 0
+    [base_4] => 0
+    [rp_4] => 0 %
+    [rl_4] => check_green
+    [res_5] => 0
+    [base_5] => 0
+    [rp_5] => 0 %
+    [rl_5] => check_green
+    [res_6] => 0
+    [base_6] => 0
+    [rp_6] => 0 %
+    [rl_6] => check_green
+    [res_10] => 0
+    [base_10] => 0
+    [rp_10] => 0 %
+    [rl_10] => check_green
+    [res_20] => 0
+    [base_20] => 0
+    [rp_20] => 0 %
+    [rl_20] => check_green
+    [res_8] => 0
+    [base_8] => 0
+    [rp_8] => 0 %
+    [rl_8] => check_green
+    [res_9] => 0
+    [base_9] => 0
+    [rp_9] => 0 %
+    [rl_9] => check_green
+    [res_11] => 0
+    [base_11] => 0
+    [rp_11] => 0 %
+    [rl_11] => check_green
+    [res_12] => 0
+    [base_12] => 0
+    [rp_12] => 0 %
+    [rl_12] => check_green
+    [res_13] => 0
+    [base_13] => 0
+    [rp_13] => 0 %
+    [rl_13] => check_green
+    [res_15] => 0
+    [base_15] => 0
+    [rp_15] => 0
+    [rl_15] => check_green
+    [res_21] => 0
+    [base_21] => 0
+    [rp_21] => 0 %
+    [rl_21] => check_green
+    [res_18] => 0
+    [base_18] => 0
+    [rp_18] => 0
+    [rl_18] => check_green
+    [res_17] => 0
+    [base_17] => 0
+    [rp_17] => nicht OK
+    [rl_17] => check_red
+    [res_16] => 0
+    [base_16] => 0
+    [rp_16] => nicht OK
+    [rl_16] => check_red
+    [res_14] => 0
+    [base_14] => 0
+    [rp_14] => 0
+    [rl_14] => check_green
+    [res_19] => 0
+    [base_19] => 0
+    [rp_19] => 0 %
+    [rl_19] => check_green
+)
+
+2017-11-21T12:21:43+01:00 INFO (6): InboundController->getinboundsAction called with whereClause:  WHERE position = 39999
+2017-11-21T12:21:43+01:00 INFO (6): SQL: SELECT tbl_HAN.HANVORNR, tbl_HAN.HANPOSNR, tbl_HAN.HANADRNR, tbl_LIE.LIENAME, tbl_LIE.LIESTRAS, tbl_LIE.LIEPLZOR, convert(varchar(25), tbl_HAN.HANPRODT, 127) AS HANLISDT, HANTABZT, tbl_HAN.HANARTTX, tbl_HAN.HANWARGR, tbl_art.ARTGEBIN, tbl_ART.ARTDURGW, tbl_HAN.HANPMENG, tbl_ART.ARTURSLD FROM tbl_HAN JOIN tbl_ART on (tbl_HAN.HANARTNR = tbl_ART.KEYIART1) join tbl_LIE on (tbl_han.HANADRNR = tbl_LIE.KEYILIE1) WHERE tbl_HAN.HANVORAR = 30 AND tbl_art.ARTAKTKZ = 'A' AND tbl_HAN.HANVORNR = '426350'
+2017-11-21T12:21:43+01:00 INFO (6): Bestellungen: Array
+(
+    [0] => Array
+        (
+            [HANVORNR] => 426350
+            [HANPOSNR] => 003
+            [HANADRNR] => 099809
+            [LIENAME] => Dieter Schwerin - Retouren
+            [LIESTRAS] => Paul-RÃ¼cker-Str. 6b
+            [LIEPLZOR] => 47059 Duisburg
+            [HANLISDT] => 2017-11-15T00:00:00
+            [HANTABZT] => 12:21
+            [HANARTTX] => Heidelbeere 12x125g 
+            [HANWARGR] => 0031
+            [ARTGEBIN] => 12.000
+            [ARTDURGW] => 125
+            [HANPMENG] => 1120.00
+            [ARTURSLD] => UY
+            [HANLFSNR] => 
+        )
+
+)
+
+2017-11-21T12:24:22+01:00 INFO (6): product_no: 0026
+2017-11-21T12:24:22+01:00 INFO (6): QCheckpoints: Array
+(
+    [0] => Array
+        (
+            [No] => 6
+            [product_group] => Beerenfrüchte
+            [unece_link] => http://www.unece.org/fileadmin/DAM/trade/agr/standard/fresh/FFV-Std/English/57BerryFruits.pdf
+            [product_no] => 0026
+            [product] => Brombeeren
+            [qck_no] => 1
+            [type] => 0
+            [qc_type] => Qualität
+            [qchk_class_no] => 1
+            [checkpoint_class] => mayor defects
+            [quality_checkpoint] => Verderb - Schimmel
+            [max_good] => 1.00
+            [max_regular] => 3.00
+            [operator] => 1
+            [operator_name] => Prozent
+        )
+
+    [1] => Array
+        (
+            [No] => 7
+            [product_group] => Beerenfrüchte
+            [unece_link] => http://www.unece.org/fileadmin/DAM/trade/agr/standard/fresh/FFV-Std/English/57BerryFruits.pdf
+            [product_no] => 0026
+            [product] => Brombeeren
+            [qck_no] => 2
+            [type] => 0
+            [qc_type] => Qualität
+            [qchk_class_no] => 1
+            [checkpoint_class] => mayor defects
+            [quality_checkpoint] => Saftaustritt
+            [max_good] => 1.00
+            [max_regular] => 2.00
+            [operator] => 1
+            [operator_name] => Prozent
+        )
+
+    [2] => Array
+        (
+            [No] => 8
+            [product_group] => Beerenfrüchte
+            [unece_link] => http://www.unece.org/fileadmin/DAM/trade/agr/standard/fresh/FFV-Std/English/57BerryFruits.pdf
+            [product_no] => 0026
+            [product] => Brombeeren
+            [qck_no] => 3
+            [type] => 0
+            [qc_type] => Qualität
+            [qchk_class_no] => 1
+            [checkpoint_class] => mayor defects
+            [quality_checkpoint] => Ungeziefer
+            [max_good] => 1.00
+            [max_regular] => 3.00
+            [operator] => 1
+            [operator_name] => Prozent
+        )
+
+    [3] => Array
+        (
+            [No] => 9
+            [product_group] => Beerenfrüchte
+            [unece_link] => http://www.unece.org/fileadmin/DAM/trade/agr/standard/fresh/FFV-Std/English/57BerryFruits.pdf
+            [product_no] => 0026
+            [product] => Brombeeren
+            [qck_no] => 4
+            [type] => 0
+            [qc_type] => Qualität
+            [qchk_class_no] => 1
+            [checkpoint_class] => mayor defects
+            [quality_checkpoint] => Untergewicht
+            [max_good] => 1.00
+            [max_regular] => 2.00
+            [operator] => 1
+            [operator_name] => Prozent
+        )
+
+    [4] => Array
+        (
+            [No] => 11
+            [product_group] => Beerenfrüchte
+            [unece_link] => http://www.unece.org/fileadmin/DAM/trade/agr/standard/fresh/FFV-Std/English/57BerryFruits.pdf
+            [product_no] => 0026
+            [product] => Brombeeren
+            [qck_no] => 5
+            [type] => 0
+            [qc_type] => Qualität
+            [qchk_class_no] => 2
+            [checkpoint_class] => minor defects
+            [quality_checkpoint] => Ueberreif / Weich
+            [max_good] => 1.00
+            [max_regular] => 3.00
+            [operator] => 1
+            [operator_name] => Prozent
+        )
+
+    [5] => Array
+        (
+            [No] => 12
+            [product_group] => Beerenfrüchte
+            [unece_link] => http://www.unece.org/fileadmin/DAM/trade/agr/standard/fresh/FFV-Std/English/57BerryFruits.pdf
+            [product_no] => 0026
+            [product] => Brombeeren
+            [qck_no] => 6
+            [type] => 0
+            [qc_type] => Qualität
+            [qchk_class_no] => 2
+            [checkpoint_class] => minor defects
+            [quality_checkpoint] => Druckstellen
+            [max_good] => 2.00
+            [max_regular] => 5.00
+            [operator] => 1
+            [operator_name] => Prozent
+        )
+
+    [6] => Array
+        (
+            [No] => 14
+            [product_group] => Beerenfrüchte
+            [unece_link] => http://www.unece.org/fileadmin/DAM/trade/agr/standard/fresh/FFV-Std/English/57BerryFruits.pdf
+            [product_no] => 0026
+            [product] => Brombeeren
+            [qck_no] => 10
+            [type] => 0
+            [qc_type] => Qualität
+            [qchk_class_no] => 2
+            [checkpoint_class] => minor defects
+            [quality_checkpoint] => Unreif
+            [max_good] => 2.00
+            [max_regular] => 5.00
+            [operator] => 1
+            [operator_name] => Prozent
+        )
+
+    [7] => Array
+        (
+            [No] => 15
+            [product_group] => Beerenfrüchte
+            [unece_link] => http://www.unece.org/fileadmin/DAM/trade/agr/standard/fresh/FFV-Std/English/57BerryFruits.pdf
+            [product_no] => 0026
+            [product] => Brombeeren
+            [qck_no] => 20
+            [type] => 0
+            [qc_type] => Qualität
+            [qchk_class_no] => 2
+            [checkpoint_class] => minor defects
+            [quality_checkpoint] => Rote Zellen
+            [max_good] => 3.00
+            [max_regular] => 5.00
+            [operator] => 1
+            [operator_name] => Prozent
+        )
+
+    [8] => Array
+        (
+            [No] => 16
+            [product_group] => Beerenfrüchte
+            [unece_link] => http://www.unece.org/fileadmin/DAM/trade/agr/standard/fresh/FFV-Std/English/57BerryFruits.pdf
+            [product_no] => 0026
+            [product] => Brombeeren
+            [qck_no] => 8
+            [type] => 0
+            [qc_type] => Qualität
+            [qchk_class_no] => 3
+            [checkpoint_class] => remarks
+            [quality_checkpoint] => Schalenfehler
+            [max_good] => 5.00
+            [max_regular] => 10.00
+            [operator] => 1
+            [operator_name] => Prozent
+        )
+
+    [9] => Array
+        (
+            [No] => 17
+            [product_group] => Beerenfrüchte
+            [unece_link] => http://www.unece.org/fileadmin/DAM/trade/agr/standard/fresh/FFV-Std/English/57BerryFruits.pdf
+            [product_no] => 0026
+            [product] => Brombeeren
+            [qck_no] => 9
+            [type] => 0
+            [qc_type] => Qualität
+            [qchk_class_no] => 3
+            [checkpoint_class] => remarks
+            [quality_checkpoint] => Restschmutz
+            [max_good] => 5.00
+            [max_regular] => 10.00
+            [operator] => 1
+            [operator_name] => Prozent
+        )
+
+    [10] => Array
+        (
+            [No] => 18
+            [product_group] => Beerenfrüchte
+            [unece_link] => http://www.unece.org/fileadmin/DAM/trade/agr/standard/fresh/FFV-Std/English/57BerryFruits.pdf
+            [product_no] => 0026
+            [product] => Brombeeren
+            [qck_no] => 11
+            [type] => 0
+            [qc_type] => Qualität
+            [qchk_class_no] => 3
+            [checkpoint_class] => remarks
+            [quality_checkpoint] => Beschaedigungen
+            [max_good] => 3.00
+            [max_regular] => 6.00
+            [operator] => 1
+            [operator_name] => Prozent
+        )
+
+    [11] => Array
+        (
+            [No] => 19
+            [product_group] => Beerenfrüchte
+            [unece_link] => http://www.unece.org/fileadmin/DAM/trade/agr/standard/fresh/FFV-Std/English/57BerryFruits.pdf
+            [product_no] => 0026
+            [product] => Brombeeren
+            [qck_no] => 12
+            [type] => 0
+            [qc_type] => Qualität
+            [qchk_class_no] => 3
+            [checkpoint_class] => remarks
+            [quality_checkpoint] => Andere
+            [max_good] => 2.00
+            [max_regular] => 5.00
+            [operator] => 1
+            [operator_name] => Prozent
+        )
+
+    [12] => Array
+        (
+            [No] => 20
+            [product_group] => Beerenfrüchte
+            [unece_link] => http://www.unece.org/fileadmin/DAM/trade/agr/standard/fresh/FFV-Std/English/57BerryFruits.pdf
+            [product_no] => 0026
+            [product] => Brombeeren
+            [qck_no] => 13
+            [type] => 0
+            [qc_type] => Qualität
+            [qchk_class_no] => 3
+            [checkpoint_class] => remarks
+            [quality_checkpoint] => Untermass
+            [max_good] => 5.00
+            [max_regular] => 10.00
+            [operator] => 1
+            [operator_name] => Prozent
+        )
+
+    [13] => Array
+        (
+            [No] => 21
+            [product_group] => Beerenfrüchte
+            [unece_link] => http://www.unece.org/fileadmin/DAM/trade/agr/standard/fresh/FFV-Std/English/57BerryFruits.pdf
+            [product_no] => 0026
+            [product] => Brombeeren
+            [qck_no] => 15
+            [type] => 0
+            [qc_type] => Qualität
+            [qchk_class_no] => 3
+            [checkpoint_class] => remarks
+            [quality_checkpoint] => Brixgehalt
+            [max_good] => 1.00
+            [max_regular] => 3.00
+            [operator] => 0
+            [operator_name] => Differenz
+        )
+
+)
+
+2017-11-21T12:24:22+01:00 INFO (6): editquality aufgerufen mit Inbound_sheet: Array
+(
+    [No] => 0
+    [inbound] => 0
+    [inb_line] => 0
+    [position] => 
+    [v_delivery_note] => 
+    [vendor] => 
+    [purchase_order] => 
+    [po_line] => 0
+    [po_line_line] => 0
+    [stock_location] => 1
+    [po_arrival_date] => 21.11.2017
+    [po_arrival_time] => 12:24
+    [inb_arrival_date] => 21.11.2017
+    [inb_arrival_time] => 12:24
+    [forwarder] => 
+    [truck] => 
+    [trailor] => 
+    [container] => 
+    [po_transport_temp_min] => 1.00
+    [po_transport_temp_max] => 4.00
+    [inb_transport_temp] => 0
+    [variant] => 
+    [product] => 0026
+    [t_packaging] => 
+    [packaging] => 0
+    [origin] => DE
+    [label] => 0
+    [quality_class] => 1
+    [brand] => 0
+    [quality] => 1
+    [items] => 0
+    [weight_item] => 0
+    [po_lot] => 
+    [po_barcode] => 
+    [po_trading_units] => 0
+    [po_packing_units] => 0
+    [po_pallet] => 
+    [po_pallets] => 0
+    [po_tu_pal] => 0
+    [inb_lot] => 
+    [inb_barcode] => 
+    [items_checked] => 0
+    [inb_trading_units] => 0
+    [inb_packing_units] => 0
+    [inb_pallet] => 
+    [inb_pallets] => 0
+    [inb_tu_pal] => 0
+    [po_brix_min] => 0
+    [po_brix_max] => 0
+    [inb_brix] => 0
+    [inb_certificate] => 1
+    [remarks] => 
+    [checked_by] => 
+    [res_1] => 0
+    [base_1] => 0
+    [rp_1] => 0 %
+    [rl_1] => check_green
+    [res_2] => 0
+    [base_2] => 0
+    [rp_2] => 0 %
+    [rl_2] => check_green
+    [res_3] => 0
+    [base_3] => 0
+    [rp_3] => 0 %
+    [rl_3] => check_green
+    [res_4] => 0
+    [base_4] => 0
+    [rp_4] => 0 %
+    [rl_4] => check_green
+    [res_5] => 0
+    [base_5] => 0
+    [rp_5] => 0 %
+    [rl_5] => check_green
+    [res_6] => 0
+    [base_6] => 0
+    [rp_6] => 0 %
+    [rl_6] => check_green
+    [res_10] => 0
+    [base_10] => 0
+    [rp_10] => 0 %
+    [rl_10] => check_green
+    [res_20] => 0
+    [base_20] => 0
+    [rp_20] => 0 %
+    [rl_20] => check_green
+    [res_8] => 0
+    [base_8] => 0
+    [rp_8] => 0 %
+    [rl_8] => check_green
+    [res_9] => 0
+    [base_9] => 0
+    [rp_9] => 0 %
+    [rl_9] => check_green
+    [res_11] => 0
+    [base_11] => 0
+    [rp_11] => 0 %
+    [rl_11] => check_green
+    [res_12] => 0
+    [base_12] => 0
+    [rp_12] => 0 %
+    [rl_12] => check_green
+    [res_13] => 0
+    [base_13] => 0
+    [rp_13] => 0 %
+    [rl_13] => check_green
+    [res_15] => 0
+    [base_15] => 0
+    [rp_15] => 0
+    [rl_15] => check_green
+    [res_21] => 0
+    [base_21] => 0
+    [rp_21] => 0 %
+    [rl_21] => check_green
+    [res_19] => 0
+    [base_19] => 0
+    [rp_19] => 0 %
+    [rl_19] => check_green
+    [res_18] => 0
+    [base_18] => 0
+    [rp_18] => 0
+    [rl_18] => check_green
+    [res_17] => 0
+    [base_17] => 0
+    [rp_17] => nicht OK
+    [rl_17] => check_red
+    [res_16] => 0
+    [base_16] => 0
+    [rp_16] => nicht OK
+    [rl_16] => check_red
+    [res_14] => 0
+    [base_14] => 0
+    [rp_14] => 0
+    [rl_14] => check_green
+)
+
+2017-11-21T12:24:32+01:00 INFO (6): InboundController->getinboundsAction called with whereClause:  WHERE position = 3
+2017-11-21T12:24:41+01:00 INFO (6): InboundController->getinboundsAction called with whereClause:  WHERE position = 39999
+2017-11-21T12:28:27+01:00 INFO (6): product_no: 0026
+2017-11-21T12:28:27+01:00 INFO (6): QCheckpoints: Array
+(
+    [0] => Array
+        (
+            [No] => 6
+            [product_group] => Beerenfrüchte
+            [unece_link] => http://www.unece.org/fileadmin/DAM/trade/agr/standard/fresh/FFV-Std/English/57BerryFruits.pdf
+            [product_no] => 0026
+            [product] => Brombeeren
+            [qck_no] => 1
+            [type] => 0
+            [qc_type] => Qualität
+            [qchk_class_no] => 1
+            [checkpoint_class] => mayor defects
+            [quality_checkpoint] => Verderb - Schimmel
+            [max_good] => 1.00
+            [max_regular] => 3.00
+            [operator] => 1
+            [operator_name] => Prozent
+        )
+
+    [1] => Array
+        (
+            [No] => 7
+            [product_group] => Beerenfrüchte
+            [unece_link] => http://www.unece.org/fileadmin/DAM/trade/agr/standard/fresh/FFV-Std/English/57BerryFruits.pdf
+            [product_no] => 0026
+            [product] => Brombeeren
+            [qck_no] => 2
+            [type] => 0
+            [qc_type] => Qualität
+            [qchk_class_no] => 1
+            [checkpoint_class] => mayor defects
+            [quality_checkpoint] => Saftaustritt
+            [max_good] => 1.00
+            [max_regular] => 2.00
+            [operator] => 1
+            [operator_name] => Prozent
+        )
+
+    [2] => Array
+        (
+            [No] => 8
+            [product_group] => Beerenfrüchte
+            [unece_link] => http://www.unece.org/fileadmin/DAM/trade/agr/standard/fresh/FFV-Std/English/57BerryFruits.pdf
+            [product_no] => 0026
+            [product] => Brombeeren
+            [qck_no] => 3
+            [type] => 0
+            [qc_type] => Qualität
+            [qchk_class_no] => 1
+            [checkpoint_class] => mayor defects
+            [quality_checkpoint] => Ungeziefer
+            [max_good] => 1.00
+            [max_regular] => 3.00
+            [operator] => 1
+            [operator_name] => Prozent
+        )
+
+    [3] => Array
+        (
+            [No] => 9
+            [product_group] => Beerenfrüchte
+            [unece_link] => http://www.unece.org/fileadmin/DAM/trade/agr/standard/fresh/FFV-Std/English/57BerryFruits.pdf
+            [product_no] => 0026
+            [product] => Brombeeren
+            [qck_no] => 4
+            [type] => 0
+            [qc_type] => Qualität
+            [qchk_class_no] => 1
+            [checkpoint_class] => mayor defects
+            [quality_checkpoint] => Untergewicht
+            [max_good] => 1.00
+            [max_regular] => 2.00
+            [operator] => 1
+            [operator_name] => Prozent
+        )
+
+    [4] => Array
+        (
+            [No] => 11
+            [product_group] => Beerenfrüchte
+            [unece_link] => http://www.unece.org/fileadmin/DAM/trade/agr/standard/fresh/FFV-Std/English/57BerryFruits.pdf
+            [product_no] => 0026
+            [product] => Brombeeren
+            [qck_no] => 5
+            [type] => 0
+            [qc_type] => Qualität
+            [qchk_class_no] => 2
+            [checkpoint_class] => minor defects
+            [quality_checkpoint] => Ueberreif / Weich
+            [max_good] => 1.00
+            [max_regular] => 3.00
+            [operator] => 1
+            [operator_name] => Prozent
+        )
+
+    [5] => Array
+        (
+            [No] => 12
+            [product_group] => Beerenfrüchte
+            [unece_link] => http://www.unece.org/fileadmin/DAM/trade/agr/standard/fresh/FFV-Std/English/57BerryFruits.pdf
+            [product_no] => 0026
+            [product] => Brombeeren
+            [qck_no] => 6
+            [type] => 0
+            [qc_type] => Qualität
+            [qchk_class_no] => 2
+            [checkpoint_class] => minor defects
+            [quality_checkpoint] => Druckstellen
+            [max_good] => 2.00
+            [max_regular] => 5.00
+            [operator] => 1
+            [operator_name] => Prozent
+        )
+
+    [6] => Array
+        (
+            [No] => 14
+            [product_group] => Beerenfrüchte
+            [unece_link] => http://www.unece.org/fileadmin/DAM/trade/agr/standard/fresh/FFV-Std/English/57BerryFruits.pdf
+            [product_no] => 0026
+            [product] => Brombeeren
+            [qck_no] => 10
+            [type] => 0
+            [qc_type] => Qualität
+            [qchk_class_no] => 2
+            [checkpoint_class] => minor defects
+            [quality_checkpoint] => Unreif
+            [max_good] => 2.00
+            [max_regular] => 5.00
+            [operator] => 1
+            [operator_name] => Prozent
+        )
+
+    [7] => Array
+        (
+            [No] => 15
+            [product_group] => Beerenfrüchte
+            [unece_link] => http://www.unece.org/fileadmin/DAM/trade/agr/standard/fresh/FFV-Std/English/57BerryFruits.pdf
+            [product_no] => 0026
+            [product] => Brombeeren
+            [qck_no] => 20
+            [type] => 0
+            [qc_type] => Qualität
+            [qchk_class_no] => 2
+            [checkpoint_class] => minor defects
+            [quality_checkpoint] => Rote Zellen
+            [max_good] => 3.00
+            [max_regular] => 5.00
+            [operator] => 1
+            [operator_name] => Prozent
+        )
+
+    [8] => Array
+        (
+            [No] => 16
+            [product_group] => Beerenfrüchte
+            [unece_link] => http://www.unece.org/fileadmin/DAM/trade/agr/standard/fresh/FFV-Std/English/57BerryFruits.pdf
+            [product_no] => 0026
+            [product] => Brombeeren
+            [qck_no] => 8
+            [type] => 0
+            [qc_type] => Qualität
+            [qchk_class_no] => 3
+            [checkpoint_class] => remarks
+            [quality_checkpoint] => Schalenfehler
+            [max_good] => 5.00
+            [max_regular] => 10.00
+            [operator] => 1
+            [operator_name] => Prozent
+        )
+
+    [9] => Array
+        (
+            [No] => 17
+            [product_group] => Beerenfrüchte
+            [unece_link] => http://www.unece.org/fileadmin/DAM/trade/agr/standard/fresh/FFV-Std/English/57BerryFruits.pdf
+            [product_no] => 0026
+            [product] => Brombeeren
+            [qck_no] => 9
+            [type] => 0
+            [qc_type] => Qualität
+            [qchk_class_no] => 3
+            [checkpoint_class] => remarks
+            [quality_checkpoint] => Restschmutz
+            [max_good] => 5.00
+            [max_regular] => 10.00
+            [operator] => 1
+            [operator_name] => Prozent
+        )
+
+    [10] => Array
+        (
+            [No] => 18
+            [product_group] => Beerenfrüchte
+            [unece_link] => http://www.unece.org/fileadmin/DAM/trade/agr/standard/fresh/FFV-Std/English/57BerryFruits.pdf
+            [product_no] => 0026
+            [product] => Brombeeren
+            [qck_no] => 11
+            [type] => 0
+            [qc_type] => Qualität
+            [qchk_class_no] => 3
+            [checkpoint_class] => remarks
+            [quality_checkpoint] => Beschaedigungen
+            [max_good] => 3.00
+            [max_regular] => 6.00
+            [operator] => 1
+            [operator_name] => Prozent
+        )
+
+    [11] => Array
+        (
+            [No] => 19
+            [product_group] => Beerenfrüchte
+            [unece_link] => http://www.unece.org/fileadmin/DAM/trade/agr/standard/fresh/FFV-Std/English/57BerryFruits.pdf
+            [product_no] => 0026
+            [product] => Brombeeren
+            [qck_no] => 12
+            [type] => 0
+            [qc_type] => Qualität
+            [qchk_class_no] => 3
+            [checkpoint_class] => remarks
+            [quality_checkpoint] => Andere
+            [max_good] => 2.00
+            [max_regular] => 5.00
+            [operator] => 1
+            [operator_name] => Prozent
+        )
+
+    [12] => Array
+        (
+            [No] => 20
+            [product_group] => Beerenfrüchte
+            [unece_link] => http://www.unece.org/fileadmin/DAM/trade/agr/standard/fresh/FFV-Std/English/57BerryFruits.pdf
+            [product_no] => 0026
+            [product] => Brombeeren
+            [qck_no] => 13
+            [type] => 0
+            [qc_type] => Qualität
+            [qchk_class_no] => 3
+            [checkpoint_class] => remarks
+            [quality_checkpoint] => Untermass
+            [max_good] => 5.00
+            [max_regular] => 10.00
+            [operator] => 1
+            [operator_name] => Prozent
+        )
+
+    [13] => Array
+        (
+            [No] => 21
+            [product_group] => Beerenfrüchte
+            [unece_link] => http://www.unece.org/fileadmin/DAM/trade/agr/standard/fresh/FFV-Std/English/57BerryFruits.pdf
+            [product_no] => 0026
+            [product] => Brombeeren
+            [qck_no] => 15
+            [type] => 0
+            [qc_type] => Qualität
+            [qchk_class_no] => 3
+            [checkpoint_class] => remarks
+            [quality_checkpoint] => Brixgehalt
+            [max_good] => 1.00
+            [max_regular] => 3.00
+            [operator] => 0
+            [operator_name] => Differenz
+        )
+
+)
+
+2017-11-21T12:28:27+01:00 INFO (6): editquality aufgerufen mit Inbound_sheet: Array
+(
+    [No] => 0
+    [inbound] => 0
+    [inb_line] => 0
+    [position] => 
+    [v_delivery_note] => 
+    [vendor] => 
+    [purchase_order] => 
+    [po_line] => 0
+    [po_line_line] => 0
+    [stock_location] => 1
+    [po_arrival_date] => 21.11.2017
+    [po_arrival_time] => 12:28
+    [inb_arrival_date] => 21.11.2017
+    [inb_arrival_time] => 12:28
+    [forwarder] => 
+    [truck] => 
+    [trailor] => 
+    [container] => 
+    [po_transport_temp_min] => 1.00
+    [po_transport_temp_max] => 4.00
+    [inb_transport_temp] => 0
+    [variant] => 
+    [product] => 0026
+    [t_packaging] => 
+    [packaging] => 0
+    [origin] => DE
+    [label] => 0
+    [quality_class] => 1
+    [brand] => 0
+    [quality] => 1
+    [items] => 0
+    [weight_item] => 0
+    [po_lot] => 
+    [po_barcode] => 
+    [po_trading_units] => 0
+    [po_packing_units] => 0
+    [po_pallet] => 
+    [po_pallets] => 0
+    [po_tu_pal] => 0
+    [inb_lot] => 
+    [inb_barcode] => 
+    [items_checked] => 0
+    [inb_trading_units] => 0
+    [inb_packing_units] => 0
+    [inb_pallet] => 
+    [inb_pallets] => 0
+    [inb_tu_pal] => 0
+    [po_brix_min] => 0
+    [po_brix_max] => 0
+    [inb_brix] => 0
+    [inb_certificate] => 1
+    [remarks] => 
+    [checked_by] => 
+    [res_1] => 0
+    [base_1] => 0
+    [rp_1] => 0 %
+    [rl_1] => check_green
+    [res_2] => 0
+    [base_2] => 0
+    [rp_2] => 0 %
+    [rl_2] => check_green
+    [res_3] => 0
+    [base_3] => 0
+    [rp_3] => 0 %
+    [rl_3] => check_green
+    [res_4] => 0
+    [base_4] => 0
+    [rp_4] => 0 %
+    [rl_4] => check_green
+    [res_5] => 0
+    [base_5] => 0
+    [rp_5] => 0 %
+    [rl_5] => check_green
+    [res_6] => 0
+    [base_6] => 0
+    [rp_6] => 0 %
+    [rl_6] => check_green
+    [res_10] => 0
+    [base_10] => 0
+    [rp_10] => 0 %
+    [rl_10] => check_green
+    [res_20] => 0
+    [base_20] => 0
+    [rp_20] => 0 %
+    [rl_20] => check_green
+    [res_8] => 0
+    [base_8] => 0
+    [rp_8] => 0 %
+    [rl_8] => check_green
+    [res_9] => 0
+    [base_9] => 0
+    [rp_9] => 0 %
+    [rl_9] => check_green
+    [res_11] => 0
+    [base_11] => 0
+    [rp_11] => 0 %
+    [rl_11] => check_green
+    [res_12] => 0
+    [base_12] => 0
+    [rp_12] => 0 %
+    [rl_12] => check_green
+    [res_13] => 0
+    [base_13] => 0
+    [rp_13] => 0 %
+    [rl_13] => check_green
+    [res_15] => 0
+    [base_15] => 0
+    [rp_15] => 0
+    [rl_15] => check_green
+    [res_21] => 0
+    [base_21] => 0
+    [rp_21] => 0 %
+    [rl_21] => check_green
+    [res_19] => 0
+    [base_19] => 0
+    [rp_19] => 0 %
+    [rl_19] => check_green
+    [res_18] => 0
+    [base_18] => 0
+    [rp_18] => 0
+    [rl_18] => check_green
+    [res_17] => 0
+    [base_17] => 0
+    [rp_17] => nicht OK
+    [rl_17] => check_red
+    [res_16] => 0
+    [base_16] => 0
+    [rp_16] => nicht OK
+    [rl_16] => check_red
+    [res_14] => 0
+    [base_14] => 0
+    [rp_14] => 0
+    [rl_14] => check_green
+)
+
+2017-11-21T12:30:18+01:00 INFO (6): InboundController->IndexAction called with whereClause: 
+2017-11-21T12:30:21+01:00 INFO (6): product_no: 0026
+2017-11-21T12:30:21+01:00 INFO (6): QCheckpoints: Array
+(
+    [0] => Array
+        (
+            [No] => 6
+            [product_group] => Beerenfrüchte
+            [unece_link] => http://www.unece.org/fileadmin/DAM/trade/agr/standard/fresh/FFV-Std/English/57BerryFruits.pdf
+            [product_no] => 0026
+            [product] => Brombeeren
+            [qck_no] => 1
+            [type] => 0
+            [qc_type] => Qualität
+            [qchk_class_no] => 1
+            [checkpoint_class] => mayor defects
+            [quality_checkpoint] => Verderb - Schimmel
+            [max_good] => 1.00
+            [max_regular] => 3.00
+            [operator] => 1
+            [operator_name] => Prozent
+        )
+
+    [1] => Array
+        (
+            [No] => 7
+            [product_group] => Beerenfrüchte
+            [unece_link] => http://www.unece.org/fileadmin/DAM/trade/agr/standard/fresh/FFV-Std/English/57BerryFruits.pdf
+            [product_no] => 0026
+            [product] => Brombeeren
+            [qck_no] => 2
+            [type] => 0
+            [qc_type] => Qualität
+            [qchk_class_no] => 1
+            [checkpoint_class] => mayor defects
+            [quality_checkpoint] => Saftaustritt
+            [max_good] => 1.00
+            [max_regular] => 2.00
+            [operator] => 1
+            [operator_name] => Prozent
+        )
+
+    [2] => Array
+        (
+            [No] => 8
+            [product_group] => Beerenfrüchte
+            [unece_link] => http://www.unece.org/fileadmin/DAM/trade/agr/standard/fresh/FFV-Std/English/57BerryFruits.pdf
+            [product_no] => 0026
+            [product] => Brombeeren
+            [qck_no] => 3
+            [type] => 0
+            [qc_type] => Qualität
+            [qchk_class_no] => 1
+            [checkpoint_class] => mayor defects
+            [quality_checkpoint] => Ungeziefer
+            [max_good] => 1.00
+            [max_regular] => 3.00
+            [operator] => 1
+            [operator_name] => Prozent
+        )
+
+    [3] => Array
+        (
+            [No] => 9
+            [product_group] => Beerenfrüchte
+            [unece_link] => http://www.unece.org/fileadmin/DAM/trade/agr/standard/fresh/FFV-Std/English/57BerryFruits.pdf
+            [product_no] => 0026
+            [product] => Brombeeren
+            [qck_no] => 4
+            [type] => 0
+            [qc_type] => Qualität
+            [qchk_class_no] => 1
+            [checkpoint_class] => mayor defects
+            [quality_checkpoint] => Untergewicht
+            [max_good] => 1.00
+            [max_regular] => 2.00
+            [operator] => 1
+            [operator_name] => Prozent
+        )
+
+    [4] => Array
+        (
+            [No] => 11
+            [product_group] => Beerenfrüchte
+            [unece_link] => http://www.unece.org/fileadmin/DAM/trade/agr/standard/fresh/FFV-Std/English/57BerryFruits.pdf
+            [product_no] => 0026
+            [product] => Brombeeren
+            [qck_no] => 5
+            [type] => 0
+            [qc_type] => Qualität
+            [qchk_class_no] => 2
+            [checkpoint_class] => minor defects
+            [quality_checkpoint] => Ueberreif / Weich
+            [max_good] => 1.00
+            [max_regular] => 3.00
+            [operator] => 1
+            [operator_name] => Prozent
+        )
+
+    [5] => Array
+        (
+            [No] => 12
+            [product_group] => Beerenfrüchte
+            [unece_link] => http://www.unece.org/fileadmin/DAM/trade/agr/standard/fresh/FFV-Std/English/57BerryFruits.pdf
+            [product_no] => 0026
+            [product] => Brombeeren
+            [qck_no] => 6
+            [type] => 0
+            [qc_type] => Qualität
+            [qchk_class_no] => 2
+            [checkpoint_class] => minor defects
+            [quality_checkpoint] => Druckstellen
+            [max_good] => 2.00
+            [max_regular] => 5.00
+            [operator] => 1
+            [operator_name] => Prozent
+        )
+
+    [6] => Array
+        (
+            [No] => 14
+            [product_group] => Beerenfrüchte
+            [unece_link] => http://www.unece.org/fileadmin/DAM/trade/agr/standard/fresh/FFV-Std/English/57BerryFruits.pdf
+            [product_no] => 0026
+            [product] => Brombeeren
+            [qck_no] => 10
+            [type] => 0
+            [qc_type] => Qualität
+            [qchk_class_no] => 2
+            [checkpoint_class] => minor defects
+            [quality_checkpoint] => Unreif
+            [max_good] => 2.00
+            [max_regular] => 5.00
+            [operator] => 1
+            [operator_name] => Prozent
+        )
+
+    [7] => Array
+        (
+            [No] => 15
+            [product_group] => Beerenfrüchte
+            [unece_link] => http://www.unece.org/fileadmin/DAM/trade/agr/standard/fresh/FFV-Std/English/57BerryFruits.pdf
+            [product_no] => 0026
+            [product] => Brombeeren
+            [qck_no] => 20
+            [type] => 0
+            [qc_type] => Qualität
+            [qchk_class_no] => 2
+            [checkpoint_class] => minor defects
+            [quality_checkpoint] => Rote Zellen
+            [max_good] => 3.00
+            [max_regular] => 5.00
+            [operator] => 1
+            [operator_name] => Prozent
+        )
+
+    [8] => Array
+        (
+            [No] => 16
+            [product_group] => Beerenfrüchte
+            [unece_link] => http://www.unece.org/fileadmin/DAM/trade/agr/standard/fresh/FFV-Std/English/57BerryFruits.pdf
+            [product_no] => 0026
+            [product] => Brombeeren
+            [qck_no] => 8
+            [type] => 0
+            [qc_type] => Qualität
+            [qchk_class_no] => 3
+            [checkpoint_class] => remarks
+            [quality_checkpoint] => Schalenfehler
+            [max_good] => 5.00
+            [max_regular] => 10.00
+            [operator] => 1
+            [operator_name] => Prozent
+        )
+
+    [9] => Array
+        (
+            [No] => 17
+            [product_group] => Beerenfrüchte
+            [unece_link] => http://www.unece.org/fileadmin/DAM/trade/agr/standard/fresh/FFV-Std/English/57BerryFruits.pdf
+            [product_no] => 0026
+            [product] => Brombeeren
+            [qck_no] => 9
+            [type] => 0
+            [qc_type] => Qualität
+            [qchk_class_no] => 3
+            [checkpoint_class] => remarks
+            [quality_checkpoint] => Restschmutz
+            [max_good] => 5.00
+            [max_regular] => 10.00
+            [operator] => 1
+            [operator_name] => Prozent
+        )
+
+    [10] => Array
+        (
+            [No] => 18
+            [product_group] => Beerenfrüchte
+            [unece_link] => http://www.unece.org/fileadmin/DAM/trade/agr/standard/fresh/FFV-Std/English/57BerryFruits.pdf
+            [product_no] => 0026
+            [product] => Brombeeren
+            [qck_no] => 11
+            [type] => 0
+            [qc_type] => Qualität
+            [qchk_class_no] => 3
+            [checkpoint_class] => remarks
+            [quality_checkpoint] => Beschaedigungen
+            [max_good] => 3.00
+            [max_regular] => 6.00
+            [operator] => 1
+            [operator_name] => Prozent
+        )
+
+    [11] => Array
+        (
+            [No] => 19
+            [product_group] => Beerenfrüchte
+            [unece_link] => http://www.unece.org/fileadmin/DAM/trade/agr/standard/fresh/FFV-Std/English/57BerryFruits.pdf
+            [product_no] => 0026
+            [product] => Brombeeren
+            [qck_no] => 12
+            [type] => 0
+            [qc_type] => Qualität
+            [qchk_class_no] => 3
+            [checkpoint_class] => remarks
+            [quality_checkpoint] => Andere
+            [max_good] => 2.00
+            [max_regular] => 5.00
+            [operator] => 1
+            [operator_name] => Prozent
+        )
+
+    [12] => Array
+        (
+            [No] => 20
+            [product_group] => Beerenfrüchte
+            [unece_link] => http://www.unece.org/fileadmin/DAM/trade/agr/standard/fresh/FFV-Std/English/57BerryFruits.pdf
+            [product_no] => 0026
+            [product] => Brombeeren
+            [qck_no] => 13
+            [type] => 0
+            [qc_type] => Qualität
+            [qchk_class_no] => 3
+            [checkpoint_class] => remarks
+            [quality_checkpoint] => Untermass
+            [max_good] => 5.00
+            [max_regular] => 10.00
+            [operator] => 1
+            [operator_name] => Prozent
+        )
+
+    [13] => Array
+        (
+            [No] => 21
+            [product_group] => Beerenfrüchte
+            [unece_link] => http://www.unece.org/fileadmin/DAM/trade/agr/standard/fresh/FFV-Std/English/57BerryFruits.pdf
+            [product_no] => 0026
+            [product] => Brombeeren
+            [qck_no] => 15
+            [type] => 0
+            [qc_type] => Qualität
+            [qchk_class_no] => 3
+            [checkpoint_class] => remarks
+            [quality_checkpoint] => Brixgehalt
+            [max_good] => 1.00
+            [max_regular] => 3.00
+            [operator] => 0
+            [operator_name] => Differenz
+        )
+
+)
+
+2017-11-21T12:30:21+01:00 INFO (6): editquality aufgerufen mit Inbound_sheet: Array
+(
+    [No] => 0
+    [inbound] => 0
+    [inb_line] => 0
+    [position] => 
+    [v_delivery_note] => 
+    [vendor] => 
+    [purchase_order] => 
+    [po_line] => 0
+    [po_line_line] => 0
+    [stock_location] => 1
+    [po_arrival_date] => 21.11.2017
+    [po_arrival_time] => 12:30
+    [inb_arrival_date] => 21.11.2017
+    [inb_arrival_time] => 12:30
+    [forwarder] => 
+    [truck] => 
+    [trailor] => 
+    [container] => 
+    [po_transport_temp_min] => 1.00
+    [po_transport_temp_max] => 4.00
+    [inb_transport_temp] => 0
+    [variant] => 
+    [product] => 0026
+    [t_packaging] => 
+    [packaging] => 0
+    [origin] => DE
+    [label] => 0
+    [quality_class] => 1
+    [brand] => 0
+    [quality] => 1
+    [items] => 0
+    [weight_item] => 0
+    [po_lot] => 
+    [po_barcode] => 
+    [po_trading_units] => 0
+    [po_packing_units] => 0
+    [po_pallet] => 
+    [po_pallets] => 0
+    [po_tu_pal] => 0
+    [inb_lot] => 
+    [inb_barcode] => 
+    [items_checked] => 0
+    [inb_trading_units] => 0
+    [inb_packing_units] => 0
+    [inb_pallet] => 
+    [inb_pallets] => 0
+    [inb_tu_pal] => 0
+    [po_brix_min] => 0
+    [po_brix_max] => 0
+    [inb_brix] => 0
+    [inb_certificate] => 1
+    [remarks] => 
+    [checked_by] => 
+    [res_1] => 0
+    [base_1] => 0
+    [rp_1] => 0 %
+    [rl_1] => check_green
+    [res_2] => 0
+    [base_2] => 0
+    [rp_2] => 0 %
+    [rl_2] => check_green
+    [res_3] => 0
+    [base_3] => 0
+    [rp_3] => 0 %
+    [rl_3] => check_green
+    [res_4] => 0
+    [base_4] => 0
+    [rp_4] => 0 %
+    [rl_4] => check_green
+    [res_5] => 0
+    [base_5] => 0
+    [rp_5] => 0 %
+    [rl_5] => check_green
+    [res_6] => 0
+    [base_6] => 0
+    [rp_6] => 0 %
+    [rl_6] => check_green
+    [res_10] => 0
+    [base_10] => 0
+    [rp_10] => 0 %
+    [rl_10] => check_green
+    [res_20] => 0
+    [base_20] => 0
+    [rp_20] => 0 %
+    [rl_20] => check_green
+    [res_8] => 0
+    [base_8] => 0
+    [rp_8] => 0 %
+    [rl_8] => check_green
+    [res_9] => 0
+    [base_9] => 0
+    [rp_9] => 0 %
+    [rl_9] => check_green
+    [res_11] => 0
+    [base_11] => 0
+    [rp_11] => 0 %
+    [rl_11] => check_green
+    [res_12] => 0
+    [base_12] => 0
+    [rp_12] => 0 %
+    [rl_12] => check_green
+    [res_13] => 0
+    [base_13] => 0
+    [rp_13] => 0 %
+    [rl_13] => check_green
+    [res_15] => 0
+    [base_15] => 0
+    [rp_15] => 0
+    [rl_15] => check_green
+    [res_21] => 0
+    [base_21] => 0
+    [rp_21] => 0 %
+    [rl_21] => check_green
+    [res_18] => 0
+    [base_18] => 0
+    [rp_18] => 0
+    [rl_18] => check_green
+    [res_17] => 0
+    [base_17] => 0
+    [rp_17] => nicht OK
+    [rl_17] => check_red
+    [res_16] => 0
+    [base_16] => 0
+    [rp_16] => nicht OK
+    [rl_16] => check_red
+    [res_14] => 0
+    [base_14] => 0
+    [rp_14] => 0
+    [rl_14] => check_green
+    [res_19] => 0
+    [base_19] => 0
+    [rp_19] => 0 %
+    [rl_19] => check_green
+)
+
+2017-11-21T12:33:17+01:00 INFO (6): product_no: 0026
+2017-11-21T12:33:17+01:00 INFO (6): QCheckpoints: Array
+(
+    [0] => Array
+        (
+            [No] => 6
+            [product_group] => Beerenfrüchte
+            [unece_link] => http://www.unece.org/fileadmin/DAM/trade/agr/standard/fresh/FFV-Std/English/57BerryFruits.pdf
+            [product_no] => 0026
+            [product] => Brombeeren
+            [qck_no] => 1
+            [type] => 0
+            [qc_type] => Qualität
+            [qchk_class_no] => 1
+            [checkpoint_class] => mayor defects
+            [quality_checkpoint] => Verderb - Schimmel
+            [max_good] => 1.00
+            [max_regular] => 3.00
+            [operator] => 1
+            [operator_name] => Prozent
+        )
+
+    [1] => Array
+        (
+            [No] => 7
+            [product_group] => Beerenfrüchte
+            [unece_link] => http://www.unece.org/fileadmin/DAM/trade/agr/standard/fresh/FFV-Std/English/57BerryFruits.pdf
+            [product_no] => 0026
+            [product] => Brombeeren
+            [qck_no] => 2
+            [type] => 0
+            [qc_type] => Qualität
+            [qchk_class_no] => 1
+            [checkpoint_class] => mayor defects
+            [quality_checkpoint] => Saftaustritt
+            [max_good] => 1.00
+            [max_regular] => 2.00
+            [operator] => 1
+            [operator_name] => Prozent
+        )
+
+    [2] => Array
+        (
+            [No] => 8
+            [product_group] => Beerenfrüchte
+            [unece_link] => http://www.unece.org/fileadmin/DAM/trade/agr/standard/fresh/FFV-Std/English/57BerryFruits.pdf
+            [product_no] => 0026
+            [product] => Brombeeren
+            [qck_no] => 3
+            [type] => 0
+            [qc_type] => Qualität
+            [qchk_class_no] => 1
+            [checkpoint_class] => mayor defects
+            [quality_checkpoint] => Ungeziefer
+            [max_good] => 1.00
+            [max_regular] => 3.00
+            [operator] => 1
+            [operator_name] => Prozent
+        )
+
+    [3] => Array
+        (
+            [No] => 9
+            [product_group] => Beerenfrüchte
+            [unece_link] => http://www.unece.org/fileadmin/DAM/trade/agr/standard/fresh/FFV-Std/English/57BerryFruits.pdf
+            [product_no] => 0026
+            [product] => Brombeeren
+            [qck_no] => 4
+            [type] => 0
+            [qc_type] => Qualität
+            [qchk_class_no] => 1
+            [checkpoint_class] => mayor defects
+            [quality_checkpoint] => Untergewicht
+            [max_good] => 1.00
+            [max_regular] => 2.00
+            [operator] => 1
+            [operator_name] => Prozent
+        )
+
+    [4] => Array
+        (
+            [No] => 11
+            [product_group] => Beerenfrüchte
+            [unece_link] => http://www.unece.org/fileadmin/DAM/trade/agr/standard/fresh/FFV-Std/English/57BerryFruits.pdf
+            [product_no] => 0026
+            [product] => Brombeeren
+            [qck_no] => 5
+            [type] => 0
+            [qc_type] => Qualität
+            [qchk_class_no] => 2
+            [checkpoint_class] => minor defects
+            [quality_checkpoint] => Ueberreif / Weich
+            [max_good] => 1.00
+            [max_regular] => 3.00
+            [operator] => 1
+            [operator_name] => Prozent
+        )
+
+    [5] => Array
+        (
+            [No] => 12
+            [product_group] => Beerenfrüchte
+            [unece_link] => http://www.unece.org/fileadmin/DAM/trade/agr/standard/fresh/FFV-Std/English/57BerryFruits.pdf
+            [product_no] => 0026
+            [product] => Brombeeren
+            [qck_no] => 6
+            [type] => 0
+            [qc_type] => Qualität
+            [qchk_class_no] => 2
+            [checkpoint_class] => minor defects
+            [quality_checkpoint] => Druckstellen
+            [max_good] => 2.00
+            [max_regular] => 5.00
+            [operator] => 1
+            [operator_name] => Prozent
+        )
+
+    [6] => Array
+        (
+            [No] => 14
+            [product_group] => Beerenfrüchte
+            [unece_link] => http://www.unece.org/fileadmin/DAM/trade/agr/standard/fresh/FFV-Std/English/57BerryFruits.pdf
+            [product_no] => 0026
+            [product] => Brombeeren
+            [qck_no] => 10
+            [type] => 0
+            [qc_type] => Qualität
+            [qchk_class_no] => 2
+            [checkpoint_class] => minor defects
+            [quality_checkpoint] => Unreif
+            [max_good] => 2.00
+            [max_regular] => 5.00
+            [operator] => 1
+            [operator_name] => Prozent
+        )
+
+    [7] => Array
+        (
+            [No] => 15
+            [product_group] => Beerenfrüchte
+            [unece_link] => http://www.unece.org/fileadmin/DAM/trade/agr/standard/fresh/FFV-Std/English/57BerryFruits.pdf
+            [product_no] => 0026
+            [product] => Brombeeren
+            [qck_no] => 20
+            [type] => 0
+            [qc_type] => Qualität
+            [qchk_class_no] => 2
+            [checkpoint_class] => minor defects
+            [quality_checkpoint] => Rote Zellen
+            [max_good] => 3.00
+            [max_regular] => 5.00
+            [operator] => 1
+            [operator_name] => Prozent
+        )
+
+    [8] => Array
+        (
+            [No] => 16
+            [product_group] => Beerenfrüchte
+            [unece_link] => http://www.unece.org/fileadmin/DAM/trade/agr/standard/fresh/FFV-Std/English/57BerryFruits.pdf
+            [product_no] => 0026
+            [product] => Brombeeren
+            [qck_no] => 8
+            [type] => 0
+            [qc_type] => Qualität
+            [qchk_class_no] => 3
+            [checkpoint_class] => remarks
+            [quality_checkpoint] => Schalenfehler
+            [max_good] => 5.00
+            [max_regular] => 10.00
+            [operator] => 1
+            [operator_name] => Prozent
+        )
+
+    [9] => Array
+        (
+            [No] => 17
+            [product_group] => Beerenfrüchte
+            [unece_link] => http://www.unece.org/fileadmin/DAM/trade/agr/standard/fresh/FFV-Std/English/57BerryFruits.pdf
+            [product_no] => 0026
+            [product] => Brombeeren
+            [qck_no] => 9
+            [type] => 0
+            [qc_type] => Qualität
+            [qchk_class_no] => 3
+            [checkpoint_class] => remarks
+            [quality_checkpoint] => Restschmutz
+            [max_good] => 5.00
+            [max_regular] => 10.00
+            [operator] => 1
+            [operator_name] => Prozent
+        )
+
+    [10] => Array
+        (
+            [No] => 18
+            [product_group] => Beerenfrüchte
+            [unece_link] => http://www.unece.org/fileadmin/DAM/trade/agr/standard/fresh/FFV-Std/English/57BerryFruits.pdf
+            [product_no] => 0026
+            [product] => Brombeeren
+            [qck_no] => 11
+            [type] => 0
+            [qc_type] => Qualität
+            [qchk_class_no] => 3
+            [checkpoint_class] => remarks
+            [quality_checkpoint] => Beschaedigungen
+            [max_good] => 3.00
+            [max_regular] => 6.00
+            [operator] => 1
+            [operator_name] => Prozent
+        )
+
+    [11] => Array
+        (
+            [No] => 19
+            [product_group] => Beerenfrüchte
+            [unece_link] => http://www.unece.org/fileadmin/DAM/trade/agr/standard/fresh/FFV-Std/English/57BerryFruits.pdf
+            [product_no] => 0026
+            [product] => Brombeeren
+            [qck_no] => 12
+            [type] => 0
+            [qc_type] => Qualität
+            [qchk_class_no] => 3
+            [checkpoint_class] => remarks
+            [quality_checkpoint] => Andere
+            [max_good] => 2.00
+            [max_regular] => 5.00
+            [operator] => 1
+            [operator_name] => Prozent
+        )
+
+    [12] => Array
+        (
+            [No] => 20
+            [product_group] => Beerenfrüchte
+            [unece_link] => http://www.unece.org/fileadmin/DAM/trade/agr/standard/fresh/FFV-Std/English/57BerryFruits.pdf
+            [product_no] => 0026
+            [product] => Brombeeren
+            [qck_no] => 13
+            [type] => 0
+            [qc_type] => Qualität
+            [qchk_class_no] => 3
+            [checkpoint_class] => remarks
+            [quality_checkpoint] => Untermass
+            [max_good] => 5.00
+            [max_regular] => 10.00
+            [operator] => 1
+            [operator_name] => Prozent
+        )
+
+    [13] => Array
+        (
+            [No] => 21
+            [product_group] => Beerenfrüchte
+            [unece_link] => http://www.unece.org/fileadmin/DAM/trade/agr/standard/fresh/FFV-Std/English/57BerryFruits.pdf
+            [product_no] => 0026
+            [product] => Brombeeren
+            [qck_no] => 15
+            [type] => 0
+            [qc_type] => Qualität
+            [qchk_class_no] => 3
+            [checkpoint_class] => remarks
+            [quality_checkpoint] => Brixgehalt
+            [max_good] => 1.00
+            [max_regular] => 3.00
+            [operator] => 0
+            [operator_name] => Differenz
+        )
+
+)
+
+2017-11-21T12:33:17+01:00 INFO (6): editquality aufgerufen mit Inbound_sheet: Array
+(
+    [No] => 0
+    [inbound] => 0
+    [inb_line] => 0
+    [position] => 
+    [v_delivery_note] => 
+    [vendor] => 
+    [purchase_order] => 
+    [po_line] => 0
+    [po_line_line] => 0
+    [stock_location] => 1
+    [po_arrival_date] => 21.11.2017
+    [po_arrival_time] => 12:33
+    [inb_arrival_date] => 21.11.2017
+    [inb_arrival_time] => 12:33
+    [forwarder] => 
+    [truck] => 
+    [trailor] => 
+    [container] => 
+    [po_transport_temp_min] => 1.00
+    [po_transport_temp_max] => 4.00
+    [inb_transport_temp] => 0
+    [variant] => 
+    [product] => 0026
+    [t_packaging] => 
+    [packaging] => 0
+    [origin] => DE
+    [label] => 0
+    [quality_class] => 1
+    [brand] => 0
+    [quality] => 1
+    [items] => 0
+    [weight_item] => 0
+    [po_lot] => 
+    [po_barcode] => 
+    [po_trading_units] => 0
+    [po_packing_units] => 0
+    [po_pallet] => 
+    [po_pallets] => 0
+    [po_tu_pal] => 0
+    [inb_lot] => 
+    [inb_barcode] => 
+    [items_checked] => 0
+    [inb_trading_units] => 0
+    [inb_packing_units] => 0
+    [inb_pallet] => 
+    [inb_pallets] => 0
+    [inb_tu_pal] => 0
+    [po_brix_min] => 0
+    [po_brix_max] => 0
+    [inb_brix] => 0
+    [inb_certificate] => 1
+    [remarks] => 
+    [checked_by] => 
+    [res_1] => 0
+    [base_1] => 0
+    [rp_1] => 0 %
+    [rl_1] => check_green
+    [res_2] => 0
+    [base_2] => 0
+    [rp_2] => 0 %
+    [rl_2] => check_green
+    [res_3] => 0
+    [base_3] => 0
+    [rp_3] => 0 %
+    [rl_3] => check_green
+    [res_4] => 0
+    [base_4] => 0
+    [rp_4] => 0 %
+    [rl_4] => check_green
+    [res_5] => 0
+    [base_5] => 0
+    [rp_5] => 0 %
+    [rl_5] => check_green
+    [res_6] => 0
+    [base_6] => 0
+    [rp_6] => 0 %
+    [rl_6] => check_green
+    [res_10] => 0
+    [base_10] => 0
+    [rp_10] => 0 %
+    [rl_10] => check_green
+    [res_20] => 0
+    [base_20] => 0
+    [rp_20] => 0 %
+    [rl_20] => check_green
+    [res_8] => 0
+    [base_8] => 0
+    [rp_8] => 0 %
+    [rl_8] => check_green
+    [res_9] => 0
+    [base_9] => 0
+    [rp_9] => 0 %
+    [rl_9] => check_green
+    [res_11] => 0
+    [base_11] => 0
+    [rp_11] => 0 %
+    [rl_11] => check_green
+    [res_12] => 0
+    [base_12] => 0
+    [rp_12] => 0 %
+    [rl_12] => check_green
+    [res_13] => 0
+    [base_13] => 0
+    [rp_13] => 0 %
+    [rl_13] => check_green
+    [res_15] => 0
+    [base_15] => 0
+    [rp_15] => 0
+    [rl_15] => check_green
+    [res_21] => 0
+    [base_21] => 0
+    [rp_21] => 0 %
+    [rl_21] => check_green
+    [res_18] => 0
+    [base_18] => 0
+    [rp_18] => 0
+    [rl_18] => check_green
+    [res_17] => 0
+    [base_17] => 0
+    [rp_17] => nicht OK
+    [rl_17] => check_red
+    [res_16] => 0
+    [base_16] => 0
+    [rp_16] => nicht OK
+    [rl_16] => check_red
+    [res_14] => 0
+    [base_14] => 0
+    [rp_14] => 0
+    [rl_14] => check_green
+    [res_19] => 0
+    [base_19] => 0
+    [rp_19] => 0 %
+    [rl_19] => check_green
+)
+
+2017-11-21T12:33:24+01:00 INFO (6): InboundController->getinboundsAction called with whereClause:  WHERE position = 39999
+2017-11-21T12:33:25+01:00 INFO (6): SQL: SELECT tbl_HAN.HANVORNR, tbl_HAN.HANPOSNR, tbl_HAN.HANADRNR, tbl_LIE.LIENAME, tbl_LIE.LIESTRAS, tbl_LIE.LIEPLZOR, convert(varchar(25), tbl_HAN.HANPRODT, 127) AS HANLISDT, HANTABZT, tbl_HAN.HANARTTX, tbl_HAN.HANWARGR, tbl_art.ARTGEBIN, tbl_ART.ARTDURGW, tbl_HAN.HANPMENG, tbl_ART.ARTURSLD FROM tbl_HAN JOIN tbl_ART on (tbl_HAN.HANARTNR = tbl_ART.KEYIART1) join tbl_LIE on (tbl_han.HANADRNR = tbl_LIE.KEYILIE1) WHERE tbl_HAN.HANVORAR = 30 AND tbl_art.ARTAKTKZ = 'A' AND tbl_HAN.HANVORNR = '426350'
+2017-11-21T12:33:25+01:00 INFO (6): Bestellungen: Array
+(
+    [0] => Array
+        (
+            [HANVORNR] => 426350
+            [HANPOSNR] => 003
+            [HANADRNR] => 099809
+            [LIENAME] => Dieter Schwerin - Retouren
+            [LIESTRAS] => Paul-RÃ¼cker-Str. 6b
+            [LIEPLZOR] => 47059 Duisburg
+            [HANLISDT] => 2017-11-15T00:00:00
+            [HANTABZT] => 12:33
+            [HANARTTX] => Heidelbeere 12x125g 
+            [HANWARGR] => 0031
+            [ARTGEBIN] => 12.000
+            [ARTDURGW] => 125
+            [HANPMENG] => 1120.00
+            [ARTURSLD] => UY
+            [HANLFSNR] => 
+        )
+
+)
+
+2017-11-21T13:04:22+01:00 INFO (6): product_no: 0026
+2017-11-21T13:04:22+01:00 INFO (6): QCheckpoints: Array
+(
+    [0] => Array
+        (
+            [No] => 6
+            [product_group] => Beerenfrüchte
+            [unece_link] => http://www.unece.org/fileadmin/DAM/trade/agr/standard/fresh/FFV-Std/English/57BerryFruits.pdf
+            [product_no] => 0026
+            [product] => Brombeeren
+            [qck_no] => 1
+            [type] => 0
+            [qc_type] => Qualität
+            [qchk_class_no] => 1
+            [checkpoint_class] => mayor defects
+            [quality_checkpoint] => Verderb - Schimmel
+            [max_good] => 1.00
+            [max_regular] => 3.00
+            [operator] => 1
+            [operator_name] => Prozent
+        )
+
+    [1] => Array
+        (
+            [No] => 7
+            [product_group] => Beerenfrüchte
+            [unece_link] => http://www.unece.org/fileadmin/DAM/trade/agr/standard/fresh/FFV-Std/English/57BerryFruits.pdf
+            [product_no] => 0026
+            [product] => Brombeeren
+            [qck_no] => 2
+            [type] => 0
+            [qc_type] => Qualität
+            [qchk_class_no] => 1
+            [checkpoint_class] => mayor defects
+            [quality_checkpoint] => Saftaustritt
+            [max_good] => 1.00
+            [max_regular] => 2.00
+            [operator] => 1
+            [operator_name] => Prozent
+        )
+
+    [2] => Array
+        (
+            [No] => 8
+            [product_group] => Beerenfrüchte
+            [unece_link] => http://www.unece.org/fileadmin/DAM/trade/agr/standard/fresh/FFV-Std/English/57BerryFruits.pdf
+            [product_no] => 0026
+            [product] => Brombeeren
+            [qck_no] => 3
+            [type] => 0
+            [qc_type] => Qualität
+            [qchk_class_no] => 1
+            [checkpoint_class] => mayor defects
+            [quality_checkpoint] => Ungeziefer
+            [max_good] => 1.00
+            [max_regular] => 3.00
+            [operator] => 1
+            [operator_name] => Prozent
+        )
+
+    [3] => Array
+        (
+            [No] => 9
+            [product_group] => Beerenfrüchte
+            [unece_link] => http://www.unece.org/fileadmin/DAM/trade/agr/standard/fresh/FFV-Std/English/57BerryFruits.pdf
+            [product_no] => 0026
+            [product] => Brombeeren
+            [qck_no] => 4
+            [type] => 0
+            [qc_type] => Qualität
+            [qchk_class_no] => 1
+            [checkpoint_class] => mayor defects
+            [quality_checkpoint] => Untergewicht
+            [max_good] => 1.00
+            [max_regular] => 2.00
+            [operator] => 1
+            [operator_name] => Prozent
+        )
+
+    [4] => Array
+        (
+            [No] => 11
+            [product_group] => Beerenfrüchte
+            [unece_link] => http://www.unece.org/fileadmin/DAM/trade/agr/standard/fresh/FFV-Std/English/57BerryFruits.pdf
+            [product_no] => 0026
+            [product] => Brombeeren
+            [qck_no] => 5
+            [type] => 0
+            [qc_type] => Qualität
+            [qchk_class_no] => 2
+            [checkpoint_class] => minor defects
+            [quality_checkpoint] => Ueberreif / Weich
+            [max_good] => 1.00
+            [max_regular] => 3.00
+            [operator] => 1
+            [operator_name] => Prozent
+        )
+
+    [5] => Array
+        (
+            [No] => 12
+            [product_group] => Beerenfrüchte
+            [unece_link] => http://www.unece.org/fileadmin/DAM/trade/agr/standard/fresh/FFV-Std/English/57BerryFruits.pdf
+            [product_no] => 0026
+            [product] => Brombeeren
+            [qck_no] => 6
+            [type] => 0
+            [qc_type] => Qualität
+            [qchk_class_no] => 2
+            [checkpoint_class] => minor defects
+            [quality_checkpoint] => Druckstellen
+            [max_good] => 2.00
+            [max_regular] => 5.00
+            [operator] => 1
+            [operator_name] => Prozent
+        )
+
+    [6] => Array
+        (
+            [No] => 14
+            [product_group] => Beerenfrüchte
+            [unece_link] => http://www.unece.org/fileadmin/DAM/trade/agr/standard/fresh/FFV-Std/English/57BerryFruits.pdf
+            [product_no] => 0026
+            [product] => Brombeeren
+            [qck_no] => 10
+            [type] => 0
+            [qc_type] => Qualität
+            [qchk_class_no] => 2
+            [checkpoint_class] => minor defects
+            [quality_checkpoint] => Unreif
+            [max_good] => 2.00
+            [max_regular] => 5.00
+            [operator] => 1
+            [operator_name] => Prozent
+        )
+
+    [7] => Array
+        (
+            [No] => 15
+            [product_group] => Beerenfrüchte
+            [unece_link] => http://www.unece.org/fileadmin/DAM/trade/agr/standard/fresh/FFV-Std/English/57BerryFruits.pdf
+            [product_no] => 0026
+            [product] => Brombeeren
+            [qck_no] => 20
+            [type] => 0
+            [qc_type] => Qualität
+            [qchk_class_no] => 2
+            [checkpoint_class] => minor defects
+            [quality_checkpoint] => Rote Zellen
+            [max_good] => 3.00
+            [max_regular] => 5.00
+            [operator] => 1
+            [operator_name] => Prozent
+        )
+
+    [8] => Array
+        (
+            [No] => 16
+            [product_group] => Beerenfrüchte
+            [unece_link] => http://www.unece.org/fileadmin/DAM/trade/agr/standard/fresh/FFV-Std/English/57BerryFruits.pdf
+            [product_no] => 0026
+            [product] => Brombeeren
+            [qck_no] => 8
+            [type] => 0
+            [qc_type] => Qualität
+            [qchk_class_no] => 3
+            [checkpoint_class] => remarks
+            [quality_checkpoint] => Schalenfehler
+            [max_good] => 5.00
+            [max_regular] => 10.00
+            [operator] => 1
+            [operator_name] => Prozent
+        )
+
+    [9] => Array
+        (
+            [No] => 17
+            [product_group] => Beerenfrüchte
+            [unece_link] => http://www.unece.org/fileadmin/DAM/trade/agr/standard/fresh/FFV-Std/English/57BerryFruits.pdf
+            [product_no] => 0026
+            [product] => Brombeeren
+            [qck_no] => 9
+            [type] => 0
+            [qc_type] => Qualität
+            [qchk_class_no] => 3
+            [checkpoint_class] => remarks
+            [quality_checkpoint] => Restschmutz
+            [max_good] => 5.00
+            [max_regular] => 10.00
+            [operator] => 1
+            [operator_name] => Prozent
+        )
+
+    [10] => Array
+        (
+            [No] => 18
+            [product_group] => Beerenfrüchte
+            [unece_link] => http://www.unece.org/fileadmin/DAM/trade/agr/standard/fresh/FFV-Std/English/57BerryFruits.pdf
+            [product_no] => 0026
+            [product] => Brombeeren
+            [qck_no] => 11
+            [type] => 0
+            [qc_type] => Qualität
+            [qchk_class_no] => 3
+            [checkpoint_class] => remarks
+            [quality_checkpoint] => Beschaedigungen
+            [max_good] => 3.00
+            [max_regular] => 6.00
+            [operator] => 1
+            [operator_name] => Prozent
+        )
+
+    [11] => Array
+        (
+            [No] => 19
+            [product_group] => Beerenfrüchte
+            [unece_link] => http://www.unece.org/fileadmin/DAM/trade/agr/standard/fresh/FFV-Std/English/57BerryFruits.pdf
+            [product_no] => 0026
+            [product] => Brombeeren
+            [qck_no] => 12
+            [type] => 0
+            [qc_type] => Qualität
+            [qchk_class_no] => 3
+            [checkpoint_class] => remarks
+            [quality_checkpoint] => Andere
+            [max_good] => 2.00
+            [max_regular] => 5.00
+            [operator] => 1
+            [operator_name] => Prozent
+        )
+
+    [12] => Array
+        (
+            [No] => 20
+            [product_group] => Beerenfrüchte
+            [unece_link] => http://www.unece.org/fileadmin/DAM/trade/agr/standard/fresh/FFV-Std/English/57BerryFruits.pdf
+            [product_no] => 0026
+            [product] => Brombeeren
+            [qck_no] => 13
+            [type] => 0
+            [qc_type] => Qualität
+            [qchk_class_no] => 3
+            [checkpoint_class] => remarks
+            [quality_checkpoint] => Untermass
+            [max_good] => 5.00
+            [max_regular] => 10.00
+            [operator] => 1
+            [operator_name] => Prozent
+        )
+
+    [13] => Array
+        (
+            [No] => 21
+            [product_group] => Beerenfrüchte
+            [unece_link] => http://www.unece.org/fileadmin/DAM/trade/agr/standard/fresh/FFV-Std/English/57BerryFruits.pdf
+            [product_no] => 0026
+            [product] => Brombeeren
+            [qck_no] => 15
+            [type] => 0
+            [qc_type] => Qualität
+            [qchk_class_no] => 3
+            [checkpoint_class] => remarks
+            [quality_checkpoint] => Brixgehalt
+            [max_good] => 1.00
+            [max_regular] => 3.00
+            [operator] => 0
+            [operator_name] => Differenz
+        )
+
+)
+
+2017-11-21T13:04:22+01:00 INFO (6): editquality aufgerufen mit Inbound_sheet: Array
+(
+    [No] => 0
+    [inbound] => 0
+    [inb_line] => 0
+    [position] => 
+    [v_delivery_note] => 
+    [vendor] => 
+    [purchase_order] => 
+    [po_line] => 0
+    [po_line_line] => 0
+    [stock_location] => 1
+    [po_arrival_date] => 21.11.2017
+    [po_arrival_time] => 13:04
+    [inb_arrival_date] => 21.11.2017
+    [inb_arrival_time] => 13:04
+    [forwarder] => 
+    [truck] => 
+    [trailor] => 
+    [container] => 
+    [po_transport_temp_min] => 1.00
+    [po_transport_temp_max] => 4.00
+    [inb_transport_temp] => 0
+    [variant] => 
+    [product] => 0026
+    [t_packaging] => 
+    [packaging] => 0
+    [origin] => DE
+    [label] => 0
+    [quality_class] => 1
+    [brand] => 0
+    [quality] => 1
+    [items] => 0
+    [weight_item] => 0
+    [po_lot] => 
+    [po_barcode] => 
+    [po_trading_units] => 0
+    [po_packing_units] => 0
+    [po_pallet] => 
+    [po_pallets] => 0
+    [po_tu_pal] => 0
+    [inb_lot] => 
+    [inb_barcode] => 
+    [items_checked] => 0
+    [inb_trading_units] => 0
+    [inb_packing_units] => 0
+    [inb_pallet] => 
+    [inb_pallets] => 0
+    [inb_tu_pal] => 0
+    [po_brix_min] => 0
+    [po_brix_max] => 0
+    [inb_brix] => 0
+    [inb_certificate] => 1
+    [remarks] => 
+    [checked_by] => 
+    [res_1] => 0
+    [base_1] => 0
+    [rp_1] => 0 %
+    [rl_1] => check_green
+    [res_2] => 0
+    [base_2] => 0
+    [rp_2] => 0 %
+    [rl_2] => check_green
+    [res_3] => 0
+    [base_3] => 0
+    [rp_3] => 0 %
+    [rl_3] => check_green
+    [res_4] => 0
+    [base_4] => 0
+    [rp_4] => 0 %
+    [rl_4] => check_green
+    [res_5] => 0
+    [base_5] => 0
+    [rp_5] => 0 %
+    [rl_5] => check_green
+    [res_6] => 0
+    [base_6] => 0
+    [rp_6] => 0 %
+    [rl_6] => check_green
+    [res_10] => 0
+    [base_10] => 0
+    [rp_10] => 0 %
+    [rl_10] => check_green
+    [res_20] => 0
+    [base_20] => 0
+    [rp_20] => 0 %
+    [rl_20] => check_green
+    [res_8] => 0
+    [base_8] => 0
+    [rp_8] => 0 %
+    [rl_8] => check_green
+    [res_9] => 0
+    [base_9] => 0
+    [rp_9] => 0 %
+    [rl_9] => check_green
+    [res_11] => 0
+    [base_11] => 0
+    [rp_11] => 0 %
+    [rl_11] => check_green
+    [res_12] => 0
+    [base_12] => 0
+    [rp_12] => 0 %
+    [rl_12] => check_green
+    [res_13] => 0
+    [base_13] => 0
+    [rp_13] => 0 %
+    [rl_13] => check_green
+    [res_15] => 0
+    [base_15] => 0
+    [rp_15] => 0
+    [rl_15] => check_green
+    [res_21] => 0
+    [base_21] => 0
+    [rp_21] => 0 %
+    [rl_21] => check_green
+    [res_19] => 0
+    [base_19] => 0
+    [rp_19] => 0 %
+    [rl_19] => check_green
+    [res_18] => 0
+    [base_18] => 0
+    [rp_18] => 0
+    [rl_18] => check_green
+    [res_17] => 0
+    [base_17] => 0
+    [rp_17] => nicht OK
+    [rl_17] => check_red
+    [res_16] => 0
+    [base_16] => 0
+    [rp_16] => nicht OK
+    [rl_16] => check_red
+    [res_14] => 0
+    [base_14] => 0
+    [rp_14] => 0
+    [rl_14] => check_green
+)
+
+2017-11-21T13:04:25+01:00 INFO (6): InboundController->getinboundsAction called with whereClause:  WHERE position = 39999
+2017-11-21T13:06:09+01:00 INFO (6): product_no: 0026
+2017-11-21T13:06:09+01:00 INFO (6): QCheckpoints: Array
+(
+    [0] => Array
+        (
+            [No] => 6
+            [product_group] => Beerenfrüchte
+            [unece_link] => http://www.unece.org/fileadmin/DAM/trade/agr/standard/fresh/FFV-Std/English/57BerryFruits.pdf
+            [product_no] => 0026
+            [product] => Brombeeren
+            [qck_no] => 1
+            [type] => 0
+            [qc_type] => Qualität
+            [qchk_class_no] => 1
+            [checkpoint_class] => mayor defects
+            [quality_checkpoint] => Verderb - Schimmel
+            [max_good] => 1.00
+            [max_regular] => 3.00
+            [operator] => 1
+            [operator_name] => Prozent
+        )
+
+    [1] => Array
+        (
+            [No] => 7
+            [product_group] => Beerenfrüchte
+            [unece_link] => http://www.unece.org/fileadmin/DAM/trade/agr/standard/fresh/FFV-Std/English/57BerryFruits.pdf
+            [product_no] => 0026
+            [product] => Brombeeren
+            [qck_no] => 2
+            [type] => 0
+            [qc_type] => Qualität
+            [qchk_class_no] => 1
+            [checkpoint_class] => mayor defects
+            [quality_checkpoint] => Saftaustritt
+            [max_good] => 1.00
+            [max_regular] => 2.00
+            [operator] => 1
+            [operator_name] => Prozent
+        )
+
+    [2] => Array
+        (
+            [No] => 8
+            [product_group] => Beerenfrüchte
+            [unece_link] => http://www.unece.org/fileadmin/DAM/trade/agr/standard/fresh/FFV-Std/English/57BerryFruits.pdf
+            [product_no] => 0026
+            [product] => Brombeeren
+            [qck_no] => 3
+            [type] => 0
+            [qc_type] => Qualität
+            [qchk_class_no] => 1
+            [checkpoint_class] => mayor defects
+            [quality_checkpoint] => Ungeziefer
+            [max_good] => 1.00
+            [max_regular] => 3.00
+            [operator] => 1
+            [operator_name] => Prozent
+        )
+
+    [3] => Array
+        (
+            [No] => 9
+            [product_group] => Beerenfrüchte
+            [unece_link] => http://www.unece.org/fileadmin/DAM/trade/agr/standard/fresh/FFV-Std/English/57BerryFruits.pdf
+            [product_no] => 0026
+            [product] => Brombeeren
+            [qck_no] => 4
+            [type] => 0
+            [qc_type] => Qualität
+            [qchk_class_no] => 1
+            [checkpoint_class] => mayor defects
+            [quality_checkpoint] => Untergewicht
+            [max_good] => 1.00
+            [max_regular] => 2.00
+            [operator] => 1
+            [operator_name] => Prozent
+        )
+
+    [4] => Array
+        (
+            [No] => 11
+            [product_group] => Beerenfrüchte
+            [unece_link] => http://www.unece.org/fileadmin/DAM/trade/agr/standard/fresh/FFV-Std/English/57BerryFruits.pdf
+            [product_no] => 0026
+            [product] => Brombeeren
+            [qck_no] => 5
+            [type] => 0
+            [qc_type] => Qualität
+            [qchk_class_no] => 2
+            [checkpoint_class] => minor defects
+            [quality_checkpoint] => Ueberreif / Weich
+            [max_good] => 1.00
+            [max_regular] => 3.00
+            [operator] => 1
+            [operator_name] => Prozent
+        )
+
+    [5] => Array
+        (
+            [No] => 12
+            [product_group] => Beerenfrüchte
+            [unece_link] => http://www.unece.org/fileadmin/DAM/trade/agr/standard/fresh/FFV-Std/English/57BerryFruits.pdf
+            [product_no] => 0026
+            [product] => Brombeeren
+            [qck_no] => 6
+            [type] => 0
+            [qc_type] => Qualität
+            [qchk_class_no] => 2
+            [checkpoint_class] => minor defects
+            [quality_checkpoint] => Druckstellen
+            [max_good] => 2.00
+            [max_regular] => 5.00
+            [operator] => 1
+            [operator_name] => Prozent
+        )
+
+    [6] => Array
+        (
+            [No] => 14
+            [product_group] => Beerenfrüchte
+            [unece_link] => http://www.unece.org/fileadmin/DAM/trade/agr/standard/fresh/FFV-Std/English/57BerryFruits.pdf
+            [product_no] => 0026
+            [product] => Brombeeren
+            [qck_no] => 10
+            [type] => 0
+            [qc_type] => Qualität
+            [qchk_class_no] => 2
+            [checkpoint_class] => minor defects
+            [quality_checkpoint] => Unreif
+            [max_good] => 2.00
+            [max_regular] => 5.00
+            [operator] => 1
+            [operator_name] => Prozent
+        )
+
+    [7] => Array
+        (
+            [No] => 15
+            [product_group] => Beerenfrüchte
+            [unece_link] => http://www.unece.org/fileadmin/DAM/trade/agr/standard/fresh/FFV-Std/English/57BerryFruits.pdf
+            [product_no] => 0026
+            [product] => Brombeeren
+            [qck_no] => 20
+            [type] => 0
+            [qc_type] => Qualität
+            [qchk_class_no] => 2
+            [checkpoint_class] => minor defects
+            [quality_checkpoint] => Rote Zellen
+            [max_good] => 3.00
+            [max_regular] => 5.00
+            [operator] => 1
+            [operator_name] => Prozent
+        )
+
+    [8] => Array
+        (
+            [No] => 16
+            [product_group] => Beerenfrüchte
+            [unece_link] => http://www.unece.org/fileadmin/DAM/trade/agr/standard/fresh/FFV-Std/English/57BerryFruits.pdf
+            [product_no] => 0026
+            [product] => Brombeeren
+            [qck_no] => 8
+            [type] => 0
+            [qc_type] => Qualität
+            [qchk_class_no] => 3
+            [checkpoint_class] => remarks
+            [quality_checkpoint] => Schalenfehler
+            [max_good] => 5.00
+            [max_regular] => 10.00
+            [operator] => 1
+            [operator_name] => Prozent
+        )
+
+    [9] => Array
+        (
+            [No] => 17
+            [product_group] => Beerenfrüchte
+            [unece_link] => http://www.unece.org/fileadmin/DAM/trade/agr/standard/fresh/FFV-Std/English/57BerryFruits.pdf
+            [product_no] => 0026
+            [product] => Brombeeren
+            [qck_no] => 9
+            [type] => 0
+            [qc_type] => Qualität
+            [qchk_class_no] => 3
+            [checkpoint_class] => remarks
+            [quality_checkpoint] => Restschmutz
+            [max_good] => 5.00
+            [max_regular] => 10.00
+            [operator] => 1
+            [operator_name] => Prozent
+        )
+
+    [10] => Array
+        (
+            [No] => 18
+            [product_group] => Beerenfrüchte
+            [unece_link] => http://www.unece.org/fileadmin/DAM/trade/agr/standard/fresh/FFV-Std/English/57BerryFruits.pdf
+            [product_no] => 0026
+            [product] => Brombeeren
+            [qck_no] => 11
+            [type] => 0
+            [qc_type] => Qualität
+            [qchk_class_no] => 3
+            [checkpoint_class] => remarks
+            [quality_checkpoint] => Beschaedigungen
+            [max_good] => 3.00
+            [max_regular] => 6.00
+            [operator] => 1
+            [operator_name] => Prozent
+        )
+
+    [11] => Array
+        (
+            [No] => 19
+            [product_group] => Beerenfrüchte
+            [unece_link] => http://www.unece.org/fileadmin/DAM/trade/agr/standard/fresh/FFV-Std/English/57BerryFruits.pdf
+            [product_no] => 0026
+            [product] => Brombeeren
+            [qck_no] => 12
+            [type] => 0
+            [qc_type] => Qualität
+            [qchk_class_no] => 3
+            [checkpoint_class] => remarks
+            [quality_checkpoint] => Andere
+            [max_good] => 2.00
+            [max_regular] => 5.00
+            [operator] => 1
+            [operator_name] => Prozent
+        )
+
+    [12] => Array
+        (
+            [No] => 20
+            [product_group] => Beerenfrüchte
+            [unece_link] => http://www.unece.org/fileadmin/DAM/trade/agr/standard/fresh/FFV-Std/English/57BerryFruits.pdf
+            [product_no] => 0026
+            [product] => Brombeeren
+            [qck_no] => 13
+            [type] => 0
+            [qc_type] => Qualität
+            [qchk_class_no] => 3
+            [checkpoint_class] => remarks
+            [quality_checkpoint] => Untermass
+            [max_good] => 5.00
+            [max_regular] => 10.00
+            [operator] => 1
+            [operator_name] => Prozent
+        )
+
+    [13] => Array
+        (
+            [No] => 21
+            [product_group] => Beerenfrüchte
+            [unece_link] => http://www.unece.org/fileadmin/DAM/trade/agr/standard/fresh/FFV-Std/English/57BerryFruits.pdf
+            [product_no] => 0026
+            [product] => Brombeeren
+            [qck_no] => 15
+            [type] => 0
+            [qc_type] => Qualität
+            [qchk_class_no] => 3
+            [checkpoint_class] => remarks
+            [quality_checkpoint] => Brixgehalt
+            [max_good] => 1.00
+            [max_regular] => 3.00
+            [operator] => 0
+            [operator_name] => Differenz
+        )
+
+)
+
+2017-11-21T13:06:09+01:00 INFO (6): editquality aufgerufen mit Inbound_sheet: Array
+(
+    [No] => 0
+    [inbound] => 0
+    [inb_line] => 0
+    [position] => 
+    [v_delivery_note] => 
+    [vendor] => 
+    [purchase_order] => 
+    [po_line] => 0
+    [po_line_line] => 0
+    [stock_location] => 1
+    [po_arrival_date] => 21.11.2017
+    [po_arrival_time] => 13:06
+    [inb_arrival_date] => 21.11.2017
+    [inb_arrival_time] => 13:06
+    [forwarder] => 
+    [truck] => 
+    [trailor] => 
+    [container] => 
+    [po_transport_temp_min] => 1.00
+    [po_transport_temp_max] => 4.00
+    [inb_transport_temp] => 0
+    [variant] => 
+    [product] => 0026
+    [t_packaging] => 
+    [packaging] => 0
+    [origin] => DE
+    [label] => 0
+    [quality_class] => 1
+    [brand] => 0
+    [quality] => 1
+    [items] => 0
+    [weight_item] => 0
+    [po_lot] => 
+    [po_barcode] => 
+    [po_trading_units] => 0
+    [po_packing_units] => 0
+    [po_pallet] => 
+    [po_pallets] => 0
+    [po_tu_pal] => 0
+    [inb_lot] => 
+    [inb_barcode] => 
+    [items_checked] => 0
+    [inb_trading_units] => 0
+    [inb_packing_units] => 0
+    [inb_pallet] => 
+    [inb_pallets] => 0
+    [inb_tu_pal] => 0
+    [po_brix_min] => 0
+    [po_brix_max] => 0
+    [inb_brix] => 0
+    [inb_certificate] => 1
+    [remarks] => 
+    [checked_by] => 
+    [res_1] => 0
+    [base_1] => 0
+    [rp_1] => 0 %
+    [rl_1] => check_green
+    [res_2] => 0
+    [base_2] => 0
+    [rp_2] => 0 %
+    [rl_2] => check_green
+    [res_3] => 0
+    [base_3] => 0
+    [rp_3] => 0 %
+    [rl_3] => check_green
+    [res_4] => 0
+    [base_4] => 0
+    [rp_4] => 0 %
+    [rl_4] => check_green
+    [res_5] => 0
+    [base_5] => 0
+    [rp_5] => 0 %
+    [rl_5] => check_green
+    [res_6] => 0
+    [base_6] => 0
+    [rp_6] => 0 %
+    [rl_6] => check_green
+    [res_10] => 0
+    [base_10] => 0
+    [rp_10] => 0 %
+    [rl_10] => check_green
+    [res_20] => 0
+    [base_20] => 0
+    [rp_20] => 0 %
+    [rl_20] => check_green
+    [res_8] => 0
+    [base_8] => 0
+    [rp_8] => 0 %
+    [rl_8] => check_green
+    [res_9] => 0
+    [base_9] => 0
+    [rp_9] => 0 %
+    [rl_9] => check_green
+    [res_11] => 0
+    [base_11] => 0
+    [rp_11] => 0 %
+    [rl_11] => check_green
+    [res_12] => 0
+    [base_12] => 0
+    [rp_12] => 0 %
+    [rl_12] => check_green
+    [res_13] => 0
+    [base_13] => 0
+    [rp_13] => 0 %
+    [rl_13] => check_green
+    [res_15] => 0
+    [base_15] => 0
+    [rp_15] => 0
+    [rl_15] => check_green
+    [res_21] => 0
+    [base_21] => 0
+    [rp_21] => 0 %
+    [rl_21] => check_green
+    [res_18] => 0
+    [base_18] => 0
+    [rp_18] => 0
+    [rl_18] => check_green
+    [res_17] => 0
+    [base_17] => 0
+    [rp_17] => nicht OK
+    [rl_17] => check_red
+    [res_16] => 0
+    [base_16] => 0
+    [rp_16] => nicht OK
+    [rl_16] => check_red
+    [res_14] => 0
+    [base_14] => 0
+    [rp_14] => 0
+    [rl_14] => check_green
+    [res_19] => 0
+    [base_19] => 0
+    [rp_19] => 0 %
+    [rl_19] => check_green
+)
+
+2017-11-21T13:06:25+01:00 INFO (6): InboundController->getinboundsAction called with whereClause:  WHERE position = 39999
+2017-11-21T13:07:49+01:00 INFO (6): $_POST: Array
+(
+    [old_No] => 0
+    [inbound] => 0
+    [inb_line] => 0
+    [position] => 39999
+    [vendor_no] => 099809
+    [purchase_order] => 426350
+    [po_line] => 0
+    [po_line_line] => 
+    [v_delivery_note] => 
+    [forwarder] => 
+    [container] => 
+    [trailor] => 
+    [po_arrival_date] => 15.11.2017
+    [po_arrival_time] => 00:30:00
+    [po_transport_temp_min] => 1.00
+    [po_transport_temp_max] => 4.00
+    [inb_transport_temp] => 0.00
+    [inb_arrival_date] => 15.11.2017
+    [inb_arrival_time] => 00:30:00
+    [variant] => variant
+    [product] => 0031
+    [items] => 12
+    [weight_item] => 125
+    [packaging] => 0
+    [t_packaging] => E6410
+    [origin] => DE
+    [quality_class] => 1
+    [quality] => 1
+    [label] => 1
+    [brand] => 0
+    [lot] => 
+    [barcode] => 
+    [po_trading_units] => 1250
+    [inb_trading_units] => 1250
+    [po_pallet] => 1
+    [po_pallets] => 5
+    [po_tu_pal] => 250
+    [inb_pallet] => 1
+    [inb_pallets] => 5
+    [inb_tu_pal] => 250
+    [po_brix_min] => 0.00
+    [po_brix_max] => 0.00
+    [inb_brix] => 0
+    [items_checked] => 100
+    [max_good_21] => 1
+    [max_regular_21] => 5
+    [operator_21] => 1
+    [base_21] => 0
+    [res_21] => 0
+    [max_good_18] => 1
+    [max_regular_18] => 3
+    [operator_18] => 0
+    [base_18] => 0
+    [res_18] => 0.0
+    [max_good_17] => 0
+    [max_regular_17] => 0
+    [operator_17] => 2
+    [base_17] => 0
+    [max_good_16] => 0
+    [max_regular_16] => 0
+    [operator_16] => 2
+    [base_16] => 0
+    [max_good_14] => 1
+    [max_regular_14] => 3
+    [operator_14] => 0
+    [base_14] => 0
+    [res_14] => 1.0
+    [max_good_19] => 5
+    [max_regular_19] => 10
+    [operator_19] => 1
+    [base_19] => 1250
+    [res_19] => 0
+    [max_good_1] => 1
+    [max_regular_1] => 3
+    [operator_1] => 1
+    [base_1] => 100
+    [res_1] => 5
+    [max_good_2] => 1
+    [max_regular_2] => 2
+    [operator_2] => 1
+    [base_2] => 100
+    [res_2] => 2
+    [max_good_3] => 1
+    [max_regular_3] => 3
+    [operator_3] => 1
+    [base_3] => 100
+    [res_3] => 1
+    [max_good_4] => 1
+    [max_regular_4] => 2
+    [operator_4] => 1
+    [base_4] => 100
+    [res_4] => 2
+    [max_good_5] => 1
+    [max_regular_5] => 3
+    [operator_5] => 1
+    [base_5] => 100
+    [res_5] => 1
+    [max_good_6] => 2
+    [max_regular_6] => 5
+    [operator_6] => 1
+    [base_6] => 100
+    [res_6] => 5
+    [max_good_7] => 1
+    [max_regular_7] => 2
+    [operator_7] => 1
+    [base_7] => 100
+    [res_7] => 3
+    [max_good_10] => 2
+    [max_regular_10] => 5
+    [operator_10] => 1
+    [base_10] => 100
+    [res_10] => 2
+    [max_good_8] => 5.00
+    [max_regular_8] => 10.00
+    [operator_8] => 1
+    [base_8] => 0
+    [res_8] => 0
+    [max_good_9] => 5.00
+    [max_regular_9] => 10.00
+    [operator_9] => 1
+    [base_9] => 0
+    [res_9] => 0
+    [max_good_11] => 3.00
+    [max_regular_11] => 6.00
+    [operator_11] => 1
+    [base_11] => 0
+    [res_11] => 0
+    [max_good_12] => 2.00
+    [max_regular_12] => 5.00
+    [operator_12] => 1
+    [base_12] => 0
+    [res_12] => 0
+    [max_good_13] => 5.00
+    [max_regular_13] => 10.00
+    [operator_13] => 1
+    [base_13] => 0
+    [res_13] => 0
+    [max_good_15] => 1.00
+    [max_regular_15] => 3.00
+    [operator_15] => 0
+    [base_15] => 0
+    [res_15] => 0.0
+    [remarks] => 
+    [checked_by] => Bernhard
+    [submit] => Speichern
+)
+
+2017-11-21T13:07:49+01:00 INFO (6): $_FILES: Array
+(
+    [picture] => Array
+        (
+            [name] => Array
+                (
+                    [0] => 
+                )
+
+            [type] => Array
+                (
+                    [0] => 
+                )
+
+            [tmp_name] => Array
+                (
+                    [0] => 
+                )
+
+            [error] => Array
+                (
+                    [0] => 4
+                )
+
+            [size] => Array
+                (
+                    [0] => 0
+                )
+
+        )
+
+    [attachment] => Array
+        (
+            [name] => Array
+                (
+                    [0] => 
+                )
+
+            [type] => Array
+                (
+                    [0] => 
+                )
+
+            [tmp_name] => Array
+                (
+                    [0] => 
+                )
+
+            [error] => Array
+                (
+                    [0] => 4
+                )
+
+            [size] => Array
+                (
+                    [0] => 0
+                )
+
+        )
+
+)
+
+2017-11-21T13:07:49+01:00 INFO (6): Errors nach Eingabe-Check: Array
+(
+)
+
+2017-11-21T13:07:49+01:00 INFO (6): purchase_order: Array
+(
+    [No] => 426350
+    [stock_location] => 1
+    [vendor] => 099809
+    [transport_temp_min] => 1.00
+    [transport_temp_max] => 4.00
+    [forwarder] => 
+    [truck] => 
+    [trailor] => 
+    [container] => 
+    [incoterm] => DDP
+    [vessel] => 
+    [habour] => 
+    [arrival] => 2017-11-15 00:30:00
+    [departure] => 2017-11-15 00:30:00
+)
+
+2017-11-21T13:07:49+01:00 INFO (6): Inbound: Array
+(
+    [No] => 0
+    [position] => 39999
+    [stock_location] => 1
+    [v_delivery_note] => 
+    [forwarder] => 
+    [truck] => 
+    [trailor] => 
+    [container] => 
+    [transport_temperature] => 0.00
+    [purchase_order] => 426350
+    [arrival] => 2017-11-15 00:30:00
+)
+
+2017-11-21T13:07:49+01:00 INFO (6): Variante: Array
+(
+    [product] => 0031
+    [items] => 12
+    [weight_item] => 125
+    [packaging] => 0
+    [t_packaging] => E6410
+    [origin] => DE
+    [quality_class] => 1
+    [quality] => 1
+    [label] => 1
+    [brand] => 0
+    [No] => 0031DE12125E641001110
+)
+
+2017-11-21T13:07:49+01:00 INFO (6): purchase_order_line: Array
+(
+    [No] => 0
+    [Purchase_order] => 426350
+    [Line] => 
+    [product] => 0031
+    [variant] => 0031DE12125E641001110
+    [Trading_Units] => 1250
+    [PU_TU] => 12
+    [Packing_Units] => 15000
+    [Pallet] => 1
+    [Pallets] => 5
+    [TU_Pallet] => 250
+    [Price] => 0
+    [Price_Allocation] => 0
+    [lot] => 
+    [barcode] => 
+    [brix_min] => 0.00
+    [brix_max] => 0.00
+)
+
+2017-11-21T13:07:49+01:00 INFO (6): inbound_line: Array
+(
+    [No] => 
+    [line] => 0
+    [lot] => 
+    [product] => 0031
+    [variant] => 0031DE12125E641001110
+    [barcode] => 
+    [trading_units] => 1250
+    [packing_units] => 15000
+    [Pallet] => 1
+    [Pallets] => 5
+    [tu_pallet] => 250
+    [brix] => 0
+    [items_checked] => 100
+    [remarks] => 
+    [checked_by] => Bernhard
+    [inbound] => 0
+    [purchase_order] => 426350
+    [po_line] => 0
+)
+
+2017-11-21T13:07:49+01:00 INFO (6): Transaktion gestartet
+2017-11-21T13:07:49+01:00 INFO (6): Anzahl Purchase Orders gefunden: 1
+2017-11-21T13:07:49+01:00 INFO (6): Array
+(
+    [No] => 426350
+    [vendor] => 099809
+    [stock_location] => 1
+    [departure] => 2017-11-15 00:30:00
+    [arrival] => 2017-11-15 00:30:00
+    [v_sales_order] => 
+    [forwarder] => MVS
+    [truck] => 
+    [trailor] => DU DS 3055
+    [container] => 
+    [vessel] => 0
+    [habour] => 0
+    [incoterm] => DDP
+    [transport_temp_min] => 1.00
+    [transport_temp_max] => 4.00
+)
+
+2017-11-21T13:07:49+01:00 INFO (6): Purchase Order gefunden mit No: 426350
+2017-11-21T13:07:49+01:00 INFO (6): Inbounds gefunden: 1
+2017-11-21T13:07:49+01:00 INFO (6): Inbound gespeichert mit Nummer: 62
+2017-11-21T13:07:49+01:00 INFO (6): Variante wurde hinzugefügt mit No: 0
+2017-11-21T13:07:49+01:00 INFO (6): Es wurden 2 Purchase Order Lines gefunden. Die höchste Zeile ist 20000
+2017-11-21T13:07:49+01:00 INFO (6): Purchase order Line wurde hinzugefügt mit No: 86 und Line: 30000
+2017-11-21T13:07:49+01:00 INFO (6): Inbound Line wurde hinzugefügt mit No: 93 und Line: 20000
+2017-11-21T13:07:49+01:00 INFO (6): Movement: Array
+(
+    [No] => 0
+    [movement] => 1
+    [date] => 2017-11-15 00:30:00
+    [trading_units] => 1250
+    [packing_units] => 15000
+    [trading_units_production] => 1250
+    [packing_units_production] => 15000
+    [status] => 3
+    [type] => 0
+    [stock_location] => 1
+    [remarks] => 
+    [in_order_line] => 86
+    [inbound_line] => 93
+)
+
+2017-11-21T13:07:50+01:00 INFO (6): Bewegung wurde gespeichert mit No: 94
+2017-11-21T13:07:50+01:00 INFO (6): Anzahl Qualitätsmerkmale: 0
+2017-11-21T13:07:50+01:00 INFO (6): Bilder: Array
+(
+    [name] => Array
+        (
+            [0] => 
+        )
+
+    [type] => Array
+        (
+            [0] => 
+        )
+
+    [tmp_name] => Array
+        (
+            [0] => 
+        )
+
+    [error] => Array
+        (
+            [0] => 4
+        )
+
+    [size] => Array
+        (
+            [0] => 0
+        )
+
+)
+
+2017-11-21T13:07:50+01:00 INFO (6): QIndex: operator_1
+2017-11-21T13:07:50+01:00 INFO (6): Qcheck_inb_line: Array
+(
+    [no] => 0
+    [quality_checkpoint] => 1
+    [inbound_line] => 93
+    [base] => 100
+    [value] => 5
+    [max_good] => 1
+    [max_regular] => 3
+)
+
+2017-11-21T13:07:50+01:00 INFO (6): Qualitätsmerkmal wurde hinzugefügt
+2017-11-21T13:07:50+01:00 INFO (6): QIndex: operator_2
+2017-11-21T13:07:50+01:00 INFO (6): Qcheck_inb_line: Array
+(
+    [no] => 0
+    [quality_checkpoint] => 2
+    [inbound_line] => 93
+    [base] => 100
+    [value] => 2
+    [max_good] => 1
+    [max_regular] => 2
+)
+
+2017-11-21T13:07:50+01:00 INFO (6): Qualitätsmerkmal wurde hinzugefügt
+2017-11-21T13:07:50+01:00 INFO (6): QIndex: operator_3
+2017-11-21T13:07:50+01:00 INFO (6): Qcheck_inb_line: Array
+(
+    [no] => 0
+    [quality_checkpoint] => 3
+    [inbound_line] => 93
+    [base] => 100
+    [value] => 1
+    [max_good] => 1
+    [max_regular] => 3
+)
+
+2017-11-21T13:07:50+01:00 INFO (6): Qualitätsmerkmal wurde hinzugefügt
+2017-11-21T13:07:50+01:00 INFO (6): QIndex: operator_4
+2017-11-21T13:07:50+01:00 INFO (6): Qcheck_inb_line: Array
+(
+    [no] => 0
+    [quality_checkpoint] => 4
+    [inbound_line] => 93
+    [base] => 100
+    [value] => 2
+    [max_good] => 1
+    [max_regular] => 2
+)
+
+2017-11-21T13:07:50+01:00 INFO (6): Qualitätsmerkmal wurde hinzugefügt
+2017-11-21T13:07:50+01:00 INFO (6): QIndex: operator_5
+2017-11-21T13:07:50+01:00 INFO (6): Qcheck_inb_line: Array
+(
+    [no] => 0
+    [quality_checkpoint] => 5
+    [inbound_line] => 93
+    [base] => 100
+    [value] => 1
+    [max_good] => 1
+    [max_regular] => 3
+)
+
+2017-11-21T13:07:50+01:00 INFO (6): Qualitätsmerkmal wurde hinzugefügt
+2017-11-21T13:07:50+01:00 INFO (6): QIndex: operator_6
+2017-11-21T13:07:50+01:00 INFO (6): Qcheck_inb_line: Array
+(
+    [no] => 0
+    [quality_checkpoint] => 6
+    [inbound_line] => 93
+    [base] => 100
+    [value] => 5
+    [max_good] => 2
+    [max_regular] => 5
+)
+
+2017-11-21T13:07:50+01:00 INFO (6): Qualitätsmerkmal wurde hinzugefügt
+2017-11-21T13:07:50+01:00 INFO (6): QIndex: operator_7
+2017-11-21T13:07:50+01:00 INFO (6): Qcheck_inb_line: Array
+(
+    [no] => 0
+    [quality_checkpoint] => 7
+    [inbound_line] => 93
+    [base] => 100
+    [value] => 3
+    [max_good] => 1
+    [max_regular] => 2
+)
+
+2017-11-21T13:07:50+01:00 INFO (6): Qualitätsmerkmal wurde hinzugefügt
+2017-11-21T13:07:50+01:00 INFO (6): QIndex: operator_8
+2017-11-21T13:07:50+01:00 INFO (6): Qcheck_inb_line: Array
+(
+    [no] => 0
+    [quality_checkpoint] => 8
+    [inbound_line] => 93
+    [base] => 100
+    [value] => 0
+    [max_good] => 5.00
+    [max_regular] => 10.00
+)
+
+2017-11-21T13:07:50+01:00 INFO (6): Qualitätsmerkmal wurde hinzugefügt
+2017-11-21T13:07:50+01:00 INFO (6): QIndex: operator_9
+2017-11-21T13:07:50+01:00 INFO (6): Qcheck_inb_line: Array
+(
+    [no] => 0
+    [quality_checkpoint] => 9
+    [inbound_line] => 93
+    [base] => 100
+    [value] => 0
+    [max_good] => 5.00
+    [max_regular] => 10.00
+)
+
+2017-11-21T13:07:50+01:00 INFO (6): Qualitätsmerkmal wurde hinzugefügt
+2017-11-21T13:07:50+01:00 INFO (6): QIndex: operator_10
+2017-11-21T13:07:50+01:00 INFO (6): Qcheck_inb_line: Array
+(
+    [no] => 0
+    [quality_checkpoint] => 10
+    [inbound_line] => 93
+    [base] => 100
+    [value] => 2
+    [max_good] => 2
+    [max_regular] => 5
+)
+
+2017-11-21T13:07:50+01:00 INFO (6): Qualitätsmerkmal wurde hinzugefügt
+2017-11-21T13:07:50+01:00 INFO (6): QIndex: operator_11
+2017-11-21T13:07:50+01:00 INFO (6): Qcheck_inb_line: Array
+(
+    [no] => 0
+    [quality_checkpoint] => 11
+    [inbound_line] => 93
+    [base] => 100
+    [value] => 0
+    [max_good] => 3.00
+    [max_regular] => 6.00
+)
+
+2017-11-21T13:07:50+01:00 INFO (6): Qualitätsmerkmal wurde hinzugefügt
+2017-11-21T13:07:50+01:00 INFO (6): QIndex: operator_12
+2017-11-21T13:07:50+01:00 INFO (6): Qcheck_inb_line: Array
+(
+    [no] => 0
+    [quality_checkpoint] => 12
+    [inbound_line] => 93
+    [base] => 100
+    [value] => 0
+    [max_good] => 2.00
+    [max_regular] => 5.00
+)
+
+2017-11-21T13:07:50+01:00 INFO (6): Qualitätsmerkmal wurde hinzugefügt
+2017-11-21T13:07:50+01:00 INFO (6): QIndex: operator_13
+2017-11-21T13:07:50+01:00 INFO (6): Qcheck_inb_line: Array
+(
+    [no] => 0
+    [quality_checkpoint] => 13
+    [inbound_line] => 93
+    [base] => 100
+    [value] => 0
+    [max_good] => 5.00
+    [max_regular] => 10.00
+)
+
+2017-11-21T13:07:50+01:00 INFO (6): Qualitätsmerkmal wurde hinzugefügt
+2017-11-21T13:07:50+01:00 INFO (6): QIndex: operator_14
+2017-11-21T13:07:50+01:00 INFO (6): Qcheck_inb_line: Array
+(
+    [no] => 0
+    [quality_checkpoint] => 14
+    [inbound_line] => 93
+    [base] => 100
+    [value] => 1.0
+    [max_good] => 1
+    [max_regular] => 3
+)
+
+2017-11-21T13:07:50+01:00 INFO (6): Qualitätsmerkmal wurde hinzugefügt
+2017-11-21T13:07:50+01:00 INFO (6): QIndex: operator_15
+2017-11-21T13:07:50+01:00 INFO (6): Qcheck_inb_line: Array
+(
+    [no] => 0
+    [quality_checkpoint] => 15
+    [inbound_line] => 93
+    [base] => 100
+    [value] => 0.0
+    [max_good] => 1.00
+    [max_regular] => 3.00
+)
+
+2017-11-21T13:07:50+01:00 INFO (6): Qualitätsmerkmal wurde hinzugefügt
+2017-11-21T13:07:50+01:00 INFO (6): QIndex: operator_16
+2017-11-21T13:07:50+01:00 INFO (6): Qcheck_inb_line: Array
+(
+    [no] => 0
+    [quality_checkpoint] => 16
+    [inbound_line] => 93
+    [base] => 0
+    [value] => 
+    [max_good] => 0
+    [max_regular] => 0
+)
+
+2017-11-21T13:07:50+01:00 INFO (6): Qualitätsmerkmal wurde hinzugefügt
+2017-11-21T13:07:50+01:00 INFO (6): QIndex: operator_17
+2017-11-21T13:07:50+01:00 INFO (6): Qcheck_inb_line: Array
+(
+    [no] => 0
+    [quality_checkpoint] => 17
+    [inbound_line] => 93
+    [base] => 0
+    [value] => 
+    [max_good] => 0
+    [max_regular] => 0
+)
+
+2017-11-21T13:07:50+01:00 INFO (6): Qualitätsmerkmal wurde hinzugefügt
+2017-11-21T13:07:50+01:00 INFO (6): QIndex: operator_18
+2017-11-21T13:07:50+01:00 INFO (6): Qcheck_inb_line: Array
+(
+    [no] => 0
+    [quality_checkpoint] => 18
+    [inbound_line] => 93
+    [base] => 100
+    [value] => 0.0
+    [max_good] => 1
+    [max_regular] => 3
+)
+
+2017-11-21T13:07:50+01:00 INFO (6): Qualitätsmerkmal wurde hinzugefügt
+2017-11-21T13:07:50+01:00 INFO (6): QIndex: operator_19
+2017-11-21T13:07:50+01:00 INFO (6): Qcheck_inb_line: Array
+(
+    [no] => 0
+    [quality_checkpoint] => 19
+    [inbound_line] => 93
+    [base] => 1250
+    [value] => 0
+    [max_good] => 5
+    [max_regular] => 10
+)
+
+2017-11-21T13:07:50+01:00 INFO (6): Qualitätsmerkmal wurde hinzugefügt
+2017-11-21T13:07:50+01:00 INFO (6): QIndex: operator_20
+2017-11-21T13:07:50+01:00 INFO (6): QIndex: operator_21
+2017-11-21T13:07:50+01:00 INFO (6): Qcheck_inb_line: Array
+(
+    [no] => 0
+    [quality_checkpoint] => 21
+    [inbound_line] => 93
+    [base] => 100
+    [value] => 0
+    [max_good] => 1
+    [max_regular] => 5
+)
+
+2017-11-21T13:07:50+01:00 INFO (6): Qualitätsmerkmal wurde hinzugefügt
+2017-11-21T13:07:51+01:00 INFO (6): Datenbank Committed
+2017-11-21T13:07:51+01:00 INFO (6): product_no: 0026
+2017-11-21T13:07:51+01:00 INFO (6): QCheckpoints: Array
+(
+    [0] => Array
+        (
+            [No] => 6
+            [product_group] => Beerenfrüchte
+            [unece_link] => http://www.unece.org/fileadmin/DAM/trade/agr/standard/fresh/FFV-Std/English/57BerryFruits.pdf
+            [product_no] => 0026
+            [product] => Brombeeren
+            [qck_no] => 1
+            [type] => 0
+            [qc_type] => Qualität
+            [qchk_class_no] => 1
+            [checkpoint_class] => mayor defects
+            [quality_checkpoint] => Verderb - Schimmel
+            [max_good] => 1.00
+            [max_regular] => 3.00
+            [operator] => 1
+            [operator_name] => Prozent
+        )
+
+    [1] => Array
+        (
+            [No] => 7
+            [product_group] => Beerenfrüchte
+            [unece_link] => http://www.unece.org/fileadmin/DAM/trade/agr/standard/fresh/FFV-Std/English/57BerryFruits.pdf
+            [product_no] => 0026
+            [product] => Brombeeren
+            [qck_no] => 2
+            [type] => 0
+            [qc_type] => Qualität
+            [qchk_class_no] => 1
+            [checkpoint_class] => mayor defects
+            [quality_checkpoint] => Saftaustritt
+            [max_good] => 1.00
+            [max_regular] => 2.00
+            [operator] => 1
+            [operator_name] => Prozent
+        )
+
+    [2] => Array
+        (
+            [No] => 8
+            [product_group] => Beerenfrüchte
+            [unece_link] => http://www.unece.org/fileadmin/DAM/trade/agr/standard/fresh/FFV-Std/English/57BerryFruits.pdf
+            [product_no] => 0026
+            [product] => Brombeeren
+            [qck_no] => 3
+            [type] => 0
+            [qc_type] => Qualität
+            [qchk_class_no] => 1
+            [checkpoint_class] => mayor defects
+            [quality_checkpoint] => Ungeziefer
+            [max_good] => 1.00
+            [max_regular] => 3.00
+            [operator] => 1
+            [operator_name] => Prozent
+        )
+
+    [3] => Array
+        (
+            [No] => 9
+            [product_group] => Beerenfrüchte
+            [unece_link] => http://www.unece.org/fileadmin/DAM/trade/agr/standard/fresh/FFV-Std/English/57BerryFruits.pdf
+            [product_no] => 0026
+            [product] => Brombeeren
+            [qck_no] => 4
+            [type] => 0
+            [qc_type] => Qualität
+            [qchk_class_no] => 1
+            [checkpoint_class] => mayor defects
+            [quality_checkpoint] => Untergewicht
+            [max_good] => 1.00
+            [max_regular] => 2.00
+            [operator] => 1
+            [operator_name] => Prozent
+        )
+
+    [4] => Array
+        (
+            [No] => 11
+            [product_group] => Beerenfrüchte
+            [unece_link] => http://www.unece.org/fileadmin/DAM/trade/agr/standard/fresh/FFV-Std/English/57BerryFruits.pdf
+            [product_no] => 0026
+            [product] => Brombeeren
+            [qck_no] => 5
+            [type] => 0
+            [qc_type] => Qualität
+            [qchk_class_no] => 2
+            [checkpoint_class] => minor defects
+            [quality_checkpoint] => Ueberreif / Weich
+            [max_good] => 1.00
+            [max_regular] => 3.00
+            [operator] => 1
+            [operator_name] => Prozent
+        )
+
+    [5] => Array
+        (
+            [No] => 12
+            [product_group] => Beerenfrüchte
+            [unece_link] => http://www.unece.org/fileadmin/DAM/trade/agr/standard/fresh/FFV-Std/English/57BerryFruits.pdf
+            [product_no] => 0026
+            [product] => Brombeeren
+            [qck_no] => 6
+            [type] => 0
+            [qc_type] => Qualität
+            [qchk_class_no] => 2
+            [checkpoint_class] => minor defects
+            [quality_checkpoint] => Druckstellen
+            [max_good] => 2.00
+            [max_regular] => 5.00
+            [operator] => 1
+            [operator_name] => Prozent
+        )
+
+    [6] => Array
+        (
+            [No] => 14
+            [product_group] => Beerenfrüchte
+            [unece_link] => http://www.unece.org/fileadmin/DAM/trade/agr/standard/fresh/FFV-Std/English/57BerryFruits.pdf
+            [product_no] => 0026
+            [product] => Brombeeren
+            [qck_no] => 10
+            [type] => 0
+            [qc_type] => Qualität
+            [qchk_class_no] => 2
+            [checkpoint_class] => minor defects
+            [quality_checkpoint] => Unreif
+            [max_good] => 2.00
+            [max_regular] => 5.00
+            [operator] => 1
+            [operator_name] => Prozent
+        )
+
+    [7] => Array
+        (
+            [No] => 15
+            [product_group] => Beerenfrüchte
+            [unece_link] => http://www.unece.org/fileadmin/DAM/trade/agr/standard/fresh/FFV-Std/English/57BerryFruits.pdf
+            [product_no] => 0026
+            [product] => Brombeeren
+            [qck_no] => 20
+            [type] => 0
+            [qc_type] => Qualität
+            [qchk_class_no] => 2
+            [checkpoint_class] => minor defects
+            [quality_checkpoint] => Rote Zellen
+            [max_good] => 3.00
+            [max_regular] => 5.00
+            [operator] => 1
+            [operator_name] => Prozent
+        )
+
+    [8] => Array
+        (
+            [No] => 16
+            [product_group] => Beerenfrüchte
+            [unece_link] => http://www.unece.org/fileadmin/DAM/trade/agr/standard/fresh/FFV-Std/English/57BerryFruits.pdf
+            [product_no] => 0026
+            [product] => Brombeeren
+            [qck_no] => 8
+            [type] => 0
+            [qc_type] => Qualität
+            [qchk_class_no] => 3
+            [checkpoint_class] => remarks
+            [quality_checkpoint] => Schalenfehler
+            [max_good] => 5.00
+            [max_regular] => 10.00
+            [operator] => 1
+            [operator_name] => Prozent
+        )
+
+    [9] => Array
+        (
+            [No] => 17
+            [product_group] => Beerenfrüchte
+            [unece_link] => http://www.unece.org/fileadmin/DAM/trade/agr/standard/fresh/FFV-Std/English/57BerryFruits.pdf
+            [product_no] => 0026
+            [product] => Brombeeren
+            [qck_no] => 9
+            [type] => 0
+            [qc_type] => Qualität
+            [qchk_class_no] => 3
+            [checkpoint_class] => remarks
+            [quality_checkpoint] => Restschmutz
+            [max_good] => 5.00
+            [max_regular] => 10.00
+            [operator] => 1
+            [operator_name] => Prozent
+        )
+
+    [10] => Array
+        (
+            [No] => 18
+            [product_group] => Beerenfrüchte
+            [unece_link] => http://www.unece.org/fileadmin/DAM/trade/agr/standard/fresh/FFV-Std/English/57BerryFruits.pdf
+            [product_no] => 0026
+            [product] => Brombeeren
+            [qck_no] => 11
+            [type] => 0
+            [qc_type] => Qualität
+            [qchk_class_no] => 3
+            [checkpoint_class] => remarks
+            [quality_checkpoint] => Beschaedigungen
+            [max_good] => 3.00
+            [max_regular] => 6.00
+            [operator] => 1
+            [operator_name] => Prozent
+        )
+
+    [11] => Array
+        (
+            [No] => 19
+            [product_group] => Beerenfrüchte
+            [unece_link] => http://www.unece.org/fileadmin/DAM/trade/agr/standard/fresh/FFV-Std/English/57BerryFruits.pdf
+            [product_no] => 0026
+            [product] => Brombeeren
+            [qck_no] => 12
+            [type] => 0
+            [qc_type] => Qualität
+            [qchk_class_no] => 3
+            [checkpoint_class] => remarks
+            [quality_checkpoint] => Andere
+            [max_good] => 2.00
+            [max_regular] => 5.00
+            [operator] => 1
+            [operator_name] => Prozent
+        )
+
+    [12] => Array
+        (
+            [No] => 20
+            [product_group] => Beerenfrüchte
+            [unece_link] => http://www.unece.org/fileadmin/DAM/trade/agr/standard/fresh/FFV-Std/English/57BerryFruits.pdf
+            [product_no] => 0026
+            [product] => Brombeeren
+            [qck_no] => 13
+            [type] => 0
+            [qc_type] => Qualität
+            [qchk_class_no] => 3
+            [checkpoint_class] => remarks
+            [quality_checkpoint] => Untermass
+            [max_good] => 5.00
+            [max_regular] => 10.00
+            [operator] => 1
+            [operator_name] => Prozent
+        )
+
+    [13] => Array
+        (
+            [No] => 21
+            [product_group] => Beerenfrüchte
+            [unece_link] => http://www.unece.org/fileadmin/DAM/trade/agr/standard/fresh/FFV-Std/English/57BerryFruits.pdf
+            [product_no] => 0026
+            [product] => Brombeeren
+            [qck_no] => 15
+            [type] => 0
+            [qc_type] => Qualität
+            [qchk_class_no] => 3
+            [checkpoint_class] => remarks
+            [quality_checkpoint] => Brixgehalt
+            [max_good] => 1.00
+            [max_regular] => 3.00
+            [operator] => 0
+            [operator_name] => Differenz
+        )
+
+)
+
+2017-11-21T13:07:51+01:00 INFO (6): editquality aufgerufen mit Inbound_sheet: Array
+(
+    [No] => 0
+    [inbound] => 0
+    [inb_line] => 0
+    [position] => 
+    [v_delivery_note] => 
+    [vendor] => 
+    [purchase_order] => 
+    [po_line] => 0
+    [po_line_line] => 0
+    [stock_location] => 1
+    [po_arrival_date] => 21.11.2017
+    [po_arrival_time] => 13:07
+    [inb_arrival_date] => 21.11.2017
+    [inb_arrival_time] => 13:07
+    [forwarder] => 
+    [truck] => 
+    [trailor] => 
+    [container] => 
+    [po_transport_temp_min] => 1.00
+    [po_transport_temp_max] => 4.00
+    [inb_transport_temp] => 0
+    [variant] => 
+    [product] => 0026
+    [t_packaging] => 
+    [packaging] => 0
+    [origin] => DE
+    [label] => 0
+    [quality_class] => 1
+    [brand] => 0
+    [quality] => 1
+    [items] => 0
+    [weight_item] => 0
+    [po_lot] => 
+    [po_barcode] => 
+    [po_trading_units] => 0
+    [po_packing_units] => 0
+    [po_pallet] => 
+    [po_pallets] => 0
+    [po_tu_pal] => 0
+    [inb_lot] => 
+    [inb_barcode] => 
+    [items_checked] => 0
+    [inb_trading_units] => 0
+    [inb_packing_units] => 0
+    [inb_pallet] => 
+    [inb_pallets] => 0
+    [inb_tu_pal] => 0
+    [po_brix_min] => 0
+    [po_brix_max] => 0
+    [inb_brix] => 0
+    [inb_certificate] => 1
+    [remarks] => 
+    [checked_by] => 
+    [res_1] => 0
+    [base_1] => 0
+    [rp_1] => 0 %
+    [rl_1] => check_green
+    [res_2] => 0
+    [base_2] => 0
+    [rp_2] => 0 %
+    [rl_2] => check_green
+    [res_3] => 0
+    [base_3] => 0
+    [rp_3] => 0 %
+    [rl_3] => check_green
+    [res_4] => 0
+    [base_4] => 0
+    [rp_4] => 0 %
+    [rl_4] => check_green
+    [res_5] => 0
+    [base_5] => 0
+    [rp_5] => 0 %
+    [rl_5] => check_green
+    [res_6] => 0
+    [base_6] => 0
+    [rp_6] => 0 %
+    [rl_6] => check_green
+    [res_10] => 0
+    [base_10] => 0
+    [rp_10] => 0 %
+    [rl_10] => check_green
+    [res_20] => 0
+    [base_20] => 0
+    [rp_20] => 0 %
+    [rl_20] => check_green
+    [res_8] => 0
+    [base_8] => 0
+    [rp_8] => 0 %
+    [rl_8] => check_green
+    [res_9] => 0
+    [base_9] => 0
+    [rp_9] => 0 %
+    [rl_9] => check_green
+    [res_11] => 0
+    [base_11] => 0
+    [rp_11] => 0 %
+    [rl_11] => check_green
+    [res_12] => 0
+    [base_12] => 0
+    [rp_12] => 0 %
+    [rl_12] => check_green
+    [res_13] => 0
+    [base_13] => 0
+    [rp_13] => 0 %
+    [rl_13] => check_green
+    [res_15] => 0
+    [base_15] => 0
+    [rp_15] => 0
+    [rl_15] => check_green
+    [res_21] => 0
+    [base_21] => 0
+    [rp_21] => 0 %
+    [rl_21] => check_green
+    [res_19] => 0
+    [base_19] => 0
+    [rp_19] => 0 %
+    [rl_19] => check_green
+    [res_18] => 0
+    [base_18] => 0
+    [rp_18] => 0
+    [rl_18] => check_green
+    [res_17] => 0
+    [base_17] => 0
+    [rp_17] => nicht OK
+    [rl_17] => check_red
+    [res_16] => 0
+    [base_16] => 0
+    [rp_16] => nicht OK
+    [rl_16] => check_red
+    [res_14] => 0
+    [base_14] => 0
+    [rp_14] => 0
+    [rl_14] => check_green
+)
+
+2017-11-21T13:27:09+01:00 INFO (6): InboundController->IndexAction called with whereClause: 
+2017-11-21T13:27:15+01:00 INFO (6): InboundController->IndexAction called with whereClause: 
+2017-11-21T13:27:16+01:00 INFO (6): product_no: 0026
+2017-11-21T13:27:16+01:00 INFO (6): QCheckpoints: Array
+(
+    [0] => Array
+        (
+            [No] => 6
+            [product_group] => Beerenfrüchte
+            [unece_link] => http://www.unece.org/fileadmin/DAM/trade/agr/standard/fresh/FFV-Std/English/57BerryFruits.pdf
+            [product_no] => 0026
+            [product] => Brombeeren
+            [qck_no] => 1
+            [type] => 0
+            [qc_type] => Qualität
+            [qchk_class_no] => 1
+            [checkpoint_class] => mayor defects
+            [quality_checkpoint] => Verderb - Schimmel
+            [max_good] => 1.00
+            [max_regular] => 3.00
+            [operator] => 1
+            [operator_name] => Prozent
+        )
+
+    [1] => Array
+        (
+            [No] => 7
+            [product_group] => Beerenfrüchte
+            [unece_link] => http://www.unece.org/fileadmin/DAM/trade/agr/standard/fresh/FFV-Std/English/57BerryFruits.pdf
+            [product_no] => 0026
+            [product] => Brombeeren
+            [qck_no] => 2
+            [type] => 0
+            [qc_type] => Qualität
+            [qchk_class_no] => 1
+            [checkpoint_class] => mayor defects
+            [quality_checkpoint] => Saftaustritt
+            [max_good] => 1.00
+            [max_regular] => 2.00
+            [operator] => 1
+            [operator_name] => Prozent
+        )
+
+    [2] => Array
+        (
+            [No] => 8
+            [product_group] => Beerenfrüchte
+            [unece_link] => http://www.unece.org/fileadmin/DAM/trade/agr/standard/fresh/FFV-Std/English/57BerryFruits.pdf
+            [product_no] => 0026
+            [product] => Brombeeren
+            [qck_no] => 3
+            [type] => 0
+            [qc_type] => Qualität
+            [qchk_class_no] => 1
+            [checkpoint_class] => mayor defects
+            [quality_checkpoint] => Ungeziefer
+            [max_good] => 1.00
+            [max_regular] => 3.00
+            [operator] => 1
+            [operator_name] => Prozent
+        )
+
+    [3] => Array
+        (
+            [No] => 9
+            [product_group] => Beerenfrüchte
+            [unece_link] => http://www.unece.org/fileadmin/DAM/trade/agr/standard/fresh/FFV-Std/English/57BerryFruits.pdf
+            [product_no] => 0026
+            [product] => Brombeeren
+            [qck_no] => 4
+            [type] => 0
+            [qc_type] => Qualität
+            [qchk_class_no] => 1
+            [checkpoint_class] => mayor defects
+            [quality_checkpoint] => Untergewicht
+            [max_good] => 1.00
+            [max_regular] => 2.00
+            [operator] => 1
+            [operator_name] => Prozent
+        )
+
+    [4] => Array
+        (
+            [No] => 11
+            [product_group] => Beerenfrüchte
+            [unece_link] => http://www.unece.org/fileadmin/DAM/trade/agr/standard/fresh/FFV-Std/English/57BerryFruits.pdf
+            [product_no] => 0026
+            [product] => Brombeeren
+            [qck_no] => 5
+            [type] => 0
+            [qc_type] => Qualität
+            [qchk_class_no] => 2
+            [checkpoint_class] => minor defects
+            [quality_checkpoint] => Ueberreif / Weich
+            [max_good] => 1.00
+            [max_regular] => 3.00
+            [operator] => 1
+            [operator_name] => Prozent
+        )
+
+    [5] => Array
+        (
+            [No] => 12
+            [product_group] => Beerenfrüchte
+            [unece_link] => http://www.unece.org/fileadmin/DAM/trade/agr/standard/fresh/FFV-Std/English/57BerryFruits.pdf
+            [product_no] => 0026
+            [product] => Brombeeren
+            [qck_no] => 6
+            [type] => 0
+            [qc_type] => Qualität
+            [qchk_class_no] => 2
+            [checkpoint_class] => minor defects
+            [quality_checkpoint] => Druckstellen
+            [max_good] => 2.00
+            [max_regular] => 5.00
+            [operator] => 1
+            [operator_name] => Prozent
+        )
+
+    [6] => Array
+        (
+            [No] => 14
+            [product_group] => Beerenfrüchte
+            [unece_link] => http://www.unece.org/fileadmin/DAM/trade/agr/standard/fresh/FFV-Std/English/57BerryFruits.pdf
+            [product_no] => 0026
+            [product] => Brombeeren
+            [qck_no] => 10
+            [type] => 0
+            [qc_type] => Qualität
+            [qchk_class_no] => 2
+            [checkpoint_class] => minor defects
+            [quality_checkpoint] => Unreif
+            [max_good] => 2.00
+            [max_regular] => 5.00
+            [operator] => 1
+            [operator_name] => Prozent
+        )
+
+    [7] => Array
+        (
+            [No] => 15
+            [product_group] => Beerenfrüchte
+            [unece_link] => http://www.unece.org/fileadmin/DAM/trade/agr/standard/fresh/FFV-Std/English/57BerryFruits.pdf
+            [product_no] => 0026
+            [product] => Brombeeren
+            [qck_no] => 20
+            [type] => 0
+            [qc_type] => Qualität
+            [qchk_class_no] => 2
+            [checkpoint_class] => minor defects
+            [quality_checkpoint] => Rote Zellen
+            [max_good] => 3.00
+            [max_regular] => 5.00
+            [operator] => 1
+            [operator_name] => Prozent
+        )
+
+    [8] => Array
+        (
+            [No] => 16
+            [product_group] => Beerenfrüchte
+            [unece_link] => http://www.unece.org/fileadmin/DAM/trade/agr/standard/fresh/FFV-Std/English/57BerryFruits.pdf
+            [product_no] => 0026
+            [product] => Brombeeren
+            [qck_no] => 8
+            [type] => 0
+            [qc_type] => Qualität
+            [qchk_class_no] => 3
+            [checkpoint_class] => remarks
+            [quality_checkpoint] => Schalenfehler
+            [max_good] => 5.00
+            [max_regular] => 10.00
+            [operator] => 1
+            [operator_name] => Prozent
+        )
+
+    [9] => Array
+        (
+            [No] => 17
+            [product_group] => Beerenfrüchte
+            [unece_link] => http://www.unece.org/fileadmin/DAM/trade/agr/standard/fresh/FFV-Std/English/57BerryFruits.pdf
+            [product_no] => 0026
+            [product] => Brombeeren
+            [qck_no] => 9
+            [type] => 0
+            [qc_type] => Qualität
+            [qchk_class_no] => 3
+            [checkpoint_class] => remarks
+            [quality_checkpoint] => Restschmutz
+            [max_good] => 5.00
+            [max_regular] => 10.00
+            [operator] => 1
+            [operator_name] => Prozent
+        )
+
+    [10] => Array
+        (
+            [No] => 18
+            [product_group] => Beerenfrüchte
+            [unece_link] => http://www.unece.org/fileadmin/DAM/trade/agr/standard/fresh/FFV-Std/English/57BerryFruits.pdf
+            [product_no] => 0026
+            [product] => Brombeeren
+            [qck_no] => 11
+            [type] => 0
+            [qc_type] => Qualität
+            [qchk_class_no] => 3
+            [checkpoint_class] => remarks
+            [quality_checkpoint] => Beschaedigungen
+            [max_good] => 3.00
+            [max_regular] => 6.00
+            [operator] => 1
+            [operator_name] => Prozent
+        )
+
+    [11] => Array
+        (
+            [No] => 19
+            [product_group] => Beerenfrüchte
+            [unece_link] => http://www.unece.org/fileadmin/DAM/trade/agr/standard/fresh/FFV-Std/English/57BerryFruits.pdf
+            [product_no] => 0026
+            [product] => Brombeeren
+            [qck_no] => 12
+            [type] => 0
+            [qc_type] => Qualität
+            [qchk_class_no] => 3
+            [checkpoint_class] => remarks
+            [quality_checkpoint] => Andere
+            [max_good] => 2.00
+            [max_regular] => 5.00
+            [operator] => 1
+            [operator_name] => Prozent
+        )
+
+    [12] => Array
+        (
+            [No] => 20
+            [product_group] => Beerenfrüchte
+            [unece_link] => http://www.unece.org/fileadmin/DAM/trade/agr/standard/fresh/FFV-Std/English/57BerryFruits.pdf
+            [product_no] => 0026
+            [product] => Brombeeren
+            [qck_no] => 13
+            [type] => 0
+            [qc_type] => Qualität
+            [qchk_class_no] => 3
+            [checkpoint_class] => remarks
+            [quality_checkpoint] => Untermass
+            [max_good] => 5.00
+            [max_regular] => 10.00
+            [operator] => 1
+            [operator_name] => Prozent
+        )
+
+    [13] => Array
+        (
+            [No] => 21
+            [product_group] => Beerenfrüchte
+            [unece_link] => http://www.unece.org/fileadmin/DAM/trade/agr/standard/fresh/FFV-Std/English/57BerryFruits.pdf
+            [product_no] => 0026
+            [product] => Brombeeren
+            [qck_no] => 15
+            [type] => 0
+            [qc_type] => Qualität
+            [qchk_class_no] => 3
+            [checkpoint_class] => remarks
+            [quality_checkpoint] => Brixgehalt
+            [max_good] => 1.00
+            [max_regular] => 3.00
+            [operator] => 0
+            [operator_name] => Differenz
+        )
+
+)
+
+2017-11-21T13:27:16+01:00 INFO (6): editquality aufgerufen mit Inbound_sheet: Array
+(
+    [No] => 0
+    [inbound] => 0
+    [inb_line] => 0
+    [position] => 
+    [v_delivery_note] => 
+    [vendor] => 
+    [purchase_order] => 
+    [po_line] => 0
+    [po_line_line] => 0
+    [stock_location] => 1
+    [po_arrival_date] => 21.11.2017
+    [po_arrival_time] => 13:27
+    [inb_arrival_date] => 21.11.2017
+    [inb_arrival_time] => 13:27
+    [forwarder] => 
+    [truck] => 
+    [trailor] => 
+    [container] => 
+    [po_transport_temp_min] => 1.00
+    [po_transport_temp_max] => 4.00
+    [inb_transport_temp] => 0
+    [variant] => 
+    [product] => 0026
+    [t_packaging] => 
+    [packaging] => 0
+    [origin] => DE
+    [label] => 0
+    [quality_class] => 1
+    [brand] => 0
+    [quality] => 1
+    [items] => 0
+    [weight_item] => 0
+    [po_lot] => 
+    [po_barcode] => 
+    [po_trading_units] => 0
+    [po_packing_units] => 0
+    [po_pallet] => 
+    [po_pallets] => 0
+    [po_tu_pal] => 0
+    [inb_lot] => 
+    [inb_barcode] => 
+    [items_checked] => 0
+    [inb_trading_units] => 0
+    [inb_packing_units] => 0
+    [inb_pallet] => 
+    [inb_pallets] => 0
+    [inb_tu_pal] => 0
+    [po_brix_min] => 0
+    [po_brix_max] => 0
+    [inb_brix] => 0
+    [inb_certificate] => 1
+    [remarks] => 
+    [checked_by] => 
+    [res_1] => 0
+    [base_1] => 0
+    [rp_1] => 0 %
+    [rl_1] => check_green
+    [res_2] => 0
+    [base_2] => 0
+    [rp_2] => 0 %
+    [rl_2] => check_green
+    [res_3] => 0
+    [base_3] => 0
+    [rp_3] => 0 %
+    [rl_3] => check_green
+    [res_4] => 0
+    [base_4] => 0
+    [rp_4] => 0 %
+    [rl_4] => check_green
+    [res_5] => 0
+    [base_5] => 0
+    [rp_5] => 0 %
+    [rl_5] => check_green
+    [res_6] => 0
+    [base_6] => 0
+    [rp_6] => 0 %
+    [rl_6] => check_green
+    [res_10] => 0
+    [base_10] => 0
+    [rp_10] => 0 %
+    [rl_10] => check_green
+    [res_20] => 0
+    [base_20] => 0
+    [rp_20] => 0 %
+    [rl_20] => check_green
+    [res_8] => 0
+    [base_8] => 0
+    [rp_8] => 0 %
+    [rl_8] => check_green
+    [res_9] => 0
+    [base_9] => 0
+    [rp_9] => 0 %
+    [rl_9] => check_green
+    [res_11] => 0
+    [base_11] => 0
+    [rp_11] => 0 %
+    [rl_11] => check_green
+    [res_12] => 0
+    [base_12] => 0
+    [rp_12] => 0 %
+    [rl_12] => check_green
+    [res_13] => 0
+    [base_13] => 0
+    [rp_13] => 0 %
+    [rl_13] => check_green
+    [res_15] => 0
+    [base_15] => 0
+    [rp_15] => 0
+    [rl_15] => check_green
+    [res_21] => 0
+    [base_21] => 0
+    [rp_21] => 0 %
+    [rl_21] => check_green
+    [res_16] => 0
+    [base_16] => 0
+    [rp_16] => nicht OK
+    [rl_16] => check_red
+    [res_14] => 0
+    [base_14] => 0
+    [rp_14] => 0
+    [rl_14] => check_green
+    [res_19] => 0
+    [base_19] => 0
+    [rp_19] => 0 %
+    [rl_19] => check_green
+    [res_18] => 0
+    [base_18] => 0
+    [rp_18] => 0
+    [rl_18] => check_green
+    [res_17] => 0
+    [base_17] => 0
+    [rp_17] => nicht OK
+    [rl_17] => check_red
+)
+
+2017-11-21T13:27:25+01:00 INFO (6): InboundController->IndexAction called with whereClause: 
+2017-11-21T13:50:04+01:00 INFO (6): InboundController->IndexAction called with whereClause: 
