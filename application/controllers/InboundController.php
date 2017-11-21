@@ -284,26 +284,34 @@ class inboundController extends Zend_Controller_Action
 	
 	public function editAction()
 	{
-		// No operation
-		$date = new Zend_Date();
 		$errors = array();
-		$purchase_order=array(
-			'No'=>0,
-			'position'=>'',
-			'vendor'=>'',
-			'purchase_order'=>'',
-			'stock_location'=>1,
-			'departure_date'=>$date->get(Zend_Date::DATES),
-			'departure_time'=>$date->get(Zend_Date::TIME_SHORT),
-			'arrival_date'=>$date->get(Zend_Date::DATES),
-			'arrival_time'=>$date->get(Zend_Date::TIME_SHORT),
-			'truck'=>'',
-			'trailor'=>'',
-			'container'=>'',
-			'vessel'=>0,
-			'habour'=>0);
-		$params['data']=$purchase_order;
-		$params['title']='Bestellung';
+		// No operation
+		if ($this->hasParam('No')) {
+			$inbounds = $this->db->query("SELECT * FROM v_inbound WHERE No = ?", $this->getParam('No'));
+			if (count($inbounds)>0) {
+				$inbound = $inbounds[0];
+				$inbound['arrival_date'] = date('d.m.Y', strtotime($inbound['arrival']));
+				$inbound['arrival_time'] = date('m.s', strtotime($inbound['arrival']));
+			}
+		} else {
+			$inbond=array(
+				'No'=>0,
+				'position'=>'',
+				'vendor'=>'',
+				'purchase_order'=>'',
+				'stock_location'=>1,
+				'departure_date'=>$date->get(Zend_Date::DATES),
+				'departure_time'=>$date->get(Zend_Date::TIME_SHORT),
+				'arrival_date'=>$date->get(Zend_Date::DATES),
+				'arrival_time'=>$date->get(Zend_Date::TIME_SHORT),
+				'truck'=>'',
+				'trailor'=>'',
+				'container'=>'',
+				'vessel'=>0,
+				'habour'=>0);
+		}
+		$params['data']=$inbound;
+		$params['title']='Wareneingang';
 		$params['errors']=$errors;
 		$this->view->params=$params;
 	}
@@ -1212,6 +1220,7 @@ class inboundController extends Zend_Controller_Action
 	
 	private function mailWE($No)
 	{
+		$sent = false;
 		$inbound_line = $this->db->query('SELECT * FROM v_inb_line WHERE No = ?', $No)->fetchAll();
 		if (count($inbound_line)>0) {
 			$emailText = "Hallo Kollegen vom Ein- und Verkauf.\n\n";
@@ -1219,19 +1228,23 @@ class inboundController extends Zend_Controller_Action
 			$emailText.= "Lieferant: {$inbound_line[0]['vendor_name']}\n";
 			$emailText.= "Artikel: {$inbound_line[0]['variant_desc']}\n";
 			$emailText.= "Eingangsmenge: {$inbound_line[0]['inb_trading_units']}\n\n";
-			$emailText.= "Der Wareneingang wurde mit einem Score von {$inbound_line[0]['grade_weighted']}.\n\n";
+			$emailText.= "Der Wareneingang wurde mit einem Score von {$inbound_line[0]['grade_weighted']} bewertet.\n\n";
 			$emailText.= "Bitte schaue unter http://dispo.mvs.local/inbound/index/position/{$inbound_line[0]['position']}\n\n";
 			$emailText.= "Mit freundlichen Gruessen\n\nWareneingang\n\n";
 			$emailText.= "Marktvertrieb Schwerin GmbH";
 			$mailconfig = $this->config->mailconfig->toArray();
 			$transport = new Zend_Mail_Transport_SMTP($this->config->mailserver, $mailconfig);
-			$mail = new Zend_Mail();
-			$mail->setBodyText($emailText);
-			$mail->setFrom('dispo@marktvertrieb.de', 'MVS-Dispo Wareneingang');
-			$mail->addTo('vt_verkauf@marktvertrieb.de');
-			$mail->setSubject("Wareneingang {$inbound_line[0]['position']} {$inbound_line[0]['vendor_name']} {$inbound_line[0]['origin']} {$inbound_line[0]['product_desc']} {$inbound_line[0]['items']}x{$inbound_line[0]['weight_item']}g");
-			$mail->send($transport);
+			try {
+				$mail = new Zend_Mail();
+				$mail->setBodyText($emailText);
+				$mail->setFrom('dispo@marktvertrieb.de', 'MVS-Dispo Wareneingang');
+				$mail->addTo('vt-verkauf@marktvertrieb.de');
+				$mail->setSubject("Wareneingang {$inbound_line[0]['position']} {$inbound_line[0]['vendor_name']} {$inbound_line[0]['origin']} {$inbound_line[0]['product_desc']} {$inbound_line[0]['items']}x{$inbound_line[0]['weight_item']}g");
+				$mail->send($transport);
+			} catch (Exception $e) {
+				$this->logger->err('Email nicht versendet! '.$e->getMessage());
+			}
 		}
-	}			
+	}
 
 }
