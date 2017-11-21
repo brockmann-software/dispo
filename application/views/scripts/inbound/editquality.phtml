@@ -660,7 +660,7 @@ function changeProduct()
 
 function changeDev(no, base)
 {
-	base = base || document.getElementById("items_checked").value;
+	base = base || Number(document.getElementById("items_checked").value);
 	no = no.substring(4,7);
 	var qline = document.getElementById(no);
 	var id_result = "res_"+no;

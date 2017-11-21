@@ -90,7 +90,7 @@ try {
 	$column->setColumnAlign(My_Pdf::CENTER);
 	$columns[] = $column;
 
-	$column = new My_Pdf_Report_Column('vendor_name', 'Lieferant', array(4.5, 'cm'));
+	$column = new My_Pdf_Report_Column('vendor_name', 'Lieferant', array(4.0, 'cm'));
 	$column->setHeaderStyle($headerStyle);
 	$column->setBodyStyle($bodyStyle);
 	$columns[] = $column;
@@ -101,13 +101,25 @@ try {
 	$column->setColumnAlign(My_Pdf::CENTER);
 	$columns[] = $column;
 
+	$column = new My_Pdf_Report_Column('position', 'Position', array(1.1, 'cm'));
+	$column->setHeaderStyle($headerStyle);
+	$column->setBodyStyle($bodyStyle);
+	$column->setColumnAlign(My_Pdf::CENTER);
+	$columns[] = $column;
+
+	$column = new My_Pdf_Report_Column('tu_pallet', 'Kol / Pal', array(0.8, 'cm'));
+	$column->setHeaderStyle($headerStyle);
+	$column->setBodyStyle($bodyStyle);
+	$column->setColumnAlign(My_Pdf::RIGHT);
+	$columns[] = $column;
+
 	$column = new My_Pdf_Report_Column('stock_pallets', 'Pal', array(0.8, 'cm'));
 	$column->setHeaderStyle($headerStyle);
 	$column->setBodyStyle($bodyStyle);
 	$column->setColumnAlign(My_Pdf::RIGHT);
 	$columns[] = $column;
 		
-	$column = new My_Pdf_Report_Column('stock', 'Bestand', array(1.5, 'cm'));
+	$column = new My_Pdf_Report_Column('stock', 'Bestand', array(1.3, 'cm'));
 	$column->setHeaderStyle($headerStyle);
 	$column->setBodyStyle($bodyStyle);
 	$column->setColumnAlign(My_Pdf::RIGHT);
@@ -181,6 +193,7 @@ try {
 	$inventoryReport->setColumns($columns);
 	$inventoryReport->setGroups($groups);
 	$inventoryReport->save();
+	
 } catch (Exception $e) {
 	Zend_Registry::get('logger')->err($e->getMessage());
 }

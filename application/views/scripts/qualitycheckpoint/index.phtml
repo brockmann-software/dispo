@@ -1,0 +1,27 @@
+<table id="quality_checkpoints">
+<thead>
+<tr>
+	<th class="data">Nummer</th>
+	<th class="data">Prüfpunkt</th>
+	<th class="data">Art</th>
+	<th class="data">Klasse</th>
+	<th class="data">Max. gut</th>
+	<th class="data">Max. Befr.</th>
+	<th class="data">Operator</th>
+</tr>
+</thead>
+<tbody>
+<?php foreach($this->data as $data) : ?>
+<tr>
+	<td class="data"><?php echo $data['No']; ?></td>
+	<td class="data"><?php echo $data['quality_checkpoint']; ?></td>
+	<td class="data"><?php echo $data['qc_type']; ?></td>
+	<td class="data"><?php echo $data['qcheckpoint_class']; ?></td>
+	<td class="data"><?php echo $data['max_good']; ?></td>
+	<td class="data"><?php echo $data['max_regular']; ?></td>
+	<td class="data"><?php echo $data['operator_name']; ?></td>
+</tr>
+<?php endforeach ?>
+</tbody>
+</table>
+<a href="/qualitycheckpoint/editgeneral/">Neuer Kontrollpunkt</a>

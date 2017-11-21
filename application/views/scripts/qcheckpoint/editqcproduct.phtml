@@ -1,0 +1,253 @@
+<script>
+function buildRow(row, QC)
+{
+	var cell0 = row.insertCell(0);
+	if (row.No!='new') {
+		cell0.innerHTML ='<a onclick="deleteQC(this)"><img src="/images/b_drop.png" alt="löschen" title="löschen" /></a>';
+	}
+	var cell1 = row.insertCell(1);
+	cell1.className="data";
+	var qcSelect = document.getElementById('quality_checkpoints').cloneNode(true);
+	qcSelect.name = QC.No+'_qc';
+	qcSelect.id = QC.No+'_qc';
+	qcSelect.value = QC.qck_no;
+	cell1.appendChild(qcSelect);
+	var cell2 = row.insertCell(2);
+	cell2.id = QC.No+'_qc_type';
+	cell2.innerHTML = QC.qc_type;
+	var cell3 = row.insertCell(3);
+	cell3.id = QC.No+'_qc_class';
+	cell3.innerHTML = QC.qc_class;
+	var cell4 = row.insertCell(4);
+	var inputMaxGood = document.createElement('input');
+	inputMaxGood.name = QC.No+'_max_good';
+	inputMaxGood.id = QC.No+'_max_good';
+	inputMaxGood.type = 'number';
+	inputMaxGood.min = '0';
+	inputMaxGood.max = '100';
+	inputMaxGood.step = '0.1';
+	inputMaxGood.value = QC.max_good;
+	cell4.appendChild(inputMaxGood);
+	var cell5 = row.insertCell(5);
+	var inputMaxGood = document.createElement('input');
+	inputMaxRegular.name = QC.No+'_max_regular';
+	inputMaxRegular.id = QC.No+'_max_regular';
+	inputMaxRegular.type = 'number';
+	inputMaxRegular.min = '0';
+	inputMaxRegular.max = '100';
+	inputMaxRegular.step = '0.1';
+	inputMaxRegular.value = QC.max_regular;
+	cell5.appendChild(inputMaxRegular);
+	var cell6 = row.insertCell(6);
+	cell6.id = QC.No+'_operator';
+	cell6.innerHTML = QC.operator_name;
+}
+
+function loadQuality_Checkpoints(No)
+{
+	function loadQCXML()
+	{
+		if (http.readyState == 4) {
+			qcProductTable = document.getElementById('qc_products').getElementsByTagName('tbody')[0];
+			while (qcProductTable.rows.length>0) qcProductTable.deleteRow(0); 
+			if (http.responseXML) {
+				errorCount = getXMLTagValue(http.responseXML, 'errorCount') || 0;
+				if (errorCount==0) {
+					qcProducts = http.responseXML.getElementsByTagName('result');
+					for (qc=0; qc<qcProducts.length; qc++) {
+						qcProduct = [];
+						qcProduct['No'] = getXMLTagValue(qcProducts[qc], 'No');
+						qcProduct['product_group'] = getXMLTagValue(qcProduct[qc], 'product_group') || 0;
+						qcProduct['unece_link'] = getXMLTagValue(qcProduct[qc], 'unece_link') || '';
+						qcProduct['qck_no'] = getXMLTagValue(qcProduct[qc], 'qck_no') || 0;
+						qcProduct['type'] = getXMLTagValue(qcProduct[qc], 'type') || 0;
+						qcProduct['qchk_class_no'] = getXMLTagValue(qcProduct[qc], 'qchk_class_no') || 0;
+						qcProduct['checkpoint_class'] = getXMLTagValue(qcProduct[qc], 'checkpoint_class') || '';
+						qcProduct['quality_checkpoint'] = getXMLTagValue(qcProduct[qc], 'quality_checkpoint') || 0;
+						qcProduct['max_good'] = getXMLTagValue(qcProduct[qc], 'max_good') || 0;
+						qcProduct['max_regular'] = getXMLTagValue(qcProduct[qc], 'max_regular') || 0;
+						qcProduct['operator'] = getXMLTagValue(qcProduct[qc], 'operator') || 0;
+						row = qcProductTable.insertRow(qc);
+						buildRow(row, qcProduct);
+					}
+				} else {
+					var errTxt = '';
+					errors = http.responseXML.getElementsByTagName('error');
+					for (ec = 0; ec<errors.length; ec++) {
+						errTxt+=getXMLTagValue(errors[ec], 'error_field')+' ';
+						errTxt+=getXMLTagValue(errors[ec], 'error_text')+'\n';
+					}
+					alert(errTxt);
+				}
+			} else {
+				alert(http.responseText);
+			}
+		}
+	}
+		
+	var uri = '/qcheckpoint/getqcproduct/product/'+product;
+	createRequest();
+	sendRequest('GET', uri, '', loadQCXML, false);
+}
+	
+function insertQC(element)
+{
+	function insertQCXML()
+	{
+		if (http.readyState == 4) {
+			if (http.responseXML) {
+				errorCount = getXMLTagValue(http.responseXML, 'errorCount') || 0;
+				if (errorCount==0) {
+					qc.value = getXMLTagValue(http.responseXML, 'qck_no') || 0;
+					qc_type.innerHTML = getXMLTagValue(http.responseXML, 'qc_type') || '';
+					qc_class.innerHTML = getXMLTagValue(http.responseXML, 'checkpoint_class') || '';
+					max_good.value = getXMLTagValue(http.responseXML, 'max_good') || 0;
+					max_regular.value = getXMLTagValue(http.responseXML, 'max_regular') || 0;
+					operator.innerHTML = getXMLTagValue(http.responseXML, 'operator_name') || '';
+					if (row.id=='new') {
+						row.cells[0].innerHTML ='<a onclick="deleteQC(this)"><img src="/images/b_drop.png" alt="löschen" title="löschen" /></a>';
+						newNo = getXMLTagValue(http.responseXML, 'No') || 'new';
+						row.id = newNo;
+						qc.id = newNo+'_qc';
+						qc.name = newNo+'_qc';
+						qc_type.id = newNo+'_qc_type';
+						qc_class.id = newNo+'_qc_class';
+						max_good.id = newNo+'_max_good';
+						max_good.name = newNo+'_max_good';
+						max_regular.id = newNo+'_max_regular';
+						max_regular.name = newNo+'_max_regular';
+						operator.id = newNo+'_operator';
+						
+					}
+				} else {
+					var errTxt = '';
+					errors = http.responseXML.getElementsByTagName('error');
+					for (ec = 0; ec<errors.length; ec++) {
+						errTxt+=getXMLTagValue(errors[ec], 'error_field')+' ';
+						errTxt+=getXMLTagValue(errors[ec], 'error_text')+'\n';
+					}
+					alert(errTxt);
+				}
+			} else {
+				alert(http.responseText);
+			}
+		}
+	}
+
+	var row = element.parentNode.parentNode;
+	var No = row.id;
+	var qc = document.getElementById(row.id+'_qc');
+	var product = document.getElementById('qc_product');
+	var qc_type = document.getElementById(row.id+'_qc_type');
+	var qc_class = document.getElementById(row.id+'_qc_class');
+	var max_good = document.getElementById(row.id+'_max_good');
+	var max_regular = document.getElementById(row.id+'_max_regular');
+	var operator = document.getElementById(row.id+'_operator');
+	var params = 'No='+row.id+'&product='+product.value+'&quality_checkpoint='+qc.value+'&max_good='+max_good.value+'&max_regular='+max_regular.value;
+	var uri = '/qcheckpoint/updateqcproduct/';
+	upload = true;
+	if (No=='new') {
+		upload = confirm('Neuer Prüfpunkt für Artikel wird hinzugefügt.');
+	}
+	if (upload) {
+		createRequest();
+		sendRequest('POST', uri, params, insertQCXML, false);
+	}
+}
+function deleteQC(element)
+{
+	function deleteQCXML()
+	{
+		if (http.readyState == 4) {
+			if (http.responseXML) {
+				errorCount = getXMLTagValue(http.responseXML, 'errorCount') || 0;
+				if (errorCount==0) {
+					qcProductTable = document.getElementById('qc_products').getElementsByTagName('tbody')[0];
+					qcProductTable.deleteRow(row.sectionRowIndex);
+				} else {
+					var errTxt = '';
+					errors = http.responseXML.getElementsByTagName('error');
+					for (ec = 0; ec<errors.length; ec++) {
+						errTxt+=getXMLTagValue(errors[ec], 'error_field')+' ';
+						errTxt+=getXMLTagValue(errors[ec], 'error_text')+'\n';
+					}
+					alert(errTxt);
+				}
+			} else {
+				alert(http.responseText);
+			}
+		}
+	}
+	var row = element.parentNode.parentNode;
+	var No = row.id;
+	uri = '/qcheckpoint/deleteqcheckpoint/'
+	params = 'No='+No+'&delete=DELETE';
+	if (confirm('Prüfpunkt wird gelöscht!')) {
+		createRequest();
+		sendRequest('POST', uri, params, deleteQCXML, false);
+	}
+}
+</script>
+<div class="data_container">
+<select name="quality_checkpoints" id="quality_checkpoints" onchange="insertQC(this)">
+<?php foreach ($this->params['quality_checkpoints'] as $quality_checkpoint) : ?>
+<option value="<?php echo $quality_checkpoint['No']; ?>"><?php echo $quality_checkpoint['quality_checkpoint']; ?></option>
+<?php endforeach ?>
+</select>
+</div>
+<?php Zend_Debug::dump($this->qc_product); ?>
+<div>
+<table>
+<tr>
+	<td width="100px">Product</td><td><select name="qc_product" id="qc_product" onchange="loadQuality_Checkpoints()">
+									<?php foreach ($this->params['products'] as $product) : ?>
+									<option value="<?php echo $product['No']; ?>"<?php if ($product['No']==$this->qc_product['No']) echo " selected"; ?>><?php echo $product['product']; ?></option>
+									<?php endforeach ?>
+									</select></td>
+</tr>
+</table>
+<div>
+<table id="qc_products">
+<thead>
+<tr>
+	<th></th>
+	<th class="data">Prüfpunkt</th>
+	<th class="data">Art</th>
+	<th class="data">Klasse</th>
+	<th class="data">Max. gut</th>
+	<th class="data">Max. Befr.</th>
+	<th class="data">Operator</th>
+</tr>
+</thead>
+<tbody>
+<?php foreach($this->data as $data) : ?>
+<tr id="<?php echo $data['No']; ?>">
+	<td><a onclick="deleteQC(this)"><img src="/images/b_drop.png" alt="löschen" title="löschen" /></a></td>
+	<td class="data"><select name="<?php echo $data['No']; ?>_qc" id="<?php echo $data['No']; ?>_qc" onchange="insertQC(this)">
+					<?php foreach ($this->params['quality_checkpoints'] as $quality_checkpoint) : ?>
+					<option value="<?php echo $quality_checkpoint['No']; ?>"<?php if ($quality_checkpoint['No']==$data['qck_no']) echo " selected"; ?>><?php echo $quality_checkpoint['quality_checkpoint']; ?></option>
+					<?php endforeach ?>
+					</select></td>
+	<td class="data" id="<?php echo $data['No']; ?>_qc_type"><?php echo $data['qc_type']; ?></td>
+	<td class="data" id="<?php echo $data['No']; ?>_qc_class"><?php echo $data['checkpoint_class']; ?></td>
+	<td class="data"><input type="number" name="<?php echo $data['No']; ?>_max_good" id="<?php echo $data['No']; ?>_max_good" min="0" max="100" step="0.1" value="<?php echo $data['max_good']; ?>" onchange="insertQC(this)" /></td>
+	<td class="data"><input type="number" name="<?php echo $data['No']; ?>_max_regular" id="<?php echo $data['No']; ?>_max_regular" min="0" max="100" step="0.1" value="<?php echo $data['max_regular']; ?>" onchange="insertQC(this)" /></td>
+	<td class="data" id="<?php echo $data['No']; ?>_operator"><?php echo $data['operator_name']; ?></td>
+</tr>
+<?php endforeach ?>
+<tr id="new">
+	<td></td>
+	<td class="data"><select name="new_qc" id="new_qc" onchange="insertQC(this)">
+					<?php foreach ($this->params['quality_checkpoints'] as $quality_checkpoint) : ?>
+					<option value="<?php echo $quality_checkpoint['No']; ?>"><?php echo $quality_checkpoint['quality_checkpoint']; ?></option>
+					<?php endforeach ?>
+					</select></td>
+	<td class="data" id="new_qc_type"></td>
+	<td class="data" id="new_qc_class"></td>
+	<td class="data"><input type="number" name="new_max_good" id="new_max_good" min="0" max="100" step="0.1" onchange="insertQC(this)"/></td>
+	<td class="data"><input type="number" name="new_max_regular" id="new_max_regular" min="0" max="100" step="0.1" onchange="insertQC(this)" /></td>
+	<td class="data" id="new_operator"></td>
+</tr>
+</tbody>
+</table>
+</div>

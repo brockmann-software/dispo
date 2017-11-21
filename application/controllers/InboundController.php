@@ -284,6 +284,7 @@ class inboundController extends Zend_Controller_Action
 	
 	public function editAction()
 	{
+		// No operation
 		$date = new Zend_Date();
 		$errors = array();
 		$purchase_order=array(
@@ -337,7 +338,7 @@ class inboundController extends Zend_Controller_Action
 					}
 				}
 				// Bilder speichern
-				$this->logger->info('pictures: '.print_r($pictures));
+//				$this->logger->info('pictures: '.print_r($pictures));
 				$destination = realpath($this->config->upload->quality->pictures);
 				$pic_count = $this->db->query('SELECT COUNT(inbound_line) as cnt_att FROM attachment WHERE inbound_line = ? AND type = 1', $inbound_line['No'])->fetchAll()[0]['cnt_att'];
 				$attachment = array();
@@ -366,7 +367,7 @@ class inboundController extends Zend_Controller_Action
 				}
 				$destination = realpath($this->config->upload->quality->attachments);
 				$att_count = $this->db->query('SELECT COUNT(inbound_line) AS cnt_att FROM attachment WHERE inbound_line = ? AND type = 2', $inbound_line['No'])->fetchAll()[0]['cnt_att'];
-				$this->logger->info('Attachments: '.print_r($attachments, true));
+//				$this->logger->info('Attachments: '.print_r($attachments, true));
 				foreach ($attachments['error'] as $key => $error) {
 					try {
 						if ($error==0) {
@@ -824,7 +825,6 @@ class inboundController extends Zend_Controller_Action
 				$attachments = $_FILES['attachment'];
 				// Bilder speichern
 				$destination = realpath($this->config->upload->quality->pictures);
-				$this->logger->info('Pfad: '.$destination);
 				$pic_count = $this->db->query('SELECT COUNT(inbound_line) as cnt_att FROM attachment WHERE inbound_line = ? AND type = 1', $inbound_line['No'])->fetchAll()[0]['cnt_att'];
 				foreach ($pictures['error'] as $key => $error) {
 					try {
@@ -850,7 +850,6 @@ class inboundController extends Zend_Controller_Action
 					}
 				}
 				$destination = realpath($this->config->upload->quality->attachments);
-				$this->logger->info(print_r($this->config, true));
 				$att_count = $this->db->query('SELECT COUNT(inbound_line) AS cnt_att FROM attachment WHERE inbound_line = ? AND type = 1', $inbound_line['No'])->fetchAll()[0]['cnt_att'];
 				foreach ($attachments['error'] as $key => $error) {
 					try {
@@ -926,6 +925,7 @@ class inboundController extends Zend_Controller_Action
 				}
 				if (count($errors)==0) {
 					$this->db->commit();
+					$this->mailWE($inbound_line['No']);
 					$this->logger->info('Datenbank Committed');
 					$this->_redirect('/inbound/editquality/stored/1');
 				} else {
@@ -1000,7 +1000,9 @@ class inboundController extends Zend_Controller_Action
 				'remarks' => '',
 				'checked_by' => '');
 			if ($prod_no<>'') {
-				$qcheckpoints = $this->db->query('SELECT * FROM v_qc_product WHERE type=0 AND UPPER(product) = UPPER("?")',$prod_no)->fetchAll();
+				$this->logger->info('product_no: '.print_r($prod_no, true));
+				$qcheckpoints = $this->db->query('SELECT * FROM v_qc_product WHERE type=0 AND UPPER(product_no) = UPPER(?)',$prod_no)->fetchAll();
+				$this->logger->info('QCheckpoints: '.print_r($qcheckpoints, true));
 				if (count($qcheckpoints)==0) {
 					$qcheckpoints = $this->db->query('SELECT * FROM v_quality_checkpoint WHERE type=0 ORDER BY qchk_class_no')->fetchAll();
 				}
@@ -1202,5 +1204,34 @@ class inboundController extends Zend_Controller_Action
 		$layout = $this->_helper->layout();
 		$layout->setLayout('xml_layout');
 	}
+	
+	public function testmailAction()
+	{
+		$this->mailWE($this->getParam('No'));
+	}
+	
+	private function mailWE($No)
+	{
+		$inbound_line = $this->db->query('SELECT * FROM v_inb_line WHERE No = ?', $No)->fetchAll();
+		if (count($inbound_line)>0) {
+			$emailText = "Hallo Kollegen vom Ein- und Verkauf.\n\n";
+			$emailText.= "Ein Neuer Wareneingang wurde gebucht.\n\n";
+			$emailText.= "Lieferant: {$inbound_line[0]['vendor_name']}\n";
+			$emailText.= "Artikel: {$inbound_line[0]['variant_desc']}\n";
+			$emailText.= "Eingangsmenge: {$inbound_line[0]['inb_trading_units']}\n\n";
+			$emailText.= "Der Wareneingang wurde mit einem Score von {$inbound_line[0]['grade_weighted']}.\n\n";
+			$emailText.= "Bitte schaue unter http://dispo.mvs.local/inbound/index/position/{$inbound_line[0]['position']}\n\n";
+			$emailText.= "Mit freundlichen Gruessen\n\nWareneingang\n\n";
+			$emailText.= "Marktvertrieb Schwerin GmbH";
+			$mailconfig = $this->config->mailconfig->toArray();
+			$transport = new Zend_Mail_Transport_SMTP($this->config->mailserver, $mailconfig);
+			$mail = new Zend_Mail();
+			$mail->setBodyText($emailText);
+			$mail->setFrom('dispo@marktvertrieb.de', 'Wareneingang');
+			$mail->addTo('bernhard.brockmann@marktvertrieb.de');
+			$mail->setSubject("Wareneingang {$inbound_line[0]['position']} {$inbound_line[0]['vendor_name']} {$inbound_line[0]['origin']} {$inbound_line[0]['product_desc']} {$inbound_line[0]['items']}x{$inbound_line[0]['weight_item']}g");
+			$mail->send($transport);
+		}
+	}			
 
 }

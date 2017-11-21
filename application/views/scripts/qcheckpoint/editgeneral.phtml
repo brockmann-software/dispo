@@ -1,0 +1,44 @@
+<?php Zend_Debug::dump($this->params['errors']); ?>
+<form action="/qcheckpoint/editgeneral" method="post">
+<fieldset>
+<legend>Prüfpunkt</legend>
+<table>
+<tr>
+	<td>Prüfpunkt</td>
+	<td>
+		<input type="hidden" name="curNo" value="<?php echo $this->data['No']; ?>" />
+		<input type="text" name="quality_checkpoint" id="quality_checkpoint" value="<?php echo $this->data['quality_checkpoint']; ?>" size="100" maxlength="255" /></td>
+</tr>
+<tr>
+	<td>Art</td><td><select name="type" id="type">
+					<?php foreach ($this->params['qcheckpoint_types'] as $qcheckpoint_type) : ?>
+					<option value="<?php echo $qcheckpoint_type['No']; ?>"<?php if ($qcheckpoint_type['No']==$this->data['type']) echo " selected"; ?>><?php echo $qcheckpoint_type['qcheckpoint_type']; ?></option>
+					<?php endforeach ?>
+					</select></td>
+</tr>
+<tr>
+	<td>Klasse</td><td><select name="checkpoint_class" id="checkpoint_class">
+					<?php foreach ($this->params['qcheckpoint_classes'] as $qcheckpoint_class) : ?>
+					<option value="<?php echo $qcheckpoint_class['No']; ?>"<?php if ($qcheckpoint_class['No']==$this->data['checkpoint_class']) echo " selected"; ?>><?php echo $qcheckpoint_class['defect_class']; ?></option>
+					<?php endforeach ?>
+					</selected></td>
+</tr>
+<tr>
+	<td>Maximalwert Gut</td><td><input type="number" name="max_good" id ="max_good" value="<?php echo $this->data['max_good']; ?>" min="0" max="100" step="0.1" /></td>
+</tr>
+<tr>
+	<td>Maximalwert Ausreichend</td><td><input type="number" name="max_regular" id ="max_regular" value="<?php echo $this->data['max_regular']; ?>" min="0" max="100" step="0.1" /></td>
+</tr>
+<tr>
+	<td>Operator</td><td><select name="operator" id="operator">
+						<?php foreach ($this->params['operators'] as $operator) : ?>
+						<option value="<?php echo $operator['No']; ?>"<?php if ($operator['No']==$this->data['operator']) echo " selected"; ?>><?php echo $operator['operator']; ?></option>
+						<?php endforeach ?>
+						</select></td>
+</tr>
+<tr>
+	<td></td><td><input type="submit" value="Speichern" /></td>
+</tr>
+</table>
+</fieldset>
+</form>
