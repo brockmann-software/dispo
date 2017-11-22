@@ -93,7 +93,7 @@ foreach($this->qc_inb_lines_log as $qc_inb_log) {
 	$page->setFont($fontNormal, 12);
 	$page->setFillColor($headerTextColor);
 	$page->drawText($qc_inb_log['quality_checkpoint'], 22, 339-($line*14), 'utf-8');
-	$page->drawText($qc_inb_log['value'], 162, 339-($line*14), 'utf-8');
+	$page->drawText(sprintf('%01.1f', $qc_inb_log['value']), 162, 339-($line*14), 'utf-8');
 	$page->drawText($qc_inb_log['res_percent'], 232, 339-($line*14), 'utf-8');
 }
 $qc_start = 310-($line*14);
@@ -129,7 +129,7 @@ foreach($this->qc_classes as $qc_class) {
 				$page->setFont($fontNormal, 12);
 				$page->setFillColor($headerTextColor);
 				$page->drawText($qcheckpoint['quality_checkpoint'], 22+($qc_no*185), ($qc_start-11)-($line*14), 'utf-8');
-				$page->drawText($qcheckpoint['value'], 122+($qc_no*185), ($qc_start-11)-($line*14), 'utf-8');
+				$page->drawText(sprintf('%01.1f', $qcheckpoint['value']), 122+($qc_no*185), ($qc_start-11)-($line*14), 'utf-8');
 				$page->drawText($qcheckpoint['res_percent'], 162+($qc_no*185), ($qc_start-11)-($line*14), 'utf-8');
 			}
 		}
