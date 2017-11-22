@@ -2,12 +2,14 @@
 class ProductgroupController extends Zend_Controller_Action
 {
 	protected $db;
+	protected $logger;
 	
 	public function init()
     {
         /* Initialize action controller here */
     	$this->view->headTitle('Produktgruppen');
 		$this->db = Zend_Registry::get('db');
+		$this->logger = Zend_Registry::get('logger');
     }
 
 	public function indexAction()
@@ -24,7 +26,12 @@ class ProductgroupController extends Zend_Controller_Action
 			isset($_POST['old_No']) ? $old_No = $_POST['old_No'] : $old_No = 0;
 			isset($_POST['product_group']) ? $product_group['product_group'] = $_POST['product_group'] : $product_group['product_group'] = '';
 			isset($_POST['unece_link']) ? $product_group['unece_link'] = $_POST['unece_link'] : $product_group['unece_link'] = '';
-		
+			isset($_POST['storage_temp_min']) ? $product_group['storage_temp_min'] = $_POST['storage_temp_min'] : $product_group['storage_temp_min'] = 0;
+			isset($_POST['storage_temp_max']) ? $product_group['storage_temp_max'] = $_POST['storage_temp_max'] : $product_group['storage_temp_max'] = 0;
+			isset($_POST['transport_temp_min']) ? $product_group['transport_temp_min'] = $_POST['transport_temp_min'] : $product_group['transport_temp_min'] = 0;
+			isset($_POST['transport_temp_max']) ? $product_group['transport_temp_max'] = $_POST['transport_temp_max'] : $product_group['transport_temp_max'] = 0;
+			isset($_POST['ethylene_emitent']) ? $product_group['ethylene_emitent'] = ($_POST['ethylene_emitent']) ? 1 : 0 : $product_group['ethylene_emitent'] = 0;
+			isset($_POST['ethylene_sensitive']) ? $product_group['ethylene_sensitive'] = ($_POST['ethylene_sensitive']) ? 1 : 0 : $product_group['ethylene_sensitive'] = 0;
 			$productgroupTable = new Application_Model_ProductgroupModel();
 			if ($product_group['product_group'] == '') $error['product_group'] = 'Produktgruppe darf nicht leer sein';
 			if ($product_group['unece_link'] == '') $error['unece_link'] = 'Es muss eine Produktspezifikation definiert sein';

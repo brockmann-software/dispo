@@ -1,4 +1,4 @@
-<?php //Zend_Debug::dump($this->params) ?>
+<?php Zend_Debug::dump($this->params) ?>
 <?php $data = $this->params['data']; ?>
 <?php $errors = $this->params['errors']; ?>
 <?php // echo $this->form; ?>
@@ -19,6 +19,18 @@
 		<?php if (isset($errors['product_group'])) : ?><div class="error"><?php endif ?>
 		<input type="text" name="product_group" size="40" maxlength="255" value="<?php echo $data['product_group']; ?>" /></td>
 		<?php if (isset($errors['product_group'])) : ?><br /><?php echo $errors['product_group']; ?></div><?php endif ?>
+	</tr>
+	<tr>
+		<td>Lagertemeratur</td><td><input type="number" name="storage_temp_min" value="<?php echo $data['storage_temp_min']; ?>" min="-20" max="20" step="0.1" /> - <input type="number" name="storage_temp_max" value="<?php echo $data['storage_temp_max']; ?>" min="-20" max="20" step="0.1" /></td>
+	</tr>
+	<tr>
+		<td>Transporttemeratur</td><td><input type="number" name="transport_temp_min" value="<?php echo $data['transport_temp_min']; ?>" min="-20" max="20" step="0.1" /> - <input type="number" name="transport_temp_max" value="<?php echo $data['transport_temp_max']; ?>" min="-20" max="20" step="0.1" /></td>
+	</tr>
+	<tr>
+		<td>Ethylen abgebend</td><td><input type="checkbox" name="ethylene_emitent"<?php echo ($data['ethylene_emitent']) ? ' checked="checked"' : ''; ?> /></td>
+	</tr>
+	<tr>
+		<td>Ethylenempfindlich</td><td><input type="checkbox" name="ethylene_sensitive"<?php echo ($data['ethylene_sensitive']) ? ' checked="checked"' : ''; ?> /></td>
 	</tr>
 	<tr>
 		<td>Produktspezifikation</td>
