@@ -9,7 +9,7 @@ class inboundController extends Zend_Controller_Action
 	private function calcQResult($qcheckpoint, $base, $result)
 	{
 		switch($qcheckpoint['operator']) {
-			case 0 : $res_percent = $result;
+			case 0 : $res_percent = sprintf('%01.1f', $result);
 					if ($res_percent>=$qcheckpoint['max_good']) {
 						if ($res_percent>=$qcheckpoint['max_regular']) {
 							$res_level = 'check_red';
@@ -30,7 +30,7 @@ class inboundController extends Zend_Controller_Action
 					} else {
 						$res_level = 'check_green';
 					}
-					$res_percent = $res_percent.' %';
+					$res_percent = sprintf('%01.1f%%', $res_percent);
 					break;
 			case 2 : if ($result==false) {
 						$res_percent = 'nicht OK';
