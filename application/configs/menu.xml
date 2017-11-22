@@ -106,9 +106,24 @@
 			<controller>productgroup</controller>
 			<action>index</action>
 		</productgroup>
+		<qualitätsmerkmale>
+			<label>Standard-Merkmale</label>
+			<order>-20</order>
+			<module>default</module>
+			<controller>qcheckpoint</controller>
+			<action>index</action>
+			<pages>
+				<qcproduct>
+					<label>Pro Produkt</label>
+					<module>default</module>
+					<controller>qcheckpoint</controller>
+					<action>editqcproduct</action>
+				</qcproduct>
+			</pages>
+		</qualitätsmerkmale>
 		<country>
 			<label>Länder</label>
-			<order>-20</order>
+			<order>-10</order>
 			<module>default</module>
 			<controller>country</controller>
 			<action>index</action>

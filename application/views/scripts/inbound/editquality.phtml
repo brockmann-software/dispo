@@ -283,15 +283,17 @@ function loadQCheckpoints()
 		qcheckpoints = document.getElementById("qcheckpoint_"+qchk_class).getElementsByTagName("tbody")[0];
 		rowNr = 0;
 		rowCnt = qcheckpoints.rows.length;
+		while (qcheckpoints.rows.length>0) qcheckpoints.deleteRow(0);
 		for (qck = 0; qck<quality_chkp.length; qck++) {
-			if (qck > rowCnt) {
-				row = qcheckpoints.insertRow(qck);
-			} else {
-				row = qcheckpoints.rows[qck];
-				row.deleteCell(2);
-				row.deleteCell(1);
-				row.deleteCell(0);
-			}
+//			if (qck >= rowCnt) {
+//				row = qcheckpoints.insertRow(qck);
+//			} else {
+//				row = qcheckpoints.rows[qck];
+//				row.deleteCell(2);
+//				row.deleteCell(1);
+//				row.deleteCell(0);
+//			}
+			row = qcheckpoints.insertRow(qck);
 			row.id = quality_chkp[qck]["qck_no"];
 			var cell0 = row.insertCell(0);
 			cell0.className = 'data';
@@ -346,13 +348,13 @@ function loadQCheckpoints()
 			else if (quality_chkp[qck]["operator"] = 2)
 				cell2.innerHTML = "OK";
 		}
-		if (rowCnt>qc) {
-			var lastRow=vc;
+/*		if (rowCnt>=qck) {
+			var lastRow=qck;
 			do {
-				po_lineTable.deleteRow(lastRow);
-				vc++;
-			} while (vc<rowCnt)
-		}
+				qcheckpoints.deleteRow(lastRow);
+				qck++;
+			} while (qck<rowCnt)
+		} */
 	}
 		
 	
@@ -753,18 +755,20 @@ function checkTemperature()
 
 function checkBrix()
 {
-	po_brix_min = document.getElementById('po_brix_min').value;
-	po_brix_max = document.getElementById('po_brix_max').value;
-	inb_brix = document.getElementById('inb_brix').value;
-	if (inb_brix<po_brix_min) {
-		difference = po_brix_min - inb_brix;
-	} else if (inb_brix>po_brix_max) {
-		difference = inb_brix - po_brix_max;
-	} else {
-		difference = 0;
+	if (document.getElementById('res_15')) {
+		po_brix_min = document.getElementById('po_brix_min').value;
+		po_brix_max = document.getElementById('po_brix_max').value;
+		inb_brix = document.getElementById('inb_brix').value;
+		if (inb_brix<po_brix_min) {
+			difference = po_brix_min - inb_brix;
+		} else if (inb_brix>po_brix_max) {
+			difference = inb_brix - po_brix_max;
+		} else {
+			difference = 0;
+		}
+		document.getElementById('res_15').value = difference.toFixed(1);
+		changeDev('res_15');
 	}
-	document.getElementById('res_15').value = difference.toFixed(1);
-	changeDev('res_15');
 }
 
 function checkQuantity()
@@ -1014,12 +1018,12 @@ function addAtt()
 		</select></td>
 		<td><input type="number" name="inb_pallets" tabindex="35" value="<?php echo $data['inb_pallets']; ?>" min="0" onchange="calcTU_Pal(this)" />&#160;<input type="number" name="inb_tu_pal" id="inb_tu_pal" tabindex="36" value="<?php echo $data['inb_tu_pal']; ?>" /></td>
 	</tr>
-	<tr>
+	<tr id="brix">
 		<td>Brix</td>
 		<td><input type="text" name="po_brix_min" id="po_brix_min" size="4" tabindex="37" value="<?php echo $data['po_brix_min']; ?>" onChange="checkBrix()" /> - <input type="text" name="po_brix_max" id="po_brix_max" size="4" tabindex="38" value="<?php echo $data['po_brix_max']; ?>" onChange="checkBrix()" /></td>
 		<td></td><td><input type="text" name="inb_brix" id="inb_brix" tabindex="39" value="<?php echo $data['inb_brix']; ?>" onChange="checkBrix()" />
 	</tr>	
-	<tr>
+	<tr id="check_item">
 		<td>Packstücke geprüft</td>
 		<td><input type="number" name="items_checked" id="items_checked" tabindex="40" size="10" min="0" value="<?php echo $data['items_checked']; ?>" /></td>
 	</tr>

@@ -1,4 +1,17 @@
 <script>
+function buildNewRow(row)
+{
+	QC = new Object();
+	QC.No = 'new';
+	QC.qck_no = 0;
+	QC.qc_type = '';
+	QC.checkpoint_class = '';
+	QC.max_good = 0;
+	QC.max_regular = 0;
+	QC.operator_name = '';
+	buildRow(row, QC);
+}
+
 function buildRow(row, QC)
 {
 	var cell0 = row.insertCell(0);
@@ -14,10 +27,12 @@ function buildRow(row, QC)
 	cell1.appendChild(qcSelect);
 	var cell2 = row.insertCell(2);
 	cell2.id = QC.No+'_qc_type';
+	cell2.className = 'data';
 	cell2.innerHTML = QC.qc_type;
 	var cell3 = row.insertCell(3);
 	cell3.id = QC.No+'_qc_class';
-	cell3.innerHTML = QC.qc_class;
+	cell3.className = 'data';
+	cell3.innerHTML = QC.checkpoint_class;
 	var cell4 = row.insertCell(4);
 	var inputMaxGood = document.createElement('input');
 	inputMaxGood.name = QC.No+'_max_good';
@@ -27,9 +42,10 @@ function buildRow(row, QC)
 	inputMaxGood.max = '100';
 	inputMaxGood.step = '0.1';
 	inputMaxGood.value = QC.max_good;
+	cell4.className = 'data';
 	cell4.appendChild(inputMaxGood);
 	var cell5 = row.insertCell(5);
-	var inputMaxGood = document.createElement('input');
+	var inputMaxRegular = document.createElement('input');
 	inputMaxRegular.name = QC.No+'_max_regular';
 	inputMaxRegular.id = QC.No+'_max_regular';
 	inputMaxRegular.type = 'number';
@@ -37,13 +53,15 @@ function buildRow(row, QC)
 	inputMaxRegular.max = '100';
 	inputMaxRegular.step = '0.1';
 	inputMaxRegular.value = QC.max_regular;
+	cell5.className = 'data';
 	cell5.appendChild(inputMaxRegular);
 	var cell6 = row.insertCell(6);
+	cell6.className = 'data';
 	cell6.id = QC.No+'_operator';
 	cell6.innerHTML = QC.operator_name;
 }
 
-function loadQuality_Checkpoints(No)
+function loadQuality_Checkpoints(product)
 {
 	function loadQCXML()
 	{
@@ -57,19 +75,23 @@ function loadQuality_Checkpoints(No)
 					for (qc=0; qc<qcProducts.length; qc++) {
 						qcProduct = [];
 						qcProduct['No'] = getXMLTagValue(qcProducts[qc], 'No');
-						qcProduct['product_group'] = getXMLTagValue(qcProduct[qc], 'product_group') || 0;
-						qcProduct['unece_link'] = getXMLTagValue(qcProduct[qc], 'unece_link') || '';
-						qcProduct['qck_no'] = getXMLTagValue(qcProduct[qc], 'qck_no') || 0;
-						qcProduct['type'] = getXMLTagValue(qcProduct[qc], 'type') || 0;
-						qcProduct['qchk_class_no'] = getXMLTagValue(qcProduct[qc], 'qchk_class_no') || 0;
-						qcProduct['checkpoint_class'] = getXMLTagValue(qcProduct[qc], 'checkpoint_class') || '';
-						qcProduct['quality_checkpoint'] = getXMLTagValue(qcProduct[qc], 'quality_checkpoint') || 0;
-						qcProduct['max_good'] = getXMLTagValue(qcProduct[qc], 'max_good') || 0;
-						qcProduct['max_regular'] = getXMLTagValue(qcProduct[qc], 'max_regular') || 0;
-						qcProduct['operator'] = getXMLTagValue(qcProduct[qc], 'operator') || 0;
+						qcProduct['product_group'] = getXMLTagValue(qcProducts[qc], 'product_group') || 0;
+						qcProduct['unece_link'] = getXMLTagValue(qcProducts[qc], 'unece_link') || '';
+						qcProduct['qck_no'] = getXMLTagValue(qcProducts[qc], 'qck_no') || 0;
+						qcProduct['type'] = getXMLTagValue(qcProducts[qc], 'type') || 0;
+						qcProduct['qc_type'] = getXMLTagValue(qcProducts[qc], 'qc_type') || '';
+						qcProduct['qchk_class_no'] = getXMLTagValue(qcProducts[qc], 'qchk_class_no') || 0;
+						qcProduct['checkpoint_class'] = getXMLTagValue(qcProducts[qc], 'checkpoint_class') || '';
+						qcProduct['quality_checkpoint'] = getXMLTagValue(qcProducts[qc], 'quality_checkpoint') || 0;
+						qcProduct['max_good'] = getXMLTagValue(qcProducts[qc], 'max_good') || 0;
+						qcProduct['max_regular'] = getXMLTagValue(qcProducts[qc], 'max_regular') || 0;
+						qcProduct['operator'] = getXMLTagValue(qcProducts[qc], 'operator') || 0;
+						qcProduct['product_name'] = getXMLTagValue(qcProducts[qc], 'operator_name') || '';
 						row = qcProductTable.insertRow(qc);
 						buildRow(row, qcProduct);
 					}
+					row = qcProductTable.insertRow(qcProductTable.rows.length);
+					buildNewRow(row);
 				} else {
 					var errTxt = '';
 					errors = http.responseXML.getElementsByTagName('error');
@@ -84,6 +106,7 @@ function loadQuality_Checkpoints(No)
 			}
 		}
 	}
+	
 		
 	var uri = '/qcheckpoint/getqcproduct/product/'+product;
 	createRequest();
@@ -117,7 +140,9 @@ function insertQC(element)
 						max_regular.id = newNo+'_max_regular';
 						max_regular.name = newNo+'_max_regular';
 						operator.id = newNo+'_operator';
-						
+						qcProductTable = document.getElementById('qc_products').getElementsByTagName('tbody')[0];
+						newRow = qcProductTable.insertRow(qcProductTable.rows.length)
+						buildNewRow(newRow);
 					}
 				} else {
 					var errTxt = '';
@@ -187,6 +212,12 @@ function deleteQC(element)
 		sendRequest('POST', uri, params, deleteQCXML, false);
 	}
 }
+
+function setAllGeneral()
+{
+	uri = '/qcheckpoint/setallgeneralforproduct/product/'+document.getElementById('qc_product').value;
+	window.location = uri;
+}
 </script>
 <div class="data_container">
 <select name="quality_checkpoints" id="quality_checkpoints" onchange="insertQC(this)">
@@ -195,11 +226,12 @@ function deleteQC(element)
 <?php endforeach ?>
 </select>
 </div>
-<?php Zend_Debug::dump($this->qc_product); ?>
+<?php // Zend_Debug::dump($this->qc_product); ?>
+<button type="button" onclick="setAllGeneral()">Standard-kontrollpunkte laden</button>
 <div>
 <table>
 <tr>
-	<td width="100px">Product</td><td><select name="qc_product" id="qc_product" onchange="loadQuality_Checkpoints()">
+	<td width="100px">Product</td><td><select name="qc_product" id="qc_product" onchange="loadQuality_Checkpoints(this.value)">
 									<?php foreach ($this->params['products'] as $product) : ?>
 									<option value="<?php echo $product['No']; ?>"<?php if ($product['No']==$this->qc_product['No']) echo " selected"; ?>><?php echo $product['product']; ?></option>
 									<?php endforeach ?>

@@ -1,5 +1,31 @@
 <script>
 <!--
+function markInbound(row) {
+	var inboundTable = document.getElementById('inbounds').getElementsByTagName('tbody')[0];
+	var rowCnt = inboundTable.rows.length;
+	var rowNr = 0;
+	for (rowNr = 0; rowNr<rowCnt; rowNr++) {
+		var tbRow = inboundTable.rows[rowNr];
+		var cellNr;
+		if (rowNr==row) {
+			for (cellNr = 0; cellNr<tbRow.cells.length; cellNr++) {
+				tbRow.cells[cellNr].className = 'selected';
+			}
+		} else {
+			for (cellNr = 0; cellNr<tbRow.cells.length; cellNr++) {
+				tbRow.cells[cellNr].className = 'unselected';
+			}
+		}
+	}
+}
+
+function checkInbound(row)
+{
+	row.cells[0].firstChild.checked = true;
+	row.cells[0].firstChild.focus();
+	markInbound(row.sectionRowIndex)
+}
+
 function getInbounds()
 {
 	function getInboundsXML() {
@@ -309,9 +335,9 @@ function searchKeyPress(e)
 </thead>
 <tbody>
 <?php foreach($inbounds as $inbound) : ?>
-	<tr class="data">
+	<tr class="data" onclick="checkInbound(this)">
 		<td class="data"><input type="radio" name="po_no" value="<?php echo $inbound['inbound']; ?>" onfocus="getInbLines(<?php echo $inbound['inbound']; ?>)">
-		<a href="/inbound/edit/No/<?php echo $inbound['No']; ?>"><?php echo $inbound['position']; ?></a></td>
+		<?php echo $inbound['position']; ?></td>
 		<td class="data"><?php echo $inbound['vendor_no']; ?></td>
 		<td class="data"><?php echo $inbound['vendor_name'].', '.$inbound['vendor_city'].' '.$inbound['vendor_CC']; ?></td>
 		<td class="data"><?php echo date('d.m.Y H:i', strtotime($inbound['inb_arrival'])); ?></td>

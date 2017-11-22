@@ -33,10 +33,11 @@ $page->drawText($this->inbound_line['inb_arrival_date'].' '.$this->inbound_line[
 $page->drawText("{$this->inbound_line['po_transport_temp_min']}°C - {$this->inbound_line['po_transport_temp_max']}°C", 349, 598, 'utf-8');
 $page->drawText("{$this->inbound_line['inb_transport_temp']}°C", 476, 598, 'utf-8');
 $page->drawText($this->inbound_line['product_desc'], 150, 556, 'utf-8');
-$page->drawText("{$this->inbound_line['items']} x {$this->inbound_line['weight_item']}g", 150, 541, 'utf-8');
-$page->drawText($this->inbound_line['packaging'], 150, 526, 'utf-8');
-$page->drawText($this->inbound_line['t_packaging'], 150, 511, 'utf-8');
-$page->drawText($this->inbound_line['label'], 150, 496, 'utf-8');
+$page->drawText($this->inbound_line['origin_long'], 150, 541, 'utf-8');
+$page->drawText("{$this->inbound_line['items']} x {$this->inbound_line['weight_item']}g", 150, 526, 'utf-8');
+$page->drawText($this->inbound_line['packaging'], 150, 511, 'utf-8');
+$page->drawText($this->inbound_line['transport_packaging'], 150, 496, 'utf-8');
+$page->drawText($this->inbound_line['label'], 150, 481, 'utf-8');
 $text = $this->inbound_line['po_trading_units'];
 $twidth = getTextWidth($text, $fontNormal, 12);
 $page->drawText($text, 150-$twidth, 438, 'utf-8');
@@ -135,6 +136,12 @@ foreach($this->qc_classes as $qc_class) {
 		$qc_no++;
 	}
 }
+$page->setFont($fontBold, 12);
+$page->drawText('Bemerkungen', 22, 128, 'utf-8');
+$page->setFillColor(new Zend_Pdf_Color_HTML('white'));
+$page->drawRectangle(20, 125, 575, 80);
+$page->setFillColor(new Zend_Pdf_Color_HTML('black'));
+$page->setFont($fontNormal, 12);
 $page->drawText($this->inbound_line['remarks'], 22, 114, 'utf-8');
 $page->drawText('Kontrolliert von: '.$this->inbound_line['checked_by'], 22, 60, 'utf-8');
 $img_count = count($this->pictures);
@@ -152,32 +159,36 @@ try {
 	Zend_Registry::get('logger')->info('Fehler beim laden vom Anhang! '.$e->getMessage());
 }
 Zend_Registry::get('logger')->info('Pictures: '.print_r($this->pictures, true));
-foreach ($this->pictures as $image) {
-	$picPerPage++;
-	if ($picPerPage==1) {
-		$newPage = new Zend_Pdf_Page(Zend_Pdf_Page::SIZE_A4_LANDSCAPE);
-		$inbound_protokoll->pages[] = $newPage;
+try {
+	foreach ($this->pictures as $image) {
+		$picPerPage++;
+		if ($picPerPage==1) {
+			$newPage = new Zend_Pdf_Page(Zend_Pdf_Page::SIZE_A4_LANDSCAPE);
+			$inbound_protokoll->pages[] = $newPage;
+		}
+		$image_attr = getimagesize($this->picture_path.'/'.$image['path']);
+		$img_relation = $image_attr[0]/$image_attr[1];
+		Zend_Registry::get('logger')->info('Image Path: '.print_r($this->picture_path.'/'.$image['path'], true));
+		Zend_Registry::get('logger')->info('Image Attr.:'.print_r($image_attr, true));
+		if ($img_relation<1) {
+			$height = 381;
+			$width = $height * $img_relation;
+		} else {
+			$width = 268;
+			$height = $width * $img_relation;
+		}
+		$cur_image = Zend_Pdf_image::imageWithPath($this->picture_path.'/'.$image['path']);
+		switch ($picPerPage) {
+			case 1 : $x1=20; $y1=20; break;
+			case 2 : $x1=20; $y1=308; break;
+			case 3 : $x1=401; $y1=20; break;
+			case 4 : $x1=401; $y1=308; break;
+		}
+		Zend_Registry::get('logger')->info("Position: {$x1}:{$y1}");
+		$newPage->drawImage($cur_image, $x1, $y1, $x1+round($height), $y1+round($width));
+		if ($picPerPage == 4) $picPerPage = 0;
 	}
-	$image_attr = getimagesize($this->picture_path.'/'.$image['path']);
-	$img_relation = $image_attr[0]/$image_attr[1];
-	Zend_Registry::get('logger')->info('Image Path: '.print_r($this->picture_path.'/'.$image['path'], true));
-	Zend_Registry::get('logger')->info('Image Attr.:'.print_r($image_attr, true));
-	if ($img_relation<1) {
-		$height = 381;
-		$width = $height * $img_relation;
-	} else {
-		$width = 268;
-		$height = $width * $img_relation;
-	}
-	$cur_image = Zend_Pdf_image::imageWithPath($this->picture_path.'/'.$image['path']);
-	switch ($picPerPage) {
-		case 1 : $x1=20; $y1=20; break;
-		case 2 : $x1=20; $y1=308; break;
-		case 3 : $x1=401; $y1=20; break;
-		case 4 : $x1=401; $y1=308; break;
-	}
-	Zend_Registry::get('logger')->info("Position: {$x1}:{$y1}");
-	$newPage->drawImage($cur_image, $x1, $y1, $x1+round($height), $y1+round($width));
-	if ($picPerPage == 4) $picPerPage = 0;
+} catch (Exception $e) {
+	Zend_Registry::get('logger')->info('Fehler beim laden vom Anhang! '.$e->getMessage());
 }
 echo $inbound_protokoll->render();

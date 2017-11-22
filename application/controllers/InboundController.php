@@ -933,7 +933,8 @@ class inboundController extends Zend_Controller_Action
 				}
 				if (count($errors)==0) {
 					$this->db->commit();
-					$this->mailWE($inbound_line['No']);
+					$result = $this->mailWE($inbound_line['No']);
+					$this->logger->info('Status Mailversand: '.print_r($result, true));
 					$this->logger->info('Datenbank Committed');
 					$this->_redirect('/inbound/editquality/stored/1');
 				} else {
@@ -1215,7 +1216,7 @@ class inboundController extends Zend_Controller_Action
 	
 	public function testmailAction()
 	{
-		$this->mailWE($this->getParam('No'));
+		$this->view->sent = $this->mailWE($this->getParam('No'));
 	}
 	
 	private function mailWE($No)
@@ -1223,7 +1224,7 @@ class inboundController extends Zend_Controller_Action
 		$sent = false;
 		$inbound_line = $this->db->query('SELECT * FROM v_inb_line WHERE No = ?', $No)->fetchAll();
 		if (count($inbound_line)>0) {
-			$emailText = "Hallo Kollegen vom Ein- und Verkauf.\n\n";
+			$emailText = "Hallo Kollegen,\n\n";
 			$emailText.= "Ein Neuer Wareneingang wurde gebucht.\n\n";
 			$emailText.= "Lieferant: {$inbound_line[0]['vendor_name']}\n";
 			$emailText.= "Artikel: {$inbound_line[0]['variant_desc']}\n";
@@ -1238,13 +1239,17 @@ class inboundController extends Zend_Controller_Action
 				$mail = new Zend_Mail();
 				$mail->setBodyText($emailText);
 				$mail->setFrom('dispo@marktvertrieb.de', 'MVS-Dispo Wareneingang');
-				$mail->addTo('vt-verkauf@marktvertrieb.de');
+				$mail->addTo('vt-wareneingangsmitteilung@marktvertrieb.de');
+				$mail->addTo('logistik@marktvertrieb.de');
+				$mail->addCc('warenbereitstellung@marktvertrieb.de');
 				$mail->setSubject("Wareneingang {$inbound_line[0]['position']} {$inbound_line[0]['vendor_name']} {$inbound_line[0]['origin']} {$inbound_line[0]['product_desc']} {$inbound_line[0]['items']}x{$inbound_line[0]['weight_item']}g");
 				$mail->send($transport);
+				$sent = true;
 			} catch (Exception $e) {
 				$this->logger->err('Email nicht versendet! '.$e->getMessage());
 			}
 		}
+		return $sent;
 	}
 
 }
