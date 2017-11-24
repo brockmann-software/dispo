@@ -58,7 +58,15 @@ class ProductgroupController extends Zend_Controller_Action
 				$productgroupTable = new Application_Model_ProductgroupModel();
 				$product_group = $productgroupTable->find($No)->current()->toArray();
 			} else {
-				$product_group = array('No' => 0, 'product_group' => '', 'unece_link' => '');
+				$product_group = array('No' => 0,
+										'product_group' => '',
+										'unece_link' => '',
+										'transport_temp_min' => 0,
+										'transport_temp_max' => 0,
+										'storage_temp_min' => 0,
+										'storage_temp_max' => 0,
+										'ethylene_emitent' => 0,
+										'ethylene_sensitive' => 0);
 			}
 		}
 		$params['data'] = $product_group;
