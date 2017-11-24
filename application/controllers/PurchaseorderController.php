@@ -22,6 +22,12 @@ class PurchaseorderController extends Zend_Controller_Action
 		$this->view->result = $this->db->query("select * from v_purchase_order limit 20")->fetchAll();
 	}
 	
+	private function getProductFromTranslation($article)
+	{
+		$article_translation = $this->db->query('SELECT * FROM btm_translate_article WHERE btm_article = ?', $article)->fetchAll();
+		if (count($article_translation)>0) return $article_translation[0]; else return false;
+	}
+	
 	public function purchaseorderbtmdialogAction()
 	{
 		$errors = array();
@@ -33,7 +39,7 @@ class PurchaseorderController extends Zend_Controller_Action
 		$db_btm = Zend_Registry::get('db_btm');
 		try {
 			$po_head = $db_btm->query('SELECT tbl_HAN.HANLFSNR FROM tbl_HAN WHERE tbl_HAN.HANLISKZ = 1 AND tbl_HAN.HANVORNR = ?', $params['purchase_order']['value'])->fetchAll();
-			$sqlStr = 'SELECT tbl_HAN.HANVORNR, tbl_HAN.HANPOSNR, tbl_HAN.HANADRNR, tbl_LIE.LIENAME, tbl_LIE.LIESTRAS, tbl_LIE.LIEPLZOR, convert(varchar(25), tbl_HAN.HANPRODT, 127) AS HANLISDT, convert(varchar(25), tbl_HAN.HANPRODT, 127) AS HANPRODT, HANTABZT, tbl_HAN.HANARTTX, tbl_HAN.HANWARGR, tbl_art.ARTGEBIN, tbl_ART.ARTDURGW, tbl_HAN.HANPMENG, tbl_ART.ARTURSLD';
+			$sqlStr = 'SELECT tbl_HAN.HANVORNR, tbl_HAN.HANARTNR, tbl_HAN.HANPOSNR, tbl_HAN.HANADRNR, tbl_LIE.LIENAME, tbl_LIE.LIESTRAS, tbl_LIE.LIEPLZOR, convert(varchar(25), tbl_HAN.HANPRODT, 127) AS HANLISDT, convert(varchar(25), tbl_HAN.HANPRODT, 127) AS HANPRODT, HANTABZT, tbl_HAN.HANARTTX, tbl_HAN.HANWARGR, tbl_art.ARTGEBIN, tbl_ART.ARTDURGW, tbl_HAN.HANPMENG, tbl_ART.ARTURSLD';
 			$sqlStr.= ' FROM tbl_HAN';
 			$sqlStr.= ' JOIN tbl_ART on (tbl_HAN.HANARTNR = tbl_ART.KEYIART1)';
 			$sqlStr.= ' join tbl_LIE on (tbl_han.HANADRNR = tbl_LIE.KEYILIE1)';
@@ -50,6 +56,9 @@ class PurchaseorderController extends Zend_Controller_Action
 				$poline['HANARTTX'] = iconv('CP1252', 'UTF-8', trim($poline['HANARTTX']));
 				$poline['HANLFSNR'] = (count($po_head)>0) ? iconv('CP1252', 'UTF-8', trim($po_head[0]['HANLFSNR'])) : '';
 				if (trim($poline['HANTABZT']) =='') $poline['HANTABZT'] = date('H:i');
+				if ($article_translation = $this->getProductFromTranslation($poline['HANARTNR'])) {
+					$poline['HANWARGR'] = $article_translation['product'];
+				}
 				$polinesBTM[] = $poline;
 			}
 			$this->logger->info('Bestellungen: '.print_r($polinesBTM, true));
@@ -133,7 +142,7 @@ class PurchaseorderController extends Zend_Controller_Action
 		$db_btm = Zend_Registry::get('db_btm');
 		try {
 			$po_head = $db_btm->query('SELECT tbl_HAN.HANLFSNR FROM tbl_HAN WHERE tbl_HAN.HANLISKZ = 1 AND tbl_HAN.HANVORNR = ?', $params['purchase_order']['value'])->fetchAll();
-			$sqlStr = 'SELECT tbl_HAN.HANVORNR, tbl_HAN.HANPOSNR, tbl_HAN.HANADRNR, tbl_LIE.LIENAME, tbl_LIE.LIESTRAS, tbl_LIE.LIEPLZOR, convert(varchar(25), tbl_HAN.HANPRODT, 127) AS HANLISDT, HANTABZT, tbl_HAN.HANARTTX, tbl_HAN.HANWARGR, tbl_art.ARTGEBIN, tbl_ART.ARTDURGW, tbl_HAN.HANPMENG, tbl_ART.ARTURSLD';
+			$sqlStr = 'SELECT tbl_HAN.HANVORNR, tbl_HAN.HANARTNR, tbl_HAN.HANPOSNR, tbl_HAN.HANADRNR, tbl_LIE.LIENAME, tbl_LIE.LIESTRAS, tbl_LIE.LIEPLZOR, convert(varchar(25), tbl_HAN.HANPRODT, 127) AS HANLISDT, HANTABZT, tbl_HAN.HANARTTX, tbl_HAN.HANWARGR, tbl_art.ARTGEBIN, tbl_ART.ARTDURGW, tbl_HAN.HANPMENG, tbl_ART.ARTURSLD';
 			$sqlStr.= ' FROM tbl_HAN';
 			$sqlStr.= ' JOIN tbl_ART on (tbl_HAN.HANARTNR = tbl_ART.KEYIART1)';
 			$sqlStr.= ' join tbl_LIE on (tbl_han.HANADRNR = tbl_LIE.KEYILIE1)';
@@ -149,6 +158,9 @@ class PurchaseorderController extends Zend_Controller_Action
 				$poline['LIESTRAS'] = iconv('CP1252', 'UTF-8', trim($poline['LIESTRAS']));
 				if (trim($poline['HANTABZT']) =='') $poline['HANTABZT'] = date('H:i');
 				$poline['HANLFSNR'] = (count($po_head)>0) ? iconv('CP1252', 'UTF-8', trim($po_head[0]['HANLFSNR'])) : '';
+				if ($article_translation = $this->getProductFromTranslation($poline['HANARTNR'])) {
+					$poline['HANWARGR'] = $article_translation['product'];
+				}
 				$polinesBTM[] = $poline;
 			}
 			$this->logger->info('Bestellungen: '.print_r($polinesBTM, true));

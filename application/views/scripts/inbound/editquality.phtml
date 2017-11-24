@@ -547,6 +547,7 @@ function loadPoBTM()
 */					
 					} else {
 						alert('Keine Bestellung gefunden');
+						document.getElementById('vendor_no').focus();
 					}
 				} else {
 					error = xmlResult.getElementsByTagName('error');
@@ -556,9 +557,11 @@ function loadPoBTM()
 						errText += ((error[ec].getElementsByTagName('error_text')[0].firstChild) ? error[ec].getElementsByTagName('error_text')[0].firstChild.nodeValue+'\n' : 'No message\n');
 					}
 					alert(errText);
+					document.getElementById('vendor_no').focus();
 				}
 			} else {
 				alert(http.responseText);
+				document.getElementById('vendor_no').focus();
 			}
 		}
 	}

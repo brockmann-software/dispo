@@ -48,5 +48,15 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
 		Zend_Registry::set('db_btm', $db_btm);
 		return $db;
 	}
+	
+	protected function _initAuth()
+	{
+		$auth = Zend_Auth::getInstance();
+		$storage = new Zend_Auth_Storage_Session();
+		$auth->setStorage($storage);
+		$db = Zend_Registry::get('db');
+		$adapter = new Zend_Auth_Adapter_DbTable($db, 'user', 'username', 'password', 'MD5(?)');
+		Zend_Registry::set('auth', $auth);
+	}
 		
 }

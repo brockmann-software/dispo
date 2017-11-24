@@ -1,0 +1,157 @@
+<script>
+function markRow(row) {
+	var articleTable = document.getElementById('articles').getElementsByTagName('tbody')[0];
+	var rowCnt = articleTable.rows.length;
+	var rowNr = 0;
+	for (rowNr = 0; rowNr<rowCnt; rowNr++) {
+		var tbRow = articleTable.rows[rowNr];
+		var cellNr;
+		if (rowNr==row) {
+			for (cellNr = 0; cellNr<tbRow.cells.length; cellNr++) {
+				tbRow.cells[cellNr].className = 'selected';
+			}
+		} else {
+			for (cellNr = 0; cellNr<tbRow.cells.length; cellNr++) {
+				tbRow.cells[cellNr].className = 'unselected';
+			}
+		}
+	}
+}
+
+function checkRow(row)
+{
+	row.cells[0].firstChild.checked = true;
+	row.cells[0].firstChild.focus();
+	markRow(row.sectionRowIndex)
+}
+
+
+function loadBtmArticle(element)
+{
+	function loadBtmArticleXML()
+	{
+		if (http.readyState == 4) {
+			if (http.responseXML) {
+				errorCount = getXMLTagValue(http.responseXML, 'errorCount') || 0;
+				if (errorCount==0) {
+					result = http.responseXML.getElementsByTagName('result');
+					if (result) {
+						articleTable = document.getElementById('articles').getElementsByTagName('tbody')[0];
+						while (articleTable.rows.length>0) articleTable.deleteRow(0);
+						for (art=0; art<result.length; art++) {
+							row = articleTable.insertRow(0);
+							row.onclick = function() { checkRow(this); };
+							cell0 = row.insertCell(0);
+							cell0.className='data';
+							var radio = document.createElement('input');
+							radio.type = 'radio';
+							radio.name = 'article_no';
+							radio.value = getXMLTagValue(result[art], 'ARTNR') || '';
+							radio.onchange = function() { markRow(this.parentNode.parentNode.sectionRowIndex); };
+							cell0.appendChild(radio);
+							cell0.appendChild(document.createTextNode(getXMLTagValue(result[art], 'ARTNR') || ''));
+							cell1 = row.insertCell(1);
+							cell1.className = 'data';
+							cell1.innerHTML = getXMLTagValue(result[art], 'ARTTX') || '';
+							cell2 = row.insertCell(2);
+							cell2.className = 'data';
+							cell2.innerHTML = getXMLTagValue(result[art], 'ARTFSTX1') || '';
+							cell3 = row.insertCell(3)
+							cell3.className = 'data';
+							cell3.innerHTML = getXMLTagValue(result[art], 'ARTWARGR') || '';
+						}
+					} else {
+						alert('Keine passenden Artikel in BTM gefunden');
+					}
+				} else {
+					var errTxt = '';
+					errors = http.responseXML.getElementsByTagName('error');
+					for (ec = 0; ec<errors.length; ec++) {
+						errTxt+=getXMLTagValue(errors[ec], 'error_field')+' ';
+						errTxt+=getXMLTagValue(errors[ec], 'error_text')+'\n';
+					}
+					alert(errTxt);
+				}
+			} else {
+				alert(http.responseText);
+			}
+		}
+	}
+	
+	article = element.value;
+	createRequest();
+	sendRequest('GET', '/btmtranslate/getbtmarticle/No/'+article, '', loadBtmArticleXML, false);
+}
+
+function closeDialog()
+{
+	article_found = document.getElementById('articles').getElementsByTagName('tbody')[0].rows.length;
+	var article = [];
+	article['ARTNR']='';
+	article['ARTTX']='';
+	article['ARTWARGR']='';
+	articles = document.article_form.article_no;
+	if (article_found>1) { 
+		for (var i=0; i<articles.length; i++) {
+			if (articles[i].checked) {
+				article['ARTNR'] = articles[i].value;
+				var row = document.getElementById('articles').getElementsByTagName('tbody')[0].rows[i];
+				article['ARTTX'] = row.cells[1].innerHTML
+				article['ARTWARGR'] = row.cells[3].innerHTML;
+				break;
+			}
+		}
+	} else if (article_found==1) {
+		if (articles.checked) {
+			article['ARTNR'] = vendors.value;
+			var row = document.getElementById('articles').getElementsByTagName('tbody')[0].rows[0];
+			article['ARTTX'] = row.cells[1].innerHTML
+			article['ARTWARGR'] = row.cells[3].innerHTML;
+		}
+	}
+	if (!window.showModalDialog) {
+		window.opener.popupFinished(article);
+	} else {
+		window.returnValue = article;
+		window.close();
+	}
+}
+
+function loadArgs()
+{
+	var search_article = document.getElementById('search_article');
+	if (!window.dialogArguments) {
+		curRowId = window.opener.document.getElementById('cur_row').value;
+		search_article.value = window.opener.document.getElementById(curRowId).value;
+	} else search_article.value = window.dialogArguments;
+	search_article.focus();
+	search_article.select();	
+}
+</script>
+<div><input type="text" name="search_article" id="search_article" size="50" maxlength="255" oninput="loadBtmArticle(this)" /></div>
+<form name="article_form">
+<fieldset>
+<legend>Artikel BTM</legend>
+<table id="articles">
+<thead>
+<tr>
+	<th class="data">Artikelnr.</th>
+	<th class="data">Artikeltext</th>
+	<th class="data">Artikeltext 2</th>
+	<th class="data">Gruppe</th>
+</tr>
+</thead>
+<tbody>
+<?php foreach ($this->data as $data) : ?>
+<tr id="<?php echo $data['ARTNR']; ?>" onclick="checkRow(this)">
+	<td class="data"><input type="radio" name="article_no" value="<?php echo $data['ARTNR']; ?>"><?php echo $data['ARTNR']; ?></td>
+	<td class="data"><?php echo iconv('CP1252', 'UTF-8', trim($data['ARTTX'])); ?></td>
+	<td class="data"><?php echo iconv('CP1252', 'UTF-8', trim($data['ARTFSTX1'])); ?></td>
+	<td class="data"><?php echo iconv('CP1252', 'UTF-8', trim($data['ARTWARGR'])); ?></td>
+</tr>
+<?php endforeach ?>
+</tbody>
+</table>
+</fieldset>
+<div><button type="button" onclick="closeDialog()">Schließen</button></div>
+</form>

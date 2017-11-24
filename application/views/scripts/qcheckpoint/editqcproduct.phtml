@@ -15,7 +15,7 @@ function buildNewRow(row)
 function buildRow(row, QC)
 {
 	var cell0 = row.insertCell(0);
-	if (row.No!='new') {
+	if (row.No=='new') {
 		cell0.innerHTML ='<a onclick="deleteQC(this)"><img src="/images/b_drop.png" alt="löschen" title="löschen" /></a>';
 	}
 	var cell1 = row.insertCell(1);

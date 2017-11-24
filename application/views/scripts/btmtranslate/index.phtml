@@ -1,0 +1,235 @@
+<script>
+var notIE_popup = null;
+
+function popupFinished(article)
+{
+	if (notIE_popup != null)  {
+		var localArticle = article;
+		if (localArticle.ARTNR) {
+			curId = document.getElementById(document.getElementById('cur_row').value).parentNode.parentNode.id;
+			document.getElementById(curId+'_btm_product_group').innerHTML = localArticle.ARTWARGR;
+			document.getElementById(curId+'_btm_article').value = localArticle.ARTNR;
+			
+			window.setTimeout(insertTranslation(document.getElementById(curId+'_btm_article')), 3000);
+		}
+		notIE_popup.close();
+		notIE_popup = null;
+	}
+}	
+
+function getArticleFromBtm(article)
+{
+	function btmArtXml()
+	{
+		if (http.readyState == 4) {
+			if (http.responseXML) {
+				errorCount = getXMLTagValue(http.responseXML, 'errorCount') || 0;
+				if (errorCount==0) {
+					result = http.responseXML.getElementsByTagName('result');
+					if (result) {
+						if (result.length==1) {
+							article.value = getXMLTagValue(result[0], 'ARTNR') || '';
+							btmProductGroup.innerHTML = getXMLTagValue(result[0], 'ARTWARGR') || '';
+							insertTranslation(article);
+						} else {
+							URI = '/btmtranslate/btmarticledialog/No/'+article.value;
+							if (!window.showModalDialog) {
+								document.getElementById('cur_row').value = article.id;
+								notIE_popup = window.open(URI, 'BTM Artikel', 'dialogWidth=600px;dialogHeight=400px;diologLeft=0;dialogTop=100;resizable=yes;scroll=yes');
+					
+							} else {
+								result=window.showModalDialog(URI,article.value,
+									   'dialogWidth=600px;dialogHeight=400px;diologLeft=0;dialogTop=100;resizable=yes;scroll=yes');
+								article.value = result.ARTNR;
+								btmProductGroup.value = result.ARTWARGR;
+								insertTranslation(article);
+							}
+						}
+					} else {
+						alert('Keine passenden Artikel in BTM gefunden');
+					}
+				} else {
+					var errTxt = '';
+					errors = http.responseXML.getElementsByTagName('error');
+					for (ec = 0; ec<errors.length; ec++) {
+						errTxt+=getXMLTagValue(errors[ec], 'error_field')+' ';
+						errTxt+=getXMLTagValue(errors[ec], 'error_text')+'\n';
+					}
+					alert(errTxt);
+				}
+			} else {
+				alert(http.responseText);
+			}
+		}
+	}
+	
+	if (article.value !='') {
+		row = article.parentNode.parentNode;
+		curId = row.id;
+		btmProductGroup = document.getElementById(curId+'_btm_product_group');
+		createRequest();
+		sendRequest('GET', '/btmtranslate/getbtmarticle/No/'+article.value, '', btmArtXml, false);
+	}
+}
+
+function createRow(row, article)
+{
+	cell0 = row.insertCell(0);
+	if (article.id != 'new')
+		cell0.innerHTML = '<a onclick="deleteTranslation(this)"><img src="/images/b_drop.png" alt="löschen" title="löschen" /></a>';
+	cell1 = row.insertCell(1);
+	cell1.className = 'data';
+	btmArticle = document.createElement('input');
+	btmArticle.name = article.id+'_btm_article';
+	btmArticle.id = article.id+'_btm_article';
+	btmArticle.onchange = function() { getArticleFromBtm(this); };
+	btmArticle.value = article.btm_article;
+	cell1.appendChild(btmArticle);
+	cell2 = row.insertCell(2);
+	cell2.className = 'data';
+	btmProduct = document.getElementById('ini_product').cloneNode(true);
+	cell2.appendChild(btmProduct);
+	cell3 = row.insertCell(3);
+	cell3.className = 'data';
+	cell3.innerHTML = '';
+}
+
+function createNewRow(row)
+{
+	var article = Object;
+	article.id = 'new';
+	article.btm_article = '';
+	article.btm_product_group = '';
+	article.product = '';
+	createRow(row, article);
+}
+	
+function insertTranslation(element)
+{
+	function insertTranslXML()
+	{
+		if (http.readyState == 4) {
+			if (http.responseXML) {
+				errorCount = getXMLTagValue(http.responseXML, 'errorCount') || 0;
+				if (errorCount==0) {					
+					btmArticle.value = getXMLTagValue(http.responseXML, 'btm_article') || '';
+					btmProductGroup.innerHTML = getXMLTagValue(http.responseXML, 'btm_product_group') || '';
+					product.value = getXMLTagValue(http.responseXML, 'product') || '';
+					if (row.id != btmArticle.value) {
+						row.id = btmArticle.value;
+						row.cells[0].innerHTML = '<a onclick="deleteTranslation(this)"><img src="/images/b_drop.png" alt="löschen" title="löschen" /></a>';
+						btmArticle.id = btmArticle.value+'_btm_article';
+						btmArticle.name = btmArticle.value+'_btm_article';
+						btmProductGroup .id = btmArticle.value+'_btm_product_group';
+						product.id = btmArticle.value+'_product';
+						product.name = btmArticle.value+'_product';
+						translationTable = document.getElementById('btm_translate_article').getElementsByTagName('tbody')[0];
+						createNewRow(translationTable.insertRow(translationTable.rows.length));
+					}
+				} else {
+					var errTxt = '';
+					errors = http.responseXML.getElementsByTagName('error');
+					for (ec = 0; ec<errors.length; ec++) {
+						errTxt+=getXMLTagValue(errors[ec], 'error_field')+' ';
+						errTxt+=getXMLTagValue(errors[ec], 'error_text')+'\n';
+					}
+					alert(errTxt);
+				}
+			} else {
+				alert(http.responseText);
+			}
+		}
+	}
+	
+	send = true;
+	var row = element.parentNode.parentNode;
+	var No = row.id;
+	var btmArticle = document.getElementById(No+'_btm_article');
+	var btmProductGroup = document.getElementById(No+'_btm_product_group');
+	var product = document.getElementById(No+'_product');
+	var params = 'id='+No+'&btm_article='+btmArticle.value+'&btm_product_group='+btmProductGroup.innerHTML+'&product='+product.value;
+	if (No=='new') send = confirm('Ein neuer Eintrag wird angelegt!');
+	uri = '/btmtranslate/insert';
+	if (send) {
+		createRequest();
+		sendRequest('POST', uri, params, insertTranslXML, false);
+	}
+}
+
+function deleteTranslation(element)
+{
+	function deleteTranslXML()
+	{
+		if (http.readyState == 4) {
+			if (http.responseXML) {
+				errorCount = getXMLTagValue(http.responseXML, 'errorCount') || 0;
+				if (errorCount==0) {
+					translationTable = document.getElementById('btm_translate_article').getElementsByTagName('tbody')[0];
+					translationTable.deleteRow(row.sectionRowIndex);
+				} else {
+					var errTxt = '';
+					errors = http.responseXML.getElementsByTagName('error');
+					for (ec = 0; ec<errors.length; ec++) {
+						errTxt+=getXMLTagValue(errors[ec], 'error_field')+' ';
+						errTxt+=getXMLTagValue(errors[ec], 'error_text')+'\n';
+					}
+					alert(errTxt);
+				}
+			} else {
+				alert(http.responseText);
+			}
+		}
+	}
+	
+	var row = element.parentNode.parentNode;
+	params = 'delete=DELETE&id='+row.id;
+	uri = '/btmtranslate/delete/';
+	if (confirm('Der Eintrag wird gelöscht!')) {
+		createRequest();
+		sendRequest('POST', uri, params, deleteTranslXML, false);
+	}
+}
+</script>
+<?php // Zend_Debug::dump($this->params); ?>
+<div class="data_container">
+<input type="hidden" name="cur_row" id="cur_row" />
+<select name="ini_product" id="ini_product" onchange="insertTranslation(this)">
+<?php foreach ($this->params['products'] as $product) : ?>
+<option value="<?php echo $product['No']; ?>"><?php  echo $product['product']; ?></option>
+<?php endforeach ?>
+</select>
+</div>
+<table id="btm_translate_article">
+<thead>
+<tr>
+	<th></th>
+	<th class="data">BTM Artikel</th>
+	<th class="data">Product</th>
+	<th class="data">BTM Prd Grp.</th>
+</tr>
+</thead>
+<tbody>
+<?php foreach ($this->data as $data) : ?>
+<tr id="<?php echo $data['btm_article']; ?>">
+	<td><a onclick="deleteTranslation(this)"><img src="/images/b_drop.png" alt="löschen" title="löschen" /></a></td>
+	<td class="data"><input type="text" name="<?php echo $data['btm_article']; ?>_btm_article" id="<?php echo $data['btm_article']; ?>_btm_article" value="<?php echo $data['btm_article']; ?>" size="10" onchange="getArticleFromBtm(this)" /></td>
+	<td class="data"><select name="<?php echo $data['btm_article']; ?>_product" id="<?php echo $data['btm_article']; ?>_product" onchange="insertTranslation(this)">
+					<?php foreach ($this->params['products'] as $product) : ?>
+					<option value="<?php echo $product['No']; ?>"<?php if ($product['No']==$data['product']) echo " selected"; ?>><?php  echo $product['product']; ?></option>
+					<?php endforeach ?>
+					</select></td>
+	<td id="<?php echo $data['btm_article']; ?>_btm_product_group" class="data"><?php echo $data['btm_product_group']; ?></td>
+<tr>
+<?php endforeach ?>
+<tr id="new">
+	<td></td>
+	<td class="data"><input type="text" name="new_btm_article" id="new_btm_article" value="" size="10" onchange="getArticleFromBtm(this)" /></td>
+	<td class="data"><select name="new_product" id="new_product" onchange="insertTranslation(this)">
+					<?php foreach ($this->params['products'] as $product) : ?>
+					<option value="<?php echo $product['No']; ?>"><?php  echo $product['product']; ?></option>
+					<?php endforeach ?>
+					</select></td>
+	<td id="new_btm_product_group" class="data"></td>
+</tr>
+</tbody>
+</table>

@@ -142,7 +142,7 @@ function closeDialog()
 		}
 	}
 	if (!window.showModalDialog) {
-		window.opener.popupFinished(vendor);
+		window.opener.popupFinishedVendor(vendor);
 	} else {
 		window.returnValue = vendor;
 		window.close();

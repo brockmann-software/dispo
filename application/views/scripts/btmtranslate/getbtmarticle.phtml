@@ -1,0 +1,20 @@
+<results>
+<errorCount><?php echo count($this->errors); ?></errorCount>
+	<errors>
+<?php if (count($this->errors)>0): ?>
+<?php foreach ($this->errors as $key => $value):?>
+		<error>
+			<error_field><?php echo $this->escape($key); ?></error_field>
+			<error_text><?php echo $this->escape($value); ?></error_text>
+		</error>
+<?php ENDFOREACH ?>
+<?php ENDIF ?>
+	</errors>
+<?php foreach ($this->results as $result):?>
+	<result>
+	<?php foreach ($result as $key => $value): ?>
+		<<?php echo $this->escape($key); ?>><?php echo $this->escape(iconv('CP1252', 'UTF-8', trim($value))); ?></<?php echo $this->escape($key); ?>>
+	<?php ENDFOREACH ?>
+	</result>
+<?php ENDFOREACH ?>
+</results>
