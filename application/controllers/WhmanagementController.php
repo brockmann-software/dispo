@@ -26,6 +26,7 @@ class WhmanagementController extends Zend_Controller_Action
     	$this->view->headTitle('Lager Management');
 		$this->db = Zend_Registry::get('db');
 		$this->logger = Zend_Registry::get('logger');
+		$this->config = Zend_Registry::get('config');
     }
 
 	public function indexAction()
@@ -45,11 +46,31 @@ class WhmanagementController extends Zend_Controller_Action
 		if (!$this->hasParam('No')) $this->_redirect('/whmanagement/index/error/Keine%20Zählung%20übergeben');
 		$inventories = $this->db->query('SELECT * FROM v_inventory_summery WHERE state = 2 AND inventory_head = ? ORDER BY product, items, weight_item, brand_no, packaging, quality, inb_arrival, position', $this->getParam('No'))->fetchAll();
 		if (count($inventories)==0) $this->_redirect('/whmanagement/index/error/Die%20Zählung%20ist%20noch%20nicht%20abgeschlossen!');
+		$filename = "Bestand ".date('d.m.Y', strtotime($inventories[0]['inv_date']))." ".date('H_i', strtotime($inventories[0]['inv_date'])).".pdf";
+		$filepath = realpath($this->config->report->inventory);
 		$this->view->inventories = $inventories;
-		$this->view->filename = 'Bestand.pdf';
+		$this->view->filename = $filename;
+		$this->view->filepath = $filepath;
 		$layout = $this->_helper->layout();
+		
 //		$layout->setLayout('pdf_layout');
 		$this->renderScript('/whmanagement/pdfinventory.php');
+	}
+	
+	public function printcountlistAction()
+	{
+		if (!$this->hasParam('No')) $this->_redirect('/whmanagement/index/error/Keine%20Zählung%20übergeben');
+		$inventories = $this->db->query('SELECT * FROM v_inventory_summery WHERE state = 2 AND inventory_head = ? ORDER BY product, items, weight_item, brand_no, packaging, quality, position', $this->getParam('No'))->fetchAll();
+		if (count($inventories)==0) $this->_redirect('/whmanagement/index/error/Die%20Zählung%20ist%20noch%20nicht%20abgeschlossen!');
+		$filename = "Zaehlliste ".date('d.m.Y', strtotime($inventories[0]['inv_date']))." ".date('H_i', strtotime($inventories[0]['inv_date'])).".pdf";
+		$filepath = realpath($this->config->report->inventory);
+		$this->view->inventories = $inventories;
+		$this->view->filename = $filename;
+		$this->view->filepath = $filepath;
+		$layout = $this->_helper->layout();
+		
+//		$layout->setLayout('pdf_layout');
+		$this->renderScript('/whmanagement/pdfcountlist.php');
 	}
 	
 	public function closeinventoryAction()

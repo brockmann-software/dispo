@@ -33,7 +33,7 @@ try {
 	$headerStyle = new My_Pdf_Table_Column_Style();
 	$headerStyle->setFillColor(new Zend_Pdf_Color_HTML('black'));
 	$headerStyle->setBackgroundColor(New Zend_Pdf_Color_HTML('yellow'));
-	$headerStyle->setFont($fontBold, 8);
+	$headerStyle->setFont($fontBold, 10);
 	$headerStyle->setTextAlign(My_Pdf::CENTER);
 	$headerStyle->setBorder(array(My_Pdf::LEFT=>$borderStyle, My_Pdf::TOP=>$borderStyle, My_Pdf::RIGHT=>$borderStyle, My_Pdf::BOTTOM=>$borderStyle));
 	$headerStyle->setPadding(array(2,2,2,2));
@@ -43,7 +43,7 @@ try {
 	$bodyStyle = new My_Pdf_Table_Column_Style($headerStyle);
 //  Anderer Font und Ausrichtung
 	$bodyStyle->setBackgroundColor(new Zend_Pdf_Color_HTML('white'));
-	$bodyStyle->setFont($fontNormal, 7);
+	$bodyStyle->setFont($fontNormal, 8);
 	$bodyStyle->setTextAlign(My_Pdf::LEFT);
 	
 	$columns = array();
@@ -95,7 +95,7 @@ try {
 	$column->setBodyStyle($bodyStyle);
 	$columns[] = $column;
 
-	$column = new My_Pdf_Report_Column('inb_arrival', 'Eingang', array(1.2, 'cm'), array('date', 'd.m.y'));
+	$column = new My_Pdf_Report_Column('inb_arrival', 'Eingang', array(1.4, 'cm'), array('date', 'd.m.y'));
 	$column->setHeaderStyle($headerStyle);
 	$column->setBodyStyle($bodyStyle);
 	$column->setColumnAlign(My_Pdf::CENTER);
@@ -107,31 +107,37 @@ try {
 	$column->setColumnAlign(My_Pdf::CENTER);
 	$columns[] = $column;
 
-	$column = new My_Pdf_Report_Column('tu_pallet', 'Kol / Pal', array(0.8, 'cm'));
+	$column = new My_Pdf_Report_Column('@empty', 'Kol / Pal', array(0.8, 'cm'));
 	$column->setHeaderStyle($headerStyle);
 	$column->setBodyStyle($bodyStyle);
 	$column->setColumnAlign(My_Pdf::RIGHT);
 	$columns[] = $column;
 
-	$column = new My_Pdf_Report_Column('stock_pallets', 'Pal', array(0.8, 'cm'));
+	$column = new My_Pdf_Report_Column('@empty', 'Pal', array(0.8, 'cm'));
 	$column->setHeaderStyle($headerStyle);
 	$column->setBodyStyle($bodyStyle);
 	$column->setColumnAlign(My_Pdf::RIGHT);
 	$columns[] = $column;
 		
-	$column = new My_Pdf_Report_Column('stock', 'Bestand', array(1.3, 'cm'));
+	$column = new My_Pdf_Report_Column('@empty', 'Bestand', array(1, 'cm'));
 	$column->setHeaderStyle($headerStyle);
 	$column->setBodyStyle($bodyStyle);
 	$column->setColumnAlign(My_Pdf::RIGHT);
 	$columns[] = $column;
 		
-	$column = new My_Pdf_Report_Column('grade_weighted', 'QC', array(0.5, 'cm'));
+	$column = new My_Pdf_Report_Column('@empty', '', array(1, 'cm'));
 	$column->setHeaderStyle($headerStyle);
 	$column->setBodyStyle($bodyStyle);
 	$column->setColumnAlign(My_Pdf::CENTER);
 	$columns[] = $column;
 	
-	$column = new My_Pdf_Report_Column('remarks', 'Bemerkungen');
+	$column = new My_Pdf_Report_Column('@empty', '', array(1, 'cm'));
+	$column->setHeaderStyle($headerStyle);
+	$column->setBodyStyle($bodyStyle);
+	$column->setColumnAlign(My_Pdf::CENTER);
+	$columns[] = $column;
+	
+	$column = new My_Pdf_Report_Column('@empty', 'Bemerkungen');
 	$column->setHeaderStyle($headerStyle);
 	$column->setBodyStyle($bodyStyle);
 	$columns[] = $column;
@@ -150,13 +156,6 @@ try {
 	$groupColumn->setHeaderStyle($groupHeaderStyle);
 	$groupColumns[] = $groupColumn;
 
-	$groupColumn = new My_Pdf_Report_Group_Column('stock', false, true, My_Pdf_Report_Group::COMPUTE);
-	$groupColumn->setHeaderStyle($groupHeaderStyle);
-	$groupColumn->setFooterStyle($groupFooterStyle);
-	$groupColumn->getFooterStyle()->setTextAlign(My_Pdf::RIGHT);
-	$groupColumns[] = $groupColumn;
-
-	echo "Spalten Gruppe 1: ".count($groupColumns)."<br />";
 	$group = new My_Pdf_Report_Group($groupColumns, $groupHeaderStyle, $groupFooterStyle);
 	$groups[] = $group;
 	
@@ -178,17 +177,8 @@ try {
 	$groupColumn->setHeaderStyle($groupHeaderStyle);
 	$groupColumns[] = $groupColumn;
 
-	$groupColumn = new My_Pdf_Report_Group_Column('stock', false, true, My_Pdf_Report_Group::COMPUTE);
-	$groupColumn->setHeaderStyle($groupHeaderStyle);
-	$groupColumn->setFooterStyle($groupFooterStyle);
-	$groupColumn->getFooterStyle()->setTextAlign(My_Pdf::RIGHT);
-	$groupColumns[] = $groupColumn;
-	echo "Spalten Gruppe 2: ".count($groupColumns)."<br />";
 	$group = new My_Pdf_Report_Group($groupColumns, $groupHeaderStyle, $groupFooterStyle);
 	$groups[] = $group;
-	echo "Gruppen: ".count($groups)."<br />";
-	Zend_Registry::get('logger')->info('Liste: '.$this->filename);
-	Zend_Registry::get('logger')->info('Pfad: '.$this->filepath);
 	
 	$inventoryReport = new My_Pdf_Report($this->filename, $this->filepath.'\\', $this->inventories, Zend_Pdf_Page::SIZE_A4_LANDSCAPE, 'utf-8');
 	$inventoryReport->setHeader($headerTable);

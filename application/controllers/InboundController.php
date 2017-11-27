@@ -1421,10 +1421,10 @@ class inboundController extends Zend_Controller_Action
 				$attachment->filename = 'Quality Report.pdf';
 				$mail->setBodyText($emailText);
 				$mail->setFrom('dispo@marktvertrieb.de', 'MVS-Dispo Wareneingang');
-				$mail->addTo('bernhard.brockmann@marktvertrieb.de');
-//				$mail->addTo('logistik@marktvertrieb.de');
-//				$mail->addCc('warenbereitstellung@marktvertrieb.de');
-//				$mail->addAttachment($attachment);
+				$mail->addTo('vt-wareneingangsmitteilung@marktvertrieb.de');
+				$mail->addTo('logistik@marktvertrieb.de');
+				$mail->addCc('warenbereitstellung@marktvertrieb.de');
+				$mail->addAttachment($attachment);
 				$mail->setSubject("Wareneingang {$inbound_line[0]['position']} {$inbound_line[0]['vendor_name']} {$inbound_line[0]['origin']} {$inbound_line[0]['product_desc']} {$inbound_line[0]['items']}x{$inbound_line[0]['weight_item']}g");
 				$mail->send($transport);
 				$sent = true;
