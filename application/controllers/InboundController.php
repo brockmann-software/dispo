@@ -6,6 +6,7 @@ class inboundController extends Zend_Controller_Action
 	protected $logger;
 	protected $config;
 	
+	
 	private function calcQResult($qcheckpoint, $base, $result)
 	{
 		switch($qcheckpoint['operator']) {
@@ -69,6 +70,204 @@ class inboundController extends Zend_Controller_Action
 		$dependencies['certificates']=$db->query("SELECT * FROM certification")->fetchAll();
 		$dependencies['qchk_class']=$db->query('SELECT * FROM qcheckpoint_class WHERE No<4')->fetchAll();
 		return $dependencies;
+	}
+
+	private function createQCReport($inbound_line)
+	{
+		function getTextWidth($text, $font, $font_size) {
+			$drawing_text = iconv('', 'UTF-8', $text);
+			$characters    = array();
+			for ($i = 0; $i < strlen($drawing_text); $i++) {
+				$characters[] = ord ($drawing_text[$i]);
+			}
+			$glyphs        = $font->glyphNumbersForCharacters($characters);
+			$widths        = $font->widthsForGlyphs($glyphs);
+			$text_width   = (array_sum($widths) / $font->getUnitsPerEm()) * $font_size;
+			return $text_width;
+		}
+
+		$inbound_protokoll = Zend_Pdf::load(realpath($this->config->template->pdf).'/InboundProtokoll.pdf');
+		$page = $inbound_protokoll->pages[0];
+		$fontBold = Zend_Pdf_Font::fontWithName(Zend_Pdf_Font::FONT_TIMES_BOLD);
+		$fontNormal = Zend_Pdf_Font::fontWithName(Zend_Pdf_Font::FONT_TIMES);
+		$page->setFont($fontNormal, 12);
+		$page->drawText($inbound_line->getData()['vendor_name'], 22, 730, 'utf-8');
+		$page->drawText($inbound_line->getData()['vendor_street'], 22, 716, 'utf-8');
+		$page->drawText($inbound_line->getData()['vendor_PO_code'].' '.$inbound_line->getData()['vendor_city'], 22, 702, 'utf-8');
+		$page->drawText($inbound_line->getData()['vendor_no'], 349, 730, 'utf-8');
+		$page->drawText($inbound_line->getData()['purchase_order'], 414, 730, 'utf-8');
+		$page->drawText($inbound_line->getData()['position'], 476, 730, 'utf-8');
+		$page->drawText($inbound_line->getData()['sales_order'], 349, 686, 'utf-8');
+		$page->drawText($inbound_line->getData()['v_delivery_note'], 476, 686, 'utf-8');
+		$page->drawText($inbound_line->getData()['inb_forwarder'], 22, 642, 'utf-8');
+		$page->drawText($inbound_line->getData()['inb_truck'], 150, 642, 'utf-8');
+		$page->drawText($inbound_line->getData()['inb_trailor'], 236, 642, 'utf-8');
+		$page->drawText($inbound_line->getData()['inb_container'], 349, 642, 'utf-8');
+		$page->drawText($inbound_line->getData()['po_arrival_date'].' '.$inbound_line->getData()['po_arrival_time'], 22, 598, 'utf-8');
+		$page->drawText($inbound_line->getData()['inb_arrival_date'].' '.$inbound_line->getData()['inb_arrival_time'], 150, 598, 'utf-8');
+		$page->drawText("{$inbound_line->getData()['po_transport_temp_min']}°C - {$inbound_line->getData()['po_transport_temp_max']}°C", 349, 598, 'utf-8');
+		$page->drawText("{$inbound_line->getData()['inb_transport_temp']}°C", 476, 598, 'utf-8');
+		$page->drawText($inbound_line->getData()['product_desc'], 150, 556, 'utf-8');
+		$page->drawText($inbound_line->getData()['origin_long'], 150, 541, 'utf-8');
+		$page->drawText("{$inbound_line->getData()['items']} x {$inbound_line->getData()['weight_item']}g", 150, 526, 'utf-8');
+		$page->drawText($inbound_line->getData()['packaging'], 150, 511, 'utf-8');
+		$page->drawText($inbound_line->getData()['transport_packaging'], 150, 496, 'utf-8');
+		$page->drawText($inbound_line->getData()['label'], 150, 481, 'utf-8');
+		$text = $inbound_line->getData()['po_trading_units'];
+		$twidth = getTextWidth($text, $fontNormal, 12);
+		$page->drawText($text, 150-$twidth, 438, 'utf-8');
+		$text = $inbound_line->getData()['po_packing_units'];
+		$twidth = getTextWidth($text, $fontNormal, 12);
+		$page->drawText($text, 150-$twidth, 424, 'utf-8');
+		$text = $inbound_line->getData()['po_pallets'];
+		$twidth = getTextWidth($text, $fontNormal, 12);
+		$page->drawText($text, 150-$twidth, 410, 'utf-8');
+		$text = $inbound_line->getData()['inb_trading_units'];
+		$twidth = getTextWidth($text, $fontNormal, 12);
+		$page->drawText($text, 350-$twidth, 438, 'utf-8');
+		$text = $inbound_line->getData()['inb_packing_units'];
+		$twidth = getTextWidth($text, $fontNormal, 12);
+		$page->drawText($text, 350-$twidth, 424, 'utf-8');
+		$text = $inbound_line->getData()['inb_pallets'];
+		$twidth = getTextWidth($text, $fontNormal, 12);
+		$page->drawText($text, 350-$twidth, 410, 'utf-8');
+		// draw table for qc_log
+		$count_qc_log = count($inbound_line->getQcLogistic());
+		//$page->drawLine(20, 350, 575, 350)   // HEAD Bottom
+		//->drawLine(20, 350, 20, (350-(($count_qc_log+1)*14)))    // MOST Left
+		//->drawLine(575, 350, 575, (350-(($count_qc_log+1)*14)))  // MOST Right
+		//->drawLine(20, (350-(($count_qc_log+1)*14)), 575, (350-(($count_qc_log+1)*14)));       // MOST Bottom
+		$headerColor = new Zend_Pdf_Color_HTML('#8CB73C');
+		$headerTextColor = new Zend_Pdf_Color_HTML('black');
+		$page->setFillColor($headerColor);
+		$page->drawRectangle(20,350, 160, 336);
+		$page->drawRectangle(160, 350, 230, 336);
+		$page->drawRectangle(230, 350, 300, 336);
+		$page->drawRectangle(300, 350, 575, 336);
+		$page->setFont($fontBold, 12);
+		$page->setFillColor($headerTextColor);
+		$page->drawText('Prüfung', 22, 339, 'utf-8');
+		$page->drawText('Ergebnis', 162, 339, 'utf-8');
+		$page->drawText('Abweichung', 232, 339, 'utf-8');
+		$page->drawText('Bemerkungen', 302, 339, 'utf-8');
+		$line = 0;
+		foreach($inbound_line->getQcLogistic() as $qc_inb_log) {
+			$line++;
+			$cellColor = new Zend_Pdf_Color_HTML('white');
+			$page->setFillColor($cellColor);
+			$page->drawRectangle(20,350-($line*14), 160, 336-($line*14));
+			$page->drawRectangle(160, 350-($line*14), 230, 336-($line*14));
+			$page->drawRectangle(300, 350-($line*14), 575, 336-($line*14));
+			switch ($qc_inb_log['res_level']) {
+				case 'check_green' : $levelColor = new Zend_Pdf_Color_HTML('green'); break;
+				case 'check_yellow' : $levelColor = new Zend_Pdf_Color_HTML('yellow'); break;
+				case 'check_red' : $levelColor = new Zend_Pdf_Color_HTML('red'); break;
+			}
+			$page->setFillColor($levelColor);
+			$page->drawRectangle(230, 350-($line*14), 300, 336-($line*14));
+			$page->setFont($fontNormal, 12);
+			$page->setFillColor($headerTextColor);
+			$page->drawText($qc_inb_log['quality_checkpoint'], 22, 339-($line*14), 'utf-8');
+			$page->drawText(sprintf('%01.1f', $qc_inb_log['value']), 162, 339-($line*14), 'utf-8');
+			$page->drawText($qc_inb_log['res_percent'], 232, 339-($line*14), 'utf-8');
+		}
+		$qc_start = 310-($line*14);
+		$qc_no = 0;
+		foreach($inbound_line->getClasses() as $qc_class) {
+			if ($qc_class['No']<4) {
+				$headerColor = new Zend_Pdf_Color_HTML('#8CB73C');
+				$headerTextColor = new Zend_Pdf_Color_HTML('black');
+				$page->setFillColor($headerColor);
+				$page->drawRectangle(20+($qc_no*185), $qc_start, 120+($qc_no*185), $qc_start-14);
+				$page->drawRectangle(120+($qc_no*185), $qc_start, 160+($qc_no*185), $qc_start-14);
+				$page->drawRectangle(160+($qc_no*185), $qc_start, 205+($qc_no*185), $qc_start-14);
+				$page->setFont($fontBold, 12);
+				$page->setFillColor($headerTextColor);
+				$page->drawText('Prüfung', 22+($qc_no*185), $qc_start-11, 'utf-8');
+				$page->drawText('Erg.', 122+($qc_no*185), $qc_start-11, 'utf-8');
+				$page->drawText('Abw', 162+($qc_no*185), $qc_start-11, 'utf-8');
+				$line = 0;
+				foreach ($inbound_line->getQcQuality() as $qcheckpoint) {
+					if ($qcheckpoint['qc_class_no'] == $qc_class['No']) {
+						$line++;
+						$cellColor = new Zend_Pdf_Color_HTML('white');
+						$page->setFillColor($cellColor);
+						$page->drawRectangle(20+($qc_no*185), $qc_start-($line*14), 120+($qc_no*185), ($qc_start-14)-($line*14));
+						$page->drawRectangle(120+($qc_no*185), $qc_start-($line*14), 160+($qc_no*185), ($qc_start-14)-($line*14));
+						switch ($qcheckpoint['res_level']) {
+							case 'check_green' : $levelColor = new Zend_Pdf_Color_HTML('green'); break;
+							case 'check_yellow' : $levelColor = new Zend_Pdf_Color_HTML('yellow'); break;
+							case 'check_red' : $levelColor = new Zend_Pdf_Color_HTML('red'); break;
+						}
+						$page->setFillColor($levelColor);
+						$page->drawRectangle(160+($qc_no*185), $qc_start-($line*14), 205+($qc_no*185), ($qc_start-14)-($line*14));
+						$page->setFont($fontNormal, 12);
+						$page->setFillColor($headerTextColor);
+						$page->drawText($qcheckpoint['quality_checkpoint'], 22+($qc_no*185), ($qc_start-11)-($line*14), 'utf-8');
+						$page->drawText(sprintf('%01.1f', $qcheckpoint['value']), 122+($qc_no*185), ($qc_start-11)-($line*14), 'utf-8');
+						$page->drawText($qcheckpoint['res_percent'], 162+($qc_no*185), ($qc_start-11)-($line*14), 'utf-8');
+					}
+				}
+				$qc_no++;
+			}
+		}
+		$page->setFont($fontBold, 12);
+		$page->drawText('Bemerkungen', 22, 128, 'utf-8');
+		$page->setFillColor(new Zend_Pdf_Color_HTML('white'));
+		$page->drawRectangle(20, 125, 575, 80);
+		$page->setFillColor(new Zend_Pdf_Color_HTML('black'));
+		$page->setFont($fontNormal, 12);
+		$page->drawText($inbound_line->getData()['remarks'], 22, 114, 'utf-8');
+		$page->drawText('Kontrolliert von: '.$inbound_line->getData()['checked_by'], 22, 60, 'utf-8');
+		$img_count = count($inbound_line->getImages());
+		$picPerPage = 0;
+		Zend_Registry::get('logger')->info('Attachments: '.print_r($inbound_line->getAttachments(), true));
+		$extractor = new Zend_Pdf_Resource_Extractor();
+		try {
+			foreach ($inbound_line->getAttachments() as $attachment) {
+				$attPdf = Zend_Pdf::load(realpath($this->config->upload->quality->pictures.$attachment['path']));
+				foreach ($attPdf->pages as $att_page) {
+					$inbound_protokoll->pages[] = $extractor->clonePage($att_page);
+				}
+			}
+		} catch (Exception $e) {
+//			Zend_Registry::get('logger')->info('Fehler beim laden vom Anhang! '.$e->getMessage());
+		}
+//		Zend_Registry::get('logger')->info('Pictures: '.print_r($this->pictures, true));
+		try {
+			foreach ($inbound_line->getImages() as $image) {
+				$picPerPage++;
+				if ($picPerPage==1) {
+					$newPage = new Zend_Pdf_Page(Zend_Pdf_Page::SIZE_A4_LANDSCAPE);
+					$inbound_protokoll->pages[] = $newPage;
+				}
+				$image_attr = getimagesize(realpath($this->config->upload->quality->pictures.$image['path']));
+				$this->logger->info('Bild '.print_r(realpath($this->config->upload->quality->pictures.$image['path']), true));
+				$img_relation = $image_attr[0]/$image_attr[1];
+//				Zend_Registry::get('logger')->info('Image Path: '.print_r($this->picture_path.'/'.$image['path'], true));
+//				Zend_Registry::get('logger')->info('Image Attr.:'.print_r($image_attr, true));
+				if ($img_relation<1) {
+					$height = 381;
+					$width = $height * $img_relation;
+				} else {
+					$width = 268;
+					$height = $width * $img_relation;
+				}
+				$cur_image = Zend_Pdf_image::imageWithPath($this->config->upload->quality->pictures.$image['path']);
+				switch ($picPerPage) {
+					case 1 : $x1=20; $y1=20; break;
+					case 2 : $x1=20; $y1=308; break;
+					case 3 : $x1=401; $y1=20; break;
+					case 4 : $x1=401; $y1=308; break;
+				}
+				Zend_Registry::get('logger')->info("Position: {$x1}:{$y1}");
+				$newPage->drawImage($cur_image, $x1, $y1, $x1+round($height), $y1+round($width));
+				if ($picPerPage == 4) $picPerPage = 0;
+			}
+		} catch (Exception $e) {
+			Zend_Registry::get('logger')->info('Fehler beim laden vom Anhang! '.$e->getMessage());
+		}
+		return $inbound_protokoll->render();
 	}
 
 	public function indexAction()
@@ -159,52 +358,28 @@ class inboundController extends Zend_Controller_Action
 			$params['No']['value'] = $this->getParam('No');
 			$params['No']['type'] = 'number';
 		}
-		$inbound_line = $this->db->query('SELECT * FROM v_inb_line WHERE No = ?', $params['No']['value'])->fetchAll()[0];
+		$inbound_line = new Application_Model_Inboundline($params['No']['value']);
+//		$this->logger->info(print_r($inbound_line, true));
+
 		if ($inbound_line) {
-			$po_arrival = explode(' ', $inbound_line['po_arrival']);
-			$this->logger->info('Inbund_line: '.print_r($inbound_line, true));
-			$this->logger->info('po_arrival: '.print_r($po_arrival, true));
-			$po_arrival_date = explode('-', $po_arrival[0]);
-			$inbound_line['po_arrival_date'] = $po_arrival_date[2].'.'.$po_arrival_date[1].'.'.$po_arrival_date[0];
-			$inbound_line['po_arrival_time'] = $po_arrival[1];
-			$inb_arrival = explode(' ', $inbound_line['inb_arrival']);
-			$this->logger->info('inb_arrival: '.print_r($inb_arrival, true));
-			$inb_arrival_date = explode('-', $inb_arrival[0]);
-			$inbound_line['inb_arrival_date'] = $inb_arrival_date[2].'.'.$inb_arrival_date[1].'.'.$inb_arrival_date[0];
-			$inbound_line['inb_arrival_time'] = $inb_arrival[1];			
-			$qc_inb_lines_log = $this->db->query('SELECT * FROM v_qc_inb_line WHERE inbound_line = ? and qc_type_no = 1', $inbound_line['No'])->fetchAll();
-			$qc_inb_lines_quality = $this->db->query('SELECT * FROM v_qc_inb_line WHERE inbound_line = ? and qc_type_no = 0 ORDER BY qc_class_no, No', $inbound_line['No'])->fetchAll();
-			$qc_class = $this->db->query('SELECT * FROM qcheckpoint_class')->fetchAll();
-			foreach ($qc_inb_lines_log as &$qc_inb_line_log) {
-				$qc_inb_line_log['res_percent'] = $this->calcQResult($qc_inb_line_log, $qc_inb_line_log['base'], $qc_inb_line_log['value'])[0];
-				$qc_inb_line_log['res_level'] = $this->calcQResult($qc_inb_line_log, $qc_inb_line_log['base'], $qc_inb_line_log['value'])[1];
-			}
-			foreach ($qc_inb_lines_quality as &$qc_inb_line_quality) {
-				$qc_inb_line_quality['res_percent'] = $this->calcQResult($qc_inb_line_quality, $qc_inb_line_quality['base'], $qc_inb_line_quality['value'])[0];
-				$qc_inb_line_quality['res_level'] = $this->calcQResult($qc_inb_line_quality, $qc_inb_line_quality['base'], $qc_inb_line_quality['value'])[1];
-			}
-			$this->logger->info('cq_inb_lines_log: '.print_r($qc_inb_lines_log, true));
-			$this->logger->info('qc_inb_lines_quality: '.print_r($qc_inb_lines_quality, true));
-			$pictures = $this->db->query('SELECT * FROM attachment WHERE inbound_line = ? and type = 1', $inbound_line['No'])->fetchAll();
-			$attachments = $this->db->query('SELECT * from attachment WHERE inbound_line = ? and type = 2', $inbound_line['No'])->fetchAll();
 			$pathToTemplate = realpath($this->config->template->pdf).'/InboundProtokoll.pdf';
 			$this->view->pathToTemplate = $pathToTemplate;
-			$this->view->inbound_line = $inbound_line;
-			$this->view->qc_inb_lines_log = $qc_inb_lines_log;
-			$this->view->qc_inb_lines_quality = $qc_inb_lines_quality;
-			$this->view->pictures = $pictures;
 			$this->view->picture_path = realpath($this->config->upload->quality->pictures);
-			$this->view->attachments = $attachments;
 			$this->view->att_path = realpath($this->config->upload->quality->attachments);
-			$this->view->qc_classes = $qc_class;
-			$this->view->filename = 'Quality Report '.$inbound_line['No'].'.pdf';
+			$this->view->inbound_line = $inbound_line->getData();
+			$this->view->qc_inb_lines_log = $inbound_line->getQcLogistic();
+			$this->view->qc_inb_lines_quality = $inbound_line->getQcQuality();
+			$this->view->pictures = $inbound_line->getImages();
+			$this->view->attachments = $inbound_line->getAttachments();
+			$this->view->qc_classes = $inbound_line->getClasses();
+			$this->view->filename = 'Quality Report '.$inbound_line->getData['No'].'.pdf';
 			$layout = $this->_helper->layout();
 			$layout->setLayout('pdf_layout');
 			$this->renderScript('/inbound/pdfinbound.php');
 			
-/*			
-			$layout->setLayout('print_layout');
-*/
+
+//			$layout->setLayout('print_layout');
+
 		}
 	}
 
@@ -1224,6 +1399,7 @@ class inboundController extends Zend_Controller_Action
 		$sent = false;
 		$inbound_line = $this->db->query('SELECT * FROM v_inb_line WHERE No = ?', $No)->fetchAll();
 		if (count($inbound_line)>0) {
+			$inbLine = new Application_Model_Inboundline($No);
 			$emailText = "Hallo Kollegen,\n\n";
 			$emailText.= "Ein Neuer Wareneingang wurde gebucht.\n\n";
 			$emailText.= "Lieferant: {$inbound_line[0]['vendor_name']}\n";
@@ -1235,13 +1411,20 @@ class inboundController extends Zend_Controller_Action
 			$emailText.= "Marktvertrieb Schwerin GmbH";
 			$mailconfig = $this->config->mailconfig->toArray();
 			$transport = new Zend_Mail_Transport_SMTP($this->config->mailserver, $mailconfig);
+			$content = $this->createQCReport($inbLine);
 			try {
 				$mail = new Zend_Mail();
+				$attachment = $mail->createAttachment($content);
+				$attachment->type = 'application/PDF';
+				$attachment->disposition = Zend_Mime::DISPOSITION_ATTACHMENT;
+				$attachment->encoding = Zend_Mime::ENCODING_BASE64;
+				$attachment->filename = 'Quality Report.pdf';
 				$mail->setBodyText($emailText);
 				$mail->setFrom('dispo@marktvertrieb.de', 'MVS-Dispo Wareneingang');
-				$mail->addTo('vt-wareneingangsmitteilung@marktvertrieb.de');
-				$mail->addTo('logistik@marktvertrieb.de');
-				$mail->addCc('warenbereitstellung@marktvertrieb.de');
+				$mail->addTo('bernhard.brockmann@marktvertrieb.de');
+//				$mail->addTo('logistik@marktvertrieb.de');
+//				$mail->addCc('warenbereitstellung@marktvertrieb.de');
+//				$mail->addAttachment($attachment);
 				$mail->setSubject("Wareneingang {$inbound_line[0]['position']} {$inbound_line[0]['vendor_name']} {$inbound_line[0]['origin']} {$inbound_line[0]['product_desc']} {$inbound_line[0]['items']}x{$inbound_line[0]['weight_item']}g");
 				$mail->send($transport);
 				$sent = true;
