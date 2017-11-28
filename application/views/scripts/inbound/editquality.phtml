@@ -784,6 +784,13 @@ function checkQuantity()
 	changeDev('res_19', po_trading_units);
 }
 
+function checkBroken(element)
+{
+	inb_trading_units = document.getElementById('inb_trading_units').value;
+	document.getElementById('res_21').value = element.value;
+	changeDev('res_21', inb_trading_units);
+}
+
 function calcTU_Pal(element)
 {
 	var prefix = element.name.split("_")[0];
@@ -1021,14 +1028,20 @@ function addAtt()
 		</select></td>
 		<td><input type="number" name="inb_pallets" tabindex="35" value="<?php echo $data['inb_pallets']; ?>" min="0" onchange="calcTU_Pal(this)" />&#160;<input type="number" name="inb_tu_pal" id="inb_tu_pal" tabindex="36" value="<?php echo $data['inb_tu_pal']; ?>" /></td>
 	</tr>
+	<tr>
+		<td>Kolli Beschädigt</td>
+		<td><input type="number" min="0" step="1" name="inb_tu_broken" id="inb_tu_broken" tabindex="37" value="<?php echo $data['inb_tu_broken']; ?>" onchange="checkBroken(this)" /></td>
+		<td>Kolli Verweigert</td>
+		<td><input type="number" min="0" step="1" name="inb_tu_refused" id="inb_tu_refused" tabindex="38" value="<?php echo $data['inb_tu_refused']; ?>" onchange="checkRefused(this)" /></td>
+	</tr>
 	<tr id="brix">
 		<td>Brix</td>
-		<td><input type="text" name="po_brix_min" id="po_brix_min" size="4" tabindex="37" value="<?php echo $data['po_brix_min']; ?>" onChange="checkBrix()" /> - <input type="text" name="po_brix_max" id="po_brix_max" size="4" tabindex="38" value="<?php echo $data['po_brix_max']; ?>" onChange="checkBrix()" /></td>
-		<td></td><td><input type="text" name="inb_brix" id="inb_brix" tabindex="39" value="<?php echo $data['inb_brix']; ?>" onChange="checkBrix()" />
+		<td><input type="text" name="po_brix_min" id="po_brix_min" size="4" tabindex="39" value="<?php echo $data['po_brix_min']; ?>" onChange="checkBrix()" /> - <input type="text" name="po_brix_max" id="po_brix_max" size="4" tabindex="40" value="<?php echo $data['po_brix_max']; ?>" onChange="checkBrix()" /></td>
+		<td></td><td><input type="text" name="inb_brix" id="inb_brix" tabindex="41" value="<?php echo $data['inb_brix']; ?>" onChange="checkBrix()" />
 	</tr>	
 	<tr id="check_item">
 		<td>Packstücke geprüft</td>
-		<td><input type="number" name="items_checked" id="items_checked" tabindex="40" size="10" min="0" value="<?php echo $data['items_checked']; ?>" /></td>
+		<td><input type="number" name="items_checked" id="items_checked" tabindex="42" size="10" min="0" value="<?php echo $data['items_checked']; ?>" /></td>
 	</tr>
 </table>
 </fieldset>
@@ -1036,9 +1049,10 @@ function addAtt()
 <legend>Logistische Prüfung</legend>
 <table id="logigistic">
 <thead>
-	<th class="data" width="120px">Prüfpunkt</th>
-	<th class="data" width="15px">Abweichung</th>
-	<th class="data" width="20px">Abw.</>
+	<th class="data" width="240px">Prüfpunkt</th>
+	<th class="data" width="120px">Abweichung</th>
+	<th class="data" width="100px">Abw.</th>
+	<th class="data">Bemerkungen</th>
 </thead>
 <tbody>
 <?php foreach ($qcheck_logs as $qcheck_log) : ?>
@@ -1050,12 +1064,13 @@ function addAtt()
 		<input type="hidden" name="operator_<?php echo $qcheck_log['qck_no']; ?>" id="operator_<?php echo $qcheck_log['No'];?>" value="<?php echo $qcheck_log['operator']; ?>" />
 		<input type="hidden" name="base_<?php echo $qcheck_log['qck_no']; ?>" id="base_<?php echo $qcheck_log['qck_no']; ?>" value="<?php echo $data['base_'.$qcheck_log['qck_no']]; ?>" />
 		<?php if ($qcheck_log['operator']<2) : ?>
-		<input type="number" name="res_<?php echo $qcheck_log['qck_no']; ?>" id="res_<?php echo $qcheck_log['qck_no']; ?>" size="5" step="0.1" tabindex="41" value="<?php echo $data['res_'.$qcheck_log['qck_no']]; ?>" onchange="changeDev(this.name)"/>
+		<input type="number" name="res_<?php echo $qcheck_log['qck_no']; ?>" id="res_<?php echo $qcheck_log['qck_no']; ?>" size="5" step="0.1" tabindex="43" value="<?php echo $data['res_'.$qcheck_log['qck_no']]; ?>" onchange="changeDev(this.name)"/>
 		<?php elseif ($qcheck_log['operator']==2) : ?>
-		<input type="checkbox" name="res_<?php echo $qcheck_log['qck_no']; ?>" id="res_<?php echo $qcheck_log['qck_no']; ?>" tabindex="41" <?php if ($data['res_'.$qcheck_log['qck_no']]==true) echo 'checked="checked" '; ?>onchange="changeDev(this.name)" />
+		<input type="checkbox" name="res_<?php echo $qcheck_log['qck_no']; ?>" id="res_<?php echo $qcheck_log['qck_no']; ?>" tabindex="44" <?php if ($data['res_'.$qcheck_log['qck_no']]==true) echo 'checked="checked" '; ?>onchange="changeDev(this.name)" />
 		<?php endif ?>
 	</td>
 	<td class="<?php echo $data['rl_'.$qcheck_log['qck_no']]; ?>" id="dev_percent_<?php echo $qcheck_log['qck_no']; ?>"><?php echo $data['rp_'.$qcheck_log['qck_no']]; ?></td>
+	<td class="data"><input type="text" name="remarks_<?php echo $qcheck_log['qck_no']; ?>" id="remarks_<?php echo $qcheck_log['qck_no']; ?>" tabindex="42" size="30" maxlength="1024" value="<?php echo $data['remarks_'.$qcheck_log['qck_no']]; ?>" /></td>
 </tr>
 <?php endforeach ?>
 </tbody>
@@ -1088,7 +1103,7 @@ function addAtt()
 						 <input type="checkbox" name="res_<?php echo $qcheckpoint['qck_no']; ?>" id="res_<?php echo $qcheckpoint['qck_no']; ?>" tabindex="51" <?php if ($data['res_'.$qcheckpoint['No']]==true) echo 'checked="checked" '; ?>onChange="changeDev(this.name)"/>
 						 <?php endif ?>
 	</td>
-	<td class="<?php echo $data['rl_'.$qcheckpoint['qck_no']]; ?>" name="deviation" id="dev_percent_<?php echo $qcheckpoint['No']; ?>"><?php echo $data['rp_'.$qcheckpoint['qck_no']]; ?></td>
+	<td class="<?php echo $data['rl_'.$qcheckpoint['qck_no']]; ?>" name="deviation" id="dev_percent_<?php echo $qcheckpoint['qck_no']; ?>"><?php echo $data['rp_'.$qcheckpoint['qck_no']]; ?></td>
 </tr>
 <?php endif ?>
 <?php endforeach ?>

@@ -56,6 +56,9 @@ $page->drawText($text, 350-$twidth, 424, 'utf-8');
 $text = $this->inbound_line['inb_pallets'];
 $twidth = getTextWidth($text, $fontNormal, 12);
 $page->drawText($text, 350-$twidth, 410, 'utf-8');
+$text = $this->inbound_line['items_checked'];
+$twidth = getTextWidth($text, $fontNormal, 12);
+$page->drawText($text, 150-$twidth, 382, 'utf-8');
 // draw table for qc_log
 $count_qc_log = count($this->qc_inb_lines_log);
 //$page->drawLine(20, 350, 575, 350)   // HEAD Bottom
@@ -95,6 +98,7 @@ foreach($this->qc_inb_lines_log as $qc_inb_log) {
 	$page->drawText($qc_inb_log['quality_checkpoint'], 22, 339-($line*14), 'utf-8');
 	$page->drawText(sprintf('%01.1f', $qc_inb_log['value']), 162, 339-($line*14), 'utf-8');
 	$page->drawText($qc_inb_log['res_percent'], 232, 339-($line*14), 'utf-8');
+	$page->drawText($qc_inb_log['remarks'], 302, 339-($line*14), 'utf-8');
 }
 $qc_start = 310-($line*14);
 $qc_no = 0;

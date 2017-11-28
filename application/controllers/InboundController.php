@@ -170,6 +170,7 @@ class inboundController extends Zend_Controller_Action
 			$page->drawText($qc_inb_log['quality_checkpoint'], 22, 339-($line*14), 'utf-8');
 			$page->drawText(sprintf('%01.1f', $qc_inb_log['value']), 162, 339-($line*14), 'utf-8');
 			$page->drawText($qc_inb_log['res_percent'], 232, 339-($line*14), 'utf-8');
+			$page->drawText($qc_inb_log['remarks'], 302, 339-($line*14), 'utf-8');
 		}
 		$qc_start = 310-($line*14);
 		$qc_no = 0;
@@ -752,6 +753,8 @@ class inboundController extends Zend_Controller_Action
 			(isset($_POST['inb_pallet'])) ? $inbound_line['Pallet']=$_POST['inb_pallet'] : $inbound_line['Pallet']=0;
 			(isset($_POST['inb_pallets'])) ? $inbound_line['Pallets']=$_POST['inb_pallets'] : $inbound_line['Pallets']=0;
 			(isset($_POST['inb_tu_pal'])) ? $inbound_line['tu_pallet']=$_POST['inb_tu_pal'] : $inbound_line['tu_pallet']=0;
+			(isset($_POST['inb_tu_broken'])) ? $inbound_line['tu_broken']=$_POST['inb_tu_broken'] : $inbound_line['tu_broken']=0;
+			(isset($_POST['inb_tu_refused'])) ? $inbound_line['tu_refused']=$_POST['inb_tu_refused'] : $inbound_line['tu_refused']=0;
 			(isset($_POST['inb_brix'])) ? $inbound_line['brix']=$_POST['inb_brix'] : $inb_line['brix']=0;
 			(isset($_POST['items_checked'])) ? $inbound_line['items_checked'] = $_POST['items_checked'] : $inbound_line['items_checked'] = 0;
 			(isset($_POST['remarks'])) ? $inbound_line['remarks'] = $_POST['remarks'] : $inbound_line['remarks'] = '';
@@ -810,6 +813,8 @@ class inboundController extends Zend_Controller_Action
 				'inb_pallet'=>$inbound_line['Pallet'],
 				'inb_pallets'=>$inbound_line['Pallets'],
 				'inb_tu_pal'=>$inbound_line['tu_pallet'],
+				'inb_tu_broken'=>$inbound_line['tu_broken'],
+				'inb_tu_refused'=>$inbound_line['tu_refused'],
 				'po_brix_min' => $purchase_order_line['brix_min'],
 				'po_brix_max' => $purchase_order_line['brix_max'],
 				'inb_brix' => $inbound_line['brix'],
@@ -826,6 +831,7 @@ class inboundController extends Zend_Controller_Action
 				$inbound_sheet['base_'.$qcheckpoint['qck_no']] = $_POST['base_'.$qcheckpoint['qck_no']];
 				$inbound_sheet['rp_'.$qcheckpoint['qck_no']] = $this->calcQResult($qcheckpoint, $_POST['base_'.$qcheckpoint['qck_no']], $_POST['res_'.$qcheckpoint['qck_no']])[0];
 				$inbound_sheet['rl_'.$qcheckpoint['qck_no']] = $this->calcQResult($qcheckpoint, $_POST['base_'.$qcheckpoint['qck_no']], $_POST['res_'.$qcheckpoint['qck_no']])[1];
+				$inbound_sheet['remarks_'.$qcheckpoint['qck_no']] = $_POST['remarks_'.$qcheckpoint['qck_no']];
 			}
 			$qcheck_logs = $this->db->query('SELECT * FROM v_quality_checkpoint WHERE type=1 ORDER BY qchk_class_no')->fetchAll();
 			foreach($qcheck_logs as $qcheck_log) {
@@ -833,6 +839,7 @@ class inboundController extends Zend_Controller_Action
 				$inbound_sheet['base_'.$qcheck_log['qck_no']] = $_POST['base_'.$qcheck_log['qck_no']];
 				$inbound_sheet['rp_'.$qcheck_log['qck_no']] = $this->calcQResult($qcheck_log, $_POST['base_'.$qcheck_log['qck_no']], $_POST['res_'.$qcheck_log['qck_no']])[0];
 				$inbound_sheet['rl_'.$qcheck_log['qck_no']] = $this->calcQResult($qcheck_log, $_POST['base_'.$qcheck_log['qck_no']], $_POST['res_'.$qcheck_log['qck_no']])[1];
+				$inbound_sheet['remarks_'.$qcheck_log['qck_no']] = $_POST['remarks_'.$qcheck_log['qck_no']];
 			}				
 			
 			//Eingaben prüfen
@@ -984,8 +991,8 @@ class inboundController extends Zend_Controller_Action
 				$movement['No'] = 0;
 				$movement['movement'] = 1;
 				$movement['date'] = $inbound['arrival'];
-				$movement['trading_units'] = $inbound_line['trading_units'];
-				$movement['packing_units'] = $inbound_line['packing_units'];
+				$movement['trading_units'] = $inbound_line['trading_units'] - $inbound_line['tu_refused'];
+				$movement['packing_units'] = $movement['trading_units']*$variant['items'];
 				$movement['trading_units_production'] = $inbound_line['trading_units'];
 				$movement['packing_units_production'] = $inbound_line['packing_units'];
 				$movement['status'] = 3;
@@ -1080,9 +1087,10 @@ class inboundController extends Zend_Controller_Action
 							} else {
 								($_POST['base_'.$quality_checkpoint['No']]<>0) ? $qcheckpoint_inb_line['base'] = $_POST['base_'.$quality_checkpoint['No']] : $qcheckpoint_inb_line['base'] = $inbound_line['items_checked'];
 								$qcheckpoint_inb_line['value'] = $_POST['res_'.$quality_checkpoint['No']];
-							}	
+							}
 							$qcheckpoint_inb_line['max_good'] = $_POST['max_good_'.$quality_checkpoint['No']];
 							$qcheckpoint_inb_line['max_regular'] = $_POST['max_regular_'.$quality_checkpoint['No']];
+							$qcheckpoint_inb_line['remarks'] = $_POST['remarks_'.$quality_checkpoint['No']];
 							$this->logger->info('Qcheck_inb_line: '.print_r($qcheckpoint_inb_line, true));
 							try {
 								$qck_inb_line_table->insert($qcheckpoint_inb_line);
@@ -1108,8 +1116,10 @@ class inboundController extends Zend_Controller_Action
 				}
 				if (count($errors)==0) {
 					$this->db->commit();
-					$result = $this->mailWE($inbound_line['No']);
-					$this->logger->info('Status Mailversand: '.print_r($result, true));
+					if ($this->global_settings['email_intern_qc']==1) {
+						$result = $this->mailWE($inbound_line['No']);
+						$this->logger->info('Status Mailversand: '.print_r($result, true));
+					}
 					$this->logger->info('Datenbank Committed');
 					$this->_redirect('/inbound/editquality/stored/1');
 				} else {
@@ -1117,7 +1127,7 @@ class inboundController extends Zend_Controller_Action
 					$this->logger->info('Datenbank rolled back');
 				}
 			}
-			$qcheckpoints = $this->db->query('SELECT * FROM v_qc_product WHERE type=0 AND UPPER(product) = UPPER("?")',$inbound_sheet['product'])->fetchAll();
+			$qcheckpoints = $this->db->query('SELECT * FROM v_qc_product WHERE type=0 AND UPPER(product) = UPPER("?") ORDER BY qchk_class_no',$inbound_sheet['product'])->fetchAll();
 			if (count($qcheckpoints)==0) {
 				$qcheckpoints = $this->db->query('SELECT * FROM v_quality_checkpoint WHERE type=0 ORDER BY qchk_class_no')->fetchAll();
 			}
@@ -1177,6 +1187,8 @@ class inboundController extends Zend_Controller_Action
 				'inb_pallet'=>'',
 				'inb_pallets'=>0,
 				'inb_tu_pal'=>0,
+				'inb_tu_broken'=>0,
+				'inb_tu_refused'=>0,
 				'po_brix_min' => 0,
 				'po_brix_max' => 0,
 				'inb_brix' => 0,
@@ -1193,6 +1205,7 @@ class inboundController extends Zend_Controller_Action
 				foreach($qcheckpoints as $qcheckpoint) {
 					$inbound_sheet['res_'.$qcheckpoint['qck_no']] = 0;
 					$inbound_sheet['base_'.$qcheckpoint['qck_no']] = 0;
+					$inbound_sheet['remarks_'.$qcheckpoint['qck_no']] = '';
 					$inbound_sheet['rp_'.$qcheckpoint['qck_no']] = $this->calcQResult($qcheckpoint, 0, 0)[0];
 					$inbound_sheet['rl_'.$qcheckpoint['qck_no']] = $this->calcQResult($qcheckpoint, 0, 0)[1];
 				}
@@ -1202,6 +1215,7 @@ class inboundController extends Zend_Controller_Action
 					$inbound_sheet['base_'.$qcheck_log['qck_no']] = 0;
 					$inbound_sheet['rp_'.$qcheck_log['qck_no']] = $this->calcQResult($qcheck_log, 0, 0)[0];
 					$inbound_sheet['rl_'.$qcheck_log['qck_no']] = $this->calcQResult($qcheck_log, 0, 0)[1];
+					$inbound_sheet['remarks_'.$qcheck_log['qck_no']] = '';
 				}				
 			}
 		}
@@ -1414,11 +1428,13 @@ class inboundController extends Zend_Controller_Action
 			$content = $this->createQCReport($inbLine);
 			try {
 				$mail = new Zend_Mail();
-				$attachment = $mail->createAttachment($content);
-				$attachment->type = 'application/PDF';
-				$attachment->disposition = Zend_Mime::DISPOSITION_ATTACHMENT;
-				$attachment->encoding = Zend_Mime::ENCODING_BASE64;
-				$attachment->filename = 'Quality Report.pdf';
+				if ($this->global_settings['qc_intern_with_report']==1) {
+					$attachment = $mail->createAttachment($content);
+					$attachment->type = 'application/PDF';
+					$attachment->disposition = Zend_Mime::DISPOSITION_ATTACHMENT;
+					$attachment->encoding = Zend_Mime::ENCODING_BASE64;
+					$attachment->filename = 'Quality Report.pdf';
+				}
 				$mail->setBodyText($emailText);
 				$mail->setFrom('dispo@marktvertrieb.de', 'MVS-Dispo Wareneingang');
 				$mail->addTo('vt-wareneingangsmitteilung@marktvertrieb.de');
