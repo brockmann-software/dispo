@@ -1424,7 +1424,6 @@ class inboundController extends Zend_Controller_Action
 				$mail->addTo('vt-wareneingangsmitteilung@marktvertrieb.de');
 				$mail->addTo('logistik@marktvertrieb.de');
 				$mail->addCc('warenbereitstellung@marktvertrieb.de');
-				$mail->addAttachment($attachment);
 				$mail->setSubject("Wareneingang {$inbound_line[0]['position']} {$inbound_line[0]['vendor_name']} {$inbound_line[0]['origin']} {$inbound_line[0]['product_desc']} {$inbound_line[0]['items']}x{$inbound_line[0]['weight_item']}g");
 				$mail->send($transport);
 				$sent = true;
