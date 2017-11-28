@@ -60,8 +60,8 @@ class WhmanagementController extends Zend_Controller_Action
 	public function printcountlistAction()
 	{
 		if (!$this->hasParam('No')) $this->_redirect('/whmanagement/index/error/Keine%20Zählung%20übergeben');
-		$inventories = $this->db->query('SELECT * FROM v_inventory_summery WHERE state = 2 AND inventory_head = ? ORDER BY product, items, weight_item, brand_no, packaging, quality, position', $this->getParam('No'))->fetchAll();
-		if (count($inventories)==0) $this->_redirect('/whmanagement/index/error/Die%20Zählung%20ist%20noch%20nicht%20abgeschlossen!');
+		$inventories = $this->db->query('SELECT * FROM v_inventory_summery WHERE state < 2 AND inventory_head = ? ORDER BY product, items, weight_item, brand_no, packaging, quality, position', $this->getParam('No'))->fetchAll();
+		if (count($inventories)==0) $this->_redirect('/whmanagement/index/error/Die%20Zählung%20ist%20bereits%20abgeschlossen!');
 		$filename = "Zaehlliste ".date('d.m.Y', strtotime($inventories[0]['inv_date']))." ".date('H_i', strtotime($inventories[0]['inv_date'])).".pdf";
 		$filepath = realpath($this->config->report->inventory);
 		$this->view->inventories = $inventories;
@@ -69,7 +69,7 @@ class WhmanagementController extends Zend_Controller_Action
 		$this->view->filepath = $filepath;
 		$layout = $this->_helper->layout();
 		
-//		$layout->setLayout('pdf_layout');
+		$layout->setLayout('pdf_layout');
 		$this->renderScript('/whmanagement/pdfcountlist.php');
 	}
 	
@@ -128,15 +128,15 @@ class WhmanagementController extends Zend_Controller_Action
 					$sql.= ' trading_units)';
 					$sql.= 'SELECT';
 					$sql.= ' ?,';
-					$sql.= ' inbound_line.No,';
+					$sql.= ' v_inb_line.No,';
 					$sql.= ' NOW(),';
 					$sql.= ' "0",';
 					$sql.= ' "0",';
 					$sql.= ' "0",';
 					$sql.= ' "0",';
-					$sql.= ' inbound_line.tu_pallet,';
+					$sql.= ' v_inb_line.inb_tu_pal,';
 					$sql.= ' "0" ';
-					$sql.= 'FROM inbound_line';
+					$sql.= 'FROM v_inb_line where stock<>0';
 					$this->logger->info('SQL: '.$sql);
 					$statement = $this->db->query($sql, $inventory_head['No']);
 		//			$statement->execute();

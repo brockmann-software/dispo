@@ -52,6 +52,17 @@ function searchKeyPress(e)
 	return true;
 }
 </script>
+<?php
+function setOrderAttr($orderParams, $field)
+{
+	return (isset($orderParams['field']) && ($orderParams['field']==$field) ? 'data-column-order="'.$orderParams['orientation'].'"' : '';
+}
+
+function setOrderImg($orderParams, $field)
+{
+	if isset($orderParams['field'] && $orderParams['field']==$field) {
+		return (upper($orderParams['orientation'])=='ASC') ? '<img id="order_img" src="/images/s_asc.png" />' : 
+?>
 <?php $vendor_count = $this->vendor_count; ?>
 <?php $pages = floor($vendor_count/25) + 1; ?>
 <?php $cur_page = $this->cur_page; ?>

@@ -8,18 +8,18 @@ function buildRow(curRow, inventory, add)
 	var cell0 = curRow.insertCell(0);
 	cell0.className = 'data';
 	cell0.innerHTML = inventory.position;
-	var cell1 = curRow.insertCell(1);
-	cell1.className = 'data';
-	cell1.innerHTML = inventory.variant_desc;
-	cell1.dataset.variant = inventory.variant;
-	var cell2 = curRow.insertCell(2);
+//	var cell1 = curRow.insertCell(1);
+//	cell1.className = 'data';
+//	cell1.innerHTML = inventory.variant_desc;
+//	cell1.dataset.variant = inventory.variant;
+	var cell2 = curRow.insertCell(1);
 	cell2.className = 'data';
 	cell2.innerHTML = inventory.product_desc;
 	cell2.dataset.product = inventory.product;
-	var cell3 = curRow.insertCell(3);
+	var cell3 = curRow.insertCell(2);
 	cell3.className = 'data';
 	cell3.innerHTML = inventory.origin;
-	var cell4 = curRow.insertCell(4);
+	var cell4 = curRow.insertCell(3);
 	cell4.className = 'data';
 	if (add) {
 		var t_pack_select = document.getElementById('int_t_packaging').cloneNode(true);
@@ -30,7 +30,7 @@ function buildRow(curRow, inventory, add)
 	} else {
 		cell4.innerHTML = inventory.t_packaging;
 	}
-	var cell5 = curRow.insertCell(5);
+	var cell5 = curRow.insertCell(4);
 	cell5.className = 'data';
 	if (add) {
 		var packaging_select = document.getElementById('int_packaging').cloneNode(true);
@@ -42,7 +42,7 @@ function buildRow(curRow, inventory, add)
 		cell5.innerHTML = inventory.packaging_desc;
 		cell5.dataset.packaging_no = inventory.packaging;
 	}
-	var cell6 = curRow.insertCell(6);
+	var cell6 = curRow.insertCell(5);
 	cell6.className = 'data';
 	if (add) {
 		var label_select = document.getElementById('int_label').cloneNode(true);
@@ -54,7 +54,7 @@ function buildRow(curRow, inventory, add)
 		cell6.innerHTML = inventory.label_desc;
 		cell6.dataset.label_no = inventory.label;
 	}
-	var cell7 = curRow.insertCell(7);
+	var cell7 = curRow.insertCell(6);
 	cell7.className = 'data';
 	if (add) {
 		var lot_input = document.createElement('input');
@@ -67,13 +67,13 @@ function buildRow(curRow, inventory, add)
 	} else {
 		cell7.innerHTML = inventory.inb_lot;
 	}
-	var cell8 = curRow.insertCell(8);
+	var cell8 = curRow.insertCell(7);
 	cell8.className = 'data';
 	cell8.innerHTML = inventory.arrival;
-	var cell9 = curRow.insertCell(9);
+	var cell9 = curRow.insertCell(8);
 	cell9.className = 'data';
 	cell9.innerHTML = inventory.stock;
-	var cell10 = curRow.insertCell(10);
+	var cell10 = curRow.insertCell(9);
 	cell10.className = 'data';
 	var roomSelect = document.getElementById('filter_room').cloneNode(true);
 	roomSelect.name = 'room_'+sufix;
@@ -81,7 +81,7 @@ function buildRow(curRow, inventory, add)
 	roomSelect.value = inventory.room;
 	roomSelect.onchange = '';
 	cell10.appendChild(roomSelect); 
-	var cell11 = curRow.insertCell(11);
+	var cell11 = curRow.insertCell(10);
 	cell11.className = 'data';
 	var input_rack = document.createElement('input');
 	input_rack.name = 'rack_'+sufix;
@@ -90,7 +90,7 @@ function buildRow(curRow, inventory, add)
 	input_rack.size = 4;
 	input_rack.value = inventory.rack;
 	cell11.appendChild(input_rack);
-	var cell12 = curRow.insertCell(12);
+	var cell12 = curRow.insertCell(11);
 	cell12.className = 'data';
 	input_TU_pallet = document.createElement('input');
 	input_TU_pallet.name = 'tu_pallet_'+sufix;
@@ -100,7 +100,7 @@ function buildRow(curRow, inventory, add)
 	input_TU_pallet.value = inventory.tu_pallet;
 	input_TU_pallet.onchange = function() { calcTU(this); };
 	cell12.appendChild(input_TU_pallet);
-	var cell13 = curRow.insertCell(13);
+	var cell13 = curRow.insertCell(12);
 	cell13.className = 'data';
 	var input_pallets = document.createElement('input');
 	input_pallets.name = 'pallets_' + sufix;
@@ -110,7 +110,7 @@ function buildRow(curRow, inventory, add)
 	input_pallets.value = inventory.pallets;
 	input_pallets.onchange = function() { calcTU(this); };
 	cell13.appendChild(input_pallets);
-	var cell14 = curRow.insertCell(14);
+	var cell14 = curRow.insertCell(13);
 	cell14.className = 'data';
 	var input_tradingUnits = document.createElement('input');
 	input_tradingUnits.name = 'trading_units_' + sufix;
@@ -121,7 +121,7 @@ function buildRow(curRow, inventory, add)
 	input_tradingUnits.defaultValue = inventory.trading_units;
 	input_tradingUnits.onchange = function() { sendInventory(this); };
 	cell14.appendChild(input_tradingUnits);
-	var cell15 = curRow.insertCell(15);
+	var cell15 = curRow.insertCell(14);
 	var link = document.createElement('a');
 	link.onclick = function() { addLine(sufix) };
 	link.innerHTML = '<img src="/images/60.ico" alt="hinzufügen" title="hinzufügen" />';
@@ -402,13 +402,13 @@ function addLine(sufix)
 	<td>Raum</td>
 </tr>
 <tr>
-	<td><input type="text" id="filter_position" name="filter_position" value="" size="10" oninput="filterInventoryLines()" /></td>
-	<td><select id="filter_product" name="filter_product" onchange="filterInventoryLines()">
+	<td><input type="text" id="filter_position" name="filter_position" accesskey="O" value="" size="10" onchange="filterInventoryLines()" /></td>
+	<td><select id="filter_product" name="filter_product" accesskey="p" onchange="filterInventoryLines()">
 	<?php foreach ($products as $product) : ?>
 	<option value="<?php echo $product['No']; ?>"<?php if ($product['No']==$filter['product']) echo " selected"; ?>><?php echo $product['product']; ?></option>
 	<?php endforeach ?>
 	</select></td>
-	<td><select id="filter_room" name="filter_room" onchange="filterInventoryLines()">
+	<td><select id="filter_room" name="filter_room" accesskey="r" onchange="filterInventoryLines()">
 	<?php foreach ($rooms as $room) : ?>
 	<option value="<?php echo $room['No']; ?>"<?php if ($room['No']==$filter['room']) echo " selected"; ?>><?php echo $room['room']; ?></option>
 	<?php endforeach ?>
@@ -420,7 +420,6 @@ function addLine(sufix)
 <thead>
 <tr>
 	<th class="data">Position</th>
-	<th class="data">Variante</th>
 	<th class="data">Artikel</th>
 	<th class="data">Herkunft</th>
 	<th class="data">Transp. V</th>
@@ -443,7 +442,6 @@ function addLine(sufix)
 <?php $sufix = $inventory_line['No'].'_'.$inventory_head['No'].'_'.$inventory_line['inbound_line']; ?>
 <tr id="<?php echo $inventory_line['No']; ?>">
 	<td class="data"><?php echo $inventory_line['position']; ?></td>
-	<td class="data" data-variant="<?php echo $inventory_line['variant']; ?>"><?php echo $inventory_line['variant_desc']; ?></td>
 	<td class="data" data-product="<?php echo $inventory_line['product']; ?>"><?php echo $inventory_line['product_desc']; ?></td>
 	<td class="data"><?php echo $inventory_line['origin']; ?></td>
 	<td class="data"><?php echo $inventory_line['t_packaging']; ?></td>

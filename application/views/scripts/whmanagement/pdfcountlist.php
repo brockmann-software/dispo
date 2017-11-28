@@ -1,5 +1,5 @@
 <?php
-try {
+if (!file_exists(realpath($this->filepath.'\\'.$this->filename))) try {
 	$style_body = new Zend_Pdf_Style();
 	$style_body->setLineWidth(1);
 	$fontBold = Zend_Pdf_Font::fontWithPath(realpath(APPLICATION_PATH.'/../public/fonts/').'/ARIALBD.ttf');
@@ -16,9 +16,15 @@ try {
 	$headCol[0]->setImage(realpath(APPLICATION_PATH.'/../public/images/logo_mvs.jpg'), My_Pdf::LEFT, My_Pdf::CENTER, 0.5);
 	
 	$headCol[1] = new My_Pdf_Table_Column();
+	$headCol[1]->setWidth(array(3, 'cm'));
 	$headCol[1]->setFont($fontBold, 14);
-	$headCol[1]->setText('Warenbestandsliste');
+	$headCol[1]->setText('Zählliste');
 	
+	$headCol[2] = new My_Pdf_Table_Column();
+	$headCol[2]->setWidth(array(8, 'cm'));
+	$headCol[2]->setFont($fontBold, 14);
+	$headCol[2]->setText("Datum: ".date('d.m.Y', strtotime($this->inventories[0]['inv_date'])));
+
 	$headRow->setColumns($headCol);
 	$headerTable->addRow($headRow);
 
@@ -119,7 +125,7 @@ try {
 	$column->setColumnAlign(My_Pdf::RIGHT);
 	$columns[] = $column;
 		
-	$column = new My_Pdf_Report_Column('@empty', 'Bestand', array(1, 'cm'));
+	$column = new My_Pdf_Report_Column('@empty', '', array(1, 'cm'));
 	$column->setHeaderStyle($headerStyle);
 	$column->setBodyStyle($bodyStyle);
 	$column->setColumnAlign(My_Pdf::RIGHT);
@@ -185,7 +191,12 @@ try {
 	$inventoryReport->setColumns($columns);
 	$inventoryReport->setGroups($groups);
 	$inventoryReport->save();
+	sleep(3);
+//	$inventoryReport = Zend_Pdf::load(realpath($this->filepath.'\\'.$this->filename));
+//	$inventoryReport->render();
 	
 } catch (Exception $e) {
 	Zend_Registry::get('logger')->err($e->getMessage());
 }
+$pdf = file_get_contents(realpath($this->filepath.'\\'.$this->filename));
+echo $pdf;
