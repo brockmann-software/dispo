@@ -225,6 +225,8 @@ class WhmanagementController extends Zend_Controller_Action
 			isset($_POST['inventory_head']) ? $inventory['inventory_head'] = $_POST['inventory_head'] : $inventory['inventory_head'] = 0;
 			isset($_POST['inbound_line']) ? $inventory['inbound_line'] = $_POST['inbound_line'] : $inventory['inbound_line'] = 0;
 			if (isset($_POST['date'])) $inventory['date'] = $_POST['date'];
+			isset($_POST['items']) ? $variant['items'] = $_POST['items'] : $variant['items'] = 0;
+			isset($_POST['weight_item']) ? $variant['weight_item'] = $_POST['weight_item'] : $variant['weight_item'] = 0;
 			isset($_POST['t_packaging']) ? $variant['t_packaging'] = $_POST['t_packaging'] : $variant['t_packaging'] = '';
 			isset($_POST['packaging']) ? $variant['packaging'] = $_POST['packaging'] : $variant['packaging'] = 0;
 			isset($_POST['label']) ? $variant['label'] = $_POST['label'] : $variant['label'] = 0;
@@ -272,6 +274,9 @@ class WhmanagementController extends Zend_Controller_Action
 						$new_line = false;
 						$new_variant = array_merge($cur_variant, $variant);
 						$new_variant['No'] = variantController::buildNo($new_variant)['No'];
+							$this->logger->info('Akt. Variante: '.print_r($cur_variant, true));
+							$this->logger->info('Gem Variante: '.print_r($variant, true));
+							$this->logger->info('Neue Variante: '.print_r($new_variant, true));
 						if ($cur_variant['No'] <> $new_variant['No']) {
 						// Prüfen, ob Variante existiert, sonst neu anlegen.
 							$this->logger->info('Variante: '.print_r($new_variant, true));
