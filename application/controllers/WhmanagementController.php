@@ -44,7 +44,7 @@ class WhmanagementController extends Zend_Controller_Action
 	public function printAction()
 	{
 		if (!$this->hasParam('No')) $this->_redirect('/whmanagement/index/error/Keine%20Zählung%20übergeben');
-		$inventories = $this->db->query('SELECT * FROM v_inventory_summery WHERE state = 2 AND inventory_head = ? ORDER BY product, items, weight_item, brand_no, packaging, quality, inb_arrival, position', $this->getParam('No'))->fetchAll();
+		$inventories = $this->db->query('SELECT * FROM v_inventory_summery WHERE state = 2 AND stock<>0 AND inventory_head = ? ORDER BY product, items, weight_item, brand_no, packaging, quality, inb_arrival, position', $this->getParam('No'))->fetchAll();
 		if (count($inventories)==0) $this->_redirect('/whmanagement/index/error/Die%20Zählung%20ist%20noch%20nicht%20abgeschlossen!');
 		$filename = "Bestand ".date('d.m.Y', strtotime($inventories[0]['inv_date']))." ".date('H_i', strtotime($inventories[0]['inv_date'])).".pdf";
 		$filepath = realpath($this->config->report->inventory);
