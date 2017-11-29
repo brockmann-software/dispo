@@ -1,5 +1,5 @@
 <?php
-try {
+try (!file_exists(realpath($this->filepath.'\\'.$this->filename))) {
 	$style_body = new Zend_Pdf_Style();
 	$style_body->setLineWidth(1);
 	$fontBold = Zend_Pdf_Font::fontWithPath(realpath(APPLICATION_PATH.'/../public/fonts/').'/ARIALBD.ttf');
@@ -199,3 +199,5 @@ try {
 } catch (Exception $e) {
 	Zend_Registry::get('logger')->err($e->getMessage());
 }
+$pdf = file_get_contents(realpath($this->filepath.'\\'.$this->filename));
+echo $pdf;
