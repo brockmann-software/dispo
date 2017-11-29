@@ -1,5 +1,5 @@
 <?php
-try (!file_exists(realpath($this->filepath.'\\'.$this->filename))) {
+if (!file_exists(realpath($this->filepath.'\\'.$this->filename))) try {
 	$style_body = new Zend_Pdf_Style();
 	$style_body->setLineWidth(1);
 	$fontBold = Zend_Pdf_Font::fontWithPath(realpath(APPLICATION_PATH.'/../public/fonts/').'/ARIALBD.ttf');

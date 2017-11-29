@@ -51,9 +51,8 @@ class WhmanagementController extends Zend_Controller_Action
 		$this->view->inventories = $inventories;
 		$this->view->filename = $filename;
 		$this->view->filepath = $filepath;
-		$layout = $this->_helper->layout();
-		
-//		$layout->setLayout('pdf_layout');
+		$layout = $this->_helper->layout();		
+		$layout->setLayout('pdf_layout');
 		$this->renderScript('/whmanagement/pdfinventory.php');
 	}
 	
