@@ -1,5 +1,6 @@
 <?php
 if (!file_exists(realpath($this->filepath.'\\'.$this->filename))) try {
+	Zend_Registry::get('logger')->info('Aufbau der Liste startet: '.print_r(date('H:i:s', time()), true));
 	$style_body = new Zend_Pdf_Style();
 	$style_body->setLineWidth(1);
 	$fontBold = Zend_Pdf_Font::fontWithPath(realpath(APPLICATION_PATH.'/../public/fonts/').'/ARIALBD.ttf');
@@ -185,12 +186,14 @@ if (!file_exists(realpath($this->filepath.'\\'.$this->filename))) try {
 
 	$group = new My_Pdf_Report_Group($groupColumns, $groupHeaderStyle, $groupFooterStyle);
 	$groups[] = $group;
+	Zend_Registry::get('logger')->info('Druck startet: '.print_r(date('H:i:s', time()), true));
 	
 	$inventoryReport = new My_Pdf_Report($this->filename, $this->filepath.'\\', $this->inventories, Zend_Pdf_Page::SIZE_A4_LANDSCAPE, 'utf-8');
 	$inventoryReport->setHeader($headerTable);
 	$inventoryReport->setColumns($columns);
 	$inventoryReport->setGroups($groups);
 	$inventoryReport->save();
+	Zend_Registry::get('logger')->info('Druck beendet: '.print_r(date('H:i:s', time()), true));
 	sleep(3);
 //	$inventoryReport = Zend_Pdf::load(realpath($this->filepath.'\\'.$this->filename));
 //	$inventoryReport->render();

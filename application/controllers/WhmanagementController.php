@@ -60,7 +60,9 @@ class WhmanagementController extends Zend_Controller_Action
 	public function printcountlistAction()
 	{
 		if (!$this->hasParam('No')) $this->_redirect('/whmanagement/index/error/Keine%20Zählung%20übergeben');
-		$inventories = $this->db->query('SELECT * FROM v_inventory_summery WHERE state < 2 AND inventory_head = ? ORDER BY product, items, weight_item, brand_no, packaging, quality, position', $this->getParam('No'))->fetchAll();
+		$this->logger->info('Abfrage startet: '.print_r(date('H:i:s', time()), true));
+		$inventories = $this->db->query('SELECT * FROM v_inventory_summery WHERE state < 2 AND inventory_head = ? ORDER BY product, items, weight_item, brand_no, position, packaging, quality', $this->getParam('No'))->fetchAll();
+		$this->logger->info('Abfrage ist beendet: '.print_r(date('H:i:s', time()), true));
 		if (count($inventories)==0) $this->_redirect('/whmanagement/index/error/Die%20Zählung%20ist%20bereits%20abgeschlossen!');
 		$filename = "Zaehlliste ".date('d.m.Y', strtotime($inventories[0]['inv_date']))." ".date('H_i', strtotime($inventories[0]['inv_date'])).".pdf";
 		$filepath = realpath($this->config->report->inventory);
@@ -225,9 +227,9 @@ class WhmanagementController extends Zend_Controller_Action
 			isset($_POST['inbound_line']) ? $inventory['inbound_line'] = $_POST['inbound_line'] : $inventory['inbound_line'] = 0;
 			if (isset($_POST['date'])) $inventory['date'] = $_POST['date'];
 			isset($_POST['t_packaging']) ? $variant['t_packaging'] = $_POST['t_packaging'] : $variant['t_packaging'] = '';
-			isset($_POST['packaging']) ? $variant['packaging'] = $_POST['packaging'] : $variant['packaging'] = '';
+			isset($_POST['packaging']) ? $variant['packaging'] = $_POST['packaging'] : $variant['packaging'] = 0;
 			isset($_POST['label']) ? $variant['label'] = $_POST['label'] : $variant['label'] = 0;
-			isset($_POST['inb_lot']) ? $inbound_line['lot'] = $_POST['inb_lot'] : $inbound_line['lot'] = $inbound_line['lot'] = '';
+			isset($_POST['inb_lot']) ? $inbound_line['lot'] = $_POST['inb_lot'] : $inbound_line['lot'] = '';
 			isset($_POST['room']) ? $inventory['room'] = $_POST['room'] : $inventory['room'] = 0;
 			isset($_POST['rack']) ? $inventory['rack'] = $_POST['rack'] : $inventory['rack'] = 0;
 			isset($_POST['level']) ? $inventory['level'] = $_POST['level'] : $inventory['level'] = 0;
@@ -239,6 +241,7 @@ class WhmanagementController extends Zend_Controller_Action
 			if ($inventory['inventory_head'] == 0) $errors['inventory_head'] = 'Inventory_Head darf nicht leer oder 0 sein!';
 			if ($inventory['inbound_line'] == 0) $errors['inbound_line'] = 'Inbound_Line darf nicht leer oder 0 sein!';
 			$this->logger->info('Fehler: '.print_r($errors, true));
+			$this->logger->info('Inventory_No: '.print_r($inventory_No, true));
 			if (count($errors)==0) {
 				$this->db->beginTransaction();
 				try {
@@ -267,20 +270,21 @@ class WhmanagementController extends Zend_Controller_Action
 						if ($variant_set->count()==0) throw new Exception('Variante existiert nicht!');
 						$cur_variant = $variant_set->current()->toArray();
 					// Geänderte Variante feststellen
+						$new_line = false;
 						$new_variant = array_merge($cur_variant, $variant);
-						$new_variant['No'] = variantController::buildNo($new_variant);
+						$new_variant['No'] = variantController::buildNo($new_variant)['No'];
 						if ($cur_variant['No'] <> $new_variant['No']) {
 						// Prüfen, ob Variante existiert, sonst neu anlegen.
+							$this->logger->info('Variante: '.print_r($new_variant, true));
 							$variant_set = $variant_table->find($new_variant['No']);
 							if ($variant_set->count()==0) $variant_table->insert($new_variant);
-							$this->logger->info('Variante: '.print_r($new_variant, true));
 							$new_line = true;
 						}
 						// geänderte Variante oder geänderte Losnummer?
 						$this->logger->info('new_line: '.print_r($new_line, true));
 						$this->logger->info('Inbound_Line: '.print_r($inbound_line, true));
 						$this->logger->info('cur_inbound_line: '.print_r($cur_inbound_line, true));
-						if ($new_line or ($inbound_Line['lot']<>$cur_inbound_line['lot'])) {
+						if ($new_line or ($inbound_line['lot']<>$cur_inbound_line['lot'])) {
 						// Produktionsauftrag anlegen
 							$production_order['stock_location'] = 1;
 							$production_order['start'] = $date->toString('YYYY-MM-dd HH:mm:ss');
@@ -376,6 +380,7 @@ class WhmanagementController extends Zend_Controller_Action
 						}
 					// Inventory updaten und schreiben
 						$inventory['date'] = $date->toString('YYYY-MM-dd HH:mm:ss');
+						$this->logger->info(print_r($inventory, true));
 						$inventory_table->insert($inventory);
 						$inventory['No'] = $this->db->lastInsertId();
 						$this->logger->info('Die Inventory wurde neu hinzugefügt: '.print_r($inventory, true));

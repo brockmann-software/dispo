@@ -40,7 +40,7 @@ function buildRow(curRow, inventory, add)
 		cell5.appendChild(packaging_select);
 	} else {
 		cell5.innerHTML = inventory.packaging_desc;
-		cell5.dataset.packaging_no = inventory.packaging;
+		cell5.dataset.packaging = inventory.packaging;
 	}
 	var cell6 = curRow.insertCell(5);
 	cell6.className = 'data';
@@ -52,7 +52,7 @@ function buildRow(curRow, inventory, add)
 		cell6.appendChild(label_select);
 	} else {
 		cell6.innerHTML = inventory.label_desc;
-		cell6.dataset.label_no = inventory.label;
+		cell6.dataset.label = inventory.label;
 	}
 	var cell7 = curRow.insertCell(6);
 	cell7.className = 'data';
@@ -96,7 +96,8 @@ function buildRow(curRow, inventory, add)
 	input_TU_pallet.name = 'tu_pallet_'+sufix;
 	input_TU_pallet.id = 'tu_pallet_'+sufix;
 	input_TU_pallet.type = 'number';
-	input_TU_pallet.size = 4;
+	input_TU_pallet.min = 0;
+	input_TU_pallet.max = 999;
 	input_TU_pallet.value = inventory.tu_pallet;
 	input_TU_pallet.onchange = function() { calcTU(this); };
 	cell12.appendChild(input_TU_pallet);
@@ -106,7 +107,8 @@ function buildRow(curRow, inventory, add)
 	input_pallets.name = 'pallets_' + sufix;
 	input_pallets.id = 'pallets_' + sufix;
 	input_pallets.type = 'number';
-	input_pallets.size = 4;
+	input_pallets.min = 0;
+	input_pallets.max = 99;
 	input_pallets.value = inventory.pallets;
 	input_pallets.onchange = function() { calcTU(this); };
 	cell13.appendChild(input_pallets);
@@ -116,7 +118,8 @@ function buildRow(curRow, inventory, add)
 	input_tradingUnits.name = 'trading_units_' + sufix;
 	input_tradingUnits.id = 'trading_units_' + sufix;
 	input_tradingUnits.type = 'number';
-	input_tradingUnits.size = 6;
+	input_tradingUnits.min = 0;
+	input_tradingUnits.max = 9999;
 	input_tradingUnits.value = inventory.trading_units;
 	input_tradingUnits.defaultValue = inventory.trading_units;
 	input_tradingUnits.onchange = function() { sendInventory(this); };
@@ -259,7 +262,8 @@ function sendInventory(element, overwrite)
 						trading_units.name = 'trading_units_'+newSufix;
 						trading_units.id = 'trading_units_'+newSufix;
 						setTimeout(filterInventoryLines(), 2000);
-						trading_units.focus();
+//						trading_units.focus();
+						trading_units.select();
 					}
 				} else {
 					errorText = '';
@@ -333,19 +337,19 @@ function addLine(sufix)
 	inventory['inventory_head'] = items[1];
 	inventory['inbound_line'] = items[2];
 	inventory['position'] = curRow.cells[0].innerHTML;
-	inventory['variant_desc'] = curRow.cells[1].innerHTML;
-	inventory['variant'] = curRow.cells[1].dataset.variant;
-	inventory['product_desc'] = curRow.cells[2].innerHTML;
-	inventory['product'] = curRow.cells[2].dataset.product;
-	inventory['origin'] = curRow.cells[3].innerHTML;
-	inventory['t_packaging'] = curRow.cells[4].innerHTML;
-	inventory['packaging_desc'] = curRow.cells[5].innerHTML;
-	inventory['packaging'] = curRow.cells[5].dataset.packaging;
-	inventory['label_desc'] = curRow.cells[6].innerHTML;
-	inventory['label'] = curRow.cells[6].dataset.label;
-	inventory['inb_lot'] = curRow.cells[7].innerHTML;
-	inventory['arrival'] = curRow.cells[8].innerHTML;
-	inventory['stock'] = curRow.cells[9].innerHTML;
+//	inventory['variant_desc'] = curRow.cells[1].innerHTML;
+//	inventory['variant'] = curRow.cells[1].dataset.variant;
+	inventory['product_desc'] = curRow.cells[1].innerHTML;
+	inventory['product'] = curRow.cells[1].dataset.product;
+	inventory['origin'] = curRow.cells[2].innerHTML;
+	inventory['t_packaging'] = curRow.cells[3].innerHTML;
+	inventory['packaging_desc'] = curRow.cells[4].innerHTML;
+	inventory['packaging'] = curRow.cells[4].dataset.packaging;
+	inventory['label_desc'] = curRow.cells[5].innerHTML;
+	inventory['label'] = curRow.cells[5].dataset.label;
+	inventory['inb_lot'] = curRow.cells[6].innerHTML;
+	inventory['arrival'] = curRow.cells[7].innerHTML;
+	inventory['stock'] = curRow.cells[8].innerHTML;
 	inventory['room'] = document.getElementById('room_'+sufix).value;
 	inventory['rack'] = document.getElementById('rack_'+sufix).value;
 	inventory['tu_pallet'] = document.getElementById('tu_pallet_'+sufix).value;
@@ -457,9 +461,9 @@ function addLine(sufix)
 					</select>
 	</td>
 	<td class="data"><input type="text" id="rack_<?php echo $sufix; ?>" name="rack_<?php echo $sufix; ?>" value="<?php echo $inventory_line['rack']; ?>" size="4" />
-	<td class="data"><input type="number" id="tu_pallet_<?php echo $sufix; ?>" name="tu_pallet_<?php echo $sufix; ?>" value="<?php echo $inventory_line['tu_pallet']; ?>" size="4" onchange="calcTU(this)" />
-	<td class="data"><input type="number" id="pallets_<?php echo $sufix; ?>" name="pallets_<?php echo $sufix; ?>" value="<?php echo $inventory_line['pallets']; ?>" size="4" onchange="calcTU(this)" />
-	<td class="data"><input type="number" id="trading_units_<?php echo $sufix; ?>" name="trading_units_<?php echo $sufix; ?>" value="<?php echo $inventory_line['trading_units']; ?>" defaultValue="<?php echo $inventory_line['trading_units']; ?>" size="6" onchange="sendInventory(this)" />
+	<td class="data"><input type="number" id="tu_pallet_<?php echo $sufix; ?>" name="tu_pallet_<?php echo $sufix; ?>" value="<?php echo $inventory_line['tu_pallet']; ?>" min="0" max="999" onchange="calcTU(this)" />
+	<td class="data"><input type="number" id="pallets_<?php echo $sufix; ?>" name="pallets_<?php echo $sufix; ?>" value="<?php echo $inventory_line['pallets']; ?>" min="0" max="99" onchange="calcTU(this)" />
+	<td class="data"><input type="number" id="trading_units_<?php echo $sufix; ?>" name="trading_units_<?php echo $sufix; ?>" value="<?php echo $inventory_line['trading_units']; ?>" defaultValue="<?php echo $inventory_line['trading_units']; ?>" min="0" max="9999" onchange="sendInventory(this)" />
 	<td><a onclick="addLine('<?php echo $sufix; ?>')"><img src="/images/60.ico" alt="hinzufügen" title="hinzufügen" /></a></td>
 </tr>
 <?php endforeach ?>
