@@ -16,9 +16,15 @@ if (!file_exists(realpath($this->filepath.'\\'.$this->filename))) try {
 	$headCol[0]->setImage(realpath(APPLICATION_PATH.'/../public/images/logo_mvs.jpg'), My_Pdf::LEFT, My_Pdf::CENTER, 0.5);
 	
 	$headCol[1] = new My_Pdf_Table_Column();
+	$headCol[1]->setWidth(array(8, 'cm'));
 	$headCol[1]->setFont($fontBold, 14);
 	$headCol[1]->setText('Warenbestandsliste');
 	
+	$headCol[2] = new My_Pdf_Table_Column();
+	$headCol[2]->setWidth(array(8, 'cm'));
+	$headCol[2]->setFont($fontBold, 12);
+	$headCol[2]->setText("Datum: ".date('d.m.Y H:i', strtotime($this->inventories[0]['inv_date'])));
+
 	$headRow->setColumns($headCol);
 	$headerTable->addRow($headRow);
 

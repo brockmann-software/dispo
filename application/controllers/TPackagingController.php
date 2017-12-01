@@ -40,6 +40,7 @@ class TPackagingController extends Zend_Controller_Action
 			isset($_POST['items_level']) ? $t_packaging['items_level'] = $_POST['items_level'] : $t_packaging['items_level'] = '';
 			$this->logger->info(print_r($_POST, true));
 			$this->logger->info('Transportverpackung: '.print_r($t_packaging, true));
+			if ($t_packaging['no'] == '') $error['no'] = 'Nummer darf nicht leer sein!';
 			if ($t_packaging['transport_packaging'] == '') $error['transport_packaging'] = 'Verpackung darf nicht leer sein';
 			if ($t_packaging['weight'] == '') $error['weight'] = 'Es muss ein Gewicht angegeben werden';
 			$this->logger->info('Fehler: '.print_r($error, true));
