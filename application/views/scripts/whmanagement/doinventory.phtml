@@ -1,8 +1,44 @@
 ﻿<script>
+function switchFocus(focus, direction) {
+	switch (direction) {
+		case 'left'		: focus = focus-1; break;
+		case 'right'	: focus = focus+1; break;
+		case 'down'		: focus = focus+20; break;
+		case 'up'		: focus = focus-20; break;
+	}
+	if (focus>0) {
+		fields = document.getElementById('inventory_lines').getElementsByTagName('*');
+		cnt = 0;
+		for (cnt=0; cnt<fields.length; cnt++) {
+			if (fields[cnt].hasAttribute('tabindex') && (fields[cnt].tabIndex >= focus)) {
+				fields[cnt].focus();
+				break;
+			}
+		}
+	}
+}
+
+function handleKeyDown(e, field) {
+	switch (e.keyCode) {
+		case 13 :	switchFocus(field.tabIndex, 'right');
+					break;
+//		case 37 :	switchFocus(field.tabIndex, 'left');
+//					break;
+//		case 38 :	switchFocus(field.tabIndex, 'up');
+//					break;
+//		case 39 :	switchFocus(field.tabIndex, 'right');
+//					break;
+//		case 40 :	switchFocus(field.tabIndex, 'down');
+//					break;
+	}
+}
+
+
+
 function buildRow(curRow, inventory, add)
 {
 	add = add || false;
-	
+	rowIndex = curRow.sectionRowIndex;
 	curRow.id = inventory.No;
 	var sufix = inventory.No+'_'+inventory.inventory_head+'_'+inventory.inbound_line;
 	var cell0 = curRow.insertCell(0);
@@ -25,7 +61,9 @@ function buildRow(curRow, inventory, add)
 		itemsInp.type = 'number';
 		itemsInp.min = 1;
 		itemsInp.max = 999;
+		itemsInp.tabIndex = ((rowIndex)*40)+21;
 		itemsInp.value = inventory.items;
+		itemsInp.onkeydown = function() { handleKeyDown(event, this); }
 		
 		var wiInp = document.createElement('input');
 		wiInp.name = 'weight_item_'+sufix;
@@ -33,7 +71,9 @@ function buildRow(curRow, inventory, add)
 		wiInp.type = 'number';
 		wiInp.min = 1;
 		wiInp.max = 9999;
+		wiInp.tabIndex = ((rowIndex)*40)+22;
 		wiInp.value = inventory.weight_item;
+		wiInp.onkeydown = function() { handleKeyDown(event, this); }
 		cell2.appendChild(itemsInp);
 		cell2.appendChild(document.createTextNode('x'));
 		cell2.appendChild(wiInp);
@@ -52,6 +92,8 @@ function buildRow(curRow, inventory, add)
 		t_pack_select.name = 't_packaging_'+sufix;
 		t_pack_select.id = 't_packaging_'+sufix;
 		t_pack_select.value = inventory.t_packaging;
+		t_pack_select.tabIndex = ((rowIndex)*40)+23;
+		t_pack_select.onkeydown = function() { handleKeyDown(event, this); }
 		cell4.appendChild(t_pack_select);
 	} else {
 		cell4.innerHTML = inventory.t_packaging;
@@ -63,6 +105,8 @@ function buildRow(curRow, inventory, add)
 		packaging_select.name = 'packaging_'+sufix;
 		packaging_select.id = 'packaging_'+sufix;
 		packaging_select.value = inventory.packaging;
+		packaging_select.tabIndex = ((rowIndex)*40)+24;
+		packaging_select.onkeydown = function() { handleKeyDown(event, this); }
 		cell5.appendChild(packaging_select);
 	} else {
 		cell5.innerHTML = inventory.packaging_desc;
@@ -75,6 +119,8 @@ function buildRow(curRow, inventory, add)
 		label_select.name = 'label_'+sufix;
 		label_select.id = 'label_'+sufix;
 		label_select.value = inventory.label;
+		label_select.tabIndex = ((rowIndex)*40)+25;
+		label_select.onkeydown = function() { handleKeyDown(event, this); }
 		cell6.appendChild(label_select);
 	} else {
 		cell6.innerHTML = inventory.label_desc;
@@ -89,6 +135,8 @@ function buildRow(curRow, inventory, add)
 		lot_input.id = 'inb_lot_'+sufix;
 		lot_input.size = 10;
 		lot_input.value = inventory.inb_lot;
+		lot_input.tabIndex = ((rowIndex)*40)+26;
+		lot_input.onkeydown = function() { handleKeyDown(event, this); }
 		cell7.appendChild(lot_input);
 	} else {
 		cell7.innerHTML = inventory.inb_lot;
@@ -105,7 +153,9 @@ function buildRow(curRow, inventory, add)
 	roomSelect.name = 'room_'+sufix;
 	roomSelect.id = 'room_'+sufix;
 	roomSelect.value = inventory.room;
+	roomSelect.tabIndex = (add) ? ((rowIndex)*40)+27 : ((rowIndex+1)*40)+7;
 	roomSelect.onchange = '';
+	roomSelect.onkeydown = function() { handleKeyDown(event, this); }
 	cell10.appendChild(roomSelect); 
 	var cell11 = curRow.insertCell(11);
 	cell11.className = 'data';
@@ -115,6 +165,8 @@ function buildRow(curRow, inventory, add)
 	input_rack.type = 'text';
 	input_rack.size = 4;
 	input_rack.value = inventory.rack;
+	input_rack.tabIndex = (add) ? ((rowIndex)*40)+28 : ((rowIndex+1)*40)+8;
+	input_rack.onkeydown = function() { handleKeyDown(event, this); }
 	cell11.appendChild(input_rack);
 	var cell12 = curRow.insertCell(12);
 	cell12.className = 'data';
@@ -125,7 +177,9 @@ function buildRow(curRow, inventory, add)
 	input_TU_pallet.min = 0;
 	input_TU_pallet.max = 999;
 	input_TU_pallet.value = inventory.tu_pallet;
+	input_TU_pallet.tabIndex = (add) ? ((rowIndex)*40)+29 : ((rowIndex+1)*40)+9;
 	input_TU_pallet.onchange = function() { calcTU(this); };
+	input_TU_pallet.onkeydown = function() { handleKeyDown(event, this); }
 	cell12.appendChild(input_TU_pallet);
 	var cell13 = curRow.insertCell(13);
 	cell13.className = 'data';
@@ -136,7 +190,9 @@ function buildRow(curRow, inventory, add)
 	input_pallets.min = 0;
 	input_pallets.max = 99;
 	input_pallets.value = inventory.pallets;
+	input_pallets.tabIndex = (add) ? ((rowIndex)*40)+30 : ((rowIndex+1)*40)+10;
 	input_pallets.onchange = function() { calcTU(this); };
+	input_pallets.onkeydown = function() { handleKeyDown(event, this); }
 	cell13.appendChild(input_pallets);
 	var cell14 = curRow.insertCell(14);
 	cell14.className = 'data';
@@ -148,12 +204,16 @@ function buildRow(curRow, inventory, add)
 	input_tradingUnits.max = 9999;
 	input_tradingUnits.value = inventory.trading_units;
 	input_tradingUnits.defaultValue = inventory.trading_units;
+	input_tradingUnits.tabIndex = (add) ? ((rowIndex)*40)+31 : ((rowIndex+1)*40)+11;
 	input_tradingUnits.onchange = function() { sendInventory(this); };
+	input_tradingUnits.onkeydown = function() { handleKeyDown(event, this); }
 	cell14.appendChild(input_tradingUnits);
 	var cell15 = curRow.insertCell(15);
 	var link = document.createElement('a');
 	link.onclick = function() { addLine(sufix) };
+	link.onkeydown = function() { handleKeyDown(event, this); }
 	link.innerHTML = '<img src="/images/60.ico" alt="hinzufügen" title="hinzufügen" />';
+	link.tabIndex = (add) ? ((rowIndex+1)*40)+32 : ((rowIndex+1)*40)+12;
 	cell15.appendChild(link);
 }
 
@@ -291,9 +351,9 @@ function sendInventory(element, overwrite)
 						TU_pallet.id = 'tu_pallet_'+newSufix;
 						trading_units.name = 'trading_units_'+newSufix;
 						trading_units.id = 'trading_units_'+newSufix;
-						setTimeout(filterInventoryLines(), 2000);
-//						trading_units.focus();
-						trading_units.select();
+					//	filterInventoryLines();
+					//	setTimeout(document.getElementById('trading_units_'+newSufix).focus(), 2000);
+					//	trading_units.select();
 					}
 				} else {
 					errorText = '';
@@ -396,6 +456,12 @@ function addLine(sufix)
 	document.getElementById('pallets_'+newSufix).focus();
 	document.getElementById('pallets_'+newSufix).select();
 }
+
+function closeInventory()
+{
+	if (confirm('Die Zählung wird beendet und es können keine weiteren Werte erfaßt werden!'))
+		location.href='/whmanagement/closeinventory/No/<?php echo $this->params['inventory_head']['No']; ?>';
+}
 	
 </script>
 <?php $rooms = $this->params['rooms']; ?>
@@ -413,7 +479,7 @@ function addLine(sufix)
 <?php endif ?>
 <?php if (isset($inventory_head['No'])) : ?>
 <h3>Zählung <span id="head_no"><?php echo $inventory_head['No']; ?></span> vom <span id="head_date"><?php echo $inventory_head['date']; ?></span></h3>
-<button id="inventory_close" onclick="location.href='/whmanagement/closeinventory/No/<?php echo $inventory_head['No']; ?>'">Zählung beenden</button>
+<button id="inventory_close" onclick="closeInventory()">Zählung beenden</button>
 <?php endif ?>
 <div class="data_container">
 <select name="int_t_packaging" id="int_t_packaging">
@@ -441,13 +507,13 @@ function addLine(sufix)
 	<td>Raum</td>
 </tr>
 <tr>
-	<td><input type="text" id="filter_position" name="filter_position" accesskey="O" value="" size="10" onchange="filterInventoryLines()" /></td>
-	<td><select id="filter_product" name="filter_product" accesskey="p" onchange="filterInventoryLines()">
+	<td><input type="text" id="filter_position" name="filter_position" accesskey="O" tabindex="1" value="" size="10" onchange="filterInventoryLines()" /></td>
+	<td><select id="filter_product" name="filter_product" accesskey="p" tabindex="2" onchange="filterInventoryLines()">
 	<?php foreach ($products as $product) : ?>
 	<option value="<?php echo $product['No']; ?>"<?php if ($product['No']==$filter['product']) echo " selected"; ?>><?php echo $product['product']; ?></option>
 	<?php endforeach ?>
 	</select></td>
-	<td><select id="filter_room" name="filter_room" accesskey="r" onchange="filterInventoryLines()">
+	<td><select id="filter_room" name="filter_room" accesskey="r" tabindex="3" onchange="filterInventoryLines()">
 	<?php foreach ($rooms as $room) : ?>
 	<option value="<?php echo $room['No']; ?>"<?php if ($room['No']==$filter['room']) echo " selected"; ?>><?php echo $room['room']; ?></option>
 	<?php endforeach ?>
@@ -467,7 +533,7 @@ function addLine(sufix)
 	<th class="data">Etikett</th>
 	<th class="data">Los</th>
 	<th class="data">Datum</th>
-	<th class="data">Sollbestand</th>
+	<th class="data">Lieferant</th>
 	<th class="data">Raum</th>
 	<th class="data">Regal</th>
 	<th class="data">Kol/Pal</th>
@@ -477,6 +543,7 @@ function addLine(sufix)
 </tr>
 </thead>
 <tbody>
+<?php $row = 0; ?>
 <?php foreach ($inventory_lines as $inventory_line) : ?>
 <?php if ($inventory_line['No'] == '') $inventory_line['No'] = 0; ?>
 <?php $sufix = $inventory_line['No'].'_'.$inventory_head['No'].'_'.$inventory_line['inbound_line']; ?>
@@ -491,18 +558,19 @@ function addLine(sufix)
 	<td class="data"><?php echo $inventory_line['inb_lot']; ?></td>
 	<td class="data"><?php echo date('d.m.Y',strtotime($inventory_line['inb_arrival'])); ?></td>
 	<td class="data"><?php echo $inventory_line['vendor_name']; ?></td>
-	<td class="data"><select id="room_<?php echo $sufix; ?>" name="room_<?php echo $sufix; ?>">
+	<td class="data"><select id="room_<?php echo $sufix; ?>" name="room_<?php echo $sufix; ?>" tabindex="<?php echo (($row+1)*40)+7; ?>" onkeydown="handleKeyDown(event, this)">
 					<?php foreach ($rooms as $room) : ?>
 					<option value="<?php echo $room['No']; ?>"<?php if ($room['No']==$inventory_line['room']) echo " selected";?>><?php echo $room['room']; ?></option>
 					<?php endforeach ?>
 					</select>
 	</td>
-	<td class="data"><input type="text" id="rack_<?php echo $sufix; ?>" name="rack_<?php echo $sufix; ?>" value="<?php echo $inventory_line['rack']; ?>" size="4" />
-	<td class="data"><input type="number" id="tu_pallet_<?php echo $sufix; ?>" name="tu_pallet_<?php echo $sufix; ?>" value="<?php echo $inventory_line['tu_pallet']; ?>" min="0" max="999" onchange="calcTU(this)" />
-	<td class="data"><input type="number" id="pallets_<?php echo $sufix; ?>" name="pallets_<?php echo $sufix; ?>" value="<?php echo $inventory_line['pallets']; ?>" min="0" max="99" onchange="calcTU(this)" />
-	<td class="data"><input type="number" id="trading_units_<?php echo $sufix; ?>" name="trading_units_<?php echo $sufix; ?>" value="<?php echo $inventory_line['trading_units']; ?>" defaultValue="<?php echo $inventory_line['trading_units']; ?>" min="0" max="9999" onchange="sendInventory(this)" />
-	<td><a onclick="addLine('<?php echo $sufix; ?>')"><img src="/images/60.ico" alt="hinzufügen" title="hinzufügen" /></a></td>
+	<td class="data"><input type="text" id="rack_<?php echo $sufix; ?>" name="rack_<?php echo $sufix; ?>" value="<?php echo $inventory_line['rack']; ?>" size="4" tabindex="<?php echo (($row+1)*40)+8; ?>" onkeydown="handleKeyDown(event, this)" />
+	<td class="data"><input type="number" id="tu_pallet_<?php echo $sufix; ?>" name="tu_pallet_<?php echo $sufix; ?>" value="<?php echo $inventory_line['tu_pallet']; ?>" min="0" max="999" tabindex="<?php echo (($row+1)*40)+9; ?>" onchange="calcTU(this)" onkeydown="handleKeyDown(event, this)" />
+	<td class="data"><input type="number" id="pallets_<?php echo $sufix; ?>" name="pallets_<?php echo $sufix; ?>" value="<?php echo $inventory_line['pallets']; ?>" min="0" max="99" tabindex="<?php echo (($row+1)*40)+10; ?>" onchange="calcTU(this)" onkeydown="handleKeyDown(event, this)" />
+	<td class="data"><input type="number" id="trading_units_<?php echo $sufix; ?>" name="trading_units_<?php echo $sufix; ?>" value="<?php echo $inventory_line['trading_units']; ?>" defaultValue="<?php echo $inventory_line['trading_units']; ?>" min="0" max="9999" tabindex="<?php echo (($row+1)*40)+11; ?>" onchange="sendInventory(this)"  onkeydown="handleKeyDown(event, this)" />
+	<td><a tabIndex="<?php echo (($row+1)*40)+12; ?>" onkeydown="handleKeyDown(event, this)" onclick="addLine('<?php echo $sufix; ?>')"><img src="/images/60.ico" alt="hinzufügen" title="hinzufügen" /></a></td>
 </tr>
+<?php $row++; ?>
 <?php endforeach ?>
 </tbody>
 </table>
