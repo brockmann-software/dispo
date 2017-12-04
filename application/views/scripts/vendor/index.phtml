@@ -55,13 +55,15 @@ function searchKeyPress(e)
 <?php
 function setOrderAttr($orderParams, $field)
 {
-	return (isset($orderParams['field']) && ($orderParams['field']==$field) ? 'data-column-order="'.$orderParams['orientation'].'"' : '';
+	return isset($orderParams['field']) && ($orderParams['field']==$field) ? 'data-column-order="'.$orderParams['orientation'].'"' : '';
 }
 
 function setOrderImg($orderParams, $field)
 {
-	if isset($orderParams['field'] && $orderParams['field']==$field) {
-		return (upper($orderParams['orientation'])=='ASC') ? '<img id="order_img" src="/images/s_asc.png" />' : 
+	if (isset($orderParams['field']) && $orderParams['field']==$field) {
+		return (upper($orderParams['orientation'])=='ASC') ? '<img id="order_img" src="/images/s_asc.png" />' : '<img i="order_img" src="/images/s_desc.png" />';
+	}
+}
 ?>
 <?php $vendor_count = $this->vendor_count; ?>
 <?php $pages = floor($vendor_count/25) + 1; ?>

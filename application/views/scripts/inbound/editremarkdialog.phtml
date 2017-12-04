@@ -1,0 +1,12 @@
+<script>
+function closeWindow()
+{
+	window.opener.popupFinished();
+}
+</script>
+<form action="" method="post">
+<input type="hidden" name="No" value="<?php echo $this->data['No']; ?>" />
+<textarea name="remarks_on_inventory" id="remarks_on_inventory" style="width: 95%; hight: 4em; resize: horizontal;"><?php echo $this->data['remarks_on_inventory']; ?></textarea>
+<button type="submit" name="save">Speichern</button>
+</form>
+<?php if (isset($this->errors['no_error'])) : ?><script>closeWindow();</script><?php endif ?>

@@ -58,5 +58,4 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
 		$adapter = new Zend_Auth_Adapter_DbTable($db, 'user', 'username', 'password', 'MD5(?)');
 		Zend_Registry::set('auth', $auth);
 	}
-		
 }

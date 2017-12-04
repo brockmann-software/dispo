@@ -8,6 +8,7 @@
 <th class="data">Status</th>
 <th class="data">Begonnen</th>
 <th class="data">Beendet</th>
+<th class="data">Einträge</th>
 </thead>
 <tbody>
 <?php foreach ($inventory_heads as $data) : ?>
@@ -16,9 +17,10 @@
 					<?php else : ?><a href="/whmanagement/printcountlist/No/<?php echo $data['No'] ?>"><img title="Zählliste drucken" alt="drucken" src="/images/b_print.png" /></a><a href="/whmanagement/doinventory/No/<?php echo $data['No'] ?>"><img title="count" alt="Zählen" src="/images/b_dbstatistics.png" /></a>
 					<?php endif ?>					
 					<?php echo $data['date']; ?></td>
-	<td class="data"><?php echo $data['state']; ?></td>
-	<td class="data"><?php echo $data['started']; ?></td>
-	<td class="data"><?php echo $data['ended']; ?></td>
+	<td class="data"><?php echo $data['state_desc']; ?></td>
+	<td class="data"><?php echo date('d.m.Y H:i', strtotime($data['started'])); ?></td>
+	<td class="data"><?php echo (is_null($data['ended'])) ? '' : date('d.m.Y H:i', strtotime($data['ended'])); ?></td>
+	<td class="data"><?php echo $data['inventories_with_stock']; ?></td>
 </tr>
 <?php endforeach ?>
 </tbody>

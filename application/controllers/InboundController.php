@@ -492,6 +492,36 @@ class inboundController extends Zend_Controller_Action
 		$this->view->params=$params;
 	}
 	
+	public function editremarkdialogAction()
+	{
+		$cur_inb_line =array();
+		$errors = array();
+		if ($this->getRequest()->isPost()) {
+			isset($_POST['No']) ? $No = $_POST['No'] : $No = 0;
+			isset($_POST['remarks_on_inventory']) ? $remarks_on_inventory = $_POST['remarks_on_inventory'] : $remarks_on_inventory = '';
+			if ($No==0) $errors['No'] = 'Kein Wareneingang übergeben!';
+			if (count($errors)==0) {
+				try {
+					$this->db->query('UPDATE inbound_line SET remarks_on_inventory = :remarks WHERE No = :no', array('remarks'=>$remarks_on_inventory, 'no'=>$No));
+					$this->logger->info("Kommentare zu inbound_line {$No} wurden gespeichert");
+					$errors['no_error'] = 'Kein Fehler';
+				} catch (Exception $e) {
+					$errors['all'] = 'Kommentare wurden nicht gespeichert!';
+					$this->logger->err('Kommentare nicht gespeichert! '.$e->getMessage());
+				}
+			}
+		}
+		if ($this->hasParam('No')) {
+			$inbound_line = $this->db->query('SELECT * FROM v_inb_line WHERE No = ?', $this->getParam('No'))->fetchAll();
+			if (count($inbound_line)>0) $cur_inb_line = $inbound_line[0]; else $errors['all'] = 'Kein Wareneingang gefunden!';
+		}
+		$this->view->data = $cur_inb_line;
+		$this->view->errors = $errors;
+		$layout = $this->_helper->layout();
+		$layout->setLayout('dialog_layout');
+	}
+
+	
 	public function editpicturesAction()
 	{
 		$errors = array();
@@ -763,6 +793,7 @@ class inboundController extends Zend_Controller_Action
 			$inbound_line['inbound']=$inbound['No'];
 			$inbound_line['purchase_order']=$inbound['purchase_order'];
 			$inbound_line['po_line']=$purchase_order_line['No'];
+			$inbound_line['remarks_on_inventory'] = '';
 			
 			//Felder im Formular mit den gesendeten Inhalten wieder vorbelegen, falls ein Fehler auftritt
 			$inbound_sheet=array(

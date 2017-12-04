@@ -6,7 +6,7 @@ class WhmanagementController extends Zend_Controller_Action
 	
 	private function loadDependencies($filter=true)
 	{
-		$dependencies['rooms'] = $this->db->query('SELECT * FROM room WHERE stock_location = 1')->fetchAll();
+		$dependencies['rooms'] = $this->db->query('SELECT * FROM room WHERE stock_location = 1 ORDER BY room')->fetchAll();
 		if ($filter) $dependencies['rooms'][count($dependencies['rooms'])] = array('No'=>0, 'room'=>'--alle--', 'stock_location'=>1);
 		$dependencies['products'] = $this->db->query('SELECT * FROM product')->fetchAll();
 		if ($filter) $dependencies['products'][count($dependencies['products'])] = array('No'=>'', 'product'=>'--alle--');
@@ -32,7 +32,7 @@ class WhmanagementController extends Zend_Controller_Action
 	public function indexAction()
 	{
 		($this->hasParam('error')) ? $errors['all'] = $this->getParam('error') : $errors = array();
-		$inventory_heads = $this->db->query('SELECT * FROM inventory_head');
+		$inventory_heads = $this->db->query('SELECT * FROM v_inventory_head');
 		$this->view->data = $inventory_heads;
 		$this->view->errors = $errors;
 	}
@@ -44,11 +44,14 @@ class WhmanagementController extends Zend_Controller_Action
 	public function printAction()
 	{
 		if (!$this->hasParam('No')) $this->_redirect('/whmanagement/index/error/Keine%20Zählung%20übergeben');
-		$inventories = $this->db->query('SELECT * FROM v_inventory_summery WHERE state = 2 AND stock<>0 AND inventory_head = ? ORDER BY product, items, weight_item, brand_no, packaging, quality, inb_arrival, position', $this->getParam('No'))->fetchAll();
-		if (count($inventories)==0) $this->_redirect('/whmanagement/index/error/Die%20Zählung%20ist%20noch%20nicht%20abgeschlossen!');
-		$filename = "Bestand ".date('d.m.Y', strtotime($inventories[0]['inv_date']))." ".date('H_i', strtotime($inventories[0]['inv_date'])).".pdf";
+		$inventories = $this->db->query('SELECT * FROM v_inventory_summery WHERE state = 2 AND stock<>0 AND inventory_head = ? ORDER BY product, items, weight_item, brand_no, packaging, quality, inb_arrival, position', $this->getParam('No'));
+		while ($inventory[] = $inventories->fetch()) {
+			$inventory[count($inventory)-1]['remarks'].= ($inventory[count($inventory)-1]['remarks_on_inventory']!='') ? '\n'.$inventory[count($inventory)-1]['remarks_on_inventory'] : '';
+		}
+		if (count($inventory)==0) $this->_redirect('/whmanagement/index/error/Die%20Zählung%20ist%20noch%20nicht%20abgeschlossen!');
+		$filename = "Bestand ".date('d.m.Y', strtotime($inventory[0]['inv_date']))." ".date('H_i', strtotime($inventory[0]['inv_date'])).".pdf";
 		$filepath = realpath($this->config->report->inventory);
-		$this->view->inventories = $inventories;
+		$this->view->inventories = $inventory;
 		$this->view->filename = $filename;
 		$this->view->filepath = $filepath;
 		$layout = $this->_helper->layout();		

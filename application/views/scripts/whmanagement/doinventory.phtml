@@ -1,4 +1,14 @@
 ﻿<script>
+notIEPopup = null;
+
+function popupFinished()
+{
+	if (notIE_popup != null)  {
+		notIE_popup.close();
+		notIE_popup = null;
+	}
+}
+
 function switchFocus(focus, direction) {
 	switch (direction) {
 		case 'left'		: focus = focus-1; break;
@@ -209,12 +219,18 @@ function buildRow(curRow, inventory, add)
 	input_tradingUnits.onkeydown = function() { handleKeyDown(event, this); }
 	cell14.appendChild(input_tradingUnits);
 	var cell15 = curRow.insertCell(15);
-	var link = document.createElement('a');
-	link.onclick = function() { addLine(sufix) };
-	link.onkeydown = function() { handleKeyDown(event, this); }
-	link.innerHTML = '<img src="/images/60.ico" alt="hinzufügen" title="hinzufügen" />';
-	link.tabIndex = (add) ? ((rowIndex+1)*40)+32 : ((rowIndex+1)*40)+12;
-	cell15.appendChild(link);
+	var linkAdd = document.createElement('a');
+	linkAdd.onclick = function() { addLine(sufix) };
+	linkAdd.onkeydown = function() { handleKeyDown(event, this); }
+	linkAdd.innerHTML = '<img src="/images/60.ico" alt="hinzufügen" title="hinzufügen" />';
+	linkAdd.tabIndex = (add) ? ((rowIndex+1)*40)+32 : ((rowIndex+1)*40)+12;
+	var linkRemark = document.createElement('a');
+	linkRemark.onclick = function() { editRemark(sufix); };
+	linkRemark.onkeydown = function() { handleKeyDown(event, this); };
+	linkRemark.innerHTML = '<img src="/images/remark16x16.png" alt="Bemerkung" title="Bemerkung" />';
+	linkRemark.tabIndex = (add) ? ((rowIndex+1)*40)+33 : ((rowIndex+1)*40)+13;
+	cell15.appendChild(linkAdd);
+	cell15.appendChild(linkRemark);
 }
 
 function filterInventoryLines()
@@ -462,6 +478,14 @@ function closeInventory()
 	if (confirm('Die Zählung wird beendet und es können keine weiteren Werte erfaßt werden!'))
 		location.href='/whmanagement/closeinventory/No/<?php echo $this->params['inventory_head']['No']; ?>';
 }
+
+function editRemark(sufix)
+{
+	var items = sufix.split('_');
+	
+	URI = '/inbound/editremarkdialog/No/'+items[2];
+	notIE_popup = window.open(URI, 'Bemerkungen', 'dialogWidth=600px;dialogHeight=400px;diologLeft=0;dialogTop=100;resizable=yes;scroll=yes');
+}
 	
 </script>
 <?php $rooms = $this->params['rooms']; ?>
@@ -568,7 +592,8 @@ function closeInventory()
 	<td class="data"><input type="number" id="tu_pallet_<?php echo $sufix; ?>" name="tu_pallet_<?php echo $sufix; ?>" value="<?php echo $inventory_line['tu_pallet']; ?>" min="0" max="999" tabindex="<?php echo (($row+1)*40)+9; ?>" onchange="calcTU(this)" onkeydown="handleKeyDown(event, this)" />
 	<td class="data"><input type="number" id="pallets_<?php echo $sufix; ?>" name="pallets_<?php echo $sufix; ?>" value="<?php echo $inventory_line['pallets']; ?>" min="0" max="99" tabindex="<?php echo (($row+1)*40)+10; ?>" onchange="calcTU(this)" onkeydown="handleKeyDown(event, this)" />
 	<td class="data"><input type="number" id="trading_units_<?php echo $sufix; ?>" name="trading_units_<?php echo $sufix; ?>" value="<?php echo $inventory_line['trading_units']; ?>" defaultValue="<?php echo $inventory_line['trading_units']; ?>" min="0" max="9999" tabindex="<?php echo (($row+1)*40)+11; ?>" onchange="sendInventory(this)"  onkeydown="handleKeyDown(event, this)" />
-	<td><a tabIndex="<?php echo (($row+1)*40)+12; ?>" onkeydown="handleKeyDown(event, this)" onclick="addLine('<?php echo $sufix; ?>')"><img src="/images/60.ico" alt="hinzufügen" title="hinzufügen" /></a></td>
+	<td><a tabIndex="<?php echo (($row+1)*40)+12; ?>" onkeydown="handleKeyDown(event, this)" onclick="addLine('<?php echo $sufix; ?>')"><img src="/images/60.ico" alt="hinzufügen" title="hinzufügen" /></a>
+		<a tabindex="<?php echo (($row+1)*40)+13; ?>" onkeydown="handleKeyDown(event, this)" onclick="editRemark('<?php echo $sufix; ?>')"><img src="/images/remark16x16.png" alt="Bemerkung" title="Bemerkung" /></a></td>
 </tr>
 <?php $row++; ?>
 <?php endforeach ?>
