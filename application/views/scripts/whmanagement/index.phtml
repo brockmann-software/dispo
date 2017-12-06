@@ -1,3 +1,30 @@
+<script>
+var actReport = null;
+$( function() {
+	dialog = $("#dialog").dialog({
+		autoOpen: false, 
+		modal:true,
+		buttons: {
+			'drucken': print,
+			Cancel: function() {dialog.dialog("close");}
+		}
+	});
+})
+function doPrint(element)
+{
+	$('#dialog').dialog('open');
+	actReport = element.parentNode.parentNode.id;
+}
+
+function print()
+{
+	$('#dialog').dialog("close");
+	print_option = document.getElementById('select_print').value;
+	sufix = '';
+	if (print_option==1) sufix = '/blocked/0'; else if (print_option==2) sufix='/blocked/1';
+	window.location = '/whmanagement/print/No/'+actReport+sufix;
+}
+</script>
 <?php if (isset($this->errors['all'])) : ?><div class="error"><?php echo $this->errors['all']; ?></div><?php endif ?>
 <a href="/whmanagement/doinventory/">Neue Zählung beginnen</a>
 <hr />
@@ -12,8 +39,8 @@
 </thead>
 <tbody>
 <?php foreach ($inventory_heads as $data) : ?>
-<tr>
-	<td class="data"><?php if ($data['state']==2) : ?><a href="/whmanagement/print/No/<?php echo $data['No'] ?>"><img title="Bestand drucken" alt="drucken" src="/images/b_print.png" /></a>
+<tr id="<?php echo $data['No']; ?>">
+	<td class="data"><?php if ($data['state']==2) : ?><a onclick="doPrint(this)"><img title="Bestand drucken" alt="drucken" src="/images/b_print.png" /></a>
 					<?php else : ?><a href="/whmanagement/printcountlist/No/<?php echo $data['No'] ?>"><img title="Zählliste drucken" alt="drucken" src="/images/b_print.png" /></a><a href="/whmanagement/doinventory/No/<?php echo $data['No'] ?>"><img title="count" alt="Zählen" src="/images/b_dbstatistics.png" /></a>
 					<?php endif ?>					
 					<?php echo $data['date']; ?></td>
@@ -27,3 +54,13 @@
 </table>
 <hr />
 <a href="/whmanagement/doinventory/">Neue Zählung beginnen</a>
+<div id="dialog" title="Druckauswahl">
+<p>Wähle die Artikel</p>
+<form id="print_selection">
+<select id="select_print" name="select_print">
+<option value="0">Alle Artikel</option>
+<option value="1">Nur freie</option>
+<option value="2">nur gesperrte</option>
+</select>
+</form>
+</div>

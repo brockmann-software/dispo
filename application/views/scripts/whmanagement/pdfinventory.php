@@ -21,9 +21,13 @@ if (!file_exists(realpath($this->filepath.'\\'.$this->filename))) try {
 	$headCol[1]->setText('Warenbestandsliste');
 	
 	$headCol[2] = new My_Pdf_Table_Column();
-//	$headCol[2]->setWidth(array(8, 'cm'));
+	$headCol[2]->setWidth(array(4, 'cm'));
 	$headCol[2]->setFont($fontBold, 12);
-	$headCol[2]->setText(" Zählung {$this->inventories[0]['inventory_head']} vom ".date('d.m.Y H:i', strtotime($this->inventories[0]['inv_date'])));
+	$headCol[2]->setText("Zählung {$this->inventories[0]['inventory_head']} vom ".date('d.m.Y H:i', strtotime($this->inventories[0]['inv_date'])));
+
+	$headCol[3] = new My_Pdf_Table_Column();
+	$headCol[3]->setFont($fontBold, 12);
+	$headCol[3]->setText($this->sufix);
 
 	$headRow->setColumns($headCol);
 	$headerTable->addRow($headRow);
@@ -113,6 +117,18 @@ if (!file_exists(realpath($this->filepath.'\\'.$this->filename))) try {
 	$column->setColumnAlign(My_Pdf::CENTER);
 	$columns[] = $column;
 
+	$column = new My_Pdf_Report_Column('room', 'KH', array(0.4, 'cm'));
+	$column->setHeaderStyle($headerStyle);
+	$column->setBodyStyle($bodyStyle);
+	$column->setColumnAlign(My_Pdf::CENTER);
+	$columns[] = $column;
+	
+	$column = new My_Pdf_Report_Column('rack', 'Rg', array(0.4, 'cm'));
+	$column->setHeaderStyle($headerStyle);
+	$column->setBodyStyle($bodyStyle);
+	$column->setColumnAlign(My_Pdf::CENTER);
+	$columns[] = $column;
+	
 	$column = new My_Pdf_Report_Column('tu_pallet', 'Kol / Pal', array(0.8, 'cm'));
 	$column->setHeaderStyle($headerStyle);
 	$column->setBodyStyle($bodyStyle);
@@ -132,6 +148,12 @@ if (!file_exists(realpath($this->filepath.'\\'.$this->filename))) try {
 	$columns[] = $column;
 		
 	$column = new My_Pdf_Report_Column('grade_weighted', 'QC', array(0.5, 'cm'));
+	$column->setHeaderStyle($headerStyle);
+	$column->setBodyStyle($bodyStyle);
+	$column->setColumnAlign(My_Pdf::CENTER);
+	$columns[] = $column;
+	
+	$column = new My_Pdf_Report_Column('blocked', 'X', array(0.3, 'cm'), array('boolean', 'X', ''));
 	$column->setHeaderStyle($headerStyle);
 	$column->setBodyStyle($bodyStyle);
 	$column->setColumnAlign(My_Pdf::CENTER);

@@ -3,7 +3,10 @@ echo $this->doctype();
 $this->headTitle()->setSeparator(' - ');
 $this->headTitle('MVS Dispo', 'PREPEND');
 $this->headLink()->appendStylesheet('/css/styles.css', 'all');
+$this->headLink()->appendStylesheet('/js/jquery-ui-1.12.1.custom/jquery-ui.min.css');
 $this->headScript()->appendFile('/js/bs_scripts.js');
+$this->headScript()->appendFile('/js/jquery-3.2.1.js');
+$this->headScript()->appendFile('/js/jquery-ui-1.12.1.custom/jquery-ui.min.js');
 $this->headMeta()->appendName('description', 'A brief description of the site.');
 $this->headMeta()->appendHttpEquiv('Content-Type', 'text/html;charset=utf-8');
 $this->headMeta()->appendHttpEquiv('Content-Language', 'de-DE');
@@ -26,7 +29,7 @@ echo $this->headScript();
 </div>
 <div id="navi">
 	<?php echo $this->menuHelper(array('onlyActiveBranch'=>true)); ?>
-	<?php //$this->navigation->menu() ?>
+	<?php //$this->navigation()->menu() ?>
 </div>
 <!-- end header -->
 <!-- start page -->

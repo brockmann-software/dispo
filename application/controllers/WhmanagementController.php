@@ -43,17 +43,30 @@ class WhmanagementController extends Zend_Controller_Action
 	
 	public function printAction()
 	{
+		$query_blocked = '';
+		$sufix = '-alle';
 		if (!$this->hasParam('No')) $this->_redirect('/whmanagement/index/error/Keine%20Zählung%20übergeben');
-		$inventories = $this->db->query('SELECT * FROM v_inventory_summery WHERE state = 2 AND stock<>0 AND inventory_head = ? ORDER BY product, items, weight_item, brand_no, packaging, quality, inb_arrival, position', $this->getParam('No'));
-		while ($inventory[] = $inventories->fetch()) {
-			$inventory[count($inventory)-1]['remarks'].= ($inventory[count($inventory)-1]['remarks_on_inventory']!='') ? '\n'.$inventory[count($inventory)-1]['remarks_on_inventory'] : '';
+		if ($this->hasParam('blocked')) {
+			$blocked = $this->getParam('blocked');
+			$query_blocked = " AND blocked='{$blocked}'";
+			$sufix = ($blocked==1) ? '-gesperrte' : '-freie';
+			$this->logger->info('Blocked: '.print_r($blocked, true));
+		}
+		$inventories = $this->db->query('SELECT * FROM v_inventory_summery WHERE state = 2 AND stock<>0'.$query_blocked.' AND inventory_head = ? ORDER BY product, items, weight_item, brand_no, packaging, quality, inb_arrival, position', $this->getParam('No'));
+		while ($inv = $inventories->fetch()) {
+			$inv['remarks'].= ($inv['remarks_on_inventory']!='') ? ' '.$inv['remarks_on_inventory'] : '';
+			$this->logger->info('Bemerkungen: '.print_r($inv['remarks'], true));
+			$this->logger->info('Bemerkungen Zählung: '.print_r($inv['remarks_on_inventory'], true));
+			$this->logger->info(print_r($inv, true));
+			$inventory[] = $inv;
 		}
 		if (count($inventory)==0) $this->_redirect('/whmanagement/index/error/Die%20Zählung%20ist%20noch%20nicht%20abgeschlossen!');
-		$filename = "Bestand ".date('d.m.Y', strtotime($inventory[0]['inv_date']))." ".date('H_i', strtotime($inventory[0]['inv_date'])).".pdf";
+		$filename = "Bestand ".date('d.m.Y', strtotime($inventory[0]['inv_date']))." ".date('H_i', strtotime($inventory[0]['inv_date'])).$sufix.".pdf";
 		$filepath = realpath($this->config->report->inventory);
 		$this->view->inventories = $inventory;
 		$this->view->filename = $filename;
 		$this->view->filepath = $filepath;
+		$this->view->sufix = $sufix;
 		$layout = $this->_helper->layout();		
 		$layout->setLayout('pdf_layout');
 		$this->renderScript('/whmanagement/pdfinventory.php');
@@ -129,7 +142,8 @@ class WhmanagementController extends Zend_Controller_Action
 					$sql.= ' level,';
 					$sql.= ' pallets,';
 					$sql.= ' tu_pallet,';
-					$sql.= ' trading_units)';
+					$sql.= ' trading_units,';
+					$sql.= ' blocked)';
 					$sql.= 'SELECT';
 					$sql.= ' ?,';
 					$sql.= ' v_inb_line.No,';
@@ -139,6 +153,7 @@ class WhmanagementController extends Zend_Controller_Action
 					$sql.= ' "0",';
 					$sql.= ' "0",';
 					$sql.= ' v_inb_line.inb_tu_pal,';
+					$sql.= ' "0",';
 					$sql.= ' "0" ';
 					$sql.= 'FROM v_inb_line where stock<>0';
 					$this->logger->info('SQL: '.$sql);
@@ -240,6 +255,7 @@ class WhmanagementController extends Zend_Controller_Action
 			isset($_POST['pallets']) ? $inventory['pallets'] = $_POST['pallets'] : $inventory['pallets'] = 0;
 			isset($_POST['tu_pallet']) ? $inventory['tu_pallet'] = $_POST['tu_pallet'] : $inventory['tu_pallet'] = 0;
 			isset($_POST['trading_units']) ? $inventory['trading_units'] = $_POST['trading_units'] : $inventory['trading_units'] = 0;
+			isset($_POST['blocked']) ? $inventory['blocked'] = $_POST['blocked'] : $_POST['blocked'] = 0;
 			isset($_POST['default_TU']) ? $default_tradingUnits = $_POST['default_TU'] : $default_tradingUnits = 0;
 			isset($_POST['overwrite']) ? $overwrite = ($_POST['overwrite'] == 'true') : $overwrite = false;
 			if ($inventory['inventory_head'] == 0) $errors['inventory_head'] = 'Inventory_Head darf nicht leer oder 0 sein!';

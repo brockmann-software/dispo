@@ -219,18 +219,28 @@ function buildRow(curRow, inventory, add)
 	input_tradingUnits.onkeydown = function() { handleKeyDown(event, this); }
 	cell14.appendChild(input_tradingUnits);
 	var cell15 = curRow.insertCell(15);
+	var inputBlocked = document.createElement('input');
+	inputBlocked.id = 'blocked_'+sufix;
+	inputBlocked.name = 'blocked_'+sufix;
+	inputBlocked.type = 'checkbox';
+	inputBlocked.checked = (inventory.blocked==1);
+	inputBlocked.tabindex = (add) ? ((rowIndex+1)*40)+32 : ((rowIndex+1)*40)+12;
+	inputBlocked.onchange = function() { sendInventory(this); };
+	inputBlocked.onkeydown = function() { handleKeyDown(event, this); };
+	cell15.appendChild(inputBlocked);
+	var cell16 = curRow.insertCell(16);
 	var linkAdd = document.createElement('a');
 	linkAdd.onclick = function() { addLine(sufix) };
 	linkAdd.onkeydown = function() { handleKeyDown(event, this); }
 	linkAdd.innerHTML = '<img src="/images/60.ico" alt="hinzufügen" title="hinzufügen" />';
-	linkAdd.tabIndex = (add) ? ((rowIndex+1)*40)+32 : ((rowIndex+1)*40)+12;
+	linkAdd.tabIndex = (add) ? ((rowIndex+1)*40)+33 : ((rowIndex+1)*40)+13;
 	var linkRemark = document.createElement('a');
 	linkRemark.onclick = function() { editRemark(sufix); };
 	linkRemark.onkeydown = function() { handleKeyDown(event, this); };
 	linkRemark.innerHTML = '<img src="/images/remark16x16.png" alt="Bemerkung" title="Bemerkung" />';
-	linkRemark.tabIndex = (add) ? ((rowIndex+1)*40)+33 : ((rowIndex+1)*40)+13;
-	cell15.appendChild(linkAdd);
-	cell15.appendChild(linkRemark);
+	linkRemark.tabIndex = (add) ? ((rowIndex+1)*40)+34 : ((rowIndex+1)*40)+14;
+	cell16.appendChild(linkAdd);
+	cell16.appendChild(linkRemark);
 }
 
 function filterInventoryLines()
@@ -292,6 +302,7 @@ function filterInventoryLines()
 					inventory['tu_pallet'] = inventories[inv].getElementsByTagName('tu_pallet')[0].firstChild.nodeValue;
 					inventory['pallets'] = inventories[inv].getElementsByTagName('pallets')[0].firstChild.nodeValue;
 					inventory['trading_units'] = inventories[inv].getElementsByTagName('trading_units')[0].firstChild.nodeValue;
+					inventory['blocked'] = getXMLTagValue(inventories[inv], 'blocked') || 0;
 					buildRow(currentRow, inventory);
 					row++;
 				}
@@ -414,6 +425,7 @@ function sendInventory(element, overwrite)
 	var no = items[items.length-3];
 	var inventory_head = items[items.length-2];
 	var inbound_line = items[items.length-1];
+	var blocked = document.getElementById('blocked_'+sufix);
 	var postData = 'No='+no;
 	postData += '&inventory_head='+inventory_head;
 	postData += '&inbound_line='+inbound_line;
@@ -423,6 +435,8 @@ function sendInventory(element, overwrite)
 	postData += '&pallets='+pallets.value;
 	postData += '&trading_units='+trading_units.value;
 	postData += '&default_TU='+trading_units.defaultValue;
+	postData += '&blocked=';
+	postData += (blocked.checked) ? '1' : '0';
 	if (document.getElementById('items_'+sufix)) postData += '&items='+document.getElementById('items_'+sufix).value;
 	if (document.getElementById('weight_item_'+sufix)) postData += '&weight_item='+document.getElementById('weight_item_'+sufix).value;
 	if (document.getElementById('t_packaging_'+sufix)) postData += '&t_packaging='+document.getElementById('t_packaging_'+sufix).value;
@@ -466,6 +480,7 @@ function addLine(sufix)
 	inventory['tu_pallet'] = document.getElementById('tu_pallet_'+sufix).value;
 	inventory['pallets'] = 0;
 	inventory['trading_units'] = 0;
+	inventory['blocked'] = 0;
 	newSufix = inventory['No']+'_'+inventory['inventory_head']+'_'+inventory['inbound_line'];
 	newRow = inventoryTable.insertRow(curRow.sectionRowIndex+1);
 	buildRow(newRow, inventory, true);
@@ -563,6 +578,7 @@ function editRemark(sufix)
 	<th class="data">Kol/Pal</th>
 	<th class="data">Pal.</th>
 	<th class="data">Kolli</th>
+	<th class="data"><img src="/images/s_cancel.png" /></th>
 	<th></th>
 </tr>
 </thead>
@@ -592,8 +608,9 @@ function editRemark(sufix)
 	<td class="data"><input type="number" id="tu_pallet_<?php echo $sufix; ?>" name="tu_pallet_<?php echo $sufix; ?>" value="<?php echo $inventory_line['tu_pallet']; ?>" min="0" max="999" tabindex="<?php echo (($row+1)*40)+9; ?>" onchange="calcTU(this)" onkeydown="handleKeyDown(event, this)" />
 	<td class="data"><input type="number" id="pallets_<?php echo $sufix; ?>" name="pallets_<?php echo $sufix; ?>" value="<?php echo $inventory_line['pallets']; ?>" min="0" max="99" tabindex="<?php echo (($row+1)*40)+10; ?>" onchange="calcTU(this)" onkeydown="handleKeyDown(event, this)" />
 	<td class="data"><input type="number" id="trading_units_<?php echo $sufix; ?>" name="trading_units_<?php echo $sufix; ?>" value="<?php echo $inventory_line['trading_units']; ?>" defaultValue="<?php echo $inventory_line['trading_units']; ?>" min="0" max="9999" tabindex="<?php echo (($row+1)*40)+11; ?>" onchange="sendInventory(this)"  onkeydown="handleKeyDown(event, this)" />
-	<td><a tabIndex="<?php echo (($row+1)*40)+12; ?>" onkeydown="handleKeyDown(event, this)" onclick="addLine('<?php echo $sufix; ?>')"><img src="/images/60.ico" alt="hinzufügen" title="hinzufügen" /></a>
-		<a tabindex="<?php echo (($row+1)*40)+13; ?>" onkeydown="handleKeyDown(event, this)" onclick="editRemark('<?php echo $sufix; ?>')"><img src="/images/remark16x16.png" alt="Bemerkung" title="Bemerkung" /></a></td>
+	<td class="data"><input type="checkbox" tabindex="<?php echo (($row+1)*40)+12; ?>" id="blocked_<?php echo $sufix; ?>" name="blocked_<?php echo $sufix; ?>"<?php if ($inventory_line['blocked']==1) echo ' checked="checked"'; ?> onkeydown="handleKeyDown(event, this)" onchange="sendInventory(this)" /></td>
+	<td><a tabIndex="<?php echo (($row+1)*40)+13; ?>" onkeydown="handleKeyDown(event, this)" onclick="addLine('<?php echo $sufix; ?>')"><img src="/images/60.ico" alt="hinzufügen" title="hinzufügen" /></a>
+		<a tabindex="<?php echo (($row+1)*40)+14; ?>" onkeydown="handleKeyDown(event, this)" onclick="editRemark('<?php echo $sufix; ?>')"><img src="/images/remark16x16.png" alt="Bemerkung" title="Bemerkung" /></a></td>
 </tr>
 <?php $row++; ?>
 <?php endforeach ?>
