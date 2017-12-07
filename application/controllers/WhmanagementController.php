@@ -31,7 +31,9 @@ class WhmanagementController extends Zend_Controller_Action
 
 	public function indexAction()
 	{
-		($this->hasParam('error')) ? $errors['all'] = $this->getParam('error') : $errors = array();
+		$errors = array();
+		if ($this->hasParam('error')) $errors['all'] = $this->getParam('error');
+		if ($this->hasParam('ok')) $errors['ok'] = $this->getParam('ok');
 		$inventory_heads = $this->db->query('SELECT * FROM v_inventory_head');
 		$this->view->data = $inventory_heads;
 		$this->view->errors = $errors;
@@ -88,6 +90,17 @@ class WhmanagementController extends Zend_Controller_Action
 		
 		$layout->setLayout('pdf_layout');
 		$this->renderScript('/whmanagement/pdfcountlist.php');
+	}
+	
+	public function deleteAction()
+	{
+		if (!$this->hasParam('No')) $this->_redirect('/whmanagement/index/error/Keine%20Zählung%20übergeben');
+		$inventory_table = new Application_Model_InventoryheadModel();
+		$inventories = $inventory_table->find($this->getParam('No'));
+		if ($inventories->count()>0) {
+			$inventories->current()->delete();
+		} else $this->_redirect('/whmanagement/index/error/Zählung%20nicht%20gefunden');
+		$this->_redirect('/whmanagement/index/ok/Zählung%20gelöscht');
 	}
 	
 	public function closeinventoryAction()
