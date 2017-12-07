@@ -22,6 +22,7 @@ function switchFocus(focus, direction) {
 		for (cnt=0; cnt<fields.length; cnt++) {
 			if (fields[cnt].hasAttribute('tabindex') && (fields[cnt].tabIndex >= focus)) {
 				fields[cnt].focus();
+				fields[cnt].select();
 				break;
 			}
 		}
@@ -74,6 +75,7 @@ function buildRow(curRow, inventory, add)
 		itemsInp.tabIndex = ((rowIndex)*40)+21;
 		itemsInp.value = inventory.items;
 		itemsInp.onkeydown = function() { handleKeyDown(event, this); }
+		itemsInp.onclick = function() { this.select(); };
 		
 		var wiInp = document.createElement('input');
 		wiInp.name = 'weight_item_'+sufix;
@@ -84,6 +86,7 @@ function buildRow(curRow, inventory, add)
 		wiInp.tabIndex = ((rowIndex)*40)+22;
 		wiInp.value = inventory.weight_item;
 		wiInp.onkeydown = function() { handleKeyDown(event, this); }
+		wiInp.onclick = function() { this.select(); };
 		cell2.appendChild(itemsInp);
 		cell2.appendChild(document.createTextNode('x'));
 		cell2.appendChild(wiInp);
@@ -147,6 +150,7 @@ function buildRow(curRow, inventory, add)
 		lot_input.value = inventory.inb_lot;
 		lot_input.tabIndex = ((rowIndex)*40)+26;
 		lot_input.onkeydown = function() { handleKeyDown(event, this); }
+		lot_input.onclick = function() { this.select(); };
 		cell7.appendChild(lot_input);
 	} else {
 		cell7.innerHTML = inventory.inb_lot;
@@ -177,6 +181,7 @@ function buildRow(curRow, inventory, add)
 	input_rack.value = inventory.rack;
 	input_rack.tabIndex = (add) ? ((rowIndex)*40)+28 : ((rowIndex+1)*40)+8;
 	input_rack.onkeydown = function() { handleKeyDown(event, this); }
+	input_rack.onclick = function() { this.select(); };
 	cell11.appendChild(input_rack);
 	var cell12 = curRow.insertCell(12);
 	cell12.className = 'data';
@@ -190,6 +195,7 @@ function buildRow(curRow, inventory, add)
 	input_TU_pallet.tabIndex = (add) ? ((rowIndex)*40)+29 : ((rowIndex+1)*40)+9;
 	input_TU_pallet.onchange = function() { calcTU(this); };
 	input_TU_pallet.onkeydown = function() { handleKeyDown(event, this); }
+	input_TU_pallet.onclick = function() { this.select(); };
 	cell12.appendChild(input_TU_pallet);
 	var cell13 = curRow.insertCell(13);
 	cell13.className = 'data';
@@ -203,6 +209,7 @@ function buildRow(curRow, inventory, add)
 	input_pallets.tabIndex = (add) ? ((rowIndex)*40)+30 : ((rowIndex+1)*40)+10;
 	input_pallets.onchange = function() { calcTU(this); };
 	input_pallets.onkeydown = function() { handleKeyDown(event, this); }
+	input_pallets.onclick = function() { this.select(); };
 	cell13.appendChild(input_pallets);
 	var cell14 = curRow.insertCell(14);
 	cell14.className = 'data';
@@ -217,6 +224,7 @@ function buildRow(curRow, inventory, add)
 	input_tradingUnits.tabIndex = (add) ? ((rowIndex)*40)+31 : ((rowIndex+1)*40)+11;
 	input_tradingUnits.onchange = function() { sendInventory(this); };
 	input_tradingUnits.onkeydown = function() { handleKeyDown(event, this); }
+	input_tradingUnits.onclick = function() { this.select(); };
 	cell14.appendChild(input_tradingUnits);
 	var cell15 = curRow.insertCell(15);
 	var inputBlocked = document.createElement('input');
@@ -604,10 +612,10 @@ function editRemark(sufix)
 					<?php endforeach ?>
 					</select>
 	</td>
-	<td class="data"><input type="text" id="rack_<?php echo $sufix; ?>" name="rack_<?php echo $sufix; ?>" value="<?php echo $inventory_line['rack']; ?>" size="4" tabindex="<?php echo (($row+1)*40)+8; ?>" onkeydown="handleKeyDown(event, this)" />
-	<td class="data"><input type="number" id="tu_pallet_<?php echo $sufix; ?>" name="tu_pallet_<?php echo $sufix; ?>" value="<?php echo $inventory_line['tu_pallet']; ?>" min="0" max="999" tabindex="<?php echo (($row+1)*40)+9; ?>" onchange="calcTU(this)" onkeydown="handleKeyDown(event, this)" />
-	<td class="data"><input type="number" id="pallets_<?php echo $sufix; ?>" name="pallets_<?php echo $sufix; ?>" value="<?php echo $inventory_line['pallets']; ?>" min="0" max="99" tabindex="<?php echo (($row+1)*40)+10; ?>" onchange="calcTU(this)" onkeydown="handleKeyDown(event, this)" />
-	<td class="data"><input type="number" id="trading_units_<?php echo $sufix; ?>" name="trading_units_<?php echo $sufix; ?>" value="<?php echo $inventory_line['trading_units']; ?>" defaultValue="<?php echo $inventory_line['trading_units']; ?>" min="0" max="9999" tabindex="<?php echo (($row+1)*40)+11; ?>" onchange="sendInventory(this)"  onkeydown="handleKeyDown(event, this)" />
+	<td class="data"><input type="text" id="rack_<?php echo $sufix; ?>" name="rack_<?php echo $sufix; ?>" value="<?php echo $inventory_line['rack']; ?>" size="4" tabindex="<?php echo (($row+1)*40)+8; ?>" onclick="this.select()" onkeydown="handleKeyDown(event, this)" />
+	<td class="data"><input type="number" id="tu_pallet_<?php echo $sufix; ?>" name="tu_pallet_<?php echo $sufix; ?>" value="<?php echo $inventory_line['tu_pallet']; ?>" min="0" max="999" tabindex="<?php echo (($row+1)*40)+9; ?>" onchange="calcTU(this)" onclick="this.select()" onkeydown="handleKeyDown(event, this)" />
+	<td class="data"><input type="number" id="pallets_<?php echo $sufix; ?>" name="pallets_<?php echo $sufix; ?>" value="<?php echo $inventory_line['pallets']; ?>" min="0" max="99" tabindex="<?php echo (($row+1)*40)+10; ?>" onclick="this.select()" onchange="calcTU(this)" onkeydown="handleKeyDown(event, this)" />
+	<td class="data"><input type="number" id="trading_units_<?php echo $sufix; ?>" name="trading_units_<?php echo $sufix; ?>" value="<?php echo $inventory_line['trading_units']; ?>" defaultValue="<?php echo $inventory_line['trading_units']; ?>" min="0" max="9999" tabindex="<?php echo (($row+1)*40)+11; ?>" onclick="this.select()" onchange="sendInventory(this)"  onkeydown="handleKeyDown(event, this)" />
 	<td class="data"><input type="checkbox" tabindex="<?php echo (($row+1)*40)+12; ?>" id="blocked_<?php echo $sufix; ?>" name="blocked_<?php echo $sufix; ?>"<?php if ($inventory_line['blocked']==1) echo ' checked="checked"'; ?> onkeydown="handleKeyDown(event, this)" onchange="sendInventory(this)" /></td>
 	<td><a tabIndex="<?php echo (($row+1)*40)+13; ?>" onkeydown="handleKeyDown(event, this)" onclick="addLine('<?php echo $sufix; ?>')"><img src="/images/60.ico" alt="hinzufügen" title="hinzufügen" /></a>
 		<a tabindex="<?php echo (($row+1)*40)+14; ?>" onkeydown="handleKeyDown(event, this)" onclick="editRemark('<?php echo $sufix; ?>')"><img src="/images/remark16x16.png" alt="Bemerkung" title="Bemerkung" /></a></td>
