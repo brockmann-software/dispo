@@ -25,7 +25,11 @@ function print()
 	window.location = '/whmanagement/print/No/'+actReport+sufix;
 }
 </script>
-<?php if (isset($this->errors['all'])) : ?><div class="error"><?php echo $this->errors['all']; ?></div><?php endif ?>
+<?php if (isset($this->errors['all'])) : ?>
+<div class="error"><?php echo $this->errors['all']; ?></div>
+<?php  elseif (isset($this->errors['ok'])) : ?>
+<div class="no_error"><?php echo $this->errors['ok']; ?></div>
+<?php endif ?>
 <a href="/whmanagement/doinventory/">Neue Zählung beginnen</a>
 <hr />
 <?php $inventory_heads = $this->data; ?>

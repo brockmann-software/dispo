@@ -155,17 +155,17 @@ class WhmanagementController extends Zend_Controller_Action
 					$sql.= ' blocked)';
 					$sql.= 'SELECT';
 					$sql.= ' ?,';
-					$sql.= ' v_inb_line.No,';
-					$sql.= ' movements.No,';
+					$sql.= ' inbound_line,';
+					$sql.= ' No,';
 					$sql.= ' NOW(),';
 					$sql.= ' "0",';
 					$sql.= ' "0",';
 					$sql.= ' "0",';
 					$sql.= ' "0",';
-					$sql.= ' v_inb_line.inb_tu_pal,';
+					$sql.= ' tu_pallet,';
 					$sql.= ' "0",';
 					$sql.= ' "0" ';
-					$sql.= 'FROM movements join v_inb_line on (movements.inbound_line = v_inb_line.No) where movements.movement = 1 and v_inb_line.stock<>0';
+					$sql.= 'FROM v_movements_for_inventory where movement = 1 and stock<>0';
 					$this->logger->info('SQL: '.$sql);
 					$statement = $this->db->query($sql, $inventory_head['No']);
 		//			$statement->execute();
@@ -182,7 +182,7 @@ class WhmanagementController extends Zend_Controller_Action
 			}
 		}
 		if (count($errors)==0) try {
-			$inventory_lines = $this->db->query('SELECT * from v_inventory WHERE inventory_head = ? ORDER BY position, inbound_line, No', $inventory_head['No'])->fetchAll();
+			$inventory_lines = $this->db->query('SELECT * from v_inventory WHERE inventory_head = ? ORDER BY product, items, weight_item, brand_no, position desc, inbound_line, No', $inventory_head['No'])->fetchAll();
 	//		$this->logger->info('Inventory_lines aufgerufen: '.print_r($inventory_lines, true));
 		} catch (Exception $e) {
 			$errors['all'] = 'Ein Fehler ist aufgetreten bei dem Laden der Zählung!';
@@ -222,7 +222,7 @@ class WhmanagementController extends Zend_Controller_Action
 			$pNo++;
 			$val['type']=='string' ? $sqlStr.= 'UPPER('.$key.') LIKE UPPER("%'.$val['value'].'%")' : $sqlStr.= $key.' = '.$val['value'];
 		}
-		$sqlStr .=' ORDER BY position, inbound_line, No';
+		$sqlStr .=' ORDER BY product, items, weight_item, brand_no, position desc, inbound_line, No';
 		$this->logger->info('SQL: '.print_r($sqlStr, true));
 		try {
 			$inventories = $this->db->query($sqlStr)->fetchAll();
