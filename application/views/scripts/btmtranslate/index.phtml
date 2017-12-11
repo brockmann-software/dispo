@@ -74,6 +74,7 @@ function getArticleFromBtm(article)
 
 function createRow(row, article)
 {
+	row.id = article.id;
 	cell0 = row.insertCell(0);
 	if (article.id != 'new')
 		cell0.innerHTML = '<a onclick="deleteTranslation(this)"><img src="/images/b_drop.png" alt="löschen" title="löschen" /></a>';

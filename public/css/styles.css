@@ -108,6 +108,21 @@ td.unselected {
 	background-color: rgb(255,255,255);
 }
 
+.qc_green {
+	appearance: none;
+	background-color: rgb(0,204,0);
+}
+
+.qc_yellow {
+	appearance: none;
+	background-color: rgb(255,255,0);
+}
+
+.qc_red {
+	appearance: none;
+	background-color: rgb(255,0,0);
+}
+
 .quality_sheet {
 	width: 100%;
 }

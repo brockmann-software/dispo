@@ -117,7 +117,7 @@ if (!file_exists(realpath($this->filepath.'\\'.$this->filename))) try {
 	$column->setColumnAlign(My_Pdf::CENTER);
 	$columns[] = $column;
 
-	$column = new My_Pdf_Report_Column('room', 'KH', array(0.4, 'cm'));
+	$column = new My_Pdf_Report_Column('room_short', 'KH', array(0.4, 'cm'));
 	$column->setHeaderStyle($headerStyle);
 	$column->setBodyStyle($bodyStyle);
 	$column->setColumnAlign(My_Pdf::CENTER);
@@ -146,8 +146,23 @@ if (!file_exists(realpath($this->filepath.'\\'.$this->filename))) try {
 	$column->setBodyStyle($bodyStyle);
 	$column->setColumnAlign(My_Pdf::RIGHT);
 	$columns[] = $column;
-		
-	$column = new My_Pdf_Report_Column('grade_weighted', 'QC', array(0.5, 'cm'));
+	
+	$condStyle = new My_Pdf_Table_Column_Style($bodyStyle);
+	$condStyle->setBackgroundColor(new Zend_Pdf_Color_HTML('red'));
+	$condFormat = new My_Pdf_Report_ConditionalFormat(My_Pdf_Report::GREATER_EQUAL, 3, null, $condStyle);
+	$condFormats[] = $condFormat;
+	
+	$condStyle = new My_Pdf_Table_Column_Style($bodyStyle);
+	$condStyle->setBackgroundColor(new Zend_Pdf_Color_HTML('yellow'));
+	$condFormat = new My_Pdf_Report_ConditionalFormat(My_Pdf_Report::SMALLER, 3, null, $condStyle);
+	$condFormats[] = $condFormat;
+	
+	$condStyle = new My_Pdf_Table_Column_Style($bodyStyle);
+	$condStyle->setBackgroundColor(new Zend_Pdf_Color_HTML('green'));
+	$condFormat = new My_Pdf_Report_ConditionalFormat(My_Pdf_Report::SMALLER, 2, null, $condStyle);
+	$condFormats[] = $condFormat;
+			
+	$column = new My_Pdf_Report_Column('grade_weighted', 'QC', array(0.5, 'cm'), null, '', $condFormats);
 	$column->setHeaderStyle($headerStyle);
 	$column->setBodyStyle($bodyStyle);
 	$column->setColumnAlign(My_Pdf::CENTER);
@@ -166,7 +181,7 @@ if (!file_exists(realpath($this->filepath.'\\'.$this->filename))) try {
 	
 // Gruppen definieren	
 	$groupHeaderStyle = new My_Pdf_Table_Column_Style($bodyStyle);
-	$groupHeaderStyle->setBackgroundColor(new Zend_Pdf_Color_HTML('green'));
+	$groupHeaderStyle->setBackgroundColor(new Zend_Pdf_Color_HTML('#92D050'));
 	$groupColumns = array();
 	
 	$groupFooterStyle = new My_Pdf_Table_Column_Style($headerStyle);
@@ -184,7 +199,6 @@ if (!file_exists(realpath($this->filepath.'\\'.$this->filename))) try {
 	$groupColumn->getFooterStyle()->setTextAlign(My_Pdf::RIGHT);
 	$groupColumns[] = $groupColumn;
 
-	echo "Spalten Gruppe 1: ".count($groupColumns)."<br />";
 	$group = new My_Pdf_Report_Group($groupColumns, $groupHeaderStyle, $groupFooterStyle);
 	$groups[] = $group;
 	
@@ -211,19 +225,13 @@ if (!file_exists(realpath($this->filepath.'\\'.$this->filename))) try {
 	$groupColumn->setFooterStyle($groupFooterStyle);
 	$groupColumn->getFooterStyle()->setTextAlign(My_Pdf::RIGHT);
 	$groupColumns[] = $groupColumn;
-	echo "Spalten Gruppe 2: ".count($groupColumns)."<br />";
 	$group = new My_Pdf_Report_Group($groupColumns, $groupHeaderStyle, $groupFooterStyle);
 	$groups[] = $group;
-	echo "Gruppen: ".count($groups)."<br />";
-	Zend_Registry::get('logger')->info('Liste: '.$this->filename);
-	Zend_Registry::get('logger')->info('Pfad: '.$this->filepath);
-	
 	$inventoryReport = new My_Pdf_Report($this->filename, $this->filepath.'\\', $this->inventories, Zend_Pdf_Page::SIZE_A4_LANDSCAPE, 'utf-8');
 	$inventoryReport->setHeader($headerTable);
 	$inventoryReport->setColumns($columns);
 	$inventoryReport->setGroups($groups);
 	$inventoryReport->save();
-	
 } catch (Exception $e) {
 	Zend_Registry::get('logger')->err($e->getMessage());
 }

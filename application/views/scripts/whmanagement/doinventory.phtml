@@ -16,16 +16,19 @@ function switchFocus(focus, direction) {
 		case 'down'		: focus = focus+20; break;
 		case 'up'		: focus = focus-20; break;
 	}
+	focused = false;
 	if (focus>0) {
 		fields = document.getElementById('inventory_lines').getElementsByTagName('*');
 		cnt = 0;
 		for (cnt=0; cnt<fields.length; cnt++) {
 			if (fields[cnt].hasAttribute('tabindex') && (fields[cnt].tabIndex >= focus)) {
 				fields[cnt].focus();
-				fields[cnt].select();
+				if (fields[cnt].select) fields[cnt].select();
+				focused = true;
 				break;
 			}
 		}
+		if (!focused) switchFocus(1, 'right');
 	}
 }
 
@@ -51,7 +54,7 @@ function buildRow(curRow, inventory, add)
 	add = add || false;
 	rowIndex = curRow.sectionRowIndex;
 	curRow.id = inventory.No;
-	var sufix = inventory.No+'_'+inventory.inventory_head+'_'+inventory.inbound_line;
+	var sufix = inventory.No+'_'+inventory.inventory_head+'_'+inventory.inbound_line+'_'+inventory.movement;
 	var cell0 = curRow.insertCell(0);
 	cell0.className = 'data';
 	cell0.innerHTML = inventory.position;
@@ -227,28 +230,40 @@ function buildRow(curRow, inventory, add)
 	input_tradingUnits.onclick = function() { this.select(); };
 	cell14.appendChild(input_tradingUnits);
 	var cell15 = curRow.insertCell(15);
+	cell15.className = 'data';
 	var inputBlocked = document.createElement('input');
 	inputBlocked.id = 'blocked_'+sufix;
 	inputBlocked.name = 'blocked_'+sufix;
 	inputBlocked.type = 'checkbox';
 	inputBlocked.checked = (inventory.blocked==1);
-	inputBlocked.tabindex = (add) ? ((rowIndex+1)*40)+32 : ((rowIndex+1)*40)+12;
+	inputBlocked.tabIndex = (add) ? ((rowIndex+1)*40)+32 : ((rowIndex+1)*40)+12;
 	inputBlocked.onchange = function() { sendInventory(this); };
 	inputBlocked.onkeydown = function() { handleKeyDown(event, this); };
 	cell15.appendChild(inputBlocked);
 	var cell16 = curRow.insertCell(16);
+	cell16.className = 'data';
+	var qc_select = document.getElementById('qc_on_inv').cloneNode(true);
+	qc_select.value = inventory.qc_on_inventory;
+	qc_select.name = 'qc_on_inv_'+sufix;
+	qc_select.id = 'qc_on_inv_'+sufix;
+	qc_select.onchange = function() { changeInvQC(this); };
+	qc_select.onkeydown = function() { handleKeyDown(event, this); };
+	qc_select.tabIndex = (add) ? ((rowIndex+1)*40)+33 : ((rowIndex+1)*40)+13;
+	qc_select.style.backgroundColor = (inventory.qc_on_inventory<2) ? 'rgb(0,204,0)' : ((inventory.qc_on_inventory<3) ? 'rgb(255,255,0)' : 'rgb(255,0,0)');
+	cell16.appendChild(qc_select);
+	var cell17 = curRow.insertCell(17);
 	var linkAdd = document.createElement('a');
 	linkAdd.onclick = function() { addLine(sufix) };
 	linkAdd.onkeydown = function() { handleKeyDown(event, this); }
 	linkAdd.innerHTML = '<img src="/images/60.ico" alt="hinzufügen" title="hinzufügen" />';
-	linkAdd.tabIndex = (add) ? ((rowIndex+1)*40)+33 : ((rowIndex+1)*40)+13;
+	linkAdd.tabIndex = (add) ? ((rowIndex+1)*40)+34 : ((rowIndex+1)*40)+14;
 	var linkRemark = document.createElement('a');
 	linkRemark.onclick = function() { editRemark(sufix); };
 	linkRemark.onkeydown = function() { handleKeyDown(event, this); };
 	linkRemark.innerHTML = '<img src="/images/remark16x16.png" alt="Bemerkung" title="Bemerkung" />';
-	linkRemark.tabIndex = (add) ? ((rowIndex+1)*40)+34 : ((rowIndex+1)*40)+14;
-	cell16.appendChild(linkAdd);
-	cell16.appendChild(linkRemark);
+	linkRemark.tabIndex = (add) ? ((rowIndex+1)*40)+35 : ((rowIndex+1)*40)+15;
+	cell17.appendChild(linkAdd);
+	cell17.appendChild(linkRemark);
 }
 
 function filterInventoryLines()
@@ -285,6 +300,7 @@ function filterInventoryLines()
 						inventory['inbound_line'] = 0;
 					else
 						inventory['inbound_line'] = inventories[inv].getElementsByTagName('inbound_line')[0].firstChild.nodeValue;
+					inventory['movement'] = getXMLTagValue(inventories[inv], 'movement') || 0;
 					inventory['position'] = inventories[inv].getElementsByTagName('position')[0].firstChild.nodeValue;
 					inventory['variant'] = inventories[inv].getElementsByTagName('variant')[0].firstChild.nodeValue;
 					inventory['variant_desc'] = inventories[inv].getElementsByTagName('variant_desc')[0].firstChild.nodeValue;
@@ -311,6 +327,7 @@ function filterInventoryLines()
 					inventory['pallets'] = inventories[inv].getElementsByTagName('pallets')[0].firstChild.nodeValue;
 					inventory['trading_units'] = inventories[inv].getElementsByTagName('trading_units')[0].firstChild.nodeValue;
 					inventory['blocked'] = getXMLTagValue(inventories[inv], 'blocked') || 0;
+					inventory['qc_on_inventory'] = getXMLTagValue(inventories[inv], 'qc_on_inventory') || 1;
 					buildRow(currentRow, inventory);
 					row++;
 				}
@@ -338,7 +355,7 @@ function calcTU(element)
 {
 	var name = element.name;
 	var items = name.split('_');
-	var sufix = items[1]+'_'+items[2]+'_'+items[3];
+	var sufix = items[1]+'_'+items[2]+'_'+items[3]+'_'+items[4];
 	var TU_pallet = document.getElementById('tu_pallet_'+sufix).value;
 	var pallets = document.getElementById('pallets_'+sufix).value;
 	document.getElementById('trading_units_'+sufix).value = TU_pallet*pallets;
@@ -375,7 +392,8 @@ function sendInventory(element, overwrite)
 						No = xmlResult.getElementsByTagName('No')[0].firstChild.nodeValue;
 						inventory_head = xmlResult.getElementsByTagName('inventory_head')[0].firstChild.nodeValue;
 						inbound_line = xmlResult.getElementsByTagName('inbound_line')[0].firstChild.nodeValue;
-						newSufix = No+'_'+inventory_head+'_'+inbound_line;
+						movement = xmlResult.getElementsByTagName('movement')[0].firstChild.nodeValue;
+						newSufix = No+'_'+inventory_head+'_'+inbound_line+'_'+movement;
 						room.name = 'room_'+newSufix;
 						room.id = 'room_'+newSufix;
 						rack.name = 'rack_'+newSufix;
@@ -386,6 +404,10 @@ function sendInventory(element, overwrite)
 						TU_pallet.id = 'tu_pallet_'+newSufix;
 						trading_units.name = 'trading_units_'+newSufix;
 						trading_units.id = 'trading_units_'+newSufix;
+						blocked.id = 'blocked_'+newSufix;
+						blocked.name = 'blocked_'+newSufix;
+						qcOnInv.id = 'qc_on_inv_'+newSufix;
+						qcOnInv.name = 'qc_on_inv_'+newSufix;
 					//	filterInventoryLines();
 					//	setTimeout(document.getElementById('trading_units_'+newSufix).focus(), 2000);
 					//	trading_units.select();
@@ -423,20 +445,23 @@ function sendInventory(element, overwrite)
 	overwrite = overwrite || false; 
 	var name = element.name;
 	var items = name.split('_');
-	newItem = (items[items.length-3]=='0');
-	var sufix = items[items.length-3]+'_'+items[items.length-2]+'_'+items[items.length-1];
+	newItem = (items[items.length-4]=='0');
+	var sufix = items[items.length-4]+'_'+items[items.length-3]+'_'+items[items.length-2]+'_'+items[items.length-1];
 	TU_pallet = document.getElementById('tu_pallet_'+sufix);
 	pallets = document.getElementById('pallets_'+sufix);
 	trading_units = document.getElementById('trading_units_'+sufix);
 	room = document.getElementById('room_'+sufix);
 	rack = document.getElementById('rack_'+sufix);
-	var no = items[items.length-3];
-	var inventory_head = items[items.length-2];
-	var inbound_line = items[items.length-1];
+	var no = items[items.length-4];
+	var inventory_head = items[items.length-3];
+	var inbound_line = items[items.length-2];
+	var movement = items[items.length-1];
 	var blocked = document.getElementById('blocked_'+sufix);
+	var qcOnInv = document.getElementById('qc_on_inv_'+sufix);
 	var postData = 'No='+no;
 	postData += '&inventory_head='+inventory_head;
 	postData += '&inbound_line='+inbound_line;
+	postData += '&movement='+movement;
 	postData += '&room='+room.value;
 	postData += '&rack='+rack.value;
 	postData += '&tu_pallet='+TU_pallet.value;
@@ -445,6 +470,7 @@ function sendInventory(element, overwrite)
 	postData += '&default_TU='+trading_units.defaultValue;
 	postData += '&blocked=';
 	postData += (blocked.checked) ? '1' : '0';
+	postData += '&qc_on_inventory='+qcOnInv.value;
 	if (document.getElementById('items_'+sufix)) postData += '&items='+document.getElementById('items_'+sufix).value;
 	if (document.getElementById('weight_item_'+sufix)) postData += '&weight_item='+document.getElementById('weight_item_'+sufix).value;
 	if (document.getElementById('t_packaging_'+sufix)) postData += '&t_packaging='+document.getElementById('t_packaging_'+sufix).value;
@@ -466,6 +492,7 @@ function addLine(sufix)
 	inventory['No'] = '0';
 	inventory['inventory_head'] = items[1];
 	inventory['inbound_line'] = items[2];
+	inventory['movement'] = items[3];
 	inventory['position'] = curRow.cells[0].innerHTML;
 //	inventory['variant_desc'] = curRow.cells[1].innerHTML;
 //	inventory['variant'] = curRow.cells[1].dataset.variant;
@@ -489,7 +516,8 @@ function addLine(sufix)
 	inventory['pallets'] = 0;
 	inventory['trading_units'] = 0;
 	inventory['blocked'] = 0;
-	newSufix = inventory['No']+'_'+inventory['inventory_head']+'_'+inventory['inbound_line'];
+	inventory['qc_on_inventory'] = 1;
+	newSufix = inventory['No']+'_'+inventory['inventory_head']+'_'+inventory['inbound_line']+'_'+inventory['movement'];
 	newRow = inventoryTable.insertRow(curRow.sectionRowIndex+1);
 	buildRow(newRow, inventory, true);
 	document.getElementById('pallets_'+newSufix).focus();
@@ -509,7 +537,17 @@ function editRemark(sufix)
 	URI = '/inbound/editremarkdialog/No/'+items[2];
 	notIE_popup = window.open(URI, 'Bemerkungen', 'dialogWidth=600px;dialogHeight=400px;diologLeft=0;dialogTop=100;resizable=yes;scroll=yes');
 }
-	
+
+function changeInvQC(select)
+{
+	i=0;
+	while (select.options[i]) {
+		if (select.options[i].selected==true) select.style.backgroundColor = select.options[i].style.backgroundColor;
+		i++;
+	}
+	sendInventory(select);
+}
+
 </script>
 <?php $rooms = $this->params['rooms']; ?>
 <?php $products = $this->params['products']; ?>
@@ -544,6 +582,11 @@ function editRemark(sufix)
 <option value="<?php echo $label['No']; ?>"><?php echo $label['label']; ?></option>
 <?php endforeach ?>
 </select>
+<select name="qc_on_inv" id="qc_on_inv" onchange="changeInvQC(this)">
+<option value="1" style="background-color: rgb(0,204,0)">1</option>
+<option value="2" style="background-color: rgb(255,255,0)">2</option>
+<option value="3" style="background-color: rgb(255,0,0)">3</option>
+</select>
 </div>
 
 <div class="filter">
@@ -554,7 +597,7 @@ function editRemark(sufix)
 	<td>Raum</td>
 </tr>
 <tr>
-	<td><input type="text" id="filter_position" name="filter_position" accesskey="O" tabindex="1" value="" size="10" onchange="filterInventoryLines()" /></td>
+	<td><input type="text" id="filter_position" name="filter_position" accesskey="O" tabindex="1" value="" size="10" onchange="filterInventoryLines()" onkeydown="handleKeyDown(event, this)" /></td>
 	<td><select id="filter_product" name="filter_product" accesskey="p" tabindex="2" onchange="filterInventoryLines()">
 	<?php foreach ($products as $product) : ?>
 	<option value="<?php echo $product['No']; ?>"<?php if ($product['No']==$filter['product']) echo " selected"; ?>><?php echo $product['product']; ?></option>
@@ -587,6 +630,7 @@ function editRemark(sufix)
 	<th class="data">Pal.</th>
 	<th class="data">Kolli</th>
 	<th class="data"><img src="/images/s_cancel.png" /></th>
+	<th class="data">QC</th>
 	<th></th>
 </tr>
 </thead>
@@ -594,7 +638,7 @@ function editRemark(sufix)
 <?php $row = 0; ?>
 <?php foreach ($inventory_lines as $inventory_line) : ?>
 <?php if ($inventory_line['No'] == '') $inventory_line['No'] = 0; ?>
-<?php $sufix = $inventory_line['No'].'_'.$inventory_head['No'].'_'.$inventory_line['inbound_line']; ?>
+<?php $sufix = $inventory_line['No'].'_'.$inventory_head['No'].'_'.$inventory_line['inbound_line'].'_'.$inventory_line['movement']; ?>
 <tr id="<?php echo $inventory_line['No']; ?>">
 	<td class="data"><?php echo $inventory_line['position']; ?></td>
 	<td class="data" data-product="<?php echo $inventory_line['product']; ?>"><?php echo $inventory_line['product_desc']; ?></td>
@@ -617,8 +661,14 @@ function editRemark(sufix)
 	<td class="data"><input type="number" id="pallets_<?php echo $sufix; ?>" name="pallets_<?php echo $sufix; ?>" value="<?php echo $inventory_line['pallets']; ?>" min="0" max="99" tabindex="<?php echo (($row+1)*40)+10; ?>" onclick="this.select()" onchange="calcTU(this)" onkeydown="handleKeyDown(event, this)" />
 	<td class="data"><input type="number" id="trading_units_<?php echo $sufix; ?>" name="trading_units_<?php echo $sufix; ?>" value="<?php echo $inventory_line['trading_units']; ?>" defaultValue="<?php echo $inventory_line['trading_units']; ?>" min="0" max="9999" tabindex="<?php echo (($row+1)*40)+11; ?>" onclick="this.select()" onchange="sendInventory(this)"  onkeydown="handleKeyDown(event, this)" />
 	<td class="data"><input type="checkbox" tabindex="<?php echo (($row+1)*40)+12; ?>" id="blocked_<?php echo $sufix; ?>" name="blocked_<?php echo $sufix; ?>"<?php if ($inventory_line['blocked']==1) echo ' checked="checked"'; ?> onkeydown="handleKeyDown(event, this)" onchange="sendInventory(this)" /></td>
-	<td><a tabIndex="<?php echo (($row+1)*40)+13; ?>" onkeydown="handleKeyDown(event, this)" onclick="addLine('<?php echo $sufix; ?>')"><img src="/images/60.ico" alt="hinzufügen" title="hinzufügen" /></a>
-		<a tabindex="<?php echo (($row+1)*40)+14; ?>" onkeydown="handleKeyDown(event, this)" onclick="editRemark('<?php echo $sufix; ?>')"><img src="/images/remark16x16.png" alt="Bemerkung" title="Bemerkung" /></a></td>
+	<td class="data">
+		<select tabindex="<?php echo (($row+1)*40)+13; ?>" name="qc_on_inv_<?php echo $sufix; ?>" id="qc_on_inv_<?php echo $sufix; ?>" onchange="changeInvQC(this)" onkeydown="handleKeyDown(event, this)" style="background-color: <?php echo ($inventory_line['qc_on_inventory']<2) ? 'rgb(0,204,0)' : (($inventory_line['qc_on_inventory']<3) ? 'rgb(255,255,0' : 'rgb(255,0,0)'); ?>">
+		<option value="1"<?php if(round($inventory_line['qc_on_inventory'])<2) echo " selected"; ?> style="background-color: rgb(0,204,0)">1</option>
+		<option value="2"<?php if (round($inventory_line['qc_on_inventory'])>=2 && round($inventory_line['qc_on_inventory'])<3) echo " selected"; ?> style="background-color: rgb(255,255,0)">2</option>
+		<option value="3"<?php if(round($inventory_line['qc_on_inventory'])>=3) echo " selected"; ?> style="background-color: rgb(255,0,0)">3</option>
+		</select></td>
+	<td><a tabindex="<?php echo (($row+1)*40)+14; ?>" onkeydown="handleKeyDown(event, this)" onclick="addLine('<?php echo $sufix; ?>')"><img src="/images/60.ico" alt="hinzufügen" title="hinzufügen" /></a>
+		<a tabindex="<?php echo (($row+1)*40)+15; ?>" onkeydown="handleKeyDown(event, this)" onclick="editRemark('<?php echo $sufix; ?>')"><img src="/images/remark16x16.png" alt="Bemerkung" title="Bemerkung" /></a></td>
 </tr>
 <?php $row++; ?>
 <?php endforeach ?>

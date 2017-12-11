@@ -57,9 +57,6 @@ class WhmanagementController extends Zend_Controller_Action
 		$inventories = $this->db->query('SELECT * FROM v_inventory_summery WHERE state = 2 AND stock<>0'.$query_blocked.' AND inventory_head = ? ORDER BY product, items, weight_item, brand_no, packaging, quality, inb_arrival, position', $this->getParam('No'));
 		while ($inv = $inventories->fetch()) {
 			$inv['remarks'].= ($inv['remarks_on_inventory']!='') ? ' '.$inv['remarks_on_inventory'] : '';
-			$this->logger->info('Bemerkungen: '.print_r($inv['remarks'], true));
-			$this->logger->info('Bemerkungen Zählung: '.print_r($inv['remarks_on_inventory'], true));
-			$this->logger->info(print_r($inv, true));
 			$inventory[] = $inv;
 		}
 		if (count($inventory)==0) $this->_redirect('/whmanagement/index/error/Die%20Zählung%20ist%20noch%20nicht%20abgeschlossen!');
@@ -77,9 +74,7 @@ class WhmanagementController extends Zend_Controller_Action
 	public function printcountlistAction()
 	{
 		if (!$this->hasParam('No')) $this->_redirect('/whmanagement/index/error/Keine%20Zählung%20übergeben');
-		$this->logger->info('Abfrage startet: '.print_r(date('H:i:s', time()), true));
-		$inventories = $this->db->query('SELECT * FROM v_inventory_summery WHERE state < 2 AND inventory_head = ? ORDER BY product, items, weight_item, brand_no, position, packaging, quality', $this->getParam('No'))->fetchAll();
-		$this->logger->info('Abfrage ist beendet: '.print_r(date('H:i:s', time()), true));
+		$inventories = $this->db->query('SELECT * FROM v_inventory_summery WHERE state < 2 AND inventory_head = ? ORDER BY product, items, weight_item, brand_no, inb_arrival desc, position desc', $this->getParam('No'))->fetchAll();
 		if (count($inventories)==0) $this->_redirect('/whmanagement/index/error/Die%20Zählung%20ist%20bereits%20abgeschlossen!');
 		$filename = "Zaehlliste ".date('d.m.Y', strtotime($inventories[0]['inv_date']))." ".date('H_i', strtotime($inventories[0]['inv_date'])).".pdf";
 		$filepath = realpath($this->config->report->inventory);
@@ -120,8 +115,8 @@ class WhmanagementController extends Zend_Controller_Action
 			$errors['No'] = 'Die Funktion "Zählung abschließen" wurde ohne Parameter aufgerufen!';
 			$this->logger->err('Closeinventory wurde ohne Parameter aufgerufen!');
 		}
-	}	
-	
+	}
+
 	public function doinventoryAction()
 	{
 		$inventory_lines = array();
@@ -131,14 +126,14 @@ class WhmanagementController extends Zend_Controller_Action
 		$errors = array();
 		if ($this->hasParam('No')) {
 			$inventory_heads = $inventory_head_table->find($this->getParam('No'));
-			if (($inventory_heads->count()==0) || ($inventory_heads->current()->state > 1)) {
+			if (($inventory_heads->count()==0) || ($inventory_heads->current()->state == 2)) {
 				$errors['all'] = 'Die Zählung existiert nicht oder wurde schon abgeschlossen!';
 				$this->logger->err('Die Zählung existiert nicht oder wurde schon abgeschlossen! '.print_r($inventory_heads, true));
 			} else {
 				$inventory_head = $inventory_heads->current()->toArray();
 			}
 		} else {
-			$inventory_heads = $inventory_head_table->fetchAll('state < 2');
+			$inventory_heads = $inventory_head_table->fetchAll('state <> 2');
 			if ($inventory_heads->count()==0) {
 				try {
 					$inventory_head['date'] = $date->toString('YYYY-MM-dd HH:mm:ss');
@@ -149,6 +144,7 @@ class WhmanagementController extends Zend_Controller_Action
 					$sql = 'INSERT INTO inventory';
 					$sql.= '(inventory_head,';
 					$sql.= ' inbound_line,';
+					$sql.= ' movement,';
 					$sql.= ' date,';
 					$sql.= ' room,';
 					$sql.= ' rack,';
@@ -160,6 +156,7 @@ class WhmanagementController extends Zend_Controller_Action
 					$sql.= 'SELECT';
 					$sql.= ' ?,';
 					$sql.= ' v_inb_line.No,';
+					$sql.= ' movements.No,';
 					$sql.= ' NOW(),';
 					$sql.= ' "0",';
 					$sql.= ' "0",';
@@ -168,7 +165,7 @@ class WhmanagementController extends Zend_Controller_Action
 					$sql.= ' v_inb_line.inb_tu_pal,';
 					$sql.= ' "0",';
 					$sql.= ' "0" ';
-					$sql.= 'FROM v_inb_line where stock<>0';
+					$sql.= 'FROM movements join v_inb_line on (movements.inbound_line = v_inb_line.No) where movements.movement = 1 and v_inb_line.stock<>0';
 					$this->logger->info('SQL: '.$sql);
 					$statement = $this->db->query($sql, $inventory_head['No']);
 		//			$statement->execute();
@@ -245,23 +242,21 @@ class WhmanagementController extends Zend_Controller_Action
 		$date = new Zend_Date();
 		$variant_table = new Application_Model_VariantModel();
 		$inb_line_table = new Application_Model_InboundlineModel();
+		$inbound_table = new Application_Model_InboundModel();
 		$inventory_table = new Application_Model_InventoryModel();
 		$po_table = new Application_Model_ProductionorderModel();
 		$po_line_table = new Application_Model_ProductionorderlineModel();
 		$movement_table = new Application_Model_MovementModel();
+		$stock_location_table = new Application_Model_StocklocationModel();
 		if ($this->getRequest()->isPost()) {
 			$this->logger->info('Post-Request mit $_POST: '.print_r($_POST, true));
 			$result = $_POST;
+
+			// inventory auslesen
 			isset($_POST['No']) ? $inventory_No = $_POST['No'] : $inventory_No = 0;
-			isset($_POST['inventory_head']) ? $inventory['inventory_head'] = $_POST['inventory_head'] : $inventory['inventory_head'] = 0;
 			isset($_POST['inbound_line']) ? $inventory['inbound_line'] = $_POST['inbound_line'] : $inventory['inbound_line'] = 0;
+			isset($_POST['movement']) ? $inventory['movement'] = $_POST['movement'] : $inventory['movement'] = 0;
 			if (isset($_POST['date'])) $inventory['date'] = $_POST['date'];
-			isset($_POST['items']) ? $variant['items'] = $_POST['items'] : $variant['items'] = 0;
-			isset($_POST['weight_item']) ? $variant['weight_item'] = $_POST['weight_item'] : $variant['weight_item'] = 0;
-			isset($_POST['t_packaging']) ? $variant['t_packaging'] = $_POST['t_packaging'] : $variant['t_packaging'] = '';
-			isset($_POST['packaging']) ? $variant['packaging'] = $_POST['packaging'] : $variant['packaging'] = 0;
-			isset($_POST['label']) ? $variant['label'] = $_POST['label'] : $variant['label'] = 0;
-			isset($_POST['inb_lot']) ? $inbound_line['lot'] = $_POST['inb_lot'] : $inbound_line['lot'] = '';
 			isset($_POST['room']) ? $inventory['room'] = $_POST['room'] : $inventory['room'] = 0;
 			isset($_POST['rack']) ? $inventory['rack'] = $_POST['rack'] : $inventory['rack'] = 0;
 			isset($_POST['level']) ? $inventory['level'] = $_POST['level'] : $inventory['level'] = 0;
@@ -269,39 +264,173 @@ class WhmanagementController extends Zend_Controller_Action
 			isset($_POST['tu_pallet']) ? $inventory['tu_pallet'] = $_POST['tu_pallet'] : $inventory['tu_pallet'] = 0;
 			isset($_POST['trading_units']) ? $inventory['trading_units'] = $_POST['trading_units'] : $inventory['trading_units'] = 0;
 			isset($_POST['blocked']) ? $inventory['blocked'] = $_POST['blocked'] : $_POST['blocked'] = 0;
+
+			// inbound_line auslesen
+			isset($_POST['qc_on_inventory']) ? $inbound_line['qc_on_inventory']=$_POST['qc_on_inventory'] : $inbound_line['qc_on_inventory']=1;
+			isset($_POST['inb_lot']) ? $inbound_line['lot'] = $_POST['inb_lot'] : $inbound_line['lot'] = '';
+
+			// variante auslesen
+			isset($_POST['items']) ? $variant['items'] = $_POST['items'] : $variant['items'] = 0;
+			isset($_POST['weight_item']) ? $variant['weight_item'] = $_POST['weight_item'] : $variant['weight_item'] = 0;
+			isset($_POST['t_packaging']) ? $variant['t_packaging'] = $_POST['t_packaging'] : $variant['t_packaging'] = '';
+			isset($_POST['packaging']) ? $variant['packaging'] = $_POST['packaging'] : $variant['packaging'] = 0;
+			isset($_POST['label']) ? $variant['label'] = $_POST['label'] : $variant['label'] = 0;
+
+			// inventory_head auslesen
+			isset($_POST['inventory_head']) ? $inventory['inventory_head'] = $_POST['inventory_head'] : $inventory['inventory_head'] = 0;
+
+			// zusätzliche Infos auslesen
 			isset($_POST['default_TU']) ? $default_tradingUnits = $_POST['default_TU'] : $default_tradingUnits = 0;
 			isset($_POST['overwrite']) ? $overwrite = ($_POST['overwrite'] == 'true') : $overwrite = false;
+			
+			//Überprüfung der Eingaben
 			if ($inventory['inventory_head'] == 0) $errors['inventory_head'] = 'Inventory_Head darf nicht leer oder 0 sein!';
 			if ($inventory['inbound_line'] == 0) $errors['inbound_line'] = 'Inbound_Line darf nicht leer oder 0 sein!';
+			if ($inventory['movement'] == 0) $errors['movement'] = 'Movement darf nicht leer sein!';
 			$this->logger->info('Fehler: '.print_r($errors, true));
 			$this->logger->info('Inventory_No: '.print_r($inventory_No, true));
 			if (count($errors)==0) {
 				$this->db->beginTransaction();
 				try {
-					if ($inventory_No<>0) {
-						$dev_inventory = $inventory_table->find($inventory_No)->current()->toArray();
-						$this->logger->info('dev_inventory: '.print_r($dev_inventory, true));
-						$this->logger->info('default_tradingUnits: '.print_r($default_tradingUnits, true));
-						$this->logger->info('overwrite: '.print_r($overwrite, true));
-						if (($default_tradingUnits <> $dev_inventory['trading_units']) and ($overwrite==false)) {
-							$inventory['race_condition'] = $dev_inventory['trading_units'];
-							$this->logger->info('Race Condition für Inventory: '.print_r($inventory, true));
-							$this->logger->info('Gespeicherte Werte: '.print_r($dev_inventory, true));
-							throw new Exception('Der Wert wurde bereits von einem anderen Benutzer auf '.$dev_inventory['trading_units'].'geändert!');
+					// movement holen
+					$movement_set = $movement_table->find($inventory['movement']);
+					if ($movement_set->count()==0) throw new Exception('Bewegung existiert nicht');
+					$cur_movement = $movement_set->current();
+					// Inbound_Line holen
+					$inbound_line_set = $inb_line_table->find($inventory['inbound_line']);
+					if ($inbound_line_set->count()==0) throw new Exception('Inbound_line existiert nicht');
+					$cur_inbound_line = $inbound_line_set->current();
+					// variante holen
+					$variant_set = $variant_table->find($cur_inbound_line['variant']);
+					if ($variant_set->count()==0) throw new Exception('Variante existiert nicht!');
+					$cur_variant = $variant_set->current()->toArray();
+					// Inbound holen
+					$inbound_set = $inbound_table->find($cur_inbound_line->inbound);
+					if ($inbound_set->count()==0) throw new Exception('Inbound existiert nicht!');
+					$cur_inbound = $inbound_set->current();
+					// stock location holen
+					$stock_location_set = $stock_location_table->find($cur_movement->stock_location);
+					if ($stock_location_set->count()==0) throw new Exception('Stock Location existiert nicht');
+					$cur_stock_location = $stock_location_set->current();
+					if ($inventory_No<>0) { // vorhandene Inventory wird bearbeitet
+						if ($cur_stock_location->quarantene==$inventory['blocked']) { // Sperr-Status wurde nicht gändert
+							$dev_inventory = $inventory_table->find($inventory_No)->current()->toArray();
+							$this->logger->info('dev_inventory: '.print_r($dev_inventory, true));
+							$this->logger->info('default_tradingUnits: '.print_r($default_tradingUnits, true));
+							$this->logger->info('overwrite: '.print_r($overwrite, true));
+							if (($default_tradingUnits <> $dev_inventory['trading_units']) and ($overwrite==false)) { // Ein anderer Benutzer hat in der zwischenzeit den Eintrag verändert
+								$inventory['race_condition'] = $dev_inventory['trading_units'];
+								$this->logger->info('Race Condition für Inventory: '.print_r($inventory, true));
+								$this->logger->info('Gespeicherte Werte: '.print_r($dev_inventory, true));
+								throw new Exception('Der Wert wurde bereits von einem anderen Benutzer auf '.$dev_inventory['trading_units'].'geändert!');
+							}
+						} else { // Der Sperr-Status wurde verändert
+							// Umlagerung in oder aus dem Sperrlager
+							// Erstellung des Umlagerungsauftrags
+							// holen des anderen Lagerortes
+							$rearangement_order_line_table = new Application_Model_RearangementOrderLineModel();
+							$rearangement_order_table = new Application_Model_RearangementOrderModel();
+							$rearangement_table = new Application_Model_RearangementModel();
+							$rearangement_line_table = new Application_Model_RearangementLineModel();
+							if ($cur_stock_location->quarantene == 1) $stock_location_set = $stock_location_table->find($cur_stock_location->quarantene_for_sl);
+							else $stock_location_set = $stock_location_table->fetchAll($stock_location_table->select()->where('quarantene_for_sl = ? and quarantene = 1', $cur_stock_location->No));
+							if ($stock_location_set->count()==0) throw new Exception('Anderer Lagerort nicht vorhanden');
+							$inbound_sl = $stock_location_set->current();
+							$rearangement_order['outbound_sl'] = $cur_stock_location->No;
+							$rearangement_order['inbound_sl'] = $inbound_sl->No;
+							$rearangement_order['outbound_date'] = $date->toString('YYYY-MM-dd HH:mm:ss');
+							$rearangement_order['inbound_date'] = $date->toString('YYYY-MM-dd HH:mm:ss');
+							$rearangement_order['transit_time'] = 0;
+							$rearangement_order_table->insert($rearangement_order);
+							$rearangement_order['No'] = $this->db->lastInsertId();
+							$this->logger->info('Umlagerungsauftrag geschrieben: '.print_r($rearangement_order, true));
+							// Umlagerungsauftragszeilen
+							$rearangement_order_line['rearangement_order'] = $rearangement_order['No'];
+							$rearangement_order_line['variant'] = $cur_inbound_line->variant;
+							$rearangement_order_line['trading_units'] = $inventory['trading_units'];
+							$rearangement_order_line['packing_units'] = $inventory['trading_units'] * $cur_variant['items'];
+							$rearangement_order_line['pallet'] = $cur_inbound_line->pallet;
+							$rearangement_order_line['pallets'] = $inventory['pallets'];
+							$rearangement_order_line['inb_line_suggested'] = $cur_inbound_line->No;
+							$rearangement_order_line_table->insert($rearangement_order_line);
+							$rearangement_order_line['No'] = $this->db->lastInsertId();
+							$this->logger->info('Umlagerungsauftragszeile Ausgang geschrieben! '.print_r($rearangement_order_line, true));
+							// Ulagerungsbuchung
+							$rearangement['rearangement_order'] = $rearangement_order['No'];
+							$rearangement['outbound_date'] = $rearangement_order['outbound_date'];
+							$rearangement['inbound_date'] = $rearangement_order['inbound_date'];
+							$rearangement['tour'] = 0;
+							$rearangement_table->insert($rearangement);
+							$rearangement['No'] = $this->db->lastInsertId();
+							$this->logger->info('Umlagerung geschrieben! '.print_r($rearangement, true));
+							// Umlagerungsbuchungszeile
+							$rearangement_line['rearangement'] = $rearangement['No'];
+							$rearangement_line['inbound_line'] = $cur_inbound_line->No;
+							$rearangement_line['trading_units'] = $rearangement_order_line['trading_units'];
+							$rearangement_line['packing_units'] = $rearangement_order_line['packing_units'];
+							$rearangement_line['pallet'] = $rearangement_order_line['pallet'];
+							$rearangement_line['pallets'] = $rearangement_order_line['pallets'];
+							$rearangement_line_table->insert($rearangement_line);
+							$rearangement_line['No'] = $this->db->lastInsertId();
+							$this->logger->info('Umlagerungszeile geschrieben! '.print_r($rearangement_line, true));
+							
+							// Movement outbound
+							$movement['No'] = 0;
+							$movement['movement'] = 2;
+							$movement['date'] = $date->toString('YYYY-MM-dd HH:mm:ss');
+							$movement['trading_units'] = $inventory['trading_units'];
+							$movement['packing_units'] = $inventory['trading_units'] * $cur_variant['items'];
+							$movement['trading_units_production'] = $inventory['trading_units'];
+							$movement['packing_units_production'] = $inventory['trading_units'] * $cur_variant['items'];
+							$movement['status'] = 3;
+							$movement['type'] = 4;
+							$movement['stock_location'] = $cur_stock_location->No;
+							$movement['remarks'] = 'Umlagerung bei Zählung';
+							$movement['inbound_line'] = $cur_inbound_line['No'];
+							$movement['out_order_line'] = $rearangement_order_line['No'];
+							$movement['outbound_line'] = $rearangement_line['No'];
+							$movement['inbound_movement'] = $inventory['movement'];
+							$this->logger->info('Movement: '.print_r($movement, true));
+							$movement_table->insert($movement);
+							$movement['No'] = $this->db->lastInsertId();
+							$this->logger->info('Bewegung wurde gespeichert mit No: '.$movement['No']);
+								
+							// Movement inbound
+							$movement['No'] = 0;
+							$movement['movement'] = 1;
+							$movement['date'] = $date->toString('YYYY-MM-dd HH:mm:ss');
+							$movement['trading_units'] = $inventory['trading_units'];
+							$movement['packing_units'] = $inventory['trading_units'] * $cur_variant['items'];
+							$movement['trading_units_production'] = $inventory['trading_units'];
+							$movement['packing_units_production'] = $inventory['trading_units'] * $cur_variant['items'];
+							$movement['status'] = 3;
+							$movement['type'] = 4;
+							$movement['stock_location'] = $inbound_sl->No;
+							$movement['remarks'] = 'Umlagerung bei Zählung';
+							$movement['inbound_line'] = $cur_inbound_line['No'];
+							$movement['out_order_line'] = 0;
+							$movement['outbound_line'] = 0;
+							$movement['inbound_movement'] = 0;
+							$this->logger->info('Movement: '.print_r($movement, true));
+							$movement_table->insert($movement);
+							$movement['No'] = $this->db->lastInsertId();
+							$movement['inbound_movement'] = $movement['No'];
+							$movement_table->update($movement, array('No = ?'=>$movement['inbound_movement']));
+							$this->logger->info('Bewegung wurde gespeichert mit No: '.$movement['No']);
+							
+							// inventory mit neuem inbound movement verbinden 
+							$inventory['movement'] = $movement['No'];
 						}
 						$inventory_table->update($inventory, array('No = ?' => $inventory_No));
 						$inventory['No'] = $inventory_No;
 						$this->logger->info('Die Inventory wurde gespeichert: '.print_r($inventory, true));
+						$inbound_line_set->current()->qc_on_inventory = $inbound_line['qc_on_inventory'];
+						$inbound_line_set->current()->save();
+						$this->logger->info('QC qurde gespeichert');
 					} else {
 						require_once('VariantController.php');
 					// Inbound_line und Variante holen
-						$inbound_line_set = $inb_line_table->find($inventory['inbound_line']);
-						if ($inbound_line_set->count()==0) throw new Exception('Inbound_line existiert nicht');
-						$cur_inbound_line = $inbound_line_set->current()->toArray();
 						$inventory['inbound_line'] = $cur_inbound_line['No'];
-						$variant_set = $variant_table->find($cur_inbound_line['variant']);
-						if ($variant_set->count()==0) throw new Exception('Variante existiert nicht!');
-						$cur_variant = $variant_set->current()->toArray();
 					// Geänderte Variante feststellen
 						$new_line = false;
 						$new_variant = array_merge($cur_variant, $variant);
@@ -362,14 +491,16 @@ class WhmanagementController extends Zend_Controller_Action
 							$this->logger->info('po_line_out gespeichert: '.print_r($po_line_out, true));
 						// Neue Inbound_Line erstellen, mit Daten der ursprünglichen Inbound_Line, aber neuer Variante und Losnummer, Eingangsmenge 0
 							$new_inbound_line = $cur_inbound_line;
-							$inbound_line_set = $inb_line_table->fetchAll($inb_line_table->select()->where('inbound = ?', $cur_inbound_line['inbound']));
-							$new_inbound_line['line'] = ($inbound_line_set->count()+1)*10000;
+							$count_inb_line_set = $inb_line_table->fetchAll($inb_line_table->select()->where('inbound = ?', $cur_inbound_line['inbound']));
+							$new_inbound_line['line'] = ($count_inb_line_set->count()+1)*10000;
 							$new_inbound_line['variant'] = $new_variant['No'];
 							$new_inbound_line['trading_units'] = 0;
 							$new_inbound_line['packing_units'] = 0;
 							$new_inbound_line['tu_pallet'] = $inventory['tu_pallet'];
 							$new_inbound_line['lot'] = $inbound_line['lot'];
 							$new_inbound_line['No'] = null;
+							$new_inbound_line['qc_on_inventory'] = $inbound_line['qc_on_inventory'];
+							$new_inbound_line['blocked'] = $inbound_line['blocked'];
 							$inb_line_table->insert($new_inbound_line);
 							$new_inbound_line['No'] = $this->db->lastInsertId();
 							$this->logger->info('Neue Inbound_line: '.print_r($new_inbound_line, true));
@@ -389,6 +520,7 @@ class WhmanagementController extends Zend_Controller_Action
 							$movement['inbound_line'] = $cur_inbound_line['No'];
 							$movement['out_order_line'] = $po_line_in['No'];
 							$movement['outbound_line'] = $po_line_in['No'];
+							$movement['inbound_movement'] = $inventory['movement'];
 							$this->logger->info('Movement: '.print_r($movement, true));
 							$movement_table->insert($movement);
 							$movement['No'] = $this->db->lastInsertId();
@@ -412,7 +544,13 @@ class WhmanagementController extends Zend_Controller_Action
 							$this->logger->info('Movement: '.print_r($movement, true));
 							$movement_table->insert($movement);
 							$movement['No'] = $this->db->lastInsertId();
+							$movement['inbound_movement'] = $movement['No'];
+							$movement_table->update($movement, array('No = ?'=>$movement['inbound_movement']));
 							$this->logger->info('Bewegung wurde gespeichert mit No: '.$movement['No']);
+						} else {
+							$inbound_line_set->current()->qc_on_inventory = $inbound_line['qc_on_inventory'];
+							$inbound_line_set->current()->save();
+							$this->logger->info('QC qurde gespeichert');
 						}
 					// Inventory updaten und schreiben
 						$inventory['date'] = $date->toString('YYYY-MM-dd HH:mm:ss');

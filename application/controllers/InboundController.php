@@ -1032,10 +1032,13 @@ class inboundController extends Zend_Controller_Action
 				$movement['remarks'] = '';
 				$movement['in_order_line'] = $purchase_order_line['No'];
 				$movement['inbound_line'] = $inbound_line['No'];
+				$movement['inbound_movement'] = 0;
 				$this->logger->info('Movement: '.print_r($movement, true));
 				try {
 					$movement_table->insert($movement);
 					$movement['No'] = $this->db->lastInsertId();
+					$movement['inbound_movement'] = $movement['No'];
+					$movement_table->update($movement, array('No = ?'=>$movement['inbound_movement']));
 					$this->logger->info('Bewegung wurde gespeichert mit No: '.$movement['No']);
 				} catch (Exception $e) {
 					$this->logger->info('Lagerbewegung wurde nicht gespeichert! '.$e->getMessage());
@@ -1284,6 +1287,13 @@ class inboundController extends Zend_Controller_Action
 				$this->logger->info("Inbound_line {$inbound_line->No} ist ein Storno oder wurde storniert!");
 				$this->_redirect('inbound/index/error/'.$errors['reversed_to']);
 			}
+			$movement_set = $movement_table->find($inbound_line->No);
+			if ($movement_set->count()<>0) {
+				$this->logger->err('Keine oder mehrere Bewegungen zum Vorgang gefunden');
+				$errors['movements'] = 'Keine oder mehrere Bewegungen zum Vorgang gefunden';
+				$this->_redirect('inbound/index/error/'.$errors['movements']);
+			}
+			$cur_movement = $movement_set->current();
 			try {
 				$this->db->beginTransaction();
 				$inbound = $this->db->query('SELECT * FROM inbound WHERE No=?', $inbound_line->inbound)->fetchAll()[0];
@@ -1316,7 +1326,7 @@ class inboundController extends Zend_Controller_Action
 				$movement['stock_location'] = $inbound['stock_location'];
 				$movement['remarks'] = "Storno zu {$inbound['position']} Zeile {$inbound_line->line}";
 				$movement['in_order_line'] = 0;
-				$movement['inbound_line'] = $inbound_line->No;
+				$movement['inbound_line'] = $cur_movement->No;
 				$movement['outbound_line'] = $inbound_line->reversed_to;
 				$movement_table->insert($movement);
 				$this->logger->info("Storno von Inbound_line {$inbound_line->No} erfolgreich mit Reverse_inb_line {$inbound_line->reversed_to}");
@@ -1442,8 +1452,10 @@ class inboundController extends Zend_Controller_Action
 	private function mailWE($No)
 	{
 		$sent = false;
+		$this->logger->info('Mailversand aufgerufen!');
 		$inbound_line = $this->db->query('SELECT * FROM v_inb_line WHERE No = ?', $No)->fetchAll();
 		if (count($inbound_line)>0) {
+			$this->logger->info('Abfrage Daten beendet!');
 			$inbLine = new Application_Model_Inboundline($No);
 			$emailText = "Hallo Kollegen,\n\n";
 			$emailText.= "Ein Neuer Wareneingang wurde gebucht.\n\n";
@@ -1454,26 +1466,43 @@ class inboundController extends Zend_Controller_Action
 			$emailText.= "Bitte schaue unter http://dispo.mvs.local/inbound/index/position/{$inbound_line[0]['position']}\n\n";
 			$emailText.= "Mit freundlichen Gruessen\n\nWareneingang\n\n";
 			$emailText.= "Marktvertrieb Schwerin GmbH";
+			$withRep = $this->config->mail->we->withrep->toArray();
+			$woRep= $this->config->mail->we->worep->toArray();
 			$mailconfig = $this->config->mailconfig->toArray();
 			$transport = new Zend_Mail_Transport_SMTP($this->config->mailserver, $mailconfig);
 			$content = $this->createQCReport($inbLine);
 			try {
-				$mail = new Zend_Mail();
-				if ($this->global_settings['qc_intern_with_report']==1) {
-					$attachment = $mail->createAttachment($content);
-					$attachment->type = 'application/PDF';
-					$attachment->disposition = Zend_Mime::DISPOSITION_ATTACHMENT;
-					$attachment->encoding = Zend_Mime::ENCODING_BASE64;
-					$attachment->filename = 'Quality Report.pdf';
+				if (count($withRep)>0) {
+					$mail = new Zend_Mail();
+					foreach ($withRep as $to) $mail->addTo($to);
+					$this->logger->info('Report gestartet');
+					if ($this->global_settings['qc_intern_with_report']==1) {
+						$attachment = $mail->createAttachment($content);
+						$attachment->type = 'application/PDF';
+						$attachment->disposition = Zend_Mime::DISPOSITION_ATTACHMENT;
+						$attachment->encoding = Zend_Mime::ENCODING_BASE64;
+						$attachment->filename = 'Quality Report.pdf';
+						$this->logger->info('Report erstellt!');
+					}
+					$mail->setBodyText($emailText);
+					$mail->setFrom('dispo@marktvertrieb.de', 'MVS-Dispo Wareneingang');
+					$mail->setSubject("Wareneingang {$inbound_line[0]['position']} {$inbound_line[0]['vendor_name']} {$inbound_line[0]['origin']} {$inbound_line[0]['product_desc']} {$inbound_line[0]['items']}x{$inbound_line[0]['weight_item']}g");
+					$this->logger->info('Email zum Versand vorbereitet und an Relay übergeben!');
+					$mail->send($transport);
+					$sent = true;
+					$this->logger->info('Email gesendet');
 				}
-				$mail->setBodyText($emailText);
-				$mail->setFrom('dispo@marktvertrieb.de', 'MVS-Dispo Wareneingang');
-				$mail->addTo('vt-wareneingangsmitteilung@marktvertrieb.de');
-				$mail->addTo('logistik@marktvertrieb.de');
-				$mail->addCc('warenbereitstellung@marktvertrieb.de');
-				$mail->setSubject("Wareneingang {$inbound_line[0]['position']} {$inbound_line[0]['vendor_name']} {$inbound_line[0]['origin']} {$inbound_line[0]['product_desc']} {$inbound_line[0]['items']}x{$inbound_line[0]['weight_item']}g");
-				$mail->send($transport);
-				$sent = true;
+				if (count($woRep)>0) {
+					$mail = new Zend_Mail();
+					foreach ($woRep as $to) $mail->addTo($to);
+					$mail->setBodyText($emailText);
+					$mail->setFrom('dispo@marktvertrieb.de', 'MVS-Dispo Wareneingang');
+					$mail->setSubject("Wareneingang {$inbound_line[0]['position']} {$inbound_line[0]['vendor_name']} {$inbound_line[0]['origin']} {$inbound_line[0]['product_desc']} {$inbound_line[0]['items']}x{$inbound_line[0]['weight_item']}g");
+					$this->logger->info('Email zum Versand vorbereitet und an Relay übergeben!');
+					$mail->send($transport);
+					$sent = true;
+					$this->logger->info('Email gesendet');
+				}
 			} catch (Exception $e) {
 				$this->logger->err('Email nicht versendet! '.$e->getMessage());
 			}
