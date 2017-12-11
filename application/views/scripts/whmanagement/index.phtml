@@ -47,7 +47,7 @@ function print()
 	<td class="data"><?php if ($data['state']==2) : ?><a onclick="doPrint(this)"><img title="Bestand drucken" alt="drucken" src="/images/b_print.png" /></a>
 					<?php else : ?><a href="/whmanagement/printcountlist/No/<?php echo $data['No'] ?>"><img title="Zählliste drucken" alt="drucken" src="/images/b_print.png" /></a><a href="/whmanagement/doinventory/No/<?php echo $data['No'] ?>"><img title="count" alt="Zählen" src="/images/b_dbstatistics.png" /></a>
 					<?php endif ?>					
-					<?php echo $data['date']; ?></td>
+					<?php echo "{$data['No']} vom ".date('d.m.Y H:i', strtotime($data['date'])); ?></td>
 	<td class="data"><?php echo $data['state_desc']; ?></td>
 	<td class="data"><?php echo date('d.m.Y H:i', strtotime($data['started'])); ?></td>
 	<td class="data"><?php echo (is_null($data['ended'])) ? '' : date('d.m.Y H:i', strtotime($data['ended'])); ?></td>
