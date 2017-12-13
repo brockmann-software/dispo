@@ -60,7 +60,7 @@ class WhmanagementController extends Zend_Controller_Action
 			$inventory[] = $inv;
 		}
 		if (count($inventory)==0) $this->_redirect('/whmanagement/index/error/Die%20Zählung%20ist%20noch%20nicht%20abgeschlossen!');
-		$filename = "Bestand ".date('d.m.Y', strtotime($inventory[0]['inv_date']))." ".date('H_i', strtotime($inventory[0]['inv_date'])).$sufix.".pdf";
+		$filename = "Bestand ".date('d.m.Y H_i', strtotime($inventory[0]['inv_date'])).$sufix.".pdf";
 		$filepath = realpath($this->config->report->inventory);
 		$this->view->inventories = $inventory;
 		$this->view->filename = $filename;
@@ -124,14 +124,34 @@ class WhmanagementController extends Zend_Controller_Action
 		$inventory_head_table = new Application_Model_InventoryheadModel();
 		$date = new Zend_Date();
 		$errors = array();
+		$state = 0;
+		if ($this->hasParam('state')) $state = $this->getParam('state');
 		if ($this->hasParam('No')) {
 			$inventory_heads = $inventory_head_table->find($this->getParam('No'));
-			if (($inventory_heads->count()==0) || ($inventory_heads->current()->state == 2)) {
-				$errors['all'] = 'Die Zählung existiert nicht oder wurde schon abgeschlossen!';
-				$this->logger->err('Die Zählung existiert nicht oder wurde schon abgeschlossen! '.print_r($inventory_heads, true));
-			} else {
-				$inventory_head = $inventory_heads->current()->toArray();
-			}
+			if ($inventory_heads->count()==0) {
+				$errors['all'] = 'Die Zählung existiert nicht!';
+				$this->logger->err('Die Zählung existiert nicht! ');
+			} elseif ($inventory_heads->current()->state == 2) { 
+				if ($state<>3) {
+					$errors['all'] = 'Die Zählung wurde bereits abgeschlossen!';
+					$this->logger->err('Die Zählung wurde bereits abgeschlossen! ');
+				} else {
+					$inventory_head = $inventory_heads->current();
+					$filepath = realpath($this->config->report->inventory);
+					$sufix = '-alle';
+					$filename = realpath($this->config->report->inventory.'/'."Bestand ".date('d.m.Y H_i', strtotime($inventory_head->date)).$sufix.".pdf");
+					if (file_exists($filename)) unlink($filename);
+					$sufix = '-gesperrte';
+					$filename = realpath($this->config->report->inventory.'/'."Bestand ".date('d.m.Y H_i', strtotime($inventory_head->date)).$sufix.".pdf");
+					if (file_exists($filename)) unlink($filename);
+					$sufix = '-freie';
+					$filename = realpath($this->config->report->inventory.'/'."Bestand ".date('d.m.Y H_i', strtotime($inventory_head->date)).$sufix.".pdf");
+					if (file_exists($filename)) unlink($filename);
+					$inventory_head->state = 3;
+					$inventory_head->save();
+					$this->logger->info('Zählung gefunden und Status auf 3 geändert');
+				}
+			} else $inventory_head = $inventory_heads->current();
 		} else {
 			$inventory_heads = $inventory_head_table->fetchAll('state <> 2');
 			if ($inventory_heads->count()==0) {
@@ -175,14 +195,15 @@ class WhmanagementController extends Zend_Controller_Action
 					$errors['all'] = 'Ein Fehler ist bei dem Erstellen der Zählung aufgetreten!';
 					$this->logger->err($e->getMessage());
 				}
-				$this->_redirect('/whmanagement/doinventory/No/'.$inventory_head['No']);
+				$this->_redirect('/whmanagement/doinventory/No/'.$inventory_heads->current()->No);
 			} else {
 				$errors['all'] = 'Es gibt bereits eine offene Zählung! Bitte erst diese Zählung abschließen';
 				$this->_redirect('/whmanagement/doinventory/No/'.$inventory_heads->current()->No);
 			}
 		}
 		if (count($errors)==0) try {
-			$inventory_lines = $this->db->query('SELECT * from v_inventory WHERE inventory_head = ? ORDER BY product, items, weight_item, brand_no, position desc, inbound_line, No', $inventory_head['No'])->fetchAll();
+			$noZero = ($inventory_head->state == 3) ? 'AND trading_units<>0 ' : '';
+			$inventory_lines = $this->db->query('SELECT * from v_inventory WHERE inventory_head = ? '.$noZero.'ORDER BY product, items, weight_item, brand_no, position desc, inbound_line, No', $inventory_head->No)->fetchAll();
 	//		$this->logger->info('Inventory_lines aufgerufen: '.print_r($inventory_lines, true));
 		} catch (Exception $e) {
 			$errors['all'] = 'Ein Fehler ist aufgetreten bei dem Laden der Zählung!';
