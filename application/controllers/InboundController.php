@@ -1267,6 +1267,7 @@ class inboundController extends Zend_Controller_Action
 	{
 		$errors = array();
 		if ($this->hasParam('No')) {
+			$this->logger->info('Param: '.$this->getParam('No'));
 			$inb_line_table = New Application_Model_inboundlineModel();
 			$movement_table = new Application_Model_MovementModel();
 			$inbound_lines = $inb_line_table->find($this->getParam('No'));
@@ -1276,6 +1277,7 @@ class inboundController extends Zend_Controller_Action
 				$this->_redirect('inbound/index/error/'.$errors['No']);
 			}
 			$inbound_line = $inbound_lines->current();
+//			$this->logger->info('Inbound_line: ', print_r($inbound_line->toArray(), true));
 			$stock = $this->db->query('SELECT SUM(trading_units) as trading_units, SUM(packing_units) as packing_units FROM movements WHERE inbound_line = ?', $inbound_line->No)->fetchAll()[0];
 			if (($stock[trading_units]<>$inbound_line->trading_units) || ($stock['packing_units']<>$inbound_line->packing_units)) {
 				$this->logger->err("Bestand auf Inbound_line {$inbound_line->No} ist nicht der Ursprungsbestand!");
@@ -1287,9 +1289,9 @@ class inboundController extends Zend_Controller_Action
 				$this->logger->info("Inbound_line {$inbound_line->No} ist ein Storno oder wurde storniert!");
 				$this->_redirect('inbound/index/error/'.$errors['reversed_to']);
 			}
-			$movement_set = $movement_table->find($inbound_line->No);
-			if ($movement_set->count()<>0) {
-				$this->logger->err('Keine oder mehrere Bewegungen zum Vorgang gefunden');
+			$movement_set = $movement_table->fetchAll(array('inbound_line = ?'=>$inbound_line->No));
+			if ($movement_set->count()<>1) {
+				$this->logger->err('Keine oder mehrere Bewegungen zum Vorgang gefunden '.$movement_set->count());
 				$errors['movements'] = 'Keine oder mehrere Bewegungen zum Vorgang gefunden';
 				$this->_redirect('inbound/index/error/'.$errors['movements']);
 			}
