@@ -1328,7 +1328,7 @@ class inboundController extends Zend_Controller_Action
 				$movement['stock_location'] = $inbound['stock_location'];
 				$movement['remarks'] = "Storno zu {$inbound['position']} Zeile {$inbound_line->line}";
 				$movement['in_order_line'] = 0;
-				$movement['inbound_line'] = $cur_movement->No;
+				$movement['inbound_line'] = $inbound_line->No;
 				$movement['outbound_line'] = $inbound_line->reversed_to;
 				$movement_table->insert($movement);
 				$this->logger->info("Storno von Inbound_line {$inbound_line->No} erfolgreich mit Reverse_inb_line {$inbound_line->reversed_to}");

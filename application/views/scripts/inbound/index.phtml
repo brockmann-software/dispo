@@ -1,5 +1,12 @@
 <script>
 <!--
+function showMovements(element)
+{
+	id = element.parentNode.parentNode.id;
+	URI = '/movement/movementdialog/inbound_line/'+id;
+	window.open(URI, 'Lieferanten', 'dialogWidth=600px;dialogHeight=400px;diologLeft=0;dialogTop=100;resizable=yes;scroll=yes');
+}
+
 function markInbound(row) {
 	var inboundTable = document.getElementById('inbounds').getElementsByTagName('tbody')[0];
 	var rowCnt = inboundTable.rows.length;
@@ -182,8 +189,12 @@ function getInbLines(inbound) {
 					tdPallets.className="data_num";
 					tdTU_Pal.innerHTML=inb_lines[vc].getElementsByTagName('inb_tu_pal')[0].firstChild.nodeValue;
 					tdTU_Pal.className="data_num";
-					tdStock.innerHTML=inb_lines[vc].getElementsByTagName('stock')[0].firstChild.nodeValue;
+					linkStock = document.createElement('a');
+					linkStock.onclick = function() { showMovements(this); };
+					linkStock.innerHTML='<img src="/images/b_more.png" alt="Bewegungen" title="Bewegungen" />';
+					tdStock.innerHTML = inb_lines[vc].getElementsByTagName('stock')[0].firstChild.nodeValue;
 					tdStock.className='data_num';
+					tdStock.appendChild(linkStock);
 					tdGrade.innerHTML = '';
 					if (!inb_lines[vc].getElementsByTagName('grade_weighted')[0].firstChild)
 						var linkText = document.createTextNode('Kein WEP');
@@ -382,7 +393,7 @@ function searchKeyPress(e)
 		<td class="data_num"><?php echo $inbound_line['inb_packing_units']; ?></td>
 		<td class="data_num"><?php echo $inbound_line['inb_pallets']; ?></td>
 		<td class="data_num"><?php echo $inbound_line['inb_tu_pal']; ?></td>
-		<td class="data_num"><?php echo $inbound_line['stock']; ?></td>
+		<td class="data_num"><?php echo $inbound_line['stock']; ?><a onclick="showMovements(this)"><img src="/images/b_more.png" alt="Bewegungen" title="Bewegungen" /></a></td>
 		<td class="data_num"><a href="/inbound/printquality/No/<?php echo $inbound_line['No']; ?>"><?php echo $inbound_line['grade_weighted']; ?></a></td>
 		<td class="data"><?php echo $inbound_line['remarks'] ?></td>
 	</tr>

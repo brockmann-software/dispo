@@ -1,0 +1,27 @@
+<?php // Zend_Debug::dump($this->errors); ?>
+<table id="movements">
+<thead>
+<tr>
+	<th class="data">Datum</th>
+	<th class="data">Bewegung</th>
+	<th class="data">Art</th>
+	<th class="data">Kolli</th>
+	<th class="data">Packstücke</th>
+	<th class="data">Bemerkung</th>
+	<th class="data">Lagerort</th>
+</tr>
+</thead>
+<tbody>
+<?php foreach ($this->data as $movement) : ?>
+<tr>
+	<td class="data"><?php echo date('d.m.y H:m:i', strtotime($movement['date'])); ?></td>
+	<td class="data"><?php echo $movement['movement_desc']; ?></td>
+	<td class="data"><?php echo $movement['type_desc']; ?></td>
+	<td class="data"><?php echo $movement['trading_units_moved']; ?></td>
+	<td class="data"><?php echo $movement['packing_units_moved']; ?></td>
+	<td class="data"><?php echo $movement['remarks']; ?></td>
+	<td class="data"><?php echo $movement['stock_location_name']; ?></td>
+</tr>
+<?php endforeach ?>
+</tbody>
+</table>
