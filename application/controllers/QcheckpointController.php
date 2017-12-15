@@ -194,8 +194,8 @@ class qcheckpointController extends Zend_Controller_Action
 			$params['No']['type'] = 'number';
 		}
 		if ($this->hasParam('product')) {
-			$params['product']['value']=$this->getParam('product');
-			$params['product']['type'] = 'string';
+			$params['product_no']['value']=$this->getParam('product');
+			$params['product_no']['type'] = 'string';
 		}
 		if ($this->hasParam('type')) {
 			$params['type']['value']=$this->getParam('type');
@@ -217,7 +217,7 @@ class qcheckpointController extends Zend_Controller_Action
 		try {
 			$qc_products = $this->db->query($sqlStr)->fetchAll();
 			if ((count($qc_products)==0) and (count($errors)==0)) {
-				if (isset($params['product'])) unset($params['product']);
+				if (isset($params['product_no'])) unset($params['product_no']);
 				$sqlStr = 'SELECT * FROM v_quality_checkpoint';
 				$pNo = 0;
 				foreach ($params as $key => $val) {

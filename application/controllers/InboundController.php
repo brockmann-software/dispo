@@ -2,6 +2,7 @@
 class inboundController extends Zend_Controller_Action
 {
 	protected $db;
+	protected $db_btm;
 	protected $global_settings;
 	protected $logger;
 	protected $config;
@@ -50,16 +51,19 @@ class inboundController extends Zend_Controller_Action
     	$this->view->headTitle('Wareneingang');
 		$this->view->title = 'Wareneingang';
 		$this->db = Zend_Registry::get('db');
+		$this->db_btm = Zend_Registry::get('db_btm');
 		$this->logger = Zend_Registry::get('logger');
 		$this->config = Zend_Registry::get('config');
 		$this->global_settings = $this->db->query("SELECT * FROM global_settings")->fetchAll()[0];
 	}
 	
-	private function loadDependencies()
+	private function loadDependencies($filter=false)
 	{
 		$db = $this->db;
 		$dependencies['products'] = $db->query("select * from product")->fetchAll();
+		if ($filter) $dependencies['products'][count($dependencies['products'])] = array('No'=>'', 'product'=>'--alle--');
 		$dependencies['countries'] = $db->query("select * from country")->fetchAll();
+		if ($filter) $dependencies['countries'][count($dependencies['countries'])] = array('Id'=>'', 'country'=>'-alle-');
 		$dependencies['packagings'] = $db->query("select * from packaging")->fetchAll();
 		$dependencies['t_packagings'] = $db->query("select * from tp_format")->fetchAll();
 		$dependencies['labels'] = $db->query("select * from label")->fetchAll();
@@ -326,6 +330,18 @@ class inboundController extends Zend_Controller_Action
 			$params['product']['value'] = $this->getParam('product');
 			$params['product']['type'] = 'string';
 		}
+		if ($this->hasParam('origin')) {
+			$params['origin']['value'] = $this->getParam('origin');
+			$params['origin']['type'] = 'string';
+		}
+		if ($this->hasParam('items')) {
+			$params['items']['value'] = $this->getParam('items');
+			$params['items']['type'] = 'number';
+		}
+		if ($this->hasParam('weight_item')) {
+			$params['weight_item']['value'] = $this->getParam('weight_item');
+			$params['weight_item']['type'] = 'number';
+		}
 		$whereClause = '';
 		$pNo = 0;
 		foreach ($params as $key => $val) {
@@ -344,6 +360,7 @@ class inboundController extends Zend_Controller_Action
 		$pages = floor($count_inb/20)+1;
 		$inbound = $this->db->query("select * from v_inb_line".$whereClause." GROUP BY inbound ORDER BY inb_arrival DESC LIMIT ".(($page-1)*20).", 20")->fetchAll();
 		(count($inbound)>0) ? $inbound_lines = $this->db->query('SELECT * from v_inb_line WHERE inbound = ?', $inbound[0]['inbound']) : $inbound_lines = array();
+		$this->view->params = $this->loadDependencies(true);
 		$this->view->pages = $pages;
 		$this->view->count_inb = $count_inb;
 		$this->view->inbounds = $inbound;
@@ -685,6 +702,7 @@ class inboundController extends Zend_Controller_Action
 		$qck_inb_line_table = new Application_Model_qckinblineModel();
 		$movement_table = new Application_Model_MovementModel();
 		$attachment_table = new Application_Model_AttachmentModel();
+		$vendor_table = new Application_Model_VendorModel();
 		$po_arrival = new Zend_Date();
 		$inb_arrival = new Zend_Date();
 		$date = new Zend_Date();
@@ -875,6 +893,44 @@ class inboundController extends Zend_Controller_Action
 			
 			//Eingaben prüfen
 			if ($purchase_order['vendor']=='') $errors['vendor']='Es muss ein Lieferant ausgewählt sein!';
+			else {
+				$vendors = $vendor_table->find($purchase_order['vendor']);
+				if ($vendors->count()==0) {
+					if ($btm_vendor = $this->db_btm->query('SELECT LIENR, LIENAME, LIEANSPA, LIESTRAS, LIEPLZOR, LIELNDSL FROM view_LIE WHERE LIENR = ?', $purchase_order['vendor'])->fetch())
+					try {
+						$vendor = $vendor_table->createRow();
+						$vendor->No = iconv('CP1252', 'UTF-8', trim($btm_vendor['LIENR']));
+						$vendor->name = iconv('CP1252', 'UTF-8', trim($btm_vendor['LIENAME']));
+						$vendor->name_2 = iconv('CP1252', 'UTF-8', trim($btm_vendor['LIEANSPA']));
+						$vendor->street = iconv('CP1252', 'UTF-8', trim($btm_vendor['LIESTRAS']));
+						$vendor->street_2 = '';
+						$vendor->city = '';
+						$city = explode(' ', iconv('CP1252', 'UTF-8', trim($btm_vendor['LIEPLZOR'])));
+						if (count($city)>1) {
+							$c = 0;
+							$vendor->PO_code = $city[$c];
+							$c++;
+							while ($c < count($city)) {
+								$vendor->city.= " ".$city[$c];
+								$c++;
+							}
+							$vendor->city = trim($vendor->city);
+						} else {
+							$vendor->PO_code = '';
+							$vendor->city = $city[0];
+						}
+						if ($country = $this->db->query('SELECT * FROM country WHERE BTM_code = ?', $btm_vendor['LIELNDSL'])->fetch())
+							$vendor->country_code = $country['Id']; 
+						else $vendor->country_code = 'XX';
+						$vendor->save();
+					} catch (Exception $e) {
+						$errors['vendor'] = 'Lieferant existiert nicht und konnte auch nicht von BTM importiert werden';
+						$this->logger->err('Lieferant konnte nicht importiert werden! '.$e->getMessage());
+					}
+					else $errors['vendor'] = 'Lieferant existiert weder in Dispo noch in BTM!';
+				}
+			}
+			
 			if ($inbound['position']=='') $errors['position']="Es muss eine Positionsnummer angegeben werden!";
 			if ($inbound['transport_temperature']=='') $errors['inb_transport_temp']="Es muss die Transporttemperatur gemessen werden!";
 			try {
@@ -896,6 +952,8 @@ class inboundController extends Zend_Controller_Action
 			if ($inbound['purchase_order']==0) {
 				($global_settings['inb_wo_po']==1) ? $inbound['purchase_order'] = $date->get(Zend_Date::TIMESTAMP) : $errors['purchase_order']='Es muss eine Bestellung vorhanden sein!';
 			}
+			if ($variant['items']==0) $errors['items'] = 'Einheiten darf nicht 0 sein!';
+			if ($variant['weight_item']==0) $errors['weight_item'] = 'Gewicht/Einheit darf nicht 0 sein!';
 			$this->logger->info('Errors nach Eingabe-Check: '.print_r($errors, true));
 			$this->logger->info('purchase_order: '.print_r($purchase_order, true));
 			$this->logger->info('Inbound: '.print_r($inbound, true));
@@ -1161,7 +1219,7 @@ class inboundController extends Zend_Controller_Action
 					$this->logger->info('Datenbank rolled back');
 				}
 			}
-			$qcheckpoints = $this->db->query('SELECT * FROM v_qc_product WHERE type=0 AND UPPER(product) = UPPER("?") ORDER BY qchk_class_no',$inbound_sheet['product'])->fetchAll();
+			$qcheckpoints = $this->db->query('SELECT * FROM v_qc_product WHERE type=0 AND UPPER(product_no) = UPPER("?") ORDER BY qchk_class_no',$inbound_sheet['product'])->fetchAll();
 			if (count($qcheckpoints)==0) {
 				$qcheckpoints = $this->db->query('SELECT * FROM v_quality_checkpoint WHERE type=0 ORDER BY qchk_class_no')->fetchAll();
 			}
@@ -1511,5 +1569,4 @@ class inboundController extends Zend_Controller_Action
 		}
 		return $sent;
 	}
-
 }
