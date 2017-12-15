@@ -34,7 +34,7 @@ class WhmanagementController extends Zend_Controller_Action
 		$errors = array();
 		if ($this->hasParam('error')) $errors['all'] = $this->getParam('error');
 		if ($this->hasParam('ok')) $errors['ok'] = $this->getParam('ok');
-		$inventory_heads = $this->db->query('SELECT * FROM v_inventory_head');
+		$inventory_heads = $this->db->query('SELECT * FROM v_inventory_head ORDER BY No DESC');
 		$this->view->data = $inventory_heads;
 		$this->view->errors = $errors;
 	}
@@ -469,10 +469,17 @@ class WhmanagementController extends Zend_Controller_Action
 						// geänderte Variante oder geänderte Losnummer?
 						$this->logger->info('new_line: '.print_r($new_line, true));
 						$this->logger->info('Inbound_Line: '.print_r($inbound_line, true));
-						$this->logger->info('cur_inbound_line: '.print_r($cur_inbound_line, true));
+						$this->logger->info('cur_inbound_line: '.print_r($cur_inbound_line->toArray(), true));
 						if ($new_line or ($inbound_line['lot']<>$cur_inbound_line['lot'])) {
+						// Bedarf in Kg feststellen
+						$totalWeight = $inventory['trading_units'] * $new_variant['items'] * $new_variant['weight_item'];
+						if ($cur_variant['weight_item']!=0) $newPackingUnits = round($totalWeight / $cur_variant['weight_item']); else $newPackingUnits = $totalWeight;
+						if ($cur_variant['items']!=0) $newTradingUnits = round($newPackingUnits / $cur_variant['items']); else $newTradingUnits = $newPackingUnits;
+						$this->logger->info('TotalWeight: '.$totalWeight);
+						$this->logger->info('newPackingUnits: '.$newPackingUnits);
+						$this->logger->info('newTradingUnits: '.$newTradingUnits);
 						// Produktionsauftrag anlegen
-							$production_order['stock_location'] = 1;
+							$production_order['stock_location'] = $cur_stock_location->No;
 							$production_order['start'] = $date->toString('YYYY-MM-dd HH:mm:ss');
 							$production_order['end'] = $date->toString('YYYY-MM-dd HH:mm:ss');
 							$production_order['created'] = $date->toString('YYYY-MM-dd HH:mm:ss');
@@ -484,8 +491,8 @@ class WhmanagementController extends Zend_Controller_Action
 							$po_line_in['line'] = 10000;
 							$po_line_in['product'] = $cur_inbound_line['product'];
 							$po_line_in['variant'] = $cur_inbound_line['variant'];
-							$po_line_in['trading_units'] = $inventory['trading_units'];
-							$po_line_in['packing_units'] = $inventory['trading_units'] * $cur_variant['items'];
+							$po_line_in['trading_units'] = $newTradingUnits;
+							$po_line_in['packing_units'] = $newTradingUnits * $cur_variant['items'];
 							$po_line_in['pallet'] = 1;
 							$po_line_in['pallets'] = $inventory['pallets'];
 							$po_line_in['tu_pallet'] = $cur_inbound_line['tu_pallet'];
@@ -511,7 +518,7 @@ class WhmanagementController extends Zend_Controller_Action
 							$po_line_out['No'] = $this->db->lastInsertId();
 							$this->logger->info('po_line_out gespeichert: '.print_r($po_line_out, true));
 						// Neue Inbound_Line erstellen, mit Daten der ursprünglichen Inbound_Line, aber neuer Variante und Losnummer, Eingangsmenge 0
-							$new_inbound_line = $cur_inbound_line;
+							$new_inbound_line = $cur_inbound_line->toArray();
 							$count_inb_line_set = $inb_line_table->fetchAll($inb_line_table->select()->where('inbound = ?', $cur_inbound_line['inbound']));
 							$new_inbound_line['line'] = ($count_inb_line_set->count()+1)*10000;
 							$new_inbound_line['variant'] = $new_variant['No'];
@@ -521,7 +528,6 @@ class WhmanagementController extends Zend_Controller_Action
 							$new_inbound_line['lot'] = $inbound_line['lot'];
 							$new_inbound_line['No'] = null;
 							$new_inbound_line['qc_on_inventory'] = $inbound_line['qc_on_inventory'];
-							$new_inbound_line['blocked'] = $inbound_line['blocked'];
 							$inb_line_table->insert($new_inbound_line);
 							$new_inbound_line['No'] = $this->db->lastInsertId();
 							$this->logger->info('Neue Inbound_line: '.print_r($new_inbound_line, true));
@@ -530,13 +536,13 @@ class WhmanagementController extends Zend_Controller_Action
 							$movement['No'] = 0;
 							$movement['movement'] = 2;
 							$movement['date'] = $date->toString('YYYY-MM-dd HH:mm:ss');
-							$movement['trading_units'] = $inventory['trading_units'];
-							$movement['packing_units'] = $inventory['trading_units'] * $cur_variant['items'];
-							$movement['trading_units_production'] = $inventory['trading_units'];
-							$movement['packing_units_production'] = $inventory['trading_units'] * $cur_variant['items'];
+							$movement['trading_units'] = $newTradingUnits;
+							$movement['packing_units'] = $newTradingUnits * $cur_variant['items'];
+							$movement['trading_units_production'] = $movement['trading_units'];
+							$movement['packing_units_production'] = $movement['packing_units'];
 							$movement['status'] = 3;
 							$movement['type'] = 2;
-							$movement['stock_location'] = 1;
+							$movement['stock_location'] = $cur_stock_location->No;
 							$movement['remarks'] = 'Packauftrag bei Zählung';
 							$movement['inbound_line'] = $cur_inbound_line['No'];
 							$movement['out_order_line'] = $po_line_in['No'];
@@ -556,7 +562,7 @@ class WhmanagementController extends Zend_Controller_Action
 							$movement['packing_units_production'] = $inventory['trading_units'] * $new_variant['items'];
 							$movement['status'] = 3;
 							$movement['type'] = 2;
-							$movement['stock_location'] = 1;
+							$movement['stock_location'] = $cur_stock_location->No;
 							$movement['remarks'] = 'Packauftrag bei Zählung';
 							$movement['in_order_line'] = $po_line_out['No'];
 							$movement['inbound_line'] = $new_inbound_line['No'];
