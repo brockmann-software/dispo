@@ -258,7 +258,11 @@ function sendSearchpattern()
 	var delivery_note = document.getElementById('delivery_note');
 	var trailor = document.getElementById('trailor');
 	var container = document.getElementById('container');
-	
+	var product = document.getElementById('product');
+	var origin = document.getElementById('origin');
+	var items = document.getElementById('items');
+	var weight_item = document.getElementById('weight_item');
+
 	uri = '/inbound/index';
 	if (position.value!='') uri+='/position/'+position.value;
 	if (arrival.value!='') {
@@ -272,6 +276,10 @@ function sendSearchpattern()
 	if (delivery_note.value !='') uri+='/v_delivery_note/'+delivery_note.value;
 	if (trailor.value != '') uri+='/inb_trailor/'+trailor.value;
 	if (container.value!='') uri+='/inb_container/'+container.value;
+	if (product.value!='') uri+='/product/'+product.value;
+	if (origin.value!='') uri+='/origin/'+origin.value;
+	if (items.value!='') uri+='/items/'+items.value;
+	if (weight_item.value!='') uri+='/weight_item/'+weight_item.value;
 //	if (document.getElementById('vendors').dataset.order !='') uri+=document.getElementById('vendors').dataset.order;
 	window.location = uri;
 }
@@ -317,15 +325,23 @@ function searchKeyPress(e)
 		<th>Lieferschein</th>
 		<th>LKW</th>
 		<th>Container</th>
+		<th>Produkt</th>
+		<th>Ursprung</th>
+		<th>Packst.</th>
+		<th>Gew. Pk</th>
 	</tr>
 	<tr>
-		<td><input type="text" name="position" id="position" onkeypress="return searchKeyPress(event)" /></td>
-		<td><input type="text" name="arrival" id="arrival" onchange="checkDate('arrival')" onkeypress=" return searchKeyPress(event)" /></td>
-		<td><input type="text" name="vendor" id="vendor" onkeypress="return searchKeyPress(event)" /></td>
-		<td><input type="text" name="purchase_order" id="purchase_order" onkeypress="return searchKeyPress(event)" /></td>
-		<td><input type="text" name="delivery_note" id="delivery_note" onkeypress="return searchKeyPress(event)" /></td>
-		<td><input type="text" name="trailor" id="trailor" onkeypress="return searchKeyPress(event)" /></td>
-		<td><input type="text" name="container" id="container" onkeypress="return searchKeyPress(event)" /></td>
+		<td><input type="text" name="position" id="position" onkeypress="return searchKeyPress(event)" size="6" /></td>
+		<td><input type="text" name="arrival" id="arrival" onchange="checkDate('arrival')" size="12" onkeypress=" return searchKeyPress(event)" /></td>
+		<td><input type="text" name="vendor" id="vendor" size="25" maxlength="255" onkeypress="return searchKeyPress(event)" /></td>
+		<td><input type="text" name="purchase_order" id="purchase_order" size="12" onkeypress="return searchKeyPress(event)" /></td>
+		<td><input type="text" name="delivery_note" id="delivery_note" size="20" onkeypress="return searchKeyPress(event)" /></td>
+		<td><input type="text" name="trailor" id="trailor" size="20" onkeypress="return searchKeyPress(event)" /></td>
+		<td><input type="text" name="container" size="20" id="container" onkeypress="return searchKeyPress(event)" /></td>
+		<td><?php echo $this->lookupSelect('product', '', '', $this->params['products'], 'No', 'product', array('is'=>'product')); ?></td>
+		<td><?php echo $this->lookupSelect('origin', '', '', $this->params['countries'], 'Id', 'Id', array('id'=>'origin')); ?></td>
+		<td><input type="number" name="items" id="items" min="1" max="999" onkeypress="return searchKeyPress(event)" /></td>
+		<td><input type="number" name="weight_item" id="weight_item" min="1" max="99999" onkeypress="searchKeyPress(event)" /></td>
 		<td><button type="button" id="searchButton" onclick="sendSearchpattern()">Suchen</button></td>
 	</tr>
 </table>

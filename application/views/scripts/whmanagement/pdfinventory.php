@@ -149,9 +149,14 @@ if (!file_exists(realpath($this->filepath.'\\'.$this->filename))) try {
 	
 	$condStyle = new My_Pdf_Table_Column_Style($bodyStyle);
 	$condStyle->setBackgroundColor(new Zend_Pdf_Color_HTML('red'));
-	$condFormat = new My_Pdf_Report_ConditionalFormat(My_Pdf_Report::GREATER_EQUAL, 3, null, $condStyle);
+	$condFormat = new My_Pdf_Report_ConditionalFormat(My_Pdf_Report::GREATER_EQUAL, 4, null, $condStyle);
 	$condFormats[] = $condFormat;
 	
+	$condStyle = new My_Pdf_Table_Column_Style($bodyStyle);
+	$condStyle->setBackgroundColor(new Zend_Pdf_Color_HTML('#FFC000'));
+	$condFormat = new My_Pdf_Report_ConditionalFormat(My_Pdf_Report::SMALLER, 4, null, $condStyle);
+	$condFormats[] = $condFormat;
+
 	$condStyle = new My_Pdf_Table_Column_Style($bodyStyle);
 	$condStyle->setBackgroundColor(new Zend_Pdf_Color_HTML('yellow'));
 	$condFormat = new My_Pdf_Report_ConditionalFormat(My_Pdf_Report::SMALLER, 3, null, $condStyle);
@@ -163,6 +168,32 @@ if (!file_exists(realpath($this->filepath.'\\'.$this->filename))) try {
 	$condFormats[] = $condFormat;
 			
 	$column = new My_Pdf_Report_Column('grade_weighted', 'QC', array(0.5, 'cm'), null, '', $condFormats);
+	$column->setHeaderStyle($headerStyle);
+	$column->setBodyStyle($bodyStyle);
+	$column->setColumnAlign(My_Pdf::CENTER);
+	$columns[] = $column;
+	
+	$condStyle = new My_Pdf_Table_Column_Style($bodyStyle);
+	$condStyle->setBackgroundColor(new Zend_Pdf_Color_HTML('red'));
+	$condFormat = new My_Pdf_Report_ConditionalFormat(My_Pdf_Report::GREATER_EQUAL, 4, null, $condStyle);
+	$condFormats[] = $condFormat;
+	
+	$condStyle = new My_Pdf_Table_Column_Style($bodyStyle);
+	$condStyle->setBackgroundColor(new Zend_Pdf_Color_HTML('#FFC000'));
+	$condFormat = new My_Pdf_Report_ConditionalFormat(My_Pdf_Report::SMALLER, 4, null, $condStyle);
+	$condFormats[] = $condFormat;
+
+	$condStyle = new My_Pdf_Table_Column_Style($bodyStyle);
+	$condStyle->setBackgroundColor(new Zend_Pdf_Color_HTML('yellow'));
+	$condFormat = new My_Pdf_Report_ConditionalFormat(My_Pdf_Report::SMALLER, 3, null, $condStyle);
+	$condFormats[] = $condFormat;
+	
+	$condStyle = new My_Pdf_Table_Column_Style($bodyStyle);
+	$condStyle->setBackgroundColor(new Zend_Pdf_Color_HTML('green'));
+	$condFormat = new My_Pdf_Report_ConditionalFormat(My_Pdf_Report::SMALLER, 2, null, $condStyle);
+	$condFormats[] = $condFormat;
+			
+	$column = new My_Pdf_Report_Column('qc_on_inventory', 'QC', array(0.5, 'cm'), null, '', $condFormats);
 	$column->setHeaderStyle($headerStyle);
 	$column->setBodyStyle($bodyStyle);
 	$column->setColumnAlign(My_Pdf::CENTER);

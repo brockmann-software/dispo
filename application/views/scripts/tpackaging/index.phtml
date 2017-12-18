@@ -1,3 +1,12 @@
+<script>
+function openLanguageDialog(element)
+{
+	id = element.parentNode.parentNode.id;
+	URI = '/language/languagedialog/table/tp_format/column/transport_packaging/key/'+id;
+	dimensions = 'width=500,height=400,left='+event.screenX+',top='+event.screenY+',resizable=yes,scroll=yes';
+	window.open(URI, 'Sprachversionen', dimensions);
+}
+</script>
 <hr />
 <table class="data">
 	<tr class="data">
@@ -12,9 +21,9 @@
 		<th class="data">Kolli / Lage</th>
 	</tr>
 <?php foreach($this->t_packagings as $entry) :  ?>
-	<tr>
+	<tr id="<?php echo $entry['no']; ?>">
 		<td class="data"><a href="/tpackaging/edit/No/<?php echo $entry['no']; ?>"><?php echo $entry['no']; ?></td>
-		<td class="data"><?php echo $entry['transport_packaging']; ?></td>
+		<td class="data"><?php echo $entry['transport_packaging']; ?><a onclick="openLanguageDialog(this)"><img src="/images/b_more.png" alt="Sprachen" title="Sprachen" /></a></td>
 		<td class="data"><?php echo $entry['type']; ?></td>
 		<td class="data_num"><?php echo $entry['length']; ?></td>
 		<td class="data_num"><?php echo $entry['width']; ?></td>

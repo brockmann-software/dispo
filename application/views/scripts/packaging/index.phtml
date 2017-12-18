@@ -1,3 +1,12 @@
+<script>
+function openLanguageDialog(element)
+{
+	id = element.parentNode.parentNode.id;
+	URI = '/language/languagedialog/table/packaging/column/packaging/key/'+id;
+	dimensions = 'width=500,height=400,left='+event.screenX+',top='+event.screenY+',resizable=yes,scroll=yes';
+	window.open(URI, 'Sprachversionen', dimensions);
+}
+</script>
 <hr />
 <table class="data">
 	<tr class="data">
@@ -9,9 +18,9 @@
 		<th class="data">Gewicht (g)</th>
 	</tr>
 <?php foreach($this->packagings as $entry) :  ?>
-	<tr>
+	<tr id="<?php echo $entry['No']; ?>">
 		<td class="data"><a href="/packaging/edit/No/<?php echo $entry['No']; ?>"><?php echo $entry['No']; ?></td>
-		<td class="data"><?php echo $entry['packaging']; ?></td>
+		<td class="data"><?php echo $entry['packaging']; ?><a onclick="openLanguageDialog(this)"><img src="/images/b_more.png" alt="Sprachen" title="Sprachen" /></a></td>
 		<td class="data_num"><?php echo $entry['length']; ?></td>
 		<td class="data_num"><?php echo $entry['width']; ?></td>
 		<td class="data_num"><?php echo $entry['height']; ?></td>

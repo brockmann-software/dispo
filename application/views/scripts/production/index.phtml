@@ -1,0 +1,141 @@
+<script>
+function markProductionOrder(row) {
+	var poTable = document.getElementById('production_order').getElementsByTagName('tbody')[0];
+	var rowCnt = poTable.rows.length;
+	var rowNr = 0;
+	for (rowNr = 0; rowNr<rowCnt; rowNr++) {
+		var tbRow = poTable.rows[rowNr];
+		var cellNr;
+		if (rowNr==row.sectionRowIndex) {
+			for (cellNr = 0; cellNr<tbRow.cells.length; cellNr++) {
+				tbRow.cells[cellNr].className = 'selected';
+			}
+		} else {
+			for (cellNr = 0; cellNr<tbRow.cells.length; cellNr++) {
+				tbRow.cells[cellNr].className = 'unselected';
+			}
+		}
+	}
+//	loadProductionLines(row);
+}
+
+function checkProductionOrder(row)
+{
+	row.cells[0].firstChild.checked = true;
+	row.cells[0].firstChild.focus();
+	markProductionOrder(row)
+}
+
+function addProductionLine(row, production_order_line)
+{
+	row.id = production_order_line.No;
+	tdMovement = row.insertCell(0);
+	tdMovement.className = 'data';
+	tdMovement.innerHTML = production_order_line.movement;
+	tdPDesc = row.insertCell(1);
+	tdPDesc.className = 'data';
+	tdPDesc.innerHTML = production_order_line.product_desc;
+	tdVDesc = row.insertCell(2);
+	tdVDesc.className = 'data';
+	tdVDesc.innerHTML = production_order_line.variant_desc;
+	tdTradingUnits = row.insertCell(3);
+	tdTradingUnits.className = 'data';
+	tdTradingUnits.innerHTML = production_order_line.trading_units;
+	tdPackingUnits = row.insertCell(4);
+	tdPackingUnits.className = 'data';
+	tdPackingUnits.innerHTML = production_order_line.packing_units;
+	tdPallets = row.insertCell(5);
+	tdPallets.className = 'data';
+	tdPallets.innerHTML = production_order_line.pallets;
+}
+
+function loadProductionLines(row)
+{
+	function loadProductionLinesXML()
+	{
+		if (http.readyState == 4) {
+			if (http.responseXML) {
+				errorCount = getXMLTagValue(http.responseXML, 'errorCount') || 0;
+				if (errorCount==0) {
+					poLineTable = document.getElementById('production_order_line').getElementsByTagName('tbody')[0];
+					while (poLineTable.rows[0]) poLineTable.deleteRow(0);
+					result = http.responseXML.getElementsByTagName('result');
+					for (no = 0; no<result.length; no++) {
+						production_order_line = Object;
+						production_order_line.No = getXMLTagValue(result[no], 'No') || 0;
+						production_order_line.movement = getXMLTagValue(result[no], 'movement') || '';
+						production_order_line.product_desc = getXMLTagValue(result[no], 'product_desc') || '';
+						production_order_line.variant_desc = getXMLTagValue(result[no], 'variant_desc') || '';
+						production_order_line.trading_units = getXMLTagValue(result[no], 'trading_units') || 0;
+						production_order_line.packing_units = getXMLTagValue(result[no], 'packing_units') || 0;
+						production_order_line.pallets = getXMLTagValue(result[no], 'pallets') || 0;
+						row = poLineTable.insertRow(poLineTable.rows.length);
+						addProductionLine(row, production_order_line);
+					}
+				} else {
+					var errTxt = '';
+					errors = http.responseXML.getElementsByTagName('error');
+					for (ec = 0; ec<errors.length; ec++) {
+						errTxt+=getXMLTagValue(errors[ec], 'error_field')+' ';
+						errTxt+=getXMLTagValue(errors[ec], 'error_text')+'\n';
+					}
+					alert(errTxt);
+				}
+			} else {
+				alert(http.responseText);
+			}
+		}		
+	}
+	
+	production_order = row.id;
+	URI = '/production/getlines/production_order/'+production_order;
+	sendRequest('GET', URI, '', loadProductionLinesXML, true);
+}
+</script>
+<table id="production_order">
+<thead>
+<tr>
+	<th class="data">Auftrag</th>
+	<th class="data">Lager</th>
+	<th class="data">Start</th>
+	<th class="data">Ende</th>
+	<th class="data">Erstellt</th>
+</tr>
+</thead>
+<tbody>
+<?php foreach ($this->production_orders as $production_order) : ?>
+<tr id="<?php echo $production_order['No']; ?>" onclick="checkProductionOrder(this)">
+	<td class="data"><input type="radio" name="poNo" value="<?php echo $production_order['No']; ?>" onfocus="loadProductionLines(this.parentNode.parentNode)" /><?php echo $production_order['No']; ?></td>
+	<td class="data"><?php echo $production_order['stock_location']; ?></td>
+	<td class="data"><?php echo date('d.m.Y H:i', strtotime($production_order['start'])); ?></td>
+	<td class="data"><?php echo date('d.m.Y H:i', strtotime($production_order['end'])); ?></td>
+	<td class="data"><?php echo date('d.m.Y H:i', strtotime($production_order['created'])); ?></td>
+</tr>
+<?php endforeach ?>
+</tbody>
+</table>
+<hr />
+<table id="production_order_line">
+<thead>
+<tr>
+	<th class="data">Art</th>
+	<th class="data">Produkt</th>
+	<th class="data">Variante</th>
+	<th class="data">Kolli</th>
+	<th class="data">Packstücke</th>
+	<th class="data">Paletten</th>
+</tr>
+</thead>
+<tbody>
+<?php foreach ($this->production_order_lines as $production_order_line) : ?>
+<tr id="<?php echo $production_order_line['No']; ?>">
+	<td class="data"><?php echo $production_order_line['movement']; ?></td>
+	<td class="data"><?php echo $production_order_line['product_desc']; ?></td>
+	<td class="data"><?php echo $production_order_line['variant_desc']; ?></td>
+	<td class="data"><?php echo $production_order_line['trading_units']; ?></td>
+	<td class="data"><?php echo $production_order_line['packing_units']; ?></td>
+	<td class="data"><?php echo $production_order_line['pallets']; ?></td>
+</tr>
+<?php endforeach ?>
+</tbody>
+</table>

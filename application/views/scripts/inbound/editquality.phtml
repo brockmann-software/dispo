@@ -379,12 +379,14 @@ function loadQCheckpoints()
 				}
 			}
 			if (errorCount>0) {
-				errors = xml.getElementsByTagName('error');
-				for (e = 0; e < error_count; e++) {
+				errors = xmlResult.getElementsByTagName('error');
+				var errorText = '';
+				for (e = 0; e < errorCount; e++) {
 					field = errors[e].childNodes[1].nodeName;
 					value = errors[e].childNodes[1].firstChild.nodeValue;
 					errorText = errorText+"["+field+"] "+value+"\n";
 				}
+				alert(errorText);
 			}
 			if (quality_checkpoints.length>0) {
 				reloadQchkTable(1);

@@ -1,3 +1,12 @@
+<script>
+function openLanguageDialog(element)
+{
+	id = element.parentNode.parentNode.id;
+	URI = '/language/languagedialog/table/quality_checkpoint/column/quality_checkpoint/key/'+id;
+	dimensions = 'width=500,height=400,left='+event.screenX+',top='+event.screenY+',resizable=yes,scroll=yes';
+	window.open(URI, 'Sprachversionen', dimensions);
+}
+</script>
 <table id="quality_checkpoints">
 <thead>
 <tr>
@@ -12,9 +21,9 @@
 </thead>
 <tbody>
 <?php foreach($this->data as $data) : ?>
-<tr>
+<tr id="<?php echo $data['No']; ?>">
 	<td class="data"><a href="/qcheckpoint/editgeneral/No/<?php echo $data['No']; ?>"><?php echo $data['No']; ?></a></td>
-	<td class="data"><?php echo $data['quality_checkpoint']; ?></td>
+	<td class="data"><?php echo $data['quality_checkpoint']; ?><a onclick="openLanguageDialog(this)"><img src="/images/b_more.png" alt="Sprachen" title="Sprachen" /></a></td>
 	<td class="data"><?php echo $data['qc_type']; ?></td>
 	<td class="data"><?php echo $data['qcheckpoint_class']; ?></td>
 	<td class="data"><?php echo $data['max_good']; ?></td>

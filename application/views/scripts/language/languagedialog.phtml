@@ -1,6 +1,4 @@
 <script>
-function 
-
 function createRow(row, localization)
 {
 	row.id = localization.No;
@@ -19,14 +17,16 @@ function createRow(row, localization)
 	cell2 = row.insertCell(2);
 	cell2.className = 'data'
 	inpEntry = document.createElement('input');
+	inpEntry.style = 'width: 99%';
 	inpEntry.name = row.id+'_entry';
 	inpEntry.id = row.id+'_entry';
 	inpEntry.value = localization.entry;
+	cell2.appendChild(inpEntry);
 }
 
 function createNewRow(row)
 {
-	var localization = Object;
+	var localization = new Object();
 	localization.No = 'new';
 	localization.language = '';
 	localization.entry = '';
@@ -35,7 +35,7 @@ function createNewRow(row)
 
 function updateLanguage(element)
 {
-	function insertLangXML()
+	function updateLangXML()
 	{
 		if (http.readyState == 4) {
 			if (http.responseXML) {
@@ -43,7 +43,7 @@ function updateLanguage(element)
 				if (errorCount==0) {					
 					language.value = getXMLTagValue(http.responseXML, 'language') || '';
 					entry.value = getXMLTagValue(http.responseXML, 'entry') || '';
-					if (row.id != getXMLTagValue(http.responseXML, 'No') {
+					if (row.id != getXMLTagValue(http.responseXML, 'No')) {
 						row.id =  getXMLTagValue(http.responseXML, 'No');
 						row.cells[0].innerHTML = '<a onclick="deleteLanguage(this)"><img src="/images/b_drop.png" alt="löschen" title="löschen" /></a>';
 						language.id = row.id+'_language';
@@ -78,7 +78,7 @@ function updateLanguage(element)
 	var entry = document.getElementById(No+'_entry');
 	var params = 'No='+No+'&language='+language.value+'&table_name='+table.value+'&column_name='+column.value+'&key_val='+key.value+'&entry='+entry.value;
 	if (No=='new') send = confirm('Ein neuer Eintrag wird angelegt!');
-	uri = '/language/update';
+	uri = '/language/edit';
 	if (send) {
 		createRequest();
 		sendRequest('POST', uri, params, updateLangXML, false);
@@ -111,7 +111,12 @@ function deleteLanguage(element)
 	}
 	
 	var row = element.parentNode.parentNode;
-	params = 'delete=DELETE&id='+row.id;
+	var No = row.id;
+	var table = document.getElementById('table');
+	var column = document.getElementById('column');
+	var key = document.getElementById('key');
+	var language = document.getElementById(No+'_language');
+	params = 'delete=DELETE&No='+No+'&language='+language.value+'&table_name='+table.value+'&column_name='+column.value+'&key_val='+key.value;
 	uri = '/language/delete/';
 	if (confirm('Der Eintrag wird gelöscht!')) {
 		createRequest();
@@ -120,30 +125,34 @@ function deleteLanguage(element)
 }
 
 </script>
-<?php Zend_Debug::dump($this->params['errors']); ?>
+<?php // Zend_Debug::dump($this->params); ?>
 <div class="data_container">
 <input type="hidden" id="table" name="table" value="<?php echo $this->params['table']; ?>" />
 <input type="hidden" id="column" name="column" value="<?php echo $this->params['column']; ?>" />
-<input type="hidden" id="hidden" name="hidden" value="<?php echo $this->params['key']; ?>" />
+<input type="hidden" id="key" name="key" value="<?php echo $this->params['key']; ?>" />
 <?php echo $this->lookupSelect('ini_language', '', 'language', $this->params['countries'], 'Id', 'Id', array('id'=>'ini_language', 'onchange'=>'updateLanguage(this)')); ?>
 </div>
+<div>Übersetzung für: <b><?php echo $this->params['value']; ?></b></div>
 <table id="languages">
 <thead>
 <tr>
+	<th width="20px"></th>
 	<th class="data" width="100px">Land</th>
 	<th class="data">Eintrag</th>
 </tr>
 </thead>
 <tbody>
 <?php foreach ($this->data as $localization) : ?>
-<tr id="<?php echo $language['No']; ?>">
+<tr id="<?php echo $localization['No']; ?>">
 <td><a onclick="deleteLanguage(this)"><img src="/images/b_drop.png" alt="löschen" title="löschen" /></a></td>
-<td class="data"><?php echo $this->lookupSelect('language_'.$localization['No'], $localization['language'], 'language', $this->params['countries'], 'Id', 'Id', array('id'=>'language_'.$localization['No'], 'onchange'=>'updateLanguage(this)', 'style'=>'width: 99%')); ?></td>
-<td id="new"><td class="data"><?php echo $this->formText('entry_'.$localization['No'], '', array('id'=>'entry_'.$localization['No'], 'onchange'=>'updateLanguage(this)', 'style'=>'width: 99%', 'maxlength'=>'255')); ?></td>
+<td class="data"><?php echo $this->lookupSelect($localization['No'].'_language', $localization['language'], 'language', $this->params['countries'], 'Id', 'Id', array('id'=>$localization['No'].'_language', 'onchange'=>'updateLanguage(this)', 'style'=>'width: 99%')); ?></td>
+<td class="data"><?php echo $this->formText($localization['No'].'_entry', $localization['entry'], array('id'=>$localization['No'].'_entry', 'onchange'=>'updateLanguage(this)', 'style'=>'width: 99%', 'maxlength'=>'255')); ?></td>
 </tr>
 <?php endforeach ?>
-<td class="data"><?php echo $this->lookupSelect('language_new', '', 'language', $this->params['countries'], 'Id', 'Id', array('id'=>'language_new', 'onchange'=>'updateLanguage(this)', 'style'=>'width: 99%')); ?></td>
-<td class="data"><?php echo $this->formText('entry_new', '', array('id'=>'entry_new', 'onchange'=>'updateLanguage(this)', 'style'=>'width: 99%', 'maxlength'=>'255')); ?></td>
+<tr id="new">
+<td></td>
+<td class="data"><?php echo $this->lookupSelect('new_language', '', 'language', $this->params['countries'], 'Id', 'Id', array('id'=>'new_language', 'onchange'=>'updateLanguage(this)', 'style'=>'width: 99%')); ?></td>
+<td class="data"><?php echo $this->formText('new_entry', '', array('id'=>'new_entry', 'onchange'=>'updateLanguage(this)', 'style'=>'width: 99%', 'maxlength'=>'255')); ?></td>
 </tr>
 </tbody>
 </table>
