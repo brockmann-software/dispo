@@ -350,6 +350,7 @@ function searchKeyPress(e)
 <thead>
 	<tr class="data">
 		<th class="data" width="20">Position</th>
+		<th class="data" width="20">Bestellung</th>
 		<th class="data" width="50">Lie.-Nr.</th>
 		<th class="data" width="50">Lieferant</th>
 		<th class="data" width="15">Eingang</th>
@@ -365,6 +366,7 @@ function searchKeyPress(e)
 	<tr class="data" onclick="checkInbound(this)">
 		<td class="data"><input type="radio" name="po_no" value="<?php echo $inbound['inbound']; ?>" onfocus="getInbLines(<?php echo $inbound['inbound']; ?>)">
 		<?php echo $inbound['position']; ?></td>
+		<td class="data"><a href="/purchaseorder/index/No/<?php echo $inbound['purchase_order']; ?>"><?php echo $inbound['purchase_order']; ?></a></td>
 		<td class="data"><?php echo $inbound['vendor_no']; ?></td>
 		<td class="data"><?php echo $inbound['vendor_name'].', '.$inbound['vendor_city'].' '.$inbound['vendor_CC']; ?></td>
 		<td class="data"><?php echo date('d.m.Y H:i', strtotime($inbound['inb_arrival'])); ?></td>

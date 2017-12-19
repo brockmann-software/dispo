@@ -73,10 +73,42 @@ function getPOLines(pOrder) {
 	var URI = '/purchaseorder/getpoline/id/'+pOrder;
 	sendRequest('GET', URI, '', getPOLinesXML, true);
 }
+
+function editPOLine(element)
+{
+	function editPOLineXML()
+	{
+		if (http.readyState == 4) {
+			if (http.responseXML) {
+				errorCount = getXMLTagValue(http.responseXML, 'errorCount') || 0;
+				if (errorCount==0) {					
+					newNo = getXMLTagValue(http.responseXML, 'No') || '';
+					price.value = getXMLTagValue(http.responseXML, 'price') || '';
+					price_alloc.value = getXMLTagValue(http.responseXML, 'price_allocation') || 0;
+				} else {
+					var errTxt = '';
+					errors = http.responseXML.getElementsByTagName('error');
+					for (ec = 0; ec<errors.length; ec++) {
+						errTxt+=getXMLTagValue(errors[ec], 'error_field')+' ';
+						errTxt+=getXMLTagValue(errors[ec], 'error_text')+'\n';
+					}
+					alert(errTxt);
+				}
+			} else {
+				alert(http.responseText);
+			}
+		}
+	}
+
+	No = element.parentNode.parentNode.id;
+	price = document.getElementById(No+'_price');
+	price_alloc = document.getElementById(No+'_price_alloc');
+	uri = '/purchaseorder/editpoline';
+	params = 'No='+No+'&price='+price.value.replace(',','.')+'&price_alloc='+price_alloc.value;
+	sendRequest('POST', uri, params, editPOLineXML, true);
+}
 -->
 </script>
-
-
 <a href="/purchaseorder/edit/">Neue Bestellung</a>
 <hr />
 <table>
@@ -111,14 +143,29 @@ function getPOLines(pOrder) {
 <table id="po_line">
 <thead>
 <th class="data" width="20">Variante</th>
-<th class="data" width="150">Beschreibung</th>
+<th class="data">Beschreibung</th>
 <th class="data" width="10">Kolli</>
 <th class="data" width="10">Menge/Kolli</th>
 <th class="data" width="12">Menge ges.</th>
+<th class="data" width="10">Preis</th>
+<th class="data" width="15">per</th>
 <th class="data" width="6">Paletten</th>
 <th class="data" width="10">Kolli / Pal.</th>
 </thead>
 <tbody>
+<?php foreach ($this->purchase_order_lines as $po_line) : ?>
+<tr id="<?php echo $po_line['No']; ?>">
+<td class="data"><?php echo $po_line['v_no']; ?></td>
+<td class="data"><?php echo $po_line['variant']; ?></td>
+<td class="data"><?php echo $po_line['Trading_Units']; ?></td>
+<td class="data"><?php echo $po_line['PU_TU']; ?></td>
+<td class="data"><?php echo $po_line['Packing_Units']; ?></td>
+<td class="data"><input type="number" value="<?php echo $po_line['Price'];?>" name="<?php echo $po_line['No']; ?>_price" id="<?php echo $po_line['No']; ?>_price" step="0.01" onchange="editPOLine(this)" /></td>
+<td class="data"><?php echo $this->lookupSelect('price_alloc', $po_line['Price_Allocation'], 'price_allocation', $this->params['price_allocations'], 'No', 'Allocation', array('id'=>$po_line['No'].'_price_alloc', 'style'=>'{width: 99%;}', 'onchange'=>'editPOLine(this)')); ?></td>
+<td class="data"><?php echo $po_line['Pallets']; ?></td>
+<td class="data"><?php echo $po_line['TU_Pallet']; ?></td>
+</tr>
+<?php endforeach ?>
 </tbody>
 </table>
 <hr />

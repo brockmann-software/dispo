@@ -15,11 +15,24 @@ class PurchaseorderController extends Zend_Controller_Action
 		$this->po_line = new Application_Model_PurchaseorderlineModel();
 	}
 	
+	private function loadDependencies()
+	{
+		$dependencies['price_allocations'] = $this->db->query('SELECT * FROM price_allocation')->fetchAll();
+		return $dependencies;
+	}
+	
 	public function indexAction()
 	{
         // action body
 		Zend_Registry::get('logger')->info('purchaseorderController->IndexAction called');
-		$this->view->result = $this->db->query("select * from v_purchase_order limit 20")->fetchAll();
+		$select = $this->db->select()->from('v_purchase_order', '*');
+		if ($this->hasParam('No')) $select->where('UPPER(No) LIKE UPPER(?)', '%'.$this->getParam('No').'%');
+		$purchase_orders = $this->db->query($select)->fetchAll();
+		$purchase_order_lines = $this->db->query("select * from v_po_line where purchase_order = ?", $purchase_orders[0]['No'])->fetchAll();
+		$params = $this->loadDependencies();
+		$this->view->params = $params;
+		$this->view->result = $purchase_orders;
+		$this->view->purchase_order_lines = $purchase_order_lines;
 	}
 	
 	private function getProductFromTranslation($article)
@@ -99,32 +112,55 @@ class PurchaseorderController extends Zend_Controller_Action
 	{
 		$errors=array();
 		$polines=array();
-		$this->hasParam('id') ? $id = $this->getParam('id') : $id = '';
-		$sqlStr = 'select * from v_po_line';
-		if ($id<>'') $sqlStr.=' where purchase_order='.$id;
-		try {
-			$polines = $this->db->query($sqlStr)->fetchAll();
-		} catch (Exception $e) {
-			$errors['all']=$e->getMessage();
-		}
+		$select = $this->db->select()->from('v_po_line', '*');
+		if ($this->hasParam('No')) $select->where('No = ?', $this->getParam('No'));
+		if ($this->hasParam('purchase_order')) $select->where('UPPER(purchase_order) LIKE (?)', '%'.$this->getParam('purchase_order'));
+		$polines = $this->db->query($select);
 		$this->view->errors = $errors;
 		$this->view->results = $polines;
 		$layout = $this->_helper->layout();
 		$layout->setLayout('xml_layout');
 	}
 	
+	public function editpolineAction()
+	{
+		$errors=array();
+		$polines=array();
+		$poLineTable = new Application_Model_PurchaseorderlineModel();
+		if ($this->getRequest()->isPost()) {
+			isset($_POST['No']) ? $poLine['No'] = $_POST['No'] : $poLine['No'] = 0;
+			isset($_POST['price']) ? $poLine['price'] = $_POST['price'] : $poLine['price'] = 0;
+			isset($_POST['price_alloc']) ? $poLine['price_allocation'] = $_POST['price_alloc'] : $poLine['price_allocation'] = 0;
+			if ($poLine['No'] == 0) $errors['No'] = 'Keine Nummer übergeben!';
+			if (count($errors)==0) {
+				$purchase_order_lines = $poLineTable->find($poLine['No']);
+				if ($purchase_order_lines->count()>0) {
+					try {
+						$purchase_order_line = $purchase_order_lines->current();
+						$purchase_order_line->Price = $poLine['price'];
+						$purchase_order_line->Price_Allocation = $poLine['price_allocation'];
+						$purchase_order_line->save();
+					} catch (Exception $e) {
+						$errors['all'] = 'Daten konnten nicht gespeichert werden!';
+						$this->logger->err('Daten konnten nicht gespeichert werden! '.$e->getMessage());
+					}
+				} else $errors['all'] = 'Keine Bestellzeile gefunden zum Eintrag!';
+			} else $errors['all'] = 'Kein POST Request gesendet!';
+		}
+		$this->view->errors = $errors;
+		$this->view->result = $poLine;
+		$layout = $this->_helper->layout();
+		$layout->setLayout('xml_layout');
+		$this->renderScript('/xml/resultxml.phtml');		
+	}
+	
 	public function getAction()
 	{
 		$errors = array();
 		$purchase_orders = array();
-		$this->hasParam('No') ? $no = $this->getParam('No') : $no = 0;
-		$sqlStr = 'SELECT * FROM v_purchase_order';
-		if ($no<>'') $sqlStr.=' WHERE No = '.$no;
-		try {
-			$purchase_orders = $this->db->query($sqlStr);
-		} catch (Exception $e) {
-			$errors['all']=$e->getMessage();
-		}
+		$select = $this->db->select()->from('v_purchase_order', '*');
+		if ($this->hasParam('No')) $select->where('No = ?', $this->getParam('No'));
+		$purchase_orders = $this->db->query($select);
 		$this->view->errors = $errors;
 		$this->view->results = $purchase_orders;
 		$layout = $this->_helper->layout();
