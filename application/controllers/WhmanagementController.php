@@ -216,8 +216,7 @@ class WhmanagementController extends Zend_Controller_Action
 		$this->view->params = $params;
 	}
 	
-	public function getlinesAction()
-	
+	public function getlinesoldAction()	
 	{
 		$where = array();
 		$errors = array();
@@ -256,6 +255,62 @@ class WhmanagementController extends Zend_Controller_Action
 		$this->_helper->layout()->setLayout('xml_layout');
 		$this->renderScript('/xml/resultlistxml.phtml');
 	}
+	
+	public function getlinesAction()
+	{
+		$errors = array();
+		$inventories = array();
+		if ($this->hasParam('inventory_head')) {
+			$inventoryTable = new Application_Model_InventoryModel();
+			$select = $this->db->select();
+			$select->from('inbound_line', array('No', 'tu_pallet'));
+			$select->join('movements', 'movements.inbound_line = inbound_line.No', array('No as movement', 'inbound_movement as inbound_movement'));
+			$select->join('inbound', 'inbound.No = inbound_line.inbound', array('position'));
+			$select->join('variant', 'variant.No = inbound_line.variant', array('No as variant', 'items', 'weight_item'));
+			$select->where('movements.movement = 1');
+			if ($this->hasParam('position'))
+				$select->where('UPPER(inbound.position) LIKE UPPER(?)', '%'.$this->getParam('position').'%');
+			if ($this->hasParam('product'))
+				$select->where('inbound_line.product=?', $this->getParam('product'));
+			$select->order('inbound_line.product');
+			$select->order('variant.items');
+			$select->order('variant.weight_item');
+			$select->order('variant.brand');
+			$select->order('inbound.position desc');
+			$select->order('inbound_line.No desc');
+		//	$this->logger->info('QSL: '.$select->__toString());
+			$inbound_line = $this->db->query($select)->fetchAll();
+			foreach ($inbound_line as $line) {
+				$select1 = $this->db->select()->from('v_inventory', '*');
+				$select1->where('movement = ?', $line['movement']);
+				$select1->where('inventory_head = ?', $this->getParam('inventory_head'));
+		//		$this->logger->info('SQL Movement: '.$select1->__toString());
+				$statement = $this->db->query($select1);
+				while ($inventory = $statement->fetch())
+					$inventories[] = $inventory;
+				if (count($inventories)==0) {
+					$inventory = $inventoryTable->createRow();
+					$inventory->inventory_head = $this->getParam('inventory_head');
+					$inventory->inbound_line = $line['No'];
+					$inventory->movement = $line['movement'];
+					$inventory->date = date('Y-m-d H:i:s', time());
+					$inventory->room = 0;
+					$inventory->rack = 0;
+					$inventory->level = 0;
+					$inventory->pallets = 0;
+					$inventory->tu_pallet = $line['tu_pallet'];
+					$inventory->trading_units = 0;
+					$inventory->blocked = 0;
+					$inventory->save();
+					$inventories[] = $this->db->query($select1)->fetch();
+				}
+			}
+		} else $errors['inventory_head'] = 'Es wurde keine Zählung übergeben!';
+		$this->view->results = $inventories;
+		$this->view->errors = $errors;
+		$this->_helper->layout()->setLayout('xml_layout');
+		$this->renderScript('/xml/resultlistxml.phtml');
+	}		
 	
 	public function storeinventoryAction()
 	{
