@@ -1,76 +1,105 @@
 <script>
 <!--
+function buildPoRow(row, orderLine)
+{
+	row.id = orderLine.No;
+	var cellNo = row.insertCell(0);
+	cellNo.className = 'data';
+	cellNo.innerHTML = orderLine.vNo;
+	var cellVariant = row.insertCell(1);
+	cellVariant.className = 'data';
+	cellVariant.innerHTML = orderLine.variant;
+	var cellTradingUnits = row.insertCell(2);
+	cellTradingUnits.className = 'data_num';
+	cellTradingUnits.innerHTML = orderLine.tradingUnits;
+	var cellPuTu = row.insertCell(3);
+	cellPuTu.className = 'data_num';
+	cellPuTu.innerHTML = orderLine.puTu;
+	var cellPackingUnits = row.insertCell(4);
+	cellPackingUnits.className = 'data_num';
+	cellPackingUnits.innerHTML = orderLine.packingUnits;
+	var cellPrice = row.insertCell(5);
+	cellPrice.className = 'data';
+	var inpPrice = document.createElement('input');
+	inpPrice.name = row.id+'_price';
+	inpPrice.id = row.id+'_price';
+	inpPrice.value = orderLine.price;
+	inpPrice.step = '0.0001';
+	inpPrice.onchange = function() { editPOLine(this); };
+	cellPrice.appendChild(inpPrice);
+	var cellPriceAlloc = row.insertCell(6);
+	cellPriceAlloc.className = 'data';
+	var selPriceAlloc = document.getElementById('ini_price_alloc').cloneNode(true);
+	selPriceAlloc.name = row.id+'_price_alloc';
+	selPriceAlloc.id = row.id+'_price_alloc';
+	selPriceAlloc.value = orderLine.priceAlloc;
+	cellPriceAlloc.appendChild(selPriceAlloc);
+	var cellPallets = row.insertCell(7);
+	cellPallets.className = 'data_num';
+	cellPallets.innerHTML = orderLine.pallets;
+	var cellTuPal = row.insertCell(8);
+	cellTuPal.className = 'data_num';
+	cellTuPal.innerHTML = orderLine.tuPal;
+	var cellTuInb = row.insertCell(9);
+	cellTuInb.className = 'data_num';
+	cellTuInb.innerHTML = orderLine.tuInbound;
+}
+
+function buildPoTable(orderlines)
+{
+	orderlineTable = document.getElementById('po_line').getElementsByTagName('tbody')[0];
+	while (orderlineTable.rows.length>0) orderlineTable.deleteRow(0);
+	for (cnt=0; cnt<orderlines.length; cnt++) {
+		var row = orderlineTable.insertRow(cnt);
+		buildPoRow(row, orderlines[cnt]);
+	}
+}
+
 function getPOLines(pOrder) {
 
 	function getPOLinesXML() {
 		var row;
-		if (http.readyState==4) {
-			var po_lineTable = document.getElementById('po_line').getElementsByTagName('tbody')[0];
-			var rowCnt = po_lineTable.rows.length;
-			var rowNr = 0;
-			xmlResult = http.responseXML;
-			if (xmlResult.getElementsByTagName('errorCount')[0].firstChild==null) errorCount = 0;
-			else errorCount = xmlResult.getElementsByTagName('errorCount')[0].firstChild.nodeValue;
-			if (errorCount==0) {
-				po_lines = xmlResult.getElementsByTagName('result');
-				for (vc = 0; vc<po_lines.length; vc++) {
-					if ((vc) >= rowCnt) {
-						row=po_lineTable.insertRow(vc);
-						var tdVariant=row.insertCell(0);
-						var tdarticle=row.insertCell(1);
-						var tdTU=row.insertCell(2);
-						var tdPU_TU=row.insertCell(3);
-						var tdPU=row.insertCell(4);
-						var tdPallets=row.insertCell(5);
-						var tdTU_Pal=row.insertCell(6);
-					} else {
-						row=po_lineTable.rows[vc];
-						var tdVariant=row.cells[0];
-						var tdarticle=row.cells[1];
-						var tdTU=row.cells[2];
-						var tdPU_TU=row.cells[3];
-						var tdPU=row.cells[4];
-						var tdPallets=row.cells[5];
-						var tdTU_Pal=row.cells[6];
+		if (http.readyState == 4) {
+			if (http.responseXML) {
+				errorCount = getXMLTagValue(http.responseXML, 'errorCount') || 0;
+				if (errorCount==0) {
+					result = http.responseXML.getElementsByTagName('result');
+					var orderlines = [];
+					for (cnt=0; cnt<result.length; cnt++) {
+						var orderLine = new Object();
+						orderLine.No = getXMLTagValue(result[cnt], 'No') || 0;
+						orderLine.purchaseOrder = getXMLTagValue(result[cnt], 'Purchase_order') || '';
+						orderLine.Line = getXMLTagValue(result[cnt], 'Line') || 0;
+						orderLine.vNo = getXMLTagValue(result[cnt], 'v_no') || '';
+						orderLine.variant = getXMLTagValue(result[cnt], 'variant') || '';
+						orderLine.tradingUnits = getXMLTagValue(result[cnt], 'Trading_Units') || 0;
+						orderLine.puTu = getXMLTagValue(result[cnt], 'PU_TU') || 0;
+						orderLine.packingUnits = getXMLTagValue(result[cnt], 'Packing_Units') || 0;
+						orderLine.price = getXMLTagValue(result[cnt], 'Price') || 0;
+						orderLine.priceAlloc = getXMLTagValue(result[cnt], 'Price_Allocation') || 0;
+						orderLine.pallets = getXMLTagValue(result[cnt], 'Pallets') || 0;
+						orderLine.tuPal = getXMLTagValue(result[cnt], 'TU_Pallet') || 0;
+						orderLine.LineValue = getXMLTagValue(result[cnt], 'line_value') || 0;
+						orderLine.tuInbound = getXMLTagValue(result[cnt], 'tu_inbound') || 0;
+						orderlines.push(orderLine);
 					}
-					tdVariant.innerHTML=po_lines[vc].getElementsByTagName('v_no')[0].firstChild.nodeValue;
-					tdVariant.className="data";
-					tdarticle.innerHTML=po_lines[vc].getElementsByTagName('variant')[0].firstChild.nodeValue;
-					tdarticle.className="data";
-					tdTU.innerHTML=po_lines[vc].getElementsByTagName('Trading_Units')[0].firstChild.nodeValue;
-					tdTU.className="data_num";
-					tdPU_TU.innerHTML=po_lines[vc].getElementsByTagName('PU_TU')[0].firstChild.nodeValue;
-					tdPU_TU.className="data_num";
-					tdPU.innerHTML=po_lines[vc].getElementsByTagName('Packing_Units')[0].firstChild.nodeValue;
-					tdPU.className="data_num";
-					tdPallets.innerHTML=po_lines[vc].getElementsByTagName('Pallets')[0].firstChild.nodeValue;
-					tdPallets.className="data_num";
-					tdTU_Pal.innerHTML=po_lines[vc].getElementsByTagName('TU_Pallet')[0].firstChild.nodeValue;
-					tdTU_Pal.className="data_num";
-				}
-				if (rowCnt>vc) {
-					var lastRow=vc;
-					do {
-						po_lineTable.deleteRow(lastRow);
-						vc++;
-					} while (vc<rowCnt)
+					buildPoTable(orderlines);
+				} else {
+					var errTxt = '';
+					errors = http.responseXML.getElementsByTagName('error');
+					for (ec = 0; ec<errors.length; ec++) {
+						errTxt+=getXMLTagValue(errors[ec], 'error_field')+' ';
+						errTxt+=getXMLTagValue(errors[ec], 'error_text')+'\n';
+					}
+					alert(errTxt);
 				}
 			} else {
-				errors = xml.getElementsByTagName('error');
-				for (e = 0; e < error_count; e++) {
-					field = errors[e].childNodes[1].nodeName;
-					value = errors[e].childNodes[1].firstChild.nodeValue;
-					errorText = errorText+"["+field+"] "+value+"\n";
-				}
-				if (xml.getElementsByTagName('defaultValue')[0].firstChild!=null)
-					act_input.value = xml.getElementsByTagName('defaultValue')[0].firstChild.nodeValue;
-				else act_input.value = '';	
-				alert(errorText);
+				alert(http.responseText);
 			}
 		}
 	}
 	createRequest();
-	var URI = '/purchaseorder/getpoline/id/'+pOrder;
+	var URI = '/purchaseorder/getpoline/purchase_order/'+pOrder;
 	sendRequest('GET', URI, '', getPOLinesXML, true);
 }
 
@@ -109,10 +138,25 @@ function editPOLine(element)
 }
 -->
 </script>
+<div class="data_container">
+<?php echo $this->lookupSelect('ini_price_alloc', '', '', $this->params['price_allocations'], 'No', 'Allocation', array('id'=>'ini_price_alloc', 'style'=>'{width: 99%;}', 'onchange'=>'editPOLine(this)')); ?>
+</div>
 <a href="/purchaseorder/edit/">Neue Bestellung</a>
 <hr />
+<?php $pages = floor($this->params['poCount']/20) + 1; ?>
+<?php $cur_page = isset($this->params['page']) ? $this->params['page'] : 1; ?>
+<?php if ($pages > 1) : ?>
+<div id="page">
+<?php if ($cur_page>2) : ?><a href="/purchaseorder/index/page/1"><<</a>&#160;<?php endif ?>
+<?php if ($cur_page>1) : ?><a href="/purchaseorder/index/page/<?php echo $cur_page-1; ?>"><</a>&#160;<?php endif ?>
+<?php echo "Seite $cur_page" ?>&#160;
+<?php if ($cur_page<$pages) : ?><a href="/purchaseorder/index/page/<?php echo $cur_page+1; ?>">></a>&#160;<?php endif ?>
+<?php if (($cur_page+1)<$pages) : ?><a href="/purchaseorder/index/page/<?php echo $pages; ?>">>></a><?php endif ?>
+</div>
+<?php endif ?>
 <table>
-	</tr class="data">
+<thead>
+	<tr class="data">
 		<th class="data" width="20">Nummer</th>
 		<th class="data" width="50">Lie.-Nr.</th>
 		<th class="data" width="50">Lieferant</th>
@@ -123,10 +167,12 @@ function editPOLine(element)
 		<th class="data" width="20">Container</th>
 		<th class="data" width="20">Incoterm</th>
 	</tr>
+</thead>
+<tbody>	
 <?php foreach($this->result as $entry) : ?>
-	<tr class="data">
+	<tr id="<?php echo $entry['No'];?>">
 		<td class="data"><input type="radio" name="po_no" value="<?php echo $entry['No']; ?>" onfocus="getPOLines(<?php echo $entry['No']; ?>)">
-		<a href="/purchaseorder/edit/id/<?php echo $entry['No']; ?>"><?php echo $entry['No']; ?></a></td>
+		<a href="/purchaseorder/edit/No/<?php echo $entry['No']; ?>"><?php echo $entry['No']; ?></a></td>
 		<td class="data"><?php echo $entry['vendor_no']; ?></td>
 		<td class="data"><?php echo $entry['vendor_name'].', '.$entry['vendor_city'].' '.$entry['vendor_CC']; ?></td>
 		<td class="data"><?php echo $entry['arrival']; ?></td>
@@ -137,7 +183,17 @@ function editPOLine(element)
 		<td class="data"><?php echo $entry['incoterm']; ?></td>
 	</tr>
 <?php endforeach ?>
+</tbody>
 </table>
+<?php if ($pages > 1) : ?>
+<div id="page">
+<?php if ($cur_page>2) : ?><a href="/purchaseorder/index/page/1"><<</a>&#160;<?php endif ?>
+<?php if ($cur_page>1) : ?><a href="/purchaseorder/index/page/<?php echo $cur_page-1; ?>"><</a>&#160;<?php endif ?>
+<?php echo "Seite $cur_page" ?>&#160;
+<?php if ($cur_page<$pages) : ?><a href="/purchaseorder/index/page/<?php echo $cur_page+1; ?>">></a>&#160;<?php endif ?>
+<?php if (($cur_page+1)<$pages) : ?><a href="/purchaseorder/index/page/<?php echo $pages; ?>">>></a><?php endif ?>
+</div>
+<?php endif ?>
 <hr />
 <a href="/purchaseorder/edit/">Neue Bestellung</a>
 <table id="po_line">
@@ -151,19 +207,21 @@ function editPOLine(element)
 <th class="data" width="15">per</th>
 <th class="data" width="6">Paletten</th>
 <th class="data" width="10">Kolli / Pal.</th>
+<th class="data" width="15">Kolli gel.</th>
 </thead>
 <tbody>
 <?php foreach ($this->purchase_order_lines as $po_line) : ?>
 <tr id="<?php echo $po_line['No']; ?>">
 <td class="data"><?php echo $po_line['v_no']; ?></td>
 <td class="data"><?php echo $po_line['variant']; ?></td>
-<td class="data"><?php echo $po_line['Trading_Units']; ?></td>
-<td class="data"><?php echo $po_line['PU_TU']; ?></td>
-<td class="data"><?php echo $po_line['Packing_Units']; ?></td>
-<td class="data"><input type="number" value="<?php echo $po_line['Price'];?>" name="<?php echo $po_line['No']; ?>_price" id="<?php echo $po_line['No']; ?>_price" step="0.01" onchange="editPOLine(this)" /></td>
+<td class="data_num"><?php echo $po_line['Trading_Units']; ?></td>
+<td class="data_num"><?php echo $po_line['PU_TU']; ?></td>
+<td class="data_num"><?php echo $po_line['Packing_Units']; ?></td>
+<td class="data"><input type="number" value="<?php echo $po_line['Price'];?>" name="<?php echo $po_line['No']; ?>_price" id="<?php echo $po_line['No']; ?>_price" step="0.0001" onchange="editPOLine(this)" /></td>
 <td class="data"><?php echo $this->lookupSelect('price_alloc', $po_line['Price_Allocation'], 'price_allocation', $this->params['price_allocations'], 'No', 'Allocation', array('id'=>$po_line['No'].'_price_alloc', 'style'=>'{width: 99%;}', 'onchange'=>'editPOLine(this)')); ?></td>
-<td class="data"><?php echo $po_line['Pallets']; ?></td>
-<td class="data"><?php echo $po_line['TU_Pallet']; ?></td>
+<td class="data_num"><?php echo $po_line['Pallets']; ?></td>
+<td class="data_num"><?php echo $po_line['TU_Pallet']; ?></td>
+<td class="data_num"><?php echo $po_line['tu_inbound']; ?></td>
 </tr>
 <?php endforeach ?>
 </tbody>

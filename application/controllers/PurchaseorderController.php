@@ -18,18 +18,28 @@ class PurchaseorderController extends Zend_Controller_Action
 	private function loadDependencies()
 	{
 		$dependencies['price_allocations'] = $this->db->query('SELECT * FROM price_allocation')->fetchAll();
+		$dependencies['incoterms'] = $this->db->query('SELECT * FROM incoterm')->fetchAll();
 		return $dependencies;
 	}
 	
 	public function indexAction()
 	{
         // action body
-		Zend_Registry::get('logger')->info('purchaseorderController->IndexAction called');
+		$this->hasParam('page') ? $page = $this->getParam('page') : $page = 1;
+		$selectCnt = $this->db->select()->from('v_purchase_order', 'COUNT(No) as Cnt');
 		$select = $this->db->select()->from('v_purchase_order', '*');
-		if ($this->hasParam('No')) $select->where('UPPER(No) LIKE UPPER(?)', '%'.$this->getParam('No').'%');
+		if ($this->hasParam('No')) {
+			$select->where('UPPER(No) LIKE UPPER(?)', '%'.$this->getParam('No').'%');
+			$selectCnt->where('UPPER(No) LIKE UPPER(?)', '%'.$this->getParam('No').'%');
+		}
+		$poCount = ($poCount = $this->db->query($selectCnt)->fetch()) ? $poCount['Cnt'] : 0;
+		$select->order(array('arrival DESC', 'No DESC'));
+		$select->limit(20, ($page-1)*20);
 		$purchase_orders = $this->db->query($select)->fetchAll();
 		$purchase_order_lines = $this->db->query("select * from v_po_line where purchase_order = ?", $purchase_orders[0]['No'])->fetchAll();
 		$params = $this->loadDependencies();
+		$params['page'] = $page;
+		$params['poCount'] = $poCount;
 		$this->view->params = $params;
 		$this->view->result = $purchase_orders;
 		$this->view->purchase_order_lines = $purchase_order_lines;
@@ -89,20 +99,67 @@ class PurchaseorderController extends Zend_Controller_Action
 	{
 		$date = new Zend_Date();
 		$errors = array();
-		$purchase_order=array(
-			'No'=>'',
-			'vendor'=>'',
-			'departure_date'=>$date->get(Zend_Date::DATES),
-			'departure_time'=>$date->get(Zend_Date::TIME_SHORT),
-			'arrival_date'=>$date->get(Zend_Date::DATES),
-			'arrival_time'=>$date->get(Zend_Date::TIME_SHORT),
-			'truck'=>'',
-			'trailor'=>'',
-			'container'=>'',
-			'vessel'=>0,
-			'habour'=>0,
-			);
+		if ($this->getRequest()->isPost()) {
+			$po_arrival = new Zend_Date();
+			$po_departure = new Zend_Date();
+			isset($_POST['old_No']) ? $oldNo = $_POST['old_No'] : $oldNo = '';
+			isset($_POST['No']) ? $purchase_order['No'] = $_POST['No'] : $_POST['No'] = '';
+			isset($_POST['vendor']) ? $purchase_order['vendor'] = $_POST['vendor'] : $_POST['vendor'] = '';
+			isset($_POST['arrival_date']) ? $purchase_order['arrival_date'] = $_POST['arrival_date'] : $_POST['arrival_date'] = '';
+			isset($_POST['arrival_time']) ? $purchase_order['arrival_time'] = $_POST['arrival_time'] : $_POST['arrival_time'] = '';
+			isset($_POST['departure_date']) ? $purchase_order['departure_date'] = $_POST['departure_date'] : $_POST['departure_date'] = '';
+			isset($_POST['departure_time']) ? $purchase_order['departure_time'] = $_POST['departure_time'] : $_POST['departure_time'] = '';
+			isset($_POST['truck']) ? $purchase_order['truck'] = $_POST['truck'] : $_POST['truck'] = '';
+			isset($_POST['trailor']) ? $purchase_order['trailor'] = $_POST['trailor'] : $_POST['trailor'] = '';
+			isset($_POST['incoterm']) ? $purchase_order['incoterm'] = $_POST['incoterm'] : $_POST['incoterm'] = 'DDP';
+			isset($_POST['freight']) ? $purchase_order['freight'] = $_POST['freight'] : $_POST['freight'] = '';
+			isset($_POST['freight_alloc']) ? $purchase_order['freight_alloc'] = $_POST['freight_alloc'] : $_POST['freight_alloc'] = 0;
+			if ($purchase_order['No']=='') $errors['No'] = 'Bestellnummer darf nicht leer sein!';
+			if ($purchase_order['vendor']=='') $errors['vendor'] = 'Lieferant darf nicht leer sein!';
+			try {
+				$po_arrival->set($purchase_order['arrival_date'], Zend_Date::DATES);
+				$po_arrival->set($purchase_order['arrival_time'], Zend_Date::TIME_SHORT);
+				$purchase_order['arrival']=$po_arrival->toString('YYYY-MM-dd HH:mm:ss');
+			} catch (Exception $e) {
+				$errors['arrival_date']='Datum oder Uhrzeit sind nicht im richtigen Format';
+			}
+			try {
+				$po_departure->set($purchase_order['departure_date'], Zend_Date::DATES);
+				$po_departure->set($purchase_order['departure_time'], Zend_Date::TIME_SHORT);
+				$purchase_order['departure'] = $po_departure->toString('YYYY-MM-dd HH:mm:ss');
+			} catch (Exception $e) {
+				$errors['departure_date']='Datum oder Uhrzeit sind nicht im richtigen Format';
+			}
+			$po_lines = $this->db->query('SELECT * FROM v_po_line WHERE purchase_order = ?', $oldNo);
+			if (count($errors)==0) {
+				$purchaseOrder = new Application_Model_PurchaseOrder($oldNo);
+				unset($purchase_order['arrival_date']);
+				unset($purchase_order['arrival_time']);
+				unset($purchase_order['departure_date']);
+				unset($purchase_order['departure_time']);
+				try {
+					$purchaseOrder->update($purchase_order);
+				} catch (Exception $e) {
+					$errors['all'] = 'Bestellung konnte nicht gespeichert werden!';
+					$this->logger->err('Bestellung konnte nicht gespeichert werden! '.$e->getMessage());
+				}
+				if (count($errors)==0) $this->_redirect('/purchaseorder/index');
+				$vendor = $purchaseOrder->getVendor()->toArray();
+			}	
+		} else {
+			if ($this->hasParam('No')) {
+				$purchaseOrder = new Application_Model_PurchaseOrder($this->getParam('No'));
+			} else {
+				$purchaseOrder = new Application_Model_PurchaseOrder();
+			}
+			$purchase_order = $purchaseOrder->getPo()->toArray();
+			$po_lines = ($purchaseOrder->getLines()) ? $purchaseOrder->getLines() : array();
+			$vendor = $purchaseOrder->getVendor()->toArray();
+		}
+		$params = $this->loadDependencies();
 		$params['data']=$purchase_order;
+		$params['poLines'] = $po_lines;
+		$params['vendor'] = $vendor;
 		$params['title']='Bestellung';
 		$params['errors']=$errors;
 		$this->view->params=$params;
@@ -125,7 +182,7 @@ class PurchaseorderController extends Zend_Controller_Action
 	public function editpolineAction()
 	{
 		$errors=array();
-		$polines=array();
+		$poLine=array();
 		$poLineTable = new Application_Model_PurchaseorderlineModel();
 		if ($this->getRequest()->isPost()) {
 			isset($_POST['No']) ? $poLine['No'] = $_POST['No'] : $poLine['No'] = 0;

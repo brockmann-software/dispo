@@ -1,6 +1,143 @@
 <script>
 var lastPO_Line;
 
+function buildPoRow(row, orderLine)
+{
+	row.id = orderLine.No;
+	var cellNo = row.insertCell(0);
+	cellNo.className = 'data';
+	cellNo.innerHTML = orderLine.vNo;
+	var cellVariant = row.insertCell(1);
+	cellVariant.className = 'data';
+	cellVariant.innerHTML = orderLine.variant;
+	var cellTradingUnits = row.insertCell(2);
+	cellTradingUnits.className = 'data_num';
+	cellTradingUnits.innerHTML = orderLine.tradingUnits;
+	var cellPuTu = row.insertCell(3);
+	cellPuTu.className = 'data_num';
+	cellPuTu.innerHTML = orderLine.puTu;
+	var cellPackingUnits = row.insertCell(4);
+	cellPackingUnits.className = 'data_num';
+	cellPackingUnits.innerHTML = orderLine.packingUnits;
+	var cellPrice = row.insertCell(5);
+	cellPrice.className = 'data';
+	var inpPrice = document.createElement('input');
+	inpPrice.name = row.id+'_price';
+	inpPrice.id = row.id+'_price';
+	inpPrice.value = orderLine.price;
+	inpPrice.step = '0.0001';
+	inpPrice.onchange = function() { editPOLine(this); };
+	cellPrice.appendChild(inpPrice);
+	var cellPriceAlloc = row.insertCell(6);
+	cellPriceAlloc.className = 'data';
+	var selPriceAlloc = document.getElementById('ini_price_alloc').cloneNode(true);
+	selPriceAlloc.name = row.id+'_price_alloc';
+	selPriceAlloc.id = row.id+'_price_alloc';
+	selPriceAlloc.value = orderLine.priceAlloc;
+	cellPriceAlloc.appendChild(selPriceAlloc);
+	var cellPallets = row.insertCell(7);
+	cellPallets.className = 'data_num';
+	cellPallets.innerHTML = orderLine.pallets;
+	var cellTuPal = row.insertCell(8);
+	cellTuPal.className = 'data_num';
+	cellTuPal.innerHTML = orderLine.tuPal;
+	var cellTuInb = row.insertCell(9);
+	cellTuInb.className = 'data_num';
+	cellTuInb.innerHTML = orderLine.tuInbound;
+}
+
+function buildPoTable(orderlines)
+{
+	orderlineTable = document.getElementById('po_line').getElementsByTagName('tbody')[0];
+	while (orderlineTable.rows.length>0) orderlineTable.deleteRow(0);
+	for (cnt=0; cnt<orderlines.length; cnt++) {
+		var row = orderlineTable.insertRow(cnt);
+		buildPoRow(row, orderlines[cnt]);
+	}
+}
+
+function getPOLines(pOrder) {
+
+	function getPOLinesXML() {
+		var row;
+		if (http.readyState == 4) {
+			if (http.responseXML) {
+				errorCount = getXMLTagValue(http.responseXML, 'errorCount') || 0;
+				if (errorCount==0) {
+					result = http.responseXML.getElementsByTagName('result');
+					var orderlines = [];
+					for (cnt=0; cnt<result.length; cnt++) {
+						var orderLine = new Object();
+						orderLine.No = getXMLTagValue(result[cnt], 'No') || 0;
+						orderLine.purchaseOrder = getXMLTagValue(result[cnt], 'Purchase_order') || '';
+						orderLine.Line = getXMLTagValue(result[cnt], 'Line') || 0;
+						orderLine.vNo = getXMLTagValue(result[cnt], 'v_no') || '';
+						orderLine.variant = getXMLTagValue(result[cnt], 'variant') || '';
+						orderLine.tradingUnits = getXMLTagValue(result[cnt], 'Trading_Units') || 0;
+						orderLine.puTu = getXMLTagValue(result[cnt], 'PU_TU') || 0;
+						orderLine.packingUnits = getXMLTagValue(result[cnt], 'Packing_Units') || 0;
+						orderLine.price = getXMLTagValue(result[cnt], 'Price') || 0;
+						orderLine.priceAlloc = getXMLTagValue(result[cnt], 'Price_Allocation') || 0;
+						orderLine.pallets = getXMLTagValue(result[cnt], 'Pallets') || 0;
+						orderLine.tuPal = getXMLTagValue(result[cnt], 'TU_Pallet') || 0;
+						orderLine.LineValue = getXMLTagValue(result[cnt], 'line_value') || 0;
+						orderLine.tuInbound = getXMLTagValue(result[cnt], 'tu_inbound') || 0;
+						orderlines.push(orderLine);
+					}
+					buildPoTable(orderlines);
+				} else {
+					var errTxt = '';
+					errors = http.responseXML.getElementsByTagName('error');
+					for (ec = 0; ec<errors.length; ec++) {
+						errTxt+=getXMLTagValue(errors[ec], 'error_field')+' ';
+						errTxt+=getXMLTagValue(errors[ec], 'error_text')+'\n';
+					}
+					alert(errTxt);
+				}
+			} else {
+				alert(http.responseText);
+			}
+		}
+	}
+	createRequest();
+	var URI = '/purchaseorder/getpoline/purchase_order/'+pOrder;
+	sendRequest('GET', URI, '', getPOLinesXML, true);
+}
+
+function editPOLine(element)
+{
+	function editPOLineXML()
+	{
+		if (http.readyState == 4) {
+			if (http.responseXML) {
+				errorCount = getXMLTagValue(http.responseXML, 'errorCount') || 0;
+				if (errorCount==0) {					
+					newNo = getXMLTagValue(http.responseXML, 'No') || '';
+					price.value = getXMLTagValue(http.responseXML, 'price') || '';
+					price_alloc.value = getXMLTagValue(http.responseXML, 'price_allocation') || 0;
+				} else {
+					var errTxt = '';
+					errors = http.responseXML.getElementsByTagName('error');
+					for (ec = 0; ec<errors.length; ec++) {
+						errTxt+=getXMLTagValue(errors[ec], 'error_field')+' ';
+						errTxt+=getXMLTagValue(errors[ec], 'error_text')+'\n';
+					}
+					alert(errTxt);
+				}
+			} else {
+				alert(http.responseText);
+			}
+		}
+	}
+
+	No = element.parentNode.parentNode.id;
+	price = document.getElementById(No+'_price');
+	price_alloc = document.getElementById(No+'_price_alloc');
+	uri = '/purchaseorder/editpoline';
+	params = 'No='+No+'&price='+price.value.replace(',','.')+'&price_alloc='+price_alloc.value;
+	sendRequest('POST', uri, params, editPOLineXML, true);
+}
+
 function fillVendortable(vendor)
 {
 	var vendorTable = document.getElementById('vendor_table').getElementsByTagName('tbody')[0];
@@ -97,49 +234,6 @@ function newVariantRow(row)
 	tdTU_Pal.appendChild(inpTU_Pal);
 }
 
-function fillPO_LineTable(PO_Line)
-{
-	var POLineTable = document.getElementById('PO_Lines').getElementsByTagName('tbody')[0];
-	var rowCnt = PO_LineTable.rows.length;
-	var rowNr = 0;
-	for (vc=0; vc<PO_Line.length; vc++) {
-		if ((vc) >= rowCnt) {
-			newVariantRow(po_lineTable.insertRow(vc));
-		}
-		row=po_lineTable.rows[vc];
-		var inpVariants = row.cells(0).getElementsByTagName('v_no')[0];
-		var inpArticle=row.cells(1).getElementsByTagName('variant')[0];
-		var inpTU=row.cells(2).getElementsByTagName('Trading_Units')[0];
-		var inpPU_TU=row.cells(3).getElementsByTagName('PU_TU')[0];
-		var tdPU=row.cells(4).getElementsByTagName('Packing_Units')[0];
-		var tdPallets=row.cells(5).getElementsByTagName('Pallets')[0];
-		var tdTU_Pal=row.cells(6).getElementsByTagName('TU_Pallet')[0];
-		tdVariant.innerHTML=po_lines[vc].getElementsByTagName('v_no')[0].firstChild.nodeValue;
-		tdVariant.className="data";
-		tdarticle.innerHTML=po_lines[vc].getElementsByTagName('variant')[0].firstChild.nodeValue;
-		tdarticle.className="data";
-		tdTU.innerHTML=po_lines[vc].getElementsByTagName('Trading_Units')[0].firstChild.nodeValue;
-		tdTU.className="data_num";
-		tdPU_TU.innerHTML=po_lines[vc].getElementsByTagName('PU_TU')[0].firstChild.nodeValue;
-		tdPU_TU.className="data_num";
-		tdPU.innerHTML=po_lines[vc].getElementsByTagName('Packing_Units')[0].firstChild.nodeValue;
-		tdPU.className="data_num";
-		tdPallets.innerHTML=po_lines[vc].getElementsByTagName('Pallets')[0].firstChild.nodeValue;
-		tdPallets.className="data_num";
-		tdTU_Pal.innerHTML=po_lines[vc].getElementsByTagName('TU_Pallet')[0].firstChild.nodeValue;
-		tdTU_Pal.className="data_num";
-	}
-	if (rowCnt>vc) {
-		var lastRow=vc;
-		do {
-			vendorTable.deleteRow(lastRow);
-			vc++;
-		} while (vc<rowCnt)
-	}
-	lastPO_Line = po_lines[vc].getElementsByTagName('line')[0].firstChild.nodeValue;
-}
-
-
 function loadVendor()
 {
 	function loadVendorXML()
@@ -225,7 +319,7 @@ function loadVariant()
 <?php //Zend_Debug::dump($this->params); ?>
 <?php $data = $this->params['data']; ?>
 <?php $errors = $this->params['errors']; ?>
-<form action="/vendor/edit/" method="post">
+<form action="/purchaseorder/edit/" method="post">
 <legend><?php echo $this->params['title']; ?></legend>
 <fieldset>
 <?php if (isset($this->errors['all'])) : ?><div class="error">
@@ -247,16 +341,18 @@ function loadVariant()
 		<td>Kreditor</td>		
 		<td><input type="text" id="vendor_no" name="vendor" size="20" maxlength="20" value="<?php echo $data['vendor']; ?>" onchange="loadVendor()" />
 		<td>Name</td>
-		<td id="vendor_name"></td>
+		<td id="vendor_name"><?php echo $this->params['vendor']['name']; ?></td>
 	</tr>
 	<tr>
 		<td>Ankunft</td>
 		<td>
-			<input type="text" name="arrival_date" maxlength="10" size="10" value="<?php echo $data['arrival_date']; ?>" /> <input type="text" size="8" maxlength="8" value="<?php echo $data['arrival_time']; ?>" />
+			<input type="text" name="arrival_date" id="arrival_date" maxlength="10" size="10" value="<?php echo date('d.m.Y', strtotime($data['arrival'])); ?>" onchange="checkDate('arrival_date')" />&#160
+			<input type="text" name="arrival_time" size="8" maxlength="8" value="<?php echo date('H:i', strtotime($data['arrival'])); ?>" onchange="checkTime('arrival_time')" />
 		</td>
 		<td>Abgang</td>
 		<td>
-			<input type="text" name="departure_date" maxlength="10" size="10" value="<?php echo $data['departure_date']; ?>" /> <input type="text" size="8" maxlength="8" value="<?php echo $data['departure_time'];?>" />
+			<input type="text" name="departure_date" id="departure_date" maxlength="10" size="10" value="<?php echo date('d.m.Y', strtotime($data['departure'])); ?>" onchange="checkDate('departure_date')" /> 
+			<input type="text" name="departure_time" id="departure_time" size="8" maxlength="8" value="<?php echo date('H:i', strtotime($data['departure'])); ?>" onchange="checkTime('departure_time')" />
 		</td>
 	</tr>
 	<tr>
@@ -266,43 +362,41 @@ function loadVariant()
 		<td><input type="text" name="trailor" maxlength="40" size="40" value="<?php echo $data['trailor']; ?>" /></td>
 	</tr>
 	<tr>
+		<td>Parität</td><td><?php echo $this->lookupSelect('incoterm', $data['incoterm'], 'incoterm', $this->params['incoterms'], 'No', 'Incoterm'); ?></td>
+		<td>Fracht</td><td><?php echo $this->formText('freight', $data['freight']); ?>&#160<?php echo $this->lookupSelect('freight_alloc', $this->data['freight_alloc'], 'freight_alloc', $this->params['price_allocations'], 'No', 'Allocation'); ?></td>
+	<tr>
 		<td></td><td><input type="submit" name="submit" value="Speichern" /> <input type="submit" name="submit" value="Abbrechen" /></td>
 	</tr>
 </table>
 <hr />
-<table id="po_lines">
+<table id="po_line">
 <thead>
-<tr>
-	<th class="data" width="20">Variante</th>
-	<th class="data" width="150">Beschreibung</th>
-	<th class="data" width="10">Kolli</th>
-	<th class="data" width="10">Menge/Kolli</th>
-	<th class="data" width="12">Menge ges.</th>
-	<th class="data" width="6">Paletten</th>
-	<th class="data" width="10">Kolli / Pal.</th>
-</tr>
+<th class="data" width="20">Variante</th>
+<th class="data">Beschreibung</th>
+<th class="data" width="10">Kolli</>
+<th class="data" width="10">Menge/Kolli</th>
+<th class="data" width="12">Menge ges.</th>
+<th class="data" width="10">Preis</th>
+<th class="data" width="15">per</th>
+<th class="data" width="6">Paletten</th>
+<th class="data" width="10">Kolli / Pal.</th>
+<th class="data" width="15">Kolli gel.</th>
 </thead>
 <tbody>
+<?php foreach ($this->params['poLines'] as $po_line) : ?>
+<tr id="<?php echo $po_line['No']; ?>">
+<td class="data"><?php echo $po_line['v_no']; ?></td>
+<td class="data"><?php echo $po_line['variant']; ?></td>
+<td class="data_num"><?php echo $po_line['Trading_Units']; ?></td>
+<td class="data_num"><?php echo $po_line['PU_TU']; ?></td>
+<td class="data_num"><?php echo $po_line['Packing_Units']; ?></td>
+<td class="data"><input type="number" value="<?php echo $po_line['Price'];?>" name="<?php echo $po_line['No']; ?>_price" id="<?php echo $po_line['No']; ?>_price" step="0.0001" onchange="editPOLine(this)" /></td>
+<td class="data"><?php echo $this->lookupSelect('price_alloc', $po_line['Price_Allocation'], 'price_allocation', $this->params['price_allocations'], 'No', 'Allocation', array('id'=>$po_line['No'].'_price_alloc', 'style'=>'{width: 99%;}', 'onchange'=>'editPOLine(this)')); ?></td>
+<td class="data_num"><?php echo $po_line['Pallets']; ?></td>
+<td class="data_num"><?php echo $po_line['TU_Pallet']; ?></td>
+<td class="data_num"><?php echo $po_line['tu_inbound']; ?></td>
+</tr>
+<?php endforeach ?>
 </tbody>
 </table>
 </form>
-
-<dialog id="vendor_dialog">
-<h2>Lieferant auswählen"</h2>
-<form method="get">
-<table id="vendor_table">
-<thead>
-<tr>
-	<th class="data">Kred-Nr.</th>
-	<th class="data">Kreditor</th>
-	<th class="data">Straße</th>
-	<th class="data">Ort</th>
-</tr>
-</thead>
-<tbody>
-</tbody>
-</table>
-<button type="submit" value="Auswählen">
-</form>
-</dialog>
-		<td>Ankunft</td>
