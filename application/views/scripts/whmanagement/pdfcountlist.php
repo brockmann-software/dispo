@@ -113,6 +113,18 @@ if (!file_exists(realpath($this->filepath.'\\'.$this->filename))) try {
 	$column->setColumnAlign(My_Pdf::CENTER);
 	$columns[] = $column;
 
+	$column = new My_Pdf_Report_Column('@empty', 'KH', array(0.8, 'cm'));
+	$column->setHeaderStyle($headerStyle);
+	$column->setBodyStyle($bodyStyle);
+	$column->setColumnAlign(My_Pdf::RIGHT);
+	$columns[] = $column;
+
+	$column = new My_Pdf_Report_Column('@empty', 'Rg', array(0.8, 'cm'));
+	$column->setHeaderStyle($headerStyle);
+	$column->setBodyStyle($bodyStyle);
+	$column->setColumnAlign(My_Pdf::RIGHT);
+	$columns[] = $column;
+		
 	$column = new My_Pdf_Report_Column('@empty', 'Kol / Pal', array(0.8, 'cm'));
 	$column->setHeaderStyle($headerStyle);
 	$column->setBodyStyle($bodyStyle);

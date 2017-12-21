@@ -116,6 +116,22 @@ class WhmanagementController extends Zend_Controller_Action
 			$this->logger->err('Closeinventory wurde ohne Parameter aufgerufen!');
 		}
 	}
+	
+	public function correctstockAction()
+	{
+		if ($this->hasParam('No')) {
+			$lastInventoryClosed = $this->db->query('SELECT MAX(No) AS last_inventory_closed FROM inventory_head WHERE state = 2')->fetch();
+			if ($this->getParam('No')==$lastInventoryClosed['last_inventory_closed']) {
+				try {
+					$this->db->query('CALL set_stock_on_inventory(?)', $this->getParam('No'));
+				} catch (Exception $e) {
+					$this->logger->err('Fehler bei automatischer Stock-Korrektion! '.$e->getMessage());
+					$this->_redirect('/whmanagement/index/error/Die%20automatische%20Bestandskorrektur%20war%20fehlerhaft!');
+				}
+			} else $this->_redirect('/whmanagement/index/error/Der%20Parameter%20ist%20nicht%20die%20letzte%20abgeschlossene%20Zählung!');
+		} else $this->_redirect('/whmanagement/index/error/Die%20automatische%20Bestandskorrektur%20wurde%20ohne%20Parameter%20aufgerufen!');
+		$this->_redirect('/whmanagement/index/');
+	}
 
 	public function doinventoryAction()
 	{
