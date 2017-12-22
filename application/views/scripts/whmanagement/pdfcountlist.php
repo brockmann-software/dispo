@@ -1,5 +1,6 @@
 <?php
-if (!file_exists(realpath($this->filepath.'\\'.$this->filename))) try {
+// if (!file_exists(realpath($this->filepath.'\\'.$this->filename))) 
+try {
 	$style_body = new Zend_Pdf_Style();
 	$style_body->setLineWidth(1);
 	$fontBold = Zend_Pdf_Font::fontWithPath(realpath(APPLICATION_PATH.'/../public/fonts/').'/ARIALBD.ttf');
@@ -53,6 +54,11 @@ if (!file_exists(realpath($this->filepath.'\\'.$this->filename))) try {
 	$bodyStyle->setTextAlign(My_Pdf::LEFT);
 	
 	$columns = array();
+	$column = new My_Pdf_Report_Column('stock_location_desc', '', array(0.01, 'cm'));
+	$column->setHeaderStyle($headerStyle);
+	$column->setBodyStyle($bodyStyle);
+	$columns[] = $column;
+	
 	$column = new My_Pdf_Report_Column('product_desc', 'Produkt', array(2.2, 'cm'));
 	$column->setHeaderStyle($headerStyle);
 	$column->setBodyStyle($bodyStyle);
@@ -63,12 +69,12 @@ if (!file_exists(realpath($this->filepath.'\\'.$this->filename))) try {
 	$column->setBodyStyle($bodyStyle);
 	$columns[] = $column;
 
-	$column = new My_Pdf_Report_Column('inb_lot', 'Los-Nr', array(1, 'cm'));
+	$column = new My_Pdf_Report_Column('inb_lot', 'Los', array(1, 'cm'));
 	$column->setHeaderStyle($headerStyle);
 	$column->setBodyStyle($bodyStyle);
 	$columns[] = $column;
 		
-	$column = new My_Pdf_Report_Column('label', 'Auszeichn', array(3.5, 'cm'));
+	$column = new My_Pdf_Report_Column('label', 'Auszeichnung', array(3.5, 'cm'));
 	$column->setHeaderStyle($headerStyle);
 	$column->setBodyStyle($bodyStyle);
 	$columns[] = $column;
@@ -84,7 +90,7 @@ if (!file_exists(realpath($this->filepath.'\\'.$this->filename))) try {
 	$column->setColumnAlign(My_Pdf::CENTER);
 	$columns[] = $column;
 
-	$column = new My_Pdf_Report_Column('weight_item', 'g Pkst', array(1, 'cm'));
+	$column = new My_Pdf_Report_Column('weight_item', 'Gew.', array(1, 'cm'));
 	$column->setHeaderStyle($headerStyle);
 	$column->setBodyStyle($bodyStyle);
 	$column->setColumnAlign(My_Pdf::CENTER);
@@ -101,13 +107,13 @@ if (!file_exists(realpath($this->filepath.'\\'.$this->filename))) try {
 	$column->setBodyStyle($bodyStyle);
 	$columns[] = $column;
 
-	$column = new My_Pdf_Report_Column('inb_arrival', 'Eingang', array(1.4, 'cm'), array('date', 'd.m.y'));
+	$column = new My_Pdf_Report_Column('inb_arrival', 'Eing.', array(1.4, 'cm'), array('date', 'd.m.y'));
 	$column->setHeaderStyle($headerStyle);
 	$column->setBodyStyle($bodyStyle);
 	$column->setColumnAlign(My_Pdf::CENTER);
 	$columns[] = $column;
 
-	$column = new My_Pdf_Report_Column('position', 'Position', array(1.1, 'cm'));
+	$column = new My_Pdf_Report_Column('position', 'Pos.', array(1.1, 'cm'));
 	$column->setHeaderStyle($headerStyle);
 	$column->setBodyStyle($bodyStyle);
 	$column->setColumnAlign(My_Pdf::CENTER);
@@ -170,14 +176,39 @@ if (!file_exists(realpath($this->filepath.'\\'.$this->filename))) try {
 
 	$groups = array();
 // Gruppe 1
-	$groupColumn = new My_Pdf_Report_Group_Column('product_desc', true, true);
+	$groupColumns = array();
+	$groupColumn = new My_Pdf_Report_Group_Column('stock_location_desc', true, false);
+	$groupColumn->setHeaderColSpan(20);
+	$groupColumn->setFooterColSpan(20);
+	$thisGroupHeaderStyle = new My_Pdf_Table_Column_Style($groupHeaderStyle);
+	$thisGroupHeaderStyle->setFont($fontBold, 10);
+	$thisGroupHeaderStyle->setBackgroundColor(new Zend_Pdf_Color_HTML('#95B3D7'));
+	
+	$groupColumn->setHeaderStyle($thisGroupHeaderStyle);
+	$groupColumns[] = $groupColumn;
+
+	$group = new My_Pdf_Report_Group($groupColumns, $thisGroupHeaderStyle, $groupFooterStyle);
+	$group->setForceNewPage();
+	$groups[] = $group;
+
+// Gruppe 2
+	$groupColumns = array();
+	$groupColumn = new My_Pdf_Report_Group_Column('stock_location_desc', false, false);
+	$groupColumn->setHeaderStyle($groupHeaderStyle);
+	$groupColumns[] = $groupColumn;
+
+	$groupColumn = new My_Pdf_Report_Group_Column('product_desc', true, false);
 	$groupColumn->setHeaderStyle($groupHeaderStyle);
 	$groupColumns[] = $groupColumn;
 
 	$group = new My_Pdf_Report_Group($groupColumns, $groupHeaderStyle, $groupFooterStyle);
 	$groups[] = $group;
-	
+
+// Gruppe 3	
 	$groupColumns = array();
+	$groupColumn = new My_Pdf_Report_Group_Column('stock_location_desc', false, false);
+	$groupColumn->setHeaderStyle($groupHeaderStyle);
+	$groupColumns[] = $groupColumn;
 
 	$groupColumn = new My_Pdf_Report_Group_Column('product_desc', false, true);
 	$groupColumn->setHeaderStyle($groupHeaderStyle);
