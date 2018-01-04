@@ -54,7 +54,7 @@ class WhmanagementController extends Zend_Controller_Action
 			$sufix = ($blocked==1) ? '-gesperrte' : '-freie';
 			$this->logger->info('Blocked: '.print_r($blocked, true));
 		}
-		$inventories = $this->db->query('SELECT * FROM v_inventory_summery WHERE state = 2 AND stock<>0'.$query_blocked.' AND inventory_head = ? ORDER BY product, items, weight_item, brand_no, packaging, quality, inb_arrival, position', $this->getParam('No'));
+		$inventories = $this->db->query('SELECT * FROM v_inventory_summery WHERE state = 2 AND stock<>0 AND inventory_head = ? ORDER BY stock_location, product, items, weight_item, brand_no, packaging, quality, inb_arrival, position', $this->getParam('No'));
 		while ($inv = $inventories->fetch()) {
 			$inv['remarks'].= ($inv['remarks_on_inventory']!='') ? ' '.$inv['remarks_on_inventory'] : '';
 			$inventory[] = $inv;

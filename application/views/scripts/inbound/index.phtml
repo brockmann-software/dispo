@@ -195,15 +195,9 @@ function getInbLines(inbound) {
 					tdStock.innerHTML = inb_lines[vc].getElementsByTagName('stock')[0].firstChild.nodeValue;
 					tdStock.className='data_num';
 					tdStock.appendChild(linkStock);
-					tdGrade.innerHTML = '';
-					if (!inb_lines[vc].getElementsByTagName('grade_weighted')[0].firstChild)
-						var linkText = document.createTextNode('Kein WEP');
-					else var linkText = document.createTextNode(inb_lines[vc].getElementsByTagName('grade_weighted')[0].firstChild.nodeValue);
+					tdGrade.innerHTML = getXMLTagValue(inb_lines[vc], 'grade_weighted') || 'Kein WEP';
 					tdGrade.className='data_num';
-					var aGrade = document.createElement('a');
-					aGrade.href = "/inbound/printquality/No/"+inb_lines[vc].getElementsByTagName('No')[0].firstChild.nodeValue;
-					aGrade.appendChild(linkText);
-					tdGrade.appendChild(aGrade);
+					tdGrade.onclick = function() { doPrint(this); };
 					tdRemarks.className = 'data';
 					tdRemarks.innerHTML = (inb_lines[vc].getElementsByTagName('remarks')[0].firstChild) ? inb_lines[vc].getElementsByTagName('remarks')[0].firstChild.nodeValue : '';
 				}
@@ -293,6 +287,32 @@ function searchKeyPress(e)
 	}
 	return true;
 }
+var actReport = null;
+
+$( function() {
+	dialog = $("#dialog").dialog({
+		autoOpen: false, 
+		modal:true,
+		buttons: {
+			'drucken': print,
+			Cancel: function() {dialog.dialog("close");}
+		}
+	});
+})
+
+function doPrint(element)
+{
+	$('#dialog').dialog('open');
+	actReport = element.parentNode.id;
+}
+
+function print()
+{
+	$('#dialog').dialog("close");
+	print_option = document.getElementById('select_print').value;
+	window.location = '/inbound/newreport/No/'+actReport+'/lang/'+print_option;
+}
+
 -->
 </script>
 <?php $inbounds = $this->inbounds; ?>
@@ -412,7 +432,7 @@ function searchKeyPress(e)
 		<td class="data_num"><?php echo $inbound_line['inb_pallets']; ?></td>
 		<td class="data_num"><?php echo $inbound_line['inb_tu_pal']; ?></td>
 		<td class="data_num"><?php echo $inbound_line['stock']; ?><a onclick="showMovements(this)"><img src="/images/b_more.png" alt="Bewegungen" title="Bewegungen" /></a></td>
-		<td class="data_num"><a href="/inbound/printquality/No/<?php echo $inbound_line['No']; ?>"><?php echo $inbound_line['grade_weighted']; ?></a></td>
+		<td class="data_num" onclick="doPrint(this)"><?php echo $inbound_line['grade_weighted']; ?></td>
 		<td class="data"><?php echo $inbound_line['remarks'] ?></td>
 	</tr>
 <?php endforeach ?>
@@ -428,3 +448,13 @@ function searchKeyPress(e)
 </div>
 <?php endif ?>
 <hr />
+<div id="dialog" title="Druckauswahl">
+<p>Wähle die Sprache</p>
+<form id="print_selection">
+<select id="select_print" name="select_print">
+<?php foreach ($this->params['languages'] as $language) : ?>
+<option value="<?php echo $language['Id']; ?>"><?php echo $language['language']; ?></option>
+<?php endforeach ?>
+</select>
+</form>
+</div>

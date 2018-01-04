@@ -1,0 +1,30 @@
+<script>
+function openLabelDialog(element)
+{
+	id = element.parentNode.parentNode.id;
+	table = document.getElementById('table').innerHTML;
+	URI = '/language/labeldialog/type/0/table/'+table+'/column/'+id;
+	dimensions = 'width=500,height=400,left='+event.screenX+',top='+event.screenY+',resizable=yes,scroll=yes';
+	window.open(URI, 'Sprachversionen', dimensions);
+}
+</script>
+<?php // Zend_Debug::dump($this->tableDesc); ?>
+Tabelle/Ansicht <span id="table"><?php echo $this->view; ?></span>
+<table>
+<thead>
+<tr>
+	<th class="data">Name</th>
+	<th class="data">Datentyp</th>
+	<th class="data">Länge</th>
+</th>
+<thead>
+<tbody>
+<?php foreach ($this->tableDesc as $key => $column) : ?>
+<tr id="<?php echo $key; ?>">
+	<td class="data"><?php echo $column['COLUMN_NAME']; ?><img src="/images/b_more.png" title="Label" alt="Label" onclick="openLabelDialog(this)" /></td>
+	<td class="data"><?php echo $column['DATA_TYPE']; ?></td>
+	<td class="data_num"><?php echo $column['LENGTH']; ?></td>
+</tr>
+<?php endforeach ?>
+</tbody>
+</table>

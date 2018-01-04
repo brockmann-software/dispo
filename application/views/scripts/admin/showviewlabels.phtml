@@ -1,0 +1,25 @@
+<script>
+function openLabelDialog(element)
+{
+	id = element.parentNode.parentNode.id;
+	table = document.getElementById('table').innerHTML;
+	URI = '/language/labeldialog/type/1/table/'+table+'/column/'+id;
+	dimensions = 'width=500,height=400,left='+event.screenX+',top='+event.screenY+',resizable=yes,scroll=yes';
+	window.open(URI, 'Sprachversionen', dimensions);
+}
+</script>
+Tabelle/Ansicht <span id="table"><?php echo $this->view; ?></span>
+<table id="labels">
+<thead>
+<tr>
+	<th class="data">Label</th>
+</tr>
+</thead>
+<tbody>
+<?php foreach($this->labels as $label) : ?>
+<tr id="<?php echo $label; ?>">
+	<td class="data"><?php echo $label; ?><img src="/images/b_more.png" title="Label" alt="Label" onclick="openLabelDialog(this)" /></td>
+</tr>
+<?php endforeach ?>
+</tbody>
+</table>

@@ -4,7 +4,7 @@ function createRow(row, localization)
 	row.id = localization.No;
 	cell0 = row.insertCell(0);
 	if (localization.No!='new') {
-		cell0.innerHTML = '<a onclick="deleteLanguage(this)"><img src="/images/b_drop.png" alt="löschen" title="löschen" /></a>';
+		cell0.innerHTML = '<a onclick="deleteLabel(this)"><img src="/images/b_drop.png" alt="löschen" title="löschen" /></a>';
 	}
 	cell1 = row.insertCell(1);
 	cell1.className = 'data';
@@ -16,13 +16,24 @@ function createRow(row, localization)
 	cell1.appendChild(selectLang);
 	cell2 = row.insertCell(2);
 	cell2.className = 'data'
-	inpEntry = document.createElement('input');
-	inpEntry.style = 'width: 99%';
-	inpEntry.name = row.id+'_entry';
-	inpEntry.id = row.id+'_entry';
-	inpEntry.value = localization.entry;
-	inpEntry.onchange = function() { updateLanguage(this); };
-	cell2.appendChild(inpEntry);
+	inpLabel = document.createElement('input');
+	inpLabel.style = 'width: 99%';
+	inpLabel.maxlength = 255;
+	inpLabel.name = row.id+'_label';
+	inpLabel.id = row.id+'_label';
+	inpLabel.value = localization.entry;
+	inpLabel.onchange = function() { updateLanguage(this); };
+	cell2.appendChild(inpLabel);
+	cell3 = row.insertCell(3);
+	cell3.className = 'data'
+	inpLabelShort = document.createElement('input');
+	inpLabelShort.style = 'width: 99%';
+	inpLabelShort.maxlength = 5;
+	inpLabelShort.name = row.id+'_label_short';
+	inpLabelShort.id = row.id+'_label_short';
+	inpLabelShort.value = localization.entry;
+	inpLabelShort.onchange = function() { updateLanguage(this); };
+	cell3.appendChild(inpLabelShort);
 }
 
 function createNewRow(row)
@@ -43,14 +54,17 @@ function updateLanguage(element)
 				errorCount = getXMLTagValue(http.responseXML, 'errorCount') || 0;
 				if (errorCount==0) {					
 					language.value = getXMLTagValue(http.responseXML, 'language') || '';
-					entry.value = getXMLTagValue(http.responseXML, 'entry') || '';
+					label.value = getXMLTagValue(http.responseXML, 'label') || '';
+					labelShort.value = getXMLTagValue(http.responseXML, 'label_short') || '';
 					if (row.id != getXMLTagValue(http.responseXML, 'No')) {
 						row.id =  getXMLTagValue(http.responseXML, 'No');
 						row.cells[0].innerHTML = '<a onclick="deleteLanguage(this)"><img src="/images/b_drop.png" alt="löschen" title="löschen" /></a>';
 						language.id = row.id+'_language';
 						language.name = row.id+'_language';
-						entry.id = row.id+'_entry';
-						entry.name = row.id+'_entry';
+						label.id = row.id+'_label';
+						label.name = row.id+'_label';
+						labelShort.name = row.id+'_label_short';
+						labelShort.id = row.id+'_label_short';
 						languageTable = document.getElementById('languages').getElementsByTagName('tbody')[0];
 						createNewRow(languageTable.insertRow(languageTable.rows.length));
 					}
@@ -72,14 +86,15 @@ function updateLanguage(element)
 	send = true;
 	var row = element.parentNode.parentNode;
 	var No = row.id;
+	var type = document.getElementById('type');
 	var table = document.getElementById('table');
 	var column = document.getElementById('column');
-	var key = document.getElementById('key');
 	var language = document.getElementById(No+'_language');
-	var entry = document.getElementById(No+'_entry');
-	var params = 'No='+No+'&language='+language.value+'&table_name='+table.value+'&column_name='+column.value+'&key_val='+key.value+'&entry='+entry.value;
+	var label = document.getElementById(No+'_label');
+	var labelShort = document.getElementById(No+'_label_short');
+	var params = 'No='+No+'&type='+type.value+'&language='+language.value+'&table_name='+table.value+'&column_name='+column.value+'&label='+label.value+'&label_short='+labelShort.value;
 	if (No=='new') send = confirm('Ein neuer Eintrag wird angelegt!');
-	uri = '/language/edit';
+	uri = '/language/editlabel';
 	if (send) {
 		createRequest();
 		sendRequest('POST', uri, params, updateLangXML, false);
@@ -115,10 +130,9 @@ function deleteLanguage(element)
 	var No = row.id;
 	var table = document.getElementById('table');
 	var column = document.getElementById('column');
-	var key = document.getElementById('key');
 	var language = document.getElementById(No+'_language');
-	params = 'delete=DELETE&No='+No+'&language='+language.value+'&table_name='+table.value+'&column_name='+column.value+'&key_val='+key.value;
-	uri = '/language/delete/';
+	params = 'delete=DELETE&No='+No+'&language='+language.value+'&table_name='+table.value+'&column_name='+column.value;
+	uri = '/language/deletelabel/';
 	if (confirm('Der Eintrag wird gelöscht!')) {
 		createRequest();
 		sendRequest('POST', uri, params, deleteLangXML, false);
@@ -128,18 +142,24 @@ function deleteLanguage(element)
 </script>
 <?php // Zend_Debug::dump($this->params); ?>
 <div class="data_container">
-<input type="hidden" id="table" name="table" value="<?php echo $this->params['table']; ?>" />
+<input type="hidden" id="type" name="type" value="<?php echo $this->params['type']; ?>" />
+<input type="hidden" id="table" name="table" value="<?php echo $this->params['view']; ?>" />
 <input type="hidden" id="column" name="column" value="<?php echo $this->params['column']; ?>" />
-<input type="hidden" id="key" name="key" value="<?php echo $this->params['key']; ?>" />
 <?php echo $this->lookupSelect('ini_language', '', 'language', $this->params['languages'], 'Id', 'language', array('id'=>'ini_language', 'onchange'=>'updateLanguage(this)')); ?>
 </div>
-<div>Übersetzung für: <b><?php echo $this->params['value']; ?></b></div>
+<?php if (count($this->params['errors'])>0) : ?>
+<div class="error">
+<?php foreach ($this->params['errors'] as $key => $error) echo "$key: $error<br 7>"; ?>
+</div>
+<?php endif ?>
+<div>Übersetzung für: <b><?php echo $this->params['column']; ?></b></div>
 <table id="languages">
 <thead>
 <tr>
 	<th width="20px"></th>
 	<th class="data" width="100px">Land</th>
-	<th class="data">Eintrag</th>
+	<th class="data">Label</th>
+	<th class="data">Label kurz</th>
 </tr>
 </thead>
 <tbody>
@@ -147,13 +167,15 @@ function deleteLanguage(element)
 <tr id="<?php echo $localization['No']; ?>">
 <td><a onclick="deleteLanguage(this)"><img src="/images/b_drop.png" alt="löschen" title="löschen" /></a></td>
 <td class="data"><?php echo $this->lookupSelect($localization['No'].'_language', $localization['language'], 'language', $this->params['languages'], 'Id', 'language', array('id'=>$localization['No'].'_language', 'onchange'=>'updateLanguage(this)', 'style'=>'width: 99%')); ?></td>
-<td class="data"><?php echo $this->formText($localization['No'].'_entry', $localization['entry'], array('id'=>$localization['No'].'_entry', 'onchange'=>'updateLanguage(this)', 'style'=>'width: 99%', 'maxlength'=>'255')); ?></td>
+<td class="data"><?php echo $this->formText($localization['No'].'_label', $localization['label'], array('id'=>$localization['No'].'_label', 'onchange'=>'updateLanguage(this)', 'style'=>'width: 99%', 'maxlength'=>'255')); ?></td>
+<td class="data"><?php echo $this->formText($localization['No'].'_label_short', $localization['label_short'], array('id'=>$localization['No'].'_label_short', 'onchange'=>'updateLanguage(this)', 'style'=>'width: 99%', 'maxlength'=>'5')); ?></td>
 </tr>
 <?php endforeach ?>
 <tr id="new">
 <td></td>
 <td class="data"><?php echo $this->lookupSelect('new_language', '', 'language', $this->params['languages'], 'Id', 'language', array('id'=>'new_language', 'onchange'=>'updateLanguage(this)', 'style'=>'width: 99%')); ?></td>
-<td class="data"><?php echo $this->formText('new_entry', '', array('id'=>'new_entry', 'onchange'=>'updateLanguage(this)', 'style'=>'width: 99%', 'maxlength'=>'255')); ?></td>
+<td class="data"><?php echo $this->formText('new_label', '', array('id'=>'new_label', 'onchange'=>'updateLanguage(this)', 'style'=>'width: 99%', 'maxlength'=>'255')); ?></td>
+<td class="data"><?php echo $this->formText('new_label_short', '', array('id'=>'new_label_short', 'onchange'=>'updateLanguage(this)', 'style'=>'width: 99%', 'maxlength'=>'5')); ?></td>
 </tr>
 </tbody>
 </table>

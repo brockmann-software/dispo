@@ -6,6 +6,8 @@ class inboundController extends Zend_Controller_Action
 	protected $global_settings;
 	protected $logger;
 	protected $config;
+	protected $translate;
+	protected $locale;
 	
 	
 	private function calcQResult($qcheckpoint, $base, $result)
@@ -54,6 +56,7 @@ class inboundController extends Zend_Controller_Action
 		$this->db_btm = Zend_Registry::get('db_btm');
 		$this->logger = Zend_Registry::get('logger');
 		$this->config = Zend_Registry::get('config');
+		$this->locale = Zend_Registry::get('Zend_Locale');
 		$this->global_settings = $this->db->query("SELECT * FROM global_settings")->fetchAll()[0];
 	}
 	
@@ -274,6 +277,39 @@ class inboundController extends Zend_Controller_Action
 		}
 		return $inbound_protokoll->render();
 	}
+	
+	public function newQCReport($inbound_line)
+	{
+		$this->logger->info('Locale: '.$this->translate->getLocale());
+		include APPLICATION_PATH.'/views/scripts/inbound/pdfinbound-1.php';
+		return $report->render();
+	}
+	
+	public function newreportAction()
+	{
+		$params = array();
+		$this->translate = new Zend_Translate(array(
+			'adapter'=>'My_Translate_Adapter_Mysql', 
+			'content'=>'view_label', 
+			'locale'=>'de',
+			'columns'=>array('language', 'column_name', 'label'),
+			'view'=>'inbound_pdfinbound-1.php'));
+		if (!$this->translate->isAvailable($this->locale->getLanguage())) $this->translate->setLocale('de'); else $this->translate->setLocale('auto');
+		if ($this->hasParam('No')) {
+			$lang = '';
+			if ($this->hasParam('lang')) {
+				$lang = $this->getParam('lang');
+				$this->translate->setLocale($lang);
+			}
+			$inbound_line = new Application_Model_Inboundline($this->getParam('No'), $this->translate->getLocale());
+		//	include APPLICATION_PATH.'/views/scripts/inbound/pdfinbound-1.php';
+			$result = $this->newQCReport($inbound_line);
+		}
+		$this->view->result = $result;
+		$this->view->filename = 'new QC Report.pdf';
+		$layout = $this->_helper->layout();
+		$layout->setLayout('pdf_layout');
+	}
 
 	public function indexAction()
 	{
@@ -355,12 +391,14 @@ class inboundController extends Zend_Controller_Action
 				default: $whereClause.= $key.' = '.$val['value'];
 			}
 		}
+		$languages = $this->db->query("SELECT DISTINCT l.Id, l.language FROM view_label v JOIN language l on (v.language = l.Id) WHERE v.view_name = 'inbound_pdfinbound-1.php'")->fetchAll();	
 		$this->logger->info('InboundController->IndexAction called with whereClause: '.$whereClause);
 		$count_inb = $this->db->query("SELECT COUNT(DISTINCT inbound) AS CNT FROM v_inb_line".$whereClause)->fetchAll()[0]['CNT'];
 		$pages = floor($count_inb/20)+1;
 		$inbound = $this->db->query("select * from v_inb_line".$whereClause." GROUP BY inbound ORDER BY inb_arrival DESC LIMIT ".(($page-1)*20).", 20")->fetchAll();
 		(count($inbound)>0) ? $inbound_lines = $this->db->query('SELECT * from v_inb_line WHERE inbound = ?', $inbound[0]['inbound']) : $inbound_lines = array();
 		$this->view->params = $this->loadDependencies(true);
+		$this->view->params['languages'] = $languages;
 		$this->view->pages = $pages;
 		$this->view->count_inb = $count_inb;
 		$this->view->inbounds = $inbound;
