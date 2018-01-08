@@ -53,12 +53,16 @@ class Application_Model_Inboundline
 		return array($res_percent, $res_level);
 	}
 	
-	public function __construct($id)
+	public function __construct($id, $language='')
 	{
 		if ($id==null || $id=='' || $id==0) {
 			throw new Zend_Exception('Id muss Integer größer 0 sein!');
 		} else {
 			$this->db = Zend_Registry::get('db');
+			if ($language<>'') {
+				Zend_Registry::get('logger')->info('Sprache: ', print_r($language, true));
+				$this->db->query('SET @lang = ?', $language);
+			}
 			$inbound_lines = $this->db->query('SELECT * FROM v_inb_line WHERE No = ?', $id)->fetchAll();
 			if (count($inbound_lines)==0) throw new Zend_Exception('Keine Inbound Line gefunden');
 			$this->data = $inbound_lines[0];
