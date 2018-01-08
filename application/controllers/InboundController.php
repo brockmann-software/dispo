@@ -305,7 +305,7 @@ class inboundController extends Zend_Controller_Action
 			$filename = "Wareneingang {$inbound_line->getData()['position']} {$inbound_line->getData()['vendor_name']} {$inbound_line->getData()['origin']} {$inbound_line->getData()['product_desc']} {$inbound_line->getData()['items']}x{$inbound_line->getData()['weight_item']}g";		//	include APPLICATION_PATH.'/views/scripts/inbound/pdfinbound-1.php';
 			$result = $this->newQCReport($inbound_line);
 		}
-		$bytes = file_put_contents('V:\9_Lager\dispo\wareneingang\\'.$filename, $result);
+		$bytes = file_put_contents('C:\DISPO Wareneingang\\'.$filename, $result);
 		$this->logger->info('Gespeicherte Bytes: '.print_r($bytes, true));
 		$this->view->result = $result;
 		$this->view->filename = 'new QC Report.pdf';
