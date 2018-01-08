@@ -296,7 +296,7 @@ try {
 //				Zend_Registry::get('logger')->info('Image Path: '.print_r($this->picture_path.'/'.$image['path'], true));
 //				Zend_Registry::get('logger')->info('Image Attr.:'.print_r($image_attr, true));
 		$cur_image = Zend_Pdf_image::imageWithPath($this->config->upload->quality->pictures.$image['path']);
-		$hight = $cur_image->getPixelHeight();
+		$height = $cur_image->getPixelHeight();
 		$width = $cur_image->getPixelWidth();
 		$img_relation = $width / $height;
 		if ($img_relation<1) {
