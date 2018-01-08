@@ -313,7 +313,7 @@ try {
 			case 4 : $x1=401; $y1=308; break;
 		}
 		Zend_Registry::get('logger')->info("Position: {$x1}:{$y1} Maße: {$width}x{$height}");
-		$newPage->drawImage($cur_image, $x1, $y1, $width, $height);
+		$newPage->drawImage($cur_image, $x1, $y1, $height, $width);
 		if ($picPerPage == 4) $picPerPage = 0;
 	}
 } catch (Exception $e) {
