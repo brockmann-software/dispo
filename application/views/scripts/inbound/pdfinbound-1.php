@@ -20,11 +20,11 @@ $page->setFont($fontBold, 20);
 $page->drawText($this->translate->_('@header').' '.$inbound_line->getData()['No'], array(0, 'cm'), array(0.6, 'cm'));
 $page->setFont($fontBold, 11);
 $page->drawText($this->translate->_('@vendor'), array(0, 'cm'), array(2.4, 'cm'));
-$page->drawText($this->translate->_('@vendor_no'), array(11.6, 'cm'), array(2.4, 'cm'));
+$page->drawText($this->translate->_('@vendor_no'), array(11.5, 'cm'), array(2.4, 'cm'));
 $page->drawText($this->translate->_('@order_no'), array(13.81, 'cm'), array(2.4, 'cm'));
 $page->drawText($this->translate->_('@position'), array(16.12, 'cm'), array(2.4, 'cm'));
 
-$page->drawText($this->translate->_('@sales_order_no'), array(11.6, 'cm'), array(3.42, 'cm'));
+$page->drawText($this->translate->_('@sales_order_no'), array(11.5, 'cm'), array(3.42, 'cm'));
 $page->drawText($this->translate->_('@v_delivery_note'), array(16.12, 'cm'), array(3.42, 'cm'));
 
 $page->drawText($this->translate->_('@forwarder'), array(0, 'cm'), array(4.44, 'cm'));
@@ -34,7 +34,7 @@ $page->drawText($this->translate->_('@container'), array(11.5, 'cm'), array(4.44
 
 $page->drawText($this->translate->_('@arrival_sched'), array(0, 'cm'), array(5.46, 'cm'));
 $page->drawText($this->translate->_('@arrival'), array(4.62, 'cm'), array(5.46, 'cm'));
-$page->drawText($this->translate->_('@temp_req'), array(11.6, 'cm'), array(5.46, 'cm'));
+$page->drawText($this->translate->_('@temp_req'), array(11.5, 'cm'), array(5.46, 'cm'));
 $page->drawText($this->translate->_('@temperature'), array(16.12, 'cm'), array(5.46, 'cm'));
 
 $page->drawText($this->translate->_('@product'), array(0, 'cm'), array(6.99, 'cm'));
@@ -64,15 +64,15 @@ $page->drawText($inbound_line->getData()['vendor_PO_code'].' '.$inbound_line->ge
 $page->drawText($inbound_line->getData()['vendor_no'], array(11.5, 'cm'), array(2.91, 'cm'));
 $page->drawText($inbound_line->getData()['purchase_order'], array(13.81, 'cm'), array(2.91, 'cm'));
 $page->drawText($inbound_line->getData()['position'], array(16.12, 'cm'), array(2.91, 'cm'));
-$page->drawText($inbound_line->getData()['sales_order'], array(11.6, 'cm'), array(3.93, 'cm'));
+$page->drawText($inbound_line->getData()['sales_order'], array(11.5, 'cm'), array(3.93, 'cm'));
 $page->drawText($inbound_line->getData()['v_delivery_note'], array(16.12, 'cm'), array(3.93, 'cm'));
 $page->drawText($inbound_line->getData()['inb_forwarder'], array(0, 'cm'), array(4.95, 'cm'));
 $page->drawText($inbound_line->getData()['inb_truck'], array(4.64, 'cm'), array(4.95, 'cm'));
-$page->drawText($inbound_line->getData()['inb_trailor'], array(11.5, 'cm'), array(4.95, 'cm'));
-$page->drawText($inbound_line->getData()['inb_container'], array(16.12, 'cm'), array(4.95, 'cm'));
+$page->drawText($inbound_line->getData()['inb_trailor'], array(7.43, 'cm'), array(4.95, 'cm'));
+$page->drawText($inbound_line->getData()['inb_container'], array(11.5, 'cm'), array(4.95, 'cm'));
 $page->drawText($inbound_line->getData()['po_arrival_date'].' '.$inbound_line->getData()['po_arrival_time'], array(0, 'cm'), array(5.97, 'cm'));
 $page->drawText($inbound_line->getData()['inb_arrival_date'].' '.$inbound_line->getData()['inb_arrival_time'], array(4.62, 'cm'), array(5.97, 'cm'));
-$page->drawText("{$inbound_line->getData()['po_transport_temp_min']}°C - {$inbound_line->getData()['po_transport_temp_max']}°C", array(11.6, 'cm'), array(5.97, 'cm'));
+$page->drawText("{$inbound_line->getData()['po_transport_temp_min']}°C - {$inbound_line->getData()['po_transport_temp_max']}°C", array(11.5, 'cm'), array(5.97, 'cm'));
 $page->drawText("{$inbound_line->getData()['inb_transport_temp']}°C", array(16.12, 'cm'), array(5.97, 'cm'));
 $page->drawText($inbound_line->getData()['product_local'], array(4.62, 'cm'), array(6.99, 'cm'));
 $page->drawText($inbound_line->getData()['origin_long'], array(4.62, 'cm'), array(8.01, 'cm'));

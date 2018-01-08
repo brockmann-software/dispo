@@ -302,9 +302,11 @@ class inboundController extends Zend_Controller_Action
 				$this->translate->setLocale($lang);
 			}
 			$inbound_line = new Application_Model_Inboundline($this->getParam('No'), $this->translate->getLocale());
-		//	include APPLICATION_PATH.'/views/scripts/inbound/pdfinbound-1.php';
+			$filename = "Wareneingang {$inbound_line->getData()['position']} {$inbound_line->getData()['vendor_name']} {$inbound_line->getData()['origin']} {$inbound_line->getData()['product_desc']} {$inbound_line->getData()['items']}x{$inbound_line->getData()['weight_item']}g";		//	include APPLICATION_PATH.'/views/scripts/inbound/pdfinbound-1.php';
 			$result = $this->newQCReport($inbound_line);
 		}
+		$bytes = file_put_contents('V:\9_Lager\dispo\wareneingang\\'.$filename, $result);
+		$this->logger->info('Gespeicherte Bytes: '.print_r($bytes, true));
 		$this->view->result = $result;
 		$this->view->filename = 'new QC Report.pdf';
 		$layout = $this->_helper->layout();
@@ -1546,6 +1548,13 @@ class inboundController extends Zend_Controller_Action
 	{
 		$this->view->sent = $this->mailWE($this->getParam('No'));
 	}
+	
+	public function teststoreAction()
+	{
+		if ($this->hasParam('No')) {
+			$inbound_line = new Application_Model_Inboundline($this->getParam('No'));
+		}
+	}		
 	
 	private function mailWE($No)
 	{

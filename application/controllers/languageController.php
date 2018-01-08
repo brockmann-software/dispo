@@ -263,7 +263,7 @@ class languageController extends Zend_Controller_Action
 		$this->renderScript('/xml/resultxml.phtml');		
 	}
 	
-	public function deleteLabelAction()
+	public function deletelabelAction()
 	{
 		$errors = array();
 		$localization = array();
@@ -272,12 +272,10 @@ class languageController extends Zend_Controller_Action
 			isset($_POST['No']) ? $localization['No'] = $_POST['No'] : $localization['No'] = 0;
 			isset($_POST['table_name']) ? $localization['table_name'] = $_POST['table_name'] : $localization['table_name'] = 0;
 			isset($_POST['column_name']) ? $localization['column_name'] = $_POST['column_name'] : $localization['column_name'] = '';
-			isset($_POST['key_val']) ? $localization['key_val'] = $_POST['key_val'] : $localization['key_val'] = '';
 			isset($_POST['language']) ? $localization['language'] = $_POST['language'] : $localization['language'] = '';
 			if ($localization['No']===0) $errors['No'] = 'Kein Identifier übergeben!';
 			if ($localization['table_name']=='') $errors['table_name'] = 'Keine Tabelle übergeben!';
 			if ($localization['column_name']=='') $errors['column_name'] = 'Keine Spalte übergeben!';
-			if ($localization['key_val']=='') $errors['key_val'] = 'Es wurde kein Identifier übergeben!';
 			if ($localization['language']=='') $errors['language'] = 'Es wurde keine Sprache übergeben!';
 			if (count($errors)==0) {
 				try {
