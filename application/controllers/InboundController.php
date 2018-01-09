@@ -302,7 +302,6 @@ class inboundController extends Zend_Controller_Action
 				$this->translate->setLocale($lang);
 			}
 			$inbound_line = new Application_Model_Inboundline($this->getParam('No'), $this->translate->getLocale());
-			$filename = "Wareneingang {$inbound_line->getData()['position']} {$inbound_line->getData()['vendor_name']} {$inbound_line->getData()['origin']} {$inbound_line->getData()['product_desc']} {$inbound_line->getData()['items']}x{$inbound_line->getData()['weight_item']}g";		//	include APPLICATION_PATH.'/views/scripts/inbound/pdfinbound-1.php';
 			$result = $this->newQCReport($inbound_line);
 		}
 		$bytes = file_put_contents('C:\DISPO Wareneingang\\'.$filename, $result);
@@ -911,7 +910,7 @@ class inboundController extends Zend_Controller_Action
 				'remarks' => $inbound_line['remarks'],
 				'checked_by' => $inbound_line['checked_by']);
 				//qualitätsmerkmale laden
-			$qcheckpoints = $this->db->query('SELECT * FROM v_qc_product WHERE type=0 AND UPPER(product) = UPPER("?")',$prod_no)->fetchAll();
+			$qcheckpoints = $this->db->query('SELECT * FROM v_qc_product WHERE type=0 AND UPPER(product) = UPPER("?")',$variant['product'])->fetchAll();
 			if (count($qcheckpoints)==0) {
 				$qcheckpoints = $this->db->query('SELECT * FROM v_quality_checkpoint WHERE type=0 ORDER BY qchk_class_no')->fetchAll();
 			}
@@ -920,7 +919,7 @@ class inboundController extends Zend_Controller_Action
 				$inbound_sheet['base_'.$qcheckpoint['qck_no']] = $_POST['base_'.$qcheckpoint['qck_no']];
 				$inbound_sheet['rp_'.$qcheckpoint['qck_no']] = $this->calcQResult($qcheckpoint, $_POST['base_'.$qcheckpoint['qck_no']], $_POST['res_'.$qcheckpoint['qck_no']])[0];
 				$inbound_sheet['rl_'.$qcheckpoint['qck_no']] = $this->calcQResult($qcheckpoint, $_POST['base_'.$qcheckpoint['qck_no']], $_POST['res_'.$qcheckpoint['qck_no']])[1];
-				$inbound_sheet['remarks_'.$qcheckpoint['qck_no']] = $_POST['remarks_'.$qcheckpoint['qck_no']];
+				isset($_POST['remarks_'.$qcheckpoint['qck_no']]) ? $inbound_sheet['remarks_'.$qcheckpoint['qck_no']] = $_POST['remarks_'.$qcheckpoint['qck_no']] : $inbound_sheet['remarks_'.$qcheckpoint['qck_no']] = '';
 			}
 			$qcheck_logs = $this->db->query('SELECT * FROM v_quality_checkpoint WHERE type=1 ORDER BY qchk_class_no')->fetchAll();
 			foreach($qcheck_logs as $qcheck_log) {
@@ -1195,20 +1194,20 @@ class inboundController extends Zend_Controller_Action
 						$this->logger->err('Bilder wurden nicht gespeichert: '.$e->getMessage());
 					}
 				}
-				$this->logger->info('Anzahl Qualitätsmerkmale: '.count($quality_checkpoints));
+//				$this->logger->info('Anzahl Qualitätsmerkmale: '.count($quality_checkpoints));
 				try {
 					$this->logger->info('Bilder: '.print_r($pictures, true));
 				} catch (Exception $e) {
 					$errors['files'] = 'Die Bilder konnten nicht gespeichert werden!';
 					$this->logger->info('Bilderupload fehlgeschlagen! '.$e->getMessage());
 				}
-				$quality_checkpoints = $this->db->query("SELECT * FROM quality_checkpoint")->fetchAll();
+				$quality_checkpoints = $this->db->query("SELECT * FROM v_quality_checkpoint")->fetchAll();
 				foreach ($quality_checkpoints as $quality_checkpoint) {
 					$qindex = 'operator_'.$quality_checkpoint['No'];
 					$this->logger->info('QIndex: '.print_r($qindex, true));
 					if (isset($_POST[$qindex])) {
 						$qcheckpoint_inb_lines = $this->db->query("SELECT * FROM qcheckpoint_inb_line WHERE quality_checkpoint=? AND inbound_line=?", 
-														array($quality_checkpoint['qck_no'], $inbound_line['No']))->fetchAll();
+							array($quality_checkpoint['qck_no'], $inbound_line['No']))->fetchAll();
 						if (count($qcheckpoint_inb_lines)==0) {
 							$qcheckpoint_inb_line['no']=0;
 							$qcheckpoint_inb_line['quality_checkpoint'] = $quality_checkpoint['No'];
@@ -1222,7 +1221,7 @@ class inboundController extends Zend_Controller_Action
 							}
 							$qcheckpoint_inb_line['max_good'] = $_POST['max_good_'.$quality_checkpoint['No']];
 							$qcheckpoint_inb_line['max_regular'] = $_POST['max_regular_'.$quality_checkpoint['No']];
-							$qcheckpoint_inb_line['remarks'] = $_POST['remarks_'.$quality_checkpoint['No']];
+							$qcheckpoint_inb_line['remarks'] = (isset($_POST['remarks_'.$quality_checkpoint['No']])) ? $_POST['remarks_'.$quality_checkpoint['No']] : '';
 							$this->logger->info('Qcheck_inb_line: '.print_r($qcheckpoint_inb_line, true));
 							try {
 								$qck_inb_line_table->insert($qcheckpoint_inb_line);
@@ -1238,6 +1237,7 @@ class inboundController extends Zend_Controller_Action
 							$qcheckpoint_inb_line['max_good'] = $_POST['max_good_'.$quality_checkpoint['No']];
 							$qcheckpoint_inb_line['max_regular'] = $_POST['max_regular_'.$quality_checkpoint['No']];
 							$qcheckpoint_inb_line['base'] = $_POST['base_'.$quality_checkpoint['No']];
+							$qcheckpoint_inb_line['remarks'] = (isset($_POST['remarks_'.$quality_checkpoint['No']])) ? $_POST['remarks_'.$quality_checkpoint['No']] : '';
 							try {
 								$qck_inb_line_table->update($qcheckpoint_inb_line, $qcheckpoint_inb_line['No']);
 							} catch (Exception $e) {
@@ -1252,6 +1252,17 @@ class inboundController extends Zend_Controller_Action
 						$result = $this->mailWE($inbound_line['No']);
 						$this->logger->info('Status Mailversand: '.print_r($result, true));
 					}
+					$this->translate = new Zend_Translate(array(
+						'adapter'=>'My_Translate_Adapter_Mysql', 
+						'content'=>'view_label', 
+						'locale'=>'de',
+						'columns'=>array('language', 'column_name', 'label'),
+						'view'=>'inbound_pdfinbound-1.php'));
+					if (!$this->translate->isAvailable($this->locale->getLanguage())) $this->translate->setLocale('de'); else $this->translate->setLocale('auto');
+					$inbound_line_obj = new Application_Model_Inboundline($inbound_line['No'], 'de');
+					$filename = "Wareneingang {$inbound_line_obj->getData()['position']} {$inbound_line_obj->getData()['vendor_name']} {$inbound_line_obj->getData()['origin']} {$inbound_line_obj->getData()['product_desc']} {$inbound_line_obj->getData()['items']}x{$inbound_line_obj->getData()['weight_item']}g";
+					$result = $this->newQCReport($inbound_line_obj);
+					$bytes = file_put_contents('C:\DISPO Wareneingang\\'.$filename, $result);
 					$this->logger->info('Datenbank Committed');
 					$this->_redirect('/inbound/editquality/stored/1');
 				} else {

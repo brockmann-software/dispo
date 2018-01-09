@@ -1068,11 +1068,11 @@ function addAtt()
 		<?php if ($qcheck_log['operator']<2) : ?>
 		<input type="number" name="res_<?php echo $qcheck_log['qck_no']; ?>" id="res_<?php echo $qcheck_log['qck_no']; ?>" size="5" step="0.1" tabindex="43" value="<?php echo $data['res_'.$qcheck_log['qck_no']]; ?>" onchange="changeDev(this.name)"/>
 		<?php elseif ($qcheck_log['operator']==2) : ?>
-		<input type="checkbox" name="res_<?php echo $qcheck_log['qck_no']; ?>" id="res_<?php echo $qcheck_log['qck_no']; ?>" tabindex="44" <?php if ($data['res_'.$qcheck_log['qck_no']]==true) echo 'checked="checked" '; ?>onchange="changeDev(this.name)" />
+		<input type="checkbox" name="res_<?php echo $qcheck_log['qck_no']; ?>" id="res_<?php echo $qcheck_log['qck_no']; ?>" tabindex="43" <?php if ($data['res_'.$qcheck_log['qck_no']]==true) echo 'checked="checked" '; ?>onchange="changeDev(this.name)" />
 		<?php endif ?>
 	</td>
 	<td class="<?php echo $data['rl_'.$qcheck_log['qck_no']]; ?>" id="dev_percent_<?php echo $qcheck_log['qck_no']; ?>"><?php echo $data['rp_'.$qcheck_log['qck_no']]; ?></td>
-	<td class="data"><input type="text" name="remarks_<?php echo $qcheck_log['qck_no']; ?>" id="remarks_<?php echo $qcheck_log['qck_no']; ?>" tabindex="42" size="30" maxlength="1024" value="<?php echo $data['remarks_'.$qcheck_log['qck_no']]; ?>" /></td>
+	<td class="data"><input type="text" name="remarks_<?php echo $qcheck_log['qck_no']; ?>" id="remarks_<?php echo $qcheck_log['qck_no']; ?>" tabindex="44" size="30" maxlength="1024" value="<?php echo $data['remarks_'.$qcheck_log['qck_no']]; ?>" /></td>
 </tr>
 <?php endforeach ?>
 </tbody>
