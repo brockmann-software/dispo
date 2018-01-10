@@ -1260,7 +1260,7 @@ class inboundController extends Zend_Controller_Action
 						'view'=>'inbound_pdfinbound-1.php'));
 					if (!$this->translate->isAvailable($this->locale->getLanguage())) $this->translate->setLocale('de'); else $this->translate->setLocale('auto');
 					$inbound_line_obj = new Application_Model_Inboundline($inbound_line['No'], 'de');
-					$filename = "Wareneingang {$inbound_line_obj->getData()['position']} {$inbound_line_obj->getData()['vendor_name']} {$inbound_line_obj->getData()['origin']} {$inbound_line_obj->getData()['product_desc']} {$inbound_line_obj->getData()['items']}x{$inbound_line_obj->getData()['weight_item']}g";
+					$filename = "Wareneingang {$inbound_line_obj->getData()['position']} {$inbound_line_obj->getData()['vendor_name']} {$inbound_line_obj->getData()['origin']} {$inbound_line_obj->getData()['product_desc']} {$inbound_line_obj->getData()['items']}x{$inbound_line_obj->getData()['weight_item']}g.pdf";
 					$result = $this->newQCReport($inbound_line_obj);
 					$bytes = file_put_contents('C:\DISPO Wareneingang\\'.$filename, $result);
 					$this->logger->info('Datenbank Committed');
