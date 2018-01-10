@@ -1,0 +1,18 @@
+<?php Zend_Debug::dump($this->errors); ?>
+<form action="/label/edit/" method="post">
+<fieldset>
+<legend>Etikett</legend>
+<input type="hidden" name = "oldNo" value="<?php echo $this->data['No']; ?>" />
+<table id="label">
+<tr><td>Nummer</td><td><?php echo $this->formText('No', $this->data['No'], array('size'=>'5')); ?></td></tr>
+<tr><td>Etikett</td><td><?php echo $this->formText('label', $this->data['label'], array('size'=>'50')); ?></td></tr>
+<tr><td>Kurzform</td><td><?php echo $this->formText('label_short', $this->data['label_short'], array('size'=>'10')); ?></td></tr>
+<tr><td>Produkte</td><td><?php echo $this->NTMSelect('products', array(), 'No', 'product', $this->params['products'], 'No', 'product'); ?></td></tr>
+<tr><td>Länder</td><td><?php echo $this->NTMSelect('countries', array(), 'No', 'country', $this->params['countries'], 'Id', 'country'); ?></td></tr>
+<tr><td></td><td><button type="submit">Speichern</button></td></tr>
+</table>
+</legend>
+</fieldset>
+</form>
+
+

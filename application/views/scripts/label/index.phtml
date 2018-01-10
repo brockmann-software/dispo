@@ -1,13 +1,15 @@
 <hr />
 <table>
 	</tr class="data">
-		<th class="data">Nummer</th>
+		<th class="data" width="10">Nummer</th>
 		<th class="data">Etikett</th>
+		<th class="data" width="10">Kurzbez.</th>
 	</tr>
 <?php foreach($this->result as $entry) : ?>
 	<tr class="data">
-		<td class="data"><?php echo $entry['No']; ?></td>
+		<td class="data"><a href="/label/edit/No/<?php echo $entry['No']; ?>"><?php echo $entry['No']; ?></a></td>
 		<td class="data"><?php echo $entry['label']; ?></td>
+		<td class="data"><?php echo $entry['label_short']; ?></td>
 	</tr>
 <?php endforeach ?>
 </table>

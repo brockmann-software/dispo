@@ -307,7 +307,7 @@ class inboundController extends Zend_Controller_Action
 		$bytes = file_put_contents('C:\DISPO Wareneingang\\'.$filename, $result);
 		$this->logger->info('Gespeicherte Bytes: '.print_r($bytes, true));
 		$this->view->result = $result;
-		$this->view->filename = 'new QC Report.pdf';
+		$this->view->filename = 'QC_Report.pdf';
 		$layout = $this->_helper->layout();
 		$layout->setLayout('pdf_layout');
 	}

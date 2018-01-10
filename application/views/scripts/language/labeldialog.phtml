@@ -101,7 +101,7 @@ function updateLanguage(element)
 	}
 }
 
-function deleteLanguage(element)
+function deleteLabel(element)
 {
 	function deleteLangXML()
 	{
@@ -128,6 +128,7 @@ function deleteLanguage(element)
 	
 	var row = element.parentNode.parentNode;
 	var No = row.id;
+	var type = document.getElementById('type');
 	var table = document.getElementById('table');
 	var column = document.getElementById('column');
 	var language = document.getElementById(No+'_language');
@@ -165,7 +166,7 @@ function deleteLanguage(element)
 <tbody>
 <?php foreach ($this->data as $localization) : ?>
 <tr id="<?php echo $localization['No']; ?>">
-<td><a onclick="deleteLanguage(this)"><img src="/images/b_drop.png" alt="löschen" title="löschen" /></a></td>
+<td><a onclick="deleteLabel(this)"><img src="/images/b_drop.png" alt="löschen" title="löschen" /></a></td>
 <td class="data"><?php echo $this->lookupSelect($localization['No'].'_language', $localization['language'], 'language', $this->params['languages'], 'Id', 'language', array('id'=>$localization['No'].'_language', 'onchange'=>'updateLanguage(this)', 'style'=>'width: 99%')); ?></td>
 <td class="data"><?php echo $this->formText($localization['No'].'_label', $localization['label'], array('id'=>$localization['No'].'_label', 'onchange'=>'updateLanguage(this)', 'style'=>'width: 99%', 'maxlength'=>'255')); ?></td>
 <td class="data"><?php echo $this->formText($localization['No'].'_label_short', $localization['label_short'], array('id'=>$localization['No'].'_label_short', 'onchange'=>'updateLanguage(this)', 'style'=>'width: 99%', 'maxlength'=>'5')); ?></td>
