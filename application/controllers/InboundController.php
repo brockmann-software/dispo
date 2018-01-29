@@ -795,7 +795,7 @@ class inboundController extends Zend_Controller_Action
 			(isset($_POST['label'])) ? $variant['label']=$_POST['label'] : $variant['label']=0;
 			(isset($_POST['brand'])) ? $variant['brand']=$_POST['brand'] : $variant['brand']=0;
 			//varant No bestimmen
-			$variant['No'] = $variantTable->buildNo($variant);
+			$variant['No'] = $variantTable->buildNo($variant)['No'];
 
 			//po_line auslesen
 			(isset($_POST['po_line'])) ? $purchase_order_line['No'] = $_POST['po_line'] : $purchase_order_line['No']=0;
