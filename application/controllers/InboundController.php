@@ -467,7 +467,7 @@ class inboundController extends Zend_Controller_Action
 			if (($data['items']=='') || ($data['items']==0)) $errors['items'] = "Einheit darf nicht leer oder 0 sein!";
 			if (($data['weight_item']=='') || ($data['weight_item']==0)) $errors['weight_item'] = "Gewicht/Einheit darf nicht leer oder 0 sein";
 			if (count($errors)==0) {
-				$variant = variantController::buildNo($data);
+				$variant = $variantTable->buildNo($data);
 				$data['variant'] = $variant['No'];
 				// falls Variante nicht existiert, anlegen	
 				$variants = $variantTable->find($variant['No']);
@@ -795,16 +795,7 @@ class inboundController extends Zend_Controller_Action
 			(isset($_POST['label'])) ? $variant['label']=$_POST['label'] : $variant['label']=0;
 			(isset($_POST['brand'])) ? $variant['brand']=$_POST['brand'] : $variant['brand']=0;
 			//varant No bestimmen
-			$variant['No'] = $variant['product']
-							.$variant['origin']
-							.$variant['items']
-							.$variant['weight_item']
-							.$variant['t_packaging']
-							.$variant['packaging']
-							.$variant['label']
-							.$variant['quality']
-							.$variant['quality_class']
-							.$variant['brand'];
+			$variant['No'] = $variantTable->buildNo($variant);
 
 			//po_line auslesen
 			(isset($_POST['po_line'])) ? $purchase_order_line['No'] = $_POST['po_line'] : $purchase_order_line['No']=0;

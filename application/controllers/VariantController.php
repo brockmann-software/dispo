@@ -33,34 +33,11 @@ class variantController extends Zend_Controller_Action
 		$dependencies['brands'] = $db->query("select * from brand")->fetchAll();
 		$dependencies['quality_classes'] = $db->query("select * from quality_class")->fetchAll();
 		$dependencies['quality_classes'][count($dependencies['quality_classes'])] = array('No'=>-1, 'quality_class'=>'--alle--');
+		$dependencies['attributes'] = $db->query('select * from attribute')->fetchAll();
+		$dependencies['attributes'][] = array('No'=>0, 'attribute'=>'');
 		return $dependencies;
 	}
 	
-	public function buildNo($data)
-	{
-		if (isset($data['product'])) $variant['product'] = $data['product']; else throw new Exception('field product missing');
-		if (isset($data['origin'])) $variant['origin'] = $data['origin']; else throw new Exception('field origin missing');
-		if (isset($data['items'])) $variant['items'] = $data['items']; else throw new Exception('field items missing');
-		if (isset($data['weight_item'])) $variant['weight_item'] = $data['weight_item']; else throw new Exception('field weight_item missing');
-		if (isset($data['t_packaging'])) $variant['t_packaging'] = $data['t_packaging']; else throw new Exception('field t_packaging missing');
-		if (isset($data['packaging'])) $variant['packaging'] = $data['packaging']; else throw new Exception('field packaging missing');
-		if (isset($data['label'])) $variant['label'] = $data['label']; else throw new Exception('field label missing');
-		if (isset($data['quality'])) $variant['quality'] = $data['quality']; else throw new Exception('field quality missing');
-		if (isset($data['quality_class'])) $variant['quality_class'] = $data['quality_class']; else throw new Exception('field quality_class missing');
-		if (isset($data['brand'])) $variant['brand'] = $data['brand']; else throw new Exception('field brand missing');
-		$variant['No'] = $variant['product']
-						.$variant['origin']
-						.$variant['items']
-						.$variant['weight_item']
-						.$variant['t_packaging']
-						.$variant['packaging']
-						.$variant['label']
-						.$variant['quality']
-						.$variant['quality_class']
-						.$variant['brand'];
-		return $variant;
-	}
-
     public function indexAction()
     {
         // action body
@@ -69,7 +46,7 @@ class variantController extends Zend_Controller_Action
 		$result = $statement->fetchAll();
 		$this->view->result = $result;
     }
-	
+		
 	public function editAction()
 	{
 		$variantTable = new Application_Model_variantModel();
@@ -98,20 +75,20 @@ class variantController extends Zend_Controller_Action
 				$variant['weight_item'] = intval($variant['weight_item']);
 				if ($variant['weight_item'] <= 0) $errors['weight_item'] = 'Der Wert sollte größer 0 sein. Gewicht in Gramm';
 			} catch (Exception $e) {
-				$errors['weight_items'] = 'der Wert muss eine ganze Zahl enthalten. Die Angabe ist in Gramm! '+$e->getMessage();
+				$errors['weight_items'] = 'der Wert muss eine ganze Zahl enthalten. Die Angabe ist in Gramm! '.$e->getMessage();
 			}
 			if (count($errors)==0) {
 				if ($old_No == '') {
 					try {
 						$variantTable->insert($variant);
 					} catch (Exception $e) {
-						$errors['all'] = 'Variante wurde nicht gespeichert! '+$e->getMessage();
+						$errors['all'] = 'Variante wurde nicht gespeichert! '.$e->getMessage();
 					}
 				} else {
 					try {
 						$variantTable->update($variant, array('No = ?'=>$old_No));
 					} catch (Exception $e) {
-						$errors['all'] = 'Die Änderung wurde nicht gespeichert! '+$e->getMessage();
+						$errors['all'] = 'Die Änderung wurde nicht gespeichert! '.$e->getMessage();
 					}
 				}
 			}
@@ -132,13 +109,15 @@ class variantController extends Zend_Controller_Action
 								't_packaging'=>'',
 								'brand'=>0,
 								'quality'=>0,
-								'quality_class'=>1);
+								'quality_class'=>1,
+								'attribute'=>0);
 			}
 		}
 		$params = $this->loadDependencies();
 		$params['variant'] = $variant;
 		$params['errors'] = $errors;
 		$params['title'] = 'Variante';
+		$params['action'] = '/variant/edit/';
 		$this->view->params = $params;
 		$this->view->subtemplate ='variant/edit.phtml';
 	}
@@ -148,33 +127,37 @@ class variantController extends Zend_Controller_Action
 		$errors = array();
 		$params = array();
 		//$params = $this->getAllParams();
-		if ($this->hasParam('No')) {
-			$params['No']['value'] = $this->getParam('No');
-			$params['No']['type'] = 'string';
-		}
+		$select = $this->db->select()->from('v_variant');
 		if ($this->hasParam('variant')) {
 			$params['variant']['value'] = $this->getParam('variant');
 			$params['variant']['type'] = 'string';
+			$select->where('UPPER(variant) LIKE UPPER(?) OR UPPER(No) LIKE UPPER(?)', "%{$this->getParam('variant')}%");
 		}
 		if ($this->hasParam('product_no')) {
 			$params['product_no']['value'] = $this->getParam('product_no');
 			$params['product_no']['type'] = 'string';
+			$select->where('UPPER(product_no) LIKE UPPER(?)', "%{$this->getParam('product_no')}%");
 		}
 		if ($this->hasParam('origin')) {
 			$params['origin']['value'] = $this->getParam('origin');
 			$params['origin']['type'] = 'string';
+			$select->where('UPPER(origin) LIKE UPPER(?)', "%{$this->getParam('origin')}%");
 		}
 		if ($this->hasParam('items')) {
 			$params['items']['value'] = $this->getParam('items');
 			$params['items']['type'] = 'integer';
+			$select->where('items = ?', $this->getParam('items'));
+
 		}
 		if ($this->hasParam('weight_item')) {
 			$params['weight_item']['value'] = $this->getParam('weight_item');
 			$params['weight_item']['type'] = 'integer';
+			$select->where('weight_item = ?', $this->getParam('weight_item'));
 		}
 		if ($this->hasParam('t_packaging')) {
 			$params['t_packaging']['value'] = $this->getParam('t_packaging');
 			$params['t_packaging']['type'] = 'string';
+			$select->where('UPPER(t_packaging) LIKE UPPER(?)', "%{$this->getParam('t_packaging')}%");
 		}
 		$sqlStr = 'select * from v_variant';
 		$pNo = 0;
@@ -184,7 +167,7 @@ class variantController extends Zend_Controller_Action
 			$val['type']=='string' ? $sqlStr.= 'UPPER('.$key.') LIKE UPPER("%'.$val['value'].'%")' : $sqlStr.= $key.' = '.$val['value'];
 		}
 		try {
-			$variants = $this->db->query($sqlStr)->fetchAll();
+			$variants = $this->db->query($select)->fetchAll();
 		} catch (Exception $e) {
 			$errors['sql'] = $e->getMessage();
 		}
@@ -200,27 +183,21 @@ class variantController extends Zend_Controller_Action
 	{
 		$errors = array();
 		$params = array();
-		//$params = $this->getAllParams();
+		$select = $this->db->select()->from('v_variant');
 		if ($this->hasParam('No')) {
-			$params['No']['value'] = $this->getParam('No');
-			$params['No']['type'] = 'string';
-		}
-		$sqlStr = 'select * from v_variant';
-		$pNo = 0;
-		foreach ($params as $key => $val) {
-			($pNo==0) ? $sqlStr.=' WHERE ' : $sqlStr.=' AND ';
-			$pNo++;
-			$val['type']=='string' ? $sqlStr.= 'UPPER('.$key.') LIKE UPPER("%'.$val['value'].'%")' : $sqlStr.= $key.' = '.$val['value'];
+			$select->where('UPPER(No) LIKE UPPER(?) OR UPPER(product) LIKE UPPER(?)', '%'.$this->getParam('No').'%');
 		}
 		try {
-			$variants = $this->db->query($sqlStr)->fetchAll();
+			$variants = $this->db->query($select)->fetchAll();
 		} catch (Exception $e) {
 			$errors['sql'] = $e->getMessage();
 		}
-		$information = $this->loadDependencies();
-		$information['variants'] = $variants;
-		$information['errors'] = $errors;
-		$this->view->information = $information;
+		$params = $this->loadDependencies();
+		$params['variants'] = $variants;
+		$params['errors'] = $errors;
+		$this->view->params = $params;
+		$layout = $this->_helper->layout();
+		$layout->setLayout('dialog_layout');
 	}
 		
 	public function testAction()

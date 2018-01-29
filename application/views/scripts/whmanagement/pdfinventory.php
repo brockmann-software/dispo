@@ -21,16 +21,31 @@ if (!file_exists(realpath($this->filepath.'\\'.$this->filename))) try {
 	$headCol[1]->setText('Warenbestandsliste');
 	
 	$headCol[2] = new My_Pdf_Table_Column();
-	$headCol[2]->setWidth(array(4, 'cm'));
+//	$headCol[2]->setWidth(array(4, 'cm'));
 	$headCol[2]->setFont($fontBold, 12);
 	$headCol[2]->setText("Zählung {$this->inventories[0]['inventory_head']} vom ".date('d.m.Y H:i', strtotime($this->inventories[0]['inv_date'])));
 
-	$headCol[3] = new My_Pdf_Table_Column();
-	$headCol[3]->setFont($fontBold, 12);
-	$headCol[3]->setText($this->sufix);
+//	$headCol[3] = new My_Pdf_Table_Column();
+//	$headCol[3]->setWidth(array(2, 'cm'));
+//	$headCol[3]->setFont($fontBold, 12);
+//	$headCol[3]->setText($this->sufix);
 
 	$headRow->setColumns($headCol);
 	$headerTable->addRow($headRow);
+	
+// Report Footer
+	$footerTable = new My_Pdf_Table(1);
+	$footerRow = new My_Pdf_Table_Row();
+	$footerRow->setFont($fontNormal, 10);
+	
+	$footerCol = array();
+	$footerCol[0] = new My_Pdf_Table_Column();
+	$footerCol[0]->setAlignment(My_Pdf::RIGHT);
+	$footerCol[0]->setText(' Seite @@CURRENT_PAGE');
+	
+	$footerRow->setColumns($footerCol);
+	$footerTable->addRow($footerRow);
+	
 
 // Spaltendefinition
 // Design Kopfzeile
@@ -55,8 +70,14 @@ if (!file_exists(realpath($this->filepath.'\\'.$this->filename))) try {
 	$bodyStyle->setBackgroundColor(new Zend_Pdf_Color_HTML('white'));
 	$bodyStyle->setFont($fontNormal, 7);
 	$bodyStyle->setTextAlign(My_Pdf::LEFT);
+	$bodyStyle->setVerticalAlign(My_Pdf::MIDDLE);
 	
 	$columns = array();
+	$column = new My_Pdf_Report_Column('stock_location_desc', '', array(0.01, 'cm'));
+	$column->setHeaderStyle($headerStyle);
+	$column->setBodyStyle($bodyStyle);
+	$columns[] = $column;
+	
 	$column = new My_Pdf_Report_Column('product_desc', 'Produkt', array(2.2, 'cm'));
 	$column->setHeaderStyle($headerStyle);
 	$column->setBodyStyle($bodyStyle);
@@ -213,13 +234,29 @@ if (!file_exists(realpath($this->filepath.'\\'.$this->filename))) try {
 // Gruppen definieren	
 	$groupHeaderStyle = new My_Pdf_Table_Column_Style($bodyStyle);
 	$groupHeaderStyle->setBackgroundColor(new Zend_Pdf_Color_HTML('#92D050'));
-	$groupColumns = array();
 	
 	$groupFooterStyle = new My_Pdf_Table_Column_Style($headerStyle);
 	$groupFooterStyle->setBackgroundColor(new Zend_Pdf_Color_HTML('lightgrey'));
 
 	$groups = array();
 // Gruppe 1
+	$groupColumns = array();
+	$groupColumn = new My_Pdf_Report_Group_Column('stock_location_desc', true, false);
+	$groupColumn->setHeaderColSpan(20);
+	$groupColumn->setFooterColSpan(20);
+	$thisGroupHeaderStyle = new My_Pdf_Table_Column_Style($groupHeaderStyle);
+	$thisGroupHeaderStyle->setFont($fontBold, 10);
+	$thisGroupHeaderStyle->setBackgroundColor(new Zend_Pdf_Color_HTML('#95B3D7'));
+	
+	$groupColumn->setHeaderStyle($thisGroupHeaderStyle);
+	$groupColumns[] = $groupColumn;
+
+	$group = new My_Pdf_Report_Group($groupColumns, $thisGroupHeaderStyle, $groupFooterStyle);
+	$group->setForceNewPage();
+	$groups[] = $group;
+
+// Gruppe 2
+	$groupColumns = array();
 	$groupColumn = new My_Pdf_Report_Group_Column('product_desc', true, true);
 	$groupColumn->setHeaderStyle($groupHeaderStyle);
 	$groupColumns[] = $groupColumn;
@@ -232,7 +269,8 @@ if (!file_exists(realpath($this->filepath.'\\'.$this->filename))) try {
 
 	$group = new My_Pdf_Report_Group($groupColumns, $groupHeaderStyle, $groupFooterStyle);
 	$groups[] = $group;
-	
+
+// Gruppe 3	
 	$groupColumns = array();
 
 	$groupColumn = new My_Pdf_Report_Group_Column('product_desc', false, true);
@@ -257,9 +295,11 @@ if (!file_exists(realpath($this->filepath.'\\'.$this->filename))) try {
 	$groupColumn->getFooterStyle()->setTextAlign(My_Pdf::RIGHT);
 	$groupColumns[] = $groupColumn;
 	$group = new My_Pdf_Report_Group($groupColumns, $groupHeaderStyle, $groupFooterStyle);
+	$group->setEmptyLines(2,1);
 	$groups[] = $group;
 	$inventoryReport = new My_Pdf_Report($this->filename, $this->filepath.'\\', $this->inventories, Zend_Pdf_Page::SIZE_A4_LANDSCAPE, 'utf-8');
 	$inventoryReport->setHeader($headerTable);
+	$inventoryReport->setFooter($footerTable);
 	$inventoryReport->setColumns($columns);
 	$inventoryReport->setGroups($groups);
 	$inventoryReport->save();

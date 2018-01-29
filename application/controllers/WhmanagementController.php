@@ -526,7 +526,7 @@ class WhmanagementController extends Zend_Controller_Action
 					// Geänderte Variante feststellen
 						$new_line = false;
 						$new_variant = array_merge($cur_variant, $variant);
-						$new_variant['No'] = variantController::buildNo($new_variant)['No'];
+						$new_variant['No'] = $variant_table->buildNo($new_variant)['No'];
 							$this->logger->info('Akt. Variante: '.print_r($cur_variant, true));
 							$this->logger->info('Gem Variante: '.print_r($variant, true));
 							$this->logger->info('Neue Variante: '.print_r($new_variant, true));

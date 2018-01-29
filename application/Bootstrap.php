@@ -63,5 +63,13 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
 	{
 		$locale = new Zend_Locale();
 		Zend_Registry::set('Zend_Locale', $locale);
+		$translate = new Zend_Translate(array(
+			'adapter'=>'My_Translate_Adapter_Mysql', 
+			'content'=>'view_label', 
+			'locale'=>'de',
+			'columns'=>array('language', 'column_name', 'label'),
+			'view'=>'production_index.phtml'));
+		if (!$translate->isAvailable($locale->getLanguage())) $translate->setLocale('de'); else $translate->setLocale('auto');
+		Zend_Registry::set('Zend_Translate', $translate);
 	}
 }
