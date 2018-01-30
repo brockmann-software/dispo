@@ -61,7 +61,7 @@ class Application_Model_VariantModel extends Zend_Db_Table
 		if (isset($data['brand'])) $variant['brand'] = $data['brand']; else throw new Exception('field brand missing');
 		$variant['No'] = $variant['product']
 						.$variant['origin']
-						.$variant['	items']
+						.$variant['items']
 						.$variant['weight_item']
 						.$variant['t_packaging']
 						.$variant['packaging']
