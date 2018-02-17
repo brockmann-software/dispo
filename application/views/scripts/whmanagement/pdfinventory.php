@@ -184,7 +184,7 @@ if (!file_exists(realpath($this->filepath.'\\'.$this->filename))) try {
 	$condFormats[] = $condFormat;
 	
 	$condStyle = new My_Pdf_Table_Column_Style($bodyStyle);
-	$condStyle->setBackgroundColor(new Zend_Pdf_Color_HTML('green'));
+	$condStyle->setBackgroundColor(new Zend_Pdf_Color_HTML('#92D050'));
 	$condFormat = new My_Pdf_Report_ConditionalFormat(My_Pdf_Report::SMALLER, 2, null, $condStyle);
 	$condFormats[] = $condFormat;
 			
@@ -210,7 +210,7 @@ if (!file_exists(realpath($this->filepath.'\\'.$this->filename))) try {
 	$condFormats[] = $condFormat;
 	
 	$condStyle = new My_Pdf_Table_Column_Style($bodyStyle);
-	$condStyle->setBackgroundColor(new Zend_Pdf_Color_HTML('green'));
+	$condStyle->setBackgroundColor(new Zend_Pdf_Color_HTML('#92D050'));
 	$condFormat = new My_Pdf_Report_ConditionalFormat(My_Pdf_Report::SMALLER, 2, null, $condStyle);
 	$condFormats[] = $condFormat;
 			

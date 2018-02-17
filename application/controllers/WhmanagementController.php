@@ -54,7 +54,13 @@ class WhmanagementController extends Zend_Controller_Action
 			$sufix = ($blocked==1) ? '-gesperrte' : '-freie';
 			$this->logger->info('Blocked: '.print_r($blocked, true));
 		}
-		$inventories = $this->db->query('SELECT * FROM v_inventory_summery WHERE state = 2 AND stock<>0 AND inventory_head = ? ORDER BY stock_location, product, items, weight_item, brand_no, packaging, quality, inb_arrival, position', $this->getParam('No'));
+		$select = $this->db->select()->from('v_inventory_summery');
+		$select->where('state = 2');
+		$select->where('stock <> 0');
+		$select->where('inventory_head = ?', $this->getParam('No'));
+		$select->order(array('stock_location', 'product', 'items', 'weight_item', 'brand_no', 'packaging', 'quality', 'inb_arrival', 'position'));
+//		$inventories = $this->db->query('SELECT * FROM v_inventory_summery WHERE state = 2 AND stock<>0 AND inventory_head = ? ORDER BY stock_location, product, items, weight_item, brand_no, packaging, quality, inb_arrival, position', $this->getParam('No'));
+		$inventories = $this->db->query($select);
 		while ($inv = $inventories->fetch()) {
 			$inv['remarks'].= ($inv['remarks_on_inventory']!='') ? ' '.$inv['remarks_on_inventory'] : '';
 			$inventory[] = $inv;
@@ -519,7 +525,7 @@ class WhmanagementController extends Zend_Controller_Action
 						$inbound_line_set->current()->qc_on_inventory = $inbound_line['qc_on_inventory'];
 						$inbound_line_set->current()->save();
 						$this->logger->info('QC qurde gespeichert');
-					} else {
+					} else {	// Neue Inventory wird erstellt
 						require_once('VariantController.php');
 					// Inbound_line und Variante holen
 						$inventory['inbound_line'] = $cur_inbound_line['No'];
@@ -644,6 +650,8 @@ class WhmanagementController extends Zend_Controller_Action
 							$movement['No'] = $this->db->lastInsertId();
 							$movement['inbound_movement'] = $movement['No'];
 							$movement_table->update($movement, array('No = ?'=>$movement['inbound_movement']));
+							// neuer Eingangsmovement wird mit neuer inventory verbunden
+							$inventory['movement'] = $movement['No'];
 							$this->logger->info('Bewegung wurde gespeichert mit No: '.$movement['No']);
 						} else {
 							$inbound_line_set->current()->qc_on_inventory = $inbound_line['qc_on_inventory'];
