@@ -17,7 +17,7 @@ class PurchaseorderController extends Zend_Controller_Action
 	
 	private function loadDependencies()
 	{
-		$dependencies['price_allocations'] = $this->db->query('SELECT * FROM price_allocation')->fetchAll();
+		$dependencies['price_allocations'] = $this->db->query('SELECT * FROM v_allocation_service WHERE service_no=5')->fetchAll();
 		$dependencies['incoterms'] = $this->db->query('SELECT * FROM incoterm')->fetchAll();
 		return $dependencies;
 	}

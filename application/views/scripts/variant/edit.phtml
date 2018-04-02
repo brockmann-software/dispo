@@ -13,11 +13,12 @@ function buildNo()
 	variant_no = variant_no + document.getElementById("quality").value;
 	variant_no = variant_no + document.getElementById("quality_class").value;
 	variant_no = variant_no + document.getElementById("brand").value;
+	if (document.getElementById('attribute').value!=0) variant_no+= document.getElementById('attribute').value;
 	document.getElementById("No").value = variant_no;
-}	
+}
 </script>
 
-<?php //Zend_Debug::dump($this->params['quality_class']) ?>
+<?php // Zend_Debug::dump($this->params['errors']) ?>
 <?php $variant = $this->params['variant']; ?>
 <?php $products = $this->params['products']; ?>
 <?php $countries = $this->params['countries']; ?>
@@ -27,13 +28,14 @@ function buildNo()
 <?php $brands = $this->params['brands']; ?>
 <?php $qualities = $this->params['qualities']; ?>
 <?php $quality_classes = $this->params['quality_classes']; ?>
+<?php $attributes = $this->params['attributes']; ?>
 <?php $errors = $this->params['errors']; ?>
 <?php // echo $this->form; ?>
 
-<form action="/variant/edit/" method="post">
+<form action="<?php echo $this->params['action']; ?>" method="post">
 <legend><?php echo $this->params['title']; ?></legend>
-<?php if (isset($this->errors['all'])) : ?><div class="error">
-<?php echo $this->errors['all']; ?>
+<?php if (isset($this->params['errors']['all'])) : ?><div class="error">
+<?php echo $this->params['errors']['all']; ?>
 </div><?php  endif ?>
 <fieldset>
 <table>
@@ -137,15 +139,20 @@ function buildNo()
 	<tr>
 		<td>Anzahl Packstücke</td><td>
 		<?php if (isset($errors['items'])) : ?><div class="error"><?php endif ?>
-		<input type="text" name="items" id="items" size="10" maxlength="10" value="<?php echo $variant['items']; ?>"  onchange="buildNo()"/></td>
-		<?php if (isset($errors['items'])) : ?><br /><?php echo $errors['items']; ?></div><?php endif ?>
+		<input type="text" name="items" id="items" size="10" maxlength="10" value="<?php echo $variant['items']; ?>"  onchange="buildNo()"/>
+		<?php if (isset($errors['items'])) : ?><br /><?php echo $errors['items']; ?></div><?php endif ?></td>
 	</tr>
 	<tr>
 		<td>Gewicht Packstück (g)</td><td>
 		<?php if (isset($errors['weight_item'])) : ?><div class="error"><?php endif ?>
-		<input type="text" name="weight_item" id="weight_item" size="10" maxlength="10" value="<?php echo $variant['weight_item']; ?>" onchange="buildNo()"/></td>
-		<?php if (isset($errors['weight_item'])) : ?><br /><?php echo $errors['weight_item']; ?></div><?php endif ?>
+		<input type="text" name="weight_item" id="weight_item" size="10" maxlength="10" value="<?php echo $variant['weight_item']; ?>" onchange="buildNo()"/>
+		<?php if (isset($errors['weight_item'])) : ?><br /><?php echo $errors['weight_item']; ?></div><?php endif ?></td>
 	</tr>
+	<tr>
+		<td>Zusatz</td><td>
+		<?php if (isset($errors['attribute'])) : ?><div class="error"><?php endif ?>
+		<?php echo $this->lookupSelect('attribute', $variant['attribute'], 'attribute', $attributes, 'No', 'attribute', array('id'=>'attribute', 'onchange'=>'buildNo()')); ?>
+		<?php if (isset($errors['attribute'])) : ?><br /><?php echo $errors['attribute']; ?></div><?php endif ?></td>
 	<tr>
 		<td></td><td><input type="submit" value="Speichern" /></td>
 	</tr>

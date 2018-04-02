@@ -226,6 +226,18 @@ if (!file_exists(realpath($this->filepath.'\\'.$this->filename))) try {
 	$column->setColumnAlign(My_Pdf::CENTER);
 	$columns[] = $column;
 	
+	$condFormats = array();
+	$condFormat = new My_Pdf_Report_ConditionalFormat(My_Pdf_Report::EQUAL, 2, null, $bodyStyle, 'P');
+	$condFormats[] = $condFormat;
+	$condFormat = New My_Pdf_Report_ConditionalFormat(My_Pdf_Report::NOT_EQUAL, 2, null, $bodyStyle, '');
+	$condFormats[] = $condFormat;
+	
+	$column = new My_Pdf_Report_Column('type', 'P', array(0.3, 'cm'), null, '', $condFormats);
+	$column->setHeaderStyle($headerStyle);
+	$column->setBodyStyle($bodyStyle);
+	$column->setColumnAlign(My_Pdf::CENTER);
+	$columns[] = $column;
+	
 	$column = new My_Pdf_Report_Column('remarks', 'Bemerkungen');
 	$column->setHeaderStyle($headerStyle);
 	$column->setBodyStyle($bodyStyle);

@@ -49,6 +49,7 @@ class Application_Model_VariantModel extends Zend_Db_Table
 		
 	public function buildNo(array $data)
 	{
+		Zend_Registry::get('logger')->info('data: '.print_r($data, true));
 		if (isset($data['product'])) $variant['product'] = $data['product']; else throw new Exception('field product missing');
 		if (isset($data['origin'])) $variant['origin'] = $data['origin']; else throw new Exception('field origin missing');
 		if (isset($data['items'])) $variant['items'] = $data['items']; else throw new Exception('field items missing');
@@ -69,8 +70,19 @@ class Application_Model_VariantModel extends Zend_Db_Table
 						.$variant['quality']
 						.$variant['quality_class']
 						.$variant['brand'];
-		if (isset($data['variety']) && $data['variety']<>0 && $data['variety']<>'') $variant['No'].= $data['variety'];
-		if (isset($data['attribute']) && $data['attribute']<>0 && $data['attribute']<>'') $variant['No'].= $data['attribute'];
+		if (isset($data['variety']) && $data['variety']<>0 && $data['variety']<>'') {
+			$variant['variety'] = $data['variety'];
+			$variant['No'].= 'V'.$data['variety'];
+		}
+		if (isset($data['attribute']) && $data['attribute']<>0 && $data['attribute']<>'') {
+			$variant['attribute'] = $data['attribute'];
+			$variant['No'].= 'A'.$data['attribute'];
+		}
+		if (isset($data['caliber']) && $data['caliber']<>0 && $data['caliber']<>'') {
+			$variant['caliber'] = $data['caliber'];
+			$variant['No'].= 'C'.$data['caliber'];
+		}
+		Zend_Registry::get('logger')->info('variant: '.print_r($variant, true));
 		return $variant;
 	}
 }

@@ -18,6 +18,7 @@ $page->setMargins($margin);
 $page->drawImage(Zend_Pdf_image::imageWithPath(APPLICATION_PATH.'/../public/images/logo_mvs.jpg'), array(14.8, 'cm'), 0, array(5, 'cm'));
 $page->setFont($fontBold, 20);
 $page->drawText($this->translate->_('@header').' '.$inbound_line->getData()['No'], array(0, 'cm'), array(0.6, 'cm'));
+if ($inbound_line->getData()['attribute_no']) $page->drawText($inbound_line->getData()['attribute'], array(10, 'cm'), array(0.6, 'cm'));
 $page->setFont($fontBold, 11);
 $page->drawText($this->translate->_('@vendor'), array(0, 'cm'), array(2.4, 'cm'));
 $page->drawText($this->translate->_('@vendor_no'), array(11.5, 'cm'), array(2.4, 'cm'));
@@ -51,9 +52,6 @@ $page->drawText($this->translate->_('@packing_units'), array(0, 'cm'), array(12.
 $page->drawText($this->translate->_('@pallets'), array(0, 'cm'), array(12.60, 'cm'));
 
 $page->drawText($this->translate->_('@items_checked'), array(0, 'cm'), array(13.62, 'cm'));
-
-$page->drawText($this->translate->_('@remarks'), array(0, 'cm'), array(25, 'cm'));
-$page->drawText($this->translate->_('@checked_by'), array(0, 'cm'), array(27.5, 'cm'));
 
 // Daten
 $page->setFont($fontNormal, 11);
@@ -138,8 +136,9 @@ $headerRow->setColumns($colls);
 $table = new My_Pdf_Table(1);
 $table->addRow($headerRow);
 
-// Tabellen für qualitative Prüfung
+$logRow = 0;
 foreach($inbound_line->getQcLogistic() as $qc_inb_log) {
+	Zend_Registry::get('logger')->info('QC '.print_r($qc_inb_log, true));
 	switch ($qc_inb_log['res_level']) {
 		case 'check_green' : $levelColor = new Zend_Pdf_Color_HTML('green'); break;
 		case 'check_yellow' : $levelColor = new Zend_Pdf_Color_HTML('yellow'); break;
@@ -175,9 +174,11 @@ foreach($inbound_line->getQcLogistic() as $qc_inb_log) {
 	$row = new My_Pdf_Table_Row();
 	$row->setColumns($colls);
 	$table->addRow($row);
+	$logRow++;
 }
 $page->addTable($table, array(0.0, 'cm'), array(14.13, 'cm'));
 
+// Tabellen für qualitative Prüfung
 $qc_no = 0;
 foreach($inbound_line->getClasses() as $qc_class) {
 	if ($qc_class['No']<4) {
@@ -243,10 +244,14 @@ foreach($inbound_line->getClasses() as $qc_class) {
 				$table->addRow($row);
 			}
 		}
-		$page->addTable($table, ($qc_no*189), array(19.13, 'cm'));
+		$page->addTable($table, ($qc_no*189), array(14.13+(($logRow+1)*0.71428), 'cm'));
 		$qc_no++;
 	}
 }
+
+$page->drawText($this->translate->_('@remarks'), array(0, 'cm'), array(20+(($logRow+1)*0.71428), 'cm'));
+$page->drawText($this->translate->_('@checked_by'), array(0, 'cm'), array(22.5+(($logRow+1)*0.71428), 'cm'));
+
 
 // Feld für Bemerkungen als Tabelle mit einer Zelle
 $cols = array();
@@ -261,9 +266,9 @@ $row->setColumns($cols);
 
 $table = new My_Pdf_Table(1);
 $table->addRow($row);
-$page->addTable($table, array(0, 'cm'), array(24.5, 'cm'));
+$page->addTable($table, array(0, 'cm'), array(19.5+(($logRow+1)*0.71428), 'cm'));
 
-$page->drawText($inbound_line->getData()['checked_by'], array(4.62, 'cm'), array(27.5, 'cm'));
+$page->drawText($inbound_line->getData()['checked_by'], array(4.62, 'cm'), array(22.5+(($logRow+1)*0.71428), 'cm'));
 
 $report = new My_Pdf();
 $report->pages[] = $page;

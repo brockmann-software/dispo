@@ -121,4 +121,45 @@ class ProductController extends Zend_Controller_Action
 		$layout = $this->_helper->layout();
 		$layout->setLayout('xml_layout');
 	}
+	
+	public function getproductAction()
+	{
+		$product = array();
+		$product_labels = array();
+		$product_calibers = array();
+		$checkpoints = array();
+		$errors=array();
+		if ($this->hasParam('No')) {
+			$products = $this->db->query('SELECT * FROM v_product WHERE No = ?', $this->getParam('No'))->fetchAll();
+			if (count($products)>0) {
+				$product = $products[0];
+				// load labels
+				$select = $this->db->select()->from('v_label_matrix');
+				$select->where('product = ? OR product IS NULL', $product['No']);
+				if ($this->hasParam('country')) $select->where('country = ? OR country IS NULL', $this->getParam('country'));
+				$product_labels = $this->db->query($select)->fetchAll();
+				// load calibers
+				$select = $this->db->select()->from('caliber');
+				$select->where('product = ?', $product['No']);
+				$product_calibers = $this->db->query($select)->fetchAll();
+				// load quality_checkpoints
+				$select = $this->db->select()->from('v_qc_product');
+				$select->where('product_no = ?', $product['No']);
+				$select->order(array('qchk_class_no', 'qck_no'));
+				$product_quality_checkpoints = $this->db->query($select)->fetchAll();
+				if (count($product_quality_checkpoints)==0) {
+					$select = $this->db->select()->from('v_quality_checkpoint');
+					$select->where('type = 0');
+					$select->order(array('qchk_class_no', 'qck_no'));
+					$product_quality_checkpoints = $this->db->query($select)->fetchAll();
+				}
+			} else $errors['all'] = "Kein Produkt mit der Nummer {$this->getParam('No')} gefunden!";
+		} else $errors['No'] = 'Keine Produktnummer übergeben!';
+		$this->view->product = $product;
+		$this->view->labels = $product_labels;
+		$this->view->calibers = $product_calibers;
+		$this->view->quality_checkpoints = $product_quality_checkpoints;
+		$layout = $this->_helper->layout();
+		$layout->setLayout('xml_layout');
+	}
 }

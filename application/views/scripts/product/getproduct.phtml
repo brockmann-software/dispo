@@ -1,0 +1,44 @@
+<results>
+<errorCount><?php echo count($this->errors); ?></errorCount>
+	<errors>
+<?php if (count($this->errors)>0): ?>
+<?php foreach ($this->errors as $key => $value):?>
+		<error>
+			<<?php echo $key; ?>><?php echo $value; ?></<?php echo $key; ?>>
+		</error>
+<?php ENDFOREACH ?>
+<?php ENDIF ?>
+	</errors>
+	<product>
+	<?php foreach ($this->product as $key => $value): ?>
+		<<?php echo $this->escape($key); ?>><?php echo $this->escape($value); ?></<?php echo $this->escape($key); ?>>
+	<?php ENDFOREACH ?>
+	</product>
+	<calibers>
+	<?php foreach ($this->calibers as $result) :?>
+		<product_caliber>
+		<?php foreach ($result as $key => $value) : ?>
+			<<?php echo $this->escape($key); ?>><?php echo $this->escape($value); ?></<?php echo $this->escape($key); ?>>
+		<?php endforeach ?>
+		</product_caliber>
+	<?php ENDFOREACH ?>
+	</calibers>
+	<labels>
+	<?php foreach ($this->labels as $result) :?>
+		<product_label>
+		<?php foreach ($result as $key => $value) : ?>
+			<<?php echo $this->escape($key); ?>><?php echo $this->escape($value); ?></<?php echo $this->escape($key); ?>>
+		<?php endforeach ?>
+		</product_label>
+	<?php ENDFOREACH ?>
+	</labels>
+	<checkpoints>
+	<?php foreach ($this->quality_checkpoints as $result):?>
+		<checkpoint>
+		<?php foreach ($result as $key => $value) : ?>
+			<<?php echo $this->escape($key); ?>><?php echo $this->escape($value); ?></<?php echo $this->escape($key); ?>>
+		<?php endforeach ?>
+		</checkpoint>
+	<?php ENDFOREACH ?>
+	</checkpoints>
+</results>

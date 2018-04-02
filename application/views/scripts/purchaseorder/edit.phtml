@@ -363,7 +363,7 @@ function loadVariant()
 	</tr>
 	<tr>
 		<td>Parität</td><td><?php echo $this->lookupSelect('incoterm', $data['incoterm'], 'incoterm', $this->params['incoterms'], 'No', 'Incoterm'); ?></td>
-		<td>Fracht</td><td><?php echo $this->formText('freight', $data['freight']); ?>&#160<?php echo $this->lookupSelect('freight_alloc', $this->data['freight_alloc'], 'freight_alloc', $this->params['price_allocations'], 'No', 'Allocation'); ?></td>
+		<td>Fracht</td><td><?php echo $this->formText('freight', $data['freight']); ?>&#160<?php echo $this->lookupSelect('freight_alloc', $this->data['freight_alloc'], 'freight_alloc', $this->params['price_allocations'], 'price_allocation_no', 'Allocation'); ?></td>
 	<tr>
 		<td></td><td><input type="submit" name="submit" value="Speichern" /> <input type="submit" name="submit" value="Abbrechen" /></td>
 	</tr>
@@ -391,7 +391,7 @@ function loadVariant()
 <td class="data_num"><?php echo $po_line['PU_TU']; ?></td>
 <td class="data_num"><?php echo $po_line['Packing_Units']; ?></td>
 <td class="data"><input type="number" value="<?php echo $po_line['Price'];?>" name="<?php echo $po_line['No']; ?>_price" id="<?php echo $po_line['No']; ?>_price" step="0.0001" onchange="editPOLine(this)" /></td>
-<td class="data"><?php echo $this->lookupSelect('price_alloc', $po_line['Price_Allocation'], 'price_allocation', $this->params['price_allocations'], 'No', 'Allocation', array('id'=>$po_line['No'].'_price_alloc', 'style'=>'{width: 99%;}', 'onchange'=>'editPOLine(this)')); ?></td>
+<td class="data"><?php echo $this->lookupSelect('price_alloc', $po_line['Price_Allocation'], 'price_allocation', $this->params['price_allocations'], 'price_allocation_no', 'Allocation', array('id'=>$po_line['No'].'_price_alloc', 'style'=>'{width: 99%;}', 'onchange'=>'editPOLine(this)')); ?></td>
 <td class="data_num"><?php echo $po_line['Pallets']; ?></td>
 <td class="data_num"><?php echo $po_line['TU_Pallet']; ?></td>
 <td class="data_num"><?php echo $po_line['tu_inbound']; ?></td>

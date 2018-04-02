@@ -1,4 +1,4 @@
-<?php
+	<?php
 
 class LabelController extends Zend_Controller_Action
 {
@@ -32,16 +32,18 @@ class LabelController extends Zend_Controller_Action
 	public function editAction()
 	{
 		$errors = array();
+		$labelCountries = array();
+		$labelProducts = array();
 		if ($this->getRequest()->isPost()){
 			$this->logger->info('Post: '.print_r($_POST, true));
 			$errors=array();
 			isset($_POST['oldNo']) ? $oldNo = $_POST['oldNo'] : $oldNo = 0;
-			isset($_POST['No']) ? $label['No'] = $_POST['No'] : $label['No'] = '';
+			isset($_POST['No']) ? $label['No'] = $_POST['No'] : $label['No'] = $oldNo;
 			isset($_POST['label']) ? $label['label'] = $_POST['label'] : $label['label'] = '';
 			isset($_POST['label_short']) ? $label['label_short'] = $_POST['label_short'] : $label['label_short'] = '';
 			
 			if (isset($_POST['label_country'])) {
-				is_array($_POST['label_country']) ? $label_country = $_POST['Label_country'] : $label_country[0]=$_POST['label_country'];
+				is_array($_POST['label_country']) ? $label_country = $_POST['label_country'] : $label_country[0] = $_POST['label_country'];
 			} else {
 				$label_country = array();
 			}
@@ -66,10 +68,31 @@ class LabelController extends Zend_Controller_Action
 			if ($this->hasParam('No')) $labelRec = new Application_Model_Label($this->getParam('No'));
 				else $labelRec = new Application_Model_Label();
 			$label = $labelRec->getData()->toArray();
+			$labelCountries = $labelRec->getCountries();
+			$labelProducts = $labelRec->getProducts();
 		}
 		$this->view->params = $this->loadDependencies();
 		$this->view->errors = $errors;
 		$this->view->data = $label;
+		$this->view->labelCountries = $labelCountries;
+		$this->view->labelProducts = $labelProducts;
 	}
 	
+	public function getAction()
+	{
+		$errors = array();
+		$select = $this->db->select()->from('v_label_matrix');
+		if ($this->hasParam('country')) $select->where('country = ? OR country IS NULL', $this->getParam('country'));
+		if ($this->hasParam('product')) $select->where('product = ? or product IS NULL', $this->getParam('product'));
+		try {
+			$labels = $this->db->query($select)->fetchAll();
+		} catch (Exception $e) {
+			$errors['all'] = $e->getMessage();
+		}
+		$this->view->results = $labels;
+		$this->view->errors = $errors;
+		$layout = $this->_helper->layout();
+		$layout->setLayout('xml_layout');
+		$this->renderScript('/xml/resultlistxml.phtml');
+	}
 }

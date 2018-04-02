@@ -1,6 +1,7 @@
 <?php
 class Application_Model_Label
 {
+	protected $db;
 	protected $_labelTable;
 	protected $_labelCountryTable;
 	protected $_labelProductTable;
@@ -11,6 +12,7 @@ class Application_Model_Label
 	
 	public function __construct($No=null)
 	{
+		$this->db = Zend_Registry::get('db');
 		$this->_labelTable = new Application_Model_LabelTable();
 		$this->_labelCountryTable = new Application_Model_LabelCountryTable();
 		$this->_labelProductTable = new Application_Model_LabelProductTable();
@@ -38,17 +40,17 @@ class Application_Model_Label
 		$this->_label->label = $label['label'];
 		$this->_label->label_short = $label['label_short'];
 		$this->_label->save();
-		Zend_Registry::get('logger')->info('Label: '.print_r($this->_label->toArray(), true));
-/*		
+		
 		if (is_array($countries)) {
+			$labelCountries = array();
 			foreach($this->_labelCountries as $labelCountry) $labelCountries[]=$labelCountry->country;
 			$new_countries = array_diff($countries, $labelCountries);
 			$del_countries = array_diff($labelCountries, $countries);
 			foreach ($new_countries as $country) {
-				$this->LabelCountryTable->insert(array('label'=>$this->_label->No, 'country'=>$country);
+				$this->_labelCountryTable->insert(array('label'=>$this->_label->No, 'country'=>$country));
 			}
-			foreach (del_countries as $country) {
-				$labelCountries = $this->_labelCountryTable->fetchAll('label = ? AND country = ?', array($this->_label->No, $country));
+			foreach ($del_countries as $country) {
+				$labelCountries = $this->_labelCountryTable->fetchAll(array('label = ?'=>$this->_label->No, 'country = ?'=>$country));
 				if ($labelCountries->count()>0)
 					$labelCountries->current()->delete();
 				else throw new Exception('Label_Country does not exist!');
@@ -56,24 +58,34 @@ class Application_Model_Label
 		}
 
 		if (is_array($products)) {
+			$labelProducts = array();
 			foreach($this->_labelProducts as $labelProduct) $labelProducts[]=$labelProduct->product;
 			$new_products = array_diff($products, $labelProducts);
 			$del_products = array_diff($labelProducts, $products);
 			foreach ($new_products as $product) {
-				$this->LabelProductTable->insert(array('label'=>$this->_label->No, 'product'=>$product);
+				$this->_labelProductTable->insert(array('label'=>$this->_label->No, 'product'=>$product));
 			}
-			foreach (del_products as $product) {
-				$labelProducts = $this->_labelProductTable->fetchAll('label = ? AND product = ?', array($this->_label->No, $product));
+			foreach ($del_products as $product) {
+				$labelProducts = $this->_labelProductTable->fetchAll(array('label = ?'=>$this->_label->No, 'product = ?'=>$product));
 				if ($labelProducts->count()>0)
 					$labelProducts->current()->delete();
 				else throw new Exception('Label_Product does not exist!');
 			}
 		}
-*/
 	}
 	
 	public function getData()
 	{
 		return $this->_label;
+	}
+	
+	public function getCountries()
+	{
+		return $this->db->query('SELECT * FROM v_label_country WHERE label = ?', $this->_label->No)->fetchAll();
+	}
+	
+	public function getProducts()
+	{
+		return $this->db->query('SELECT * FROM v_label_product WHERE label = ?', $this->_label->No)->fetchAll();
 	}
 }

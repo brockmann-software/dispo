@@ -74,7 +74,8 @@ class inboundController extends Zend_Controller_Action
 		$dependencies['brands'] = $db->query("select * from brand")->fetchAll();
 		$dependencies['quality_classes'] = $db->query("select * from quality_class")->fetchAll();
 		$dependencies['pallets']=$db->query("SELECT * FROM pallet")->fetchAll();
-		$dependencies['certificates']=$db->query("SELECT * FROM certification")->fetchAll();
+		$dependencies['attributes']=$db->query("SELECT * FROM certification WHERE traceability = 1")->fetchAll();
+		$dependencies['attributes'][] = array('No'=>0, 'certificate'=>'-- ohne --');
 		$dependencies['qchk_class']=$db->query('SELECT * FROM qcheckpoint_class WHERE No<4')->fetchAll();
 		return $dependencies;
 	}
@@ -576,7 +577,38 @@ class inboundController extends Zend_Controller_Action
 		$layout = $this->_helper->layout();
 		$layout->setLayout('dialog_layout');
 	}
-
+	
+	public function inbounddialogAction()
+	{
+		$select = $this->db->select()->from('v_inb_line');
+		if ($this->hasParam('No')) {
+			$select->where('No = ?', $this->getParam('No'));
+		}
+		if ($this->hasParam('position')) {
+			$select->where('UPPER(position) LIKE (?)', '%'.$this->getParam('position').'%');
+		}
+		if ($this->hasParam('inbound')) {
+			$select->where('inbound = ?', $this->getParam('inbound'));
+		}
+		if ($this->hasParam('purchase_order')) {
+			$select->where('UPPER(purchase_order) = UPPER(?)', '%'.$this->getParam('purchase_order').'%');
+		}
+		if ($this->hasParam('vendor_no')) {
+			$select->where('UPPER(vendor_no) LIKE UPPER(?)', '%'.$this->getParam('vendor_no').'%');
+		}
+		if ($this->hasParam('product')) {
+			$select->where('UPPER(product) LIKE UPPER(?)', '%'.$this->getParam('product').'%');
+		}
+		if ($this->hasParam('variant')) {
+			$select->where('UPPER(variant) LIKE UPPER(?)', '%'.$this->getParam('variant').'%');
+		}
+		$inbounds = $this->db->query($select);
+		$params = $this->loadDependencies(true);
+		$params['inbounds'] = $inbounds;
+		$this->view->params = $params;
+		$layout = $this->_helper->layout();
+		$layout->setLayout('dialog_layout');
+	}
 	
 	public function editpicturesAction()
 	{
@@ -745,6 +777,7 @@ class inboundController extends Zend_Controller_Action
 		$po_arrival = new Zend_Date();
 		$inb_arrival = new Zend_Date();
 		$date = new Zend_Date();
+		$params = $this->loadDependencies();	
 		if (($this->getRequest()->isPost()) and ($_POST['submit']=='Speichern')) {
 		//Feldinhalte aus Formular empfangen	
 			$this->logger->info('$_POST: '.print_r($_POST, true));
@@ -794,6 +827,8 @@ class inboundController extends Zend_Controller_Action
 			(isset($_POST['quality'])) ? $variant['quality']=$_POST['quality'] : $variant['quality']=0;
 			(isset($_POST['label'])) ? $variant['label']=$_POST['label'] : $variant['label']=0;
 			(isset($_POST['brand'])) ? $variant['brand']=$_POST['brand'] : $variant['brand']=0;
+			if (isset($_POST['caliber'])) $variant['caliber'] = $_POST['caliber'];
+			if (isset($_POST['attribute'])) if ($_POST['attribute']<>0) $variant['attribute'] = $_POST['attribute'];
 			//varant No bestimmen
 			$variant['No'] = $variantTable->buildNo($variant)['No'];
 
@@ -900,6 +935,7 @@ class inboundController extends Zend_Controller_Action
 				'inb_certificate'=>1,
 				'remarks' => $inbound_line['remarks'],
 				'checked_by' => $inbound_line['checked_by']);
+				if (isset($variant['attribute'])) $inbound_sheet['attribute'] = $variant['attribute'];
 				//qualitätsmerkmale laden
 			$qcheckpoints = $this->db->query('SELECT * FROM v_qc_product WHERE type=0 AND UPPER(product) = UPPER("?")',$variant['product'])->fetchAll();
 			if (count($qcheckpoints)==0) {
@@ -912,7 +948,12 @@ class inboundController extends Zend_Controller_Action
 				$inbound_sheet['rl_'.$qcheckpoint['qck_no']] = $this->calcQResult($qcheckpoint, $_POST['base_'.$qcheckpoint['qck_no']], $_POST['res_'.$qcheckpoint['qck_no']])[1];
 				isset($_POST['remarks_'.$qcheckpoint['qck_no']]) ? $inbound_sheet['remarks_'.$qcheckpoint['qck_no']] = $_POST['remarks_'.$qcheckpoint['qck_no']] : $inbound_sheet['remarks_'.$qcheckpoint['qck_no']] = '';
 			}
-			$qcheck_logs = $this->db->query('SELECT * FROM v_quality_checkpoint WHERE type=1 ORDER BY qchk_class_no')->fetchAll();
+			$select = $this->db->select()->from('v_quality_checkpoint');
+			$select->where('type = 1');
+			if (isset($variant['attribute'])) $select->where('certificate = ? OR certificate IS NULL', $variant['attribute']);
+			else $select->where('certificate IS NULL');
+			$select->order('qchk_class_no');
+			$qcheck_logs = $this->db->query($select)->fetchAll();
 			foreach($qcheck_logs as $qcheck_log) {
 				$inbound_sheet['res_'.$qcheck_log['qck_no']] = $_POST['res_'.$qcheck_log['qck_no']];
 				$inbound_sheet['base_'.$qcheck_log['qck_no']] = $_POST['base_'.$qcheck_log['qck_no']];
@@ -1297,12 +1338,14 @@ class inboundController extends Zend_Controller_Action
 				'inb_transport_temp'=>0,
 				'variant'=>'',
 				'product'=>$product[0]['No'],
+				'caliber'=>'',
 				't_packaging'=>'',
 				'packaging'=>0,
 				'origin'=>'DE',
 				'label'=>0,
 				'quality_class'=>1,
 				'brand'=>0,
+				'attribute'=>0,
 				'quality'=>1,
 				'items'=>0,
 				'weight_item'=>0,
@@ -1331,6 +1374,7 @@ class inboundController extends Zend_Controller_Action
 				'checked_by' => '');
 			if ($prod_no<>'') {
 				$this->logger->info('product_no: '.print_r($prod_no, true));
+				$params['calibers'] = $this->db->query('SELECT * FROM caliber WHERE product = ?', $prod_no)->fetchAll();
 				$qcheckpoints = $this->db->query('SELECT * FROM v_qc_product WHERE type=0 AND UPPER(product_no) = UPPER(?)',$prod_no)->fetchAll();
 				$this->logger->info('QCheckpoints: '.print_r($qcheckpoints, true));
 				if (count($qcheckpoints)==0) {
@@ -1343,7 +1387,7 @@ class inboundController extends Zend_Controller_Action
 					$inbound_sheet['rp_'.$qcheckpoint['qck_no']] = $this->calcQResult($qcheckpoint, 0, 0)[0];
 					$inbound_sheet['rl_'.$qcheckpoint['qck_no']] = $this->calcQResult($qcheckpoint, 0, 0)[1];
 				}
-				$qcheck_logs = $this->db->query('SELECT * FROM v_quality_checkpoint WHERE type=1 ORDER BY qchk_class_no')->fetchAll();
+				$qcheck_logs = $this->db->query('SELECT * FROM v_quality_checkpoint WHERE type=1 AND certificate IS NULL ORDER BY qchk_class_no')->fetchAll();
 				foreach($qcheck_logs as $qcheck_log) {
 					$inbound_sheet['res_'.$qcheck_log['qck_no']] = 0;
 					$inbound_sheet['base_'.$qcheck_log['qck_no']] = 0;
@@ -1351,10 +1395,11 @@ class inboundController extends Zend_Controller_Action
 					$inbound_sheet['rl_'.$qcheck_log['qck_no']] = $this->calcQResult($qcheck_log, 0, 0)[1];
 					$inbound_sheet['remarks_'.$qcheck_log['qck_no']] = '';
 				}				
+			} else {
+				$params['calibres'] = array();
 			}
 		}
 		$this->logger->info('editquality aufgerufen mit Inbound_sheet: '.print_r($inbound_sheet, true));
-		$params = $this->loadDependencies();	
 		$params['data']=$inbound_sheet;
 		$params['qcheckpoints'] = $qcheckpoints;
 		$params['qcheck_logs'] = $qcheck_logs;

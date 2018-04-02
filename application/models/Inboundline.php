@@ -41,7 +41,9 @@ class Application_Model_Inboundline
 					}
 					$res_percent = sprintf('%01.1f%%', $res_percent);
 					break;
-			case 2 : if ($result==false) {
+			case 2 :
+					Zend_Registry::get('logger')->info('Wert: '.$result.' ist wahr:'.($result==1));
+					if ($result==0) {
 						$res_percent = 'nicht OK';
 						$res_level = 'check_red';
 					} else {

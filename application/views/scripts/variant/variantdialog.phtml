@@ -4,18 +4,25 @@ function markRow(row) {
 	var rowCnt = variantTable.rows.length;
 	var rowNr = 0;
 	for (rowNr = 0; rowNr<rowCnt; rowNr++) {
-		var tbRow = variantTable.rows(rowNr);
+		var tbRow = variantTable.rows[rowNr];
 		var cellNr;
 		if (rowNr==row) {
 			for (cellNr = 0; cellNr<tbRow.cells.length; cellNr++) {
-				tbRow.cells(cellNr).className = 'selected';
+				tbRow.cells[cellNr].className = 'selected';
 			}
 		} else {
 			for (cellNr = 0; cellNr<tbRow.cells.length; cellNr++) {
-				tbRow.cells(cellNr).className = 'unselected';
+				tbRow.cells[cellNr].className = 'unselected';
 			}
 		}
 	}
+}
+
+function checkVariant(row)
+{
+	row.cells[0].firstChild.checked = true;
+	row.cells[0].firstChild.focus();
+	markRow(row.sectionRowIndex)
 }
 
 function getVariants() {
@@ -42,6 +49,8 @@ function getVariants() {
 						var tdPU=row.insertCell(4);
 						var tdPUW=row.insertCell(5);
 						var tdTP=row.insertCell(6);
+						var tdPack=row.insertCell(7);
+						var tdLabel=row.insertCell(8);
 					} else {
 						row=variantTable.rows[vc];
 						var tdID = row.cells[0];
@@ -51,11 +60,14 @@ function getVariants() {
 						var tdPU = row.cells[4];
 						var tdPUW =row.cells[5];
 						var tdTP=row.cells[6];
+						var tdPack = row.cells[7];
+						var tdLabel = row.cells[8];
 					}
-					
-					tdID.innerHTML='<input type="radio" name="No" id="'+ variants[vc].getElementsByTagName('No')[0].firstChild.nodeValue + '" value="'+vc+'" onchange="markRow('+vc+')"/>';
+					row.onclick = function(){ checkVariant(this); };
+					tdID.innerHTML='<input type="radio" name="type" id="'+ variants[vc].getElementsByTagName('type')[0].firstChild.nodeValue + '" value="'+vc+'"/>';
 					tdID.className="data";
 					tdProduct.innerHTML=variants[vc].getElementsByTagName('product')[0].firstChild.nodeValue;
+					tdProduct.dataset.product_no = getXMLTagValue(variants[vc], 'product_no');
 					tdProduct.className="data";
 					tdVariant.innerHTML=variants[vc].getElementsByTagName('variant')[0].firstChild.nodeValue;
 					tdVariant.className="data";
@@ -67,6 +79,12 @@ function getVariants() {
 					tdPUW.className="data_num";
 					tdTP.innerHTML=variants[vc].getElementsByTagName('t_packaging')[0].firstChild.nodeValue;
 					tdTP.className="data";
+					tdPack.innerHTML = getXMLTagValue(variants[vc], 'packaging');
+					tdPack.dataset.packagingNo = getXMLTagValue(variants[vc], 'packaging_no');
+					tdPack.className = 'data';
+					tdLabel.innerHTML = getXMLTagValue(variants[vc], 'label');
+					tdLabel.dataset.labelNo = getXMLTagValue(variants[vc], 'label_no');
+					tdLabel.className = 'data';
 				}
 			} else {
 				var errorText = 'Es ist ein Fehler aufgetreten\n';
@@ -90,93 +108,151 @@ function getVariants() {
 	
 	createRequest();
 	var URI = '/variant/get';
-	id_search = document.getElementById('search_id').value;
-	if (id_search !='') {
-		if (isNaN(id_search)) {
-			id_search = '/variant/'+id_search;
-		}else {
-			id_search = '/No/'+id_search;
-		}
-		URI = URI+id_search;
-	}
+	id_search = document.getElementById('search_variant').value;
+	if (id_search !='') URI+= '/variant/'+id_search;
 	filter_product = document.getElementById('product').value;
 	if (filter_product != '') URI = URI+'/product_no/'+filter_product;
 	filter_country = document.getElementById('origin').value;
 	if (filter_country != '') URI = URI+'/origin/'+filter_country;
+	items = document.getElementById('items').value;
+	if (items!='') URI += '/items/'+items;
+	weight_item = document.getElementById('weight_item').value;
+	if (weight_item!='') URI += '/weight_item/'+weight_item; 
 	filter_TP = document.getElementById('t_packaging').value;
 	if (filter_TP != '') URI=URI+'/t_packaging/'+filter_TP;
 	sendRequest('GET', URI, '', getVariantsXML, true);
 }
 
-function closeDialog()
+function selectVariant()
 {
-	var variant = [];
-	variant['no']='';
-	variant['variant']='';
-	variants = document.vendor_form.vendor_no;
-	for (var i=0; i<vendors.length; i++) {
-		if (vendors[i].checked) {
-			vendor['no'] = vendors[i].value;
-			var row = document.getElementById('variant_table').getElementsByTagName('tbody')[0].rows[i];
-			vendor['name'] = row.cells(1).innerHTML
-			vendor['street'] = row.cells(2).innerHTML;
-			vendor['city'] = row.cells(3).innerHTML;
-			vendor['country_code'] = row.cells(4).innerHTML;
-			break;
+	variants = document.getElementById('variants').getElementsByTagName('tbody')[0].rows;
+	var variant = new Object();
+	variantNo = document.variant_form.type;
+	if (variants.length>1) {
+		for (i=0; i<variants.length; i++) {
+			if (variantNo[i].checked == true) {
+				variant.No = variants[i].cells[0].firstChild.id;
+				variant.product = variants[i].cells[1].innerHTML;
+				variant.product_no = variants[1].cells[1].dataset.product_no;
+				variant.variant = variants[i].cells[2].innerHTML;
+				variant.origin = variants[i].cells[3].innerHTML;
+				variant.items = variants[i].cells[4].innerHTML;
+				variant.weight_item = variants[i].cells[5].innerHTML;
+				variant.t_packaging = variants[i].cells[6].innerHTML;
+				variant.packaging = variants[i].cells[7].dataset.packagingNo;
+				variant.label = variants[i].cells[8].dataset.labelNo;
+				break;
+			}
 		}
+	} else if (variants.length==1) {
+		variant.No = variants[0].cells[0].innerHTML;
+		variant.product = variants[0].cells[1].innerHTML;
+		variant.product_no = variants[0].cells[1].dataset.product_no;
+		variant.variant = variants[0].cells[2].innerHTML;
+		variant.origin = variants[0].cells[3].innerHTML;
+		variant.items = variants[0].cells[4].innerHTML;
+		variant.weight_item = variants[0].cells[5].innerHTML;
+		variant.t_packaging = variants[0].cells[6].innerHTML;
+		variant.packaging = variants[0].cells[7].dataset.packagingNo;
+		variant.label = variants[i].cells[0].dataset.labelNo;
 	}
-	window.returnValue = vendor;
-	alert('ich bin hier und schließe gleich das Fenster');
-	window.close();
+	if (!window.showModalDialog)
+		
+		window.opener.popupFinished(variant);
+	else {
+		window.returnValue = variant;
+		window.close();
+	}
+}
+
+function loadArgs()
+{
+	var search_variant = document.getElementById('search_variant');
+	if (!window.dialogArguments)
+		if (window.opener.dialogArguments) search_variant.value = window.opener.dialogArguments.value;
+	else
+		search_variant.value = search_vendor.value = window.dialogArguments.value;
+	search_variant.focus();
+	search_variant.select();	
+	
 }
 </script>
-<?php // Zend_Debug::dump($this->dependencies['t_packagings']); ?>
-<?php $products = $this->dependencies['products']; ?>
-<?php $countries = $this->dependencies['countries']; ?>
-<?php $t_packagings = $this->dependencies['t_packagings']; ?>
-<table id="filter">
+<?php // Zend_Debug::dump($this->params); ?>
+<?php $products = $this->params['products']; ?>
+<?php $countries = $this->params['countries']; ?>
+<?php $t_packagings = $this->params['t_packagings']; ?>
+<form name="variant_form">
+<table id="filter" style="display:block;" >
 <tr>
 <td>Variante</td>
 <td>Produkt</td>
 <td>Herkunft</td>
+<td>Einheit</td>
+<td>Gewicht</td>
 <td>Transport Verp.</td>
 </tr>
 <tr>
 <td>
-<input type="text" id="search_id" size="30" maxlength="30" oninput="getVariants()"/>&#160
+<input type="text" name="search_variant" id="search_variant" size="30" maxlength="30" oninput="getVariants()"/>&#160
 </td>
 <td>
 <select name="product" id="product" onchange="getVariants()">
 <?php foreach($products as $product) : ?>
-<option value="<?php echo $product['No']; ?>" <?php if ($product['No']=='') echo ' selected'; ?>><?php echo $product['product']; ?></option>
+<option value="<?php echo $product['No'].'"'; if ($product['No']=='') echo 'selected'; ?>><?php echo $product['product']; ?></option>
 <?php endforeach ?>
 </select>
 </td>
 <td>
 <select name="origin" id="origin" value="-1" onchange="getVariants()">
 <?php foreach($countries as $country) : ?>
-<option value="<?php echo $country['Id']; ?>" <?php if ($country['Id']=='') echo 'selected'; ?>><?php echo $country['country']; ?></option>
+<option value="<?php echo $country['Id'].'"'; if ($country['Id']=='') echo 'selected'; ?>><?php echo $country['country']; ?></option>
 <?php endforeach ?>
 </select>
 </td>
 <td>
+<?php echo $this->formNumber('items', '', array('id'=>'items', 'min'=>'0', 'max'=>'999', 'step'=>'1', 'onchange'=>'getVariants()')); ?>
+</td>
+<td>
+<?php echo $this->formNumber('weight_item', '', array('id'=>'weight_item', 'min'=>'0', 'max'=>'999', 'step'=>'1', 'onchange'=>'getVariants()')); ?>
+</td>
+<td>
 <select name="t_packaging" id="t_packaging" value="" onchange="getVariants()">
 <?php foreach($t_packagings as $t_packaging) : ?>
-<option value="<?php echo $t_packaging['no']; ?>" <?php if ($t_packaging['no']=='') echo 'selected'; ?>><?php echo $t_packaging['transport_packaging']; ?></option>
+<option value="<?php echo $t_packaging['no'].'"'; if ($t_packaging['no']=='') echo 'selected'; ?>><?php echo $t_packaging['transport_packaging']; ?></option>
 <?php endforeach ?>
 </select>
 </td>
 </tr>
 </table>
-<form name="variant_form">
 <table id="variants">
 <thead>
 <tr>
-<th>No</th><th>Produkt</th><th>Variante</th><th>Herkunft</th><th>Einheiten</th><th>Gew./Einh.</th><th>transp. Verp.</th>
+<th class="data">type</th>
+<th class="data">Produkt</th>
+<th class="data">Variante</th>
+<th class="data">Herkunft</th>
+<th class="data">Einheiten</th>
+<th class="data">Gew./Einh.</th>
+<th class="data">transp. Verp.</th>
+<th class="data">Verpack.</th>
+<th class="data">Label</th>
 </tr>
 </thead>
 <tbody>
+<?php foreach ($this->params['variants'] as $variant) : ?>
+<tr id="<?php echo $variant['No']; ?>" onclick="checkVariant(this)">
+	<td class="data"><input type="radio" name="type" value="<?php echo $variant['No']; ?>" id="<?php echo $variant['No']; ?>" /></td>
+	<td class="data" data-product_no="<?php echo $variant['product_no']; ?>"><?php echo $variant['product']; ?></td>
+	<td class="data"><?php echo $variant['variant']; ?></td>
+	<td class="data"><?php echo $variant['origin']; ?></td>
+	<td class="data"><?php echo $variant['items']; ?></td>
+	<td class="data"><?php echo $variant['weight_item']; ?></td>
+	<td class="data"><?php echo $variant['t_packaging']; ?></td>
+	<td class="data" data-packaging-no="<?php echo $variant['packaging_no']; ?>"><?php echo $variant['packaging']; ?></td>
+	<td class="data" data-label-no="<?php echo $variant['label_no']; ?>"><?php echo $variant['label']; ?></td>
+</tr>
+<?php endforeach ?>
 </tbody>
 </table>
-<button type="button" value="Auswählen" onclick="closeDialog()" />
+<div><button type="button" id="select" onclick="selectVariant()">auswählen</button>
 </form>

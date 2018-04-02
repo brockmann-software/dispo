@@ -44,7 +44,7 @@ function print()
 <tbody>
 <?php foreach ($inventory_heads as $data) : ?>
 <tr id="<?php echo $data['No']; ?>">
-	<td class="data"><?php if ($data['state']==2) : ?><a onclick="doPrint(this)"><img title="Bestand drucken" alt="drucken" src="/images/b_print.png" /></a>
+	<td class="data"><?php if ($data['state']==2) : ?><a href="/whmanagement/print/No/<?php echo $data['No']; ?>"><img title="Bestand drucken" alt="drucken" src="/images/b_print.png" /></a>
 					<?php else : ?><a href="/whmanagement/printcountlist/No/<?php echo $data['No'] ?>"><img title="Zählliste drucken" alt="drucken" src="/images/b_print.png" /></a><a href="/whmanagement/doinventory/No/<?php echo $data['No'] ?>"><img title="count" alt="Zählen" src="/images/b_dbstatistics.png" /></a>
 					<?php endif ?>					
 					<?php echo "{$data['No']} vom ".date('d.m.Y H:i', strtotime($data['date'])); echo ($data['state']==2) ? "<a href='/whmanagement/doinventory/No/{$data['No']}/state/3'> Nachzählung</a>" : ''; ?></td>
