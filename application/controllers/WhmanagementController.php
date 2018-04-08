@@ -54,7 +54,7 @@ class WhmanagementController extends Zend_Controller_Action
 			$sufix = ($blocked==1) ? '-gesperrte' : '-freie';
 			$this->logger->info('Blocked: '.print_r($blocked, true));
 		}
-		$select = $this->db->select()->from('v_inventory_summery');
+		$select = $this->db->select()->from('v_inventory_list');
 		$select->where('state = 2');
 		$select->where('stock <> 0');
 		$select->where('inventory_head = ?', $this->getParam('No'));

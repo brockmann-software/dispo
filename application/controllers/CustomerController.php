@@ -149,24 +149,40 @@ class CustomerController extends Zend_Controller_Action
 		}
 	}
 	
+	public function customerdialogAction()
+	{
+		$errors = array();
+		$select = $this->db->select()->from('customer');
+		if ($this->hasParam('No')) {
+			$select->where('UPPER(No) LIKE UPPER(?) OR UPPER(name) LIKE UPPER(?)', "%{$this->getParam('No')}%");
+		}
+		$customer = $this->db->query($select)->fetchAll();
+		$this->view->customers = $customer;
+		$this->view->errors = $errors;
+	}
+	
 	public function getAction()
 	{
+		$errors = array();
+		$this->hasParam('connector') ? $connector = $this->getParam('connector') : $connector = '';
+		$select = $this->db->select()->from('customer');
 		if ($this->hasParam('No')) {
-			$params['No'] = $this->getParam('No');
+			$select->where('UPPER(No) LIKE UPPER(?)', "%{$this->getParam('No')}%");
 		}
 		if ($this->hasParam('name')) {
-			$params['name'] = $this->getParam('name');
+			if ($connector =='or') $select->orWhere('UPPER(name) LIKE UPPER(?)', "%{$this->getParam('name')}%");
+			else $select->where('UPPER(name) LIKE UPPER(?)', "%{$this->getParam('name')}%");
 		}
-		$sqlStr = 'select * from customer';
-		$pNo = 0;
-		foreach ($params as $key => $val) {
-			($pNo==0) ? $sqlStr.=' WHERE ' : $sqlStr.=' AND ';
-			$pNo++;
-			$sqlStr.= 'UPPER('.$key.') LIKE UPPER("%'.$val.'%")';
+		if ($this->hasParam('city')) {
+			if ($connector =='or') $select->orWhere('UPPER(city) LIKE UPPER(?)', "%{$this->getParam('city')}%");
+			else $select->where('UPPER(city) LIKE UPPER(?)', "%{$this->getParam('city')}%");
+		}
+		if ($this->hasParam('street')) {
+			if ($connector =='or') $select->orWhere('UPPER(street) LIKE UPPER(?)', "%{$this->getParam('street')}%");
+			else $select->where('UPPER(street) LIKE UPPER(?)', "%{$this->getParam('street')}%");
 		}
 		try {
-			$errors['sql'] = $sqlStr;
-			$customer = $this->db->query($sqlStr)->fetchAll();
+			$customer = $this->db->query($select)->fetchAll();
 		} catch (Exception $e) {
 			$errors['sql'] = $e->getMessage();
 		}

@@ -21,6 +21,8 @@ class qcheckpointController extends Zend_Controller_Action
 		$dependencies['qcheckpoint_classes'] = $this->db->query('SELECT * FROM qcheckpoint_class')->fetchAll();
 		$dependencies['qcheckpoint_types'] = $this->db->query('select * FROM qcheckpoint_type')->fetchAll();
 		$dependencies['quality_checkpoints'] = $this->db->query('SELECT * FROM v_quality_checkpoint WHERE type=0')->fetchAll();
+		$dependencies['certificates'] = $this->db->query('SELECT * FROM certification WHERE traceability = 1')->fetchAll();
+		$dependencies['certificates'][] = array('No'=>0, 'certificate'=>'-- alle --');
 		$dependencies['operators'] = array(	0=>array('No'=>0, 'operator'=>'Differenz'),
 											1=>array('No'=>1, 'operator'=>'Prozent'),
 											2=>array('No'=>2, 'operator'=>'Logisch'));
@@ -46,13 +48,14 @@ class qcheckpointController extends Zend_Controller_Action
 			isset($_POST['max_good']) ? $qcheckpoint['max_good'] = $_POST['max_good'] : $qcheckpoint['max_good'] = 0;
 			isset($_POST['max_regular']) ? $qcheckpoint['max_regular'] = $_POST['max_regular'] : $qcheckpoint['max_regular'] = 0;
 			isset($_POST['operator']) ? $qcheckpoint['operator'] = $_POST['operator'] : $qcheckpoint['operator'] = 0;
+			if (isset($_POST['certificate'])) if ($_POST['certificate']<>0) $qcheckpoint['certificate'] = $_POST['certificate']; 
 			if ($qcheckpoint['quality_checkpoint']=='') $errors['quality_checkpoint'] = 'Prüfpunkt darf nicht leer sein!';
 			if (($qcheckpoint['operator']<2) && ($qcheckpoint['max_good'] == 0)) $errors['max_good']='Der Maximalwert für Gut darf nicht 0 sein!';
 			if (($qcheckpoint['operator']<2) && ($qcheckpoint['max_regular'] == 0)) $errors['max_regular']='Der Maximalwert für Gut darf nicht 0 sein!';
 			if (($qcheckpoint['operator']<2) && ($qcheckpoint['max_regular']<=$qcheckpoint['max_good'])) $errors['max_regular']='Der Wert muss größer sein als der Maximalwert für Gut!';
 			if (count($errors)==0) try {
 				if ($curNo<>0) {
-					$qcheckpointTable->update($qcheckpoint, array('No'=>$curNo));
+					$qcheckpointTable->update($qcheckpoint, array('No=?'=>$curNo));
 					$this->logger->info('Änderungen für qcheckpoint wurden gespeichert');
 				} else {
 					$qcheckpointTable->insert($qcheckpoint);
@@ -71,6 +74,7 @@ class qcheckpointController extends Zend_Controller_Action
 				if ($RSqcheckpoints->count()>0) $Rqcheckpoint = $RSqcheckpoints->current(); else $Rqcheckpoint = $qcheckpointTable->createRow();
 			} else $Rqcheckpoint = $qcheckpointTable->createRow();
 			$qcheckpoint = $Rqcheckpoint->toArray();
+			if (!isset($qcheckpoint['certificate'])) $qcheckpoint['certificate']=0;
 		}
 		$params = $this->loadDependencies();
 		$params['errors'] = $errors;
@@ -184,49 +188,43 @@ class qcheckpointController extends Zend_Controller_Action
 		} else $product = '';
 		$this->_redirect('/qcheckpoint/editqcproduct/product/'.$product);
 	}
-		
-	public function getAction()
+	
+	private function createWhere($select, $product=true)
 	{
-		$params = array();
-		$errors = array();
 		if ($this->hasParam('No')) {
-			$params['No']['value'] = $this->getParam('No');
-			$params['No']['type'] = 'number';
+			$select->where('No = ?', $this->getParam('No'));
 		}
-		if ($this->hasParam('product')) {
-			$params['product_no']['value']=$this->getParam('product');
-			$params['product_no']['type'] = 'string';
+		if ($product && $this->hasParam('product')) {
+			$select->where('UPPER(product) LIKE UPPER(?)', '%'.$this->getParam('product').'%');
 		}
 		if ($this->hasParam('type')) {
-			$params['type']['value']=$this->getParam('type');
-			$params['type']['type'] = 'number';
+			$select->where('type = ?', $this->getParam('type'));
 		}
 		if ($this->hasParam('qchk_class_no')) {
-			$params['qchk_class_no']['value']=$this->getParam('qchk_class_no');
-			$params['qchk_class_no']['type']='number';
+			$select->where('qchk_class_no = ?', $this->getParam('qchk_class_no'));
 		}
-		$this->hasParam('connector') ? $connector = $this->getParam('connector') : $connector = 'AND';
-		$sqlStr = 'SELECT * FROM v_qc_product';
-		$pNo = 0;
-		foreach ($params as $key => $val) {
-			($pNo==0) ? $sqlStr.=' WHERE ' : $sqlStr.=' AND ';
-			$pNo++;
-			$val['type']=='string' ? $sqlStr.= 'UPPER('.$key.') LIKE UPPER("%'.$val['value'].'%")' : $sqlStr.= $key.' = '.$val['value'];
+		if ($this->hasParam('certificate')) {
+			$select->where('certificate = ? OR certificate is null', $this->getParam('certificate'));
+		} else {
+			$select->where('certificate is null');
 		}
-		$sqlStr.=' ORDER BY qchk_class_no, qck_no';
+		return $select;
+	}
+	
+	
+	public function getAction()
+	{
+				
+		$params = array();
+		$errors = array();
+		$select = $this->db->select()->from('v_qc_product');
+		$select = $this->createWhere($select);
 		try {
-			$qc_products = $this->db->query($sqlStr)->fetchAll();
+			$qc_products = $this->db->query($select)->fetchAll();
 			if ((count($qc_products)==0) and (count($errors)==0)) {
-				if (isset($params['product_no'])) unset($params['product_no']);
-				$sqlStr = 'SELECT * FROM v_quality_checkpoint';
-				$pNo = 0;
-				foreach ($params as $key => $val) {
-					($pNo==0) ? $sqlStr.=' WHERE ' : $sqlStr.=' AND ';
-					$pNo++;
-					$val['type']=='string' ? $sqlStr.= 'UPPER('.$key.') LIKE UPPER("%'.$val['value'].'%")' : $sqlStr.= $key.' = '.$val['value'];
-				}
-				$sqlStr.=' ORDER BY qchk_class_no, qck_no';
-				$qc_products = $this->db->query($sqlStr);
+				$select = $this->db->select()->from('v_quality_checkpoint');
+				$select = $this->createWhere($select, false);
+				$qc_products = $this->db->query($select)->fetchAll();
 			}
 		} catch (Exception $e) {
 			$errors['sql'] = 'Daten konnten nicht geladen werden! '.$e->getMessage();
