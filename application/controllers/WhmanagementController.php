@@ -45,6 +45,7 @@ class WhmanagementController extends Zend_Controller_Action
 	
 	public function printAction()
 	{
+		Zend_Registry::get('logger')->info('Aktion wird aufgerufen nach '.print_r(microtime(true) - $_SERVER["REQUEST_TIME_FLOAT"], true));
 		$query_blocked = '';
 		$sufix = '-alle';
 		if (!$this->hasParam('No')) $this->_redirect('/whmanagement/index/error/Keine%20Zählung%20übergeben');
@@ -54,20 +55,24 @@ class WhmanagementController extends Zend_Controller_Action
 			$sufix = ($blocked==1) ? '-gesperrte' : '-freie';
 			$this->logger->info('Blocked: '.print_r($blocked, true));
 		}
+		Zend_Registry::get('logger')->info('Abfrage wird vorbereitet nach '.print_r(microtime(true) - $_SERVER["REQUEST_TIME_FLOAT"], true));
 		$select = $this->db->select()->from('v_inventory_list');
 		$select->where('state = 2');
 		$select->where('stock <> 0');
 		$select->where('inventory_head = ?', $this->getParam('No'));
 		$select->order(array('stock_location', 'product', 'items', 'weight_item', 'brand_no', 'packaging', 'quality', 'inb_arrival', 'position'));
 //		$inventories = $this->db->query('SELECT * FROM v_inventory_summery WHERE state = 2 AND stock<>0 AND inventory_head = ? ORDER BY stock_location, product, items, weight_item, brand_no, packaging, quality, inb_arrival, position', $this->getParam('No'));
+		Zend_Registry::get('logger')->info('Abfrage wird ausgeführt nach nach '.print_r(microtime(true) - $_SERVER["REQUEST_TIME_FLOAT"], true));
 		$inventories = $this->db->query($select);
 		while ($inv = $inventories->fetch()) {
+			Zend_Registry::get('logger')->info('Datenreihe wird gefetched nach '.print_r(microtime(true) - $_SERVER["REQUEST_TIME_FLOAT"], true));
 			$inv['remarks'].= ($inv['remarks_on_inventory']!='') ? ' '.$inv['remarks_on_inventory'] : '';
 			$inventory[] = $inv;
 		}
 		if (count($inventory)==0) $this->_redirect('/whmanagement/index/error/Die%20Zählung%20ist%20noch%20nicht%20abgeschlossen!');
 		$filename = "Bestand ".date('d.m.Y H_i', strtotime($inventory[0]['inv_date'])).$sufix.".pdf";
 		$filepath = realpath($this->config->report->inventory);
+		Zend_Registry::get('logger')->info('Bericht aufgerufen nach nach '.print_r(microtime(true) - $_SERVER["REQUEST_TIME_FLOAT"], true));
 		$this->view->inventories = $inventory;
 		$this->view->filename = $filename;
 		$this->view->filepath = $filepath;
