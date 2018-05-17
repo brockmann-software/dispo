@@ -46,7 +46,10 @@ class qcheckpointController extends Zend_Controller_Action
 			isset($_POST['type']) ? $qcheckpoint['type'] = $_POST['type'] : $qcheckpoint['type'] = 0;
 			isset($_POST['checkpoint_class']) ? $qcheckpoint['checkpoint_class'] = $_POST['checkpoint_class'] : $qcheckpoint['checkpoint_class'] = 0;
 			isset($_POST['max_good']) ? $qcheckpoint['max_good'] = $_POST['max_good'] : $qcheckpoint['max_good'] = 0;
+			isset($_POST['max_verygood']) ? $qcheckpoint['max_verygood'] = $_POST['max_verygood'] : $qcheckpoint['max_verygood'] = 0;
+			isset($_POST['max_ok']) ? $qcheckpoint['max_ok'] = $_POST['max_ok'] : $qcheckpoint['max_ok'] = 0;
 			isset($_POST['max_regular']) ? $qcheckpoint['max_regular'] = $_POST['max_regular'] : $qcheckpoint['max_regular'] = 0;
+			isset($_POST['max_almostregular']) ? $qcheckpoint['max_almostregular'] = $_POST['max_almostregular'] : $qcheckpoint['max_almostregular'] = 0;
 			isset($_POST['operator']) ? $qcheckpoint['operator'] = $_POST['operator'] : $qcheckpoint['operator'] = 0;
 			if (isset($_POST['certificate'])) if ($_POST['certificate']<>0) $qcheckpoint['certificate'] = $_POST['certificate']; 
 			if ($qcheckpoint['quality_checkpoint']=='') $errors['quality_checkpoint'] = 'Prüfpunkt darf nicht leer sein!';

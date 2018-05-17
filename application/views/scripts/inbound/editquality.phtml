@@ -747,20 +747,25 @@ function changelogqc(element)
 							inpValue.type = "number";
 							inpValue.min = 0;
 							inpValue.value = 0;
+							inpValue.step = 0.1;
 						} else {
 							inpValue.type = "checkbox";
-							inpValue.checked = true;
+							inpValue.checked = false;
 						}
 						tdValue.appendChild(inpValue);
 						tdPercent = row.insertCell(2);
 						tdPercent.id = "dev_percent_"+row.id;
-						tdPercent.className = "check_red";
-						if (inpOperator.value == 0)
+						if (inpOperator.value == 0) {
 							tdPercent.innerHTML = "0,0 %"
-						else if (inpOperator.value == 1)
+							tdPercent.className = "check_green";
+						} else if (inpOperator.value == 1) {
 							tdPercent.innerHTML = "0,0"
-						else if (inpOperator.value == 2)
+							tdPercent.className = "check_green";
+							
+						} else if (inpOperator.value == 2) {
 							tdPercent.innerHTML = "not OK";
+							tdPercent.className = "check_red";
+						}
 						tdRemark = row.insertCell(3);
 						tdRemark.className = 'data';
 						inpRemark = document.createElement('input');
@@ -771,10 +776,12 @@ function changelogqc(element)
 						inpRemark.maxlength = 1024;
 						inpRemark.value = '';
 						tdRemark.appendChild(inpRemark);
-						checkTemperature();
-						checkBrix();
 					}
-						
+					checkTemperature();
+					checkBrix();
+					checkQuantity();
+					checkBroken(document.getElementById('inb_tu_broken'));
+					checkOnTime();
 				}
 				if (errorCount>0) {
 					errors = xml.getElementsByTagName('error');

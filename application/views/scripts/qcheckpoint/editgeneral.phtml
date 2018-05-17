@@ -1,4 +1,4 @@
-<?php Zend_Debug::dump($this->params['errors']); ?>
+<?php Zend_Debug::dump($this->data); ?>
 <form action="/qcheckpoint/editgeneral" method="post">
 <fieldset>
 <legend>Prüfpunkt</legend>
@@ -24,10 +24,15 @@
 					</selected></td>
 </tr>
 <tr>
-	<td>Maximalwert Gut</td><td><input type="number" name="max_good" id ="max_good" value="<?php echo $this->data['max_good']; ?>" min="0" max="100" step="0.1" /></td>
+	<td>Maximalwert sehr gut</td><td><?php echo $this->formNumber('max_verygood', $this->data['max_verygood'], array('min'=>'0', 'max'=>'100', 'step'=>'0.1')); ?></td>
+	<td>Maximalwert gut</td><td><input type="number" name="max_good" id ="max_good" value="<?php echo $this->data['max_good']; ?>" min="0" max="100" step="0.1" /></td>
 </tr>
 <tr>
+	<td>Maximalwert befriedigend</td><td><?php echo $this->formNumber('max_ok', $this->data['max_ok'], array('min'=>'0', 'max'=>'100', 'step'=>'0.1')); ?></td>
 	<td>Maximalwert Ausreichend</td><td><input type="number" name="max_regular" id ="max_regular" value="<?php echo $this->data['max_regular']; ?>" min="0" max="100" step="0.1" /></td>
+</tr>
+<tr>
+	<td>Maximalwert mangelhaft</td><td><?php echo $this->formNumber('max_almostregular', $this->data['max_almostregular'], array('min'=>'0', 'max'=>'100', 'step'=>'0.1')); ?></td>
 </tr>
 <tr>
 	<td>Operator</td><td><select name="operator" id="operator">

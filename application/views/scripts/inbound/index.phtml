@@ -369,16 +369,18 @@ function print()
 <table id="inbounds">
 <thead>
 	<tr class="data">
-		<th class="data" width="20">Position</th>
-		<th class="data" width="20">Bestellung</th>
-		<th class="data" width="50">Lie.-Nr.</th>
-		<th class="data" width="50">Lieferant</th>
-		<th class="data" width="15">Eingang</th>
-		<th class="data" width="15">Lieferschein</th>
-		<th class="data" width="20">LKW</th>
-		<th class="data" width="20">Auflieger</th>
-		<th class="data" width="20">Container</th>
-		<th class="data" width="20">Temperatur</th>
+		<th class="data" width="80">Position</th>
+		<th class="data" width="100">Bestellung</th>
+		<th class="data" width="80">Lie.-Nr.</th>
+		<th class="data">Lieferant</th>
+		<th class="data" width="160">Eingang</th>
+		<th class="data" width="150">Lieferschein</th>
+		<th class="data" width="160">LKW</th>
+		<th class="data" width="160">Auflieger</th>
+		<th class="data" width="160">Container</th>
+		<th class="data" width="80">Temperatur</th>
+		<th class="data" width="60">Pünktl.</th>
+		<th class="data" width="60">QC total</th>
 	</tr>
 </thead>
 <tbody>
@@ -394,7 +396,9 @@ function print()
 		<td class="data"><?php echo $inbound['inb_truck']; ?></td>
 		<td class="data"><?php echo $inbound['inb_trailor']; ?></td>
 		<td class="data"><?php echo $inbound['inb_container']; ?></td>
-		<td class="data"><?php echo $inbound['inb_transport_temp']; ?></td>
+		<td class="data_num"><?php echo $inbound['inb_transport_temp']; ?></td>
+		<td class="data_num"><?php echo $inbound['grade_log']; ?></td>
+		<td class="data_num"><?php echo $inbound['grade_total']; ?></td>
 	</tr>
 <?php endforeach ?>
 </tbody>
@@ -426,12 +430,12 @@ function print()
 		</td>
 		<td class="data"><?php echo $inbound_line['variant']; ?></td>
 		<td class="data"><?php echo $inbound_line['variant_desc']; ?></td>
-		<td class="data_num"><?php echo $inbound_line['inb_trading_units']; ?></td>
-		<td class="data_num"><?php echo $inbound_line['items']; ?></td>
-		<td class="data_num"><?php echo $inbound_line['inb_packing_units']; ?></td>
+		<td class="data_num"><?php echo number_format($inbound_line['inb_trading_units'], 0, ',', '.'); ?></td>
+		<td class="data_num"><?php echo number_format($inbound_line['items'], 0, '.', ','); ?></td>
+		<td class="data_num"><?php echo number_format($inbound_line['inb_packing_units'], 0, ',', '.'); ?></td>
 		<td class="data_num"><?php echo $inbound_line['inb_pallets']; ?></td>
 		<td class="data_num"><?php echo $inbound_line['inb_tu_pal']; ?></td>
-		<td class="data_num"><?php echo $inbound_line['stock']; ?><a onclick="showMovements(this)"><img src="/images/b_more.png" alt="Bewegungen" title="Bewegungen" /></a></td>
+		<td class="data_num"><?php echo number_format($inbound_line['stock'], 0, ',', '.'); ?><a onclick="showMovements(this)"><img src="/images/b_more.png" alt="Bewegungen" title="Bewegungen" /></a></td>
 		<td class="data_num" onclick="doPrint(this)"><?php echo $inbound_line['grade_weighted']; ?></td>
 		<td class="data"><?php echo $inbound_line['remarks'] ?></td>
 	</tr>

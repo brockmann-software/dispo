@@ -397,7 +397,7 @@ class inboundController extends Zend_Controller_Action
 		$this->logger->info('InboundController->IndexAction called with whereClause: '.$whereClause);
 		$count_inb = $this->db->query("SELECT COUNT(DISTINCT inbound) AS CNT FROM v_inb_line".$whereClause)->fetchAll()[0]['CNT'];
 		$pages = floor($count_inb/20)+1;
-		$inbound = $this->db->query("select * from v_inb_line".$whereClause." GROUP BY inbound ORDER BY inb_arrival DESC LIMIT ".(($page-1)*20).", 20")->fetchAll();
+		$inbound = $this->db->query("select inbound, position, purchase_order, vendor_no, vendor_name, vendor_city, vendor_CC, inb_arrival, v_delivery_note, inb_truck, inb_trailor, inb_container, inb_transport_temp, FORMAT(grade_log,1) as grade_log, FORMAT(sum(grade_weighted)/count(No),1) AS grade_total from v_inb_line".$whereClause." GROUP BY inbound ORDER BY inb_arrival DESC LIMIT ".(($page-1)*20).", 20")->fetchAll();
 		(count($inbound)>0) ? $inbound_lines = $this->db->query('SELECT * from v_inb_line WHERE inbound = ?', $inbound[0]['inbound']) : $inbound_lines = array();
 		$this->view->params = $this->loadDependencies(true);
 		$this->view->params['languages'] = $languages;
