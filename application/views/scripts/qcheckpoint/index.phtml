@@ -14,8 +14,11 @@ function openLanguageDialog(element)
 	<th class="data">Prüfpunkt</th>
 	<th class="data">Art</th>
 	<th class="data">Klasse</th>
+	<th class="data">Max. sehrgut</td>
 	<th class="data">Max. gut</th>
 	<th class="data">Max. Befr.</th>
+	<th class="data">max. ausr.</th>
+	<th class="data">max. mangelh.</th>
 	<th class="data">Operator</th>
 </tr>
 </thead>
@@ -26,8 +29,11 @@ function openLanguageDialog(element)
 	<td class="data"><?php echo $data['quality_checkpoint']; ?><a onclick="openLanguageDialog(this)"><img src="/images/b_more.png" alt="Sprachen" title="Sprachen" /></a></td>
 	<td class="data"><?php echo $data['qc_type']; ?></td>
 	<td class="data"><?php echo $data['qcheckpoint_class']; ?></td>
+	<td class="data"><?php echo $data['max_verygood']; ?></td>
 	<td class="data"><?php echo $data['max_good']; ?></td>
+	<td class="data"><?php echo $data['max_ok']; ?></td>
 	<td class="data"><?php echo $data['max_regular']; ?></td>
+	<td class="data"><?php echo $data['max_almostregular']; ?></td>
 	<td class="data"><?php echo $data['operator_name']; ?></td>
 </tr>
 <?php endforeach ?>

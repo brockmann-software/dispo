@@ -6,16 +6,22 @@ function buildNewRow(row)
 	QC.qck_no = 0;
 	QC.qc_type = '';
 	QC.checkpoint_class = '';
+	QC.max_verygood = 0;
 	QC.max_good = 0;
+	QC.max_ok = 0;
 	QC.max_regular = 0;
+	QC.max_almostregular = 0;
 	QC.operator_name = '';
 	buildRow(row, QC);
 }
 
 function buildRow(row, QC)
 {
+	row.id = QC.No;
 	var cell0 = row.insertCell(0);
-	if (row.No=='new') {
+	if (row.id=='new') {
+		cell0.innerHTML ='';
+	} else {
 		cell0.innerHTML ='<a onclick="deleteQC(this)"><img src="/images/b_drop.png" alt="löschen" title="löschen" /></a>';
 	}
 	var cell1 = row.insertCell(1);
@@ -34,6 +40,18 @@ function buildRow(row, QC)
 	cell3.className = 'data';
 	cell3.innerHTML = QC.checkpoint_class;
 	var cell4 = row.insertCell(4);
+	var inputMaxVeryGood = document.createElement('input');
+	inputMaxVeryGood.name = QC.No+'_max_verygood';
+	inputMaxVeryGood.id = QC.No+'_max_verygood';
+	inputMaxVeryGood.type = 'number';
+	inputMaxVeryGood.min = '0';
+	inputMaxVeryGood.max = '100';
+	inputMaxVeryGood.step = '0.1';
+	inputMaxVeryGood.value = QC.max_verygood;
+	inputMaxVeryGood.onchange = function() { insertQC(this); };
+	cell4.className = 'data';
+	cell4.appendChild(inputMaxVeryGood);
+	var cell5 = row.insertCell(5);
 	var inputMaxGood = document.createElement('input');
 	inputMaxGood.name = QC.No+'_max_good';
 	inputMaxGood.id = QC.No+'_max_good';
@@ -42,9 +60,22 @@ function buildRow(row, QC)
 	inputMaxGood.max = '100';
 	inputMaxGood.step = '0.1';
 	inputMaxGood.value = QC.max_good;
-	cell4.className = 'data';
-	cell4.appendChild(inputMaxGood);
-	var cell5 = row.insertCell(5);
+	inputMaxGood.onchange = function() { insertQC(this); };
+	cell5.className = 'data';
+	cell5.appendChild(inputMaxGood);
+	var cell6 = row.insertCell(6);
+	var inputMaxOk = document.createElement('input');
+	inputMaxOk.name = QC.No+'_max_ok';
+	inputMaxOk.id = QC.No+'_max_ok';
+	inputMaxOk.type = 'number';
+	inputMaxOk.min = '0';
+	inputMaxOk.max = '100';
+	inputMaxOk.step = '0.1';
+	inputMaxOk.value = QC.max_ok;
+	inputMaxOk.onchange = function() { insertQC(this); };
+	cell6.className = 'data';
+	cell6.appendChild(inputMaxOk);
+	var cell7 = row.insertCell(7);
 	var inputMaxRegular = document.createElement('input');
 	inputMaxRegular.name = QC.No+'_max_regular';
 	inputMaxRegular.id = QC.No+'_max_regular';
@@ -53,12 +84,25 @@ function buildRow(row, QC)
 	inputMaxRegular.max = '100';
 	inputMaxRegular.step = '0.1';
 	inputMaxRegular.value = QC.max_regular;
-	cell5.className = 'data';
-	cell5.appendChild(inputMaxRegular);
-	var cell6 = row.insertCell(6);
-	cell6.className = 'data';
-	cell6.id = QC.No+'_operator';
-	cell6.innerHTML = QC.operator_name;
+	inputMaxRegular.onchange = function() { insertQC(this); };
+	cell7.className = 'data';
+	cell7.appendChild(inputMaxRegular);
+	var cell8 = row.insertCell(8);
+	var inputMaxAlmostRegular = document.createElement('input');
+	inputMaxAlmostRegular.name = QC.No+'_max_almostregular';
+	inputMaxAlmostRegular.id = QC.No+'_max_almostregular';
+	inputMaxAlmostRegular.type = 'number';
+	inputMaxAlmostRegular.min = '0';
+	inputMaxAlmostRegular.max = '100';
+	inputMaxAlmostRegular.step = '0.1';
+	inputMaxAlmostRegular.value = QC.max_almostregular;
+	inputMaxAlmostRegular.onchange = function() { insertQC(this); };
+	cell8.className = 'data';
+	cell8.appendChild(inputMaxAlmostRegular);
+	var cell9 = row.insertCell(9);
+	cell9.className = 'data';
+	cell9.id = QC.No+'_operator';
+	cell9.innerHTML = QC.operator_name;
 }
 
 function loadQuality_Checkpoints(product)
@@ -85,8 +129,11 @@ function loadQuality_Checkpoints(product)
 						qcProduct['quality_checkpoint'] = getXMLTagValue(qcProducts[qc], 'quality_checkpoint') || 0;
 						qcProduct['max_good'] = getXMLTagValue(qcProducts[qc], 'max_good') || 0;
 						qcProduct['max_regular'] = getXMLTagValue(qcProducts[qc], 'max_regular') || 0;
+						qcProduct['max_verygood'] = getXMLTagValue(qcProducts[qc], 'max_verygood') || 0;
+						qcProduct['max_ok'] = getXMLTagValue(qcProducts[qc], 'max_ok') || 0;
+						qcProduct['max_almostregular'] = getXMLTagValue(qcProducts[qc], 'max_almostregular') || 0;
 						qcProduct['operator'] = getXMLTagValue(qcProducts[qc], 'operator') || 0;
-						qcProduct['product_name'] = getXMLTagValue(qcProducts[qc], 'operator_name') || '';
+						qcProduct['operator_name'] = getXMLTagValue(qcProducts[qc], 'operator_name') || '';
 						row = qcProductTable.insertRow(qc);
 						buildRow(row, qcProduct);
 					}
@@ -139,6 +186,12 @@ function insertQC(element)
 						max_good.name = newNo+'_max_good';
 						max_regular.id = newNo+'_max_regular';
 						max_regular.name = newNo+'_max_regular';
+						max_verygood.name = newNo+'_max_verygood';
+						max_verygood.id = newNo+'_max_verygood';
+						max_ok.name = newNo+'_max_ok';
+						max_ok.id = newNo+'_max_ok';
+						max_almostregular.name = newNo+'_max_almostregular';
+						max_regular.id = newNo+'_max_almostregular';
 						operator.id = newNo+'_operator';
 						qcProductTable = document.getElementById('qc_products').getElementsByTagName('tbody')[0];
 						newRow = qcProductTable.insertRow(qcProductTable.rows.length)
@@ -167,8 +220,11 @@ function insertQC(element)
 	var qc_class = document.getElementById(row.id+'_qc_class');
 	var max_good = document.getElementById(row.id+'_max_good');
 	var max_regular = document.getElementById(row.id+'_max_regular');
+	var max_verygood = document.getElementById(row.id+'_max_verygood');
+	var max_ok = document.getElementById(row.id+'_max_ok');
+	var max_almostregular = document.getElementById(row.id+'_max_almostregular');
 	var operator = document.getElementById(row.id+'_operator');
-	var params = 'No='+row.id+'&product='+product.value+'&quality_checkpoint='+qc.value+'&max_good='+max_good.value+'&max_regular='+max_regular.value;
+	var params = 'No='+row.id+'&product='+product.value+'&quality_checkpoint='+qc.value+'&max_good='+max_good.value+'&max_regular='+max_regular.value+'&max_verygood='+max_verygood.value+'&max_ok='+max_ok.value+'&max_almostregular='+max_almostregular.value;
 	var uri = '/qcheckpoint/updateqcproduct/';
 	upload = true;
 	if (No=='new') {
@@ -246,8 +302,11 @@ function setAllGeneral()
 	<th class="data">Prüfpunkt</th>
 	<th class="data">Art</th>
 	<th class="data">Klasse</th>
-	<th class="data">Max. gut</th>
-	<th class="data">Max. Befr.</th>
+	<th class="data">Max sehrgut</th>
+	<th class="data">Max gut</th>
+	<th class="data">Max befr.</th>
+	<th class="data">Max ausr.</th>
+	<th class="data">Max mangelh.</th>
 	<th class="data">Operator</th>
 </tr>
 </thead>
@@ -262,8 +321,11 @@ function setAllGeneral()
 					</select></td>
 	<td class="data" id="<?php echo $data['No']; ?>_qc_type"><?php echo $data['qc_type']; ?></td>
 	<td class="data" id="<?php echo $data['No']; ?>_qc_class"><?php echo $data['checkpoint_class']; ?></td>
+	<td class="data" id="<?php echo $data['No']; ?>_qc_max_verygood"><?php echo $this->formNumber($data['No'].'_max_verygood', $data['max_verygood'], array('id'=>$data['No'].'_max_verygood', 'min'=>'0', 'max'=>'100', 'step'=>'0.1', 'onchange'=>'insertQC(this)')); ?></td>
 	<td class="data"><input type="number" name="<?php echo $data['No']; ?>_max_good" id="<?php echo $data['No']; ?>_max_good" min="0" max="100" step="0.1" value="<?php echo $data['max_good']; ?>" onchange="insertQC(this)" /></td>
+	<td class="data" id="<?php echo $data['No']; ?>_qc_max_ok"><?php echo $this->formNumber($data['No'].'_max_ok', $data['max_ok'], array('id'=>$data['No'].'_max_ok', 'min'=>'0', 'max'=>'100', 'step'=>'0.1', 'onchange'=>'insertQC(this)')); ?></td>
 	<td class="data"><input type="number" name="<?php echo $data['No']; ?>_max_regular" id="<?php echo $data['No']; ?>_max_regular" min="0" max="100" step="0.1" value="<?php echo $data['max_regular']; ?>" onchange="insertQC(this)" /></td>
+	<td class="data" id="<?php echo $data['No']; ?>_qc_max_almostregular"><?php echo $this->formNumber($data['No'].'_max_almostregular', $data['max_almostregular'], array('id'=>$data['No'].'_max_almostregular', 'min'=>'0', 'max'=>'100', 'step'=>'0.1', 'onchange'=>'insertQC(this)')); ?></td>
 	<td class="data" id="<?php echo $data['No']; ?>_operator"><?php echo $data['operator_name']; ?></td>
 </tr>
 <?php endforeach ?>
@@ -276,8 +338,11 @@ function setAllGeneral()
 					</select></td>
 	<td class="data" id="new_qc_type"></td>
 	<td class="data" id="new_qc_class"></td>
+	<td class="data"><input type="number" name="new_max_verygood" id="new_max_maxverygood" min="0" max="100" step="0.1" onchange="insertQC(this)"/></td>
 	<td class="data"><input type="number" name="new_max_good" id="new_max_good" min="0" max="100" step="0.1" onchange="insertQC(this)"/></td>
+	<td class="data"><input type="number" name="new_max_ok" id="new_max_ok" min="0" max="100" step="0.1" onchange="insertQC(this)"/></td>
 	<td class="data"><input type="number" name="new_max_regular" id="new_max_regular" min="0" max="100" step="0.1" onchange="insertQC(this)" /></td>
+	<td class="data"><input type="number" name="new_max_almostregular" id="new_max_almostregular" min="0" max="100" step="0.1" onchange="insertQC(this)"/></td>
 	<td class="data" id="new_operator"></td>
 </tr>
 </tbody>

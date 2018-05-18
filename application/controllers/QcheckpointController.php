@@ -141,8 +141,11 @@ class qcheckpointController extends Zend_Controller_Action
 			isset($_POST['No']) ? $qc_No = $_POST['No'] : $qc_No = 0;
 			isset($_POST['product']) ? $qc_product['product'] = $_POST['product'] : $qc_product['product'] = '';
 			isset($_POST['quality_checkpoint']) ? $qc_product['quality_checkpoint'] = $_POST['quality_checkpoint'] : $qc_product['quality_checkpoint'] = 0;
+			isset($_POST['max_verygood']) ? $qc_product['max_verygood'] = $_POST['max_verygood'] : $qc_product['max_verygood'] = 0;
 			isset($_POST['max_good']) ? $qc_product['max_good'] = $_POST['max_good'] : $qc_product['max_good'] = 0;
+			isset($_POST['max_ok']) ? $qc_product['max_ok'] = $_POST['max_ok'] : $qc_product['max_ok'] = 0;
 			isset($_POST['max_regular']) ? $qc_product['max_regular'] = $_POST['max_regular'] : $qc_product['max_regular'] = 0;
+			isset($_POST['max_almostregular']) ? $qc_product['max_almostregular'] = $_POST['max_almostregular'] : $qc_product['max_almostregular'] = 0;
 			isset($_POST['operator']) ? $qc_product['operator'] = $_POST['operator'] : $qc_product['operator'] = 0;
 			$this->logger->info('qc_product: '.print_r($qc_product, true));
 			if ($qc_No === 0) $errors['No'] = 'Nummer darf nicht 0 oder leer sein!';
@@ -155,7 +158,7 @@ class qcheckpointController extends Zend_Controller_Action
 				} else {
 					unset($qc_product['product']);
 					unset($qc_product['quality_checkpoint']);
-					$qc_product_table->update($qc_product, array('No'=>$qc_No));
+					$qc_product_table->update($qc_product, array('No = ?'=>$qc_No));
 				}
 				$qc_product = $this->db->query('SELECT * FROM v_qc_product WHERE No = ?', $qc_No)->fetchAll()[0];
 			} catch (Exception $e) {
@@ -182,8 +185,11 @@ class qcheckpointController extends Zend_Controller_Action
 					$qc_product = $qc_product_table->createRow();
 					$qc_product->product = $product;
 					$qc_product->quality_checkpoint = $quality_checkpoint['No'];
+					$qc_product->max_verygood = $quality_checkpoint['max_verygood'];
 					$qc_product->max_good = $quality_checkpoint['max_good'];
+					$qc_product->max_ok = $quality_checkpoint['max_ok'];
 					$qc_product->max_regular = $quality_checkpoint['max_regular'];
+					$qc_product->max_almostregular = $quality_checkpoint['max_almostregular'];
 					$qc_product->operator = $quality_checkpoint['operator'];
 					$qc_product->save();
 				}
