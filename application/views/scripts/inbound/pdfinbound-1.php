@@ -270,8 +270,20 @@ $page->addTable($table, array(0, 'cm'), array(19.5+(($logRow+1)*0.71428), 'cm'))
 
 $page->drawText($inbound_line->getData()['checked_by'], array(4.62, 'cm'), array(22.5+(($logRow+1)*0.71428), 'cm'));
 
+//Report erstellen
 $report = new My_Pdf();
+
+//Seite zum Report hinzufügen
 $report->pages[] = $page;
+
+// Barcode erstellen
+$barcodeOptions = array('text'=>$inbound_line->getData()['position'],
+						'drawText'=>true,
+						'font'=>realpath(APPLICATION_PATH.'/../public/fonts/arial.ttf'));
+$renderOptions = array('topOffset'=>10, 'leftOffset'=>283);
+$renderer = Zend_Barcode::factory('code128', 'pdf', $barcodeOptions, $renderOptions)->setResource($report)->draw(); 
+
+
 
 $img_count = count($inbound_line->getImages());
 $picPerPage = 0;
