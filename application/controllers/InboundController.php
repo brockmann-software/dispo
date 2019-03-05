@@ -398,7 +398,11 @@ class inboundController extends Zend_Controller_Action
 		$count_inb = $this->db->query("SELECT COUNT(DISTINCT inbound) AS CNT FROM v_inb_line".$whereClause)->fetchAll()[0]['CNT'];
 		$pages = floor($count_inb/20)+1;
 		$inbound = $this->db->query("select inbound, position, purchase_order, vendor_no, vendor_name, vendor_city, vendor_CC, inb_arrival, v_delivery_note, inb_truck, inb_trailor, inb_container, inb_transport_temp, FORMAT(grade_log,1) as grade_log, FORMAT(sum(grade_weighted)/count(No),1) AS grade_total from v_inb_line".$whereClause." GROUP BY inbound ORDER BY inb_arrival DESC LIMIT ".(($page-1)*20).", 20")->fetchAll();
-		(count($inbound)>0) ? $inbound_lines = $this->db->query('SELECT * from v_inb_line WHERE inbound = ?', $inbound[0]['inbound']) : $inbound_lines = array();
+		$inbound_lines = array();
+		if (count($inbound)>0){
+			$inbound_lines = $this->db->query('SELECT * from v_inb_line WHERE inbound = ?', $inbound[0]['inbound'])->fetchAll();
+			(count($inbound_lines)>0) ? $report_status = $this->db->query('SELECT * FROM v_report_log WHERE document = ?', $inbound_lines[0]['No'])->fetchAll() : $report_status = array();
+		}
 		$this->view->params = $this->loadDependencies(true);
 		$this->view->params['languages'] = $languages;
 		$this->view->pages = $pages;
@@ -406,6 +410,7 @@ class inboundController extends Zend_Controller_Action
 		$this->view->inbounds = $inbound;
 		$this->view->cur_page = $page;
 		$this->view->inbound_lines = $inbound_lines;
+		$this->view->report_status = $report_status;
 		$this->view->errors = $errors;
 	}
 	
@@ -1659,6 +1664,54 @@ class inboundController extends Zend_Controller_Action
 				}
 			} catch (Exception $e) {
 				$this->logger->err('Email nicht versendet! '.$e->getMessage());
+			}
+			$report_contacts = $this->db->query('SELECT * FROM v_sr_contact WHERE standard_report = 1 AND company_type = 2 AND company = ?',$inbound_line[0]['vendor_no']);
+			
+			$reportLogTable = new Application_Model_ReportlogModel();
+
+			foreach ($report_contacts as $sr_contact) {
+				if ($sr_contact['email']<>'') {
+					try {
+						$sent = false;
+						$mail = new Zend_Mail();		
+						$emailText = "Guten Tag {$sr_contact['first_name']} {$sr_contact['surname']},\n\n";
+						$emailText.= "Ihr Wareneingang wurde gebucht.\n\n";
+						$emailText.= "Lieferant: {$inbound_line[0]['vendor_name']}\n";
+						$emailText.= "Artikel: {$inbound_line[0]['variant_desc']}\n";
+						$emailText.= "Eingangsmenge: {$inbound_line[0]['inb_trading_units']}\n";
+						$emailText.= "Bestellte Menge: {$inbound_line[0]['po_trading_units']}\n";
+						$emailText.= "Angelieferte Menge: {$inbound_line[0]['inb_trading_units']}\n";
+						$emailText.= "Einheiten Kontrolliert: {$inbound_line[0]['items_checked']}\n";
+						$emailText.= "Menge verweigert: {$inbound_line[0]['tu_refused']}\n\n";
+						$emailText.= "Der Wareneingang wurde mit einem Score von {$inbound_line[0]['grade_weighted']} bewertet.\n\n";
+						$emailText.= "Mit freundlichen Gruessen\n\nWareneingang\n\n";
+						$emailText.= "Marktvertrieb Schwerin GmbH";
+						$attachment = $mail->createAttachment($content);
+						$attachment->type = 'application/PDF';
+						$attachment->disposition = Zend_Mime::DISPOSITION_ATTACHMENT;
+						$attachment->encoding = Zend_Mime::ENCODING_BASE64;
+						$attachment->filename = "Quality Report {$inbound_line[0]['No']}.pdf";
+						$this->logger->info('Report erstellt!');
+						$mail->addTo($sr_contact['email']);
+						$mail->setBodyText($emailText);
+						$mail->setFrom('dispo@marktvertrieb.de', 'MVS-Dispo Wareneingang');
+						$mail->setSubject("Wareneingang {$inbound_line[0]['position']} {$inbound_line[0]['vendor_name']} {$inbound_line[0]['origin']} {$inbound_line[0]['product_desc']} {$inbound_line[0]['items']}x{$inbound_line[0]['weight_item']}g");
+						$this->logger->info('Email zum Versand vorbereitet und an Relay übergeben!');
+						$mail->send($transport);
+						$this->logger->info('Mail versandt an '.$sr_contact['email']);
+						$this->logger->info('Mailtext: '.$emailText);
+						$sent = true;
+						$this->logger->info('Email gesendet');
+					} catch (Exception $e) {
+						$this->logger->err('Email wurde nicht versandt an '.$sr_contact['email'].' '.$e->getMessage());
+					} finally {
+						$reportLog['report'] = 1;
+						$reportLog['contact'] = $sr_contact['contact'];
+						$reportLog['document'] = $inbound_line[0]['No'];
+						$reportLog['result'] = $sent;
+						$reportLogTable->insert($reportLog);
+					}
+				}
 			}
 		}
 		return $sent;

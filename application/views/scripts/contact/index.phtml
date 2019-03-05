@@ -1,0 +1,34 @@
+<a href="/contact/edit/">[neuer Kontakt]</a>
+<table id="contacts">
+<thead>
+<tr>
+	<th width="40px"></th>
+	<th class="data" width="200px"><?php echo $this->translate('@name'); ?></th>
+	<th class="data" width="200px"><?php echo $this->translate('@surname'); ?></th>
+	<th class="data" width="100px"><?php echo $this->translate('@company_no'); ?></th>	
+	<th class="data" width="200px"><?php echo $this->translate('@company_name'); ?></th>	
+	<th class="data" width="100px"><?php echo $this->translate('@type'); ?></th>
+	<th class="data" width="150px"><?php echo $this->translate('@office_phone'); ?></th>
+	<th class="data" width="150px"><?php echo $this->translate('@office_mobile'); ?></th>
+	<th class="data"><?php echo $this->translate('@email'); ?></th>
+</tr>
+</thead>
+<tbody>
+<?php foreach ($this->contacts as $contact) : ?>
+<tr id="<?php echo $contact['No']; ?>">
+	<td>					
+		<a href="/contact/edit/No/<?php echo $contact['No']; ?>"><img src="/images/b_edit.png" alt="bearbeiten" title="bearbeiten" /></a>
+		<a href="/contact/delete/No/<?php echo $contact['No']; ?>"><img src="/images/b_drop.png" alt="löschen" title="löschen" /></a>
+	</td>
+	<td class="data"><?php echo $contact['first_name']; ?></td>
+	<td class="data"><?php echo $contact['surname']; ?></td>
+	<td class="data"><?php echo $contact['company']; ?></td>
+	<td class="data"><?php echo $contact['company_name']; ?></td>
+	<td class="data"><?php echo $contact['company_type']; ?></td>
+	<td class="data"><?php echo $contact['office_phone']; ?></td>
+	<td class="data"><?php echo $contact['office_mobile']; ?></td>
+	<td class="data"><?php echo $contact['email']; ?></td>
+</tr>
+<?php endforeach ?>
+</tbody>
+</table>

@@ -1,0 +1,162 @@
+<script>
+var notIE_popup = null;
+
+function popupFinishedVendor(result)
+{
+	document.getElementById('company').value = result['no'];
+	document.getElementById('company_name').value = result['name'];
+	if (notIE_popup != null)  {
+		notIE_popup.close();
+		notIE_popup = null;
+	}
+}
+
+function popupFinishedCustomer(result)
+{
+	document.getElementById('company').value = result['no'];
+	document.getElementById('company_name').value = result['name'];
+	if (notIE_popup != null)  {
+		notIE_popup.close();
+		notIE_popup = null;
+	}
+}
+
+function loadCompany()
+{
+	function loadCompanyXML()
+	{
+		if (http.readyState==4) {
+			xmlResult = http.responseXML;
+			if (xmlResult.getElementsByTagName('errorCount')[0].firstChild==null) errorCount = 0;
+			else errorCount = xmlResult.getElementsByTagName('errorCount')[0].firstChild.nodeValue;
+			if (errorCount==0) {
+				var company = xmlResult.getElementsByTagName('result');
+				if (company.length==1) {
+					document.getElementById('company').value = company[0].getElementsByTagName('No')[0].firstChild.nodeValue;
+					document.getElementById('company_name').value = company[0].getElementsByTagName('name')[0].firstChild.nodeValue;
+				} else {
+//					var dialog = document.getElementById('vendor_dialog');
+//					filltable(vendor);
+//					dialog.showModal();
+					if (document.getElementById('company_type').value==1) URI = '/customer/customerdialog';
+					else URI = '/vendor/vendordialog';
+					URI += '/No/'+document.getElementById('company').value+'/name/'+document.getElementById('company').value+'/connector/OR';
+					if (!window.showModalDialog) {
+						notIE_popup = window.open(URI, 'Firma', 'dialogWidth=600px;dialogHeight=400px;diologLeft=0;dialogTop=100;resizable=yes;scroll=yes');
+			
+					} else {
+						result=window.showModalDialog(URI,document.getElementById('vendor_no').value,
+		                       'dialogWidth=600px;dialogHeight=400px;diologLeft=0;dialogTop=100;resizable=yes;scroll=yes');
+						document.getElementById('company').value = result['no'];
+						document.getElementById('company_name').value = result['name'];
+					}
+				}
+			} else {
+				var errors = xmlResult.getElementsByTagName('error');
+				for (e = 0; e < errorCount; e++) {
+					field = errors[e].childNodes[1].nodeName;
+					value = errors[e].childNodes[1].firstChild.nodeValue;
+					var errorText = errorText+"["+field+"] "+value+"\n";
+				}
+				alert(errorText);
+			}
+		}
+	}
+	
+	createRequest();
+	if (document.getElementById('company_type').value==1) URI = '/customer/get/No/'+document.getElementById('company').value;
+	else if (document.getElementById('company_type').value==2) URI = '/vendor/get/No/'+document.getElementById('company').value;
+	sendRequest("GET", URI, '', loadCompanyXML, true);
+}
+
+function closeWindow()
+{
+	<?php if ($this->hideCompany) print "
+	var contact = [];
+	contact['No'] = document.forms[0].old_No.value;
+	contact['title'] = document.getElementById('title').value;
+	contact['first_name'] = document.getElementById('first_name').value;
+	contact['surname'] = document.getElementById('surname').value;
+	contact['office_phone'] = document.getElementById('office_phone').value;
+	contact['office_phone'] = document.getElementById('office_mobile').value;
+	contact['email'] = document.getElementById('email').value;
+	window.opener.closeCDialog(contact);
+	";
+	else print "
+	window.location = '/contact/index';
+	"; ?>
+}
+
+function loadArgs() {}
+
+</script>
+<?php Zend_Debug::dump($this->errors); ?>
+<form action="/contact/edit/" method="post">
+<legend>Kontakt</legend>
+<fieldset>
+<?php if (isset($this->errors['all'])) : ?><div class="error">
+<?php echo $this->errors['all']; ?>
+</div><?php  endif ?>
+<table>
+	<tr>
+		<td></td><td><input type="hidden" name="old_No" value="<?php echo $this->contact['No']; ?>" /></td>
+	</tr>
+	<tr>
+		<td><?php echo $this->translate('@title'); ?></td>
+		<td><?php echo $this->formText('title', $this->contact['title'], array('id'=>'title', 'maxlength'=>'25', 'size'=>'25')); ?></td>
+	</tr>
+	<tr>
+		<td><?php echo $this->translate('@name'); ?></td>
+		<td><?php echo $this->formText('first_name', $this->contact['first_name'], array('id'=>'first_name', 'maxlength'=>'255', 'size'=>'50')); ?></td>
+	</tr>
+	<tr>
+		<td><?php echo $this->translate('@surname'); ?></td>
+		<td>
+		<?php if (isset($this->errors['surname'])) : ?><p class="error"><?php endif ?>
+		<?php echo $this->formText('surname', $this->contact['surname'], array('id'=>'surname', 'maxlength'=>'255', 'size'=>'50')); ?>
+		<?php if (isset($this->errors['surname'])) : ?><br /><?php echo $this->errors['surname']; ?></p><?php endif ?></td>
+	</tr>
+	<tr <?php if ($this->hideCompany) echo 'style="display: none"';?>>
+		<td><?php echo $this->translate('@type'); ?></td>
+		<td>
+			<?php if (isset($this->errors['company_type'])) : ?><p class="error"><?php endif ?>
+			<?php echo $this->formSelect('company_type', $this->contact['company_type'], array('id'=>'company_type'), array('1'=>'Debitor', '2'=>'Kreditor')); ?>
+			<?php if (isset($this->errors['company_type'])) : ?><br /><?php echo $this->errors['company_type']; ?></p><?php endif ?>
+		</td>
+	</tr>
+	<tr <?php if ($this->hideCompany) echo 'style="display: none"';?>>
+		<td><?php echo $this->translate('@company_no'); ?></td>
+		<td>
+			<?php if (isset($this->errors['company'])) : ?><p class="error"><?php endif ?>
+			<?php echo $this->formText('company', $this->contact['company'], array('id'=>'company', 'maxlength'=>'10', 'size'=>'10', 'onchange'=>'loadCompany()')); ?> 
+			<?php echo $this->formText('company_name', $this->contact['company_name'], array('id'=>'company_name', 'readonly'=>'readonly')); ?>
+			<?php if ($this->hideCompany) echo $this->formHidden('hideCompany', 'hideCompany'); ?>
+			<?php if (isset($this->errors['company'])) : ?><br /><?php echo $this->errors['company']; ?></p><?php endif ?>
+	</tr>
+	<tr>
+		<td><?php echo $this->translate('@office_phone'); ?></td>
+		<td><?php echo $this->formText('office_phone', $this->contact['office_phone'], array('id'=>'office_phone', 'maxlength'=>'20', 'size'=>'20')); ?></td>
+	</tr>
+	<tr>
+		<td><?php echo $this->translate('@office_mobile'); ?></td>
+		<td><?php echo $this->formText('office_mobile', $this->contact['office_mobile'], array('id'=>'office_mobile', 'maxlength'=>'20', 'size'=>'20')); ?></td>
+	</tr>
+	<tr>
+		<td><?php echo $this->translate('@private_phone'); ?></td>
+		<td><?php echo $this->formText('private_phone', $this->contact['private_phone'], array('id'=>'private_phone', 'maxlength'=>'20', 'size'=>'20')); ?></td>
+	</tr>
+	<tr>
+		<td><?php echo $this->translate('@private_mobile'); ?></td>
+		<td><?php echo $this->formText('private_mobile', $this->contact['private_mobile'], array('id'=>'private_mobile', 'maxlength'=>'20', 'size'=>'20')); ?></td>
+	</tr>
+	<tr>
+		<td><?php echo $this->translate('@email'); ?></td>
+		<td><?php echo $this->formText('email', $this->contact['email'], array('id'=>'email', 'maxlength'=>'255', 'size'=>'50')); ?></td>
+	</tr>
+	<tr>
+		<td></td><td><input type="submit" name="submit" value="Speichern" /></td>
+	</tr>
+</table>
+</fieldset>		
+</form>
+<?php if (isset($this->errors['noError'])) : ?><script>closeWindow();</script> <?php endif ?>

@@ -4,6 +4,7 @@ class VendorController extends Zend_Controller_Action
 	protected $db;
 	protected $logger;
 	protected $config;
+	protected $translate;
 	
 	private function buildForm($customer)
 	{
@@ -59,6 +60,7 @@ class VendorController extends Zend_Controller_Action
 		$dependencies['countries'] = $this->db->query('select * from country')->fetchAll();
 		$dependencies['scopes'] = $this->db->query('SELECT * FROM certificate_scope')->fetchAll();
 		$dependencies['products'] = $this->db->query('SELECT * FROM product')->fetchAll();
+		$dependencies['standard_reports'] = $this->db->query('SELECT * FROM standard_report')->fetchAll();
 		return $dependencies;
 	}
 	
@@ -69,6 +71,8 @@ class VendorController extends Zend_Controller_Action
 		$this->db = Zend_Registry::get('db');
 		$this->logger = Zend_Registry::get('logger');
 		$this->config = Zend_Registry::get('config');
+		$this->locale = Zend_Registry::get('Zend_Locale');
+		$this->translate = Zend_Registry::get('Zend_Translate');
     }
 
 	public function indexAction()
@@ -180,6 +184,8 @@ class VendorController extends Zend_Controller_Action
 				$vendor = $vendorTable->find($No)->current()->toArray();
 				$vendor_certificates = $this->db->query("SELECT * FROM v_vendor_certificate WHERE vendor = ?", $vendor['No'])->fetchAll();
 				$vendor_agreements = $this->db->query("SELECT * FROM vendor_agreement WHERE vendor = ? ORDER BY version_year DESC", $vendor['No'])->fetchAll();
+				$vendor_contacts = $this->db->query('SELECT * FROM v_contact WHERE company_type = 2 AND company = ? ORDER BY surname', $vendor['No'])->fetchAll();
+				$sr_contacts = $this->db->query('SELECT * FROM v_sr_contact WHERE company_type = 2 AND company = ? ORDER BY surname', $vendor['No'])->fetchAll();
 			} else {
 				$vendor = array('No'=>'',
 								'name' => '', 
@@ -189,13 +195,25 @@ class VendorController extends Zend_Controller_Action
 								 'PO_code' => '',
 								 'city' => '',
 								 'country_code' => 'DE');
+				$vendor_contacts = array();
+				$sr_contacts = array();
 				$vendor_certificates = array();
 				$vendor_agreements = array();
 			}			
 		}
+		$this->translate->addTranslation(array(
+			'adapter'=>'My_Translate_Adapter_Mysql', 
+			'content'=>'view_label', 
+			'locale'=>'de',
+			'columns'=>array('language', 'column_name', 'label'),
+			'view'=>'vendor_edit.phtml',
+			'clear'=>true));
+		if (!$this->translate->isAvailable($this->locale->getLanguage())) $this->translate->setLocale('de'); else $this->translate->setLocale('auto');
 		$params = $this->loadDependecies();
 		$params['vendor_certificates'] = $vendor_certificates;
 		$params['vendor_agreements'] = $vendor_agreements;
+		$params['vendor_contacts'] = $vendor_contacts;
+		$params['sr_contacts'] = $sr_contacts;
 		$params['data'] = $vendor;
 		$params['errors'] = $error;
 		$params['title'] = 'Lieferant';
@@ -444,6 +462,51 @@ class VendorController extends Zend_Controller_Action
 		$layout->setLayout('xml_layout');	
 		$this->renderScript('/xml/resultxml.phtml');		
 	}
+	
+	public function deletecontactAction()
+	{
+		$errors = array();
+		$contacts = array();
+		if ($this->getRequest()->isPost()) {
+			isset($_POST['No']) ? $No = $_POST['No'] : $errors['No'] = 'Keine Id übergeben!';
+			isset($_POST['company']) ? $company = $_POST['company'] : $errors['company'] = 'Kein Unternehmen übergeben!';
+			isset($_POST['company_type']) ? $company_type = $_POST['company_type'] : $errors['company_type'] = 'Kein Typ übergeben!';
+			if (count($errors)==0) {
+				$select = $this->db->select()->from('v_sr_contact');
+				$select->where('company_type = ?', $company_type);
+				$select->where('company = ?', $company);
+				$select->where('contact = ?', $No);
+				$sr_contacts = $this->db->query($select)->fetchAll();
+				if (count($sr_contacts)==0) {
+					$contactTable = new Application_Model_ContactModel();
+					try {
+						$contactTable->delete(array('No=?'=>$No));
+					} catch (Exception $e) {
+						$errors['all'] = 'Kontakt wurde nicht gelöscht!';
+						$this->logger->err('Kontakt wurde nicht gelöscht, '.$e->getMessage());
+					}
+					if (count($errors)==0) {
+						try {
+							$contacts = $this->db->query('SELECT * FROM v_contact WHERE company_type=2 AND company=?', $company)->fetchAll();
+						} catch (Exception $e) {
+							$errors['all'] = 'Die Kontakte konnten nicht geladen werden!';
+							$this->logger->err('Kontakte konnten nicht geladen werden: '.$e->getMessage());
+						}
+					}
+				} else {
+					$errors['all'] = 'Der Kontakt ist einem Bericht zugeordnet!';
+				}
+			}
+		} else {
+			$errors['all'] = 'Kein Post-Request!';
+		}
+		$this->view->errors = $errors;
+		$this->view->result = $contacts;
+		$layout = $this->_helper->layout();
+		$layout->setLayout('xml_layout');	
+		$this->renderScript('/xml/resultlistxml.phtml');		
+	}
+				
 	
 	public function getAction()
 	{

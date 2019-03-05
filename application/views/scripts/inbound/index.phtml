@@ -173,8 +173,12 @@ function getInbLines(inbound) {
 					var linkPic = document.createElement('a');
 					linkPic.href = '/inbound/adminpics/No/'+inb_lines[vc].getElementsByTagName('No')[0].firstChild.nodeValue;
 					linkPic.innerHTML = '<img src="/images/photo gallery16x16.png" alt="Bilder" title="Bilder verwalten" />';
+					var linkRep = document.createElement('a');
+					linkRep.onclick = function(){ showStatus(this); };
+					linkRep.innerHTML = '<img src="images/b_browse.png" alt="Reports" title="Report Status" />';
 					tdActions.appendChild(linkRev);
 					tdActions.appendChild(linkPic);
+					tdActions.appendChild(linkRep);
 					tdVariant.innerHTML=inb_lines[vc].getElementsByTagName('variant')[0].firstChild.nodeValue;
 					tdVariant.className="data";
 					tdarticle.innerHTML=inb_lines[vc].getElementsByTagName('variant_desc')[0].firstChild.nodeValue;
@@ -298,6 +302,13 @@ $( function() {
 			Cancel: function() {dialog.dialog("close");}
 		}
 	});
+	
+	status_window = $('#report_status').dialog({
+		autoOpen: false,
+		modal: true,
+		width: 800,
+		buttons: {'Schließen': function() {status_window.dialog("close"); }}
+	});
 })
 
 function doPrint(element)
@@ -311,6 +322,57 @@ function print()
 	$('#dialog').dialog("close");
 	print_option = document.getElementById('select_print').value;
 	window.location = '/inbound/newreport/No/'+actReport+'/lang/'+print_option;
+}
+
+function showStatus(line)
+{
+	
+	function loadStatusXML()
+	{
+		if (http.readyState==4) {
+			if (http.responseXML) {
+				xmlResult = http.responseXML;
+				if (xmlResult.getElementsByTagName('errorCount')[0].firstChild==null) errorCount = 0;
+				else errorCount = xmlResult.getElementsByTagName('errorCount')[0].firstChild.nodeValue;
+				if (errorCount==0) {
+					var status = xmlResult.getElementsByTagName('result');
+					statusTable = document.getElementById('report_status_tbl').getElementsByTagName('tbody')[0];
+					while (statusTable.rows.length>0) statusTable.deleteRow(0);
+					for (st=0; st<status.length; st++) {
+						row = statusTable.insertRow(st);
+						tdReport = row.insertCell(0);
+						tdReport.className = 'data';
+						tdReport.innerHTML = getXMLTagValue(status[st], 'report_name') || '';
+						tdTime = row.insertCell(1);
+						tdTime.className = 'data';
+						tdTime.innerHTML = getXMLTagValue(status[st], 'time') || '0:00:00';
+						tdEmail = row.insertCell(2);
+						tdEmail.className = 'data';
+						tdEmail.innerHTML = getXMLTagValue(status[st], 'email') || '';
+						tdStatus = row.insertCell(3);
+						tdStatus.className = 'data_num';
+						tdStatus.innerHTML = getXMLTagValue(status[st], 'send_result') || '0';
+					}
+					$('#report_status').dialog('open');
+				} else {
+					var errors = xmlResult.getElementsByTagName('error');
+					for (e = 0; e < errorCount; e++) {
+						field = errors[e].childNodes[1].nodeName;
+						value = errors[e].childNodes[1].firstChild.nodeValue;
+						var errorText = errorText+"["+field+"] "+value+"\n";
+					}
+					alert(errorText);
+				}
+			} else {
+				alert(http.responseText);
+			}
+		}
+	}
+
+	
+	inbound_line = line.parentNode.parentNode.id;
+	URI = '/standardreport/getstatus/standard_report/1/document/'+inbound_line;
+	sendRequest('GET', URI, '', loadStatusXML, true);
 }
 
 -->
@@ -370,15 +432,15 @@ function print()
 <thead>
 	<tr class="data">
 		<th class="data" width="80">Position</th>
-		<th class="data" width="100">Bestellung</th>
-		<th class="data" width="80">Lie.-Nr.</th>
+		<th class="data" width="80">Bestellung</th>
+		<th class="data" width="60">Lie.-Nr.</th>
 		<th class="data">Lieferant</th>
-		<th class="data" width="160">Eingang</th>
-		<th class="data" width="150">Lieferschein</th>
-		<th class="data" width="160">LKW</th>
-		<th class="data" width="160">Auflieger</th>
-		<th class="data" width="160">Container</th>
-		<th class="data" width="80">Temperatur</th>
+		<th class="data" width="140">Eingang</th>
+		<th class="data" width="120">Lieferschein</th>
+		<th class="data" width="120">LKW</th>
+		<th class="data" width="120">Auflieger</th>
+		<th class="data" width="120">Container</th>
+		<th class="data" width="80">Temp.</th>
 		<th class="data" width="60">Pünktl.</th>
 		<th class="data" width="60">QC total</th>
 	</tr>
@@ -408,7 +470,7 @@ function print()
 <table id="inbound_lines" style="table-layout:auto;">
 <thead>
 <tr>
-	<th style="width:36px;"></th>
+	<th style="width:60px;"></th>
 	<th class="data" width="30">Variante</th>
 	<th class="data" width="400">Beschreibung</th>
 	<th class="data" width="20">Kolli</th>
@@ -427,6 +489,7 @@ function print()
 		<td>
 			<a href="" onclick="reverseInboundLine(this)"><img src="/images/b_undo.png" alt="Storno" title="Eingang stornieren" /></a>
 			<a href="/inbound/adminpics/No/<?php echo $inbound_line['No']; ?>"><img src="/images/photo gallery16x16.png" alt="Bilder" title="Bilder verwalten" /></a>
+			<a onclick="showStatus(this)"><img src="/images/b_browse.png" alt="Reports" title="Report Status" /></a>
 		</td>
 		<td class="data"><?php echo $inbound_line['variant']; ?></td>
 		<td class="data"><?php echo $inbound_line['variant_desc']; ?></td>
@@ -461,4 +524,24 @@ function print()
 <?php endforeach ?>
 </select>
 </form>
+</div>
+<div id="report_status" title="Status Report" style="width:400px;">
+<table id="report_status_tbl" style="display: block; width=100%">
+<thead>
+<th class="data">Report</th>
+<th class="data">Zeitpunkt</th>
+<th class="data">Empfänger</th>
+<th class="data">Status</th>
+</thead>
+<tbody>
+<?php foreach ($this->report_status as $report_status) : ?>
+<tr>
+<td class="data"><?php echo $report_status['report_name']; ?></td>
+<td class="data"><?php echo $report_status['time']; ?></td>
+<td class="data"><?php echo $report_status['email']; ?></td>
+<td class="data_num"><?php echo $report_status['send_result']; ?></td>
+</tr>
+<?php endforeach ?>
+</tbody>
+</table>
 </div>

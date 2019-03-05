@@ -61,6 +61,7 @@ class CustomerController extends Zend_Controller_Action
 
 	public function indexAction()
 	{
+
 		$customerTable = new Application_Model_CustomerModel();
 		$customers = $customerTable->fetchAll()->toArray();
 		$this->view->customers = $customers;
@@ -151,14 +152,20 @@ class CustomerController extends Zend_Controller_Action
 	
 	public function customerdialogAction()
 	{
+		$orConnector = ($this->hasParam('connector') && ($this->getParam('connector')=='OR'));
 		$errors = array();
 		$select = $this->db->select()->from('customer');
 		if ($this->hasParam('No')) {
-			$select->where('UPPER(No) LIKE UPPER(?) OR UPPER(name) LIKE UPPER(?)', "%{$this->getParam('No')}%");
+			$orConnector ? $select->orWhere('UPPER(No) LIKE UPPER(?)', "%{$this->getParam('No')}%") : $select->where('UPPER(No) LIKE UPPER(?)', "%{$this->getParam('No')}%");
 		}
+		if ($this->hasParam('name')) {
+			$orConnector ? $select->orWhere('UPPER(name) LIKE UPPER(?)', "%{$this->getParam('name')}%") : $select->where('UPPER(name) LIKE UPPER(?)', "%{$this->getParam('name')}%");
+		}		
 		$customer = $this->db->query($select)->fetchAll();
 		$this->view->customers = $customer;
 		$this->view->errors = $errors;
+		$layout = $this->_helper->layout();
+		$layout->setLayout('dialog_layout');	
 	}
 	
 	public function getAction()

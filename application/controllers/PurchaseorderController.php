@@ -66,7 +66,7 @@ class PurchaseorderController extends Zend_Controller_Action
 			$sqlStr.= ' FROM tbl_HAN';
 			$sqlStr.= ' JOIN tbl_ART on (tbl_HAN.HANARTNR = tbl_ART.KEYIART1)';
 			$sqlStr.= ' join tbl_LIE on (tbl_han.HANADRNR = tbl_LIE.KEYILIE1)';
-			$sqlStr.= ' WHERE tbl_HAN.HANVORAR = 30';
+			$sqlStr.= ' WHERE (tbl_HAN.HANVORAR = \'30\' OR tbl_HAN.HANVORAR = \'40\')';
 			$sqlStr.= ' AND tbl_art.ARTAKTKZ = \'A\'';
 			if (isset($params['purchase_order'])) $sqlStr.= ' AND tbl_HAN.HANVORNR = \''.$params['purchase_order']['value'].'\'';
 			$this->logger->info('SQL: '.$sqlStr);
@@ -239,7 +239,7 @@ class PurchaseorderController extends Zend_Controller_Action
 			$sqlStr.= ' FROM tbl_HAN';
 			$sqlStr.= ' JOIN tbl_ART on (tbl_HAN.HANARTNR = tbl_ART.KEYIART1)';
 			$sqlStr.= ' join tbl_LIE on (tbl_han.HANADRNR = tbl_LIE.KEYILIE1)';
-			$sqlStr.= ' WHERE tbl_HAN.HANVORAR = 30';
+			$sqlStr.= ' WHERE (tbl_HAN.HANVORAR = \'30\' OR tbl_HAN.HANVORAR = \'40\')';
 			$sqlStr.= ' AND tbl_art.ARTAKTKZ = \'A\'';
 			if (isset($params['purchase_order'])) $sqlStr.= ' AND tbl_HAN.HANVORNR = \''.$params['purchase_order']['value'].'\'';
 			$this->logger->info('SQL: '.$sqlStr);

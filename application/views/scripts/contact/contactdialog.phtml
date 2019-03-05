@@ -1,0 +1,184 @@
+<script>
+var company = '';
+
+function markRow(row) {
+	var contactTable = document.getElementById('contact_table').getElementsByTagName('tbody')[0];
+	var rowCnt = contactTable.rows.length;
+	var rowNr = 0;
+	for (rowNr = 0; rowNr<rowCnt; rowNr++) {
+		var tbRow = contactTable.rows[rowNr];
+		var cellNr;
+		if (rowNr==row) {
+			for (cellNr = 0; cellNr<tbRow.cells.length; cellNr++) {
+				tbRow.cells[cellNr].className = 'selected';
+			}
+		} else {
+			for (cellNr = 0; cellNr<tbRow.cells.length; cellNr++) {
+				tbRow.cells[cellNr].className = 'unselected';
+			}
+		}
+	}
+}
+
+function checkContact(row)
+{
+	row.cells[0].firstChild.checked = true;
+	row.cells[0].firstChild.focus();
+	markRow(row.sectionRowIndex)
+}
+
+function filltable(contact)
+{
+	var contactTable = document.getElementById('contact_table').getElementsByTagName('tbody')[0];
+	var rowNr = 0;
+	while (contactTable.rows.length>0) contactTable.deleteRow(0);
+	for (vc=0; vc<contact.length; vc++) {
+		row=contactTable.insertRow(vc);
+		var tdFirstName=row.insertCell(0);
+		var tdSurname=row.insertCell(1);
+		var tdOfficePhone=row.insertCell(2);
+		var tdOfficeMobile=row.insertCell(3);
+		var tdEmail=row.insertCell(4);
+		tdFirstName.innerHTML = '';
+		tdFirstName.className="data";
+		var radio = document.createElement('input');
+		radio.type = 'radio';
+		radio.name = 'contact';
+		radio.value = contact[vc].getElementsByTagName('No')[0].firstChild.nodeValue;
+		radio.onchange = function() { markRow(this.parentNode.parentNode.sectionRowIndex); };
+		tdFirstName.appendChild(radio);
+		var text = document.createTextNode(contact[vc].getElementsByTagName('first_name')[0].firstChild.nodeValue);
+		tdFirstName.appendChild(text);
+		tdSurname.innerHTML=contact[vc].getElementsByTagName('surname')[0].firstChild.nodeValue;
+		tdSurname.className="data";
+		tdOfficePhone.innerHTML=contact[vc].getElementsByTagName('office_phone')[0].firstChild.nodeValue;
+		tdOfficePhone.className="data";
+		tdOfficeMobile.innerHTML=contact[vc].getElementsByTagName('office_mobile')[0].firstChild.nodeValue;
+		tdOfficeMobile.className="data";
+		tdEmail.innerHTML=contact[vc].getElementsByTagName('email')[0].firstChild.nodeValue;
+		tdEmail.className="data";
+	}
+}
+
+function loadContact()
+{
+	function loadContactXML()
+	{
+		if (http.readyState==4) {
+			if (http.responseXML) {
+				xmlResult = http.responseXML;
+				if (xmlResult.getElementsByTagName('errorCount')[0].firstChild==null) errorCount = 0;
+				else errorCount = xmlResult.getElementsByTagName('errorCount')[0].firstChild.nodeValue;
+				if (errorCount==0) {
+					var contact = xmlResult.getElementsByTagName('result');
+					filltable(contact);
+				} else {
+					var errors = xmlResult.getElementsByTagName('error');
+					for (e = 0; e < errorCount; e++) {
+						field = errors[e].childNodes[1].nodeName;
+						value = errors[e].childNodes[1].firstChild.nodeValue;
+						var errorText = errorText+"["+field+"] "+value+"\n";
+					}
+					alert(errorText);
+				}
+			} else {
+				alert(http.responseText);
+			}
+		}
+	}
+	
+	createRequest();
+	var URI = '/contact/get/surname/'+document.getElementById('search_contact').value+'/company/'+company;
+	sendRequest("GET", URI, '', loadContactXML, true);
+}
+
+
+function radioValue(RadioBtn)
+{
+	for (var i=0; i<RadioBtn.length; i++) if (RadioBtn[i].checked) return RadioBtn[1].value;
+	return '';
+}
+
+function closeDialog()
+{
+	contacts_found = document.getElementById('contact_table').getElementsByTagName('tbody')[0].rows.length;
+	var contact = [];
+	contact['No']='';
+	contact['first_name']='';
+	contact['surname']='';
+	contact['office_phone']='';
+	contact['office_mobile']='';
+	contact['email']='';
+	contacts = document.contact_form.contact;
+	if (contacts_found>1) { 
+		for (var i=0; i<contacts.length; i++) {
+			if (contacts[i].checked) {
+				contact['No'] = contacts[i].value;
+				var row = document.getElementById('contact_table').getElementsByTagName('tbody')[0].rows[i];
+				contacts['surname'] = row.cells[1].innerHTML
+				contacts['office_phone'] = row.cells[2].innerHTML;
+				contacts['office_mobile'] = row.cells[3].innerHTML;
+				contacts['email'] = row.cells[4].innerHTML;
+				break;
+			}
+		}
+	} else if (contacts_found==1) {
+		if (contacts.checked) {
+			contact['No'] = contacts.value;
+			var row = document.getElementById('contact_table').getElementsByTagName('tbody')[0].rows[0];
+			contact['surname'] = row.cells[1].innerHTML
+			contact['office_phone'] = row.cells[2].innerHTML;
+			contact['office_mobile'] = row.cells[3].innerHTML;
+			contact['email'] = row.cells[4].innerHTML;
+		}
+	}
+	if (!window.showModalDialog) {
+		window.opener.closeSDialog(contact);
+	} else {
+		window.returnValue = contact;
+		window.close();
+	}
+}
+
+function loadArgs()
+{
+	var search_contact = document.getElementById('search_contact');
+	if (!window.dialogArguments) {
+		search_contact.value = window.opener.popupArgs['surname'];
+		company = window.opener.popupArgs['company'];
+	} else {
+		search_vendor.value = search_vendor.value = window.dialogArguments['surname'];
+		company = window.dialogArguments['company'];
+	}
+	search_contact.focus();
+	search_contact.select();	
+}
+</script>
+<hr />
+<form name="contact_form">
+<input name="search_contact" id="search_contact" type="text" size="100" maxlength="255" autofocus="autofocus" oninput="loadContact()" onclick="this->select()" />
+<table id="contact_table">
+<thead>
+<tr>
+	<th class="data"><?php echo $this->translate('@first_name');?></th>
+	<th class="data"><?php echo $this->translate('@surname'); ?></th>
+	<th class="data"><?php echo $this->translate('@office_phone'); ?></th>
+	<th class="data"><?php echo $this->translate('@office_mobile'); ?></th>
+	<th class="data"><?php echo $this->translate('@email'); ?></th>
+</tr>
+</thead>
+<tbody>
+<?php foreach($this->contacts as $entry) :  ?>
+	<tr id="<?php echo $entry['No']; ?> onclick="checkContact(this)">
+		<td class="data"><input type="radio" name="contact" value="<?php echo $entry['No']; ?>" onchange="markRow(this.parentNode.parentNode.sectionRowIndex)"><?php echo $entry['first_name']; ?></td>
+		<td class="data"><?php echo $entry['surname']; ?></td>
+		<td class="data"><?php echo $entry['office_phone']; ?></td>
+		<td class="data"><?php echo $entry['office_mobile']; ?></td>
+		<td class="data"><?php echo $entry['email']; ?></td>
+	</tr>
+<?php endforeach; ?>
+</tbody>
+</table>
+<input type="button" value="Auswählen" onclick="closeDialog()" />
+</form>
+<hr />

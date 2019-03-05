@@ -1,6 +1,8 @@
 <script>
 var notIE_popup = null;
 var lastInbLine;
+var popupArgs = [];
+var standardReportId = '';
 
 function closeDialog(cert)
 {
@@ -33,6 +35,106 @@ function closeSDDialog(result)
 	}
 }
 
+function closeCDialog(contact)
+{
+	if (notIE_popup != null) {
+		notIE_popup.close();
+		notIE_popup = null;
+		loadContacts();
+	}
+}
+
+function closeSDialog(contact)
+{
+	if (notIE_popup != null)  {
+		notIE_popup.close();
+		notIE_popup = null;
+		window.setTomeout(editStandardReport(contact['No'], 'srcontactedit'), 3000);
+	}
+}
+
+function deleteSR(node)
+{
+	row = node.parentNode.parentNode;
+	standardReportId = row.id.substr(3);
+	
+	editStandardReport(0, 'srcontactdelete');
+}
+
+function editStandardReport(contact, action)
+{
+	function loadSRXML()
+	{
+		if (http.readyState == 4) {
+			if (http.responseXML) {
+				errorCount = getXMLTagValue(http.responseXML, 'errorCount') || 0;
+				if (errorCount==0) {
+					SRTable = document.getElementById('report_contacts').getElementsByTagName('tbody')[0];
+					while (SRTable.rows[0]) SRTable.deleteRow(0);
+					var srContacts = http.responseXML.getElementsByTagName('result');
+					for (sr=0; sr<srContacts.length; sr++) {
+						row = SRTable.insertRow(sr);
+						row.id = 'sr_'+ getXMLTagValue(srContacts[sr], 'No');
+						tdDelete = row.insertCell(0)
+						del_ref = document.createElement('a');
+						del_ref.onclick = function() { deleteSR(this); }
+						del_ref.innerHTML = '<img src="/images/b_drop.png" alt"löschen" title="löschen" />';
+						tdDelete.appendChild(del_ref);
+						tdFirstName = row.insertCell(1);
+						tdFirstName.className = "data";
+						tdFirstName.innerHTML = getXMLTagValue(srContacts[sr], 'first_name') || '';
+						tdSurname = row.insertCell(2);
+						tdSurname.className = "data";
+						inputSurname = document.createElement('input');
+						inputSurname.type = 'text';
+						inputSurname.value = getXMLTagValue(srContacts[sr], 'surname') || '';
+						inputSurname.length = 100;
+						inputSurname.onchange = function() { editSRContact(this); };
+						tdSurname.appendChild(inputSurname);
+						tdEmail = row.insertCell(3);
+						tdEmail.className = "data";
+						tdEmail.innerHTML = getXMLTagValue(srContacts[sr], 'email') || '';
+					}
+					row = SRTable.insertRow(sr);
+					row.id = 'sr_new';
+					tdDelete = row.insertCell(0);
+					tdFirstName = row.insertCell(1);
+					tdFirstName.className = "data";
+					tdSurname = row.insertCell(2);
+					tdSurname.className = 'data';
+					inputSurname = document.createElement('input');
+					inputSurname.type = 'text';
+					inputSurname.value = '';
+					inputSurname.length = 50;
+					inputSurname.onchange = function() { editSRContact(this); };
+					tdSurname.appendChild(inputSurname);
+					tdEmail = row.insertCell(3);
+					tdEmail.className = 'data';
+				} else {
+					var errTxt = '';
+					errors = http.responseXML.getElementsByTagName('error');
+					for (ec = 0; ec<errors.length; ec++) {
+						errTxt+=getXMLTagValue(errors[ec], 'error_field')+' ';
+						errTxt+=getXMLTagValue(errors[ec], 'error_text')+'\n';
+					}
+					alert(errTxt);
+				}
+			} else {
+				alert(http.responseText);
+			}
+		}
+	}
+	
+	var params = 'No='+standardReportId;
+	params +='&company='+document.forms[0].old_No.value;
+	params +='&company_type=2';
+	params +='&contact='+contact;
+	params +='&standard_report='+document.getElementById('standard_report').value;
+	createRequest();
+	var URI = '/contact/'+action;
+	sendRequest("POST", URI, params, loadSRXML, true);	
+}
+	
 function newCertRow(row)
 {
 	row.id = 'new';
@@ -190,6 +292,123 @@ function deleteCert(node)
 	}
 }
 
+function fillContactTable(contacts)
+{
+	var contactTable = document.getElementById('contacts').getElementsByTagName('tbody')[0];
+	while (contactTable.rows[0]) contactTable.deleteRow(0);
+	
+	for (vc=0; vc<contacts.length; vc++) {
+		row=contactTable.insertRow(vc);
+		row.id = getXMLTagValue(contacts[vc], 'No');
+		var tdTitle=row.insertCell(0);
+		var tdFirstName=row.insertCell(1);
+		var tdSurname=row.insertCell(2);
+		var tdOfficePhone=row.insertCell(3);
+		var tdOfficeMobile=row.insertCell(4);
+		var tdEmail = row.insertCell(5);
+		tdTitle.innerHTML ='<a onclick="openContactDialog(this)"><img src="/images/b_edit.png" alt="bearbeiten" title="bearbeiten" /></a>';
+		tdTitle.innerHTML+='<a onclick="deleteContact(this)"><img src="/images/b_drop.png" alt="löschen" title="löschen" /></a>';
+		tdTitle.innerHTML+='<a onclick="addToSReport(this)"><img src="/images/60.ico" alt="zu Bericht hinzufügen" title="zu Bericht hinzufügen"/></a>';
+		tdFirstName.innerHTML=getXMLTagValue(contacts[vc], 'first_name') || '';
+		tdFirstName.className="data";
+		tdSurname.innerHTML=getXMLTagValue(contacts[vc], 'surname') || '';
+		tdSurname.className="data";
+		tdOfficePhone.innerHTML=getXMLTagValue(contacts[vc], 'office_phone') || '';
+		tdOfficePhone.className="data";
+		tdOfficeMobile.innerHTML=getXMLTagValue(contacts[vc], 'office_mobile') || '';
+		tdOfficeMobile.className="data";
+		tdEmail.innerHTML=getXMLTagValue(contacts[vc], 'email') || '';
+		tdEmail.className="data";
+	}
+}
+
+function loadContacts()
+{
+	function loadContactsXML()
+	{
+		if (http.readyState == 4) {
+			if (http.responseXML) {
+				errorCount = getXMLTagValue(http.responseXML, 'errorCount') || 0;
+				if (errorCount==0) {
+					var contacts = http.responseXML.getElementsByTagName('result');
+					fillContactTable(contacts);
+				} else {
+					var errTxt = '';
+					errors = http.responseXML.getElementsByTagName('error');
+					for (ec = 0; ec<errors.length; ec++) {
+						errTxt+=getXMLTagValue(errors[ec], 'error_field')+' ';
+						errTxt+=getXMLTagValue(errors[ec], 'error_text')+'\n';
+					}
+					alert(errTxt);
+				}
+			} else {
+				alert(http.responseText);
+			}
+		}
+	}
+	
+	createRequest();
+	var URI = '/contact/get/company/'+document.forms[0].old_No.value;
+	sendRequest("GET", URI, '', loadContactsXML, true);
+}
+
+function deleteContact(node)
+{
+	
+	var No = node.parentNode.parentNode.id;
+
+	function deleteContactXML()
+	{
+		if (http.readyState == 4) {
+			if (http.responseXML) {
+				errorCount = getXMLTagValue(http.responseXML, 'errorCount') || 0;
+				if (errorCount==0) {
+					var contacts = http.responseXML.getElementsByTagName('result');
+					fillContactTable(contacts);
+				} else {
+					var errTxt = '';
+					errors = http.responseXML.getElementsByTagName('error');
+					for (ec = 0; ec<errors.length; ec++) {
+						errTxt+=getXMLTagValue(errors[ec], 'error_field')+' ';
+						errTxt+=getXMLTagValue(errors[ec], 'error_text')+'\n';
+					}
+					alert(errTxt);
+				}
+			} else {
+				alert(http.responseText);
+			}
+		}
+	}
+	
+	var params = 'No='+No;
+	params += '&company='+document.forms[0].old_No.value;
+	params += '&company_type=2';
+	params += '&delete=delete';
+	createRequest();
+	var URI = '/vendor/deletecontact/';
+	sendRequest('POST', URI, params, deleteContactXML, true);
+}
+	
+
+function openContactDialog(node)
+{
+	var No = 0;
+	if (!node) {
+		No = 0;
+	} else {
+		No = node.parentNode.parentNode.id;
+	}
+	URI = '/contact/edit/No/'+No+'/company_type/2/company/'+document.forms[0].old_No.value;
+/*	if (!window.showModalDialog) {
+		notIE_popup = window.open(URI, 'Kontakte', 'dialogWidth=900px;dialogHeight=600px;diologLeft=0;dialogTop=100;resizable=yes;scroll=yes');
+
+	} else {
+		result=window.showModalDialog(URI,'', 'dialogWidth=900px;dialogHeight=600px;diologLeft=0;dialogTop=100;resizable=yes;scroll=yes');
+	} */
+	notIE_popup = window.open(URI, 'Kontakte', 'dialogWidth=900px;dialogHeight=600px;diologLeft=0;dialogTop=100;resizable=yes;scroll=yes');
+}
+
+
 function openCertDialog(node)
 {
 	var row = node.parentNode.parentNode;
@@ -220,6 +439,33 @@ function openAgreementDialog(node)
 		notIE_popup = window.open(URI, 'Lieferantenerklärung', 'dialogWidth=900px;dialogHeight=600px;diologLeft=0;dialogTop=100;resizable=yes;scroll=yes');
 	}
 }
+
+function addToSReport(node)
+{
+	var contact = node.parentNode.parentNode.id;
+	standardReportId = 'new';
+	editStandardReport(contact, 'srcontactedit')
+}	
+
+function editSRContact(node)
+{
+	row = node.parentNode.parentNode;
+	var surname = node.value;
+	standardReportId = row.id.substr(3);
+	var company = document.getElementById('old_No').value;
+	URI = '/contact/contactdialog/surname/'+surname+'/company/'+company;
+/*		if (!window.showModalDialog) {
+			notIE_popup = window.open(URI, 'Lieferantenerklärung', 'dialogWidth=900px;dialogHeight=600px;diologLeft=0;dialogTop=100;resizable=yes;scroll=yes');
+
+		} else {
+			result=window.showModalDialog(URI,'', 'dialogWidth=900px;dialogHeight=600px;diologLeft=0;dialogTop=100;resizable=yes;scroll=yes');
+		} */
+	popupArgs['surname'] = surname;
+	popupArgs['company'] = company;
+	notIE_popup = window.open(URI, 'Kontakte', 'dialogWidth=900px;dialogHeight=600px;diologLeft=0;dialogTop=100;resizable=yes;scroll=yes');
+
+	
+}
 </script>
 <?php //Zend_Debug::dump($this->params); ?>
 <?php $data = $this->params['data']; ?>
@@ -247,7 +493,7 @@ function openAgreementDialog(node)
 		<td></td><td><input type="hidden" name="old_No" id="old_No" value="<?php echo $data['No']; ?>" /></td>
 	</tr>
 	<tr>
-		<td>Nummer</td>
+		<td><?php echo $this->translate('@vendor_number'); ?></td>
 		<td>
 			<?php if (isset($errors['No'])) :?><div class="error"><?php endif ?>
 			<input type="text" name="No" value="<?php echo $data['No']; ?>" />
@@ -255,7 +501,7 @@ function openAgreementDialog(node)
 		</td>
 	</tr>
 	<tr>
-		<td>Name Zeile 1</td>
+		<td><?php echo $this->translate('@name_1'); ?></td>
 		<td>
 			<?php if (isset($errors['name'])) :?><div class="error"><?php endif ?>
 			<input type="text" name="name" maxlength="255" size="40" value="<?php echo $data['name']; ?>" />
@@ -263,23 +509,23 @@ function openAgreementDialog(node)
 		</td>
 	</tr>
 	<tr>
-		<td>Name Zeile 2</td>
+		<td><?php echo $this->translate('@name_2'); ?></td>
 		<td><input type="text" name="name_2" maxlength="255" size="40" value="<?php echo $data['name_2']; ?>" /></td>
 	</tr>
 	<tr>
-		<td>Straße Zeile 1</td>
+		<td><?php echo $this->translate('@street'); ?></td>
 		<td><input type="text" name="street" maxlength="255" size="40" value="<?php echo $data['street']; ?>" /></td>
 	</tr>
 	<tr>
-		<td>Straße Zeile 2</td>
+		<td><?php echo $this->translate('@street_2'); ?></td>
 		<td><input type="text" name="street_2" maxlength="255" size="40" value="<?php echo $data['street_2']; ?>" /></td>
 	</tr>
 	<tr>
-		<td>PLZ</td>
+		<td><?php echo $this->translate('@PO_code'); ?></td>
 		<td><input type="text" name="PO_code" maxlength="20" size="5" value="<?php echo $data['PO_code']; ?>" /></td>
 	</tr>
 	<tr>
-		<td>Ort</td>
+		<td><?php echo $this->translate('@city'); ?></td>
 		<td>
 			<?php if (isset($errors['city'])) :?><div class="error"><?php endif ?>
 			<input type="text" name="city" maxlength="255" size="40" value="<?php echo $data['city']; ?>" />
@@ -287,7 +533,7 @@ function openAgreementDialog(node)
 		</td>
 	</tr>
 	<tr>
-		<td>Land</td>
+		<td><?php echo $this->translate('@country'); ?></td>
 		<td>
 			<select name="country_code" id="country_code">
 			<?php foreach ($this->params['countries'] as $country) : ?>
@@ -296,18 +542,100 @@ function openAgreementDialog(node)
 			</select>
 		</td>
 	</tr>
+</table>
+</fieldset>
+<legend><?php echo $this->translate('@contacts'); ?></legend>
+<fieldset>
+<button type="button" onclick="openContactDialog(null)">Neuer Kontakt</button>
+<table>
 	<tr>
-		<td>Zertifikate</td>
+		<td>
+		<table id="contacts">
+		<thead>
+		<tr>
+			<th width="60px"></th>
+			<th class="data" width="200px"><?php echo $this->translate('@first_name'); ?></th>
+			<th class="data" width="200px"><?php echo $this->translate('@surname'); ?></th>
+			<th class="data" width="150px"><?php echo $this->translate('@office_phone'); ?></th>
+			<th class="data" width="150px"><?php echo $this->translate('@office_mobile'); ?></th>
+			<th class="data"><?php echo $this->translate('@email'); ?></th>
+		</tr>
+		</thead>
+		<tbody>
+		<?php foreach ($this->params['vendor_contacts'] as $contact) : ?>
+		<tr id="<?php echo $contact['No']; ?>">
+			<td>					
+				<a onclick="openContactDialog(this)"><img src="/images/b_edit.png" alt="bearbeiten" title="bearbeiten" /></a>
+				<a onclick="deleteContact(this)"<?php echo $contact['No']; ?>"><img src="/images/b_drop.png" alt="löschen" title="löschen" /></a>
+				<a onclick="addToSReport(this)"><img src="/images/60.ico" alt="zu Bericht hinzufügen" title="zu Bericht hinzufügen" />
+			</td>
+			<td class="data"><?php echo $contact['first_name']; ?></td>
+			<td class="data"><?php echo $contact['surname']; ?></td>
+			<td class="data"><?php echo $contact['office_phone']; ?></td>
+			<td class="data"><?php echo $contact['office_mobile']; ?></td>
+			<td class="data"><?php echo $contact['email']; ?></td>
+		</tr>
+		<?php endforeach ?>
+		</tbody>
+		</table>
+		</td>
+	</tr>
+</table>
+</fieldset>
+<legend><?php echo $this->translate('@standard_reports'); ?></legend>
+<fieldset>
+<table>
+	<tr>
+		<td>
+		<?php echo $this->lookupSelect('standard_report', 1, 'No', $this->params['standard_reports'], 'No', 'standard_report', array('id'=>'standard_report', 'onchange'=>'loadReportContacts()')); ?>
+		</td>
+	</tr>
+	<tr>
+		<td>
+		<button type="button">Neue Zuordnung</button>
+		<table id="report_contacts" style="display:block;">
+		<thead>
+			<th></th>
+			<th class="data" width="150px"><?php echo $this->translate('@first_name'); ?></th>
+			<th class="data"><?php echo $this->translate('@surname'); ?></th>
+			<th class="data" width="350px"><?php echo $this->translate('@email'); ?></th>
+		</thead>
+		<tbody>
+		<?php foreach ($this->params['sr_contacts'] as $sr_contact) : ?>
+		<tr id="sr_<?php echo $sr_contact['No']; ?>">
+			<td><a onclick="deleteSR(this)"><img src="/images/b_drop.png" alt"löschen" title="löschen" /></a></td>
+			<td class="data"><?php echo $sr_contact['first_name']; ?></td>
+			<td class="data"><?php echo $this->formText('surname', $sr_contact['surname'], array('length'=>'100', 'onchange'=>'editSRContact(this)')); ?></td>
+			<td class="data"><?php echo $sr_contact['email']; ?></td>
+		</tr>
+		<?php endforeach ?>
+		<tr id="sr_new">
+			<td></td>
+			<td class="data"></td>
+			<td class="data"><?php echo $this->formText('surname', '', array('length'=>'100', 'onchange'=>'editSRContact(this)')); ?></td>
+			<td class="data"></td>
+		</tr>
+		</tbody>
+		</table>
+		</td>
+	</tr>
+</table>
+</fieldset>
+<legend><?php echo $this->translate('@qm'); ?></legend>
+<fieldset>
+<table>
+	<tr>
+		<td><?php echo $this->translate('@certificates'); ?></td>
 		<td>
 		<table id="certificates" style="display:block;">
 		<thead>
 			<tr>
 				<th></th>
-				<th class="data">Zertifikat</th>
-				<th class="data">Bereich</th>
-				<th class="data">Zert. No.</th>
-				<th class="data">Gültig</th>
-				<th class="data">Bemerkungen<th>
+				<th class="data"><?php echo $this->translate('@certificate'); ?></th>
+				<th class="data"><?php echo $this->translate('@scope'); ?></th>
+				<th class="data"><?php echo $this->translate('@cert_no'); ?></th>
+				<th class="data"><?php echo $this->translate('@due'); ?></th>
+				<th class="data"><?php echo $this->translate('@remarks'); ?><th>
 			</tr>
 		</thead>
 		<tbody>
@@ -364,4 +692,5 @@ function openAgreementDialog(node)
 		<td></td><td><input type="submit" name="submit" value="Speichern" /> <input type="submit" name="submit" value="Abbrechen" /></td>
 	</tr>
 </table>
+</fieldset>
 </form>

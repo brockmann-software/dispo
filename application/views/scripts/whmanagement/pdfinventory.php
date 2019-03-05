@@ -1,14 +1,11 @@
 <?php
 if (!file_exists(realpath($this->filepath.'\\'.$this->filename))) try {
-	Zend_Registry::get('logger')->info('Berichtsdefinition startet nach '.print_r(microtime(true) - $_SERVER["REQUEST_TIME_FLOAT"], true));
 	$style_body = new Zend_Pdf_Style();
 	$style_body->setLineWidth(1);
 	$fontBold = Zend_Pdf_Font::fontWithPath(realpath(APPLICATION_PATH.'/../public/fonts/').'/ARIALBD.ttf');
 	$fontNormal = Zend_Pdf_Font::fontWithPath(realpath(APPLICATION_PATH.'/../public/fonts/').'/arial.ttf');
 
 // Report Header
-	Zend_Registry::get('logger')->info('Kopfdefinition startet nach '.print_r(microtime(true) - $_SERVER["REQUEST_TIME_FLOAT"], true));
-	$start = $end;
 	$headerTable = new My_Pdf_Table(2);
 	$headRow = new My_Pdf_Table_Row();
 	$headRow->setFont($fontBold, 12);
@@ -37,7 +34,6 @@ if (!file_exists(realpath($this->filepath.'\\'.$this->filename))) try {
 	$headerTable->addRow($headRow);
 	
 // Report Footer
-	Zend_Registry::get('logger')->info('Fußdefinition startet nach '.print_r(microtime(true) - $_SERVER["REQUEST_TIME_FLOAT"], true));
 	$footerTable = new My_Pdf_Table(1);
 	$footerRow = new My_Pdf_Table_Row();
 	$footerRow->setFont($fontNormal, 10);
@@ -50,8 +46,6 @@ if (!file_exists(realpath($this->filepath.'\\'.$this->filename))) try {
 	$footerRow->setColumns($footerCol);
 	$footerTable->addRow($footerRow);
 	
-	$end = microtime(true);
-	Zend_Registry::get('logger')->info('Spaltendefinition startet nach '.print_r(microtime(true) - $_SERVER["REQUEST_TIME_FLOAT"], true));
 // Spaltendefinition
 // Design Kopfzeile
 // Design Ränder
@@ -247,9 +241,6 @@ if (!file_exists(realpath($this->filepath.'\\'.$this->filename))) try {
 	$column->setBodyStyle($bodyStyle);
 	$columns[] = $column;
 	
-	$end = microtime(true);
-	Zend_Registry::get('logger')->info('Gruppendefinition startet '.print_r($end-$start, true));
-	$start = $end;
 // Gruppen definieren	
 	$groupHeaderStyle = new My_Pdf_Table_Column_Style($bodyStyle);
 	$groupHeaderStyle->setBackgroundColor(new Zend_Pdf_Color_HTML('#92D050'));
@@ -317,8 +308,6 @@ if (!file_exists(realpath($this->filepath.'\\'.$this->filename))) try {
 	$group->setEmptyLines(2,1);
 	$groups[] = $group;
 	
-	$end = microtime(true);
-	Zend_Registry::get('logger')->info('Bericht startet nach '.print_r(microtime(true) - $_SERVER["REQUEST_TIME_FLOAT"], true));
 	$inventoryReport = new My_Pdf_Report($this->filename, $this->filepath.'\\', $this->inventories, Zend_Pdf_Page::SIZE_A4_LANDSCAPE, 'utf-8');
 	$inventoryReport->setHeader($headerTable);
 	$inventoryReport->setFooter($footerTable);

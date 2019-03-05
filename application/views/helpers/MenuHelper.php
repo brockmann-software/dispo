@@ -8,7 +8,8 @@ class Zend_View_Helper_MenuHelper
       $container = new Zend_Navigation($config);
  
       $this->view->navigation($container)->UlClass = "main-nav";
-      return $this->view->navigation()->menu()->render();
+	  return $this->view->navigation()->menu()->render();
+//      return $this->view->navigation()->menu()->setOnlyActiveBranch(true);
    }
  
    public function setView(Zend_View_Interface $view) {
